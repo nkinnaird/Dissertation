@@ -1,12 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  5 AUG 2018 16:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  6 AUG 2018 17:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/Kinnaird
-Thesis/thesis.tex
-
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/thesis.tex
+**/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.tex
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.tex
 LaTeX2e <2015/01/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/report.cls
@@ -144,9 +141,8 @@ Style option: `fancybox' v1.4 <2010/05/15> (tvz)
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/template_style.sty (/usr/local/texlive/2015/texmf-dist/tex/latex/setspace
-/setspace.sty
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/template_style.st
+y (/usr/local/texlive/2015/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
 \degree=\count104
@@ -239,17 +235,14 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@pps=\count108
 \c@@ppsavesec=\count109
 \c@@ppsaveapp=\count110
-)
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/thesis.aux
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/Preliminary/OpeningPages.aux)
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/Body/intro.aux)
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/Appendix/Appendix.aux)
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/EndingPages/CV.aux))
+) (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.aux
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Preliminary/Openi
+ngPages.aux) (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body
+/intro.aux)
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Appendix/Appendix
+.aux)
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/EndingPages/CV.au
+x))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
@@ -284,20 +277,20 @@ Package caption Info: End \AtBeginDocument code.
 \openout2 = `Preliminary/OpeningPages.aux'.
 
 
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/Preliminary/OpeningPages.tex [1
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Preliminary/Openi
+ngPages.tex [1
 
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 77.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 79.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 79.
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--77
-\OT1/cmr/m/n/14.4 NICHOLAS BREN-NAN KIN-
+Overfull \hbox (43.96921pt too wide) in paragraph at lines 79--79
+[]  []  [] 
  []
 
 [2
@@ -305,27 +298,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--77
 ] [3
 
 ]
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/Preliminary/Acknowledgments.tex
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Preliminary/Dedic
+ation.tex) [4
+
+]
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Preliminary/Ackno
+wledgments.tex
 Overfull \hbox (13.9449pt too wide) in paragraph at lines 13--16
 []\OT1/cmr/m/n/12 The stylis-tic and aes-thetic con-ven-tions im-ple-mented in 
 this La-TeX the-sis/dissertation
  []
 
-) [4
+) [5
 
 ]
-Overfull \hbox (5.99188pt too wide) in paragraph at lines 100--100
+Overfull \hbox (5.99188pt too wide) in paragraph at lines 107--107
  [][] 
  []
 
 
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/Preliminary/Abstract.tex) [5
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Preliminary/Abstr
+act.tex) [6
 
-]
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/thesis.toc
+] (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 2.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -337,41 +332,35 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
-[6
-
-
-]
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/thesis.lot)
-\tf@lot=\write5
-\openout5 = `thesis.lot'.
-
 [7
 
 
-]
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/thesis.lof)
-\tf@lof=\write6
-\openout6 = `thesis.lof'.
+] (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.lot)
+\tf@lot=\write5
+\openout5 = `thesis.lot'.
 
 [8
 
 
+] (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.lof)
+\tf@lof=\write6
+\openout6 = `thesis.lof'.
+
+[9
+
+
 ]
-Overfull \hbox (39.17992pt too wide) in paragraph at lines 125--136
+Overfull \hbox (39.17992pt too wide) in paragraph at lines 132--143
  [] 
  []
 
-[9
+[10
 
 
 ])
 \openout2 = `Body/intro.aux'.
 
-
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/Body/intro.tex
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/intro.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
@@ -413,50 +402,45 @@ Underfull \hbox (badness 5802) in paragraph at lines 54--56
 \openout2 = `Appendix/Appendix.aux'.
 
 
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/Appendix/Appendix.tex
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Appendix/Appendix
+.tex
 Appendix A.
 ) [3
 
 
 
 
-]
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/thesis.bbl) [4
+] (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.bbl) [4
 
 
 ]
 \openout2 = `EndingPages/CV.aux'.
 
 
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/EndingPages/CV.tex) [5
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/EndingPages/CV.te
+x) [5
 
 
-]
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/thesis.aux
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/Preliminary/OpeningPages.aux)
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/Body/intro.aux)
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/Appendix/Appendix.aux)
-(/Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGuidelines/KinnairdT
-hesis/EndingPages/CV.aux))
+] (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.aux
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Preliminary/Openi
+ngPages.aux) (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body
+/intro.aux)
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Appendix/Appendix
+.aux)
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/EndingPages/CV.au
+x))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 4394 strings out of 493089
- 68537 string characters out of 6134842
- 124552 words of memory out of 5000000
+ 4397 strings out of 493089
+ 67548 string characters out of 6134842
+ 123811 words of memory out of 5000000
  7735 multiletter control sequences out of 15000+600000
  11534 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,43p,403b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,8n,43p,380b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
@@ -465,11 +449,11 @@ r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/NickPC/Documents/Fermilab/Dissertation/TemplatesAndGui
-delines/KinnairdThesis/thesis.pdf (14 pages, 93100 bytes).
+Output written on /Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/
+thesis.pdf (15 pages, 93387 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 85 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

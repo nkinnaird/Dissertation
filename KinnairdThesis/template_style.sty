@@ -222,7 +222,7 @@
 \def\maketitle{\begin{titlepage}
 \pagenumbering{roman}
 \large
-\BU\\\COE\par\vfill
+\BU\\\GSA\par\vfill
 \ifcase\degree\or Thesis \or Dissertation \or Dissertation \fi\par\vfill
 \MakeUppercase{{\bf \@title}}\par\vfill
 by\par\vfill
@@ -259,7 +259,7 @@ requirements for the \@degreeword\ of\\
 
 \hspace{2in}
 \large \copyright \hspace{1ex} 
-\begin{minipage}[t]{3in}
+\begin{minipage}[t]{4in}
 \@degreeyear \ by \\
 \MakeUppercase{\@author}\\
 All rights reserved
@@ -291,7 +291,7 @@ Approved by\\[2em]
 %  (Order No. \hspace{1.0in})\\[1em] \fi
 \MakeUppercase{{\bf \@author}}\\[1em]
 \ifcase\degree\or\or
-\Bu,\ \Coe, \@degreeyear
+\Bu,\ \Gsa, \@degreeyear
 \par
 
 % Major Professor: \@majorprofname, \@majorproftitle
@@ -315,91 +315,91 @@ Approved by\\[2em]
     			\@majorproftitleb}
     	\end{singlespace}
     \end{minipage}}
-    \or
-    \mbox{Major Professors:
-	\begin{minipage}[t]{4.5in}
-		\vspace*{-0.7\baselineskip}
-		\begin{singlespace}
-			\flushleft{\@majorprofname \\
-				\@majorproftitle \\ \vspace{3mm}
-				\@majorprofnameb  \\
-				\@majorproftitleb \\ \vspace{3mm}
-				\@majorprofnamec  \\
-				\@majorproftitlec}
-		\end{singlespace}
-	\end{minipage}}
-	\or
-	\mbox{Major Professors:
-	\begin{minipage}[t]{4.5in}
-		\vspace*{-0.7\baselineskip}
-		\begin{singlespace}
-			\flushleft{\@majorprofname \\
-				\@majorproftitle \\ \vspace{3mm}
-				\@majorprofnameb  \\
-				\@majorproftitleb \\ \vspace{3mm}
-				\@majorprofnamec  \\
-				\@majorproftitlec \\ \vspace{3mm}
-				\@majorprofnamed  \\
-				\@majorproftitled}
-		\end{singlespace}
-	\end{minipage}}
+ %    \or
+ %    \mbox{Major Professors:
+	% \begin{minipage}[t]{4.5in}
+	% 	\vspace*{-0.7\baselineskip}
+	% 	\begin{singlespace}
+	% 		\flushleft{\@majorprofname \\
+	% 			\@majorproftitle \\ \vspace{3mm}
+	% 			\@majorprofnameb  \\
+	% 			\@majorproftitleb \\ \vspace{3mm}
+	% 			\@majorprofnamec  \\
+	% 			\@majorproftitlec}
+	% 	\end{singlespace}
+	% \end{minipage}}
+	% \or
+	% \mbox{Major Professors:
+	% \begin{minipage}[t]{4.5in}
+	% 	\vspace*{-0.7\baselineskip}
+	% 	\begin{singlespace}
+	% 		\flushleft{\@majorprofname \\
+	% 			\@majorproftitle \\ \vspace{3mm}
+	% 			\@majorprofnameb  \\
+	% 			\@majorproftitleb \\ \vspace{3mm}
+	% 			\@majorprofnamec  \\
+	% 			\@majorproftitlec \\ \vspace{3mm}
+	% 			\@majorprofnamed  \\
+	% 			\@majorproftitled}
+	% 	\end{singlespace}
+	% \end{minipage}}
 \fi
 \par
 \vspace{\baselineskip}
 \or
-\Bu,\ \Coe, \@degreeyear
+\Bu,\ \Gsa, \@degreeyear
 \par
 
 % Major Professor: \@majorprofname, \@majorproftitle
-\ifcase\numadvisors\or
-	\mbox{Major Professor:
-	\begin{minipage}[t]{4.5in}
-		\vspace*{-0.7\baselineskip}
-		\begin{singlespace}
-			\flushleft{\@majorprofname \\
-				\@majorproftitle}
-		\end{singlespace}
-	\end{minipage}}
-	\or
-	\mbox{Major Professors:
-	\begin{minipage}[t]{4.5in}
-		\vspace*{-0.7\baselineskip}
-		\begin{singlespace}
-			\flushleft{\@majorprofname \\
-				\@majorproftitle \\ \vspace{3mm}
-				\@majorprofnameb  \\
-				\@majorproftitleb}
-		\end{singlespace}
-	\end{minipage}}
-	\or
-	\mbox{Major Professors:
-	\begin{minipage}[t]{4.5in}
-		\vspace*{-0.7\baselineskip}
-		\begin{singlespace}
-			\flushleft{\@majorprofname \\
-				\@majorproftitle \\ \vspace{3mm}
-				\@majorprofnameb  \\
-				\@majorproftitleb \\ \vspace{3mm}
-				\@majorprofnamec  \\
-				\@majorproftitlec}
-		\end{singlespace}
-	\end{minipage}}
-	\or
-	\mbox{Major Professors:
-	\begin{minipage}[t]{4.5in}
-		\vspace*{-0.7\baselineskip}
-		\begin{singlespace}
-			\flushleft{\@majorprofname \\
-				\@majorproftitle \\ \vspace{3mm}
-				\@majorprofnameb  \\
-				\@majorproftitleb \\ \vspace{3mm}
-				\@majorprofnamec  \\
-				\@majorproftitlec \\ \vspace{3mm}
-				\@majorprofnamed  \\
-				\@majorproftitled}
-		\end{singlespace}
-	\end{minipage}}
-\fi
+% \ifcase\numadvisors\or
+% 	\mbox{Major Professor:
+% 	\begin{minipage}[t]{4.5in}
+% 		\vspace*{-0.7\baselineskip}
+% 		\begin{singlespace}
+% 			\flushleft{\@majorprofname \\
+% 				\@majorproftitle}
+% 		\end{singlespace}
+% 	\end{minipage}}
+% 	\or
+% 	\mbox{Major Professors:
+% 	\begin{minipage}[t]{4.5in}
+% 		\vspace*{-0.7\baselineskip}
+% 		\begin{singlespace}
+% 			\flushleft{\@majorprofname \\
+% 				\@majorproftitle \\ \vspace{3mm}
+% 				\@majorprofnameb  \\
+% 				\@majorproftitleb}
+% 		\end{singlespace}
+% 	\end{minipage}}
+% 	\or
+% 	\mbox{Major Professors:
+% 	\begin{minipage}[t]{4.5in}
+% 		\vspace*{-0.7\baselineskip}
+% 		\begin{singlespace}
+% 			\flushleft{\@majorprofname \\
+% 				\@majorproftitle \\ \vspace{3mm}
+% 				\@majorprofnameb  \\
+% 				\@majorproftitleb \\ \vspace{3mm}
+% 				\@majorprofnamec  \\
+% 				\@majorproftitlec}
+% 		\end{singlespace}
+% 	\end{minipage}}
+% 	\or
+% 	\mbox{Major Professors:
+% 	\begin{minipage}[t]{4.5in}
+% 		\vspace*{-0.7\baselineskip}
+% 		\begin{singlespace}
+% 			\flushleft{\@majorprofname \\
+% 				\@majorproftitle \\ \vspace{3mm}
+% 				\@majorprofnameb  \\
+% 				\@majorproftitleb \\ \vspace{3mm}
+% 				\@majorprofnamec  \\
+% 				\@majorproftitlec \\ \vspace{3mm}
+% 				\@majorprofnamed  \\
+% 				\@majorproftitled}
+% 		\end{singlespace}
+% 	\end{minipage}}
+% \fi
 \par
 \vspace{\baselineskip}
 \fi
@@ -513,5 +513,5 @@ minus
 %               USEFUL MACROS
 \def\BU{BOSTON UNIVERSITY}
 \def\Bu{Boston University}
-\def\COE{COLLEGE OF ENGINEERING}
-\def\Coe{College of Engineering}
+\def\GSA{GRADUATE SCHOOL OF ARTS AND SCIENCES}
+\def\Gsa{Graduate School of Arts and Sciences}
