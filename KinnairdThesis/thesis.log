@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  29 AUG 2018 12:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  29 AUG 2018 13:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -238,7 +238,14 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 ) (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.aux
 (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Preliminary/Openi
 ngPages.aux) (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body
-/intro.aux)
+/Intro.aux)
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Experiment.a
+ux) (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Field.au
+x)
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Tracking.aux
+) (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Wa.aux)
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Conclusion.a
+ux)
 (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Appendix/Appendix
 .aux)
 (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/EndingPages/CV.au
@@ -323,25 +330,25 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 2.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+) [7
+
+
+])
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
-[7
-
-
-] (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.lot)
+[8] (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.lot)
 \tf@lot=\write5
 \openout5 = `thesis.lot'.
 
-[8
+[9
 
 
 ] (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.lof)
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
-[9
+[10
 
 
 ]
@@ -349,63 +356,88 @@ Overfull \hbox (39.17992pt too wide) in paragraph at lines 129--140
  [] 
  []
 
-[10
+[11
 
 
 ])
-\openout2 = `Body/intro.aux'.
+\openout2 = `Body/Intro.aux'.
 
-(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/intro.tex
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Intro.tex
 Chapter 1.
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
-[1
+) [1
 
 
 
 
 
 ]
-Overfull \hbox (58.59422pt too wide) in paragraph at lines 42--43
-[]\OT1/cmr/m/it/12 Consider the fol-low-ing Java-JDT plu-gin name in Ger-man: "
-`Plugin-Entwicklungsumgebung"'. 
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 48.
-
-LaTeX Font Info:    No file OMScmtt.fd. on input line 48.
-
-LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 48.
+\openout2 = `Body/Experiment.aux'.
 
 
-Overfull \hbox (14.8345pt too wide) in paragraph at lines 46--50
-\OT1/cmr/m/n/12 is-sue is to en-close the of-fend-ing para-graph in $\OMS/cmtt/
-m/n/12 n$\OT1/cmtt/m/n/12 begin\OMS/cmtt/m/n/12 f\OT1/cmtt/m/n/12 sloppypar\OMS
-/cmtt/m/n/12 g \OT1/cmr/m/n/12 and $\OMS/cmtt/m/n/12 n$\OT1/cmtt/m/n/12 end\OMS
-/cmtt/m/n/12 f\OT1/cmtt/m/n/12 sloppypar\OMS/cmtt/m/n/12 g\OT1/cmr/m/n/12 ,
- []
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Experiment.t
+ex
+Chapter 2.
+) [2
 
 
-Underfull \hbox (badness 5802) in paragraph at lines 54--56
-[]\OT1/cmr/m/it/12 Consider the fol-low-ing Java-JDT plu-gin name in Ger-man: "
-`Plugin-
- []
 
-) [2]
+
+]
+\openout2 = `Body/Field.aux'.
+
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Field.tex
+Chapter 3.
+) [3
+
+
+
+
+]
+\openout2 = `Body/Tracking.aux'.
+
+
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Tracking.tex
+Chapter 4.
+) [4
+
+
+
+
+]
+\openout2 = `Body/Wa.aux'.
+
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Wa.tex
+Chapter 5.
+) [5
+
+
+
+
+]
+\openout2 = `Body/Conclusion.aux'.
+
+
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Conclusion.t
+ex
+Chapter 6.
+) [6
+
+
+
+
+]
 \openout2 = `Appendix/Appendix.aux'.
 
 
 (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Appendix/Appendix
 .tex
 Appendix A.
-) [3
+) [7
 
 
 
 
-] (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.bbl) [4
+] (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.bbl) [8
 
 
 ]
@@ -413,44 +445,48 @@ Appendix A.
 
 
 (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/EndingPages/CV.te
-x) [5
+x) [9
 
 
 ] (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/thesis.aux
 (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Preliminary/Openi
 ngPages.aux) (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body
-/intro.aux)
+/Intro.aux)
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Experiment.a
+ux) (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Field.au
+x)
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Tracking.aux
+) (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Wa.aux)
+(/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Body/Conclusion.a
+ux)
 (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/Appendix/Appendix
 .aux)
 (/Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/EndingPages/CV.au
-x))
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
- )
+x)) )
 (\end occurred when \ifnum on line 71 was incomplete) 
 Here is how much of TeX's memory you used:
- 4397 strings out of 493089
- 67548 string characters out of 6134842
- 123532 words of memory out of 5000000
- 7735 multiletter control sequences out of 15000+600000
- 11534 words of font info for 43 fonts, out of 8000000 for 9000
+ 4458 strings out of 493089
+ 70446 string characters out of 6134842
+ 127764 words of memory out of 5000000
+ 7764 multiletter control sequences out of 15000+600000
+ 13602 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,43p,380b,190s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,8n,43p,380b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2015/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2015/texmf-dist/f
-onts/type1/public/amsfonts/symbols/msbm10.pfb>
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on /Users/NickPC/Documents/Fermilab/Dissertation/KinnairdThesis/
-thesis.pdf (15 pages, 93295 bytes).
+thesis.pdf (20 pages, 103678 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 105 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

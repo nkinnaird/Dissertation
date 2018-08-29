@@ -2,14 +2,19 @@ This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
 A level-1 auxiliary file: Preliminary/OpeningPages.aux
-A level-1 auxiliary file: Body/intro.aux
+A level-1 auxiliary file: Body/Intro.aux
+A level-1 auxiliary file: Body/Experiment.aux
+A level-1 auxiliary file: Body/Field.aux
+A level-1 auxiliary file: Body/Tracking.aux
+A level-1 auxiliary file: Body/Wa.aux
+A level-1 auxiliary file: Body/Conclusion.aux
 A level-1 auxiliary file: Appendix/Appendix.aux
 The style file: apalike.bst
 A level-1 auxiliary file: EndingPages/CV.aux
 Database file #1: thesis.bib
 You've used 1 entry,
             1935 wiz_defined-function locations,
-            479 strings with 3882 characters,
+            484 strings with 3962 characters,
 and the built_in function-call counts, 292 in all, are:
 = -- 25
 > -- 7
