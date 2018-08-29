@@ -12,9 +12,11 @@ A level-1 auxiliary file: Appendix/Appendix.aux
 The style file: apalike.bst
 A level-1 auxiliary file: EndingPages/CV.aux
 Database file #1: thesis.bib
+Warning--I didn't find a database entry for "geanemanual"
+Warning--I didn't find a database entry for "Lavezzi"
 You've used 1 entry,
             1935 wiz_defined-function locations,
-            484 strings with 3962 characters,
+            487 strings with 3987 characters,
 and the built_in function-call counts, 292 in all, are:
 = -- 25
 > -- 7
@@ -53,3 +55,4 @@ warning$ -- 0
 while$ -- 2
 width$ -- 0
 write$ -- 14
+(There were 2 warnings)

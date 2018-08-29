@@ -1,9 +1,30 @@
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.1.1}{A few remarks before you start}{chapter.1}% 2
-\BOOKMARK [0][-]{chapter.2}{Body of my thesis}{}% 3
-\BOOKMARK [1][-]{section.2.1}{Some results}{chapter.2}% 4
-\BOOKMARK [0][-]{chapter.3}{Conclusions}{}% 5
-\BOOKMARK [1][-]{section.3.1}{Summary of the thesis}{chapter.3}% 6
-\BOOKMARK [0][-]{Appendix.1.A}{Proof of xyz}{}% 7
-\BOOKMARK [0][-]{chapter*.8}{References}{}% 8
-\BOOKMARK [0][-]{chapter*.8}{Curriculum Vitae}{}% 9
+\BOOKMARK [1][-]{section.1.1}{Background}{chapter.1}% 2
+\BOOKMARK [2][-]{subsection.1.1.1}{Definitions}{section.1.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.2}{Experiment History}{section.1.1}% 4
+\BOOKMARK [1][-]{section.1.2}{Theory}{chapter.1}% 5
+\BOOKMARK [2][-]{subsection.1.2.1}{QED}{section.1.2}% 6
+\BOOKMARK [2][-]{subsection.1.2.2}{Weak}{section.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.2.3}{Hadronic}{section.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.2.4}{BSM}{section.1.2}% 9
+\BOOKMARK [0][-]{chapter.2}{Muon g-2 at Fermilab, E989}{}% 10
+\BOOKMARK [1][-]{section.2.1}{Principle Technique}{chapter.2}% 11
+\BOOKMARK [0][-]{chapter.3}{Magnetic Field Measurement}{}% 12
+\BOOKMARK [1][-]{section.3.1}{Trolley}{chapter.3}% 13
+\BOOKMARK [0][-]{chapter.4}{Straw Tracking}{}% 14
+\BOOKMARK [1][-]{section.4.1}{Straw Tracking Intro}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.2}{Track Finding}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.3}{Track Fitting}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.4}{Track Extrapolation}{chapter.4}% 18
+\BOOKMARK [0][-]{chapter.5}{a Measurement}{}% 19
+\BOOKMARK [1][-]{section.5.1}{Data}{chapter.5}% 20
+\BOOKMARK [1][-]{section.5.2}{Spectra Making}{chapter.5}% 21
+\BOOKMARK [2][-]{subsection.5.2.1}{Clustering}{section.5.2}% 22
+\BOOKMARK [2][-]{subsection.5.2.2}{Histogramming}{section.5.2}% 23
+\BOOKMARK [1][-]{section.5.3}{Fitting}{chapter.5}% 24
+\BOOKMARK [1][-]{section.5.4}{Systematic Errors}{chapter.5}% 25
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 26
+\BOOKMARK [1][-]{section.6.1}{Final Value}{chapter.6}% 27
+\BOOKMARK [0][-]{Appendix.a.A}{Proof of xyz}{}% 28
+\BOOKMARK [0][-]{chapter*.11}{References}{}% 29
+\BOOKMARK [0][-]{chapter*.11}{Curriculum Vitae}{}% 30
