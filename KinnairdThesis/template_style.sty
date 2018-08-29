@@ -219,27 +219,27 @@
 
 % Got tired of screwing around with \parskips that refuse to stretch,
 % so I manually put a \vfill after each \par.
-\def\maketitle{\begin{titlepage}
-\pagenumbering{roman}
-\large
-\BU\\\GSA\par\vfill
-\ifcase\degree\or Thesis \or Dissertation \or Dissertation \fi\par\vfill
-\MakeUppercase{{\bf \@title}}\par\vfill
-by\par\vfill
-\MakeUppercase{{\bf \@author}}\\
-\begin{singlespace}
-\@prevdegrees
-\end{singlespace}
-\ifcase\degree\or\thisdegree{Master of Science}\or
-                 \thisdegree{Doctor of Philosophy}\or
-                 \thisdegree{Master of Science \and Doctor of Philosophy}
-                 \fi
-\par\vfill
-Submitted in partial fulfillment of the\\
-requirements for the \@degreeword\ of\\
-\@thisdegree\\
-\@degreeyear
-\end{titlepage}}
+\def\maketitle{
+\begin{titlepage}
+  \pagenumbering{roman}
+  \large 
+  \BU\\\GSA\par\vfill
+  Dissertation\par\vfill
+  \MakeUppercase{{\bf \@title}}\par\vfill
+  by\par\vfill
+  \MakeUppercase{{\bf \@author}}\\
+  \begin{singlespace}
+  \@prevdegrees
+  \end{singlespace}
+  \thisdegree{Doctor of Philosophy}
+  \par\vfill
+  \normalsize
+  Submitted in partial fulfillment of the\\
+  requirements for the degree of\\
+  \@thisdegree\\
+  \@degreeyear
+\end{titlepage}
+}
 
 %               COPYRIGHT PAGE
 % Separate Copyright page. It gets roman numeral ii but the page
@@ -285,130 +285,20 @@ Approved by\\[2em]
 \begin{center}
 \begin{doublespace}
 {\large
-\MakeUppercase{{\bf \@title}}\\[1em]%\par
-%\ifcase\degree\or\or
-%  (Order No. \hspace{1.0in})\\[1em] \or
-%  (Order No. \hspace{1.0in})\\[1em] \fi
+\MakeUppercase{{\bf \@title}}\\[1em]
+ (Order No. \hspace{1.0in})\\[1em]
 \MakeUppercase{{\bf \@author}}\\[1em]
 \ifcase\degree\or\or
 \Bu,\ \Gsa, \@degreeyear
 \par
-
-% Major Professor: \@majorprofname, \@majorproftitle
-\ifcase\numadvisors\or
-	\mbox{Major Professor:
-	\begin{minipage}[t]{4.5in}
-		\vspace*{-0.7\baselineskip}
-		\begin{singlespace}
-			\flushleft{\@majorprofname \\
-				\@majorproftitle}
-		\end{singlespace}
-	\end{minipage}}
-	\or
-	\mbox{Major Professors:
-	\begin{minipage}[t]{4.5in}
-    	\vspace*{-0.7\baselineskip}
-    	\begin{singlespace}
-    		\flushleft{\@majorprofname \\
-    			\@majorproftitle \\ \vspace{3mm}
-    			\@majorprofnameb  \\
-    			\@majorproftitleb}
-    	\end{singlespace}
-    \end{minipage}}
- %    \or
- %    \mbox{Major Professors:
-	% \begin{minipage}[t]{4.5in}
-	% 	\vspace*{-0.7\baselineskip}
-	% 	\begin{singlespace}
-	% 		\flushleft{\@majorprofname \\
-	% 			\@majorproftitle \\ \vspace{3mm}
-	% 			\@majorprofnameb  \\
-	% 			\@majorproftitleb \\ \vspace{3mm}
-	% 			\@majorprofnamec  \\
-	% 			\@majorproftitlec}
-	% 	\end{singlespace}
-	% \end{minipage}}
-	% \or
-	% \mbox{Major Professors:
-	% \begin{minipage}[t]{4.5in}
-	% 	\vspace*{-0.7\baselineskip}
-	% 	\begin{singlespace}
-	% 		\flushleft{\@majorprofname \\
-	% 			\@majorproftitle \\ \vspace{3mm}
-	% 			\@majorprofnameb  \\
-	% 			\@majorproftitleb \\ \vspace{3mm}
-	% 			\@majorprofnamec  \\
-	% 			\@majorproftitlec \\ \vspace{3mm}
-	% 			\@majorprofnamed  \\
-	% 			\@majorproftitled}
-	% 	\end{singlespace}
-	% \end{minipage}}
-\fi
+Major Professor: \@majorprofname, \@majorproftitle
 \par
 \vspace{\baselineskip}
-\or
-\Bu,\ \Gsa, \@degreeyear
-\par
-
-% Major Professor: \@majorprofname, \@majorproftitle
-% \ifcase\numadvisors\or
-% 	\mbox{Major Professor:
-% 	\begin{minipage}[t]{4.5in}
-% 		\vspace*{-0.7\baselineskip}
-% 		\begin{singlespace}
-% 			\flushleft{\@majorprofname \\
-% 				\@majorproftitle}
-% 		\end{singlespace}
-% 	\end{minipage}}
-% 	\or
-% 	\mbox{Major Professors:
-% 	\begin{minipage}[t]{4.5in}
-% 		\vspace*{-0.7\baselineskip}
-% 		\begin{singlespace}
-% 			\flushleft{\@majorprofname \\
-% 				\@majorproftitle \\ \vspace{3mm}
-% 				\@majorprofnameb  \\
-% 				\@majorproftitleb}
-% 		\end{singlespace}
-% 	\end{minipage}}
-% 	\or
-% 	\mbox{Major Professors:
-% 	\begin{minipage}[t]{4.5in}
-% 		\vspace*{-0.7\baselineskip}
-% 		\begin{singlespace}
-% 			\flushleft{\@majorprofname \\
-% 				\@majorproftitle \\ \vspace{3mm}
-% 				\@majorprofnameb  \\
-% 				\@majorproftitleb \\ \vspace{3mm}
-% 				\@majorprofnamec  \\
-% 				\@majorproftitlec}
-% 		\end{singlespace}
-% 	\end{minipage}}
-% 	\or
-% 	\mbox{Major Professors:
-% 	\begin{minipage}[t]{4.5in}
-% 		\vspace*{-0.7\baselineskip}
-% 		\begin{singlespace}
-% 			\flushleft{\@majorprofname \\
-% 				\@majorproftitle \\ \vspace{3mm}
-% 				\@majorprofnameb  \\
-% 				\@majorproftitleb \\ \vspace{3mm}
-% 				\@majorprofnamec  \\
-% 				\@majorproftitlec \\ \vspace{3mm}
-% 				\@majorprofnamed  \\
-% 				\@majorproftitled}
-% 		\end{singlespace}
-% 	\end{minipage}}
-% \fi
-\par
-\vspace{\baselineskip}
-\fi
 }
 \end{doublespace}
 ABSTRACT
 \end{center}
 }
-
 \def\endabstractpage{\newpage}
 
 %               END OF PRELIMINARY PAGES
