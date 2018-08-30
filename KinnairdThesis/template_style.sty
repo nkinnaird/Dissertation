@@ -64,6 +64,9 @@
 
 % Now set up the parameters for the size and location of text on the page.
 
+% See https://tex.stackexchange.com/questions/132170/what-do-headheight-headsep-etc-do-in-the-vmargin-package/132171 for picture of layout.
+% See https://tex.stackexchange.com/questions/8260/what-are-the-various-units-ex-em-in-pt-bp-dd-pc-expressed-in-mm for unit conversion.
+
 % The top and left margins should be 1.5in, and the bottom and right
 % margins should be 1in. The measures below are always added to 1in
 
@@ -76,16 +79,16 @@
 \evensidemargin 0.0in          % Additional left margin on even-numbered pages (was -0.1in)
                                % Total left margin: 1in + 0in = 1in (needed for 2-sided prints)
 
-\textwidth 6.0in               % Leaves 1.0in right margin (was 6.1875in)
+\textwidth 6.0in               % Leaves 1.0in right margin
 
-\topmargin 0.6875in            % Additional top margin (to the top of the header).
+\topmargin 0in                 % Additional top margin (to the top of the header) - Page numbers should be 1 in from top of page so this is set to 0
                                % Header height and header separator add 0.5in 
                                % Total top margin: 1in + 0.5in = 1.5in
 
 \headheight 12pt               % Header for numbering and running titles.
 \headsep 24pt                  % Separator between header and text.
 
-\textheight 8.5in              % Leaves 1.0in bottom margin (was 8.4in)
+\textheight 8.5in              % Leaves 1.0in bottom margin (approximately - it's a little more since the double spaced text would go past the 1 in margin)
 
 \footskip 0.4in                % Distance from bottom of text to bottom of foot,
                                % which is where page number goes for preliminary
@@ -101,6 +104,10 @@
 \renewcommand{\arraystretch}{.625} % to fix a problem with arrays
 
 %% End of formatting parameters %%
+
+%=============================================================%
+%=============================================================%
+%=============================================================%
 
 %% DEFINE ALL THE PIECES THAT GO ON THE TITLE PAGE AND THE ABSTRACT.
 
@@ -282,12 +289,13 @@ ABSTRACT
 % \endofprelim command.
 
 % Definition of 'myheadings' page style.
+% Comment this back in to put page numbers at the top center as well as the \markboth{}{} command down below.
 %
-\def\ps@myheadings{\let\@mkboth\@gobbletwo
-\def\@oddhead{\hfil \rm\thepage \hfil}%
-\def\@oddfoot{}\def\@evenhead{\hfil\rm \thepage\hfil}%
-\def\@evenfoot{}\def\chaptermark##1{}\def\sectionmark##1{}%
-\def\subsectionmark##1{}}
+% \def\ps@myheadings{\let\@mkboth\@gobbletwo
+% \def\@oddhead{\hfil \rm\thepage \hfil}%
+% \def\@oddfoot{}\def\@evenhead{\hfil\rm \thepage\hfil}%
+% \def\@evenfoot{}\def\chaptermark##1{}\def\sectionmark##1{}%
+% \def\subsectionmark##1{}}
 
 % The \endofprelim command is used after all the preliminary pages.
 % The command changes the page numbering to arabic numerals.
@@ -297,7 +305,7 @@ ABSTRACT
 % AFTER the first \chapter command, while \endofprelim can be before.
 \def\endofprelim{
 \pagenumbering{arabic}
-\markboth{}{}
+% \markboth{}{}
 \pagestyle{myheadings}
 }
 
