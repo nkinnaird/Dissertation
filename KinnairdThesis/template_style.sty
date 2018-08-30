@@ -112,9 +112,6 @@
 %   3 - Master of Science Thesis and Doctoral Dissertation
 \newcount\degree
 
-% Number of advisors (1 or 2)
-\newcount\numadvisors
-
 % Your previous degree(s). If more than one degree, use single spacing
 \def\prevdegrees#1{\gdef\@prevdegrees{#1}}
 \def\@prevdegrees{}
@@ -156,14 +153,6 @@
 % Major professor, should be same as first reader. Goes in abstract page
 \def\majorprof#1#2{\gdef\@majorprofname{#1}\gdef\@majorproftitle{#2}}
 
-% Second major professor
-\def\majorprofb#1#2{\gdef\@majorprofnameb{#1}\gdef\@majorproftitleb{#2}}
-
-% Third major professor
-\def\majorprofc#1#2{\gdef\@majorprofnamec{#1}\gdef\@majorproftitlec{#2}}
-
-% Fourth major professor
-\def\majorprofd#1#2{\gdef\@majorprofnamed{#1}\gdef\@majorproftitled{#2}}
 
 %               TITLE BOX PAGE
 %
