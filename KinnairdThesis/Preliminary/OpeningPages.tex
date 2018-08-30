@@ -98,8 +98,8 @@
 \end{abstractpage}
 \cleardoublepage
 
-% Now you can include a preface. Again, use something like
-% \newpage\section*{Preface} followed by your text
+% overwrite link color for intro pages, which is red in the main text (should it actually be black there too?)
+{\hypersetup{linkcolor=black}
 
 % Table of contents comes after preface
 \tableofcontents
@@ -131,6 +131,8 @@
   \end{tabular}
 \end{center}
 \cleardoublepage
+
+} % end hypersetup override block
 
 % END OF THE PRELIMINARY PAGES
 
