@@ -34,6 +34,8 @@ INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/fancybox/fancybox.sty
@@ -62,8 +64,6 @@ INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/tools/afterpage.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/tools/afterpage.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/tools/xspace.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/tools/xspace.sty
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/subfig/subfig.sty
-INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/subfig/subfig.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/appendix/appendix.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/appendix/appendix.sty
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
