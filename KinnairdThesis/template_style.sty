@@ -106,24 +106,12 @@
 
 % \title and \author already exist
 
-% Type of degree as a counter:
-%   1 - Master of Science Thesis,
-%   2 - Doctoral Dissertation,
-%   3 - Master of Science Thesis and Doctoral Dissertation
-\newcount\degree
-
 % Your previous degree(s). If more than one degree, use single spacing
 \def\prevdegrees#1{\gdef\@prevdegrees{#1}}
 \def\@prevdegrees{}
 
 \def\department#1{\gdef\@department{#1}}
 
-% If you are getting two degrees, use \and between the names.
-\def\thisdegree#1{\setbox0\hbox{#1}  %for side effect of setting \@degreeword
-  \gdef\@thisdegree{#1}}
-
-% \and is used inside the \thisdegree argument to separate two degrees
-\def\and{\gdef\@degreeword{degrees} \par and \par}
 \def\@degreeword{degree}
 
 \def\thesisdate#1{\gdef\@thesisdate{#1}}
@@ -166,15 +154,9 @@
         \bf\sffamily\begin{center}\MakeUppercase{\@title}\end{center}
         \sl\sffamily\begin{center}\MakeUppercase{\@author}\end{center}
         \rm\sffamily
-        \ifcase\degree\or\thisdegree{Master of Science}\or
-                         \thisdegree{Doctor of Philosophy}\or
-                         \thisdegree{\gdef\@degreeword{degrees}
-                           Master of Science \and Doctor of Philosophy}
-                         \fi
-        \centerline{\ifcase\degree\or Thesis \or Dissertation \or Dissertation\fi
-                    submitted in partial fulfillment}
+        \centerline{Dissertation submitted in partial fulfillment}
         \centerline{of the requirements for the \@degreeword\ of}
-        \centerline{\@thisdegree}}}\vfill}}
+        \centerline{Doctor of Philosophy}}}\vfill}}
     \vglue 6.0cm\hglue 4.5cm
     \vglue -1.0cm\hglue 4.5cm\includegraphics[width=4.0cm]{BUlogo_cmyk.eps}\\
     \clearpage\mbox{}\thispagestyle{empty}\clearpage
@@ -220,12 +202,11 @@
   \begin{singlespace}
   \@prevdegrees
   \end{singlespace}
-  \thisdegree{Doctor of Philosophy}
   \par\vfill
   \normalsize
   Submitted in partial fulfillment of the\\
   requirements for the degree of\\
-  \@thisdegree\\
+  Doctor of Philosophy \\
   \@degreeyear
 \end{titlepage}
 }
@@ -277,7 +258,6 @@ Approved by\\[2em]
 \MakeUppercase{{\bf \@title}}\\[1em]
  (Order No. \hspace{1.0in})\\[1em]
 \MakeUppercase{{\bf \@author}}\\[1em]
-\ifcase\degree\or\or
 \Bu,\ \Gsa, \@degreeyear
 \par
 Major Professor: \@majorprofname, \@majorproftitle
