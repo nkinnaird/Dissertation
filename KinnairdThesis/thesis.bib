@@ -1,57 +1,117 @@
 % references contained here will not print out to the page if they are not referenced in the document
 
+% will have to go back and clean up all the references at the end
 
+
+% general references
+
+@article{TDR,
+      author         = "Grange, J. and others",
+      title          = "{Muon (g-2) Technical Design Report}",
+      collaboration  = "Muon g-2",
+      year           = "2015",
+      eprint         = "1501.06858",
+      archivePrefix  = "arXiv",
+      primaryClass   = "physics.ins-det",
+      reportNumber   = "FERMILAB-FN-0992-E, FERMILAB-DESIGN-2014-02",
+      SLACcitation   = "%%CITATION = ARXIV:1501.06858;%%"
+}
+
+
+% E821 references
+
+
+
+
+% calorimeter references
+
+@article{Fienberg:2014kka,
+      author         = "Fienberg, A. T. and others",
+      title          = "{Studies of an array of PbF$_2$ Cherenkov crystals with
+                        large-area SiPM readout}",
+      journal        = "Nucl. Instrum. Meth.",
+      volume         = "A783",
+      year           = "2015",
+      pages          = "12-21",
+      doi            = "10.1016/j.nima.2015.02.028",
+      eprint         = "1412.5525",
+      archivePrefix  = "arXiv",
+      primaryClass   = "physics.ins-det",
+      reportNumber   = "FERMILAB-PUB-14-526-E-PPD",
+      SLACcitation   = "%%CITATION = ARXIV:1412.5525;%%"
+}
+
+@article{Kaspar:2016ofv,
+      author         = "Kaspar, J. and others",
+      title          = "{Design and performance of SiPM-based readout of PbF$_2$
+                        crystals for high-rate, precision timing applications}",
+      journal        = "JINST",
+      volume         = "12",
+      year           = "2017",
+      number         = "01",
+      pages          = "P01009",
+      doi            = "10.1088/1748-0221/12/01/P01009",
+      eprint         = "1611.03180",
+      archivePrefix  = "arXiv",
+      primaryClass   = "physics.ins-det",
+      reportNumber   = "FERMILAB-PUB-16-516-E-PPD",
+      SLACcitation   = "%%CITATION = ARXIV:1611.03180;%%"
+}
 
 
 
 % tracking references
 
-@misc{geanemanual,
-  author = {V. Innocente, M. Maire, E. Nagy},
-  title = {\href{http://innocentonnice.web.cern.ch/innocentonnice/napoli99/geane_manual.ps}{GEANE: Average Tracking and Error Propagation Package}},
-  year = {January 13, 1994.}
+@inproceedings{geanemanual,
+      author         = "Innocente, V. and Maire, M. and Nagy, E.",
+      title          = "{GEANE: Average tracking and error propagation package}",
+      booktitle      = "{MC 91: Detector and event simulation in high-energy
+                        physics. Proceedings, Workshop, Amsterdam, Netherlands,
+                        April 8-12, 1991}",
+      year           = "1991", % the inspire bibtex file has this as the year, whereas the manual I'm used to using is 1994 - not quire sure which one to use
+      pages          = "58-78",
+      url            = "http://innocentonnice.web.cern.ch/innocentonnice/napoli99/geane_manual.ps",
+      SLACcitation   = "%%CITATION = INSPIRE-327240;%%"
 }
 
 @article{trajfit,
-    author    = "V. Innocente, E. Nagy",
-    title     = "\href{http://www.sciencedirect.com/science/article/pii/016890029390992Q}{Trajectory fit in presence of dense materials}",
-    journal   = "Nuclear Instruments and Methods In Physics Research",
-    volume    = "A",
-    number    = "324",
-    pages     = "297-306",
-    year      = "1993",
-    month     = "August",
+      author         = "Innocente, V. and Nagy, E.",
+      title          = "{Trajectory fit in presence of dense materials}",
+      journal        = "Nucl. Instrum. Meth.",
+      volume         = "A324",
+      year           = "1993",
+      pages          = "297-306",
+      doi            = "10.1016/0168-9002(93)90992-Q",
+      SLACcitation   = "%%CITATION = NUIMA,A324,297;%%"
 }
 
 @article{jacob,
-    author    = "A. Strandlie, W. Wittek",
-    title     = "\href{http://www.sciencedirect.com/science/article/pii/S0168900206013143}{Derivation of Jacobians for the propagation of covariance matrices of track parameters in homogeneous magnetic fields}",
-    journal   = "Nuclear Instruments and Methods In Physics Research",
-    volume    = "A",
-    number    = "566",
-    pages     = "687-698",
+    author    = "Strandlie, A. and Wittek, W.",
+    title     = "{Derivation of Jacobians for the propagation of covariance matrices of track parameters in homogeneous magnetic fields}",
+    journal   = "Nucl. Instrum. Meth.",
+    volume    = "A566",
     year      = "2006",
-    month     = "July",
+    pages     = "687-698",
 }
 
 @phdthesis{Lavezzi,
-  author    = "Lia Lavezzi",
-  title   = "\href{http://bamboo.pv.infn.it/doc/L_Lavezzi.pdf}{The fit of nuclear tracks in high precision spectroscopy experiments}",
-  school    = "University of Pavia",
-  year    = "2007",
-  month   = "November",
-  note    = "pp. 57-86",
+      author         = "Lavezzi, Lia",
+      title          = "{The fit of nuclear tracks in high precision spectroscopy
+                        experiments}",
+      school         = "Pavia U.",
+      year           = "2007",
+      note           = "pp. 57-86",
+      url            = "http://bamboo.pv.infn.it/doc/L_Lavezzi.pdf",
+      SLACcitation   = "%%CITATION = INSPIRE-1316279;%%"
 }
 
 @article{energyloss,
-    author    = "Kati Lassila-Perini, L\'aszl\'o Urb\'an",
-    title     = "\href{http://www.sciencedirect.com/science/article/pii/0168900295003444}{Energy loss in thin layers in GEANT}",
-    journal   = "Nuclear Instruments and Methods In Physics Research",
-    volume    = "A",
-    number    = "362",
-    pages     = "416-422",
-    year      = "1994",
-    month     = "December",
+      author         = "Lassila-Perini, K. and Urban, L.",
+      title          = "{Energy loss in thin layers in GEANT}",
+      journal        = "Nucl. Instrum. Meth.",
+      volume         = "A362",
+      year           = "1995",
+      pages          = "416-422",
+      doi            = "10.1016/0168-9002(95)00344-4",
+      SLACcitation   = "%%CITATION = NUIMA,A362,416;%%"
 }
-
-
