@@ -4,23 +4,22 @@
 \documentclass[12pt,letterpaper]{report} % Single-sided printing for the library
 % \documentclass[12pt,twoside]{report} % Double-sided printing
 \usepackage[intlimits]{amsmath}
+\usepackage[utf8]{inputenc}
 \usepackage{amsfonts,amssymb}
 \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
 % \usepackage{natbib}
 % \usepackage{apalike}
 \usepackage{float}
-\usepackage[bf]{caption,subcaption} % subcaption is incompatible with subfig, and I think subcaption works better with hyperref
+\usepackage[bf]{caption,subcaption}
 \setcaptionmargin{0.5in}
 \usepackage{fancyhdr}
 %\usepackage{fancyheadings} % what does this do?
 \usepackage{fancybox}
 \usepackage{ifthen}
-\usepackage{template_style} % style package and also some layout stuff, not exactly sure how this works
-% \usepackage{url} % don't think I want this if I'm using hyperreff
+\usepackage{template_style} % style package and also some layout stuff
 \usepackage{lscape,afterpage}
 \usepackage{xspace}
 % \usepackage{epstopdf} % what does this do?
-% \usepackage{subfig} % incompatible with subcaption
 
 \usepackage{appendix}
 
@@ -30,11 +29,15 @@
 \addbibresource{thesis.bib}
 % \addbibresource(othersfiles.bib) % if I ever split up the bibiliography add multiple resources like this
 
+%feynman digram package
+\usepackage{tikz-feynman}
+\tikzfeynmanset{compat=1.0.0} 
+
 %==========================================================================%
 %%% graphicx and pdf creation
 \usepackage{graphicx}
 
-\usepackage{hyperref} % set up this package last
+\usepackage{hyperref} % set up this package last (or almost last anyways)
 \hypersetup{
     colorlinks=true,
     linkcolor=red,
@@ -42,7 +45,7 @@
     citecolor=blue
 }
 
-% \usepackage{glossaries} % might be able to use this to make an alphabetically ordered list of abbreviations
+% \usepackage{glossaries} % might be able to use this to make an alphabetically ordered list of abbreviations - needs to be set up after hyperref
 
 %==========================================================================%
 % customized commands can be placed here
