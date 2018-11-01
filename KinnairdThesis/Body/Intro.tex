@@ -60,7 +60,7 @@ Feynamn diagrams made with \cite{tikz-feynman}, \cite{tikz-feynhand}.
 \begin{figure}[]
 \label{fig:feyn1}
 \centering
-	\begin{subfigure}[]{0.4\textwidth}
+	\begin{subfigure}[]{0.3\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
@@ -77,7 +77,7 @@ Feynamn diagrams made with \cite{tikz-feynman}, \cite{tikz-feynhand}.
 		\end{tikzpicture}
 	\caption{test1}
 	\end{subfigure}
-	\begin{subfigure}[]{0.4\textwidth}
+	\begin{subfigure}[]{0.3\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
@@ -99,7 +99,35 @@ Feynamn diagrams made with \cite{tikz-feynman}, \cite{tikz-feynhand}.
 		\end{tikzpicture}
 	\caption{test2}
 	\end{subfigure}
-\caption[testfeynmanpicture2]{clean up and possibly replace - cite this package if I end up using it}	
+	\begin{subfigure}[]{0.3\textwidth}
+	\centering
+		\begin{tikzpicture}[baseline=(o.base)]
+		\begin{feynhand}
+		\large
+		\setlength{\feynhandlinesize}{1pt}
+		\vertex [dot] (o) at (0,0);
+		\vertex (a) at (-2,-2) {$l$}; 
+		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (c) at (0,2) {B};
+		\vertex (d) at (-1,-1);
+		\vertex (e) at (1,-1);
+		\vertex (f) at (-.5,-1);
+		\vertex (g) at (+.5,-1);
+		\propag [fermion] (a) to (d);
+		\propag [fermion] (d) to (o);
+		\propag [anti fermion] (b) to (e);
+		\propag [anti fermion] (e) to (o);
+		\propag [photon] (c) to [edge label = $\gamma$] (o);
+		\small
+		\propag [boson] (d) to [edge label' = $\gamma$] (f);
+		\propag [boson] (g) to (e);
+		\propag [fermion] (f) to [half left, edge label = $l$] (g);
+		\propag [anti fermion] (f) to [half right, edge label' = $\overline l$] (g);
+		\end{feynhand}
+		\end{tikzpicture}
+	\caption{test2}
+	\end{subfigure}
+\caption[testfeynmanpicture2]{clean up and possibly replace}	
 \end{figure}
 
 
@@ -109,8 +137,8 @@ Feynamn diagrams made with \cite{tikz-feynman}, \cite{tikz-feynhand}.
 \subsection{QED}
 \label{subsec:QED}
 
-\subsection{Weak}
-\label{subsec:Weak}
+\subsection{Electroweak}
+\label{subsec:Electroweak}
 
 
 \begin{figure}[]
@@ -184,9 +212,6 @@ Feynamn diagrams made with \cite{tikz-feynman}, \cite{tikz-feynhand}.
 	\caption{test2}
 	\end{subfigure}
 
-
-
-
 	\begin{subfigure}[]{0.4\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
@@ -199,40 +224,159 @@ Feynamn diagrams made with \cite{tikz-feynman}, \cite{tikz-feynhand}.
 		\vertex (c) at (0,2) {B};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
-
 		\vertex (f) at (-.5,-1);
 		\vertex (g) at (+.5,-1);
-
 		\propag [fermion] (a) to (d);
 		\propag [fermion] (d) to (o);
 		\propag [anti fermion] (b) to (e);
 		\propag [anti fermion] (e) to (o);
 		\propag [photon] (c) to [edge label = $\gamma$] (o);
-		
 		\small
 		\propag [boson] (d) to [edge label' = $Z^{0}$] (f);
 		\propag [boson] (g) to (e);
 		\propag [fermion] (f) to [half left, edge label = $f$] (g);
 		\propag [anti fermion] (f) to [half right, edge label' = $\overline f$] (g);
-
-
-
-
 		\end{feynhand}
 		\end{tikzpicture}
 	\caption{test2}
 	\end{subfigure}
-
-
-\caption[testfeynmanpicture2]{clean up and possibly replace - cite this package if I end up using it}	
+\caption[testfeynmanpicture2]{clean up and possibly replace}	
 \end{figure}
 
 
 
 
 
-\subsection{Hadronic}
-\label{subsec:Hadronic}
+\subsection{HVP}
+\label{subsec:HVP}
+
+-clean up hadronic section formatting - figure out exactly how I want to lay out the theory part in relation to the introduction
+
+\begin{figure}[]
+\label{fig:feyn1}
+\centering
+	\begin{subfigure}[]{0.4\textwidth}
+	\centering
+		\begin{tikzpicture}[baseline=(o.base)]
+		\begin{feynhand}
+		\large
+		\setlength{\feynhandlinesize}{1pt}
+		\vertex [dot] (o) at (0,0);
+		\vertex (a) at (-2,-2) {$l$}; 
+		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (c) at (0,2) {B};
+		\vertex (d) at (-1,-1);
+		\vertex (e) at (1,-1);
+		\vertex [NWblob] (f) at (0,-1) {H};
+		\propag [fermion] (a) to (d);
+		\propag [fermion] (d) to (o);
+		\propag [anti fermion] (b) to (e);
+		\propag [anti fermion] (e) to (o);
+		\propag [photon] (c) to [edge label = $\gamma$] (o);
+		\propag [photon] (d) to (f);
+		\propag [photon] (f) to (e);
+		\draw [dashed] (0,-.25) to (0,-1.75);
+		\node at (0, -2) {cut};
+		\end{feynhand}
+		\end{tikzpicture}
+	\caption{H stands for hadrons here...}
+	\end{subfigure}
+	\begin{subfigure}[]{0.4\textwidth}
+	\centering
+		\begin{tikzpicture}[baseline=(o.base)]
+		\begin{feynhand}
+		\large
+		\setlength{\feynhandlinesize}{1pt}
+		\vertex [dot] (o) at (-1,0);
+		\vertex (a) at (-2,-2) {$e^{-}$}; 
+		\vertex (b) at (-2,2) {$e^{+}$}; 
+		\vertex [NWblob] (c) at (1,0) {H};
+		\vertex (d) at (2,2); 
+		\vertex (e) at (2,1); 
+		\vertex (f) at (2,-1); 
+		\vertex (g) at (2,-2); 
+		\propag [fermion] (a) to (o);
+		\propag [anti fermion] (b) to (o);
+		\propag [photon] (o) to [edge label = $\gamma$] (c);
+		\propag [fermion] (c) to (d);
+		\propag [fermion] (c) to (e);
+		\propag [fermion] (c) to (f);
+		\propag [fermion] (c) to (g);
+		\node at (3, 0) {real hadrons};
+		\end{feynhand}
+		\end{tikzpicture}
+	\caption{H stands for hadrons here...}
+	\end{subfigure}
+\caption[testfeynmanpicture2]{clean up and possibly replace}	
+\end{figure}
+
+
+
+
+
+\subsection{HLbL}
+\label{subsec:HLbL}
+
+\begin{figure}[]
+\label{fig:feyn1}
+\centering
+	\begin{subfigure}[]{0.4\textwidth}
+	\centering
+		\begin{tikzpicture}[baseline=(o.base)]
+		\begin{feynhand}
+		\large
+		\setlength{\feynhandlinesize}{1pt}
+		\vertex [NWblob] (o) at (0,0) {H};
+		\vertex (a) at (-2,-2) {$l$}; 
+		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (c) at (0,2) {B};
+		\vertex (d) at (-1,-1);
+		\vertex (e) at (1,-1);
+		\vertex (f) at (0,-1);
+		\propag [fermion] (a) to (d);
+		\propag [photon] (d) to (o);
+		\propag [anti fermion] (b) to (e);
+		\propag [photon] (e) to (o);
+		\propag [photon] (c) to [edge label = $\gamma$] (o);
+		\propag [fermion] (d) to (f);
+		\propag [fermion] (f) to (e);
+		\propag [photon] (f) to (o);
+		\end{feynhand}
+		\end{tikzpicture}
+	\caption{H stands for hadrons here...}
+	\end{subfigure}
+	\begin{subfigure}[]{0.4\textwidth}
+	\centering
+		\begin{tikzpicture}[baseline=(o.base)]
+		\begin{feynhand}
+		\large
+		\setlength{\feynhandlinesize}{1pt}
+		\vertex [NWblob] (o) at (-1,0) {H};
+		\vertex (a) at (-2,-2) {$l$}; 
+		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (c) at (0,2) {B};
+		\vertex (d) at (-1,-1);
+		\vertex (e) at (1,-1);
+		\vertex (f) at (0,-1);
+		\vertex [NWblob] (g) at (1,0) {H};
+		\propag [fermion] (a) to (d);
+		\propag [photon] (d) to (o);
+		\propag [anti fermion] (b) to (e);
+		\propag [photon] (e) to (g);
+		\propag [photon] (c) to [edge label' = $\gamma$] (o);
+		\propag [fermion] (d) to (f);
+		\propag [fermion] (f) to (e);
+		\propag [photon] (f) to (g);
+		\small
+		\propag [scalar] (o) to [edge label = {$\pi^{0}, \eta$}] (g);
+		\end{feynhand}
+		\end{tikzpicture}
+	\caption{test2}
+	\end{subfigure}
+\caption[testfeynmanpicture2]{clean up and possibly replace}	
+\end{figure}
+
+
 
 \subsection{BSM}
 \label{subsec:BSM}
