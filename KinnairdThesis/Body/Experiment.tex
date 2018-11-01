@@ -34,10 +34,10 @@ In order to measure the spin difference frequency of the muon, a clever techniqu
 decay to positrons with a lifetime of about 2.2 $\mu$s, and the positrons with the highest energies will be correlated with the muon spin, a so called ``self-analyzing'' decay. The single available decay state for a maximum energy positron illustrates this in Figure \ref{fig:MuonDecay}. Thus, by aquiring a large sample of polarized muons and injecting them into a storage ring 
 
 \begin{figure}[]
-	\caption[Muon Decay - Max Energy Positron]{Make a new version of this picture, and improve this caption.: The single available decay state for maximum energy decay positrons. Due to the conservation of angular momentum and the single possible helicity states of the decay neutrino and anti-neutrino, the spin of the decay positron is exactly equal to the spin of the muon at the time of the decay.}
+    \label{fig:MuonDecay}
 	\centering
 	\includegraphics[width=0.9\textwidth]{MuonDecay}
-	\label{fig:MuonDecay}
+    \caption[Muon Decay - Max Energy Positron]{Make a new version of this picture, and improve this caption.: The single available decay state for maximum energy decay positrons. Due to the conservation of angular momentum and the single possible helicity states of the decay neutrino and anti-neutrino, the spin of the decay positron is exactly equal to the spin of the muon at the time of the decay.}
 \end{figure}
 
 
@@ -57,10 +57,10 @@ decay to positrons with a lifetime of about 2.2 $\mu$s, and the positrons with t
 
 
 \begin{figure}[]
-    \caption[ring]{clean up and possibly replace}   
+    \label{fig:ring}
     \centering
     \includegraphics[width=0.9\textwidth]{ring}
-    \label{fig:ring}
+    \caption[ring]{clean up and possibly replace}   
 \end{figure}
 
 
@@ -75,10 +75,10 @@ decay to positrons with a lifetime of about 2.2 $\mu$s, and the positrons with t
 \label{sec:DetectorSystems}
 
 \begin{figure}[]
-    \caption[TrackerCaloWithLines]{clean up and possibly replace}   
+    \label{fig:TrackerCaloWithLines}
     \centering
     \includegraphics[width=0.9\textwidth]{TrackerCaloWithLines}
-    \label{fig:TrackerCaloWithLines}
+    \caption[TrackerCaloWithLines]{clean up and possibly replace}   
 \end{figure}
 
 
@@ -155,17 +155,17 @@ The trackers are also useful for determining general beam diagnostics as well as
 Each tracker module consists of 4 layers of 32 straws with a stereo angle of 7.5 degrees, the first two ``U'' layers oriented with the tops of the straws at a greater radial position, and the second two ``V'' layers oriented with the bottoms of the straws at a greater radial position. A tracking module is shown in Figure \ref{fig:tracker}. There are 2 tracker stations located in front of calorimeters 13 and 19, or at approximately 180 and 270 degrees counting clockwise from the top most point of the ring where the inflector resides. Figure \ref{fig:WorldCoordSys} shows this. (A third station sits empty after the inflector.) Each station consists of 8 tracking modules arranged in a staircase pattern that follows the curvature of the ring as seen in Figure \ref{fig:staircase}.
 
 \begin{figure}[]
-    \caption[Tracker module]{Shown is a picture of one of the many tracking modules used in the Muon \gmtwo experiment. The first layer of straws with a stereo angle of 7.5 degrees can be seen, with the other 3 straw layers hiding behind it. The beam direction is roughly into the page in this picture, to the left of the end of the module, and this view is what the decay positrons will see.}
+    \label{fig:tracker}
     \centering
     \includegraphics[width=0.9\textwidth]{Tracker}
-    \label{fig:tracker}
+    \caption[Tracker module]{Shown is a picture of one of the many tracking modules used in the Muon \gmtwo experiment. The first layer of straws with a stereo angle of 7.5 degrees can be seen, with the other 3 straw layers hiding behind it. The beam direction is roughly into the page in this picture, to the left of the end of the module, and this view is what the decay positrons will see.}
 \end{figure}
 
 \begin{figure}[]
-    \caption[Tracker module arrangement]{Tracker modules are arranged in the shown staircase pattern. In green and dark blue is the edge of the vacuum chamber (where the dark blue identifies the modification that was made to the old vacuum chambers), and it can be seen that vacuum chamber walls lie at the ends of the outside tracking modules. The position of a calorimeter can be seen in cyan at the right. The dark red spots are the locations of the outside magnet pole tips. From the shown geometry one can see that many positrons will hit either the tracker or the calorimeter but not both due to the acceptance differences.}
+    \label{fig:staircase}
     \centering
     \includegraphics[width=0.9\textwidth]{trackerStation}
-    \label{fig:staircase}
+    \caption[Tracker module arrangement]{Tracker modules are arranged in the shown staircase pattern. In green and dark blue is the edge of the vacuum chamber (where the dark blue identifies the modification that was made to the old vacuum chambers), and it can be seen that vacuum chamber walls lie at the ends of the outside tracking modules. The position of a calorimeter can be seen in cyan at the right. The dark red spots are the locations of the outside magnet pole tips. From the shown geometry one can see that many positrons will hit either the tracker or the calorimeter but not both due to the acceptance differences.}
 \end{figure}
 
 In order to reduce the amount of multiple scattering within the straw tracking chambers as particles pass through them, the material of the straw trackers is minimized. Each straw is made of mylar foil, within which a 25 $\mu$m radius tungsten wire resides, and is filled with Argon-Ethane gas \cite{something}. Fast moving particles ionize the gas as they pass through it, and the resulting ions are drawn to the wire which is held at high voltage. When they reach the wire (and the mylar) a signal can be read out which tells us that a particle was seen to pass through the straw. By combining many such signals in a brief time span, we are able to construct tracks of incidient particles. (See section blah.) The resolution of hits within the straws is approximately 150 $\mu$m \cite{something}.
