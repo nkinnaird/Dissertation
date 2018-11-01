@@ -42,11 +42,17 @@ The previous \gmtwo experiment at BNL measured a discepancy in the magnetic mome
 \section{Theory}
 \label{sec:Theory}
 
+- see papers cited in my HEP2 class paper - and then look for new ones
+- Fred Jegerlehner's book
+- perhaps Matthew Schwartz's short paper 
+
+
+
 \begin{figure}[]
 	\label{fig:AlexKPaperComparison}
 	\centering
 	\includegraphics[width=0.9\textwidth]{AlexKPaperComparison}
-	\caption[AlexKPaperComparison]{clean up and possibly replace}	
+	\caption[AlexKPaperComparison]{any figures that are directly lifted from someone else's work needs to be cited evertime they're used I believe, even if I cite that work in the text somewhere - \cite{Keshavarzi:2018mgv} }
 \end{figure}
 
 Feynamn diagrams made with \cite{tikz-feynman}, \cite{tikz-feynhand}.
@@ -55,6 +61,7 @@ Feynamn diagrams made with \cite{tikz-feynman}, \cite{tikz-feynhand}.
 \label{fig:feyn1}
 \centering
 	\begin{subfigure}[]{0.4\textwidth}
+	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
 		\large
@@ -71,6 +78,7 @@ Feynamn diagrams made with \cite{tikz-feynman}, \cite{tikz-feynhand}.
 	\caption{test1}
 	\end{subfigure}
 	\begin{subfigure}[]{0.4\textwidth}
+	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
 		\large
@@ -103,6 +111,125 @@ Feynamn diagrams made with \cite{tikz-feynman}, \cite{tikz-feynhand}.
 
 \subsection{Weak}
 \label{subsec:Weak}
+
+
+\begin{figure}[]
+\label{fig:feyn1}
+\centering
+	\begin{subfigure}[]{0.3\textwidth}
+	\centering
+		\begin{tikzpicture}[baseline=(o.base)]
+		\begin{feynhand}
+		\large
+		\setlength{\feynhandlinesize}{1pt}
+		\vertex [dot] (o) at (0,0);
+		\vertex (a) at (-2,-2) {$l$}; 
+		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (c) at (0,2) {B};
+		\vertex (d) at (-1,-1);
+		\vertex (e) at (1,-1);
+		\propag [fermion] (a) to (d);
+		\propag [fermion] (d) to (o);
+		\propag [anti fermion] (b) to (e);
+		\propag [anti fermion] (e) to (o);
+		\propag [photon] (c) to [edge label = $\gamma$] (o);
+		\propag [boson] (d) to [edge label' = $Z^{0}$] (e);
+		\end{feynhand}
+		\end{tikzpicture}
+	\caption{test2}
+	\end{subfigure}
+	\begin{subfigure}[]{0.3\textwidth}
+	\centering
+		\begin{tikzpicture}[baseline=(o.base)]
+		\begin{feynhand}
+		\large
+		\setlength{\feynhandlinesize}{1pt}
+		\vertex [dot] (o) at (0,0);
+		\vertex (a) at (-2,-2) {$l$}; 
+		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (c) at (0,2) {B};
+		\vertex (d) at (-1,-1);
+		\vertex (e) at (1,-1);
+		\propag [fermion] (a) to (d);
+		\propag [anti fermion] (b) to (e);
+		\propag [photon] (c) to [edge label = $\gamma$] (o);
+		\propag [fermion] (d) to [edge label' = $\overline \nu_{l}$] (e);
+		\small
+		\propag [boson] (d) to [edge label = $W^{-}$] (o);
+		\propag [boson] (e) to [edge label' = $W^{+}$] (o);
+		\end{feynhand}
+		\end{tikzpicture}
+	\caption{test2}
+	\end{subfigure}
+	\begin{subfigure}[]{0.3\textwidth}
+	\centering
+		\begin{tikzpicture}[baseline=(o.base)]
+		\begin{feynhand}
+		\large
+		\setlength{\feynhandlinesize}{1pt}
+		\vertex [dot] (o) at (0,0);
+		\vertex (a) at (-2,-2) {$l$}; 
+		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (c) at (0,2) {B};
+		\vertex (d) at (-1,-1);
+		\vertex (e) at (1,-1);
+		\propag [fermion] (a) to (d);
+		\propag [fermion] (d) to (o);
+		\propag [anti fermion] (b) to (e);
+		\propag [anti fermion] (e) to (o);
+		\propag [photon] (c) to [edge label = $\gamma$] (o);
+		\propag [scalar] (d) to [edge label' = $H$] (e);
+		\end{feynhand}
+		\end{tikzpicture}
+	\caption{test2}
+	\end{subfigure}
+
+
+
+
+	\begin{subfigure}[]{0.4\textwidth}
+	\centering
+		\begin{tikzpicture}[baseline=(o.base)]
+		\begin{feynhand}
+		\large
+		\setlength{\feynhandlinesize}{1pt}
+		\vertex [dot] (o) at (0,0);
+		\vertex (a) at (-2,-2) {$l$}; 
+		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (c) at (0,2) {B};
+		\vertex (d) at (-1,-1);
+		\vertex (e) at (1,-1);
+
+		\vertex (f) at (-.5,-1);
+		\vertex (g) at (+.5,-1);
+
+		\propag [fermion] (a) to (d);
+		\propag [fermion] (d) to (o);
+		\propag [anti fermion] (b) to (e);
+		\propag [anti fermion] (e) to (o);
+		\propag [photon] (c) to [edge label = $\gamma$] (o);
+		
+		\small
+		\propag [boson] (d) to [edge label' = $Z^{0}$] (f);
+		\propag [boson] (g) to (e);
+		\propag [fermion] (f) to [half left, edge label = $f$] (g);
+		\propag [anti fermion] (f) to [half right, edge label' = $\overline f$] (g);
+
+
+
+
+		\end{feynhand}
+		\end{tikzpicture}
+	\caption{test2}
+	\end{subfigure}
+
+
+\caption[testfeynmanpicture2]{clean up and possibly replace - cite this package if I end up using it}	
+\end{figure}
+
+
+
+
 
 \subsection{Hadronic}
 \label{subsec:Hadronic}
