@@ -1,6 +1,6 @@
 \thispagestyle{myheadings} % should I be including this at the top of every section page??
 
-\graphicspath{ {Body/Figures/ExperimentalOverview/Decay/} {Body/Figures/TrackingFigures/TrackerPics/} {Body/Figures/ExperimentalOverview/Ring/} }
+\graphicspath{ {Body/Figures/ExperimentalOverview/Decay/} {Body/Figures/TrackingFigures/TrackerPics/} {Body/Figures/ExperimentalOverview/Ring/} {Body/Figures/ExperimentalOverview/Auxiliary/}}
 
 \chapter{Muon g-2 at Fermilab, E989}
 \label{chapter:Muon g-2 at Fermilab, E989}
@@ -74,11 +74,56 @@ decay to positrons with a lifetime of about 2.2 $\mu$s, and the positrons with t
 \section{Detector Systems}
 \label{sec:DetectorSystems}
 
+-how should I order these sections? perhaps by what the beam sees in order?
+
+\subsection{T0}
+\label{sec:T0}
+
+In order to align the decay positron spectra in time from fill to fill, an entrace ``T0'' detector is used.  It is made up of a scintillating paddle connected to two (2-inch Hammatsu?) PMTs (photo-multiplier tubes), and is placed just on the outside of the ring before the inflector. See Figure \ref{fig:T0}. One of the PMTs serves as the actual T0 counter which provides an average time of the incoming beam with which to align the fills. The second paddle acts as a magnitude counter to serve as a proxy for the fill intensity. Together they provide a measure of the injected beam profile in time. The varying intensity and bunch shapes can be seen as shown in Figure \ref{fig:T0pulses}.
+
+-might use the same WFD as Calo 1...
+-cite all this, with the TDR or hopefully something else \cite{TDR}
+-double check all this - just wrote from memory, also add detail - might want to just explain things better too, ``one PMT with low pe stats and one with high pe stats'' and how that works in the way I've already described above
+-if I use p.e. include it in the abbreviations
+-get a picture of a T0 output from the midas page, also possibly comparing various bunches
+-docDB 10911 for details
+-docDB 10162 for pictures by Hannah
+
+
+\begin{figure}[]
+    \label{fig:T0}
+    \centering
+    \includegraphics[width=0.9\textwidth]{T0}
+    \caption[T0 Counter]{Shown is the T0 entrance counter. In the center in green is the scintillator, which connects with light guides to PMTs on the left and right. Each PMT has a separate ND (what's this?) filter to modify the light output into each PMT to configure one more for fill timing, and the other for fill intensity.}
+\end{figure}
+
+\begin{figure}[]
+    \label{fig:T0pulses}
+    \centering
+    \includegraphics[width=0.9\textwidth]{T0pulses}
+    \caption[T0 Pulses]{Shown are time profiles for the two PMTs (A and B) in the T0 counter for the 8 pulses we receive in an accelerator cycle/bunch/what. (careful here - not quite right) Each profile is an average of 100 such profiles. The x axis is in clock ticks (ct), each of which is 1.25 ns. (I will probably explain cts before this somewhere right?) PMT A is the low stats p.e. phototube and PMT B is the high stats p.e. phototube. Picture is too small, might want to rotate or replace it with somthing.}
+\end{figure}
+
+
+\subsection{IBMS}
+\label{sec:IBMS}
+
+There are 2 
+
+
+\subsection{Fiber Harps}
+\label{sec:FiberHarps}
+
+
+
+
+
+
 \begin{figure}[]
     \label{fig:TrackerCaloWithLines}
     \centering
     \includegraphics[width=0.9\textwidth]{TrackerCaloWithLines}
-    \caption[TrackerCaloWithLines]{clean up and possibly replace}   
+    \caption[TrackerCaloWithLines]{Birds eye view of a model of a vacuum chamber containing a tracker station, and the associated calorimeter. Muons pass around the ring in the center of the storage region which is contained within the bulk of the vacuum chamber. The muons decay to positrons, some of which then pass through the trackers or hit calorimeters. Each tracking station consists of 8 tracker modules.}   
 \end{figure}
 
 
@@ -89,58 +134,35 @@ decay to positrons with a lifetime of about 2.2 $\mu$s, and the positrons with t
 % what they are
 % how they work
 
+Electromagnetic calorimeters measure the times and energies of decay positrons as they curl inward from the storage region. There are 24 calorimeters located symmetrically around the inside of the ring in close proximity to the vacuum chamber, as shown in Figure \ref{fig:TrackerCaloWithLines}. They lie close to the storage region in order to measure a large fraction of the total number of observable decay positrons, including the high energy decay positrons which curl inward only slightly more than the muons themselves do. 
 
-Electromagnetic calorimeters measure the times and energies of decay positrons as they curl inward from the storage region. There are 24 calorimeters located symmetrically around the inside of the ring in close proximity to the vacuum chamber, as shown in Figure \ref{fig:}. They lie close to the storage region in order to measure a large fraction of the total number of observable decay positrons, including the high energy decay positrons which curl inward only slightly more than the muons themselves do. Because they are in close proximity to the storage region and by extension the magnetic field, the calorimeters must be non-magnetic in order to avoid perturbing the magnetic field. Each calorimeter consists of 54 channels of PbF\textsubscript{2} crystals arrayed in a 6 high by 9 wide array, which measure Cerenkov light emitted by the impinging positrons as they pass through the crystals \cite{Fienberg:2014kka}. (Picture of single calo and its crystals here.) Each crystal is 2.5 x 2.5 x 14 cm\textsuperscript{3}. The light is read out by large area silicon photo-multiplier (SiPM) sensors.
+Each calorimeter consists of 54 channels of PbF\textsubscript{2} crystals arrayed in a 6 high by 9 wide array, which measure Cerenkov light emitted by the incident positrons as they pass through the crystals \cite{Fienberg:2014kka}. (Picture of single calo and its crystals here.) Cerenkov light is naturally fast which improves timing resolution of the incoming hits. Each crystal is 2.5 x 2.5 x 14 cm\textsuperscript{3} and is wrapped in black Tedlar\textregistered\ foil to reduce light transmission between crystals and improve position reconstruction, as well as reduce pulse width \cite{Kaspar:2016ofv}. The light is read out by large area silicon photo-multiplier (SiPM) sensors. Each calorimeter sits on a board extending out from a cart containing the electronic which power the calorimeters and read out the data, as shown in Figure \ref{fig:} This is to relocate magnetic material away from the field region to avoid perturbing the field and to remove sensitive electronics from the decay path region. Similarly, due to the close proximity to the storage region and by extension the magnetic field, the calorimeters, the encapsulating material, and the SiPMs are made from non-magnetic material.
 
-
-In order to determine \amu to the precision goal, there are modest requirements on the performance of the calorimeters. They must have a relative energy resolution of better than 5\% at 2 GeV, in order for proper event selection \cite{TDR}. They must have a timing resolution of better than 100 ps. The calorimeters must be able to resolve multiple incoming hits through temporal or spatial separation at 100\% efficiency for time separations of greater than 5 ns in order to reduce the pileup systematic error due to the high rate. Finally, the gain of the measured hits must be stable to $<$ 0.1\% over a 200 $\mu$s time period within a fill, and unaffected by a pulse arriving in the same channel a few nanoseconds earlier. The long term gain stability over a time period of order seconds must be $<$ 1\%.
+In order to determine \amu to the precision goal, there are modest requirements on the performance of the calorimeters. They must have a relative energy resolution of better than 5\% at 2 GeV, in order for proper event selection \cite{TDR}. They must have a timing resolution of better than 100 ps for positrons with greater than 100 MeV energy. The calorimeters must be able to resolve multiple incoming hits through temporal or spatial separation at 100\% efficiency for time separations of greater than 5 ns in order to reduce the pileup systematic error due to the high rate. Finally, the gain of the measured hits must be stable to $<$ 0.1\% over a 200 $\mu$s time period within a fill, and unaffected by a pulse arriving in the same channel a few nanoseconds earlier. The long term gain stability over a time period of order seconds must be $<$ 1\%. The SiPMs chosen satisfy these requirements (as well as the physical ones), due to their fast rise times and consistent pulse shapes. (Should this part be here? Or elsewhere? Before perhaps? Might need to update the gain numbers...)
 
 (I've condensed quite a bit this section from the TDR - is that okay?)
 
+A 12 bit waveform digitizer (WFD) samples each photodetector channel at a rate of 800 MSPS with a 1 Gb memory buffer and the data are transferred to a bank of GPU processors for on-line data processing \cite{Sweigart:2016jty}. The timing resolution of these WFDs is $<$ 50 ps for most pulse amplitudes.
 
-To satisy these requirements SiPM sensors were chosen over PMTS...
-
-
-
-and is wrapped in black Tedlar\textregistered\ foil
+Should I go into the calorimeter DAQ here? Or make that it's own section - how uniform are the DAQ systems for each detector system? Are the same sorts of modules and crates and WFDs used or what? If so it's own section might make sense, otherwise probably include small pieces at the end of each individual detector about the daq system
 
 
 
-\cite{Kaspar:2016ofv} % second calo paper I need to cite
+\subsection{Laser Calibration System}
+\label{LaserCalibrationSystem}
+% should I make this it's own section? or include at the end of the calo section? probably the latter
+
+In order to satisfy the gain requirements, a laser calibration system was put into place in order to monitor the SiPM responses over short times (fill level), and long term (days to years). By comparing a known signal to the SiPM output. At the front face of each calorimeter is a board containing prisms connected to fibers from the laser system which can be pulsed in-fill or out of fill for each crystal individually. 
 
 
+-can pulse laser in fill, out of fill, and double pulse
+-mention the laser hut at all? probably not
 
-\subsection{Laser System}
-\label{LaserSystem}
-% should make this it's own section
 
-For the gain, there is a laser system...
-
-% make sure these are ordered properly
+% make sure these are ordered properly - might not need all of them
 \cite{Anastasi:2015ssy}
 \cite{Anastasi:2016luh}
 \cite{Anastasi:2017sos}
-
-
-
-% magnetic nature of calorimeters
-
-% energy resolution
-% gain
-% high rate
-% acceptance
-
-% design of the vacuum chambers in order to...
-
-% picture of calo placement
-% picture of actual calo station
-
-
-
-
-\subsection{Template Fitting}
-\label{sec:TemplateFitting}
-
 
 
 
