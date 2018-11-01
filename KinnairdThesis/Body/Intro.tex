@@ -49,6 +49,54 @@ The previous \gmtwo experiment at BNL measured a discepancy in the magnetic mome
 	\label{fig:AlexKPaperComparison}
 \end{figure}
 
+
+
+\begin{figure}[]
+	\caption[testfeynmanpicture2]{clean up and possibly replace - cite this package if I end up using it}	
+	\centering
+\begin{tikzpicture}[baseline=(o.base)]
+\begin{feynhand}
+\large
+\setlength{\feynhandlinesize}{1pt}
+\vertex [dot] (o) at (0,0);
+\vertex (a) at (-2,-2) {$l$}; 
+\vertex (b) at (2,-2) {$\overline l$}; 
+\vertex (c) at (0,2) {B};
+\propag [fermion] (a) to (o);
+\propag [anti fermion] (b) to (o);
+\propag [photon] (c) to [edge label = $\gamma$] (o);
+\end{feynhand}
+\end{tikzpicture}
+\end{figure}
+
+
+\begin{figure}[]
+	\caption[testfeynmanpicture2]{clean up and possibly replace - cite this package if I end up using it}	
+	\centering
+\begin{tikzpicture}[baseline=(o.base)]
+\begin{feynhand}
+\large
+\setlength{\feynhandlinesize}{1pt}
+\vertex [dot] (o) at (0,0);
+\vertex (a) at (-2,-2) {$l$}; 
+\vertex (b) at (2,-2) {$\overline l$}; 
+\vertex (c) at (0,2) {B};
+\vertex (d) at (-1,-1);
+\vertex (e) at (1,-1);
+\propag [fermion] (a) to (d);
+\propag [fermion] (d) to (o);
+\propag [anti fermion] (b) to (e);
+\propag [anti fermion] (e) to (o);
+\propag [photon] (c) to [edge label = $\gamma$] (o);
+\propag [photon] (d) to [edge label' = $\gamma$] (e);
+\end{feynhand}
+\end{tikzpicture}
+\end{figure}
+
+
+
+
+
 \subsection{QED}
 \label{subsec:QED}
 
