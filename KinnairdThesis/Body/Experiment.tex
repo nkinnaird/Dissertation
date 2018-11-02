@@ -33,6 +33,62 @@ If the motion of the muons is largely perpendicular to the magnetic field, then 
 In order to measure the spin difference frequency of the muon, a clever technique is used. Decay muons in the pion rest frame are 100\% polarized due to conservation of angular momentum and the fact that the decay neutrino must have a specific helicity. Within a pion beam then the highest and lowest energy decay muons are polarized. Muons will 
 decay to positrons with a lifetime of about 2.2 $\mu$s, and the positrons with the highest energies will be correlated with the muon spin, a so called ``self-analyzing'' decay. The single available decay state for a maximum energy positron illustrates this in Figure \ref{fig:MuonDecay}. Thus, by aquiring a large sample of polarized muons and injecting them into a storage ring 
 
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.4\textwidth}
+    \centering
+        \begin{tikzpicture}[baseline=(o.base)]
+        \begin{feynhand}
+        \large
+        \setlength{\feynhandlinesize}{1pt}
+        \vertex [dot] (o) at (0,0);
+        \vertex (a) at (-1.5,1.5) {$u$}; 
+        \vertex (b) at (-1.5,-1.5) {$\overline d$}; 
+        \vertex (c) at (2,0);
+        \vertex (d) at (3.5,1.5) {$\mu^{+}$};
+        \vertex (e) at (3.5,-1.5) {$\nu_{\mu}$};
+        \propag [fermion] (a) to (o);
+        \propag [anti fermion] (b) to (o);
+        \propag [boson] (o) to [edge label = $W^{-}$] (c);
+        \propag [anti fermion] (c) to (d);
+        \propag [fermion] (c) to (e);
+        \end{feynhand}
+        \end{tikzpicture}
+    \caption{This diagram shows pion decay..}
+    \end{subfigure}
+    \hspace{10mm}
+    \begin{subfigure}[]{0.4\textwidth}
+    \centering
+        \begin{tikzpicture}[baseline=(o.base)]
+        \begin{feynhand}
+        \large
+        \setlength{\feynhandlinesize}{1pt}
+        \vertex [dot] (o) at (0,0);
+        \vertex (a) at (-2,0) {$\mu^{+}$}; 
+        \vertex (b) at (1.5,1.5) {$\overline \nu_{\mu}$}; 
+        \vertex (c) at (1.5,-1.5);
+        \vertex (d) at (3,0) {$\nu_{e}$};
+        \vertex (e) at (3,-3) {$e^{+}$};
+        \propag [anti fermion] (a) to (o);
+        \propag [fermion] (b) to (o);
+        \propag [boson] (o) to [edge label' = $W^{+}$] (c);
+        \propag [fermion] (c) to (d);
+        \propag [anti fermion] (c) to (e);
+        \end{feynhand}
+        \end{tikzpicture}
+    \caption{This diagram shows muon decay.. fix subcaptions}
+    \end{subfigure}
+
+
+\caption[Decay Diagrams]{These diagrams show pion and muon decay...}    
+\label{fig:DecayDiagrams}
+\end{figure}
+
+
+
+
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.9\textwidth]{MuonDecay}
@@ -68,7 +124,25 @@ decay to positrons with a lifetime of about 2.2 $\mu$s, and the positrons with t
 \label{sec:Accelerator}
 
 
+
+
 \cite{Stratakis:2017uci}
+
+
+\section{Injection}
+\label{sec:Injection}
+
+the inflector
+
+
+
+\section{Storage}
+\label{sec:Storage}
+
+kickers and quads
+
+
+
 
 
 \section{Detector Systems}
@@ -108,7 +182,7 @@ In order to align the decay positron spectra in time from fill to fill, an entra
 \subsection{IBMS}
 \label{sec:IBMS}
 
-There are two scintillating fiber detectors which monitor the beam as it passes through the inflector, the so-called inflector beam monitoring system (IBMS). See Figure \ref{fig:IMBS1and2}. These devices are placed at the outside of the magnet yoke before injection into the back hole of the magnet, and at the entrance to the inflector. A third device is planned to be at or near the downstream end of the inflector (fix this later on). See Figure \ref{fig:IBMSPlacement}. These devices are used to verify the beam optics tune in the muon injection through the inflector and continuously diagnose beam properties as a handle on systematic problems.
+There are two scintillating fiber detectors which monitor the beam as it passes through the inflector, the so-called inflector beam monitoring system (IBMS). See Figure \ref{fig:IMBS1and2}. These devices are placed at the outside of the magnet yoke before injection into the back hole of the magnet, and at the entrance to the inflector. A third device is planned to be at or near the downstream end of the inflector (fix this later on). See Figure \ref{fig:IBMSPlacement}. These devices are used to verify the beam optics tune in the muon injection through the inflector and continuously diagnose beam properties as a handle on systematic problems. Probably cite something in this section - not the TDR since the IBMS was not included in the TDR.
 
 -justification document - DocDB 2722
 -DocDB 10944
@@ -132,9 +206,10 @@ There are two scintillating fiber detectors which monitor the beam as it passes 
 \subsection{Fiber Harps}
 \label{sec:FiberHarps}
 
-There are four scintillating fiber detectors located within the ring, two at the 180 degree position which measure the vertical and horizontal directions respectively, and similarly at the 270 degree position. One of these devices is shown in Figure \ref{fig:fiberharp}. These `fiber harps' serve to monitor beam properties at all times during a fill, including just after injection and during scraping. This is especially useful as a diagnostic tool as well as a measurement of the central beam position and CBO properties (have I talked about this yet?). Because the fiber harps are a distructive measurement of the beam, they are retractable and are only inserted in special runs in order to make said beam measurements. When they are inserted however they provide a wealth of useful information regarding the beam, as shown in Figure \ref{fig:fiberharp_measurement}.
+There are four scintillating fiber detectors located within the ring, two at the 180 degree position which measure the vertical and horizontal directions respectively, and similarly at the 270 degree position. One of these devices is shown in Figure \ref{fig:fiberharp}. These `fiber harps' serve to monitor beam properties at all times during a fill, including just after injection and during scraping. This is especially useful as a diagnostic tool as well as a measurement of the central beam position and CBO properties (have I talked about this yet?). Because the fiber harps are a distructive measurement of the beam, they are retractable and are only inserted in special runs in order to make said beam measurements. When they are inserted however they provide a wealth of useful information regarding the beam, as shown in Figure \ref{fig:fiberharp_measurement}. Probably cite something in this section.
 
 -DocDB 8366
+-maybe find another docb/source
 
 \begin{figure}[]
     \centering
@@ -148,17 +223,6 @@ There are four scintillating fiber detectors located within the ring, two at the
     \includegraphics[width=0.9\textwidth]{fiberharp_measurement}
     \caption[Fiber Harp Measurement]{The fiber harps measure beam intensity as a function of time and fiber number. The middle spectrum is the output from the middle fiber, the upper spectra being fibers which are at successively greater radial positions, and the lower spectra being fibers which are at successively lower radial positions. The fast oscillations of the cyclotron frequency can be seen along with the slower oscillations of the CBO. This particular set of data was at a time or run when more beam was on the outside part of the storage region. (This last part is conjecture somewhat - maybe I should leave it out. I might honestly also want to leave out this whole picture, not sure..)}   
     \label{fig:fiberharp_measurement}
-\end{figure}
-
-
-
-
-% move this somewhere better
-\begin{figure}[]
-    \centering
-    \includegraphics[width=0.9\textwidth]{TrackerCaloWithLines}
-    \caption[TrackerCaloWithLines]{Birds eye view of a model of a vacuum chamber containing a tracker station, and the associated calorimeter. Muons pass around the ring in the center of the storage region which is contained within the bulk of the vacuum chamber. The muons decay to positrons, some of which then pass through the trackers or hit calorimeters. Each tracking station consists of 8 tracker modules.}   
-    \label{fig:TrackerCaloWithLines}
 \end{figure}
 
 
@@ -180,6 +244,13 @@ In order to determine \amu to the precision goal, there are modest requirements 
 A 12 bit waveform digitizer (WFD) samples each photodetector channel at a rate of 800 MSPS with a 1 Gb memory buffer and the data are transferred to a bank of GPU processors for on-line data processing \cite{Sweigart:2016jty}. The timing resolution of these WFDs is $<$ 50 ps for most pulse amplitudes.
 
 Should I go into the calorimeter DAQ here? Or make that it's own section - how uniform are the DAQ systems for each detector system? Are the same sorts of modules and crates and WFDs used or what? If so it's own section might make sense, otherwise probably include small pieces at the end of each individual detector about the daq system
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.9\textwidth]{TrackerCaloWithLines}
+    \caption[TrackerCaloWithLines]{Birds eye view of a model of a vacuum chamber containing a tracker station, and the associated calorimeter. Muons pass around the ring in the center of the storage region which is contained within the bulk of the vacuum chamber. The muons decay to positrons, some of which then pass through the trackers or hit calorimeters. Each tracking station consists of 8 tracker modules.}   
+    \label{fig:TrackerCaloWithLines}
+\end{figure}
 
 
 
