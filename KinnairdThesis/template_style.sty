@@ -383,9 +383,17 @@ minus
 \def\GSA{GRADUATE SCHOOL OF ARTS AND SCIENCES}
 \def\Gsa{Graduate School of Arts and Sciences}
 
-\def\wa{$\omega_{a}$ } % space at end otherwise it seems to omit the following space in text
-\def\chisq{$\chi^{2}$ } % can't have numbers in macro definitions without making things complicated
-\def\gmtwo{$g-2$ }
-\def\amu{$a_{\mu}$ }
+\def\wa{$\omega_{a}$\xspace}
+\def\chisq{$\chi^{2}$\xspace}
+\def\gmtwo{$g-2$\xspace}
+\def\amu{$a_{\mu}$\xspace}
 
-% ppm
+\def\eV{\text{e\kern-0.15ex V}\xspace}
+\def\MeV{\text{M\eV}\xspace}
+\def\GeV{\text{G\eV}\xspace}
+\def\TeV{\text{T\kern-0.1ex \eV}\xspace}
+
+
+% other
+
+\g@addto@macro\bfseries{\boldmath} % bold math text in headings
