@@ -1,0 +1,84 @@
+%!TEX root = ../thesis.tex
+
+\usepackage[intlimits]{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts,amssymb}
+\DeclareSymbolFontAlphabet{\mathbb}{AMSb}
+
+\usepackage{float}
+\usepackage[]{caption,subcaption}
+\setcaptionmargin{0.5in}
+
+\usepackage{fancyhdr}
+%\usepackage{fancyheadings} % what does this do?
+\usepackage{fancybox}
+
+\usepackage{ifthen}
+\usepackage{lscape,afterpage}
+\usepackage{xspace}
+\usepackage{siunitx}
+\usepackage{xcolor}
+
+\usepackage{appendix}
+
+% table packages and commands
+\usepackage{booktabs}
+\usepackage{dcolumn}
+
+% https://tex.stackexchange.com/questions/13509/biblatex-in-a-nutshell-for-beginners
+% if I get the error, ".bbl not created by bib latex", run biber $, where $ is the basename of the main .tex file, then rerun the build
+\usepackage[sorting=none]{biblatex}
+\addbibresource{thesis.bib}
+% \addbibresource(othersfiles.bib) % if I ever split up the bibiliography add multiple resources like this
+
+%feynman digram package
+% \usepackage{tikz-feynman} % doesn't work out of the gate, wants LuaLaTex - see https://jpellis.me/projects/tikz-feynman/
+% \tikzfeynmanset{compat=1.1.0} 
+\usepackage[compat=1.1.0]{tikz-feynhand} % simpler version of tikz-feynman - see https://ctan.org/pkg/tikz-feynhand?lang=en
+
+
+%==========================================================================%
+%%% graphicx and pdf creation
+\usepackage{graphicx}
+
+\usepackage{hyperref} % set up this package last (or almost last anyways)
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+% \usepackage{glossaries} % might be able to use this to make an alphabetically ordered list of abbreviations - needs to be set up after hyperref
+
+%==========================================================================%
+%               USEFUL MACROS AND COMMANDS
+%==========================================================================%
+
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+\newcommand{\chapref}[1]{Chapter~\ref{#1}}
+\newcommand{\secref}[1]{Section~\ref{#1}}
+\newcommand{\latex}{\LaTeX\xspace}
+
+\def\BU{BOSTON UNIVERSITY}
+\def\Bu{Boston University}
+\def\GSA{GRADUATE SCHOOL OF ARTS AND SCIENCES}
+\def\Gsa{Graduate School of Arts and Sciences}
+
+\def\wa{$\omega_{a}$\xspace}
+\def\chisq{$\chi^{2}$\xspace}
+\def\gmtwo{$g-2$\xspace}
+\def\amu{$a_{\mu}$\xspace}
+
+\def\eV{\text{e\kern-0.15ex V}\xspace}
+\def\MeV{\text{M\eV}\xspace}
+\def\GeV{\text{G\eV}\xspace}
+\def\TeV{\text{T\kern-0.1ex \eV}\xspace}
+
+\newcolumntype{L}{D{.}{.}{2,3}} % define a column type L with specific spacing before and after the decimal point
+\makeatletter
+\newcolumntype{B}{>{\boldmath\DC@{.}{.}{2,3}}l<{\DC@end}} % define a column that's bold and does the above
+\makeatother
+\newcolumntype{G}{D{.}{.}{2,1}}
+
+

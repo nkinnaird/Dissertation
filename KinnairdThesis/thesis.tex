@@ -1,60 +1,9 @@
-%==========================================================================%
-% MAIN PREAMBLE 
-%==========================================================================%
 \documentclass[12pt,letterpaper]{report} % Single-sided printing for the library
 % \documentclass[12pt,twoside]{report} % Double-sided printing
-\usepackage[intlimits]{amsmath}
-\usepackage[utf8]{inputenc}
-\usepackage{amsfonts,amssymb}
-\DeclareSymbolFontAlphabet{\mathbb}{AMSb}
-% \usepackage{natbib}
-% \usepackage{apalike}
-\usepackage{float}
-\usepackage[]{caption,subcaption}
-\setcaptionmargin{0.5in}
-\usepackage{fancyhdr}
-%\usepackage{fancyheadings} % what does this do?
-\usepackage{fancybox}
-\usepackage{ifthen}
-\usepackage{template_style} % style package and also some layout stuff
-\usepackage{lscape,afterpage}
-\usepackage{xspace}
-% \usepackage{epstopdf} % what does this do?
 
-\usepackage{appendix}
+\usepackage{template_style} % style package - changes page layouts
 
-% https://tex.stackexchange.com/questions/13509/biblatex-in-a-nutshell-for-beginners
-% if I get the error, ".bbl not created by bib latex", run biber $, where $ is the basename of the main .tex file, then rerun the build
-\usepackage[sorting=none]{biblatex}
-\addbibresource{thesis.bib}
-% \addbibresource(othersfiles.bib) % if I ever split up the bibiliography add multiple resources like this
-
-%feynman digram package
-% \usepackage{tikz-feynman} % doesn't work out of the gate, wants LuaLaTex - see https://jpellis.me/projects/tikz-feynman/
-% \tikzfeynmanset{compat=1.1.0} 
-\usepackage[compat=1.1.0]{tikz-feynhand} % simpler version of tikz-feynman - see https://ctan.org/pkg/tikz-feynhand?lang=en
-
-
-%==========================================================================%
-%%% graphicx and pdf creation
-\usepackage{graphicx}
-
-\usepackage{hyperref} % set up this package last (or almost last anyways)
-\hypersetup{
-    colorlinks=true,
-    linkcolor=red,
-    urlcolor=blue,
-    citecolor=blue
-}
-
-% \usepackage{glossaries} % might be able to use this to make an alphabetically ordered list of abbreviations - needs to be set up after hyperref
-
-%==========================================================================%
-% customized commands can be placed here
-%\newcommand{\figref}[1]{Figure~\ref{#1}}
-%\newcommand{\chapref}[1]{Chapter~\ref{#1}}
-%\newcommand{\latex}{\LaTeX\xspace}
-%==========================================================================%
+\input{thesis_packages} % include packages and document type
 
 %==========================================================================%
 % BEGIN
@@ -62,7 +11,7 @@
 \begin{document}
 
 % The preliminary pages
-\include{Preliminary/OpeningPages} % putting .text at the end is something different from leaving it off here
+\include{Preliminary/OpeningPages} 
 \cleardoublepage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
