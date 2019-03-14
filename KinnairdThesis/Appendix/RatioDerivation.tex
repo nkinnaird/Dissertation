@@ -2,8 +2,10 @@
 
 \thispagestyle{myheadings}
 
-\chapter{Ratio Method Derivation and Fit Function}
+\chapter{Ratio Method Derivation}
 \label{RatioDerivation}
+
+\section{Ratio Function}
 
 Consider the 5 parameter function:
 	\begin{align}
@@ -24,6 +26,7 @@ where the $1/4$ out front reflects randomly splitting the whole dataset into 4 e
 		U(t) &= u_{+}(t) + u_{-}(t) \\
 		V(t) &= v_{1}(t) + v_{2}(t) \\
 		R(t) &= \frac{V(t) - U(t)}{V(t) + U(t)}.
+	\label{eq:ratio}
 	\end{aligned}
 	\end{equation}
 Plugging in and dividing the common terms $(N_{0}e^{-t/\tau}/4)$,
@@ -145,13 +148,35 @@ where
 	\end{equation}
 and $C(t)$ can encode any other effects in the data that need to be fitted for, such as the CBO,
 	\begin{align}
-		C(t) = 1 + A_{cbo} e^{-t/\tau_{cbo}} \cos(\omega_{cbo}t + \phi_{cbo}).
+		C(t) = 1 + A_{cbo} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}t + \phi_{cbo}).
 	\end{align}
 Additionally, any other fit parameters such as $A$ or $\phi$ can be made a fuction of $t$. Using the non-approximated form for the final fit function gives greater confidence in the fit results for the high precision $\omega_{a}$ extraction necessary for the experimental measurement.
 
 
-\chapter{Ratio Method Errors}
+\section{Ratio Function Errors}
 
-See Appendix B.4 in John Paley's thesis \cite{JPThesis} for a calculation of the ratio method errors. They are derived using standard error propagation.
+ In order to determine the errors on our fit function, Equation \ref{eq:ratio}, we use standard error propagation:
+ 	\begin{align}
+ 		\sigma_{R}(t)^{2} = \Big(\frac{\partial R(t)}{\partial V(t)}\Big)^{2} \delta V(t)^{2} + \Big(\frac{\partial R(t)}{\partial U(t)}\Big)^{2} \delta U(t)^{2}
+	\end{align}
+This works because $V(t)$ and $U(t)$ are statistically independent datasets. Using standard error propagation again, 
+	\begin{equation}	
+	\begin{aligned}
+  		\delta V(t)^{2} &= \delta v_{1}(t)^{2} + \delta v_{2}(t)^{2} = v_{1}(t) + v_{2}(t) = V(t), \\ 
+  		\delta U(t)^{2} &= \delta u_{+}(t)^{2} + \delta u_{-}(t)^{2} = u_{+}(t) + u_{-}(t) = U(t).
+	\end{aligned}
+	\end{equation}
+Calculating out and simplifying the partial derivatives, (and this time dropping the $t$'s),
+	\begin{equation}	
+	\begin{aligned}
+  		\frac{\partial R}{\partial V} &= \frac{2U}{(V + U)^{2}}, \\ 
+  		\frac{\partial R}{\partial U} &= \frac{-2V}{(V + U)^{2}}.
+	\end{aligned}
+	\end{equation}
+Combining and simplifying, we arrive at the error formula:
+ 	\begin{align}
+ 		\sigma_{R}^{2} = \frac{4UV}{(V + U)^{3}} = \frac{1-R^{2}}{(V + U)} 
+	\end{align}
+
 
 
