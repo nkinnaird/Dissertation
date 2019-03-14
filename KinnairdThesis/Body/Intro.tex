@@ -7,7 +7,21 @@
 \chapter{Introduction}
 \label{chapter:Introduction}
 
-While the prevailing theory for particle physics, the Standard Model (SM), has had tremendous success in describing our universe, there exist unanswered questions. These namely include the matter-antimatter asymmetry, the source of mass for the neutrinos, the existance of dark matter, and more. Many particle physics experiments are being conducted around the world in order to shed light on these questions and round out our understanding of reality. One such particular experiment being conducted is the Fermilab Muon \gmtwo Experiment (E989) underway at the Fermi National Accelerator Laboratory (FNAL) located in Batavia, Illinois. It has the goal of measuring the magnetic moment of the muon, proportional to the $g$ in \gmtwo, to high precision in order to compare to SM theoretical predictions. Because the magnetic moment of particles couple to all existing particles, known or unknown, (source this? reference to a later section?) this provides an avenue through which theories might be constrained, and new physics narrowed down. Indeed this experiment is the latest in a line of such experiments which have measured the magnetic moment of the muon over the past several decades, the last of which measured the magnetic moment of the muon to .54 parts per million (ppm) at Brookhaven National Laboratory (BNL) in 2001 \cite{E821FinalReport}.
+The prevailing theory for particle physics, the Standard Model (SM), has had tremendous success in describing our universe. It has been used to predict and explain a wide variety of phenomena and particles, their properties and interactions, to great precision. However, in spite of its success in explaining nearly all experimental results, there exist unanswered questions about our universe. Some of these include the matter-antimatter asymmetry, the source of mass for the neutrinos, the existence of dark matter, and an inability to fully incorporate our best theory of gravitation. Many particle physics experiments are being devised and conducted around the world in order to shed light on these questions and improve our understanding of reality. One such particular experiment is the Fermilab Muon \gmtwo Experiment (E989) underway at the Fermi National Accelerator Laboratory (FNAL) located in Batavia, Illinois.
+
+I have been a part of the E989 experiment since I began my graduate degree six years ago. Three years ago I moved from Boston to Batavia to be where the action is. This dissertation will describe in detail the work which I have done for the experiment. Chapter 1 will provide experimental and theoretical background to the experiment, as well its motivation. Chapter 2 will  describe the experiment in broad strokes. Chapter 3 will describe the magnetic field portion of the experiment, and magnetic field simulations I conducted. Chapter 4 will describe the straw tracking detectors and their measurements, including the track fitting I wrote. Chapter 5 will describe The frequency measurement portion of the experiment, and detail the analysis results from data taken in the first half of 2018. Finally, Chapter 6 will concluded the thesis and the important results contained within.
+
+
+\section{Magnetic Dipole Moments}
+\label{sec:MDMs}
+
+In order to understand the purpose of the Fermilab Muon \gmtwo Experiment, first we need to understand what the $g$ in \gmtwo is, and why we might want to measure it. 
+
+
+
+
+
+It has the goal of measuring the magnetic moment of the muon, proportional to the $g$ in \gmtwo, to high precision in order to compare to SM theoretical predictions. Because the magnetic moment of particles couple to all existing particles, known or unknown, (source this? reference to a later section?) this provides an avenue through which theories might be constrained, and new physics narrowed down. Indeed this experiment is the latest in a line of such experiments which have measured the magnetic moment of the muon over the past several decades, the last of which measured the magnetic moment of the muon to .54 parts per million (ppm) at Brookhaven National Laboratory (BNL) in 2001 \cite{E821FinalReport}.
 
 
 \section{Background}
@@ -16,21 +30,22 @@ While the prevailing theory for particle physics, the Standard Model (SM), has h
 The previous \gmtwo experiment at BNL measured a discepancy in the magnetic moment of the muon between theory and experiment with a 2.2 - 2.7 standard deviation. (Cite the final report again?) That disagreement has since grown above 3$\sigma$ \cite{Keshavarzi:2018mgv}, depending on the theoretical analysis approaches used.
 
 
-
 \subsection{Definitions}
 \label{subsec:Definitions}
 
 
-		\begin{align} \label{eq:magneticmoment}
+		\begin{align}
             \vec{\mu} = g \frac{Qe}{2m} \vec{s}
+        \label{eq:magneticmoment}
 		\end{align}
 
-		\begin{align} \label{eq:anamoly}
+		\begin{align}
             a = \frac{g-2}{2}
+        \label{eq:anamoly}
 		\end{align}
 
 
--would it be worthwhile to include my derivation on the magnetic moment like in my hep presentation?
+-would it be worthwhile to include my derivation on the magnetic moment like in my hep presentation? - in the appendix
 
 
 
