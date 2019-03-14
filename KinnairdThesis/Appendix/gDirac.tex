@@ -1,0 +1,71 @@
+%!TEX root = ../thesis.tex
+
+\thispagestyle{myheadings}
+
+\chapter{\g for Spin-1/2 Particles and Beyond}
+\label{gDirac}
+
+This was taken from my old HEP2 class report paper - go back and clean this up/improve it.
+
+The derivation contained here is taken and simplified from \refref{Schwartz}. Starting with the Dirac equation 
+\begin{align}
+(i\gamma^{\mu}\partial_{\mu} - m -e \gamma^{\mu}A_{\mu})\psi = 0
+\end{align}
+and multiplying by 
+\begin{align}
+(i\gamma^{\mu}\partial_{\mu} + m -e \gamma^{\mu}A_{\mu})\psi = 0,
+\end{align}
+where the sign on m is reversed, you arrive at the equation
+\begin{align}
+[(i\partial_{\mu}-eA_{\mu})(i\partial_{\nu}-eA_{\nu})\gamma^{\mu}\gamma^{\nu} - m^{2}]\psi = 0.
+\end{align}
+This can be split this into its symmetric and antisymmetric parts:
+\begin{align}
+(\frac{1}{4}\{i\partial_{\mu}-eA_{\mu},i\partial_{\nu}-eA_{\nu}\}\{\gamma^{\mu}, \gamma^{\nu}\} \notag \\
++\frac{1}{4}[i\partial_{\mu}-eA_{\mu},i\partial_{\nu}-eA_{\nu}][\gamma^{\mu}, \gamma^{\nu}] - m^{2})\psi = 0
+\end{align}
+Using the identities 
+\begin{align}
+\frac{i}{2}[\gamma^{\mu}, \gamma^{\nu}] = \sigma^{\mu\nu}
+\end{align}
+and
+\begin{align}
+[i\partial_{\mu}-eA_{\mu},i\partial_{\nu}-eA_{\nu}] \notag \\
+= -ie[\partial_{\mu}A_{\nu} - \partial_{\nu}A_{\nu}] = -ie F_{\mu\nu}
+\end{align}
+where $\sigma^{\mu\nu}$ is related to the spin of the particle and $F_{\mu\nu}$ is the electromagnetic field tensor, one arrives at the form
+\begin{align}
+((i\partial_{\mu}-eA_{\mu})^{2} - \frac{e}{2} F_{\mu\nu}\sigma^{\mu\nu} - m^{2})\psi = 0.
+\end{align}
+Expanding out the tensor objects
+\begin{align}
+\frac{e}{2} F_{\mu\nu}\sigma^{\mu\nu} = -e
+\begin{pmatrix}
+(\vec{B} + i \vec{E})\cdot \vec{\sigma} && \\
+&& (\vec{B} - i \vec{E})\cdot \vec{\sigma} \\
+\end{pmatrix}
+\end{align}
+and forming a new covariant derivative
+\begin{align}
+\slashed{D}^{2} = D_{\mu}^{2} + \frac{e}{2} F_{\mu\nu}\sigma^{\mu\nu}
+\end{align}
+where $D_{\mu}^{2}$ is your ordinary covariant derivative, by moving to momentum space you can arrive at the equation
+\begin{align}
+\frac{(H+eA)^2}{2m}\psi = (\frac{m}{2} + \frac{(\vec{p}+e\vec{A})^{2}}{2m} -2 \frac{e}{2m}\vec{B}\cdot\vec{s} \pm i \frac{e}{m}\vec{E}\cdot\vec{s})\psi.
+\end{align}
+Lo and behold, you have arrived at the Dirac g = 2 result, contained in front of the magnetic piece in the form of Equation \ref{Equ:mdm}.
+
+How then does such a term change at loop level? Most generally the vertex of a particle interacting with a magnetic field through the mediation of a photon can be represented by 
+\begin{align}
+iM^{\mu} = \bar{u}(q_{2}) (f_{1}\gamma^{\mu} + f_{2}p^{\mu} + f_{3}q^{\mu}_{1} + f_{4}q^{\mu}_{2}) u(q_{1})
+\end{align}
+where $q_{1}$ and $q_{2}$ are the ingoing and outgoing four-momenta respectively, which can be constrained on-shell, and p is the four-momenta of the photon, which is off-shell. The $f_{i}$ are in general contractions of four-momenta and gamma matrices. By using the Gordon identity
+\begin{align}
+\bar{u}(q_{2}) (q^{\mu}_{1} + q^{\mu}_{2}) u(q_{1}) \notag \\
+= (2m)\bar{u}(q_{2}) \gamma^{\mu}u(q_{1}) + i\bar{u}(q_{2})\sigma^{\mu\nu}(q^{\nu}_{1} - q^{\nu}_{2}) u(q_{1})
+\end{align}
+any Feynman diagram can be reorganized into the form 
+\begin{align}
+iM^{\mu} = (-ie)\bar{u}[F_{1}(\frac{p^{2}}{m^2})\gamma^{\mu} + \frac{i\sigma^{\mu\nu}}{2m} p_{\nu}F_{2}(\frac{p^{2}}{m^2})]u,
+\end{align}
+where $F_{1}$ and $F_{2}$ are form factors. One notices that the $F_{2}$ piece is reminiscent of our magnetic dipole moment form that we derived from the Dirac equation. So the problem now becomes for any Feynman diagram calculation in any theory, at any order, to solve for this $F_{2}$ to determine the contribution to the magnetic dipole moment.

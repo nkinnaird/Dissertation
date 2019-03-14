@@ -1,0 +1,157 @@
+%!TEX root = ../thesis.tex
+
+\thispagestyle{myheadings}
+
+\chapter{Ratio Method Derivation and Fit Function}
+\label{RatioDerivation}
+
+Consider the 5 parameter function:
+	\begin{align}
+		N_{5}(t) = N_{0}e^{-t/\tau}(1 + A \cos(\omega_{a}t + \phi)),
+	\end{align}
+which describes some ideal dataset in histogram format. Here $\phi$ will be set to zero for simplicity. Now define the variables $u_{+}(t)$, $u_{-}(t)$, $v_{1}(t)$, and $v_{2}(t)$ as
+	\begin{equation}
+	\begin{aligned}
+		u_{+}(t) &= \frac{1}{4} N_{5}(t+T/2) \\
+		u_{-}(t) &= \frac{1}{4} N_{5}(t-T/2) \\
+		v_{1}(t) &= \frac{1}{4} N_{5}(t) \\
+		v_{2}(t) &= \frac{1}{4} N_{5}(t),
+	\end{aligned}
+	\end{equation}
+where the $1/4$ out front reflects randomly splitting the whole dataset into 4 equally weighted sub-datasets, and T is the g-2 period known to high precision, $\mathcal{O}(10^{-6})$. This corresponds to a weighting of 1:1:1:1 between the datasets. To be explicit here regarding the signs, the counts that are filled into the histogram described by $u_{+}$ have their times shifted as $t \rightarrow t - T/2$, which is what the function $N_{5}(t+T/2)$ describes, and vice versa for $u_{-}$. To form the ratio define the variables:
+	\begin{equation}
+	\begin{aligned}
+		U(t) &= u_{+}(t) + u_{-}(t) \\
+		V(t) &= v_{1}(t) + v_{2}(t) \\
+		R(t) &= \frac{V(t) - U(t)}{V(t) + U(t)}.
+	\end{aligned}
+	\end{equation}
+Plugging in and dividing the common terms $(N_{0}e^{-t/\tau}/4)$,
+	\begin{align}
+		R(t) = \frac{2(1 + A \cos(\omega_{a}t)) - e^{-T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2)) - e^{T/ 2\tau} (1 + A \cos(\omega_{a}t - \omega_{a}T/2))} {2(1 + A \cos(\omega_{a}t)) + e^{-T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2)) + e^{T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2))}.
+	\end{align}
+
+Now set $\omega_{a}T/2 = \delta$, and note that T is really
+	\begin{equation}
+	\begin{aligned}
+ 		T = T_{guess} = \frac{2\pi}{\omega_{a}} + \Delta T, \\
+ 		\Delta T = T_{guess} - T_{true}.
+	\end{aligned}
+	\end{equation}
+Being explicit, 
+	\begin{align}
+		\delta = \frac{\omega_{a}}{2} T_{guess} = \frac{\omega_{a}}{2} (\frac{2\pi}{\omega_{a}} + \Delta T) = \pi + \pi \frac{\Delta T}{T_{true}} = \pi + \pi (\delta T),
+	\end{align}
+and $\delta$ can be redefined as 
+	\begin{align}
+		\delta = \pi (\delta T),
+	\end{align}
+by flipping the sign of any cosine terms that contain $\delta$.
+
+Then, using the trig identity 
+	\begin{align}
+		\cos(a \pm b) = \cos(a)\cos(b) \mp \sin(a)\sin(b)
+	\end{align}
+so that 
+	\begin{equation}
+	\begin{aligned}
+		\cos(\omega_{a}t \pm \delta) &= \cos(\omega_{a}t)\cos{\delta} \mp \sin(\omega_{a}t)\sin{\delta} \\
+		&\approx \cos(\omega_{a}t)(1-\delta^{2}) \mp \sin(\omega_{a}t)\delta \\
+		&\approx \cos(\omega_{a}t),
+	\label{eqn:trig}
+	\end{aligned}
+	\end{equation}
+since $\delta \sim O(10^{-5})$, the ratio becomes
+	\begin{align}
+		R(t) \approx \frac{2(1 + A \cos(\omega_{a}t)) - (1 - A \cos(\omega_{a}t))(e^{-T/ 2\tau} + e^{T/ 2\tau})} {2(1 + A \cos(\omega_{a}t)) + (1 - A \cos(\omega_{a}t))(e^{-T/ 2\tau} + e^{T/ 2\tau})}.
+	\end{align}
+Expanding
+	\begin{align}
+		e^{\pm T/ 2\tau} = 1 \pm \frac{T}{2\tau} + \frac{1}{2} \Big(\frac{T}{2\tau}\Big)^{2} \pm \dots,
+	\end{align}
+repacing and simplifying,
+	\begin{align}
+		R(t) \approx \frac{A \cos(\omega_{a}t) - C (1 - A \cos(\omega_{a}t))}{1 + C (1 - A \cos(\omega_{a}t))},
+	\end{align}
+where
+	\begin{align}
+		C = \frac{1}{16} \Big(\frac{T}{\tau}\Big)^{2} \approx 2.87 * 10^{-4}.
+	\end{align}
+
+Using the expansion 
+	\begin{align}
+		f(x) = \frac{1}{1+x} = 1 - x + x^2 - \dots, \quad |x| < 1,
+	\end{align}
+and since $C$ is small, the denominator can be manipulated such that
+	\begin{equation}
+	\begin{aligned}
+		R(t) &\approx (A \cos(\omega_{a}t)) - C (1 - A \cos(\omega_{a}t)))(1 - C (1 - A \cos(\omega_{a}t))) \\
+		     &\approx A \cos(\omega_{a}t) - C + C A^{2} \cos^2(\omega_{a}t),
+	\end{aligned}
+	\end{equation}
+after dropping terms of $\mathcal{O}(C^{2})$ and higher. In practice the last term is ommitted since it has a minimal effect on the fitted value of $\omega_{a}$ \cite{cite}, and one arrives at
+	\begin{align}
+		R(t) \approx A \cos(\omega_{a}t) - C,
+	\end{align}
+the conventional 3 parameter ratio function.
+
+
+In order to avoid approximations one can instead weight the counts in the histograms as
+	\begin{align}
+		u_{+}(t) : u_{-}(t) : v_{1}(t) : v_{2}(t) = e^{T/2\tau} : e^{-T/2\tau} : 1 : 1,
+	\label{Eqn:Weighting}
+	\end{align}
+so that
+	\begin{equation}
+	\begin{aligned}
+		u_{+}(t) &= \frac{e^{T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t+T/2) \\
+		u_{-}(t) &= \frac{e^{-T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t-T/2) \\
+		v_{1}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t) \\
+		v_{2}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t).
+	\label{eqn:fourHists}
+	\end{aligned}
+	\end{equation}
+(These factors out front aren't so far off from 1/4 since $e^{\pm T/ 2\tau} \approx e^{\pm 4.35/ 2*64.4} \approx 1.034, .967$.) Then instead $R(t)$ becomes 
+	\begin{align}
+		R(t) = \frac{2(1 + A \cos(\omega_{a}t)) - (1 - A \cos(\omega_{a}t + \delta)) - (1 - A \cos(\omega_{a}t - \delta))} {2(1 + A \cos(\omega_{a}t)) + (1 - A \cos(\omega_{a}t + \delta)) + (1 - A \cos(\omega_{a}t + \delta))},
+	\end{align}
+where the $e^{\pm T/ 2\tau}$ terms out front now cancel. Using Equation \ref{eqn:trig} again and this time avoiding approximations in $\delta$,
+	\begin{align}
+		R(t) = \frac{2A \cos(\omega_{a}t) (1 + \cos{\delta} )} {4 + 2A \cos(\omega_{a}t) (1 - \cos{\delta} )},
+	\end{align}
+after simplifying. In the limit that 
+	\begin{align}
+		\delta = \pi (\delta T) \rightarrow 0
+	\end{align}
+since $\delta T$ is small, 
+	\begin{align}
+		R(t) \approx A \cos(\omega_{a}t),
+	\end{align}
+with the only approximation being made at $\mathcal{O}(\delta^{2}) \sim \mathcal{O}(10^{-10})$.
+
+Finally, while the 3 parameter ratio function suffices for fits to data containing slow modulations, it does not suffice for faster oscillation features. In that case it is more useful to fit with the non-approximated or simplified version of the ratio,
+	\begin{equation}	
+	\begin{aligned}
+		R(t) &= \frac{v_{1}(t) + v_{2}(t) - u_{+}(t) - u_{-}(t)}{v_{1}(t) + v_{2}(t) + u_{+}(t) + u_{-}(t)}, \\ 
+			 &= \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)},
+	\end{aligned}
+	\end{equation}
+where
+	\begin{equation}	
+	\begin{aligned}
+		f(t) &= C(t) (1 + A \cos(\omega_{a}t + \phi)) \\ 
+		f_{\pm}(t) &= f(t \pm T_{a}/2),
+	\end{aligned}
+	\end{equation}
+and $C(t)$ can encode any other effects in the data that need to be fitted for, such as the CBO,
+	\begin{align}
+		C(t) = 1 + A_{cbo} e^{-t/\tau_{cbo}} \cos(\omega_{cbo}t + \phi_{cbo}).
+	\end{align}
+Additionally, any other fit parameters such as $A$ or $\phi$ can be made a fuction of $t$. Using the non-approximated form for the final fit function gives greater confidence in the fit results for the high precision $\omega_{a}$ extraction necessary for the experimental measurement.
+
+
+\chapter{Ratio Method Errors}
+
+See Appendix B.4 in John Paley's thesis \cite{JPThesis} for a calculation of the ratio method errors. They are derived using standard error propagation.
+
+
