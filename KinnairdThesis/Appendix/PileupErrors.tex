@@ -1,0 +1,77 @@
+%!TEX root = ../thesis.tex
+
+\thispagestyle{myheadings}
+
+\chapter{Pileup Modified Errors}
+\label{PileupErrors}
+
+In the pileup subtraction method detailed in \secref{something}, pileup events are statistically constructed and then subtracted from the data. Because of this, the errors on the bins need to be adjusted appropriately. \refref{E821PileupErrors} describes the modified errors, but is not quite correct. Here is provided an improved calculation that I believe is easier to understand. While we are mainly interested in the errors on the histograms after pileup subtraction, it first helps to examine the errors of the pileup histogram itself. Here we only consider doublets.
+
+In the aysmmetric shadow window pileup method, shadow doublets are constructed from two singlets. The pileup histogram is then filled as the sum of the doublets subtracting the singlets,
+ 	\begin{align}
+ 		P = D - S,
+	\end{align}
+where $P$ is only filled when $D$ or $S$ are above energy threshold. If the threshold is set to 0, then for every doublet one entry will be added and two will be subtracted. Since these entries are exactly correlated, the error in each time bin will be 
+ 	\begin{align}
+ 		\sigma_{P} = \sqrt{N_{D}},
+	\end{align}
+where $N_{D}$ is the number of doublets in that time bin. If the energy threshold is above 0, then we can determine whether the counts in the pileup histogram increase or decrease based on whether the singlets and doublets are above threshold or not. Table \ref{Tab:PileupDoublets} shows the different combinations of counts put into the pileup histogram. The counts that go into $P$ will be
+	\begin{equation}	
+	\begin{aligned}
+ 		P &= \sum_{i}N_{i} - \text{singlets above threshold} \\
+ 		  &= (N_{1} + N_{2} + N_{3} + N_{4}) - (N_{2} + N_{4}) - (N_{3} + N_{4}) \\
+ 		  &= N_{1} - N_{4}
+	\end{aligned}
+	\end{equation}
+and the errors are 
+ 	\begin{align}
+ 		\sigma_{P} = \sqrt{N_{1} + N_{4}}.
+	\end{align}
+This makes sense considering the cases individually. In the cases for $N_{1}$, you will gain a count from the doublet above threshold, and lose no counts since both singlets are below threshold. In the cases for $N_{2}$ and $N_{3}$, you will gain a count the doublet, and lose a count from one of the singlets which is above threshold. In the cases for $N_{4}$, you will gain a count from the doublet and lose two counts from the singlets which are both above threshold. Since the doublet and singlets are exactly correlated, the $N_{1}$ and $N_{4}$ cases naturally result in a single weight being added into the error, while the $N_{2}$ and $N_{3}$ cases result in no additions to the error.
+
+\begin{table}[]
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}lll}
+  \hline
+  	        & $E_{1} < E_{th}$ & $E_{1} > E_{th}$ \\
+  \hline
+  	$E_{2} < E_{th}$ & $N_{1} (+1)$ & $N_{2} (0)$ \\
+  	$E_{2} > E_{th}$ & $N_{3} (0)$ & $N_{4} (-1)$
+\end{tabular*}
+\caption{Table of doublets above threshold. Here $E_{1}$ and $E_{2}$ are the energies of the two singlets, $E_{th}$ is the energy threshold, and $N_{i}$ are the number of doublets above threshold for the different combinations of $E_{1}$ and $E_{2}$. ($N_{1}$ is assumed above threshold here.) The numbers in the parentheses indicate the number of counts gained or lost in the pileup histogram.}
+\label{Tab:PileupDoublets}
+\end{table}
+
+
+Now what about the pileup subtracted time spectrum? Our corrected spectrum can be written as
+ 	\begin{align}
+ 		N_{\text{corrected}} = N_{\text{measured}} - P.
+	\end{align}
+What is in $N_{\text{measured}}$ doesn't matter exactly. What we care about is what is in $N_{\text{measured}}$ that is also within $P$, for that is where the correlations come from. Since $N_{\text{measured}}$ is the sum of all singlets above threshold, we can write it as
+ 	\begin{align}
+ 		N_{\text{measured}} = N_{\text{other}} + N_{2} + N_{3} + 2 N_{4}
+	\end{align}
+since we know that those cases $N_{i}$ listed come from singlets above threshold, and $N_{\text{other}}$ is anything in the measured hits that was not included in the pileup shadow construction. We can then replace $P$ and simplify to get
+ 	\begin{align}
+ 		N_{\text{corrected}} = N_{\text{other}} - N_{1} + N_{2} + N_{3} + 3 N_{4}.
+	\end{align}
+The error on the corrected histogram is then 
+ 	\begin{align}
+ 		\sigma_{N_{\text{corrected}}} = \sqrt{N_{\text{other}} + N_{1} + N_{2} + N_{3} + 9 N_{4}}.
+	\end{align}
+Replacing $N_{\text{other}}$ as
+ 	\begin{align}
+ 		N_{\text{other}} = N_{\text{corrected}} + N_{1} - N_{2} - N_{3} - 3 N_{4},
+	\end{align}
+we can remove the dependence of the corrected histogram errors on the unknown quantity and arrive at
+ 	\begin{align}
+ 		\sigma_{N_{\text{corrected}}} = \sqrt{N_{\text{corrected}} + 2 N_{1} + 6 N_{4}}.
+	\end{align}
+(This argument might seem circular at the end, but it works because of the squaring that goes on when calculating the error.) In the end we have an a form for the bin errors of the pileup corrected histogram which only depends on $N_{1}$ and $N_{4}$.
+
+
+
+
+\section{For the ratio function}
