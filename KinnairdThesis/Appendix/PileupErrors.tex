@@ -5,13 +5,13 @@
 \chapter{Pileup Modified Errors}
 \label{PileupErrors}
 
-In the pileup subtraction method detailed in \secref{something}, pileup events are statistically constructed and then subtracted from the data. Because of this, the errors on the bins need to be adjusted appropriately. \refref{E821PileupErrors} describes the modified errors, but is not quite correct. Here is provided an improved calculation that I believe is easier to understand. While we are mainly interested in the errors on the histograms after pileup subtraction, it first helps to examine the errors of the pileup histogram itself. Here we only consider doublets.
+In the pileup subtraction method detailed in \secref{something}, pileup events are statistically constructed and then subtracted from the data. Because of this, the errors on the bins need to be adjusted appropriately. \refref{E821PileupErrors} describes the modified errors, but is not quite correct. Here is provided an improved calculation that I believe is easier to understand. While we are mainly interested in the errors on the histogram bins after pileup subtraction, it first helps to examine the errors of the pileup histogram itself. Here we only consider doublets.
 
-In the aysmmetric shadow window pileup method, shadow doublets are constructed from two singlets. The pileup histogram is then filled as the sum of the doublets subtracting the singlets,
+In the aysmmetric shadow window pileup method, shadow doublets are constructed from two singlets. The pileup histogram is then filled as the sum of the doublets minus the singlets,
  	\begin{align}
  		P = D - S,
 	\end{align}
-where $P$ is only filled when $D$ or $S$ are above energy threshold. If the threshold is set to 0, then for every doublet one entry will be added and two will be subtracted. Since these entries are exactly correlated, the error in each time bin will be 
+where $D$ or $S$ are only added or subtracted when they are above some energy threshold. If the threshold is set to 0, then for every doublet one entry will be added and two will be subtracted. Since these entries are exactly correlated, the error in each time bin will be 
  	\begin{align}
  		\sigma_{P} = \sqrt{N_{D}},
 	\end{align}
@@ -27,7 +27,7 @@ and the errors are
  	\begin{align}
  		\sigma_{P} = \sqrt{N_{1} + N_{4}}.
 	\end{align}
-This makes sense considering the cases individually. In the cases for $N_{1}$, you will gain a count from the doublet above threshold, and lose no counts since both singlets are below threshold. In the cases for $N_{2}$ and $N_{3}$, you will gain a count the doublet, and lose a count from one of the singlets which is above threshold. In the cases for $N_{4}$, you will gain a count from the doublet and lose two counts from the singlets which are both above threshold. Since the doublet and singlets are exactly correlated, the $N_{1}$ and $N_{4}$ cases naturally result in a single weight being added into the error, while the $N_{2}$ and $N_{3}$ cases result in no additions to the error.
+This makes sense considering the cases individually. In the cases for $N_{1}$, you will gain a count from the doublet above threshold, and lose no counts since both singlets are below threshold. In the cases for $N_{2}$ and $N_{3}$, you will gain a count from the doublet, and lose a count from one of the singlets which is above threshold. In the cases for $N_{4}$, you will gain a count from the doublet and lose two counts from the singlets which are both above threshold. Since the doublet and singlets are exactly correlated, the $N_{1}$ and $N_{4}$ cases naturally result in a single weight being added into the error, while the $N_{2}$ and $N_{3}$ cases result in no additions to the error.
 
 \begin{table}[]
 \centering
@@ -66,12 +66,37 @@ Replacing $N_{\text{other}}$ as
  		N_{\text{other}} = N_{\text{corrected}} + N_{1} - N_{2} - N_{3} - 3 N_{4},
 	\end{align}
 we can remove the dependence of the corrected histogram errors on the unknown quantity and arrive at
- 	\begin{align}
- 		\sigma_{N_{\text{corrected}}} = \sqrt{N_{\text{corrected}} + 2 N_{1} + 6 N_{4}}.
-	\end{align}
-(This argument might seem circular at the end, but it works because of the squaring that goes on when calculating the error.) In the end we have an a form for the bin errors of the pileup corrected histogram which only depends on $N_{1}$ and $N_{4}$.
+	\begin{equation}	
+	\begin{aligned}
+ 		\sigma_{N_{\text{corrected}}} &= \sqrt{N_{\text{corrected}} + 2 N_{1} + 6 N_{4}}, \\
+ 									  &= \sqrt{N_{\text{corrected}}} \cdot \sqrt{1 + (2 N_{1} + 6 N_{4})/N_{\text{corrected}}}.
+ 	\label{eq:pileupModErrors}
+	\end{aligned}
+	\end{equation}
+(This argument might seem circular at the end, but it works because of the squaring that occurs when calculating the error.) In the end we have a form for the bin errors of the pileup corrected histogram which only depend on $N_{1}$ and $N_{4}$ in addition to the number of counts in the corrected histogram. As shown it can be refactored into a form equal to the naive errors (just the bin content) times some correction factor. Since $N_{1}$ and $N_{4}$ are much smaller than $N_{\text{corrected}}$ at all times, and because they decay away at about twice the rate as the pileup diminishes, the change to the errors is small, of the order 1 or 2\% at $\SI{30}{\micro s}$.
 
 
 
 
 \section{For the ratio function}
+
+\equref{eq:pileupModErrors} applies to the corrected errors for a pileup subtracted histogram, but what about the modifications to the ratio errors? If we parameterize that equation as 
+ 	\begin{align}
+ 		\sigma_{N_{\text{corrected}}} &= \sqrt{N_{\text{corrected}}} \cdot \sqrt{\gamma(t)},
+	\end{align}
+where the correction factor $\gamma(t) \approx \gamma e^{-t/\tau_{\mu}}$ is small and decays at approximately the muon lifetime, we can recast the errors on the individual ratio sub-datasets as
+	\begin{equation}	
+	\begin{aligned}
+  		\delta V(t)^{2} &= \delta v_{1}(t)^{2}\cdot \gamma(t) + \delta v_{2}(t)^{2} \cdot \gamma(t) = (v_{1}(t) + v_{2}(t)) \cdot \gamma(t) = V(t) \cdot \gamma(t), \\
+   		\delta U(t)^{2} &= \delta u_{+}(t)^{2}\cdot \gamma(t+T/2) + \delta u_{-}(t)^{2} \cdot \gamma(t-T/2) \\
+   						&\approx u_{+}(t) \cdot \gamma(t)e^{-T/2\tau} + u_{-}(t) \cdot \gamma(t)e^{+T/2\tau} \\
+   						&\approx (u_{+}(t) + u_{-}(t)) \cdot \gamma(t) \cdot \Big(1 + \frac{1}{2}\Big(\frac{T}{2\tau}\Big)^{2}\Big) \\
+   						&\approx  U(t) \cdot \gamma(t),
+	\end{aligned}
+	\end{equation}
+where in the last step the $\frac{1}{2}\Big(\frac{T}{2\tau}\Big)^{2}$ term has been neglected because it's small. With these approximations having been made, the modified errors on the ratio points simply become
+ 	\begin{align}
+ 		\sigma_{R}^{2} \rightarrow \sigma_{R}^{2} \cdot \gamma(t), 
+	\end{align}
+with the correction being the same as that on the pileup subtracted histogram. Credit to \refref{JPThesis} for this derivation.
+
