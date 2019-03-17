@@ -29,21 +29,32 @@ In a Dirac theory, \g is equal to 2 for spin-1/2 particles with no internal stru
         \label{eq:anamoly}
 		\end{aligned}
 		\end{equation}
-where $a$ is called the "anamolous" part of the magnetic moment, and contains all higher order corrections. By measuring $a$, the SM theory (and extensions to it) can be tested. The measurement of the anamolous piece of the muon is indeed where the Fermilab Muon \gmtwo Experiment gets its name.
+where $a$ is called the "anamolous" part of the magnetic moment, and contains all higher order corrections. The first correction calculated to $a$ by Schwinger was $a = \alpha/2\pi \approx 0.00116$, where $\alpha$ is the fine structure constant. By measuring $a$, the SM theory (and extensions to it) can be tested. The measurement of the anamolous piece of the muon is indeed where the Fermilab Muon \gmtwo Experiment gets its name.
 
 
 \subsection{Why the muon and not the electron?}
 
-The magnetic moment of the electron has been measured extraordinarily precisely, to .28 parts per trillion (ppt) \cite{ElectronMDM}. It has been used to test SM theory extensively, and specifically the QED portion of it. Because the electron is so light, the contributions to $a_{e}$ come almost exclusively from QED. This is because the various contributions from both the weak and hadronic sectors contain couplings which depend on the mass of the particle squared. It is for this reason that the magnetic moment of the muon is such an interesting quantity to measure. Since the muon is approximately 200 times heavier than the electron, the senstivity of \amu is approximately 4000 times greater than that for the the electron.
+The magnetic moment of the electron has been measured extraordinarily precisely, to .28 parts per trillion (ppt) \cite{ElectronMDM}. It has been used to test SM theory extensively, and specifically the QED portion of it. Because the electron is so light, the contributions to $a_{e}$ come almost exclusively from QED. This is because the various contributions from both the weak and hadronic sectors contain couplings which depend on the mass of the particle squared. It is for this reason that the magnetic moment of the muon is such an interesting quantity to measure. Since the muon is approximately 200 times heavier than the electron, the senstivity of \amu to radiative corrections is approximately 4000 times greater than that for the the electron.
 
 
 \section{Standard Model Contributions to \amu}
 \label{sec:Theory}
 
 
-Before experimental results have any real meaning, they need a theory with which to compare.
+Before experimental results have any real meaning, they need a theory with which to compare. The latest theoretical predictions for the muon magnetic moment will be presented here. The contributions to \amu can be summed from separate pieces relating to different parts of the SM. These include the quantum-electrodynamics (QED) corrections purely from other leptons and photons, the electroweak (EW) corrections from interactions with the weak force bosons $W^{\pm}$ and $Z^{0}$, and the hadronic corrections from interactions with hadrons: 
+		\begin{align}
+            a_{\mu}^{\text{SM}} = a_{\mu}^{\text{QED}} + a_{\mu}^{\text{EW}} + a_{\mu}^{\text{Had}}
+		\end{align}
+The QED corrections are very well understood and have been calculated to very high order. The electroweak corrections are harder to calculate, but due to the heavy masses of the force carrying bosons and by extension weaker couplings, are only required to be known up to two loop level. And indeed they are. Finally, the hadronic contributions are where most of the theoretical uncertainties lie, and where most active work is going on. Indeed there are also some data-driven approaches to the hadronic contributions which are interesting and will be discussed in a following section.
 
 
+
+
+
+
+-just put words down on the page, keep it short and simple, I can go back and add detail where necessary, I'll have to do a lot of editing anyways
+-dont worry about the ordering of sections exactly either
+-check Saskia's thesis for the latest theoretical results
 
 
 - see papers cited in my HEP2 class paper - and then look for new ones
@@ -52,12 +63,17 @@ Before experimental results have any real meaning, they need a theory with which
 
 
 
+\subsection{QED}
+\label{subsec:QED}
 
-
+The QED contributions to \amu stem solely from loops with virtual leptons and photons. They have been calculated up to 5 loop levels from over 12,000 Feynman diagrams \cite{Kinoshita1,Kinoshita2}. The value is
+		\begin{align}
+            a_{\mu}^{\text{QED}} = (11658471.8971 \pm 0.007) \times 10^{10}.
+		\end{align}
 
 \begin{figure}[]
 \centering
-	\begin{subfigure}[]{0.3\textwidth}
+	\begin{subfigure}[t]{0.3\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
@@ -72,9 +88,10 @@ Before experimental results have any real meaning, they need a theory with which
 		\propag [photon] (c) to [edge label = $\gamma$] (o);
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{test1}
+	\caption{Dirac result, $g=2$.}
 	\end{subfigure}
-	\begin{subfigure}[]{0.3\textwidth}
+	\hspace{3mm}
+	\begin{subfigure}[t]{0.3\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
@@ -94,9 +111,10 @@ Before experimental results have any real meaning, they need a theory with which
 		\propag [photon] (d) to [edge label' = $\gamma$] (e);
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{test2}
+	\caption{The first loop diagram, calculated by Schwinger.}
 	\end{subfigure}
-	\begin{subfigure}[]{0.3\textwidth}
+	\hspace{3mm}
+	\begin{subfigure}[t]{0.3\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
@@ -122,9 +140,9 @@ Before experimental results have any real meaning, they need a theory with which
 		\propag [anti fermion] (f) to [half right, edge label' = $\overline l$] (g);
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{test2}
+	\caption{A two loop diagram.}
 	\end{subfigure}
-\caption[testfeynmanpicture2]{Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
+\caption[QEDDiagrams]{The first of many QED diagrams contributing to $a$. B is a magnetic field. Feynman diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:feyn1}
 \end{figure}
 
@@ -132,8 +150,7 @@ Before experimental results have any real meaning, they need a theory with which
 
 
 
-\subsection{QED}
-\label{subsec:QED}
+
 
 \subsection{Electroweak}
 \label{subsec:Electroweak}
@@ -141,7 +158,7 @@ Before experimental results have any real meaning, they need a theory with which
 
 \begin{figure}[]
 \centering
-	\begin{subfigure}[]{0.3\textwidth}
+	\begin{subfigure}[t]{0.3\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
@@ -161,9 +178,10 @@ Before experimental results have any real meaning, they need a theory with which
 		\propag [boson] (d) to [edge label' = $Z^{0}$] (e);
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{test2}
+	\caption{Exchange of a virtual $Z^{0}$ boson.}
 	\end{subfigure}
-	\begin{subfigure}[]{0.3\textwidth}
+	\hspace{3mm}
+	\begin{subfigure}[t]{0.3\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
@@ -184,9 +202,10 @@ Before experimental results have any real meaning, they need a theory with which
 		\propag [boson] (e) to [edge label' = $W^{+}$] (o);
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{test2}
+	\caption{Weak loop with $W$ bosons.}
 	\end{subfigure}
-	\begin{subfigure}[]{0.3\textwidth}
+	\hspace{3mm}
+	\begin{subfigure}[t]{0.3\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
@@ -206,7 +225,7 @@ Before experimental results have any real meaning, they need a theory with which
 		\propag [scalar] (d) to [edge label' = $H$] (e);
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{test2}
+	\caption{Exchange of a Higgs boson.}
 	\end{subfigure}
 
 	\begin{subfigure}[]{0.4\textwidth}
@@ -235,9 +254,9 @@ Before experimental results have any real meaning, they need a theory with which
 		\propag [anti fermion] (f) to [half right, edge label' = $\overline f$] (g);
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{test2}
+	\caption{Second order weak diagram.}
 	\end{subfigure}
-\caption[testfeynmanpicture2]{Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
+\caption[testfeynmanpicture2]{First order (and one second) weak diagrams contributing to $a$. B is a magnetic field. Feynman diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:feyn2}
 \end{figure}
 
@@ -252,7 +271,7 @@ Before experimental results have any real meaning, they need a theory with which
 
 \begin{figure}[]
 \centering
-	\begin{subfigure}[]{0.4\textwidth}
+	\begin{subfigure}[t]{0.4\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
@@ -278,7 +297,7 @@ Before experimental results have any real meaning, they need a theory with which
 		\end{tikzpicture}
 	\caption{H stands for hadrons here...}
 	\end{subfigure}
-	\begin{subfigure}[]{0.4\textwidth}
+	\begin{subfigure}[t]{0.4\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
@@ -304,7 +323,7 @@ Before experimental results have any real meaning, they need a theory with which
 		\end{tikzpicture}
 	\caption{H stands for hadrons here...}
 	\end{subfigure}
-\caption[testfeynmanpicture2]{Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
+\caption[testfeynmanpicture2]{Feynman diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:feyn3}
 \end{figure}
 
@@ -317,7 +336,7 @@ Before experimental results have any real meaning, they need a theory with which
 
 \begin{figure}[]
 \centering
-	\begin{subfigure}[]{0.4\textwidth}
+	\begin{subfigure}[t]{0.4\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
@@ -342,7 +361,7 @@ Before experimental results have any real meaning, they need a theory with which
 		\end{tikzpicture}
 	\caption{H stands for hadrons here...}
 	\end{subfigure}
-	\begin{subfigure}[]{0.4\textwidth}
+	\begin{subfigure}[t]{0.4\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
 		\begin{feynhand}
@@ -370,7 +389,7 @@ Before experimental results have any real meaning, they need a theory with which
 		\end{tikzpicture}
 	\caption{test2}
 	\end{subfigure}
-\caption[testfeynmanpicture2]{Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
+\caption[testfeynmanpicture2]{Feynman diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:feyn4}
 \end{figure}
 
