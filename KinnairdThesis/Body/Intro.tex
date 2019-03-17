@@ -1,7 +1,6 @@
 %!TEX root = ../thesis.tex
 
-\thispagestyle{myheadings} % should I be including this at the top of every section page??
-
+\thispagestyle{myheadings}
 \graphicspath{{Body/Figures/Theory/}}
 
 \chapter{Introduction}
@@ -9,70 +8,52 @@
 
 The prevailing theory for particle physics, the Standard Model (SM), has had tremendous success in describing our universe. It has been used to predict and explain a wide variety of phenomena and particles, their properties and interactions, to great precision. However, in spite of its success in explaining nearly all experimental results, there exist unanswered questions about our universe. Some of these include the matter-antimatter asymmetry, the source of mass for the neutrinos, the existence of dark matter, and an inability to fully incorporate our best theory of gravitation. Many particle physics experiments are being devised and conducted around the world in order to shed light on these questions and improve our understanding of reality. One such particular experiment is the Fermilab Muon \gmtwo Experiment (E989) underway at the Fermi National Accelerator Laboratory (FNAL) located in Batavia, Illinois.
 
-I have been a part of the E989 experiment since I began my graduate degree six years ago. Three years ago I moved from Boston to Batavia to be where the action is. This dissertation will describe in detail the work which I have done for the experiment. Chapter 1 will provide experimental and theoretical background to the experiment, as well its motivation. Chapter 2 will  describe the experiment in broad strokes. Chapter 3 will describe the magnetic field portion of the experiment, and magnetic field simulations I conducted. Chapter 4 will describe the straw tracking detectors and their measurements, including the track fitting I wrote. Chapter 5 will describe The frequency measurement portion of the experiment, and detail the analysis results from data taken in the first half of 2018. Finally, Chapter 6 will concluded the thesis and the important results contained within.
+I have been a part of the E989 experiment since I began my graduate degree six years ago. Three years ago I moved from Boston to Batavia to be where the action is. This dissertation will describe in detail the work which I have done for the experiment. Chapter 1 will provide experimental and theoretical background to the experiment, as well its motivation. Chapter 2 will  describe the experimental principle. Chapter 3 will describe the magnetic field portion of the experiment, and magnetic field simulations I conducted. Chapter 4 will describe the straw tracking detectors and their measurements, including the track fitting I wrote. Chapter 5 will describe the frequency measurement portion of the experiment, and detail the analysis results from data taken in the first half of 2018. Finally, Chapter 6 will concluded the thesis and the important results contained within.
 
 
 \section{Magnetic Dipole Moments}
 \label{sec:MDMs}
 
-In order to understand the purpose of the Fermilab Muon \gmtwo Experiment, first we need to understand what the $g$ in \gmtwo is, and why we might want to measure it. All particles have intrinsic properties which describe those particles. One of those properties is the so called magnetic dipole moment. This property of a particle is related to its spin through the equation
+In order to understand the purpose of the Fermilab Muon \gmtwo Experiment, first we need to understand what the $g$ in \gmtwo is, which is what the experiment is measuring. All particles have intrinsic properties which describe those particles. One of those properties is the so called magnetic dipole moment. This property of a particle is related to its spin through the equation
 		\begin{align}
             \vec{\mu} = g \frac{Qe}{2m} \vec{s},
         \label{eq:magneticmoment}
 		\end{align}
-where $\vec{\mu}$ is the magnetic dipole moment of a particle, $\vec{s}$ is its spin vector, $m$ is its mass, $e$ is the positive charge of an electron, $Q = \pm1$, and \g is the gyromagnetic ratio, or "g-factor". Here and following $c$ and $\hbar$ have been set to 1. In a Dirac theory, \g is equal to 2 for spin-1/2 particles \cite{cite dirac or something}. See Appendix~\ref{gDirac} for a derivation of this result.
+where $\vec{\mu}$ is the magnetic dipole moment of a particle, $\vec{s}$ is its spin vector, $m$ is its mass, $e$ is the elementary charge, $Q = \pm1$, and \g is the so called "g-factor". (Here and following $c$ and $\hbar$ have been set to 1.) \g is some measureable and predictable constant, which as shown in \equref{eq:magneticmoment} simply relates the magnetic moment of a particle to its spin angular momentum. 
 
-
-
-It has the goal of measuring the magnetic moment of the muon, proportional to the $g$ in \gmtwo, to high precision in order to compare to SM theoretical predictions. Because the magnetic moment of particles couple to all existing particles, known or unknown, (source this? reference to a later section?) this provides an avenue through which theories might be constrained, and new physics narrowed down. Indeed this experiment is the latest in a line of such experiments which have measured the magnetic moment of the muon over the past several decades, the last of which measured the magnetic moment of the muon to .54 parts per million (ppm) at Brookhaven National Laboratory (BNL) in 2001 \cite{E821FinalReport}.
-
-
-\section{Background}
-\label{sec:Background}
-
-The previous \gmtwo experiment at BNL measured a discepancy in the magnetic moment of the muon between theory and experiment with a 2.2 - 2.7 standard deviation. (Cite the final report again?) That disagreement has since grown above 3$\sigma$ \cite{Keshavarzi:2018mgv}, depending on the theoretical analysis approaches used.
-
-
-\subsection{Definitions}
-\label{subsec:Definitions}
-
-
-
-
-		\begin{align}
-            a = \frac{g-2}{2}
+In a Dirac theory, \g is equal to 2 for spin-1/2 particles with no internal structure \cite{Dirac}. See Appendix~\ref{gDirac} for a derivation of this result. It turns out however, that \g is not quite equal to 2 even for these types of simple particles. Motivated by early experimental discrepencies such as the measurements of the hyperfine structure in hydrogen \cite{EarlyHyperfine1}, in 1948 Schwinger calculated the first "radiative correction" to the electron magnetic moment \cite{Schwinger}. In a quantum field theory, interactions of the particle with virtual particles in loops will contribute to the value of \g. In this context it is nicer to recast the magnetic moment formula as 
+		\begin{equation}
+		\begin{aligned}
+            \vec{\mu} &= 2(1+a) \frac{Qe}{2m} \vec{s}, \\
+            a &= \frac{g-2}{2},
         \label{eq:anamoly}
-		\end{align}
+		\end{aligned}
+		\end{equation}
+where $a$ is called the "anamolous" part of the magnetic moment, and contains all higher order corrections. By measuring $a$, the SM theory (and extensions to it) can be tested. The measurement of the anamolous piece of the muon is indeed where the Fermilab Muon \gmtwo Experiment gets its name.
 
 
--would it be worthwhile to include my derivation on the magnetic moment like in my hep presentation? - in the appendix
+\subsection{Why the muon and not the electron?}
+
+The magnetic moment of the electron has been measured extraordinarily precisely, to .28 parts per trillion (ppt) \cite{ElectronMDM}. It has been used to test SM theory extensively, and specifically the QED portion of it. Because the electron is so light, the contributions to $a_{e}$ come almost exclusively from QED. This is because the various contributions from both the weak and hadronic sectors contain couplings which depend on the mass of the particle squared. It is for this reason that the magnetic moment of the muon is such an interesting quantity to measure. Since the muon is approximately 200 times heavier than the electron, the senstivity of \amu is approximately 4000 times greater than that for the the electron.
 
 
-
-\subsection{Experiment History}
-\label{subsec:ExperimentHistory}
-
--do I want this? I'm sort of already talking about this for E821 in the intro and background - I don't think I want to go into the older experiments
-
-
-
-\section{Theory}
+\section{Standard Model Contributions to \amu}
 \label{sec:Theory}
+
+
+Before experimental results have any real meaning, they need a theory with which to compare.
+
+
+
 
 - see papers cited in my HEP2 class paper - and then look for new ones
 - Fred Jegerlehner's book
-- perhaps Matthew Schwartz's short paper 
 
 
 
-\begin{figure}[]
-	\centering
-	\includegraphics[width=0.9\textwidth]{AlexKPaperComparison}
-	\caption[AlexKPaperComparison]{any figures that are directly lifted from someone else's work needs to be cited evertime they're used I believe, even if I cite that work in the text somewhere - \cite{Keshavarzi:2018mgv} }
-	\label{fig:AlexKPaperComparison}
-\end{figure}
 
-Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.
+
+
 
 \begin{figure}[]
 \centering
@@ -143,7 +124,7 @@ Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.
 		\end{tikzpicture}
 	\caption{test2}
 	\end{subfigure}
-\caption[testfeynmanpicture2]{clean up and possibly replace}	
+\caption[testfeynmanpicture2]{Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:feyn1}
 \end{figure}
 
@@ -256,7 +237,7 @@ Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.
 		\end{tikzpicture}
 	\caption{test2}
 	\end{subfigure}
-\caption[testfeynmanpicture2]{clean up and possibly replace}	
+\caption[testfeynmanpicture2]{Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:feyn2}
 \end{figure}
 
@@ -323,7 +304,7 @@ Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.
 		\end{tikzpicture}
 	\caption{H stands for hadrons here...}
 	\end{subfigure}
-\caption[testfeynmanpicture2]{clean up and possibly replace}	
+\caption[testfeynmanpicture2]{Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:feyn3}
 \end{figure}
 
@@ -389,7 +370,7 @@ Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.
 		\end{tikzpicture}
 	\caption{test2}
 	\end{subfigure}
-\caption[testfeynmanpicture2]{clean up and possibly replace}	
+\caption[testfeynmanpicture2]{Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:feyn4}
 \end{figure}
 
@@ -397,3 +378,44 @@ Feynamn diagrams made with \cite{tikz-feynman,tikz-feynhand}.
 
 \subsection{BSM}
 \label{subsec:BSM}
+
+
+
+
+-why the muon mdm is important to measure
+
+
+
+
+
+
+\section{Background / experiment history / new experiment}
+\label{sec:Background}
+
+
+
+
+It has the goal of measuring the magnetic moment of the muon, proportional to the $g$ in \gmtwo, to high precision in order to compare to SM theoretical predictions. Because the magnetic moment of particles couple to all existing particles, known or unknown, (source this? reference to a later section?) this provides an avenue through which theories might be constrained, and new physics narrowed down. Indeed this experiment is the latest in a line of such experiments which have measured the magnetic moment of the muon over the past several decades, the last of which measured the magnetic moment of the muon to .54 parts per million (ppm) at Brookhaven National Laboratory (BNL) in 2001 \cite{E821FinalReport}.
+
+
+
+
+The previous \gmtwo experiment at BNL measured a discepancy in the magnetic moment of the muon between theory and experiment with a 2.2 - 2.7 standard deviation. (Cite the final report again?) That disagreement has since grown above 3$\sigma$ \cite{Keshavarzi:2018mgv}, depending on the theoretical analysis approaches used.
+
+
+
+
+
+
+
+
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=0.9\textwidth]{AlexKPaperComparison}
+	\caption[AlexKPaperComparison]{any figures that are directly lifted from someone else's work needs to be cited evertime they're used I believe, even if I cite that work in the text somewhere - \cite{Keshavarzi:2018mgv} }
+	\label{fig:AlexKPaperComparison}
+\end{figure}
+
+
+
