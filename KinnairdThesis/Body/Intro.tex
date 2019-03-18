@@ -34,8 +34,9 @@ where $a$ is called the "anamolous" part of the magnetic moment, and contains al
 
 \subsection{Why the muon and not the electron?}
 
-The magnetic moment of the electron has been measured extraordinarily precisely, to .28 parts per trillion (ppt) \cite{ElectronMDM}. It has been used to test SM theory extensively, and specifically the QED portion of it. Because the electron is so light, the contributions to $a_{e}$ come almost exclusively from QED. This is because the various contributions from both the weak and hadronic sectors contain couplings which depend on the mass of the particle squared. It is for this reason that the magnetic moment of the muon is such an interesting quantity to measure. Since the muon is approximately 200 times heavier than the electron, the senstivity of \amu to radiative corrections is approximately 4000 times greater than that for the the electron.
+The magnetic moment of the electron has been measured extraordinarily precisely, to .28 parts per trillion (ppt) \cite{ElectronMDM}. It has been used to test SM theory extensively, and specifically the QED portion of it. Because the electron is so light, the contributions to $a_{e}$ come almost exclusively from QED. This is because the various contributions from both the weak and hadronic sectors contain couplings which depend on the mass of the particle squared. It is for this reason that the magnetic moment of the muon is such an interesting quantity to measure. Since the muon is approximately 200 times heavier than the electron, the senstivity of \amu to radiative corrections is approximately 40000 times greater than that for the the electron.
 
+-should I put the math in as the coupling proportional to the mass over the energy scale squared?
 
 \section{Standard Model Contributions to \amu}
 \label{sec:Theory}
@@ -47,20 +48,7 @@ Before experimental results have any real meaning, they need a theory with which
 		\end{align}
 The QED corrections are very well understood and have been calculated to very high order. The electroweak corrections are harder to calculate, but due to the heavy masses of the force carrying bosons and by extension weaker couplings, are only required to be known up to two loop level. And indeed they are. Finally, the hadronic contributions are where most of the theoretical uncertainties lie, and where most active work is going on. Indeed there are also some data-driven approaches to the hadronic contributions which are interesting and will be discussed in a following section.
 
-
-
-
-
-
--just put words down on the page, keep it short and simple, I can go back and add detail where necessary, I'll have to do a lot of editing anyways
--dont worry about the ordering of sections exactly either
--check Saskia's thesis for the latest theoretical results
-
-
-- see papers cited in my HEP2 class paper - and then look for new ones
-- Fred Jegerlehner's book
-
-
+By the time I'm submitting my thesis some values will have changed - so I will need to go back and replace the numbers and cite the latest works.
 
 
 \subsection{QED}
@@ -154,9 +142,9 @@ Over 99\% of the value of \amu comes from the QED parts, but the error is much s
 
 The electroweak contributions to \amu are known to two loop level, with some 3 loop parts estimated. The contributions stem from couplings with the heavy weak gauge bosons. Because the couplings to these heavy bosons are small, the electroweak contributions to \amu are small. The different one loop diagrams and an example two loop diagram are shown in \figref{fig:EWDiagrams}. The value of the elctroweak contributions is
 		\begin{align}
-            a_{\mu}^{\text{EW}} = (15.12 \pm 0.1) \times 10^{10}.
+            a_{\mu}^{\text{EW}} = (15.12 \pm 0.01) \times 10^{10}.
 		\end{align}
-with improvements having been made recently \cite{EW1,EW2}. Again the error on these contibutions are small compared to the hadronic contributions discussed next, as well as the experimental uncertainties.
+with improvements having been made recently \cite{EW1,EW2}. (Double check final value later.) Again the error on these contibutions are small compared to the hadronic contributions discussed next, as well as the experimental uncertainties.
 
 
 \begin{figure}[]
@@ -281,7 +269,7 @@ where $K(s)$ is some kinematic factor, and $R(s)$ is a ratio of cross-sections
 		\begin{align}
             R(s) = \frac{\sigma(e^{+}e^{-} \rightarrow \text{hadrons})}{\sigma(e^{+}e^{-} \rightarrow \mu^{+}\mu^{-})}.
 		\end{align}
-The cross-section data for this relation has been measured in parts by various experiments, including KLOE, BaBar, and BESIII \cite{KLOE,BaBar,BESIII}. (Name other experiments? (Belle, VEPP-2000) would then need to cite them somehow.) The analysis by \refref{Keshavarzi:2018mgv} gives results as 
+The cross-section data for this relation has been measured in parts by various experiments, including KLOE, CLEO, BaBar, and BESIII \cite{KLOE,CLEO,BaBar,BESIII}. The analysis by \refref{Keshavarzi:2018mgv} gives results as 
 		\begin{equation}
 		\begin{aligned}
             a_{\mu}^{\text{HVP;LO}} &= (693.26 \pm 2.46) \times 10^{10}, \\
@@ -289,8 +277,6 @@ The cross-section data for this relation has been measured in parts by various e
 		\end{aligned}
 		\end{equation}
 where $a_{\mu}^{\text{HVP;NLO}}$ is the next to leading order calculation. This calculation is consistent with \refref{HVP2}.
-
--should I mention the optical theorem?
 
 \begin{figure}[]
 \centering
@@ -355,14 +341,20 @@ where $a_{\mu}^{\text{HVP;NLO}}$ is the next to leading order calculation. This 
 
 
 
-The second prescription is to .... lattice ... 
+The second prescription to estimating the HVP contributions is a first principles approach, using lattice QCD and QED. It is a gauge theory defined on a matrix of points in time and space, which once the matrix is taken infinitely large with the spacing between the points infinitely small, recovers the results from a continuous theory. The results for the leading order estimates of $a_{\mu}^{\text{HVP;LO}}$ are consistent with those provided above, though the error is larger, and indeed provides the most precise determination of $a_{\mu}^{\text{HVP;LO}}$ when calculation is supplemented with the cross section data \cite{Lattice}.
 
 
 
 \subsection*{Hadronic Light-by-Light}
 \label{subsec:HLbL}
 
-The second of these hadronic contributions parts is a higher order 4 photon blahblah
+The second of these hadronic contribution parts is a higher order three photon interaction, termed hadronic light-by-light, diagrams of which are shown in \figref{fig:HLbL}. Again perturbation theory is unable to assist in the calculation of these contributions. For a long time the calculation of these diagrams was model dependent, and has therefore been the most contentious part of the SM calculation. In more recent years, there have been efforts to produce results using dispersive and lattice approaches \cite{HLbL1}. In accordance with all of this, the error on this contribution is large, comparable to that of the $a_{\mu}^{\text{HVP;LO}}$ term even though the size of this contribution is small. The value of the HLbL contributions to \amu quoted by \refref{Keshavarzi:2018mgv} is
+		\begin{align}
+            a_{\mu}^{\text{HLbL}} = (9.8 \pm 2.6) \times 10^{10}.
+		\end{align}
+
+
+-I'm not exactly sure what value to use for this...double check it later
 
 
 \begin{figure}[]
@@ -390,7 +382,7 @@ The second of these hadronic contributions parts is a higher order 4 photon blah
 		\propag [photon] (f) to (o);
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{H stands for hadrons here...}
+	\caption{The first HLbL diagram, where three photons are exchanged with some virtual hadrons blob.}
 	\end{subfigure}
 	\hspace{3mm}
 	\begin{subfigure}[t]{0.4\textwidth}
@@ -419,54 +411,117 @@ The second of these hadronic contributions parts is a higher order 4 photon blah
 		\propag [scalar] (o) to [edge label = {$\pi^{0}, \eta$}] (g);
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{test2}
+	\caption{A second HLbL diagram, where three photons are exchanged with two virtual hadrons blobs, that are connected with some virtual chargeless propagator.}
 	\end{subfigure}
-\caption[testfeynmanpicture2]{Feynman diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
-\label{fig:feyn4}
+\caption[HLbL]{HLbL diagrams contributing to \amu. Feynman diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
+\label{fig:HLbL}
 \end{figure}
 
 
 
-\subsection{BSM}
-\label{subsec:BSM}
+\subsection{Combined Standard Model Value}
 
-
-
-
--why the muon mdm is important to measure
-
--talk about chiral flipping stuff
-
-
-
-
-\section{Background / experiment history / new experiment}
-\label{sec:Background}
-
-
-
-
-It has the goal of measuring the magnetic moment of the muon, proportional to the $g$ in \gmtwo, to high precision in order to compare to SM theoretical predictions. Because the magnetic moment of particles couple to all existing particles, known or unknown, (source this? reference to a later section?) this provides an avenue through which theories might be constrained, and new physics narrowed down. Indeed this experiment is the latest in a line of such experiments which have measured the magnetic moment of the muon over the past several decades, the last of which measured the magnetic moment of the muon to .54 parts per million (ppm) at Brookhaven National Laboratory (BNL) in 2001 \cite{E821FinalReport}.
-
-
-
-
-The previous \gmtwo experiment at BNL measured a discepancy in the magnetic moment of the muon between theory and experiment with a 2.2 - 2.7 standard deviation. (Cite the final report again?) That disagreement has since grown above 3$\sigma$ \cite{Keshavarzi:2018mgv}, depending on the theoretical analysis approaches used.
-
-
-
-
-
-
-
-
+The sum of the \amu contributions listed here is
+		\begin{equation}
+		\begin{aligned}
+            a_{\mu}^{\text{SM}} &= a_{\mu}^{\text{QED}} + a_{\mu}^{\text{EW}} + a_{\mu}^{\text{Had}}, \\
+			&= (11659180.26 \pm 3.58) \times 10^{10}.
+		\end{aligned}
+		\end{equation}
+(Double check this and make sure the correlations in the final result are considered appropriately. I should be able to get a better number for this closer to when I submit my thesis.) The relative uncertainty of this result is 307 ppb. Other analyses with different values for the various contributions typically agree well, as shown on the left side of \figref{fig:AlexKPaperComparison}. Depending on what calculations are used, the discrepancy between theory and experiment ranges from 3-4 $\sigma$. The latest experimental result is described in the following section.
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.9\textwidth]{AlexKPaperComparison}
-	\caption[AlexKPaperComparison]{any figures that are directly lifted from someone else's work needs to be cited evertime they're used I believe, even if I cite that work in the text somewhere - \cite{Keshavarzi:2018mgv} }
+	\caption[AlexKPaperComparison]{Various theoretical values for \amu on the left, as compared to the most recent experimental result on the right. \cite{Keshavarzi:2018mgv}}
 	\label{fig:AlexKPaperComparison}
 \end{figure}
+
+
+\section{Experimental Value of \amu and Discrepancy with \texorpdfstring{$a_{\mu}^{\text{SM}}$}{amusm}}
+\label{sec:Background}
+
+
+The theoretical contributions to \amu listed in the previous section have improved over time. Similarly, work on the experimental side has been going on for decades, with more precise results being determined over time \cite{PastExperiments}. The most recent experiment to measure \gmtwo was the Brookhaven Muon \gmtwo Experiment held at Brookhaven National Laboratory (BNL) in 2001 \cite{E821FinalReport}. That experiment measured a value for \amu of 
+		\begin{align}
+            a_{\mu}^{\text{Exp}} = (11659208.0 \pm 6.3) \times 10^{10},
+		\end{align}
+which corresponds to a 540 ppb relative uncertainty. Note that the uncertainty of the experimental measurement is comparable to that of the theory, necessitating precise understanding of all the different theoretical parts. The difference between the experimental and theoretical values here is
+		\begin{align}
+            a_{\mu}^{\text{Exp}} - a_{\mu}^{\text{SM}} = (27.74 \pm 7.25) \times 10^{10},
+		\end{align}
+corresponding to a discrepancy of 3.83 $\sigma$.
+
+
+
+-double check the numbers here as well later on down the line, values like \amu experimental may even have changed if other constants have changed
+-do I want to go into the details of the BNL experiment in any way here?
+
+
+
+
+\section{Beyond the Standard Model and the Purpose of E989}
+\label{sec:BSM}
+
+
+While the discrepancy between experiment and theory might be attributed to miscalculations in the theory or systematic errors in the experiment, no such errors have been found despite serious attempts to resolve the two. Indeed the discrepancy has only grown over time as the theoretical calculations have matured, and no errors in the experiment have been uncovered. The most intriguing and exciting source of the discrepancy would be physics beyond the standard model. Because the muon is so much more massive than the electron, it would couple in a greater way to new particles within virtual loops, or physics beyond the standard model (BSM).
+
+Not only that, but due to the chiral flipping nature...
+
+ A basic example is shown in \figref{fig:BSM}. The discrepancy from the previous experiment was however not at the 5 $\sigma$ level necessary to classify it as a discovery. It is for this reason that measuring \gmtwo is such an important pursuit, and why the E989 experiment has been undertaken. Indeed with the lack of new physics results coming out of the LHC and other experiments, E989 is especially positioned to uncover something new at a time where there are so few hints of new physics. Because of this, the interest in the E821 experiment and underway E989 experiment has only grown over time. The number of citations for the E821 results has been consistently high and is shown in \figref{fig:E821Citations}.
+
+
+-should I include a feynman diagram of a chiral flipping process? where to talk about this? talk to Lee about the nature of this stuff
+
+\begin{figure}[]
+\centering
+	\begin{tikzpicture}[baseline=(o.base)]
+	\begin{feynhand}
+	\large
+	\setlength{\feynhandlinesize}{1pt}
+	\vertex [ringblob] (o) at (0,0) {BSM};
+	\vertex (a) at (-2,-2) {$l$}; 
+	\vertex (b) at (2,-2) {$\overline l$}; 
+	\vertex (c) at (0,2) {B};
+	\propag [fermion] (a) to (o);
+	\propag [anti fermion] (b) to (o);
+	\propag [photon] (c) to [edge label = $\gamma$] (o);
+	\end{feynhand}
+	\end{tikzpicture}
+\caption[BSMDiagram]{An example Feynman diagram, where the leptons couple to the magnetic field through some BSM physics. Feynman diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
+\label{fig:BSM}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=0.9\textwidth]{E821Citations}
+	\caption[E821Citations]{The number of citations for the BNL experiment papers as a function of year since publication. Plot courtesy of Lee Roberts.}
+	\label{fig:E821Citations}
+\end{figure}
+
+
+The E989 experiment has the goal of measuring \amu to 140 ppb over the course of several years. This would be a factor of 4 improvement over the BNL result stemming from a 20 times increase in statistics, which was the limiter in the previous experiment. The data comprising Run 1, gathered in the spring and summer of 2018, is the subject of this thesis, and corresponds to an experimental uncertainty comparable to the BNL result. When it's all said and done, the hope is that we measure something new and exciting, pushing the discrepancy out beyond the 5 $\sigma$ level. Even if we do not however, it is valuable in itself to resolve this conflict.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
