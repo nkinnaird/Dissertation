@@ -66,10 +66,11 @@ The QED corrections are very well understood and have been calculated to very hi
 \subsection{QED}
 \label{subsec:QED}
 
-The QED contributions to \amu stem solely from loops with virtual leptons and photons. They have been calculated up to 5 loop levels from over 12,000 Feynman diagrams \cite{Kinoshita1,Kinoshita2}. The value is
+The QED contributions to \amu stem solely from loops with virtual leptons and photons. They have been calculated up to 5 loop levels from over 12,000 Feynman diagrams \cite{Kinoshita1,Kinoshita2}. The first couple of diagrams including the Dirac $g = 2$ and Schwinger diagrams are shown in \figref{fig:QEDDiagrams}. The value is
 		\begin{align}
             a_{\mu}^{\text{QED}} = (11658471.8971 \pm 0.007) \times 10^{10}.
 		\end{align}
+Over 99\% of the value of \amu comes from the QED parts, but the error is much smaller than the other contributions and than the experimental uncertainty.
 
 \begin{figure}[]
 \centering
@@ -143,17 +144,19 @@ The QED contributions to \amu stem solely from loops with virtual leptons and ph
 	\caption{A two loop diagram.}
 	\end{subfigure}
 \caption[QEDDiagrams]{The first of many QED diagrams contributing to $a$. B is a magnetic field. Feynman diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
-\label{fig:feyn1}
+\label{fig:QEDDiagrams}
 \end{figure}
-
-
-
-
 
 
 
 \subsection{Electroweak}
 \label{subsec:Electroweak}
+
+The electroweak contributions to \amu are known to two loop level, with some 3 loop parts estimated. The contributions stem from couplings with the heavy weak gauge bosons. Because the couplings to these heavy bosons are small, the electroweak contributions to \amu are small. The different one loop diagrams and an example two loop diagram are shown in \figref{fig:EWDiagrams}. The value of the elctroweak contributions is
+		\begin{align}
+            a_{\mu}^{\text{EW}} = (15.12 \pm 0.1) \times 10^{10}.
+		\end{align}
+with improvements having been made recently \cite{EW1,EW2}. Again the error on these contibutions are small compared to the hadronic contributions discussed next, as well as the experimental uncertainties.
 
 
 \begin{figure}[]
@@ -256,18 +259,38 @@ The QED contributions to \amu stem solely from loops with virtual leptons and ph
 		\end{tikzpicture}
 	\caption{Second order weak diagram.}
 	\end{subfigure}
-\caption[testfeynmanpicture2]{First order (and one second) weak diagrams contributing to $a$. B is a magnetic field. Feynman diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
-\label{fig:feyn2}
+\caption[EWDiagrams]{First order (and one second) weak diagrams contributing to $a$. B is a magnetic field. Feynman diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
+\label{fig:EWDiagrams}
 \end{figure}
 
 
+\subsection{Hadronic}
+\label{subsec:Hadronic}
+
+The hadronic contributions to \amu stem from interactions with hadrons. Because they cannot be calculated perturbatively at low energies due to the QCD nature of these particles, these calculations comprise the dominant uncertainty in the SM calculation, and make their error estimation extra important when comparing to experiment. These contributions can be separated into two parts. 
 
 
-
-\subsection{HVP}
+\subsection*{Hadronic Vacuum Polarization}
 \label{subsec:HVP}
 
--clean up hadronic section formatting - figure out exactly how I want to lay out the theory part in relation to the introduction
+The first of these hadronic contribution parts is the hadronic vacuum polarization part (HVP), the first order diagram of which is shown in \figref{fig:HVP1}. There are two main prescriptions for calculating these contributions. The first is to relate the virtual hadron production within these loops to real hadron production through dispersion theory \cite{Jeger}. The leading order contribution can be written as 
+		\begin{align}
+            a_{\mu}^{\text{HVP;LO}} = \Big(\frac{\alpha m_{\mu}}{3\pi}\Big)^{2} \int_{m_{\pi}^{2}}^{\infty} \frac{ds}{s^{2}} K(s) R(s)
+		\end{align}
+where $K(s)$ is some kinematic factor, and $R(s)$ is a ratio of cross-sections
+		\begin{align}
+            R(s) = \frac{\sigma(e^{+}e^{-} \rightarrow \text{hadrons})}{\sigma(e^{+}e^{-} \rightarrow \mu^{+}\mu^{-})}.
+		\end{align}
+The cross-section data for this relation has been measured in parts by various experiments, including KLOE, BaBar, and BESIII \cite{KLOE,BaBar,BESIII}. (Name other experiments? (Belle, VEPP-2000) would then need to cite them somehow.) The analysis by \refref{Keshavarzi:2018mgv} gives results as 
+		\begin{equation}
+		\begin{aligned}
+            a_{\mu}^{\text{HVP;LO}} &= (693.26 \pm 2.46) \times 10^{10}, \\
+            a_{\mu}^{\text{HVP;NLO}} &= (-9.82 \pm 0.04) \times 10^{10}, 
+		\end{aligned}
+		\end{equation}
+where $a_{\mu}^{\text{HVP;NLO}}$ is the next to leading order calculation. This calculation is consistent with \refref{HVP2}.
+
+-should I mention the optical theorem?
 
 \begin{figure}[]
 \centering
@@ -295,8 +318,10 @@ The QED contributions to \amu stem solely from loops with virtual leptons and ph
 		\node at (0, -2) {cut};
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{H stands for hadrons here...}
+	\caption{The first order HVP diagram. The blob H in the middle indicates any combination of hadrons which satisfy the Feynman rules. By making a 'cut' at the virtual hadrons part, this diagram can be related to the one on the right.} 
+	\label{fig:HVP1}
 	\end{subfigure}
+	\hspace{3mm}
 	\begin{subfigure}[t]{0.4\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
@@ -321,18 +346,24 @@ The QED contributions to \amu stem solely from loops with virtual leptons and ph
 		\node at (3, 0) {real hadrons};
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{H stands for hadrons here...}
+	\caption{The Feynman diagram for electron positron annihilation to hadrons. This can be related to the diagram on the left.}
+	\label{fig:HVP2}
 	\end{subfigure}
-\caption[testfeynmanpicture2]{Feynman diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
-\label{fig:feyn3}
+\caption[HVP]{Feynman diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
+\label{fig:HVP}
 \end{figure}
 
 
 
+The second prescription is to .... lattice ... 
 
 
-\subsection{HLbL}
+
+\subsection*{Hadronic Light-by-Light}
 \label{subsec:HLbL}
+
+The second of these hadronic contributions parts is a higher order 4 photon blahblah
+
 
 \begin{figure}[]
 \centering
@@ -361,6 +392,7 @@ The QED contributions to \amu stem solely from loops with virtual leptons and ph
 		\end{tikzpicture}
 	\caption{H stands for hadrons here...}
 	\end{subfigure}
+	\hspace{3mm}
 	\begin{subfigure}[t]{0.4\textwidth}
 	\centering
 		\begin{tikzpicture}[baseline=(o.base)]
@@ -403,7 +435,7 @@ The QED contributions to \amu stem solely from loops with virtual leptons and ph
 
 -why the muon mdm is important to measure
 
-
+-talk about chiral flipping stuff
 
 
 
