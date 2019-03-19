@@ -6,35 +6,40 @@
 \chapter{Introduction}
 \label{chapter:Introduction}
 
-The prevailing theory for particle physics, the Standard Model (SM), has had tremendous success in describing our universe. It has been used to predict and explain a wide variety of phenomena and particles, their properties and interactions, to great precision. However, in spite of its success in explaining nearly all experimental results, there exist unanswered questions about our universe. Some of these include the matter-antimatter asymmetry, the source of mass for the neutrinos, the existence of dark matter, and an inability to fully incorporate our best theory of gravitation. Many particle physics experiments are being devised and conducted around the world in order to shed light on these questions and improve our understanding of reality. One such particular experiment is the Fermilab Muon \gmtwo Experiment (E989) underway at the Fermi National Accelerator Laboratory (FNAL) located in Batavia, Illinois.
+The prevailing theory for particle physics, the Standard Model (SM), has had tremendous success in describing our universe. It has been used to predict and explain a wide variety of phenomena, particles, properties, and interactions to great precision. However, in spite of its success in explaining nearly all experimental results, there remain unanswered questions about our universe. Some of these include the matter-antimatter asymmetry, the source of mass for the neutrinos, the existence of dark matter, and an inability to fully incorporate our best theory of gravitation. Many particle physics experiments around the world are being devised and conducted in order to shed light on these questions and improve our understanding of reality. One such particular experiment is the Fermilab Muon \gmtwo Experiment (E989) underway at the Fermi National Accelerator Laboratory (FNAL) located in Batavia, Illinois.
 
-I have been a part of the E989 experiment since I began my graduate degree six years ago. Three years ago I moved from Boston to Batavia to be where the action is. This dissertation will describe in detail the work which I have done for the experiment. Chapter 1 will provide experimental and theoretical background to the experiment, as well its motivation. Chapter 2 will  describe the experimental principle. Chapter 3 will describe the magnetic field portion of the experiment, and magnetic field simulations I conducted. Chapter 4 will describe the straw tracking detectors and their measurements, including the track fitting I wrote. Chapter 5 will describe the frequency measurement portion of the experiment, and detail the analysis results from data taken in the first half of 2018. Finally, Chapter 6 will concluded the thesis and the important results contained within.
+I have been a part of the E989 experiment since I began my graduate degree six years ago. Three years ago I moved from Boston to Batavia to get more involved by being where the action is. This dissertation will describe the E989 experiment and the work which I have done for it along the way in detail. Chapter 1 will provide experimental and theoretical background to the experiment, as well its motivation. Chapter 2 will describe the experimental principle. Chapter 3 will describe the magnetic field portion of the experiment, and magnetic field simulations I conducted. Chapter 4 will describe the straw tracking detectors and their measurements, including the track fitting I wrote. Chapter 5 will describe the frequency measurement portion of the experiment, and detail my analysis results from data taken in the first half of 2018. Finally, Chapter 6 will concluded the thesis and the results contained within.
 
 
-\section{Magnetic Dipole Moments}
+\section{Magnetic Moments of Particles}
 \label{sec:MDMs}
 
-In order to understand the purpose of the Fermilab Muon \gmtwo Experiment, first we need to understand what the $g$ in \gmtwo is, which is what the experiment is measuring. All particles have intrinsic properties which describe those particles. One of those properties is the so called magnetic dipole moment. This property of a particle is related to its spin through the equation
+In order to understand the purpose of the Fermilab Muon \gmtwo Experiment, first we need to understand what the $g$ in \gmtwo is. This is what the experiment is measuring. All particles have intrinsic properties. One of those properties is the magnetic dipole moment.\footnote{\textit{Magnetic dipole moment} and \textit{magnetic moment} are equivalent when talking about particles.} This property of a particle is related to its spin through the equation
 		\begin{align}
-            \vec{\mu} = g \frac{Qe}{2m} \vec{s},
+            \vec{\mu} = g \frac{q}{2m} \vec{s},
         \label{eq:magneticmoment}
 		\end{align}
-where $\vec{\mu}$ is the magnetic dipole moment of a particle, $\vec{s}$ is its spin vector, $m$ is its mass, $e$ is the elementary charge, $Q = \pm1$, and \g is the so called "g-factor". (Here and following $c$ and $\hbar$ have been set to 1.) \g is some measureable and predictable constant, which as shown in \equref{eq:magneticmoment} simply relates the magnetic moment of a particle to its spin angular momentum. 
+where $\vec{\mu}$ is the magnetic dipole moment of a particle, $\vec{s}$ is its spin vector, $m$ is its mass, $q = \pm e$ where $e$ is the elementary charge, and \g is the so called "g-factor". \g is some measureable and predictable constant, which as shown in \equref{eq:magneticmoment} relates the magnetic moment of a particle to its spin angular momentum. Since the torque on a particle in a magnetic field is 
+		\begin{align}
+            \vec{N} = \vec{\mu} \times \vec{B},
+        \label{eq:torque}
+		\end{align}
+the rate at which a particles spin precesses in a magnetic field will depend on \g. This happens to be one of the key physics principles in the E989 experiment as will be discussed later.
 
-In a Dirac theory, \g is equal to 2 for spin-1/2 particles with no internal structure \cite{Dirac}. See Appendix~\ref{gDirac} for a derivation of this result. It turns out however, that \g is not quite equal to 2 even for these types of simple particles. Motivated by early experimental discrepencies such as the measurements of the hyperfine structure in hydrogen \cite{EarlyHyperfine1}, in 1948 Schwinger calculated the first "radiative correction" to the electron magnetic moment \cite{Schwinger}. In a quantum field theory, interactions of the particle with virtual particles in loops will contribute to the value of \g. In this context it is nicer to recast the magnetic moment formula as 
+In a Dirac theory, \g is equal to 2 for spin-1/2 particles with no internal structure \cite{Dirac}. See Appendix~\ref{gDirac} for a nice derivation of this result. It turns out however, that \g is not quite equal to 2 even for these types of particles. Motivated by early experimental discrepencies such as the measurements of the hyperfine structure in hydrogen \cite{EarlyHyperfine1}, in 1948 Schwinger calculated the first "radiative correction" to the electron magnetic moment \cite{Schwinger}. In a quantum field theory, interactions of the particle with virtual particles in loops will contribute to the value of \g. In this context it is nicer to recast the magnetic dipole moment formula as 
 		\begin{equation}
 		\begin{aligned}
-            \vec{\mu} &= 2(1+a) \frac{Qe}{2m} \vec{s}, \\
+            \vec{\mu} &= 2(1+a) \frac{q}{2m} \vec{s}, \\
             a &= \frac{g-2}{2},
         \label{eq:anamoly}
 		\end{aligned}
 		\end{equation}
-where $a$ is called the "anamolous" part of the magnetic moment, and contains all higher order corrections. The first correction calculated to $a$ by Schwinger was $a = \alpha/2\pi \approx 0.00116$, where $\alpha$ is the fine structure constant. By measuring $a$, the SM theory (and extensions to it) can be tested. The measurement of the anamolous piece of the muon is indeed where the Fermilab Muon \gmtwo Experiment gets its name.
+where $a$ is called the "anamolous" part of the magnetic moment, and contains all higher order corrections. The first correction calculated to $a$ by Schwinger was $a = \alpha/2\pi \approx 0.00116$, where $\alpha$ is the fine structure constant. By measuring $a$, the SM theory can be tested and extensions to it constrained. The measurement of the anamolous piece of the muon is indeed where the Fermilab Muon \gmtwo Experiment gets its name.
 
 
 \subsection{Why the muon and not the electron?}
 
-The magnetic moment of the electron has been measured extraordinarily precisely, to .28 parts per trillion (ppt) \cite{ElectronMDM}. It has been used to test SM theory extensively, and specifically the QED portion of it. Because the electron is so light, the contributions to $a_{e}$ come almost exclusively from QED. This is because the various contributions from both the weak and hadronic sectors contain couplings which depend on the mass of the particle squared. It is for this reason that the magnetic moment of the muon is such an interesting quantity to measure. Since the muon is approximately 200 times heavier than the electron, the senstivity of \amu to radiative corrections is approximately 40000 times greater than that for the the electron.
+The magnetic dipole moment of the electron has been measured extraordinarily precisely, to .28 parts per trillion (ppt) \cite{ElectronMDM}. It has been used to test SM theory extensively, and specifically the QED portion of it. Because the electron is so light, the contributions to $a_{e}$ come almost exclusively from QED. This is because the various contributions from both the weak and hadronic sectors contain couplings which depend on the mass of the particle squared. It is for this reason that the magnetic moment of the muon is such an interesting quantity to measure. Since the muon is approximately 200 times heavier than the electron, the senstivity of \amu to radiative corrections is approximately 40000 times greater than that for the the electron.
 
 -should I put the math in as the coupling proportional to the mass over the energy scale squared?
 
@@ -56,7 +61,7 @@ By the time I'm submitting my thesis some values will have changed - so I will n
 
 The QED contributions to \amu stem solely from loops with virtual leptons and photons. They have been calculated up to 5 loop levels from over 12,000 Feynman diagrams \cite{Kinoshita1,Kinoshita2}. The first couple of diagrams including the Dirac $g = 2$ and Schwinger diagrams are shown in \figref{fig:QEDDiagrams}. The value is
 		\begin{align}
-            a_{\mu}^{\text{QED}} = (11658471.8971 \pm 0.007) \times 10^{10}.
+            a_{\mu}^{\text{QED}} = (\QEDamu \pm \QEDamuErr) \times 10^{10}.
 		\end{align}
 Over 99\% of the value of \amu comes from the QED parts, but the error is much smaller than the other contributions and than the experimental uncertainty.
 
@@ -142,7 +147,7 @@ Over 99\% of the value of \amu comes from the QED parts, but the error is much s
 
 The electroweak contributions to \amu are known to two loop level, with some 3 loop parts estimated. The contributions stem from couplings with the heavy weak gauge bosons. Because the couplings to these heavy bosons are small, the electroweak contributions to \amu are small. The different one loop diagrams and an example two loop diagram are shown in \figref{fig:EWDiagrams}. The value of the elctroweak contributions is
 		\begin{align}
-            a_{\mu}^{\text{EW}} = (15.12 \pm 0.01) \times 10^{10}.
+            a_{\mu}^{\text{EW}} = (\EWamu \pm \EWamuErr) \times 10^{10}.
 		\end{align}
 with improvements having been made recently \cite{EW1,EW2}. (Double check final value later.) Again the error on these contibutions are small compared to the hadronic contributions discussed next, as well as the experimental uncertainties.
 
@@ -272,8 +277,8 @@ where $K(s)$ is some kinematic factor, and $R(s)$ is a ratio of cross-sections
 The cross-section data for this relation has been measured in parts by various experiments, including KLOE, CLEO, BaBar, and BESIII \cite{KLOE,CLEO,BaBar,BESIII}. The analysis by \refref{Keshavarzi:2018mgv} gives results as 
 		\begin{equation}
 		\begin{aligned}
-            a_{\mu}^{\text{HVP;LO}} &= (693.26 \pm 2.46) \times 10^{10}, \\
-            a_{\mu}^{\text{HVP;NLO}} &= (-9.82 \pm 0.04) \times 10^{10}, 
+            a_{\mu}^{\text{HVP;LO}} &= (\HVPLOamu \pm \HVPLOamuErr) \times 10^{10}, \\
+            a_{\mu}^{\text{HVP;NLO}} &= (\HVPNLOamu \pm \HVPNLOamuErr) \times 10^{10}, 
 		\end{aligned}
 		\end{equation}
 where $a_{\mu}^{\text{HVP;NLO}}$ is the next to leading order calculation. This calculation is consistent with \refref{HVP2}.
@@ -350,7 +355,7 @@ The second prescription to estimating the HVP contributions is a first principle
 
 The second of these hadronic contribution parts is a higher order three photon interaction, termed hadronic light-by-light, diagrams of which are shown in \figref{fig:HLbL}. Again perturbation theory is unable to assist in the calculation of these contributions. For a long time the calculation of these diagrams was model dependent, and has therefore been the most contentious part of the SM calculation. In more recent years, there have been efforts to produce results using dispersive and lattice approaches \cite{HLbL1}. In accordance with all of this, the error on this contribution is large, comparable to that of the $a_{\mu}^{\text{HVP;LO}}$ term even though the size of this contribution is small. The value of the HLbL contributions to \amu quoted by \refref{Keshavarzi:2018mgv} is
 		\begin{align}
-            a_{\mu}^{\text{HLbL}} = (9.8 \pm 2.6) \times 10^{10}.
+            a_{\mu}^{\text{HLbL}} = (\HLbLamu \pm \HLbLamuErr) \times 10^{10}.
 		\end{align}
 
 
@@ -425,7 +430,7 @@ The sum of the \amu contributions listed here is
 		\begin{equation}
 		\begin{aligned}
             a_{\mu}^{\text{SM}} &= a_{\mu}^{\text{QED}} + a_{\mu}^{\text{EW}} + a_{\mu}^{\text{Had}}, \\
-			&= (11659180.26 \pm 3.58) \times 10^{10}.
+			&= (\SMamu \pm \SMamuErr) \times 10^{10}.
 		\end{aligned}
 		\end{equation}
 (Double check this and make sure the correlations in the final result are considered appropriately. I should be able to get a better number for this closer to when I submit my thesis.) The relative uncertainty of this result is 307 ppb. Other analyses with different values for the various contributions typically agree well, as shown on the left side of \figref{fig:AlexKPaperComparison}. Depending on what calculations are used, the discrepancy between theory and experiment ranges from 3-4 $\sigma$. The latest experimental result is described in the following section.
@@ -433,7 +438,7 @@ The sum of the \amu contributions listed here is
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.9\textwidth]{AlexKPaperComparison}
-	\caption[Comparison between theoretical and experimental values for \amu]{Various theoretical values for \amu on the left, as compared to the most recent experimental result on the right. \cite{Keshavarzi:2018mgv}}
+	\caption[Comparison between theoretical and experimental values for \amu]{Various theoretical values for \amu on the left, as compared to the most recent and extrapolated experimental result on the right. \cite{Keshavarzi:2018mgv}}
 	\label{fig:AlexKPaperComparison}
 \end{figure}
 
