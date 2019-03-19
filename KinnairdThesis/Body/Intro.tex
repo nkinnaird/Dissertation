@@ -37,12 +37,6 @@ In a Dirac theory, \g is equal to 2 for spin-1/2 particles with no internal stru
 where $a$ is called the "anamolous" part of the magnetic moment, and contains all higher order corrections. The first correction calculated to $a$ by Schwinger was $a = \alpha/2\pi \approx 0.00116$, where $\alpha$ is the fine structure constant. By measuring $a$, the SM theory can be tested and extensions to it constrained. The measurement of the anamolous piece of the muon is indeed where the Fermilab Muon \gmtwo Experiment gets its name.
 
 
-\subsection{Why the muon and not the electron?}
-
-The magnetic dipole moment of the electron has been measured extraordinarily precisely, to .28 parts per trillion (ppt) \cite{ElectronMDM}. It has been used to test SM theory extensively, and specifically the QED portion of it. Because the electron is so light, the contributions to $a_{e}$ come almost exclusively from QED. This is because the various contributions from both the weak and hadronic sectors contain couplings which depend on the mass of the particle squared. It is for this reason that the magnetic moment of the muon is such an interesting quantity to measure. Since the muon is approximately 200 times heavier than the electron, the senstivity of \amu to radiative corrections is approximately 40000 times greater than that for the the electron.
-
--should I put the math in as the coupling proportional to the mass over the energy scale squared?
-
 \section{Standard Model Contributions to \amu}
 \label{sec:Theory}
 
@@ -51,19 +45,19 @@ Before experimental results have any real meaning, they need a theory with which
 		\begin{align}
             a_{\mu}^{\text{SM}} = a_{\mu}^{\text{QED}} + a_{\mu}^{\text{EW}} + a_{\mu}^{\text{Had}}
 		\end{align}
-The QED corrections are very well understood and have been calculated to very high order. The electroweak corrections are harder to calculate, but due to the heavy masses of the force carrying bosons and by extension weaker couplings, are only required to be known up to two loop level. And indeed they are. Finally, the hadronic contributions are where most of the theoretical uncertainties lie, and where most active work is going on. Indeed there are also some data-driven approaches to the hadronic contributions which are interesting and will be discussed in a following section.
-
-By the time I'm submitting my thesis some values will have changed - so I will need to go back and replace the numbers and cite the latest works.
 
 
 \subsection{QED}
 \label{subsec:QED}
 
-The QED contributions to \amu stem solely from loops with virtual leptons and photons. They have been calculated up to 5 loop levels from over 12,000 Feynman diagrams \cite{Kinoshita1,Kinoshita2}. The first couple of diagrams including the Dirac $g = 2$ and Schwinger diagrams are shown in \figref{fig:QEDDiagrams}. The value is
-		\begin{align}
-            a_{\mu}^{\text{QED}} = (\QEDamu \pm \QEDamuErr) \times 10^{10}.
-		\end{align}
-Over 99\% of the value of \amu comes from the QED parts, but the error is much smaller than the other contributions and than the experimental uncertainty.
+The QED contributions to \amu stem solely from loops with virtual leptons and photons. They are very well understood and have been calculated to very high order, having been calculated up to five loop level from over 12,000 Feynman diagrams \cite{Kinoshita1,Kinoshita2}. This has been done either analytically or numerically. The first couple of diagrams including the Dirac $g = 2$ and Schwinger diagrams are shown in \figref{fig:QEDDiagrams}. The value is
+		\begin{equation}
+		\begin{aligned}
+            a_{\mu}^{\text{QED}} &= \sum_{n=1}^{\infty} C_{n} \Big( \frac{\alpha}{\pi} \Big)^{n}, \\
+            					 &= (\QEDamu \pm \QEDamuErr) \times 10^{10},
+		\end{aligned}
+		\end{equation}
+where in the first line $a_{\mu}^{\text{QED}}$ is expressed as a perturbative expansion of the fine structure constant. $C_{1} = 1/2$ is the Schwinger result mentioned previously stemming from the diagram shown in \figref{fig:Schwinger}. Over 99\% of the value of \amu comes from the QED sector, but the error is much smaller than the other contributions, as well as the experimental uncertainty.
 
 \begin{figure}[]
 \centering
@@ -106,6 +100,7 @@ Over 99\% of the value of \amu comes from the QED parts, but the error is much s
 		\end{feynhand}
 		\end{tikzpicture}
 	\caption{The first loop diagram, calculated by Schwinger.}
+	\label{fig:Schwinger}
 	\end{subfigure}
 	\hspace{3mm}
 	\begin{subfigure}[t]{0.3\textwidth}
@@ -145,11 +140,11 @@ Over 99\% of the value of \amu comes from the QED parts, but the error is much s
 \subsection{Electroweak}
 \label{subsec:Electroweak}
 
-The electroweak contributions to \amu are known to two loop level, with some 3 loop parts estimated. The contributions stem from couplings with the heavy weak gauge bosons. Because the couplings to these heavy bosons are small, the electroweak contributions to \amu are small. The different one loop diagrams and an example two loop diagram are shown in \figref{fig:EWDiagrams}. The value of the elctroweak contributions is
+The electroweak contributions to \amu are known to two loop level, with some three loop parts estimated. The contributions stem from couplings with the heavy weak gauge bosons. The different one loop diagrams and an example two loop diagram are shown in \figref{fig:EWDiagrams}. Per usual Feynman rules, the propagators will contain the masses of the interacting bosons, while the kinematics will contain the masses of the leptons. For calculations of a muon in the case of \figref{fig:Z0Coupling}, these result in a factor $\sim(m_{\mu}/m_{Z^{0}})^{2}$. Because the mass of the gauge bosons are so much more than the muon, these processes are necessarily suppressed and the electroweak contributions to \amu are small. For this reason knowing these contributions only up to two loop level is sufficient. The value of the electroweak contributions is
 		\begin{align}
-            a_{\mu}^{\text{EW}} = (\EWamu \pm \EWamuErr) \times 10^{10}.
+            a_{\mu}^{\text{EW}} = (\EWamu \pm \EWamuErr) \times 10^{10},
 		\end{align}
-with improvements having been made recently \cite{EW1,EW2}. (Double check final value later.) Again the error on these contibutions are small compared to the hadronic contributions discussed next, as well as the experimental uncertainties.
+with improvements having been made recently \cite{EW1,EW2}. Again the error on these contibutions is small compared to the hadronic contributions discussed next, as well as the experimental uncertainty.
 
 
 \begin{figure}[]
@@ -175,6 +170,7 @@ with improvements having been made recently \cite{EW1,EW2}. (Double check final 
 		\end{feynhand}
 		\end{tikzpicture}
 	\caption{Exchange of a virtual $Z^{0}$ boson.}
+	\label{fig:Z0Coupling}
 	\end{subfigure}
 	\hspace{3mm}
 	\begin{subfigure}[t]{0.3\textwidth}
@@ -198,7 +194,7 @@ with improvements having been made recently \cite{EW1,EW2}. (Double check final 
 		\propag [boson] (e) to [edge label' = $W^{+}$] (o);
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{Weak loop with $W$ bosons.}
+	\caption{Electroweak loop with $W$ bosons.}
 	\end{subfigure}
 	\hspace{3mm}
 	\begin{subfigure}[t]{0.3\textwidth}
@@ -250,7 +246,7 @@ with improvements having been made recently \cite{EW1,EW2}. (Double check final 
 		\propag [anti fermion] (f) to [half right, edge label' = $\overline f$] (g);
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{Second order weak diagram.}
+	\caption{Second order electroweak diagram.}
 	\end{subfigure}
 \caption[Electroweak diagrams contributing to the magnetic moment]{First order (and one second) weak diagrams contributing to $a$. B is a magnetic field. Feynman diagrams made with \cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:EWDiagrams}
@@ -259,6 +255,10 @@ with improvements having been made recently \cite{EW1,EW2}. (Double check final 
 
 \subsection{Hadronic}
 \label{subsec:Hadronic}
+
+Finally, the hadronic contributions are where most of the theoretical uncertainties lie, and where most active work is going on. Indeed there are also some data-driven approaches to the hadronic contributions which are interesting and will be discussed in a following section.
+
+
 
 The hadronic contributions to \amu stem from interactions with hadrons. Because they cannot be calculated perturbatively at low energies due to the QCD nature of these particles, these calculations comprise the dominant uncertainty in the SM calculation, and make their error estimation extra important when comparing to experiment. These contributions can be separated into two parts. 
 
@@ -507,6 +507,16 @@ Not only that, but due to the chiral flipping nature...
 
 The E989 experiment has the goal of measuring \amu to 140 ppb over the course of several years. This would be a factor of 4 improvement over the BNL result stemming from a 20 times increase in statistics, which was the limiter in the previous experiment. The data comprising Run 1, gathered in the spring and summer of 2018, is the subject of this thesis, and corresponds to an experimental uncertainty comparable to the BNL result. When it's all said and done, the hope is that we measure something new and exciting, pushing the discrepancy out beyond the 5 $\sigma$ level. Even if we do not however, it is valuable in itself to resolve this conflict.
 
+
+
+
+\subsection{Why the muon and not the electron?}
+
+-integrate this into the above section
+
+The magnetic dipole moment of the electron has been measured extraordinarily precisely, to .28 parts per trillion (ppt) \cite{ElectronMDM}. It has been used to test SM theory extensively, and specifically the QED portion of it. Because the electron is so light, the contributions to $a_{e}$ come almost exclusively from QED. This is because the various contributions from both the weak and hadronic sectors contain couplings which depend on the mass of the particle squared. It is for this reason that the magnetic moment of the muon is such an interesting quantity to measure. Since the muon is approximately 200 times heavier than the electron, the senstivity of \amu to radiative corrections is approximately 40000 times greater than that for the the electron.
+
+-should I put the math in as the coupling proportional to the mass over the energy scale squared?
 
 
 
