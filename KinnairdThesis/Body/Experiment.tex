@@ -1,30 +1,38 @@
 %!TEX root = ../thesis.tex
 
-\thispagestyle{myheadings} % should I be including this at the top of every section page??
+\thispagestyle{myheadings}
 
 \graphicspath{{Body/Figures/ExperimentalOverview/Decay/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/ExperimentalOverview/Auxiliary/}}
 
 \chapter{Muon g-2 at Fermilab, E989}
-\label{chapter:Muon g-2 at Fermilab, E989}
+\label{chapter:E989}
 
 \section{Principle Technique}
 \label{sec:PrincipleTechnique}
 
-%-go here and read the introduction as intro here: http://g2pc1.bu.edu/~roberts/Miller-dR-R-rpp7_5_R03.pdf
-
-In a dipole magnetic field, particles will orbit at the cyclotron frequency 
-        \begin{align} \label{eq:wc}
-        	\omega_{c} = -\frac{Qe}{\gamma m}B,
-        \end{align}
-and their spins will turn at the precession frequency
+As referenced in \equref{eq:torque}, particles in a magnetic field will experience a torque which attempts to line up the magnetic dipole momement of the particle with the external field. Because of this, in a dipole field a particles spin will turn at the Larmour precesssion frequency
         \begin{align} \label{eq:ws}
-        	\omega_{s} = -g\frac{Qe}{2m}B - (1-\gamma)\frac{Qe}{\gamma m}B,
+            \vec{\omega}_{s} = -g\frac{q}{2m}\vec{B} - (1-\gamma)\frac{q}{\gamma m}\vec{B},
         \end{align}
-where $Q = \pm 1$ and $e > 0$. The difference between these two frequencies gives
+where as before $m$ is the particles mass, $q = \pm e$ where $e$ is the elementary charge, \g is the g-factor, $\gamma$ is the Lorentz relativistic factor, and $B$ is an external magnetic field. The second term is a relativistic correction to the precession frequency called Thomas precession \cite{Jackson}. Similarly, particles with some momentum will orbit at the cyclotron frequency
+        \begin{align} \label{eq:wc}
+            \vec{\omega}_{c} = -\frac{q}{\gamma m}\vec{B}.
+        \end{align}
+By taking the difference between these two frequencies we arrive at the "spin difference frequency"
         \begin{align} \label{eq:wasimple}
-        	\omega_{a} = \omega_{s} - \omega_{c} = -\frac{g-2}{2}\frac{Qe}{m}B = - a \frac{Qe}{m}B,
+            \vec{\omega}_{a} = \vec{\omega}_{s} - \vec{\omega}_{c} = -\frac{g-2}{2}\frac{q}{m}\vec{B} = - a \frac{q}{m}\vec{B},
         \end{align}
-a measureable frequency that is directly proportional to the property of significance, the anamoly a. By measuring the spin difference frequency for muons and the magnetic field B, \amu can be determined. In the presence of an electric field, which is useful in storing the muon beam within a dipole magnetic field, this expands to 
+a measureable frequency that is directly proportional to the anomalous magnetic moment $a$. Briefly note that if $g = 2$ as in a Dirac theory, then the particles spin would turn at the same rate as the momentum vector, and this spin difference frequency \wa would be identically 0. If this spin difference frequency for a muon and the external magnetic dipole can be measured, then then the anomalous magnetic moment of the muon \amu can be measured. The details of the former will be explained in this chapter, while that of the latter will be explained in \chapref{chapter:MagneticFieldMeasurement}.
+
+
+
+
+
+\clearpage
+
+
+
+In the presence of an electric field, which is useful in storing the muon beam within a dipole magnetic field, this expands to 
         \begin{align} \label{eq:waelectric}
             \vec{\omega}_{a} = -\frac{Qe}{m} [a_{\mu}\vec{B} - (a_{\mu} - \frac{1}{\gamma^{2}-1})(\vec{\beta} \times \vec{E}) ],
         \end{align}
@@ -36,11 +44,10 @@ If the motion of the muons is largely perpendicular to the magnetic field, then 
 
 In order to measure the spin difference frequency of the muon, a clever technique is used. Decay muons in the pion rest frame are 100\% polarized due to conservation of angular momentum and the fact that the decay neutrino must have a specific helicity. Within a pion beam then the highest and lowest energy decay muons are polarized. Muons will decay to positrons with a lifetime of about 2.2 $\mu$s, and the positrons with the highest energies will be correlated with the muon spin, a so called ``self-analyzing'' decay. The single available decay state for a maximum energy positron illustrates this in \figref{fig:MuonDecay}. Thus, by aquiring a large sample of polarized muons and injecting them into a storage ring 
 
-
-
 \begin{figure}[]
 \centering
-    \begin{subfigure}[]{0.4\textwidth}
+    \subcaptionbox{$\pi^{+}$ decay through a $W^{+}$ boson to a $\mu^{+}$.}
+    {
     \centering
         \begin{tikzpicture}[baseline=(o.base)]
         \begin{feynhand}
@@ -54,15 +61,15 @@ In order to measure the spin difference frequency of the muon, a clever techniqu
         \vertex (e) at (3.5,-1.5) {$\nu_{\mu}$};
         \propag [fermion] (a) to (o);
         \propag [anti fermion] (b) to (o);
-        \propag [boson] (o) to [edge label = $W^{-}$] (c);
+        \propag [boson] (o) to [edge label = $W^{+}$] (c);
         \propag [anti fermion] (c) to (d);
         \propag [fermion] (c) to (e);
         \end{feynhand}
-        \end{tikzpicture}
-    \caption{This diagram shows pion decay..}
-    \end{subfigure}
+        \end{tikzpicture}  
+    }
     \hspace{10mm}
-    \begin{subfigure}[]{0.4\textwidth}
+    \subcaptionbox{$\mu^{+}$ decay through a $W^{+}$ boson to a positron, muon anti-neutrino, and an electron neutrino.}
+    {
     \centering
         \begin{tikzpicture}[baseline=(o.base)]
         \begin{feynhand}
@@ -80,29 +87,20 @@ In order to measure the spin difference frequency of the muon, a clever techniqu
         \propag [fermion] (c) to (d);
         \propag [anti fermion] (c) to (e);
         \end{feynhand}
-        \end{tikzpicture}
-    \caption{This diagram shows muon decay.. fix subcaptions}
-    \end{subfigure}
-
-
-\caption[Decay Diagrams]{These diagrams show pion and muon decay...}    
+        \end{tikzpicture} 
+    }
+\caption[Feynman diagrams for muon and pion decay]{Feynman diagrams for pion (left) and muon (right) decay.}    
 \label{fig:DecayDiagrams}
 \end{figure}
 
 
 
 
-% \begin{figure}[]
-% 	\centering
-% 	\includegraphics[width=0.9\textwidth]{MuonDecay}
-%     \caption[Muon Decay - Max Energy Positron]{Make a new version of this picture, and improve this caption.: The single available decay state for maximum energy decay positrons. Due to the conservation of angular momentum and the single possible helicity states of the decay neutrino and anti-neutrino, the spin of the decay positron is exactly equal to the spin of the muon at the time of the decay.}
-%     \label{fig:MuonDecay}
-% \end{figure}
 
 \begin{figure}[]
     \centering
     \includegraphics[width=0.6\textwidth]{MuonDecayImproved}
-    \caption[Muon Decay - Max Energy Positron]{improve this captiontest.: The single available decay state for maximum energy decay positrons. Due to the conservation of angular momentum and the single possible helicity states of the decay neutrino and anti-neutrino, the spin of the decay positron is exactly equal to the spin of the muon at the time of the decay.}
+    \caption[Muon decay pictures for maximum and minimum energy positrons]{improve this captiontest.: The single available decay state for maximum energy decay positrons. Due to the conservation of angular momentum and the single possible helicity states of the decay neutrino and anti-neutrino, the spin of the decay positron is exactly equal to the spin of the muon at the time of the decay.}
     \label{fig:MuonDecayImproved}
 \end{figure}
 
