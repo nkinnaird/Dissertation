@@ -10,11 +10,11 @@
 \section{Principle Technique}
 \label{sec:PrincipleTechnique}
 
-As referenced in \equref{eq:torque}, particles in a magnetic field will experience a torque which attempts to line up the magnetic dipole momement of the particle with the external field. Because of this, in a dipole field a particles spin will turn at the Larmour precesssion frequency
+As referenced in \equref{eq:torque}, a particle in a magnetic field will experience a torque which attempts to line up the magnetic dipole momement of the particle with the external field. Because of this, in a dipole field a particles spin will turn at the Larmour precesssion frequency
         \begin{align} \label{eq:ws}
             \vec{\omega}_{s} = -g\frac{q}{2m}\vec{B} - (1-\gamma)\frac{q}{\gamma m}\vec{B},
         \end{align}
-where as before $m$ is the particles mass, $q = \pm e$ where $e$ is the elementary charge, \g is the g-factor, $\gamma$ is the Lorentz relativistic factor, and $B$ is an external magnetic field. The second term is a relativistic correction to the precession frequency called Thomas precession \cite{Jackson}. Similarly, particles with some momentum will orbit at the cyclotron frequency
+where as before $m$ is the particles mass, $q = \pm e$ where $e$ is the elementary charge, \g is the g-factor, $\gamma$ is the Lorentz relativistic factor, and $B$ is an external magnetic field. The second term is a relativistic correction to the precession frequency called Thomas precession \cite{Jackson}. Similarly, a particle with some momentum will orbit at the cyclotron frequency
         \begin{align} \label{eq:wc}
             \vec{\omega}_{c} = -\frac{q}{\gamma m}\vec{B}.
         \end{align}
@@ -22,7 +22,79 @@ By taking the difference between these two frequencies we arrive at the "spin di
         \begin{align} \label{eq:wasimple}
             \vec{\omega}_{a} = \vec{\omega}_{s} - \vec{\omega}_{c} = -\frac{g-2}{2}\frac{q}{m}\vec{B} = - a \frac{q}{m}\vec{B},
         \end{align}
-a measureable frequency that is directly proportional to the anomalous magnetic moment $a$. Briefly note that if $g = 2$ as in a Dirac theory, then the particles spin would turn at the same rate as the momentum vector, and this spin difference frequency \wa would be identically 0. If this spin difference frequency for a muon and the external magnetic dipole can be measured, then then the anomalous magnetic moment of the muon \amu can be measured. The details of the former will be explained in this chapter, while that of the latter will be explained in \chapref{chapter:MagneticFieldMeasurement}.
+a frequency that is directly proportional to the anomalous magnetic moment $a$. Briefly note that if $g = 2$ as in a Dirac theory, then the particles spin would turn at the same rate as the momentum vector, and this spin difference frequency \wa would be identically 0. If this spin difference frequency for a muon and the external magnetic dipole field can be measured, then then the anomalous magnetic moment of the muon \amu can be measured. The details of the former will be explained in this chapter, while that of the latter will be explained in \chapref{chapter:MagneticFieldMeasurement}.
+
+
+
+How can \wa for muons be measured? Positive muons decay to a positron and two neutrinos, as shown in \figref{fig:mudecay}. This is a parity violating process such that the positrons are preferentially emitted in a direction parallel to the muon spin at the time of decay in the muon rest frame. This is a consequency of the parity violating nature of the weak interaction which prefers left-handed particles and right-handed anti-particles \cite{book}. \figref{fig:MuonDecayImproved} shows pictorial views of the muon and its decay products, along with the resulting spin and momentum vectors of each particle. Decay positrons with maximum energy will be emitted opposite to the two neutrinos. Since neutrinos must be left-handed, and thus have their spins anti-parallel to their momentum, and since anti-neutrinos must be right-handed, and thus have their spins parallel to their momentum, by the law of conservation of angular momentum the positron must have its spin be parallel to the spin of the muon at the time of decay. By the opposite argument, decay positrons emitted with minimum energy such that the neutrinos are ejected opposite to one another must have its spin be anti-parallel to that of the muon at the time of decay. 
+
+
+In the laboratory frame there will thus be a correlation between the momentum of the decay positron and the muon spin
+
+By measuring blah for an ensemble of .. 
+
+
+
+\begin{figure}[]
+\centering
+    \subcaptionbox{$\mu^{+}$ decay through a $W^{+}$ boson to a positron, muon anti-neutrino, and an electron neutrino. This is the dominant decay mode.
+    \label{fig:mudecay}}
+    {
+    \centering
+        \begin{tikzpicture}[baseline=(o.base)]
+        \begin{feynhand}
+        \large
+        \setlength{\feynhandlinesize}{1pt}
+        \vertex [dot] (o) at (0,0);
+        \vertex (a) at (-2,0) {$\mu^{+}$}; 
+        \vertex (b) at (1.5,1.5) {$\overline \nu_{\mu}$}; 
+        \vertex (c) at (1.5,-1.5);
+        \vertex (d) at (3,0) {$\nu_{e}$};
+        \vertex (e) at (3,-3) {$e^{+}$};
+        \propag [anti fermion] (a) to (o);
+        \propag [fermion] (b) to (o);
+        \propag [boson] (o) to [edge label' = $W^{+}$] (c);
+        \propag [fermion] (c) to (d);
+        \propag [anti fermion] (c) to (e);
+        \end{feynhand}
+        \end{tikzpicture} 
+    }
+    \hspace{10mm}
+    \subcaptionbox{$\pi^{+}$ decay through a $W^{+}$ boson to a $\mu^{+}$.
+    \label{fig:pidecay}}
+    {
+    \centering
+        \begin{tikzpicture}[baseline=(o.base)]
+        \begin{feynhand}
+        \large
+        \setlength{\feynhandlinesize}{1pt}
+        \vertex [dot] (o) at (0,0);
+        \vertex (a) at (-1.5,1.5) {$u$}; 
+        \vertex (b) at (-1.5,-1.5) {$\overline d$}; 
+        \vertex (c) at (2,0);
+        \vertex (d) at (3.5,1.5) {$\mu^{+}$};
+        \vertex (e) at (3.5,-1.5) {$\nu_{\mu}$};
+        \propag [fermion] (a) to (o);
+        \propag [anti fermion] (b) to (o);
+        \propag [boson] (o) to [edge label = $W^{+}$] (c);
+        \propag [anti fermion] (c) to (d);
+        \propag [fermion] (c) to (e);
+        \end{feynhand}
+        \end{tikzpicture}  
+    }
+\caption[Feynman diagrams for muon and pion decay]{Feynman diagrams for muon (left) and pion (right) decay.}    
+\label{fig:DecayDiagrams}
+\end{figure}
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.6\textwidth]{MuonDecayImproved}
+    \caption[Muon decay pictures for maximum and minimum energy decay positrons]{Muon decay pictures for maximum and minimum energy decay positrons. Due to the conservation of angular momentum and the single possible helicity states of the decay neutrinos, the spin of the decay positron is exactly parallel to the spin of the muon at the time of the decay for maximum energy decay positrons (top), or anti-parallel for minimum energy decay positrons (bottom).}
+    \label{fig:MuonDecayImproved}
+\end{figure}
+
+
+
 
 
 
@@ -44,65 +116,12 @@ If the motion of the muons is largely perpendicular to the magnetic field, then 
 
 In order to measure the spin difference frequency of the muon, a clever technique is used. Decay muons in the pion rest frame are 100\% polarized due to conservation of angular momentum and the fact that the decay neutrino must have a specific helicity. Within a pion beam then the highest and lowest energy decay muons are polarized. Muons will decay to positrons with a lifetime of about 2.2 $\mu$s, and the positrons with the highest energies will be correlated with the muon spin, a so called ``self-analyzing'' decay. The single available decay state for a maximum energy positron illustrates this in \figref{fig:MuonDecay}. Thus, by aquiring a large sample of polarized muons and injecting them into a storage ring 
 
-\begin{figure}[]
-\centering
-    \subcaptionbox{$\pi^{+}$ decay through a $W^{+}$ boson to a $\mu^{+}$.}
-    {
-    \centering
-        \begin{tikzpicture}[baseline=(o.base)]
-        \begin{feynhand}
-        \large
-        \setlength{\feynhandlinesize}{1pt}
-        \vertex [dot] (o) at (0,0);
-        \vertex (a) at (-1.5,1.5) {$u$}; 
-        \vertex (b) at (-1.5,-1.5) {$\overline d$}; 
-        \vertex (c) at (2,0);
-        \vertex (d) at (3.5,1.5) {$\mu^{+}$};
-        \vertex (e) at (3.5,-1.5) {$\nu_{\mu}$};
-        \propag [fermion] (a) to (o);
-        \propag [anti fermion] (b) to (o);
-        \propag [boson] (o) to [edge label = $W^{+}$] (c);
-        \propag [anti fermion] (c) to (d);
-        \propag [fermion] (c) to (e);
-        \end{feynhand}
-        \end{tikzpicture}  
-    }
-    \hspace{10mm}
-    \subcaptionbox{$\mu^{+}$ decay through a $W^{+}$ boson to a positron, muon anti-neutrino, and an electron neutrino.}
-    {
-    \centering
-        \begin{tikzpicture}[baseline=(o.base)]
-        \begin{feynhand}
-        \large
-        \setlength{\feynhandlinesize}{1pt}
-        \vertex [dot] (o) at (0,0);
-        \vertex (a) at (-2,0) {$\mu^{+}$}; 
-        \vertex (b) at (1.5,1.5) {$\overline \nu_{\mu}$}; 
-        \vertex (c) at (1.5,-1.5);
-        \vertex (d) at (3,0) {$\nu_{e}$};
-        \vertex (e) at (3,-3) {$e^{+}$};
-        \propag [anti fermion] (a) to (o);
-        \propag [fermion] (b) to (o);
-        \propag [boson] (o) to [edge label' = $W^{+}$] (c);
-        \propag [fermion] (c) to (d);
-        \propag [anti fermion] (c) to (e);
-        \end{feynhand}
-        \end{tikzpicture} 
-    }
-\caption[Feynman diagrams for muon and pion decay]{Feynman diagrams for pion (left) and muon (right) decay.}    
-\label{fig:DecayDiagrams}
-\end{figure}
 
 
 
 
 
-\begin{figure}[]
-    \centering
-    \includegraphics[width=0.6\textwidth]{MuonDecayImproved}
-    \caption[Muon decay pictures for maximum and minimum energy positrons]{improve this captiontest.: The single available decay state for maximum energy decay positrons. Due to the conservation of angular momentum and the single possible helicity states of the decay neutrino and anti-neutrino, the spin of the decay positron is exactly equal to the spin of the muon at the time of the decay.}
-    \label{fig:MuonDecayImproved}
-\end{figure}
+
 
 -explain the physics
 -explain how we get at the physics with our ring and detectors
