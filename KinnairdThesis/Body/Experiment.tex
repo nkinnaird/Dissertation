@@ -91,25 +91,27 @@ This correlation between the emitted direction of the decay positron and the spi
         \begin{align} \label{eq:diffdecaydist}
             dP(y, \theta) \propto N(y)[1 \pm A(y)\cos(\theta)]dy d\Omega,
         \end{align}
-where $y=E/E_{max}$ is the energy fraction of the positron, $N(y)$ is the number distribution of decay positrons, $A(y)$ is the so called asymmetry encoding the preferred direction, $\theta$ is the angle between the spin of the muon and the momentum of the positron $\cos^{-1}(\hat{p} \cdot  \hat{s})$, and the $\pm$ stands for the positive and negative muon respectively. Here the energy of the positron is assumed to be much greater than its mass. The number distribution and asymmetry are given by \cite{Bucksbaum}
+where $y=E/E_{max}$ is the energy fraction of the positron, $\theta$ is the angle between the spin of the muon and the momentum of the positron $\cos^{-1}(\hat{p} \cdot \hat{s})$, and the $\pm$ stands for the positive and negative muon respectively. $N(y)$ is the number distribution of decay positrons and $A(y)$ is the so called 'asymmetry' encoding the preferred positron decay direction. Here the energy of the positron is assumed to be much greater than its mass. The number distribution and asymmetry are given by \cite{Bucksbaum}
         \begin{align}
             N(y) &= 2y^{2}(3-2y^{2}), \label{eq:Nmrf} \\
             A(y) &= \frac{2y-1}{3-2y}, \label{eq:Amrf}
         \end{align}
-and are shown in \figref{fig:NA2mrf}. As seen in \equref{eq:diffdecaydist}, the decay positrons will have a preferred direction. In the lab frame for high energy positrons however, nearly all positrons will be emitted parallel to the muon momentum, which makes it challenging to select purely on the decay angle of the positron. That's not a problem though, as we already know that decay positrons with higher energies will be emitted in directions parallel to the muon spin at the time of decay. Essentially, the energy distribution of detected positrons for high energies is modulated by \wa, or $\theta = \omega_{a}t + \phi$, therefore the cut we need is a simple energy one. The number of detected positrons at some time and energy in the lab frame for some initial number $N_{0}$ of muons can then be described by
-        \begin{align} \label{eq:diffdecaydist}
+and are shown in \figref{fig:NA2mrf}. 
+
+In the lab frame for high energy positrons, nearly all positrons will be emitted parallel to the muon momentum, which makes it challenging to select purely on the decay angle of the positron. That's not a problem though, as we already know that decay positrons with higher energies will be emitted in directions parallel to the muon spin at the time of decay. Essentially, the energy distribution of detected positrons for high energies is modulated by \wa, or $\theta = \omega_{a}t + \phi$. The number of detected positrons at some time and energy in the lab frame for some initial number $N_{0}$ of muons can then be described by
+        \begin{align}
             N_{d}(t, E) = N_{0}(E) \cdot e^{-t/\gamma\tau_{\mu}} \cdot [1 + A(E) \cos(\omega_{a}t+\phi(E))],
         \end{align}
-where the $d$ subscript stands for 'detected,' the muons are decaying at a lifetime of $\gamma\tau_{\mu}$, and all the relevant parameters are energy dependent. Here $N_{0}(E)$ and $A(E)$ have been transformed from Equations \ref{eq:Nmrf} and \ref{eq:Amrf} to the lab frame,
+where the $d$ subscript stands for 'detected,' the muons are decaying at a lifetime of $\gamma\tau_{\mu}$, and all the relevant parameters are energy dependent. Here $N_{0}(E)$ and $A(E)$ have been transformed from Equations~\ref{eq:Nmrf} and \ref{eq:Amrf} to the lab frame,
         \begin{align}
             N_{0}(E) &\propto (y-1)(4y^{2}-5y-5), \label{eq:Nlab} \\
             A(E) &= \frac{-8y^{2}+y+1}{4y^{2}-5y-5}, \label{eq:Alab}
         \end{align}
-where as a reminder $y=E/E_{max}$. Here the polarization of the muons is assumed to be unity. These are shown in \figref{fig:NA2lab}. To increase the amount of statistics, all positrons above some energy threshold cut $E_{th}$ can be taken,
-        \begin{align} \label{eq:diffdecaydist}
+where as a reminder $y=E/E_{max}$. Here the polarization of the muons is assumed to be unity. These are shown in \figref{fig:NA2lab}. To increase the amount of statistics, all positrons above some energy threshold cut $E_{th}$ can be taken as the observable,
+        \begin{align}
             N_{d}(t, E_{th}) = N_{0}(E_{th}) \cdot e^{-t/\gamma\tau_{\mu}} \cdot [1 + A(E_{th}) \cos(\omega_{a}t+\phi(E_{th}))],
         \end{align}
-where the number and asymmetry of the detected positrons is now calculated by simply integrating from $y$ to 1
+where the number and asymmetry of the detected positrons is now calculated by simply integrating Equations~\ref{eq:Nlab} and \ref{eq:Alab} from $y_{th}$ to 1,
         \begin{align}
             N_{0}(E_{th}) &\propto (y_{th}-1)^{2}(-y_{th}^{2}+y_{th}+3), \label{eq:Nth} \\
             A(E_{th}) &= \frac{y_{th}(2y_{th}+1)}{-y_{th}^{2}+y_{th}+3}, \label{eq:Ath}
@@ -117,8 +119,6 @@ where the number and asymmetry of the detected positrons is now calculated by si
 where $y_{th}=E_{th}/E_{max}$.
 
 
-
--different letters for different equations, and making sure those letters line up with those in the plots
 
 
 -plot of 5 parameter function?
