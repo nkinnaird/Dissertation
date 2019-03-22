@@ -88,8 +88,8 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
         \end{align} 
     where i and j are track parameter indices. These parameter vectors are 5x1 objects defined in some track representation, as described in the \hyperref[sec:Coord]{Coordinate Systems} section. The propagation of these parameters and error matrices are done using transport matrices, which express the infinitesimal changes in parameters at some plane (or path length) with respect to the parameters at some previous plane (or previous path length):
         \begin{align} \label{eq:transport}
-            \delta p_{N} = T_{N,N-1} \delta p_{N-1}, \\
-            \sigma_{N} = T_{N,N-1} \sigma_{N-1} T_{N,N-1}^{T}.
+            \delta p_{N} &= T_{N,N-1} \delta p_{N-1}, \\
+            \sigma_{N} &= T_{N,N-1} \sigma_{N-1} T_{N,N-1}^{T}.
         \end{align}
     Said transport and error matrices are 5x5 objects since the parameter vectors are 5x1 objects as described above. The calculation of these transport matrices, as well as details on the functional form of \ref{eq:pp} are shown in \cite{jacob}.
 
