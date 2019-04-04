@@ -19,8 +19,24 @@ By taking the difference between these two frequencies we arrive at the "spin di
         \begin{align} \label{eq:wasimple}
             \vec{\omega}_{a} = \vec{\omega}_{s} - \vec{\omega}_{c} = -\frac{g-2}{2}\frac{q}{m}\vec{B} = - a \frac{q}{m}\vec{B},
         \end{align}
-a frequency that is directly proportional to the anomalous magnetic moment $a$. Briefly note that if $g = 2$ as in a Dirac theory, then the particles spin would turn at the same rate as the momentum vector, and this spin difference frequency \wa would be identically 0. If this spin difference frequency for a muon and the external magnetic dipole field can be measured, then the anomalous magnetic moment of the muon \amu can be measured. Introductory descriptions for both will be given here, while the details are left to \chapref{chapter:SpinPrecessionMeasurement} and 
-\chapref{chapter:MagneticFieldMeasurement} respectively.
+a frequency that is directly proportional to the anomalous magnetic moment $a$. Briefly note that if $g = 2$ as in a Dirac theory, then the particles spin would turn at the same rate as the momentum vector, and this spin difference frequency \wa would be identically 0. If this spin difference frequency for a muon and the external magnetic dipole field can be measured, then the anomalous magnetic moment of the muon \amu can be measured. 
+
+As will be detailed below in \secref{sec:BIntro}, the measurement of the magnetic field is related to the Larmour precession frequency of free protons in water 
+        \begin{align} \label{eq:wp}
+            \omega_{p} = -g_{p} \frac{e}{2m_{p}} B,
+        \end{align}
+where $g_{p}$ and $m_{p}$ are the g-factor and mass of the proton respectively. Replacing $B$ and solving for \amu, we arrive at 
+        \begin{align} \label{eq:amu}
+            a_{\mu} = \frac{g_{p}}{2} \frac{\omega_{a}}{\omega_{p}} \frac{m_{\mu}}{m_{p}}.
+        \end{align}
+Using the magnetic moment formulas for the proton, electron, and muon as shown in \equref{eq:magneticmoment}, \equref{eq:amu} can be transformed to either of the following cosistent equations:
+        \begin{equation} 
+        \begin{aligned} \label{eq:amuratios}
+            a_{\mu} &= \frac{g_{e}}{2} \frac{\omega_{a}}{\omega_{p}} \frac{m_{\mu}}{m_{e}} \frac{\mu_{p}}{\mu_{e}} \\ 
+            a_{\mu} &= \frac{\omega_{a}/\omega_{p}}{\lambda - \omega_{a}/\omega_{p}}
+        \end{aligned}
+        \end{equation}
+Here the $p$, $e$, and $\mu$ subscripts stand for the relevant quanties for the proton, electron, and muon respectively. In the second quation $\lambda = \mu_{\mu}/\mu_{p}$. As mentioned before the electron g-factor $g_{e}$ has been measured to extremely high precision, 0.26 ppt \cite{ElectronMDM,CODATA}. The muon-electron mass ratio $m_{\mu}/m_{e}$ and muon-proton magnetic moment ratio $\lambda$ have been measured to 22 ppb \cite{CODATA,MuoniumHyperfine}. Finally the proton-electron magnetic moment ratio $\mu_{p}/\mu_{e}$ has been measured to 3 ppb \cite{CODATA}. The errors on these terms are small compared to the target uncertainty for E989 of 140 ppb, the measurement of which now comes down to measuring the ratio $\omega_{a}/\omega_{p}$. 
 
 
 \section{Measuring \texorpdfstring{\wa}{wa}}
@@ -147,15 +163,34 @@ where $y_{th}=E_{th}/E_{max}$. By fitting \equref{eq:5parfunc}, \wa can be extra
 
 
 
+\section{Measuring the magnetic field}
+\label{sec:BIntro}
+
+
+The other half of the experiment is measuring the magnetic field ...
+
+
+
+Technically wp should be ...
+Finally, the magnetic field that needs to be measured is the magnetic field that the 
+
+
+
+
+
+
+
+
+
+\section{Storage of muons and corrections to \texorpdfstring{\wa}{wa}}
+\label{section:WaIntro}
+
+
+
 
 \clearpage
 
 
-
-
-
-
-\clearpage
 
 
 
@@ -177,8 +212,6 @@ In order to measure the spin difference frequency of the muon, a clever techniqu
 
 
 
-
-
 \begin{figure}[]
     \centering
     \includegraphics[width=0.9\textwidth]{ring}
@@ -190,8 +223,7 @@ In order to measure the spin difference frequency of the muon, a clever techniqu
 
 
 
-\section{Measuring B}
-\label{sec:BIntro}
+
 
 
 
