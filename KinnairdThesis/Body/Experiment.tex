@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/ExperimentalOverview/Decay/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/ExperimentalOverview/Auxiliary/}}
+\graphicspath{{Body/Figures/ExperimentalOverview/Decay/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/ExperimentalOverview/Auxiliary/}{Body/Figures/MagneticField/}}
 
 \chapter{Principle Technique of E989}
 \label{chapter:E989}
@@ -167,6 +167,40 @@ where $y_{th}=E_{th}/E_{max}$. By fitting \equref{eq:5parfunc}, \wa can be extra
 \label{sec:BIntro}
 
 
+In order to measure the magnetic moment of the muon to 140 ppb, the field needs to be both highly uniform, and measured to extreme precision. 
+
+
+
+in \equref{fig:MagnetCrossSection}
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.9\textwidth]{MagnetCrossSection}
+    \caption[Magnet cross section]{captuoin}
+    \label{fig:MagnetCrossSection}
+\end{figure}
+
+
+
+Measuring the magnetic field boils down to measuring $\omega_{p}$ as shown in \equref{eq:wp}. This is because the magnetic field measurement is made using a pulsed nuclear magnetic resonance technique (NMR). NMR probes work by rotating the magnetization of a sample of protons in some fluid, typically water or petroleum jelly, and then measuring the relaxation time or free-induction decay (FID) signal of the proton spins. The magnetization of the protons will relax back to zero as the spins of the protons precess at the Larmour frequency and interact with local magnetic field gradients or inhomogeneities. Pickup coils are located around the sample which both deliver the pulse to rotate the proton sample magnetization and measure the FID signal. An example of an FID signal is shown in \figref{fig:FID}.
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.6\textwidth]{FID}
+    \caption[FID signal]{An example FID signal. The current picked up in the coils around the proton sample will oscillate as the spins precess around the main magnetic field, and decay as the spins return to alignment with the external field.}
+    \label{fig:FID}
+\end{figure}
+
+Technically, it is not solely $\omega_{p}$ that needs to be measured. What really matters is the average magnetic field that the muons see, or the time-averaged spatially-weighted magnetic field. The scheme devised to measure this is two-fold. First, the magnetic field in the storge region where the muons live is measured by a trolley which drives around the inside of the ring. This trolley holds 17 NMR probes and measures the field at approximately 6000 locations around the inside of the ring. Because however the trolley cannot be in the beam path when the muons are present in the ring, it is pulled out of the way and the field is instead measured by 378 fixed NMR probes located in the high magnetic field region but just outside the storage region. The prescription is that the fixed probes measure the field at all times, the storage ring field is measured every few days by the trolley probes, and the two are interpolated. In this way the magnetic field can be mapped over time and over the space that the muons live in. A preliminary sample of the azimuthally-averaged magnetic field measured with trolley and fixed probes is shown in \figref{fig:AverageMagneticField}. (Might want to find a better picture, and also figure out what the time averaging is. Also what is with the vertical and radial width of the measured field?)
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.6\textwidth]{AverageMagneticField}
+    \caption[Azimuthally averaged magnetic field sample]{A sample of the azimuthally-averaged magnetic field within the storage region. The contours are normalized to the center value of the field. The scale of the field differences is approximately $\pm 1$ ppm. The dots in the picture correspond to the location of the trolley probes.}
+    \label{fig:AverageMagneticField}
+\end{figure}
+
+
 The other half of the experiment is measuring the magnetic field ...
 
 
@@ -175,6 +209,10 @@ Technically wp should be ...
 Finally, the magnetic field that needs to be measured is the magnetic field that the 
 
 
+Very uniform field...
+
+
+Finally the measurement of the field needs to be calibrated...
 
 
 
