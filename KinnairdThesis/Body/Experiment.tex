@@ -167,10 +167,7 @@ where $y_{th}=E_{th}/E_{max}$. By fitting \equref{eq:5parfunc}, \wa can be extra
 \label{sec:BIntro}
 
 
-In order to measure the magnetic moment of the muon to 140 ppb, the field needs to be both highly uniform, and measured to extreme precision. The E989 goal for the field measurement is 70 ppb. As shown in \equref{eq:amuratios} the measurent of the magnetic field has equal weight to that of the precession frequency. A cross-section of the magnetic ring is shown in \equref{fig:MagnetCrossSection}. The muons live within a $\SI{9}{cm^{2}}$ storage region at the center of the magnetic field. This corresponds to an approximately $\SI{1.14}{m^{3}}$ or $\SI{40}{ft^{3}}$ total volume around the inside of the ring. This magnetic field is made uniform by manipulating many magnetic `knobs' built into the \gmtwo storage ring, including the main magnetic current, pole pieces, wedges, top hats, and thousands of small magnetic shims placed around the storage region. There are also active feedback systems which  ... 
-
-
- After much painstaking work the field is shimmed to nearly $\SI{\pm1}{ppm}$.
+In order to measure the magnetic moment of the muon to 140 ppb, the field needs to be both highly uniform, and measured to extreme precision. The E989 goal for the field measurement is 70 ppb. As shown in \equref{eq:amuratios} the measurement of the magnetic field has equal weight to that of the precession frequency. A cross-section of the magnetic ring is shown in \figref{fig:MagnetCrossSection}. The muons live within a $\SI{9}{cm^{2}}$ storage region at the center of the magnetic field. This corresponds to an approximately $\SI{1.14}{m^{3}}$ or $\SI{40}{ft^{3}}$ total volume around the inside of the ring. The magnetic field is made uniform by manipulating many magnetic `knobs' built into the \gmtwo storage ring, including the main magnet current, pole pieces, wedges, top hats, and thousands of small magnetic shims placed around the storage region. There is also an active feedback system which stabilizes the magnetic field over time. The shimming of the field to high precsion, approximately $\SI{\pm 25}{ppm}$, was a long process of fine tuning over the course of many months that was undertaken by many member of the field team.
 
 \begin{figure}[]
     \centering
@@ -180,8 +177,7 @@ In order to measure the magnetic moment of the muon to 140 ppb, the field needs 
 \end{figure}
 
 
-
-Measuring the magnetic field boils down to measuring $\omega_{p}$ as shown in \equref{eq:wp}. This is because the magnetic field measurement is made using a pulsed nuclear magnetic resonance technique (NMR). NMR probes work by rotating the magnetization of a sample of protons in some fluid, typically water or petroleum jelly, and then measuring the relaxation time or free-induction decay (FID) signal of the proton spins. The magnetization of the protons will relax back to zero as the spins of the protons precess at the Larmour frequency and interact with local magnetic field gradients or inhomogeneities. Pickup coils are located around the sample which both deliver the pulse to rotate the proton sample magnetization and measure the FID signal. An example of an FID signal is shown in \figref{fig:FID}.
+Measuring the magnetic field comes down to measuring $\omega_{p}$ as shown in \equref{eq:wp}. This is because the magnetic field measurement is made using a pulsed nuclear magnetic resonance technique (NMR). NMR was chosen as it provides a field measurement precision on the order of 10 ppb with negligible statistical uncertainty \cite{TDR}. NMR probes work by rotating the magnetization of a sample of protons in some fluid, typically water or petroleum jelly, and then measuring the relaxation time or free-induction decay (FID) signal of the proton spins. The magnetization of the protons will relax back to equilibrium with the external field as the spins of the protons precess at the Larmour frequency and interact with local magnetic field gradients or inhomogeneities. Pickup coils are located around the sample which both deliver the pulse to rotate the proton sample magnetization and measure the FID signal. An example of an FID signal is shown in \figref{fig:FID}.
 
 \begin{figure}[]
     \centering
@@ -190,7 +186,7 @@ Measuring the magnetic field boils down to measuring $\omega_{p}$ as shown in \e
     \label{fig:FID}
 \end{figure}
 
-Technically, it is not solely $\omega_{p}$ that needs to be measured. What really matters is the average magnetic field that the muons see, or the time-averaged spatially-weighted magnetic field. The scheme devised to measure this is two-fold. First, the magnetic field in the storge region where the muons live is measured by a trolley which drives around the inside of the ring. This trolley holds 17 NMR probes and measures the field at approximately 6000 locations around the inside of the ring. Because however the trolley cannot be in the beam path when the muons are present in the ring, it is pulled out of the way and the field is instead measured by 378 fixed NMR probes located in the high magnetic field region but just outside the storage region. The prescription is that the fixed probes measure the field at all times, the storage ring field is measured every few days by the trolley probes, and the two are interpolated. In this way the magnetic field can be mapped over time and over the space that the muons live in. A preliminary sample of the azimuthally-averaged magnetic field measured with trolley and fixed probes is shown in \figref{fig:AverageMagneticField}. (Might want to find a better picture, and also figure out what the time averaging is. Also what is with the vertical and radial width of the measured field?)
+Technically, it is not solely $\omega_{p}$ that needs to be measured. What really matters is the average magnetic field that the muons see, or the time-averaged spatially-weighted magnetic field. The scheme devised to measure this is two-fold. First, the magnetic field in the storge region where the muons live is measured by a trolley which drives around the inside of the ring. This trolley holds 17 NMR probes and measures the field at approximately 6000 locations around the inside of the ring. Because however the trolley cannot be in the beam path when the muons are present in the ring, during data taking it is pulled out of the way and the field is instead measured by 378 fixed NMR probes located in the high magnetic field region, but just outside the storage region. The prescription is that the fixed probes measure the field at all times, the storage ring field is measured every few days by the trolley probes, and the two are interpolated. In this way the magnetic field can be mapped over time and over the space that the muons live in. A preliminary sample of the azimuthally-averaged magnetic field measured with trolley and fixed probes is shown in \figref{fig:AverageMagneticField}. (Might want to find a better picture, and also figure out what the time averaging is.)
 
 \begin{figure}[]
     \centering
@@ -200,25 +196,14 @@ Technically, it is not solely $\omega_{p}$ that needs to be measured. What reall
 \end{figure}
 
 
-The other half of the experiment is measuring the magnetic field ...
+Lastly, it is the free proton precession frequency in the field that is of interest, but the frequency that the probes measure will be different due to the molecular properties of the proton sample as well as the material properties of the probe itself. The frequency that the probes measure can be recasted as 
+        \begin{align} \label{eq:wpprobe}
+            \omega_{p,\text{probe}} = \omega_{p,\text{free}}(1 - \sigma(\text{H\textsubscript{2}O, T}) + \delta_{b} + \delta_{p} + \delta_{s}),
+        \end{align}
+where $\sigma(\text{H\textsubscript{2}O, T})$ is the temperature dependent diamagnetic shielding of protons in a water molecule, and the $\delta$'s come from corrections due to the bulk susceptibility of the water sample, paramagnetic impurities in the water sample, and the magnetic effects of the probe itself, respectively \cite{TDR}. In order to correct for these effects two additional special probes are used, both of which live in a single section of the ring which has been shimmed to extra uniformity. The first is a calibration probe which measures the free proton precession frequency at the center of the storage region corresponding to the placement of the central trolley probe. The calibration probe is made of materials in order to reduce the effects in \equref{eq:wpprobe} and has been characterized in other test magnets. The second special probe is called the `plunging probe.' This probe drops into the vacuum chamber and measures the field at each of the 17 trolley probe locations, using a three dimensional motion system. By using these two probes, the calibration for the free proton precession frequency can be transmitted to each of the trolley probes, providing for the needed measurement inside the storage region of the magnetic field. This calibration procedure is estimated to take up about half of the target systematic uncertainty of 70 ppb at 35 ppb, and is carried out every few days.
 
 
-
-Technically wp should be ...
-Finally, the magnetic field that needs to be measured is the magnetic field that the 
-
-
-Very uniform field...
-
-
-Finally the measurement of the field needs to be calibrated...
-
-
-cite the TDR and maybe another reference or two
-
-look up David's APS talk where he goes into the various corrections
-
-
+Other pieces of the systematic uncertainty include the absolute calibration of the calibration probe, the trolley measurements, the interpolation to the fixed probes, the uncertainty relative to the muon distribution, and others such as time dependent external magnetic fields. (Include table here? Page 437 in TDR.) When all is said and done, the measurement of the magnetic field is a complex and continuous process that is done in parallel to the measurement of \wa throughout data taking. 
 
 
 
