@@ -4,7 +4,7 @@
 
 \graphicspath{{Body/Figures/ExperimentalOverview/Decay/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/ExperimentalOverview/Auxiliary/}{Body/Figures/MagneticField/}}
 
-\chapter{Principle Technique of E989}
+\chapter{Principle Techniques of E989}
 \label{chapter:E989}
 
 As referenced in \equref{eq:torque}, a particle in a magnetic field will experience a torque which attempts to line up the magnetic dipole moment of the particle with the external field. Because of this, in a dipole field a particles spin will turn at the Larmor precession frequency \cite{Jackson}
@@ -207,42 +207,30 @@ Other pieces of the systematic uncertainty include the absolute calibration of t
 
 
 
-\section{Storage of muons and corrections to \texorpdfstring{\wa}{wa}}
-\label{section:WaIntro}
+
+\section{Production of muons}
+\label{sec:Accelerator}
 
 
 
 
-\clearpage
+\cite{Stratakis:2017uci}
 
 
+\section{The ring}
 
+maybe a section here on the ring itself and it's dimensions and parameter values?
 
-
-In the presence of an electric field, which is useful in storing the muon beam within a dipole magnetic field, this expands to 
-        \begin{align} \label{eq:waelectric}
-            \vec{\omega}_{a} = -\frac{Qe}{m} [a_{\mu}\vec{B} - (a_{\mu} - \frac{1}{\gamma^{2}-1})(\vec{\beta} \times \vec{E}) ],
-        \end{align}
-where now the measurable quanties are vector quantities. Finally, for realistic cases of muon momentum which is non-orthogonal to the magnetic field, the spin difference frequency becomes
-        \begin{align} \label{eq:wafinal}
-            \vec{\omega}_{a} = -\frac{Qe}{m} [a_{\mu}\vec{B} - a_{\mu} (\frac{\gamma}{\gamma+1})(\vec{\beta} \cdot \vec{B})\vec{B} - (a_{\mu} - \frac{1}{\gamma^{2}-1})(\vec{\beta} \times \vec{E}) ].
-        \end{align}
-If the motion of the muons is largely perpendicular to the magnetic field, then the second term is small and can be corrected for. If the particles have a momentum of approximately 3.09 \GeV/c, the so called ``magic momentum,'' then the third term is small and can be corrected for. These will be talked about later.
-
-In order to measure the spin difference frequency of the muon, a clever technique is used. Decay muons in the pion rest frame are 100\% polarized due to conservation of angular momentum and the fact that the decay neutrino must have a specific helicity. Within a pion beam then the highest and lowest energy decay muons are polarized. Muons will decay to positrons with a lifetime of about 2.2 $\mu$s, and the positrons with the highest energies will be correlated with the muon spin, a so called ``self-analyzing'' decay. The single available decay state for a maximum energy positron illustrates this in \figref{fig:MuonDecay}. Thus, by acquiring a large sample of polarized muons and injecting them into a storage ring 
-
-
-
-
-
+potentially reference later section on the magic momentum
 
 
 \begin{figure}[]
     \centering
-    \includegraphics[width=0.9\textwidth]{ring}
-    \caption[ring]{clean up and possibly replace}   
+    \includegraphics[width=1\textwidth]{ring}
+    \caption[The \gmtwo experiment]{Shown is a picture of the \gmtwo experiment. The blue painted storage ring can be seen to surround a variety of detectors and electronic. Muons come in at the top of the picture through a serious of magnetic quadrupoles from the accelerator and are injected into the ring, where they orbit in a clockwise direction. There are some people located inside the ring which gives a sense of scale to the picture.}   
     \label{fig:ring}
 \end{figure}
+
 
 
 
@@ -252,6 +240,98 @@ In order to measure the spin difference frequency of the muon, a clever techniqu
 
 the inflector
 
+Decay muons in the pion rest frame are 100\% polarized due to conservation of angular momentum and the fact that the decay neutrino must have a specific helicity.
+Within a pion beam then the highest and lowest energy decay muons are polarized.
+
+
+describe the momentum distribution of the injected beam
+describe the time profile of the beam
+
+
+
+
+\section{Storage of muons}
+\label{sec:Storage}
+
+
+Once the muons have been injected into the ring, they will begin orbitting clockwise around the ring. By necessity, the inflector must be out of the muon beam path, otherwise a large fraction of the muons would be lost upon the first return to the injection point. Therefore the muon beam must be manipulated to switch the orbit path from the injection orbit onto the central orbit around the center of the storage ring. Once the muon beam is centered, it must also be focused vertically, otherwise all of the muons would be lost due to any vertical motion of the muons. To perform the former, a magnetic "kicker" is used to shift the orbits of the muons. To perform the latter, a serious of electrostatic quadrupoles focus the beam vertically.
+
+The "kicker" is made up of three separate pulsed magnets located 90\textdegree{} from the exit of the inflector, where the inflector orbit crosses the central orbit. This is shown in \figref{fig:vacmap}. Due to the bunched nature of the muon beam and the short cyclotron period of $\SI{149}{ns}$, ideally the kicker moves all stored muons onto the central orbit and then turns off quickly such that by the time the muons orbit back around to the kicker there is no residual kick to the beam. The kick to the beam is approximately $\SI{10}{mrad}$ using a vertical pulsed field of around $\SI{300}{Gauss}$ over three $\SI{1.27}{m}$ long magnets and with a pulse length of about $\SI{120}{ns}$. (Should I mention the actual kick here, and how the beam is not quite centered in the ring?) It's important to note that the kicker must be operated within the magnetic field of the ring, and must therefore contain no magnetic elements in the hardware itself which would perturb the uniform magnetic field. For this reason the kicker is made up of thin aluminum plates which carry the current used to create the kicking magnetic field. %A picture of one of the kickers installed into the vacuum chamber is shown in 
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.7\textwidth]{VacuumChamberMap}
+    \caption[Vacuum chamber map]{A map of the vacuum chambers in E989. K1-K3 show the locations of the kicker magnets, while Q1-Q4 show the locations of the electrostatic quadrupoles. Also shown is the location of the inflector, the two fiber monitors, and one of the tracker stations.}   
+    \label{fig:vacmap}
+\end{figure}
+
+There are four electrostatic quadrupoles (quads) located around the ring as shown in \figref{fig:vacmap}, which focus the beam vertically and defocus the beam horizontally. Just as in the case of the kickers, the quads must be operated in the vacuum and must be non-magnetic. The latter is the reason why we use electrostatic focusing elements instead of magnetic ones in the first place. Four quads were chosen in order to maximize the symmetry of the beam motion around the ring. The quads occupy over 40\% of the ring circumference. Each quad is made up of two segments, a short segment of 13\textdegree{} and a long segment of 26\textdegree{}. The quads are made out of as little material as possible in order to reduce multiple scattering of decay positrons passing through them. A picture of the quads installed into one of the vacuum chambers is shown in \figref{fig:Quads}. The equipotential lines of the quads is shown in \figref{fig:QuadPotential}. 
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.7\textwidth]{Quads}
+    \caption[Electrostatic quadrupoles installed in a vacuum chamber]{Electrostatic quadrupoles installed into a vacuum chamber. There are four plates mounted to the chamber through insulator standoffs. Also shown are the rails that the magnetic field trolley rides on around the inside of the ring, and between the quad and kicker plates.}   
+    \label{fig:Quads}
+\end{figure}
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.6\textwidth]{QuadPotential}
+    \caption[Electrostatic quadrupole potentials]{An OPERA model of the quads and their equipotential contours. The top and bottom plates sit at positive voltage while the left and right plates are at negative voltage. The muon storage region is shown by the blue circle. Picture from \refref{TDR}.}   
+    \label{fig:QuadPotential}
+\end{figure}
+
+
+As the muon beam goes around the ring, the muons will experience local field gradients and inhomogeneities. In order to avoid resonances where muons are lost from having passed through such regions too many times, the quad voltages are chosen such that the betatron wavelengths of the radial and vertical motions are not integer multiples of the storage ring circumference. This was one of the reasons that quadrupole voltages of 18.3 and 20.4 kV were used during Run 1 data taking. (Here is the first time I mention Run 1 data taking I think which doesn't make a ton of sense. Also should I go through all the tune stuff here? Probably yeah but how much detail?) 
+
+equation 3.13 theres a little bit about the field index n ... 
+
+
+Muons will be lost during data taking that will throw off the measurement of the precession frequency \wa. In order to reduce the number of lost muons over the course of a fill, a procedure called "scraping" is used to remove those muons sitting at the edge of the storage region that will likely be lost at later times anyways. This scraping procedure involves changing the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will impact copper rings called collimators. Muons which hit the collimators will lose energy and be lost as the muons spiral out of the ring. The scraping procedure is performed early in the fill and ends at something$\SI{20}{\micro s}$. During Run 1 it was discovered that some of the quad resistors were damaged, leading to longer RC time constants such that the quad voltages had not returned to storage nominal during the designated analysis portion of the data. (Show a picture here of those time constants?)
+
+
+
+\section{Corrections to \texorpdfstring{\wa}{wa}}
+
+\equref{eq:wasimple} is an idealized version of the spin difference frequency. Including practical experimental concerns, there are two corrections that must be applied to \wa.
+
+\subsection{Electric field correction}
+
+In the presence of an electric field, the spin difference frequency is altered to 
+        \begin{align} \label{eq:waelectric}
+            \vec{\omega}_{a} = -\frac{q}{m} [a\vec{B} - \Big(a - \frac{1}{\gamma^{2}-1}\Big)(\vec{\beta} \times \vec{E}) ],
+        \end{align}
+where now there is an extra term dependent on the electric field strength and the momentum of the particles. This is necessary to include since we use electrostatic quadrupoles for vertical focusing as described above. The second term cancels to first order for a specific momentum or value of $\gamma$. This "magic momentum" can be understood as the momentum at which a relativistic particle moving through an electric field has its spin exactly follow its momentum. This magic momentum is $\SI{3.094}{\GeV}$ for muons, hence the momentum value of the injected muons. This value has driven many of the design constraints of the \gmtwo experiment, including the size of the storage ring, choice of the magnetic field magnitude, and so on.
+
+Not all muons will have the magic momentum however as described in the inflector section \secref{inflectorsection}, and therefore a correction to the measured \wa frequency needs to be applied. Approximating the storage ring has having an electric field applied over the whole azimuth of the ring ... 
+
+
+
+\subsection{Pitch correction}
+
+Particles injected into the \gmtwo storage ring will have some motion component that is vertical, or parallel to the magnetic field vector (hence the need for vertically focusing electrostatic quadrupoles). Including this motion into the spin difference frequency (along with the electric field correction describe previously), \wa becomes
+        \begin{align} \label{eq:wafinal}
+            \vec{\omega}_{a} = -\frac{q}{m} [a\vec{B} - a \Big(\frac{\gamma}{\gamma+1}\Big)(\vec{\beta} \cdot \vec{B})\vec{B} - \Big(a - \frac{1}{\gamma^{2}-1}\Big)(\vec{\beta} \times \vec{E}) ],
+        \end{align}
+where now there is an extra term in the middle dependent on the non-orthogonal motion. Similar to the electric field case, this term can be neglected to first order as the muon momentum is nearly all perpendicular to the field. A correction again needs to be applied to \wa to account for this effect. Since the muons in the storage ring will be oscillating vertically as they are focused by the quads, their momentum vectors will be pitching up and down relative to the azimuthal motion. This pitch angle will oscillate as
+        \begin{align} \label{eq:wafinal}
+            \psi = \psi_{0} \cos(\omega_{y}t),
+        \end{align}
+where $\psi_{0}$ is the amplitude of the oscillation and $\omega_{y}$ is the vertical betatron frequency. Shown in \figref{fig:PitchAxes} is an exaggerated example of the beam motion relative to the vertical and azimuthal axes. 
+
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.4\textwidth]{PitchAxes}
+    \caption[Pitching beam motion]{Beam motion $\beta$ relative to the vertical and azimuthal axes Y and Z respectively. $\psi$ is the pitch angle of the beam, and the dashed lines represent the parallel and perpendicular motions of the beam.}   
+    \label{fig:PitchAxes}
+\end{figure}
+
+
+
+
+this is called the pitch correction because...
 
 
 
@@ -260,13 +340,9 @@ the inflector
 
 
 
-\section{Production of muons}
-\label{sec:Accelerator}
 
+\clearpage
 
-
-
-\cite{Stratakis:2017uci}
 
 
 
