@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/ExperimentalOverview/Decay/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/ExperimentalOverview/Accelerator/}{Body/Figures/ExperimentalOverview/Auxiliary/}{Body/Figures/MagneticField/}}
+\graphicspath{{Body/Figures/ExperimentalOverview/Decay/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/ExperimentalOverview/Accelerator/}{Body/Figures/ExperimentalOverview/Beam/}{Body/Figures/ExperimentalOverview/Auxiliary/}{Body/Figures/MagneticField/}}
 
 \chapter{Principle Techniques of E989}
 \label{chapter:E989}
@@ -251,32 +251,13 @@ The injection of the muon beam into the \gmtwo storage ring is a specialized pro
         \includegraphics[width=\textwidth]{inflector_closed}
         \caption{Closed end of the inflector.}
     \end{subfigure}
-\caption[Superconducting Inflector magnet]{Shown are the two ends of the inflector magnet. Superconducting coils are wrapped around a blank core in a complicated fashion which serves to eliminate the majority of external fields and shield the muons passing through it. One side of the inflect magnet is closed which causes an appreciable fraction of muons to be lost due to multiple scattering.}
+\caption[Superconducting Inflector magnet]{Shown are the two ends of the inflector magnet. Superconducting coils are wrapped around a blank core in a complicated fashion which serves to eliminate the majority of external fields and shield the muons passing through it. One side of the inflector magnet is closed which causes an appreciable fraction of muons to be lost due to multiple scattering.}
 \label{fig:inflector}
 \end{figure}
 
 
-
-
-
-
-
-
-
-
-need to mention how I go from 1e12 protons to X pions to X muons at each stage such that I inject approximately 10000 muons into the ring at a time
-need to mention the word fill somewhere
-any sort of note on run 1 stats?
-
-
-
-\section{The ring}
-
-maybe a section here on the ring itself and it's dimensions and parameter values?
-or just at the end of the accelerator part
-
-potentially reference later section on the magic momentum
-
+\section{Storage of muons}
+\label{sec:Storage}
 
 \begin{figure}[]
     \centering
@@ -286,19 +267,7 @@ potentially reference later section on the magic momentum
 \end{figure}
 
 
-
-
-
-
-
-
-
-
-\section{Storage of muons}
-\label{sec:Storage}
-
-
-Once the muons have been injected into the ring, they will begin orbitting clockwise around the ring. By necessity, the inflector must be out of the muon beam path, otherwise a large fraction of the muons would be lost upon the first return to the injection point. Therefore the muon beam must be manipulated to switch the orbit path from the injection orbit onto the central orbit around the center of the storage ring. Once the muon beam is centered, it must also be focused vertically, otherwise all of the muons would be lost due to any vertical motion of the muons. To perform the former, a magnetic "kicker" is used to shift the orbits of the muons. To perform the latter, a serious of electrostatic quadrupoles focus the beam vertically.
+The E989 experiment and storage ring are shown in \figref{fig:ring}. Approximately 10,000 muons are stored in the \gmtwo ring at a time, corresponding to a single fill. The $\SI{3.094}{\GeV}$ muons will decay with a lifetime of approximately $\SI{64.4}{\micro s}$. Once the muons have been injected into the ring, they will begin orbitting clockwise around the ring. By necessity, the inflector must be out of the muon beam path, otherwise a large fraction of the muons would be lost upon the first return to the injection point. Therefore the muon beam must be manipulated to switch the orbit path from the injection orbit onto the central orbit around the center of the storage ring. Once the muon beam is centered, it must also be focused vertically, otherwise all of the muons would be lost due to any vertical motion of the muons. To perform the former, a magnetic "kicker" is used to shift the orbits of the muons. To perform the latter, a serious of electrostatic quadrupoles focus the beam vertically.
 
 The "kicker" is made up of three separate pulsed magnets located 90\textdegree{} from the exit of the inflector, where the inflector orbit crosses the central orbit. This is shown in \figref{fig:vacmap}. Due to the bunched nature of the muon beam and the short cyclotron period of $\SI{149}{ns}$, ideally the kicker moves all stored muons onto the central orbit and then turns off quickly such that by the time the muons orbit back around to the kicker there is no residual kick to the beam. The kick to the beam is approximately $\SI{10}{mrad}$ using a vertical pulsed field of around $\SI{300}{Gauss}$ over three $\SI{1.27}{m}$ long magnets and with a pulse length of about $\SI{120}{ns}$. (Should I mention the actual kick here, and how the beam is not quite centered in the ring?) It's important to note that the kicker must be operated within the magnetic field of the ring, and must therefore contain no magnetic elements in the hardware itself which would perturb the uniform magnetic field. For this reason the kicker is made up of thin aluminum plates which carry the current used to create the kicking magnetic field. %A picture of one of the kickers installed into the vacuum chamber is shown in 
 
@@ -309,7 +278,7 @@ The "kicker" is made up of three separate pulsed magnets located 90\textdegree{}
     \label{fig:vacmap}
 \end{figure}
 
-There are four electrostatic quadrupoles (quads) located around the ring as shown in \figref{fig:vacmap}, which focus the beam vertically and defocus the beam horizontally. The strength of the electrostatic focusing can be characterized by the field index
+There are four electrostatic quadrupoles (quads) located around the ring as shown in \figref{fig:vacmap}, which focus the beam vertically and defocus the beam horizontally. (The magnetic field of the ring serves to restore the beam radially.) The strength of the electrostatic focusing can be characterized by the field index
         \begin{align} \label{eq:fieldindex}
             n = \frac{\kappa R_{0}}{\beta B_{0}},
         \end{align}
@@ -334,6 +303,50 @@ As the muon beam goes around the ring, the muons will experience local field gra
 
 
 Muons will be lost during data taking that will throw off the measurement of the precession frequency \wa. In order to reduce the number of lost muons over the course of a fill, a procedure called "scraping" is used to remove those muons sitting at the edge of the storage region that will likely be lost at later times anyways. This scraping procedure involves changing the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will impact copper rings called collimators. Muons which hit the collimators will lose energy and be lost as the muons spiral out of the ring. The scraping procedure is performed early in the fill and ends at something$\SI{20}{\micro s}$. During Run 1 it was discovered that some of the quad resistors were damaged, leading to longer RC time constants such that the quad voltages had not returned to storage nominal during the designated analysis portion of the data. (Show a picture here of those time constants?)
+
+
+\section{Muon beam motion}
+
+% Not entirely sure how to fit this section between the storage section and the correction section, I will probably need to modify both of those around this one, but just go with it for now and fix it up later. Also not sure how much beam dynamics equations I should put in. Tunes and stuff
+
+Due to the momentum and position spread of the injected muons, as well as the  
+
+
+\begin{table}[]
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{.6\linewidth}{@{\extracolsep{\fill}}lcc}
+  \hline
+    \multicolumn{3}{c}{\textbf{Muon Beam Frequencies}} \\
+  \hline\hline
+    Name & Frequency (MHz) & Period \\
+  \hline
+    \gmtwo & 0.23 & $\SI{4.365}{\micro s}$ \\
+    cyclotron & 6.71 & $\SI{149}{ns}$ \\
+    coherent betatron & 0.37 & $\SI{2.703}{\micro s}$ \\
+    vertical betatron & 2.19 & $\SI{457}{ns}$ \\
+    vertical waist & 2.31 & $\SI{433}{ns}$ \\
+  \hline
+\end{tabular*}
+\caption{Table of frequencies and corresponding periods seen in the \gmtwo experiment due to beam motion. Parameter values are from a subset of Run 1 corresponding to an $n$ value of 0.108 or a quad voltage of 18.3 kV.}
+\label{tab:frequencies}
+\end{table}
+
+
+\subsection{Coherent betatron oscillation}
+
+
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.6\textwidth]{cbo}
+    \caption[Coherent betatron oscillations]{}
+    \label{fig:cbo}
+\end{figure}
+
+
 
 
 
