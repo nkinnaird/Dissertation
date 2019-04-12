@@ -208,23 +208,44 @@ Other pieces of the systematic uncertainty include the absolute calibration of t
 
 
 
-\section{Production of muons}
+\section{Production of polarized muons}
 \label{sec:Accelerator}
+
+As mentioned previously, the number of high energy positrons detected depends on the muon spin at the time of decay. In order for this detected quantity to mean anything, the muon spins themselves need to be highly polarized. Using the same parity-violation and spin momentum conservation logic similar to muon decay, it is known that pion decay produces muons that are 100\% polarized in the pion rest frame. In order to measure \gmtwo to high precision, a very large number of positrons need to be detected, and hence a large number of highly polarized muons injected into the storage ring. The BNL E821 experiment observed on the order of 10 billion positrons above threshold, and its final result was statistics limited. In order to reach the goal of 140 ppb, 20 times that number of statistics needs to be gathered. The only facility in the world that can produce such a high number of polarized muons is Fermilab, hence the location of the experiment. 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=1\textwidth]{accel_layout}
-    \caption[accel layout]{Taken from \refref{TDR}.}   
+    \caption[Fermilab accelerator layout for muon delivery to E989]{Plotted is the layout of accelerator beam-line components Fermilab uses to provide polarized muons to E989. Protons start in the Linac, traverse around the Booster and then Recycler, and are converted to pions at AP0. The pions are gathered and then decay away to muons in the Delivery Ring before being sent to the \gmtwo storage ring. Figure taken from \refref{TDR}.}   
     \label{fig:accelerator}
 \end{figure}
 
+The Fermilab accelerator complex produces polarized muons for E989 in a number of stages. A map of the various accelerator beam-line components is shown in \figref{fig:accelerator}. Details of the full accelerator production of polarized muons can be found in \refref{Stratakis:2017uci}, and here will be give a summary of the process. Protons are first generated and accelerated in a linear accelerator called the Linac. They are transported to a small circular ring called the Booster, which accelerates them up to 8 \GeV and puts them into a bunched structure. A single Booster batch contains on the order of $\SI{4e12}{protons}$, which is too much for the detector data acquisition systems to handle at the data taking side of things. Therefore the protons are injected into the so called Recycler, which re-bunches the protons into four separate bunches of $\SI{1e12}{protons}$ each. Each bunch is selected one at a time and sent to the AP0 target hall, where the bunch is smashed against an Inconel target. This Inconel target is made up of a nickel and iron alloy optimized for producing a large number of pions with a small momentum spread, approximately $\SI{1e-5}{\pi^{+}/\text{POT}}$ with $|dp/p| < 2 \%$ \cite{Stratakis:2017uci}.
 
-\cite{Stratakis:2017uci}
+
+
+
+15Hz or 12Hz booster, 1.33 s
+other rate for the MI?
+10 ms interval between pulses
+width of pulses
+iconel target
+lithium lens focusing - I have something somewhere on lithium lens right, maybe a source?
+proton removal
+pion decay through several delivery ring turns
+selection of polarized particles
+injection through magnetic quads at the start of the ring
+any sort of note on run 1 stats?
+
+
+
+
 
 
 \section{The ring}
 
 maybe a section here on the ring itself and it's dimensions and parameter values?
+or just at the end of the accelerator part
 
 potentially reference later section on the magic momentum
 
@@ -245,6 +266,7 @@ potentially reference later section on the magic momentum
 
 the inflector
 
+this part is already sort of talked about earlier:
 Decay muons in the pion rest frame are 100\% polarized due to conservation of angular momentum and the fact that the decay neutrino must have a specific helicity.
 Within a pion beam then the highest and lowest energy decay muons are polarized.
 
