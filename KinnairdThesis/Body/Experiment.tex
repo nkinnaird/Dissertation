@@ -309,11 +309,11 @@ Not all muons will have the magic momentum however as described in the inflector
 
 \subsection{Pitch correction}
 
-Particles injected into the \gmtwo storage ring will have some motion component that is vertical, or parallel to the magnetic field vector (hence the need for vertically focusing electrostatic quadrupoles). Including this motion into the spin difference frequency (along with the electric field correction describe previously), \wa becomes
+Particles injected into the \gmtwo storage ring will have some motion component that is vertical, or parallel to the magnetic field vector (hence the need for vertically focusing electrostatic quadrupoles). This will reduce the magnetic field seen by the muons in their rest frame slightly. Including this motion into the spin difference frequency (along with the electric field correction describe previously), \wa becomes
         \begin{align} \label{eq:wafinal}
             \vec{\omega}_{a} = -\frac{q}{m} [a\vec{B} - a \Big(\frac{\gamma}{\gamma+1}\Big)(\vec{\beta} \cdot \vec{B})\vec{B} - \Big(a - \frac{1}{\gamma^{2}-1}\Big)(\vec{\beta} \times \vec{E}) ],
         \end{align}
-where now there is an extra term in the middle dependent on the non-orthogonal motion to the field. Similar to the electric field case, this term can be neglected to first order as the muon momentum is nearly all perpendicular to the field. A correction again needs to be applied to \wa to account for this effect. Since the muons in the storage ring will be oscillating vertically as they are focused by the quads, their momentum vectors will be pitching up and down relative to the azimuthal motion. 
+where now there is an extra term in the middle dependent on the vertical betatron motion of the beam. Similar to the electric field case, this term can be neglected to first order as the muon momentum is nearly all perpendicular to the field, but a correction again needs to be applied to \wa to account for this effect.
 
 \begin{figure}[]
     \centering
@@ -322,7 +322,7 @@ where now there is an extra term in the middle dependent on the non-orthogonal m
     \label{fig:PitchAxes}
 \end{figure}
 
-This pitch angle will oscillate as
+Since the muons in the storage ring will be oscillating vertically as they are focused by the quads, their momentum vectors will be pitching up and down relative to the azimuthal motion. This pitch angle will oscillate as
         \begin{align} \label{eq:psi}
             \psi = \psi_{0} \cos(\omega_{y}t),
         \end{align}
@@ -334,12 +334,12 @@ then \wa becomes
         \begin{align}
             \vec{\omega}_{a} = -\frac{q}{m} [a B_{y} \hat{y} - a \Big(\frac{\gamma}{\gamma+1}\Big) \beta_{y}B_{y} (\beta\cos(\psi)\hat{y} + \beta\sin(\psi)\hat{z})],        
         \end{align}
-where in this case the electric field part has been ignored. Using the small angle approximation such that $\cos(\psi) \approx 1$ and $\sin(\psi) \approx \psi$, $\vec{\omega_{a}}$ can be separated into its vertical and azimuthal components
+where in this case the electric field part has been ignored. Using the small angle approximation such that $\cos(\psi) \approx 1$ and $\sin(\psi) \approx \psi$, $\vec{\omega}_{a}$ can be separated into its vertical and azimuthal components
         \begin{align}
             \omega_{ay} &= \omega_{a}\Big[ 1 - \Big(\frac{\gamma-1}{\gamma}\Big) \psi^{2} \Big], \\     
             \omega_{az} &= -\omega_{a} \Big(\frac{\gamma-1}{\gamma}\Big) \psi.
         \end{align}
-Looking at \figref{fig:PitchAxes} again, it can be seen that the spin difference frequency can be resolved into its parallel and perpendicular components $\omega_{\parallel}$ and $\omega_{\perp}$ respectively. As the pitch angle of the beam motion oscillates about the azimuthal aces, it can be seen that the parallel component averages to 0 over time. We then only care about the perpendicular oscillation of the beam, which can be determined with the normal rotation matrix
+Looking at \figref{fig:PitchAxes} again, it can be seen that the spin difference frequency can be resolved into its parallel and perpendicular components $\omega_{\parallel}$ and $\omega_{\perp}$ respectively. As the pitch angle of the beam motion oscillates about the azimuthal axes at a frequency much greater than the \gmtwo frequency, it can be seen that the parallel component averages to 0 over time. (Haven't given a number for the vertical betatron frequency yet.) We then only care about the perpendicular oscillation of the beam, which can be determined with a simple rotation matrix such that
         \begin{align}
             \omega_{a} \approx \omega_{\perp} = \omega_{ay} \cos(\psi) - \omega_{az}\sin(\psi) \approx \omega_{a} \Big[ 1 - \frac{\psi^{2}}{2} \Big],
         \end{align}
@@ -349,9 +349,9 @@ where in the last approximation the small angle approximation was used once agai
         \end{align}
 where \equref{eq:psi} was used in the last equality. The pitch angle of the beam cannot be measured directly, however we know from \equref{something} or \secref{something} that the angle of the beam can be related to the vertical distribution of the beam, such that 
         \begin{align}
-            C_{\text{P}} = - \frac{n}{4} \frac{\langle y^{2} \rangle}{R_{0}^{2}},
+            C_{\text{P}} = - \frac{n}{4} \frac{\langle y^{2} \rangle}{R_{0}^{2}}.
         \end{align}
-where once again $n$ is the field index, $R_{0}$ is the radius of the ring at the center of the storage region, and $\langle y^{2} \rangle$ is the vertical width of the beam. The first two are known and the last can be measured experimentally. (For this last equation make sure that what I write here gels with what I'll put in other sections, which haven't been done yet.)
+Once again $n$ is the field index, $R_{0}$ is the radius of the ring at the center of the storage region, and $\langle y^{2} \rangle$ is the vertical width of the beam. The first two are known and the last can be measured experimentally. (For this last equation make sure that what I write here gels with what I'll put in other sections, which haven't been done yet.) While this derivation was an approximation assuming continuous quads around the ring, it suffices for the level of precision necessary for the \gmtwo experiment \cite{something}.
 
 
 
