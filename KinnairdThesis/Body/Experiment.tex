@@ -208,10 +208,12 @@ Other pieces of the systematic uncertainty include the absolute calibration of t
 
 
 
-\section{Production of polarized muons}
+\section{Production and injection of polarized muons}
 \label{sec:Accelerator}
 
-As mentioned previously, the number of high energy positrons detected depends on the muon spin at the time of decay. In order for this detected quantity to mean anything, the muon spins themselves need to be highly polarized. Using the same parity-violation and spin momentum conservation logic similar to muon decay, it is known that pion decay produces muons that are 100\% polarized in the pion rest frame. In order to measure \gmtwo to high precision, a very large number of positrons need to be detected, and hence a large number of highly polarized muons injected into the storage ring. The BNL E821 experiment observed on the order of 10 billion positrons above threshold, and its final result was statistics limited. In order to reach the goal of 140 ppb, 20 times that number of statistics needs to be gathered. The only facility in the world that can produce such a high number of polarized muons is Fermilab, hence the location of the experiment. 
+As explained previously, the number of high energy positrons detected depends on the muon spin at the time of decay. In order for this detected quantity to mean anything, the muon spins themselves need to be highly polarized. Using the same parity-violation and spin momentum conservation logic as expounded upon in muon decay, it is known that pion decay produces muons that are 100\% polarized in the pion rest frame, due to the pion having zero spin. The Feynman diagram for this decay is shown in \figref{fig:pidecay}. It's also important to note that pions decay to muons with over 99\% branching ratio due to the parity violating nature of the weak interaction. These two facets of pion decay are used to construct polarized muon beams. 
+
+In order to measure \gmtwo to high precision, a very large number of positrons need to be detected, and hence a large number of highly polarized muons injected into the storage ring. The BNL E821 experiment observed on the order of 10 billion positrons above threshold, and its final result was statistics limited. In order to reach the goal of 140 ppb, 20 times that number of statistics needs to be gathered. The only facility in the world that can produce such a high number of polarized muons is Fermilab. 
 
 \begin{figure}[]
     \centering
@@ -220,25 +222,51 @@ As mentioned previously, the number of high energy positrons detected depends on
     \label{fig:accelerator}
 \end{figure}
 
-The Fermilab accelerator complex produces polarized muons for E989 in a number of stages. A map of the various accelerator beam-line components is shown in \figref{fig:accelerator}. Details of the full accelerator production of polarized muons can be found in \refref{Stratakis:2017uci}, and here will be give a summary of the process. Protons are first generated and accelerated in a linear accelerator called the Linac. They are transported to a small circular ring called the Booster, which accelerates them up to 8 \GeV and puts them into a bunched structure. A single Booster batch contains on the order of $\SI{4e12}{protons}$, which is too much for the detector data acquisition systems to handle at the data taking side of things. Therefore the protons are injected into the so called Recycler, which re-bunches the protons into four separate bunches of $\SI{1e12}{protons}$ each. Each bunch is selected one at a time and sent to the AP0 target hall, where the bunch is smashed against an Inconel target. This Inconel target is made up of a nickel and iron alloy optimized for producing a large number of pions with a small momentum spread, approximately $\SI{1e-5}{\pi^{+}/\text{POT}}$ with $|dp/p| < 2 \%$ \cite{Stratakis:2017uci}.
+The Fermilab accelerator complex produces polarized muons for E989 in a number of stages. A map of the various relevant accelerator beam-line components is shown in \figref{fig:accelerator}. Details of the full accelerator production of polarized muons can be found in \refref{Stratakis:2017uci}, and here will be given a summary of the process. Protons are first generated and accelerated in a linear accelerator called the ``linac''. They are transported to a small circular ring called the ``booster'', which accelerates them up to 8 \GeV and puts them into a bunched structure. A single booster batch contains on the order of $\SI{4e12}{protons}$, which is too much for the detector data acquisition systems to handle at the data taking side of things. Therefore the protons are injected into a ring called ``recycler'', which re-bunches the protons into four separate bunches of $\SI{1e12}{protons}$ each, with a time width of approximately $\SI{120}{ns}$. These bunches are delivered at a rate of about 12 Hz with a time separation of greater than 10 ms, again owing to the acceptable rates of the \gmtwo detectors.
+
+Each bunch is selected one at a time and sent to a target hall, where the bunch is smashed against an Inconel target. This Inconel target is made up of a nickel and iron alloy optimized for producing a large number of pions with a small momentum spread, approximately $\SI{1e-5}{\pi^{+}/\text{POT}}$ with $|dp/p| < 2 \%$ \cite{Stratakis:2017uci}. The resulting pions are focused just after production by a lithium lens. This lithium lens is a $\SI{1}{cm}$ radius and $\SI{15}{cm}$ long piece of aluminum which provides a radial focusing effect for particles passing lengthwise down the cylinder \cite{LiLens}. A pulsed magnet just after the lithium lens is then used to select pions at $\SI{3.115}{\GeV}$.
+
+The pion beam and any residual protons are then injected into another ring called the ``delivery ring'', which is used to hold the pion beam until the vast majority of pions decay. The pions are held in the delivery ring for four turns, after which they have all decayed to muons \cite{Stratakis:2017uci}. In a pion beam the highest and lowest energy decay muons are polarized. Therefore forward emitted polarized muons are then momentum selected at $\SI{3.094}{\GeV}$ with $\Delta p / p = 2\%$, and the remaining muons, protons, and other secondary particles are re-routed to a beam dump which reduces the contamination in the final polarized muon beam. This polarized muon beam is then sent to the \gmtwo building where it passes through four magnetic quadrupole focusing magnets before being injected into the storage ring.
+
+The injection of the muon beam into the \gmtwo storage ring is a specialized process. In order to measure the magnetic field to the precision described in \secref{Bintro}, the \gmtwo storage ring must be a single monolithic magnet with no end effects. This prohibits the usual design of separated magnetic elements through which the muons might be injected. Therefore we use a specialized magnet called the ``Superconducting Inflector'' magnet, or just inflector. This inflector is placed within a bored out tunnel in the storage ring magnet, and it cancels the majority of the magnetic field of the storage ring at the injection point of the muons, such that they are not lost due to motion induced by the fringe field \cite{inflector}. See \figref{fig:injectionpoint} for a view of the injection point. The inflector has a very tight 18 mm wide by 56 mm high aperture through which the muons must pass down its 1.7 m length. One side of the inflector is also closed such that an appreciable fraction of muons are lost before being injected into the ring, see \figref{fig:inflector}. Approximately 2\% of injected muons are stored with $\Delta p / p = 0.5\%$ centered around $\SI{3.094}{\GeV}$ due to these factors.
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.7\textwidth]{injectionpoint}
+    \caption[Muon injection point through inflector]{Shown is a birds eye view of the inflector and injection point into the storage ring.}   
+    \label{fig:injectionpoint}
+\end{figure}
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.46\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{inflector_open}
+        \caption{Open end of the inflector.}
+    \end{subfigure}%
+    \hspace{1cm}
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{inflector_closed}
+        \caption{Closed end of the inflector.}
+    \end{subfigure}
+\caption[Superconducting Inflector magnet]{Shown are the two ends of the inflector magnet. Superconducting coils are wrapped around a blank core in a complicated fashion which serves to eliminate the majority of external fields and shield the muons passing through it. One side of the inflect magnet is closed which causes an appreciable fraction of muons to be lost due to multiple scattering.}
+\label{fig:inflector}
+\end{figure}
 
 
 
 
-15Hz or 12Hz booster, 1.33 s
-other rate for the MI?
-10 ms interval between pulses
-width of pulses
-iconel target
-lithium lens focusing - I have something somewhere on lithium lens right, maybe a source?
-proton removal
-pion decay through several delivery ring turns
-selection of polarized particles
-injection through magnetic quads at the start of the ring
+
+
+
+
+
+
+need to mention how I go from 1e12 protons to X pions to X muons at each stage such that I inject approximately 10000 muons into the ring at a time
+need to mention the word fill somewhere
 any sort of note on run 1 stats?
-
-
-
 
 
 
@@ -261,18 +289,7 @@ potentially reference later section on the magic momentum
 
 
 
-\section{Injection of muons}
-\label{sec:Injection}
 
-the inflector
-
-this part is already sort of talked about earlier:
-Decay muons in the pion rest frame are 100\% polarized due to conservation of angular momentum and the fact that the decay neutrino must have a specific helicity.
-Within a pion beam then the highest and lowest energy decay muons are polarized.
-
-
-describe the momentum distribution of the injected beam
-describe the time profile of the beam
 
 
 
