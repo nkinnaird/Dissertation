@@ -228,7 +228,7 @@ Each bunch is selected one at a time and sent to a target hall, where the bunch 
 
 In a pion beam the highest and lowest energy decay muons are polarized. The pion beam and any residual protons or secondaries are injected into another ring called the ``delivery ring''. By the time the pions have gotten to the delivery ring, most of them have decayed to muons. The delivery ring is used to both hold the beam until the remaining pions decay, which takes about four turns, and to select the polarized muons \cite{Stratakis:2017uci}. Forward emitted polarized muons are momentum selected at $\SI{3.094}{\GeV}$ with $\Delta p / p = 2\%$. The remaining muons, protons, and other secondary particles are separated and re-routed to a beam dump which reduces the contamination in the final polarized muon beam. This polarized muon beam is then sent to the \gmtwo building where it passes through four magnetic quadrupole focusing magnets before being injected into the storage ring.
 
-The injection of the muon beam into the \gmtwo storage ring is a specialized process. In order to measure the magnetic field to the precision described in \secref{sec:MagneticField}, the \gmtwo storage ring must be a single monolithic magnet with no end effects. This prohibits the usual design of separated magnetic elements through which the muons might be injected. Therefore we use a specialized magnet called the ``Superconducting Inflector'' magnet, or just inflector. This inflector is placed within a bored out tunnel in the storage ring magnet, and it cancels the majority of the magnetic field of the storage ring at the injection point of the muons, such that they are not lost due to motion induced by the fringe field \cite{inflector}. See \figref{fig:injectionpoint} for a view of the injection point. The inflector has a very tight 18 mm wide by 56 mm high aperture through which the muons must pass down its 1.7 m length. One side of the inflector is also closed such that an appreciable fraction of muons are lost before being injected into the ring, see \figref{fig:inflector}. Approximately 2\% of injected muons are stored with $\Delta p / p = 0.5\%$ centered around $\SI{3.094}{\GeV}$ due to these factors. A new inflector magnet is being designed with open ends in order to increase the muon flux for future runs of \gmtwo \cite{TDR}.
+The injection of the muon beam into the \gmtwo storage ring is a specialized process. In order to measure the magnetic field to the precision described in \secref{sec:MagneticField}, the \gmtwo storage ring must be a single monolithic magnet with no end effects. This prohibits the usual design of separated magnetic elements through which the muons might be injected. Therefore we use a specialized magnet called the ``Superconducting Inflector'' magnet, or just inflector. This inflector is placed within a bored out tunnel in the storage ring magnet, and it cancels the majority of the magnetic field of the storage ring at the injection point of the muons, such that they are not lost due to motion induced by the fringe field \cite{inflector}. See \figref{fig:injectionpoint} for a view of the injection point. The inflector has a very tight 18 mm wide by 56 mm high aperture through which the muons must pass down its 1.7 m length. One side of the inflector is also closed such that an appreciable fraction of muons are lost before being injected into the ring, see \figref{fig:inflector}. Approximately 2\% of injected muons are stored with $\Delta p / p = 0.1\%$ centered around $\SI{3.094}{\GeV}$ due to these factors. A new inflector magnet is being designed with open ends in order to increase the muon flux for future runs of \gmtwo \cite{TDR}.
 
 
 \begin{figure}[]
@@ -304,7 +304,7 @@ Finally, muons will be lost during data taking that will throw off the measureme
 
 
 
-\subsection{Muon beam dynamics}
+\section{Muon beam dynamics}
 
 Muons injected into the storage ring will occupy a region in phase space corresponding to a width of momenta and positions. Individual muons will undergo simple harmonic motion or betatron oscillations within the storage ring, in both the vertical and horizontal directions. The strength of the electrostatic focusing in relation to the magnetic field strength can be characterized by the field index
         \begin{align} \label{eq:fieldindex}
@@ -378,7 +378,7 @@ which constrains the available $n$ values that can be chosen. \figref{fig:tunepl
 \subsection{Coherent betatron oscillation}
 
 
-With each individual muon undergoing betatron oscillations, the muon beam as a whole will oscillate. The beam can be described as having a width and a mean dependent on the initial phase space parameters determined by injection and kicker effects. This overall distribution of the beam will oscillate coherently every betatron wavelength, thus moving around the ring at some frequency. Individual detectors around the ring measure the beam in discrete pieces based on their individual acceptances, where these acceptances depend on the radial and vertical characteristics of the beam. Because the betatron frequencies are smaller than the cyclotron frequency, there is an aliasing effect such that the betatron motion of the beam is instead observed as an apparent slow-moving oscillation. We call the the measureable signal of this coherent radial motion coherent betatron oscillation (CBO). See \figref{fig:cbo} for a pictorial view of this phenomena. The frequency of the CBO is just the beat frequency between the cyclotron frequency and the horizontal betatron frequency
+With each individual muon undergoing betatron oscillations, the muon beam as a whole will oscillate. The beam can be described as having a width and a mean dependent on the initial phase space parameters determined by injection and kicker effects. This overall distribution of the beam will oscillate coherently every betatron wavelength, thus moving around the ring at some frequency. Individual detectors around the ring measure the beam in discrete pieces based on their individual acceptances, where these acceptances depend on the radial and vertical characteristics of the beam. Because the betatron frequencies are smaller than the cyclotron frequency, there is an aliasing effect such that the betatron motion of the beam is instead observed as an apparent slow-moving oscillation. We call the the measurable signal of this coherent radial motion coherent betatron oscillation (CBO). See \figref{fig:cbo} for a pictorial view of this phenomena. The frequency of the CBO is just the beat frequency between the cyclotron frequency and the horizontal betatron frequency
         \begin{align}
             f_{CBO} = f_{c}-f_{x_{BO}}.
         \end{align}
@@ -386,7 +386,7 @@ There is also a horizontal CBO effect, but the rate of oscillation is fast enoug
         \begin{align}
             f_{VW} = f_{c}-2f_{y_{BO}},
         \end{align}
-where the term waist is used a description of the vertical width when its at its minimum. Both of these frequencies are included in \tabref{tab:frequencies}. For an individual detector the CBO has a specific phase, which goes from \SIrange{0}{2\pi}{} around the ring. When adding all of the detector signals together, the CBO effect tends to cancel out. However, due to acceptance differences between the different detectors, the CBO effect is still observable in the data. 
+where the term waist is used a description of the vertical width when its at its minimum. Both of these frequencies are included in \tabref{tab:frequencies}. For an individual detector the CBO has a specific phase, which goes from \SIrange{0}{2\pi}{} around the ring. When adding all of the detector signals together, the CBO effect tends to cancel out. However, due to acceptance differences between the different detectors, the CBO effect is still observable in the data. When fitting the data to extract \wa, these effects need to be included as will be discussed later.
 
 \begin{figure}[]
     \centering
@@ -396,14 +396,16 @@ where the term waist is used a description of the vertical width when its at its
 \end{figure}
 
 
-
-
 \subsection{Beam debunching}
 
+As described above, the muon beam is injected into the ring with a time spread of $\SI{120}{ns}$ and a range of momenta. At early times the beam will occupy a portion of the ring less than the whole since the cyclotron period is $\SI{149}{ns}$. Therefore early in the fill the detectors located at discrete points around the ring will measure counts from the beam where there will be a fast oscillation in the signal due to this cyclotron period. As time increases throughout the fill, the momentum distribution of the muons will cause the beam to spread out within the storage ring until the entire azimuth is filled. Since almost all muons are at the same momentum, it turns out that the slower moving muons at smaller radii catch up to the faster moving muons at the outer radii after many turns around the ring. By $\SI{30}{\micro s}$ the muon beam has gone around the ring two hundred times. As the beam fills the storage ring, the cyclotron frequency in the data reduces and the beam is seen to debunch. This phenomena is referred to as the ``fast rotation.'' See \figref{fig:fastrotation} for how this looks in the data. When dealing with the data and attempting to extract \wa, the typical procedure is to bin out the fast rotation entirely in periods of the cyclotron frequency. In this way the five parameter function described in \equref{eq:5parfunc} remains satisfactory. 
 
-
-
-
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.8\textwidth]{fastrotation}
+    \caption[Beam debunching fast rotation]{The fast rotation signal can be seen easily in the data as an oscillation with a period of $\SI{149}{ns}$, corresponding to the fast oscillations in these plots. At early times the fast rotation signal is seen to be very large, as shown on the left. As time passes and the beam debunches, the amplitude of the fast rotation signal diminishes as shown on the right. In both cases the slow oscillation is the \gmtwo frequency. \bf{Replace this picture with one of my own from real data.}}
+    \label{fig:fastrotation}
+\end{figure}
 
 
 
