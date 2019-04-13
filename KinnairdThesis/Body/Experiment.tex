@@ -21,7 +21,7 @@ By taking the difference between these two frequencies we arrive at the "spin di
         \end{align}
 a frequency that is directly proportional to the anomalous magnetic moment $a$. Briefly note that if $g = 2$ as in a Dirac theory, then the particles spin would turn at the same rate as the momentum vector, and this spin difference frequency \wa would be identically 0. If this spin difference frequency for a muon and the external magnetic dipole field can be measured, then the anomalous magnetic moment of the muon \amu can be measured. 
 
-As will be detailed below in \secref{sec:BIntro}, the measurement of the magnetic field is related to the Larmor precession frequency of free protons in water 
+As will be detailed below in \secref{sec:MagneticField}, the measurement of the magnetic field is related to the Larmor precession frequency of free protons in water 
         \begin{align} \label{eq:wp}
             \omega_{p} = -g_{p} \frac{e}{2m_{p}} B,
         \end{align}
@@ -164,7 +164,7 @@ where $y_{th}=E_{th}/E_{max}$. By fitting \equref{eq:5parfunc}, \wa can be extra
 
 
 \section{Measuring the magnetic field}
-\label{sec:BIntro}
+\label{sec:MagneticField}
 
 
 In order to measure the magnetic moment of the muon to 140 ppb, the field needs to be both highly uniform, and measured to extreme precision. The E989 goal for the field measurement is 70 ppb. As shown in \equref{eq:amuratios} the measurement of the magnetic field has equal weight to that of the precession frequency. A cross-section of the magnetic ring is shown in \figref{fig:MagnetCrossSection}. The muons live within a $\SI{9}{cm^{2}}$ storage region at the center of the magnetic field. This corresponds to an approximately $\SI{1.14}{m^{3}}$ or $\SI{40}{ft^{3}}$ total volume around the inside of the ring. The magnetic field is made uniform by manipulating many magnetic `knobs' built into the \gmtwo storage ring, including the main magnet current, pole pieces, wedges, top hats, and thousands of small magnetic shims placed around the storage region. There is also an active feedback system which stabilizes the magnetic field over time. The shimming of the field to high precision, approximately $\SI{\pm 25}{ppm}$, was a long process of fine tuning over the course of many months that was undertaken by many member of the field team.
@@ -211,7 +211,7 @@ Other pieces of the systematic uncertainty include the absolute calibration of t
 \section{Production and injection of polarized muons}
 \label{sec:Accelerator}
 
-As explained previously, the number of high energy positrons detected depends on the muon spin at the time of decay. In order for this detected quantity to mean anything, the muon spins themselves need to be highly polarized. Using the same parity-violation and spin momentum conservation logic as expounded upon in muon decay, it is known that pion decay produces muons that are 100\% polarized in the pion rest frame, due to the pion having zero spin. The Feynman diagram for this decay is shown in \figref{fig:pidecay}. It's also important to note that pions decay to muons with over 99\% branching ratio due to the parity violating nature of the weak interaction. These two facets of pion decay are used to construct polarized muon beams. 
+As explained previously, the number of high energy positrons detected depends on the muon spin at the time of decay. In order for this detected quantity to mean anything, the muon spins themselves need to be highly polarized. Using the same parity-violation and spin momentum conservation logic as expounded upon in muon decay, it is determined that pion decay produces muons that are 100\% polarized in the pion rest frame, due to the pion having zero spin. The Feynman diagram for this decay is shown in \figref{fig:pidecay}. It's also important to note that pions decay to muons with over 99\% branching ratio due to the parity violating nature of the weak interaction, and thus a preference for the heavier muon over the electron. These two facets of pion decay are used to construct polarized muon beams. 
 
 In order to measure \gmtwo to high precision, a very large number of positrons need to be detected, and hence a large number of highly polarized muons injected into the storage ring. The BNL E821 experiment observed on the order of 10 billion positrons above threshold, and its final result was statistics limited. In order to reach the goal of 140 ppb, 20 times that number of statistics needs to be gathered. The only facility in the world that can produce such a high number of polarized muons is Fermilab. 
 
@@ -222,13 +222,13 @@ In order to measure \gmtwo to high precision, a very large number of positrons n
     \label{fig:accelerator}
 \end{figure}
 
-The Fermilab accelerator complex produces polarized muons for E989 in a number of stages. A map of the various relevant accelerator beam-line components is shown in \figref{fig:accelerator}. Details of the full accelerator production of polarized muons can be found in \refref{Stratakis:2017uci}, and here will be given a summary of the process. Protons are first generated and accelerated in a linear accelerator called the ``linac''. They are transported to a small circular ring called the ``booster'', which accelerates them up to 8 \GeV and puts them into a bunched structure. A single booster batch contains on the order of $\SI{4e12}{protons}$, which is too much for the detector data acquisition systems to handle at the data taking side of things. Therefore the protons are injected into a ring called ``recycler'', which re-bunches the protons into four separate bunches of $\SI{1e12}{protons}$ each, with a time width of approximately $\SI{120}{ns}$. These bunches are delivered at a rate of about 12 Hz with a time separation of greater than 10 ms, again owing to the acceptable rates of the \gmtwo detectors.
+The Fermilab accelerator complex produces polarized muons for E989 in a number of stages. A map of the various relevant accelerator beam-line components is shown in \figref{fig:accelerator}. Details of the full accelerator production of polarized muons can be found in \refref{Stratakis:2017uci}, and here will be given a summary of the process. First, protons are generated and accelerated in a linear accelerator called the ``linac''. They are transported to a small circular ring called the ``booster,'' which accelerates them up to 8 \GeV and puts them into a bunched structure. A single booster batch contains on the order of $\SI{4e12}{protons}$. It turns out that by the time we've gotten to the positron measuring side of things, this would be too much for the detector data acquisition systems to handle. Therefore the protons are injected into a ring called ``recycler,'' which re-bunches the protons into four separate bunches of $\SI{1e12}{protons}$ each, each with a time width of approximately $\SI{120}{ns}$. (This is less than the cyclotron period of the storage ring of 149 ns.) These bunches are generated at an average rate of about 12 Hz with a time separation greater than 10 ms.
 
-Each bunch is selected one at a time and sent to a target hall, where the bunch is smashed against an Inconel target. This Inconel target is made up of a nickel and iron alloy optimized for producing a large number of pions with a small momentum spread, approximately $\SI{1e-5}{\pi^{+}/\text{POT}}$ with $|dp/p| < 2 \%$ \cite{Stratakis:2017uci}. The resulting pions are focused just after production by a lithium lens. This lithium lens is a $\SI{1}{cm}$ radius and $\SI{15}{cm}$ long piece of aluminum which provides a radial focusing effect for particles passing lengthwise down the cylinder \cite{LiLens}. A pulsed magnet just after the lithium lens is then used to select pions at $\SI{3.115}{\GeV}$.
+Each bunch is selected one at a time and sent to a target hall, where the bunch is smashed against an Inconel target. This Inconel target is made up of a nickel and iron alloy optimized for producing a large number of pions with a small momentum spread, approximately $\SI{1e-5}{\pi^{+}/\text{POT}}$ with $|dp/p| < 2 \%$ \cite{Stratakis:2017uci}. The resulting pions are focused just after production by a lithium lens. This lithium lens is a $\SI{1}{cm}$ radius and $\SI{15}{cm}$ long piece of aluminum designed to carry high current which provides a radial focusing effect for particles passing lengthwise down the cylinder \cite{LiLens}. A pulsed magnet just after the lithium lens is then used to select pions at $\SI{3.115}{\GeV}$.
 
-The pion beam and any residual protons are then injected into another ring called the ``delivery ring'', which is used to hold the pion beam until the vast majority of pions decay. The pions are held in the delivery ring for four turns, after which they have all decayed to muons \cite{Stratakis:2017uci}. In a pion beam the highest and lowest energy decay muons are polarized. Therefore forward emitted polarized muons are then momentum selected at $\SI{3.094}{\GeV}$ with $\Delta p / p = 2\%$, and the remaining muons, protons, and other secondary particles are re-routed to a beam dump which reduces the contamination in the final polarized muon beam. This polarized muon beam is then sent to the \gmtwo building where it passes through four magnetic quadrupole focusing magnets before being injected into the storage ring.
+In a pion beam the highest and lowest energy decay muons are polarized. The pion beam and any residual protons or secondaries are injected into another ring called the ``delivery ring''. By the time the pions have gotten to the delivery ring, most of them have decayed to muons. The delivery ring is used to both hold the beam until the remaining pions decay, which takes about four turns, and to select the polarized muons \cite{Stratakis:2017uci}. Forward emitted polarized muons are momentum selected at $\SI{3.094}{\GeV}$ with $\Delta p / p = 2\%$. The remaining muons, protons, and other secondary particles are separated and re-routed to a beam dump which reduces the contamination in the final polarized muon beam. This polarized muon beam is then sent to the \gmtwo building where it passes through four magnetic quadrupole focusing magnets before being injected into the storage ring.
 
-The injection of the muon beam into the \gmtwo storage ring is a specialized process. In order to measure the magnetic field to the precision described in \secref{Bintro}, the \gmtwo storage ring must be a single monolithic magnet with no end effects. This prohibits the usual design of separated magnetic elements through which the muons might be injected. Therefore we use a specialized magnet called the ``Superconducting Inflector'' magnet, or just inflector. This inflector is placed within a bored out tunnel in the storage ring magnet, and it cancels the majority of the magnetic field of the storage ring at the injection point of the muons, such that they are not lost due to motion induced by the fringe field \cite{inflector}. See \figref{fig:injectionpoint} for a view of the injection point. The inflector has a very tight 18 mm wide by 56 mm high aperture through which the muons must pass down its 1.7 m length. One side of the inflector is also closed such that an appreciable fraction of muons are lost before being injected into the ring, see \figref{fig:inflector}. Approximately 2\% of injected muons are stored with $\Delta p / p = 0.5\%$ centered around $\SI{3.094}{\GeV}$ due to these factors.
+The injection of the muon beam into the \gmtwo storage ring is a specialized process. In order to measure the magnetic field to the precision described in \secref{sec:MagneticField}, the \gmtwo storage ring must be a single monolithic magnet with no end effects. This prohibits the usual design of separated magnetic elements through which the muons might be injected. Therefore we use a specialized magnet called the ``Superconducting Inflector'' magnet, or just inflector. This inflector is placed within a bored out tunnel in the storage ring magnet, and it cancels the majority of the magnetic field of the storage ring at the injection point of the muons, such that they are not lost due to motion induced by the fringe field \cite{inflector}. See \figref{fig:injectionpoint} for a view of the injection point. The inflector has a very tight 18 mm wide by 56 mm high aperture through which the muons must pass down its 1.7 m length. One side of the inflector is also closed such that an appreciable fraction of muons are lost before being injected into the ring, see \figref{fig:inflector}. Approximately 2\% of injected muons are stored with $\Delta p / p = 0.5\%$ centered around $\SI{3.094}{\GeV}$ due to these factors. A new inflector magnet is being designed with open ends in order to increase the muon flux for future runs of \gmtwo \cite{TDR}.
 
 
 \begin{figure}[]
@@ -267,9 +267,11 @@ The injection of the muon beam into the \gmtwo storage ring is a specialized pro
 \end{figure}
 
 
-The E989 experiment and storage ring are shown in \figref{fig:ring}. Approximately 10,000 muons are stored in the \gmtwo ring at a time, corresponding to a single fill. The $\SI{3.094}{\GeV}$ muons will decay with a lifetime of approximately $\SI{64.4}{\micro s}$. Once the muons have been injected into the ring, they will begin orbitting clockwise around the ring. By necessity, the inflector must be out of the muon beam path, otherwise a large fraction of the muons would be lost upon the first return to the injection point. Therefore the muon beam must be manipulated to switch the orbit path from the injection orbit onto the central orbit around the center of the storage ring. Once the muon beam is centered, it must also be focused vertically, otherwise all of the muons would be lost due to any vertical motion of the muons. To perform the former, a magnetic "kicker" is used to shift the orbits of the muons. To perform the latter, a serious of electrostatic quadrupoles focus the beam vertically.
+The E989 experiment and storage ring are shown in \figref{fig:ring}. Approximately 10,000 muons are stored in the \gmtwo ring at a time, corresponding to a single fill. The $\SI{3.094}{\GeV}$ muons will decay with a lifetime of approximately $\SI{64.4}{\micro s}$. Once the muons have been injected into the ring, they will begin orbitting clockwise around the ring. By necessity, the inflector must be out of the muon beam path, otherwise a large fraction of the muons would be lost upon the first return to the injection point. Therefore the muon beam must be manipulated to switch the orbit path from the injection orbit onto the central orbit around the center of the storage ring. Once the muon beam is centered, it must also be focused vertically, otherwise all of the muons would be lost due to any vertical motion of the muons. To perform the former, a magnetic ``kicker'' is used to shift the orbits of the muons. To perform the latter, a series of electrostatic quadrupoles focus the beam vertically.
 
-The "kicker" is made up of three separate pulsed magnets located 90\textdegree{} from the exit of the inflector, where the inflector orbit crosses the central orbit. This is shown in \figref{fig:vacmap}. Due to the bunched nature of the muon beam and the short cyclotron period of $\SI{149}{ns}$, ideally the kicker moves all stored muons onto the central orbit and then turns off quickly such that by the time the muons orbit back around to the kicker there is no residual kick to the beam. The kick to the beam is approximately $\SI{10}{mrad}$ using a vertical pulsed field of around $\SI{300}{Gauss}$ over three $\SI{1.27}{m}$ long magnets and with a pulse length of about $\SI{120}{ns}$. (Should I mention the actual kick here, and how the beam is not quite centered in the ring?) It's important to note that the kicker must be operated within the magnetic field of the ring, and must therefore contain no magnetic elements in the hardware itself which would perturb the uniform magnetic field. For this reason the kicker is made up of thin aluminum plates which carry the current used to create the kicking magnetic field. %A picture of one of the kickers installed into the vacuum chamber is shown in 
+\subsection{Kicker}
+
+The kicker is made up of three separate pulsed magnets located 90\textdegree{} from the exit of the inflector, where the inflector orbit crosses the central orbit. The placement of the kickers is shown in \figref{fig:vacmap}. It's important to note that the kicker must be operated within the magnetic field of the ring, and must therefore contain no magnetic elements in the hardware itself which would perturb the uniform magnetic field. For this reason the kicker is made up of thin aluminum plates which carry the current used to create the kicking magnetic field. Due to the bunched nature of the muon beam and the short cyclotron period of $\SI{149}{ns}$, ideally the kicker moves all stored muons onto the central orbit and then turns off quickly such that by the time the muons orbit back around to the kicker there is no residual kick to the beam. The kick to the beam is approximately $\SI{10}{mrad}$ using a vertical pulsed field of around $\SI{300}{Gauss}$ over three $\SI{1.27}{m}$ long magnets and with a pulse length of about $\SI{120}{ns}$. In Run 1 the kickers were not able to be run at the design voltage necessary to put the beam exactly on the central orbit. Instead the beam is kicked to a stable orbit a couple of mm off center.  %A picture of one of the kickers installed into the vacuum chamber is shown in 
 
 \begin{figure}[]
     \centering
@@ -278,11 +280,13 @@ The "kicker" is made up of three separate pulsed magnets located 90\textdegree{}
     \label{fig:vacmap}
 \end{figure}
 
+\subsection{Electrostatic quadrupoles}
+
 There are four electrostatic quadrupoles (quads) located around the ring as shown in \figref{fig:vacmap}, which focus the beam vertically and defocus the beam horizontally. (The magnetic field of the ring serves to restore the beam radially.) The strength of the electrostatic focusing can be characterized by the field index
         \begin{align} \label{eq:fieldindex}
             n = \frac{\kappa R_{0}}{\beta B_{0}},
         \end{align}
-where $\kappa$ is the electric quadrupole gradient, $B_{0}$ is the magnetic field strength, $R_{0}$ is the central storage ring radius, and $\beta$ is the relativistic velocity of the muon beam. Just as in the case of the kickers, the quads must be operated in the vacuum and must be non-magnetic. The latter is the reason why we use electrostatic focusing elements instead of magnetic ones in the first place. Four quads were chosen in order to maximize the symmetry of the beam motion around the ring. The quads occupy over 40\% of the ring circumference. Each quad is made up of two segments, a short segment of 13\textdegree{} and a long segment of 26\textdegree{}. The quads are made out of as little material as possible in order to reduce multiple scattering of decay positrons passing through them. A picture of the quads installed into one of the vacuum chambers is shown in \figref{fig:Quads}. The equipotential lines of the quads is shown in \figref{fig:QuadPotential}. 
+where $\kappa$ is the electric quadrupole gradient, $B_{0}$ is the magnetic field strength, $R_{0}$ is the central storage ring radius, and $\beta$ is the relativistic velocity of the muon beam. Just as in the case of the kickers, the quads must be operated in the vacuum and must be non-magnetic. The latter is the reason why we use electrostatic focusing elements instead of magnetic ones. Four quads were chosen in order to maximize the symmetry of the beam motion around the ring. The quads occupy over 40\% of the ring circumference, leaving space for other elements around the ring. Each quad is made up of two segments, a short segment of 13\textdegree{} and a long segment of 26\textdegree{}. The quads are made out of as little material as possible in order to reduce multiple scattering of decay positrons passing through them. A picture of the quads installed into one of the vacuum chambers is shown in \figref{fig:Quads}. A simulation of the equipotential lines of the quads is shown in \figref{fig:QuadPotential}. 
 
 \begin{figure}[]
     \centering
@@ -299,13 +303,28 @@ where $\kappa$ is the electric quadrupole gradient, $B_{0}$ is the magnetic fiel
 \end{figure}
 
 
-As the muon beam goes around the ring, the muons will experience local field gradients and inhomogeneities. In order to avoid resonances where muons are lost from having passed through such regions too many times, the quad voltages are chosen such that the betatron wavelengths of the radial and vertical motions are not integer multiples of the storage ring circumference. This was one of the reasons that quadrupole voltages of 18.3 and 20.4 kV were used during Run 1 data taking. (Here is the first time I mention Run 1 data taking I think which doesn't make a ton of sense. Also should I go through all the tune stuff here? Or somewhere else? How much detail?) 
+
+
+\subsection{Muon beam motion}
+
+
+
+
+
+
+
 
 
 Muons will be lost during data taking that will throw off the measurement of the precession frequency \wa. In order to reduce the number of lost muons over the course of a fill, a procedure called "scraping" is used to remove those muons sitting at the edge of the storage region that will likely be lost at later times anyways. This scraping procedure involves changing the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will impact copper rings called collimators. Muons which hit the collimators will lose energy and be lost as the muons spiral out of the ring. The scraping procedure is performed early in the fill and ends at something$\SI{20}{\micro s}$. During Run 1 it was discovered that some of the quad resistors were damaged, leading to longer RC time constants such that the quad voltages had not returned to storage nominal during the designated analysis portion of the data. (Show a picture here of those time constants?)
 
 
-\section{Muon beam motion}
+
+
+
+
+As the muon beam goes around the ring, the muons will experience local field gradients and inhomogeneities. In order to avoid resonances where muons are lost from having passed through such regions too many times, the quad voltages are chosen such that the betatron wavelengths of the radial and vertical motions are not integer multiples of the storage ring circumference. This was one of the reasons that quadrupole voltages of 18.3 and 20.4 kV were used during Run 1 data taking. (Here is the first time I mention Run 1 data taking I think which doesn't make a ton of sense. Also should I go through all the tune stuff here? Or somewhere else? How much detail?) 
+
+
 
 % Not entirely sure how to fit this section between the storage section and the correction section, I will probably need to modify both of those around this one, but just go with it for now and fix it up later. Also not sure how much beam dynamics equations I should put in. Tunes and stuff
 
@@ -460,15 +479,6 @@ Once again $n$ is the field index, $R_{0}$ is the radius of the ring at the cent
 
 
 \clearpage
-
-
-
-Need to included beam motion and coherent betatron oscillations somehow I think in this chapter
-
-
-
-\clearpage
-
 
 
 
