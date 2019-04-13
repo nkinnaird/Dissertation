@@ -375,40 +375,30 @@ which constrains the available $n$ values that can be chosen. \figref{fig:tunepl
 
 
 
-
-
-
 \subsection{Coherent betatron oscillation}
 
-the order of what I'm saying here doesn't make sense, I've already made a table of frequencies with the CBO in it but then I'm trying to explain CBO here - I need to rework this
 
-two sort of things here: 
-1. beam moves as a coherent bunch based on the initial injected phase space
-2. there is an aliasing effect on the detected signals due to ... 
-
-also CBO is radial 
-observed CBO is not the horizontal betatron frequency because of the aliasing
-
-
-The acceptance of the detectors in \gmtwo depend on the radial coordinate of the muon beam. The muon beam as describe previously will have some motion to it. This motion will introduce an aliasing effect on the detected signals which does not average out over time. Therefore there is this phantom effect
-
+With each individual muon undergoing betatron oscillations, the muon beam as a whole will oscillate. The beam can be described as having a width and a mean dependent on the initial phase space parameters determined by injection and kicker effects. This overall distribution of the beam will oscillate coherently every betatron wavelength, thus moving around the ring at some frequency. Individual detectors around the ring measure the beam in discrete pieces based on their individual acceptances, where these acceptances depend on the radial and vertical characteristics of the beam. Because the betatron frequencies are smaller than the cyclotron frequency, there is an aliasing effect such that the betatron motion of the beam is instead observed as an apparent slow-moving oscillation. We call the the measureable signal of this coherent radial motion coherent betatron oscillation (CBO). See \figref{fig:cbo} for a pictorial view of this phenomena. The frequency of the CBO is just the beat frequency between the cyclotron frequency and the horizontal betatron frequency
+        \begin{align}
+            f_{CBO} = f_{c}-f_{x_{BO}}.
+        \end{align}
+There is also a horizontal CBO effect, but the rate of oscillation is fast enough that the effect tends to average out. What can be seen in the data however is the vertical width of the beam, to which the detectors are sensitive. Though the principles are the same, we call this effect the vertical waist (VW),
+        \begin{align}
+            f_{VW} = f_{c}-2f_{y_{BO}},
+        \end{align}
+where the term waist is used a description of the vertical width when its at its minimum. Both of these frequencies are included in \tabref{tab:frequencies}. For an individual detector the CBO has a specific phase, which goes from \SIrange{0}{2\pi}{} around the ring. When adding all of the detector signals together, the CBO effect tends to cancel out. However, due to acceptance differences between the different detectors, the CBO effect is still observable in the data. 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=.6\textwidth]{cbo}
-    \caption[Coherent betatron oscillations]{}
+    \caption[Coherent betatron oscillation]{Marked by the black vertical lines are integer steps in the circumference of the ring, corresponding to the cyclotron wavelength $\lambda_{c}$. The blue line shows the motion of the beam due to the betatron oscillations $\lambda_{x}$. Since $\lambda_{x} < \lambda_{c}$, there is an aliasing effect in the observed signal, which is identified by the red line. The beam is thus seen as appearing to move back and forth with a slow oscillation, and this is what we call CBO.}
     \label{fig:cbo}
 \end{figure}
 
-Detectoracceptance depends on the radial coordinate x of the beam
-TheCBOamplitude modulates the signal in the detectors
-
-
-Because the coherent betatron oscillation frequency (CBO) is close to that of the \gmtwo frequency as shown in \tabref{tab:frequencies},
 
 
 
-
+\subsection{Beam debunching}
 
 
 
