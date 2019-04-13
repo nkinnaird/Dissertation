@@ -282,11 +282,7 @@ The kicker is made up of three separate pulsed magnets located 90\textdegree{} f
 
 \subsection{Electrostatic quadrupoles}
 
-There are four electrostatic quadrupoles (quads) located around the ring as shown in \figref{fig:vacmap}, which focus the beam vertically and defocus the beam horizontally. (The magnetic field of the ring serves to restore the beam radially.) The strength of the electrostatic focusing can be characterized by the field index
-        \begin{align} \label{eq:fieldindex}
-            n = \frac{\kappa R_{0}}{\beta B_{0}},
-        \end{align}
-where $\kappa$ is the electric quadrupole gradient, $B_{0}$ is the magnetic field strength, $R_{0}$ is the central storage ring radius, and $\beta$ is the relativistic velocity of the muon beam. Just as in the case of the kickers, the quads must be operated in the vacuum and must be non-magnetic. The latter is the reason why we use electrostatic focusing elements instead of magnetic ones. Four quads were chosen in order to maximize the symmetry of the beam motion around the ring. The quads occupy over 40\% of the ring circumference, leaving space for other elements around the ring. Each quad is made up of two segments, a short segment of 13\textdegree{} and a long segment of 26\textdegree{}. The quads are made out of as little material as possible in order to reduce multiple scattering of decay positrons passing through them. A picture of the quads installed into one of the vacuum chambers is shown in \figref{fig:Quads}. A simulation of the equipotential lines of the quads is shown in \figref{fig:QuadPotential}. 
+There are four electrostatic quadrupoles (quads) located around the ring as shown in \figref{fig:vacmap}, which focus the beam vertically and defocus the beam horizontally. (The magnetic field of the ring serves to restore the beam radially in combination with the electric field.) Just as in the case of the kickers, the quads must be operated in the vacuum and must be non-magnetic. The latter is the reason why we use electrostatic focusing elements instead of magnetic ones. Four quads were chosen in order to maximize the symmetry of the beam motion around the ring. The quads occupy 43\% of the ring circumference, leaving space for other elements around the ring. Each quad is made up of two segments, a short segment of 13\textdegree{} and a long segment of 26\textdegree{}. The quads are made out of as little material as possible in order to reduce multiple scattering of decay positrons passing through them. A picture of the quads installed into one of the vacuum chambers is shown in \figref{fig:Quads}. A simulation of the equipotential lines of the quads is shown in \figref{fig:QuadPotential}. 
 
 \begin{figure}[]
     \centering
@@ -303,54 +299,83 @@ where $\kappa$ is the electric quadrupole gradient, $B_{0}$ is the magnetic fiel
 \end{figure}
 
 
-
-
-\subsection{Muon beam motion}
-
+Finally, muons will be lost during data taking that will throw off the measurement of the precession frequency \wa. In order to reduce the number of lost muons over the course of a fill, a procedure called "scraping" is used to remove those muons sitting at the edge of the storage region that will likely be lost at later times anyways. This scraping procedure involves changing the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will impact copper rings called collimators. Muons which hit the collimators will lose energy and be lost as the muons spiral out of the ring. The scraping procedure is performed early in the fill and ends at something$\SI{20}{\micro s}$. During Run 1 it was discovered that some of the quad resistors were damaged, leading to longer RC time constants such that the quad voltages had not returned to storage nominal during the designated analysis portion of the data. (Show a picture here of those time constants?)
 
 
 
 
+\subsection{Muon beam dynamics}
 
-
-
-
-Muons will be lost during data taking that will throw off the measurement of the precession frequency \wa. In order to reduce the number of lost muons over the course of a fill, a procedure called "scraping" is used to remove those muons sitting at the edge of the storage region that will likely be lost at later times anyways. This scraping procedure involves changing the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will impact copper rings called collimators. Muons which hit the collimators will lose energy and be lost as the muons spiral out of the ring. The scraping procedure is performed early in the fill and ends at something$\SI{20}{\micro s}$. During Run 1 it was discovered that some of the quad resistors were damaged, leading to longer RC time constants such that the quad voltages had not returned to storage nominal during the designated analysis portion of the data. (Show a picture here of those time constants?)
-
-
-
-
-
-
-As the muon beam goes around the ring, the muons will experience local field gradients and inhomogeneities. In order to avoid resonances where muons are lost from having passed through such regions too many times, the quad voltages are chosen such that the betatron wavelengths of the radial and vertical motions are not integer multiples of the storage ring circumference. This was one of the reasons that quadrupole voltages of 18.3 and 20.4 kV were used during Run 1 data taking. (Here is the first time I mention Run 1 data taking I think which doesn't make a ton of sense. Also should I go through all the tune stuff here? Or somewhere else? How much detail?) 
-
-
-
-% Not entirely sure how to fit this section between the storage section and the correction section, I will probably need to modify both of those around this one, but just go with it for now and fix it up later. Also not sure how much beam dynamics equations I should put in. Tunes and stuff
-
-Due to the momentum and position spread of the injected muons, as well as the  
+Muons injected into the storage ring will occupy a region in phase space corresponding to a width of momenta and positions. Individual muons will undergo simple harmonic motion or betatron oscillations within the storage ring, in both the vertical and horizontal directions. The strength of the electrostatic focusing in relation to the magnetic field strength can be characterized by the field index
+        \begin{align} \label{eq:fieldindex}
+            n = \frac{\kappa R_{0}}{\beta B_{0}},
+        \end{align}
+where $\kappa$ is the electric quadrupole gradient, $B_{0}$ is the magnetic field strength, $R_{0}$ is the central storage ring radius, and $\beta$ is the relativistic velocity of the muon beam. The horizontal and vertical equations of motion, including the effects of the discrete quadrupoles, are given by
+        \begin{align} \label{eq:betatronmotion}
+            x &= x_{e} + A_{x}(s) \cos(\nu_{x} \frac{s}{R_{0}} + \phi_{x}), \\
+            y &= A_{y}(s) \cos(\nu_{y} \frac{s}{R_{0}} + \phi_{y}), 
+        \end{align}
+where $x_{e}$ is the radial equilibrium orbit of the beam relative to $R_{0}$, $A_{x}(s)$ and $A_{y}(s)$ are the amplitudes of the motions containing the effects of the discreteness of the quads, and $s$ is the arc length of the trajectory. Here $\nu_{x}$ and $\nu_{y}$ are the so-called horizontal and vertical ``tunes'' of the beam motion, which are ratios of the betatron frequencies to the cyclotron frequency. They can be related to the field index $n$ by
+        \begin{equation} \label{eq:tunes}
+        \begin{aligned}
+            \nu_{x} &= f_{x_{BO}}/f_{c} = \sqrt{1-n}, \\
+            \nu_{y} &= f_{y_{BO}}/f_{c} = \sqrt{n}.           
+        \end{aligned}
+        \end{equation}
+Here $f_{c}$ is the cyclotron frequency. Technically $n$ is the the average field index around the ring, where this approximation is justified due to the four-fold symmetry of the discrete quadrupoles and the fact that the betatron oscillations have periods much greater than the length of the quads. A table of the important frequencies in E989 is shown in \tabref{tab:frequencies}. Lastly, the maximum angular acceptance of the ring can be determined from the betatron oscillations and the field index as 
+        \begin{equation} \label{eq:maxangles}
+        \begin{aligned}
+            \psi_{x_{max}} &= \frac{x_{max}\sqrt{1-n}}{R_{0}}, \\
+            \psi_{y_{max}} &= \frac{y_{max}\sqrt{n}}{R_{0}},
+        \end{aligned}
+        \end{equation}
+where $x_{max}$ and $y_{max}$ are both equal to the radius of the storage ring aperture at $\SI{45}{mm}$.
 
 
 \begin{table}[]
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{.6\linewidth}{@{\extracolsep{\fill}}lcc}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lcccc}
   \hline
-    \multicolumn{3}{c}{\textbf{Muon Beam Frequencies}} \\
+    \multicolumn{5}{c}{\textbf{Muon Beam Frequencies}} \\
   \hline\hline
-    Name & Frequency (MHz) & Period \\
+    Name & Symbol & Expression & Frequency (MHz) & Period \\
   \hline
-    \gmtwo & 0.23 & $\SI{4.365}{\micro s}$ \\
-    cyclotron & 6.71 & $\SI{149}{ns}$ \\
-    coherent betatron & 0.37 & $\SI{2.703}{\micro s}$ \\
-    vertical betatron & 2.19 & $\SI{457}{ns}$ \\
-    vertical waist & 2.31 & $\SI{433}{ns}$ \\
+    \gmtwo & $f_{a}$ & $a_{\mu}Be/2\pi m c$ & 0.23 & $\SI{4.365}{\micro s}$ \\
+    cyclotron &  $f_{c}$ & $v/\pi R_{0}$ & 6.71 & $\SI{149}{ns}$ \\
+    horizontal betatron & $f_{x_{BO}}$ & $\sqrt{1-n} f_{c}$ & 6.34 & $\SI{158}{ns}$ \\
+    vertical betatron & $f_{y_{BO}}$ & $\sqrt{n} f_{c}$ & 2.21 & $\SI{452}{ns}$ \\
+    coherent betatron & $f_{CBO}$ & $f_{c}-f_{x_{BO}}$ & 0.37 & $\SI{2.703}{\micro s}$ \\
+    vertical waist & $f_{VW}$ & $f_{c}-2f_{y_{BO}}$ & 2.31 & $\SI{433}{ns}$ \\
   \hline
 \end{tabular*}
 \caption{Table of frequencies and corresponding periods seen in the \gmtwo experiment due to beam motion. Parameter values are from a subset of Run 1 corresponding to an $n$ value of 0.108 or a quad voltage of 18.3 kV.}
 \label{tab:frequencies}
 \end{table}
+
+
+As the muon beam goes around the ring, the muons will experience local field gradients and inhomogeneities. The tunes are thus chosen to avoid resonances where muons might be lost from having passed through such perturbations too many times. The muons within the ring should then sample the entire azimuth equally and remain stored. The general resonance condition is \cite{Wiedermann}
+        \begin{align}
+            a \nu_{x} + b \nu_{y} = c,
+        \end{align}
+where $a$, $b$, and $c$ are integers. We know from \equref{eq:tunes} that 
+        \begin{align}
+            \nu_{x}^{2} + \nu_{y}^{2} = 1,
+        \end{align}
+which constrains the available $n$ values that can be chosen. \figref{fig:tuneplane} shows the space relative to the tunes for which a chosen value of $n$ will lie on a resonance. For Run 1 data taking, $n$ values of 0.108 and 0.121 were chosen corresponding to quad voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.5\textwidth]{tuneplane}
+    \caption[Tune plane]{The tune plane, with the $\nu_{x}^{2} + \nu_{y}^{2} = 1$ constraint in red. The chosen value of $n$ lies on this circle. The original design goals for E989 were the $n$ values as shown by the red points, but due to hardware issues smaller $n$ values of 0.108 and 0.121 were chosen.}
+    \label{fig:tuneplane}
+\end{figure}
+
+
+
+
 
 
 \subsection{Coherent betatron oscillation}
@@ -384,6 +409,14 @@ Because the coherent betatron oscillation frequency (CBO) is close to that of th
 
 
 
+
+
+
+
+
+
+
+
 \section{Corrections to \texorpdfstring{\wa}{wa}}
 
 \equref{eq:wasimple} is an idealized version of the spin difference frequency. Including practical experimental concerns, there are two corrections that must be applied to \wa.
@@ -396,7 +429,7 @@ In the presence of an electric field, the spin difference frequency is altered t
         \end{align}
 where now there is an extra term dependent on the electric field strength and the momentum of the particles. This is necessary to include since we use electrostatic quadrupoles for vertical focusing as described above. The second term cancels to first order for a specific momentum or value of $\gamma$. This "magic momentum" can be understood as the momentum at which a relativistic particle moving through an electric field has its spin exactly follow its momentum. This magic momentum is $\SI{3.094}{\GeV}$ for muons, hence the momentum value of the injected muons. This value has driven many of the design constraints of the \gmtwo experiment, including the size of the storage ring, choice of the magnetic field magnitude, and so on.
 
-Not all muons will have the magic momentum however as described in the inflector section \secref{inflectorsection}, and therefore a correction to the measured \wa frequency needs to be applied. Approximating the storage ring as having an electric field applied over the whole azimuth of the ring, the spin difference frequency for muons with momentum $p \neq p_{m}$ (where $p_{m}$ is the magic momentum) becomes  
+Not all muons will have the magic momentum however as described in the \secref{sec:Accelerator}, and therefore a correction to the measured \wa frequency needs to be applied. Approximating the storage ring as having an electric field applied over the whole azimuth of the ring, the spin difference frequency for muons with momentum $p \neq p_{m}$ (where $p_{m}$ is the magic momentum) becomes  
         \begin{align} \label{eq:wafinal}
             \omega_{a}' = \omega_{a} \Big[ 1 - \beta \frac{E_{r}}{c B_{y}} \Big( 1 - \frac{1}{a \beta^{2} \gamma^{2}} \Big) \Big].
         \end{align}
@@ -420,7 +453,7 @@ Taking the time average of the beam motion, where $x$ is simply equal to $x_{e}$
         \begin{align}
             C_{\text{E}} = -2n (1-n) \beta^{2} \frac{\langle x_{e}^{2} \rangle}{R_{0}^{2}}.
         \end{align}
-This electric field correction can be determined through analysis which relates the beam momentum to the equilbrium radius. (Should expand on that somehow here.) The assumptions made here are sufficient for the \gmtwo measurement \cite{something}. (Cite something here or actually derive something?)
+This electric field correction can be determined through analysis which relates the beam momentum to the equilbrium radius. (Should I expand on that somehow here?) The assumptions made here are sufficient for the \gmtwo measurement \cite{something}.
 
 
 \subsection{Pitch correction}
@@ -463,7 +496,7 @@ where in the last approximation the small angle approximation was used once agai
         \begin{align}
             C_{\text{P}} = \frac{\Delta\omega_{a}}{\omega_{a}} = - \frac{\langle \psi^{2} \rangle}{2} = - \frac{\langle \psi_{0}^{2} \rangle}{4},
         \end{align}
-where \equref{eq:psi} was used in the last equality. The pitch angle of the beam cannot be measured directly, however we know from \equref{something} or \secref{something} that the angle of the beam can be related to the vertical distribution of the beam, such that 
+where \equref{eq:psi} was used in the last equality. The pitch angle of the beam cannot be measured directly, however we know from \equref{eq:maxangles} that the angle of the beam can be related to the vertical distribution of the beam, such that 
         \begin{align}
             C_{\text{P}} = - \frac{n}{4} \frac{\langle y^{2} \rangle}{R_{0}^{2}}.
         \end{align}
