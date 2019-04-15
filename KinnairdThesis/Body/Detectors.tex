@@ -7,12 +7,17 @@
 \chapter{Detector Systems}
 \label{sec:DetectorSystems}
 
--how should I order these sections? perhaps by what the beam sees in order?
+There are several different detector systems used in E989. Some act as general monitors for injection and beam dynamics, including the T0, IBMS, fiber harps, and straw trackers. The calorimeters gather the most data and measure the \wa signal. Each of these will be described in the following sections.
 
-\subsection{T0}
+
+\section{T0}
 \label{sec:T0}
 
-In order to align the decay positron spectra in time from fill to fill, an entrace ``T0'' detector is used.  It is made up of a scintillating paddle connected to two (2-inch Hammatsu?) PMTs (photo-multiplier tubes), and is placed just on the outside of the ring before the inflector. See \figref{fig:T0}. One of the PMTs serves as the actual T0 counter which provides an average time of the incoming beam with which to align the fills. The second paddle acts as a magnitude counter to serve as a proxy for the fill intensity. Together they provide a measure of the injected beam profile in time. The varying intensity and bunch shapes can be seen as shown in \figref{fig:T0pulses}.
+During data taking, a reference time must be chosen so as to align all different detector systems in time. When taking data from fill to fill, decay positron spectra must be aligned in phase. Without this functionality, analyzing the data from different systems and comparing them would be impossible. To do this a ``T0'' counter is placed just on the outside of the ring before the inflector. It is made up of a scintillating paddle connected to two (2-inch Hammatsu?) PMTs (photo-multiplier tubes), and is . 
+
+
+
+See \figref{fig:T0}. One of the PMTs serves as the actual T0 counter which provides an average time of the incoming beam with which to align the fills. The second paddle acts as a magnitude counter to serve as a proxy for the fill intensity. Together they provide a measure of the injected beam profile in time. The varying intensity and bunch shapes can be seen as shown in \figref{fig:T0pulses}.
 
 -might use the same WFD as Calo 1...
 -cite all this, with the TDR or hopefully something else \cite{TDR} - can possibly just cite DocDBs as well - need to figure that out
@@ -38,7 +43,7 @@ In order to align the decay positron spectra in time from fill to fill, an entra
 \end{figure}
 
 
-\subsection{IBMS}
+\section{IBMS}
 \label{sec:IBMS}
 
 There are two scintillating fiber detectors which monitor the beam as it passes through the inflector, the so-called inflector beam monitoring system (IBMS). See \figref{fig:IBMS1and2}. These devices are placed at the outside of the magnet yoke before injection into the back hole of the magnet, and at the entrance to the inflector. A third device is planned to be at or near the downstream end of the inflector (fix this later on). See \figref{fig:IBMSPlacement}. These devices are used to verify the beam optics tune in the muon injection through the inflector and continuously diagnose beam properties as a handle on systematic problems. Probably cite something in this section - not the TDR since the IBMS was not included in the TDR.
@@ -62,7 +67,7 @@ There are two scintillating fiber detectors which monitor the beam as it passes 
 \end{figure}
 
 
-\subsection{Fiber Harps}
+\section{Fiber Harps}
 \label{sec:FiberHarps}
 
 There are four scintillating fiber detectors located within the ring, two at the 180 degree position which measure the vertical and horizontal directions respectively, and similarly at the 270 degree position. One of these devices is shown in \figref{fig:fiberharp}. These `fiber harps' serve to monitor beam properties at all times during a fill, including just after injection and during scraping. This is especially useful as a diagnostic tool as well as a measurement of the central beam position and CBO properties (have I talked about this yet?). Because the fiber harps are a distructive measurement of the beam, they are retractable and are only inserted in special runs in order to make said beam measurements. When they are inserted however they provide a wealth of useful information regarding the beam, as shown in \figref{fig:fiberharp_measurement}. Probably cite something in this section.
@@ -85,7 +90,7 @@ There are four scintillating fiber detectors located within the ring, two at the
 \end{figure}
 
 
-\subsection{Calorimeters}
+\section{Calorimeters}
 \label{sec:Calorimeters}
 
 % what they do
@@ -132,7 +137,7 @@ In order to satisfy the gain requirements, a laser calibration system was put in
 
 
 
-\subsection{Straw Trackers}
+\section{Straw Trackers}
 \label{sec:StrawTrackers}
 
 The Muon \gmtwo Experiment at Fermilab uses straw tracking detectors to measure decay positron trajectories for the purpose of determining the muon beam distribution and its characteristics (and other things....). By fitting these tracks and extrapolating back to the average decay point, the beam can be characterized in a non-destructive fashion. See section blah. This is important because of the need for matching the average observed magnetic field of the decaying muons and their resulting decay positron directions which result in the \wa frequency.

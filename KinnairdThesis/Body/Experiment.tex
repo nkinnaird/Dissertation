@@ -222,7 +222,15 @@ In order to measure \gmtwo to high precision, a very large number of positrons n
     \label{fig:accelerator}
 \end{figure}
 
-The Fermilab accelerator complex produces polarized muons for E989 in a number of stages. A map of the various relevant accelerator beam-line components is shown in \figref{fig:accelerator}. Details of the full accelerator production of polarized muons can be found in \refref{Stratakis:2017uci}, and here will be given a summary of the process. First, protons are generated and accelerated in a linear accelerator called the ``linac''. They are transported to a small circular ring called the ``booster,'' which accelerates them up to 8 \GeV and puts them into a bunched structure. A single booster batch contains on the order of $\SI{4e12}{protons}$. It turns out that by the time we've gotten to the positron measuring side of things, this would be too much for the detector data acquisition systems to handle. Therefore the protons are injected into a ring called ``recycler,'' which re-bunches the protons into four separate bunches of $\SI{1e12}{protons}$ each, each with a time width of approximately $\SI{120}{ns}$. (This is less than the cyclotron period of the storage ring of 149 ns.) These bunches are generated at an average rate of about 12 Hz with a time separation greater than 10 ms.
+The Fermilab accelerator complex produces polarized muons for E989 in a number of stages. A map of the various relevant accelerator beam-line components is shown in \figref{fig:accelerator}. Details of the full accelerator production of polarized muons can be found in \refref{Stratakis:2017uci}, and here will be given a summary of the process. First, protons are generated and accelerated in a linear accelerator called the ``linac''. They are transported to a small circular ring called the ``booster,'' which accelerates them up to 8 \GeV and batches them together. A single booster batch contains on the order of $\SI{4e12}{protons}$. It turns out that by the time we've gotten to the positron measuring side of things, this would be too much for the detector data acquisition systems to handle. Therefore the protons are injected into a ring called ``recycler,'' which re-bunches the protons into four separate bunches of $\SI{1e12}{protons}$, each with a time width of approximately $\SI{120}{ns}$. (This is less than the cyclotron period of the storage ring of 149 ns.) For a single accelerator supercycle of $\SI{1.4}{s}$, E989 recieves four booster batches of particles corresponding to sixteen bunches, in a time structure as shown in \figref{fig:pulsetrain}. Two sets of eight bunches are generated at an average rate of about 12 Hz, with the time separation between bunches being greater than $\SI{10}{ms}$. Depending on the accelerator requirements of other experiments, this timing structure is modified appropriately.
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=1\textwidth]{accel_pulsetrain}
+    \caption[Fermilab accelerator pulse train]{General timing structure of beam pulses sent to E989.}   
+    \label{fig:pulsetrain}
+\end{figure}
+
 
 Each bunch is selected one at a time and sent to a target hall, where the bunch is smashed against an Inconel target. This Inconel target is made up of a nickel and iron alloy optimized for producing a large number of pions with a small momentum spread, approximately $\SI{1e-5}{\pi^{+}/\text{POT}}$ with $|dp/p| < 2 \%$ \cite{Stratakis:2017uci}. The resulting pions are focused just after production by a lithium lens. This lithium lens is a $\SI{1}{cm}$ radius and $\SI{15}{cm}$ long piece of aluminum designed to carry high current which provides a radial focusing effect for particles passing lengthwise down the cylinder \cite{LiLens}. A pulsed magnet just after the lithium lens is then used to select pions at $\SI{3.115}{\GeV}$.
 
@@ -402,7 +410,7 @@ As described above, the muon beam is injected into the ring with a time spread o
 
 \begin{figure}[]
     \centering
-    \includegraphics[width=\textwidth]{fastrotation}
+    \includegraphics[width=.8\textwidth]{fastrotation}
     \caption[Beam debunching fast rotation]{The fast rotation signal can be seen in the data as an oscillation with a period of $\SI{149}{ns}$, corresponding to the fast oscillations in these plots. In individual calorimeters at early times the fast rotation signal is seen to be very large, as shown on the top left. As time passes and the beam debunches, the amplitude of the fast rotation signal diminishes as shown on the top right. When adding all calorimeters together, the signal reduces as shown in the bottom two plots. In all cases the slow oscillation is the \gmtwo frequency.}
     \label{fig:fastrotation}
 \end{figure}
