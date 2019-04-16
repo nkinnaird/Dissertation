@@ -7,39 +7,33 @@
 \chapter{Detector Systems}
 \label{sec:DetectorSystems}
 
-There are several different detector systems used in E989. Some act as general monitors for injection and beam dynamics, including the T0, IBMS, fiber harps, and straw trackers. The calorimeters gather the most data and measure the \wa signal. Each of these will be described in the following sections.
+While the calorimeters are the primary detector and gather the most data to measure the \wa signal, there are a number of different auxiliary systems for monitoring injection and beam dynamics. These include the T0, IBMS, and fiber harps. The straw tracking detectors measure beam dynamics, but also serve as a cross check for some parameters of the calorimeter, and are used to look for a possible EDM signal. (Haven't mentioned EDMs at all at this point so maybe leave this last bit out.) Each of these systems will be described in the following sections.
+
 
 
 \section{T0}
 \label{sec:T0}
 
-During data taking, a reference time must be chosen so as to align all different detector systems in time. When taking data from fill to fill, decay positron spectra must be aligned in phase. Without this functionality, analyzing the data from different systems and comparing them would be impossible. To do this a ``T0'' counter is placed just on the outside of the ring before the inflector. It is made up of a scintillating paddle connected to two (2-inch Hammatsu?) PMTs (photo-multiplier tubes), and is . 
-
-
-
-See \figref{fig:T0}. One of the PMTs serves as the actual T0 counter which provides an average time of the incoming beam with which to align the fills. The second paddle acts as a magnitude counter to serve as a proxy for the fill intensity. Together they provide a measure of the injected beam profile in time. The varying intensity and bunch shapes can be seen as shown in \figref{fig:T0pulses}.
-
--might use the same WFD as Calo 1...
--cite all this, with the TDR or hopefully something else \cite{TDR} - can possibly just cite DocDBs as well - need to figure that out
--double check all this - just wrote from memory, also add detail - might want to just explain things better too, ``one PMT with low pe stats and one with high pe stats'' and how that works in the way I've already described above - ND (neutral density filters) one at 1\% one at 10\%
--if I use p.e. include it in the abbreviations
--get a picture of a T0 output from the midas page, also possibly comparing various bunches
--docDB 10911 for details
--docDB 10162 for pictures by Hannah
+During data taking, a reference time must be chosen so as to align all different detector systems in time. When taking data from fill to fill, decay positron spectra must be aligned in phase. Without this functionality, analyzing the data from different systems and comparing them would be impossible. To do this a ``T0'' counter is placed just on the outside of the ring before the inflector. It is made up of a scintillating paddle connected to two photo-multiplier tubes (PMTs) \cite{t0Hannah,t0Aaron}. See \figref{fig:T0counter}. One PMT, PMT A, has a 1\% neutral density filter resulting in low photo-electron stats, and acts primarily as a timing measurement. The other, PMT B, has a 10\% neutral density filter resulting in higher stats, and acts as a shape counter and proxy for fill intensity. (In general the signals are very similar.) Together they provide a measure of the injected beam profile in time, allowing to align the detectors each fill, and the data from fill to fill. Some measured T0 pulses are shown in \figref{fig:T0pulses}. The shape of the incoming pulses has a somewhat trident-like shape, with a very large spike in the middle of the time width, and two spikes on the outside edges. This shape owes itself to the accelerator complex, and varies from bunch to bunch.
 
 
 \begin{figure}[]
-    \centering
-    \includegraphics[width=0.9\textwidth]{T0}
-    \caption[T0 Counter]{Shown is the T0 entrance counter. In the center in green is the scintillator, which connects with light guides to PMTs on the left and right. Each PMT has a separate ND (what's this?) filter to modify the light output into each PMT to configure one more for fill timing, and the other for fill intensity.}
-    \label{fig:T0}
-\end{figure}
-
-\begin{figure}[]
-    \centering
-    \includegraphics[width=0.9\textwidth]{T0pulses}
-    \caption[T0 Pulses]{Shown are time profiles for the two PMTs (A and B) in the T0 counter for the 8 pulses we receive in an accelerator cycle/bunch/what. (careful here - not quite right) Each profile is an average of 100 such profiles. The x axis is in clock ticks (ct), each of which is 1.25 ns. (I will probably explain cts before this somewhere right?) PMT A is the low stats p.e. phototube and PMT B is the high stats p.e. phototube. Picture is too small, might want to rotate or replace it with somthing.}
-    \label{fig:T0pulses}
+\centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{T0}
+        \caption{The T0 counter is made up of a scintillator in the middle shown in green, which connects with light guides to PMTs on the left and right.}
+    \label{fig:T0counter}
+    \end{subfigure}%
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{T0pulses}
+        \caption{Time profiles for the two PMTs in the T0 counter for one of the eight bunches we receive at a time as described in \secref{sec:Accelerator}. Each profile is an average of 100 such profiles. The x axis is in clock ticks, each of which is $\SI{1.25}{ns}$.}
+    \label{fig:T0pulses}    
+    \end{subfigure}
+\caption[T0 counter and pulses]{Figures from \refref{t0Hannah}.}
+\label{fig:T0}
 \end{figure}
 
 
