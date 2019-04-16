@@ -63,24 +63,31 @@ While the T0 provides timing and intensity measurements, the inflector beam moni
 \subsection{Fiber Harps}
 \label{sec:FiberHarps}
 
-There are four scintillating fiber detectors located within the ring, two at the 180 degree position which measure the vertical and horizontal directions respectively, and similarly at the 270 degree position. One of these devices is shown in \figref{fig:fiberharp}. These `fiber harps' serve to monitor beam properties at all times during a fill, including just after injection and during scraping. This is especially useful as a diagnostic tool as well as a measurement of the central beam position and CBO properties (have I talked about this yet?). Because the fiber harps are a distructive measurement of the beam, they are retractable and are only inserted in special runs in order to make said beam measurements. When they are inserted however they provide a wealth of useful information regarding the beam, as shown in \figref{fig:fiberharp_measurement}. Probably cite something in this section.
+The last auxiliary detector is the so called ``fiber harp'' system. It is made up of four scintillating fiber detectors located within the ring that serve to measure the beam intensity as a function of time and position \cite{fiberharp}. Two of the detectors measure the radial components of the beam, and two measure the horizontal components. The fiber harps are located at points 180\textdegree{} and 270\textdegree{} from the inflector. One of these devices is shown in \figref{fig:fiberharp}. The fiber harps have the added advantage that they are able to measure beam properties throughout the fill, providing a diagnostic tool which is sensitive to the scraping procedure and the CBO properties of the beam. An example of fiber harp measurements is shown in \figref{fig:fiberharp_measurement}. However because the fiber harps are a destructive measurement of the beam due to multiple scattering in the fibers, the system was designed to be retractable. They are inserted during special diagnostic or systematic runs, and are pulled out of the beam path during production data taking.
 
--DocDB 8366
--maybe find another docb/source
 
 \begin{figure}[]
-    \centering
-    \includegraphics[width=0.9\textwidth]{fiberharp}
-    \caption[Fiber Harp]{Picture of one of the fiber harps. A row of 7 scintillating fibers measures the beam instensity as a function of time at various vertical or horizontal components depending on which fiber harp is inserted.}   
+\centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fiberharp}
+        \caption{Picture of one of the fiber harps. A row of seven scintillating fibers measures the beam intensity as a function of time at vertical or horizontal positions depending on which fiber harp is inserted.}
     \label{fig:fiberharp}
+    \end{subfigure}%
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fiberharp_measurement}
+        \caption{Shown are fiber harp beam intensity measurements for the horizontal fiber harp. Each spectra is from a single fiber, with the spectra at the top being at the greatest radial positions. The fast oscillations of the cyclotron frequency can be seen along with the slower oscillations of the CBO.}
+    \label{fig:fiberharp_measurement}
+    \end{subfigure}
+\caption[Fiber harp and measurement]{F}
+\label{fig:fiberharp_measurement}
 \end{figure}
 
-\begin{figure}[]
-    \centering
-    \includegraphics[width=0.9\textwidth]{fiberharp_measurement}
-    \caption[Fiber Harp Measurement]{The fiber harps measure beam intensity as a function of time and fiber number. The middle spectrum is the output from the middle fiber, the upper spectra being fibers which are at successively greater radial positions, and the lower spectra being fibers which are at successively lower radial positions. The fast oscillations of the cyclotron frequency can be seen along with the slower oscillations of the CBO. This particular set of data was at a time or run when more beam was on the outside part of the storage region. (This last part is conjecture somewhat - maybe I should leave it out. I might honestly also want to leave out this whole picture, not sure..)}   
-    \label{fig:fiberharp_measurement}
-\end{figure}
+
+
+
 
 
 \section{Calorimeters}
