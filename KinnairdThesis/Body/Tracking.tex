@@ -1,18 +1,13 @@
 %!TEX root = ../thesis.tex
 
-\thispagestyle{myheadings} % should I be including this at the top of every section page??
+\thispagestyle{myheadings}
 
 \graphicspath{{Body/Figures/TrackingFigures/}{Body/Figures/TrackingFigures/MainPlots/}{Body/Figures/TrackingFigures/MainPlots/PlanePlots/}{Body/Figures/TrackingFigures/MainPlots/PullPlots/}{Body/Figures/TrackingFigures/MainPlots/Residuals/}{Body/Figures/TrackingFigures/eLoss/}{Body/Figures/TrackingFigures/CoordSys/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/TrackingFigures/Field/}{Body/Figures/TrackingFigures/TrackingFlow/}{Body/Figures/TrackingFigures/LeftRight/}{Body/Figures/TrackingFigures/Misc/}{Body/Figures/TrackingFigures/Extrapolation/}{Body/Figures/TrackingFigures/Tracks/}}
 
-\chapter{Straw Tracking Analysis}
-\label{chapter:Straw Tracking Analysis}
-
-\section{Straw Tracking Intro}
-\label{sec:StrawTrackingIntro}
+\chapter{Track Reconstruction}
+\label{chapter:TrackReconstruction}
 
 As was talked about briefly in section \ref{sec:StrawTrackers}, the straw trackers are used to provide information about the muon beam, as well as info for the calorimeters. The straw track reconstruction is performed in several stages. The ``Track Finding'' stage takes incoming hits and decides which hits should be grouped together to form a single track for a single positron. The ``Track Fitting'' stage fits the measured positions of these invidividual hits and forms a single track describing the trajectory of the incident positron. Finally the ``Track Extrapolation'' stage takes the fitted track information and extrapolates the position and momentum components to the regions of interest, namely the storage region and the calorimeter.
-
-
 
 
 
@@ -25,7 +20,7 @@ As was talked about briefly in section \ref{sec:StrawTrackers}, the straw tracke
 
 
 \section{Track Finding}
-\label{sec:Track Finding}
+\label{sec:TrackFinding}
 
 
 \begin{figure}[]
@@ -46,7 +41,7 @@ As was talked about briefly in section \ref{sec:StrawTrackers}, the straw tracke
 
 
 \section{Track Fitting}
-\label{sec:Track Fitting}
+\label{sec:TrackFitting}
 
 The Geane fitting routines originated in Fortran with the EMC collaboration, and was used in the precursor E821 experiment as well as the PANDA experiment with some success \cite{geanemanual}, \cite{Lavezzi}. (I'm not actually aware of a useful reference for it's use in E821, and there are some other instances of its use as well in other experiments. In E821 there was a single tracking chamber which was never put to full use.) The core error propagation routines were at some point added to Geant4 under the error\_propagation directory which is included in all default installs. The tracking code strengths lie with its direct implementation and access to the Geant4 geometry and field, and its ability to handle the field inhomogeneties. The Geane fitting algorithm code which makes use of the Geant4 error propagation routines follows the structure of \cite{geanemanual} and is detailed in the \hyperref[sec:Formalism]{Formalism} section in this paper. It is a relatively straight forward least squares global \chisq minimization algorithm. 
 
@@ -69,8 +64,8 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
 
 
 
-\subsection{Track Fitting Formalism}
-\label{sec:TrackFittingFormalism}
+% \subsection{Track Fitting Formalism}
+% \label{sec:TrackFittingFormalism}
 
     I recommend reading \cite{geanemanual}, Chapter 4 of \cite{Lavezzi}, and \cite{trajfit} in order to best understand the fitting algorithm. However, due to the at times confusing notation, ommitted equations or concepts, and differences between papers, I have attempted to summarize here the different sources and present the material in a more understandable and readable format. The implementation of the fitting algorithm into the code follows this section.
 
@@ -162,7 +157,7 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
 
 
 \section{Track Extrapolation}
-\label{sec:Track Extrapolation}
+\label{sec:TrackExtrapolation}
 
 
 
