@@ -1,17 +1,21 @@
 \documentclass[12pt,letterpaper]{article}
 
+\usepackage[intlimits]{amsmath}
+\usepackage{siunitx}
+% \usepackage[utf8]{inputenc}
+% \usepackage{amsfonts,amssymb}
+\usepackage{xspace}
+
+\def\wa{$\omega_{a}$\xspace}
+\def\chisq{$\chi^{2}$\xspace}
+\def\gmtwo{$g-2$\xspace}
+\def\amu{$a_{\mu}$\xspace}
+\def\g{$g$\xspace}
+
+
 \begin{document}
 
 
-
-% \centering{\Large{Ph.D. Dissertation Prospectus}}\\
-% \vspace{1cm}
-% \centering{\bf{\Large{Measurement of the Anomalous Magnetic Moment of the Muon to X parts per billion in Run 1 of the Fermilab Muon \boldmath{$g-2$} Experiment}}}\\
-% \vspace{1cm}
-% \centering{\large{Nicholas Kinnaird}}\\
-% \vspace{1cm}
-% \centering{\large{Boston University Physics Department}}\\
-% \vspace{1cm}
 
 \begin{center}
 \Large{Ph.D. Dissertation Prospectus} \\\vspace{5mm}
@@ -24,9 +28,23 @@
 %==========================================================================%
 \section*{Overview}
 
-this is a test
 
-and another test
+The Fermilab Muon \gmtwo Experiment is measuring the anomalous magnetic moment of the muon (\amu) to high precision, with a goal of 140 parts per billion. This is four times better than the previous experimental measurement of 540 parts per billion, done at Brookhaven National Laboratory in 2001. This new measurement will serve to resolve or confirm the existing discrepancy between the previous experimental measurement and Standard Model theory, which lies at the \SIrange{3}{4}{\sigma} level, depending on which theoretical estimate is chosen. This discrepancy has existed and been consistent for many years now, since around 2003. The difference between theoretical and experimental values might be attributed to new physics. The new measurement is based upon the same principles as the last experiment, and if it measures the same central value, the discrepancy would be pushed over the 5$\sigma$ level needed to classify it as a discovery. Because the muon is much more massive than the electron, \amu is more sensitive to high energy scales as compared to the anomalous magnetic moment of the electron, which has already been measured to high precision. The experiment is located at Fermi National Accelerator Laboratory which has the facilities necessary to produce the necessary number of muons for the measurement, corresponding to about $\SI{2e11}{}$ detected decay positrons above threshold. Run 1 for the experiment has gathered about $\SI{1e10}{}$ decay positrons for a precision comparable to the BNL result.
+
+
+The experiment principle is summarized as follows: Polarized muons are injected into a highly uniform magnetic storage ring. While in the ring, the muons will precess around the ring at the cyclotron frequency, and their spins will turn at the Larmor precession frequency. The difference between these two frequencies it turns out is directly proportional to \amu and the magnetic field of the ring. By measuring the magnetic field and the spin difference frequency (\wa) to high precision, \amu can be measured. The magnetic field is measured by many nuclear magnetic resonance (NMR) probes located around the ring which measure the field at all times, and a set of NMR probes which periodically measure the magnetic field where the muons live. \wa is measured by taking advantage of the parity violating nature of the weak interaction, which prefers right-handed anti-particles. It turns out that there is a correlation between the muon spin at the time of the decay and the positron decay direction and momentum. By placing hit counters (calorimeters) on the inside of the storage ring and counting the number of decay positrons above some energy threshold, the signal in the detectors turns out to be modulated by \wa and it can be measured.
+
+
+In order to measure the high number of decay positrons necessary for the statistical goal, there are many elements of the experiment designed to store a large number of muons in the ring at a time for a long period of time. For Run 1 this was about 10,000 injected muons at a time, which would decay with a lifetime of $\SI{64.4}{\micro s}$, where data was gathered for approximately 10 muon lifetimes. Muons are produced by the accelerator complex and injected into the \gmtwo storage ring through a very small aperture. The injected muons are kicked onto the right orbit within the ring using a magnetic kicker. Muons are focused vertically within the ring using electrostatic quadrupoles around the ring. Because of all these elements, and the spread in phase space of the injected muons, the muon beam will move dynamically within the storage volume. This turns out to be important when extracting \wa or measuring the magnetic field, since it's technically the field that the muons see that we care about. There is another detector system involving straw trackers which facilitate the measurement of the muon beam dynamics.
+
+
+The main part of my thesis involves the fitting of the positron data and the extraction of the \wa frequency. I use a specific analysis technique called the Ratio Method which has the advantage of reducing slowly time varying effects in the data to provide a more robust estimate of \wa. It involves splitting and time shifting the data in such a way that by dividing a portion of the data over the rest, the exponential nature of the number of counts vs time is eliminated and slow effects are reduced. Many checks are done on the fitting in order to make sure the fit behaves properly, time varying effects have been sufficiently accounted for, subsets of the data corresponding to individual calorimeters or run conditions are understood, etc. Many systematic effects which would pull the value of \wa are studied, such as pileup in the detectors, energy response of the detectors, changing beam dynamics, etc. Only after everything has been checked extensively can the final value of \wa be believed. 
+
+
+The second part of my thesis focuses on track fitting, in order to determine the muon beam distribution and dynamics. The track reconstruction as a whole involves separate stages to take in the hits seen in the trackers, form the hits into individual tracks, and then extrapolate them back into the storage ring. My relevant work involves the fitting stage, where I take a single set of hits that have been designated as belonging to one another, and I fit the best track to those hits. This process involves propagation code contained within a Geant4 simulation, and a \chisq minimization routine. The propagation code involves propagating particles in the simulation forwards or backwards along their average trajectories, and calculating transport and error matrices for the track which describe the changes and spread in track parameters respectively. These matrix objects are then plugged into a relatively simple \chisq minimization algorithm which incorporates material correlations between measurement planes, calculates a covariance matrix for the track, and finally produces a best fit track which typically converges after three iterations of the fitting procedure.
+
+
+As an experiment, we expect to publish the results from the Run 1 analysis sometime in late 2019. At this point the \wa extraction should be complete and compared between the different analyzers, the field analysis should be complete, and the combination between the two finished to provide the final value of \amu. The result should be comparable to the BNL level result, which should give confidence in the previously measured discrepancy or resolve it. By 2021 the necessary statistics should be captured for a four times more precise measurement.
 
 
 
@@ -76,7 +94,6 @@ and another test
 \section{Precession Frequency Analysis}
 
 \begin{itemize}
-	\item{Details of Run 1}
 	\item{Hit reconstruction}
 	\item{Fitting with the Ratio Method}
 	\item{Stability vs fit start time}
