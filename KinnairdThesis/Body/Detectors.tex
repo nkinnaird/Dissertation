@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/ExperimentalOverview/Auxiliary/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/TrackingFigures/CoordSys/}}
+\graphicspath{{Body/Figures/ExperimentalOverview/Auxiliary/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/TrackingFigures/CoordSys/}{Body/Figures/TrackingFigures/Electronics/}}
 
 \chapter{Detector Systems}
 \label{sec:DetectorSystems}
@@ -148,7 +148,7 @@ As described in \secref{sec:muonbeamdynamics}, the muon beam moves dynamically w
 In general, straw tracking detectors work by measuring hits in gas filled straws \cite{Blum}. Each straw is made up of a cylindrical piece of thin conducting material, typically Mylar, and contains a wire at the center of the straw held at high voltage, $\mathcal{O}(\SI{1000}{V})$. The thin conducting material serves to reduce multiple scattering of incident particles. Fast moving particles ionize the gas as they pass through it, and the resulting ions are drawn to the wire and conducting surface. As the ions move to the wire, they enter a high electric field region which causes them to speed up and create more ions. This produces an avalanche gain effect to amplify the original signal. Once they reach the wire and Mylar, a signal can be read out indicating which straw was hit and at what radius the particle passed relative to the wire. By combining several such signals in a brief time span, we are able to construct tracks of incident particles.
 
 
-Our straws are $\SI{5}{mm}$ in diameter and contain a 50:50 mixture of argon-ethane gas \cite{WTThesis}. The argon serves as the gas being ionized, while the ethane serves as a quenching additive. The fast moving ions near the wire also incite excited states of the gas, which emit photons when de-excited. These photons can restart the whole process over again as they escape the avalanche region, leading to a break-down of the system. The ethane serves to absorb the photons with its large number of molecular degrees of freedom and photo-absorption characteristics. The wire has a radius of \mum{25} and is made up of gold-plated tungsten. The mylar walls have a width of \mum{15} and are wound in a double spiral shape in order to improve the electrostatic shielding of the wire and reduce the leak rate of the straws \cite{WTThesis}. The resolution of hits within the straws is approximately \mum{150} \cite{something}.
+Our straws are $\SI{5}{mm}$ in diameter and contain a 50:50 mixture of argon-ethane gas \cite{WTThesis}. The argon serves as the gas being ionized, while the ethane serves as a quenching additive. The fast moving ions near the wire also incite excited states of the gas, which emit photons when de-excited. These photons can restart the whole process over again as they escape the avalanche region, leading to a break-down of the system. The ethane serves to absorb the photons with its large number of molecular degrees of freedom and photo-absorption characteristics. The wire has a radius of \mum{25} and is made up of gold-plated tungsten. The mylar walls have a width of \mum{15} and are wound in a double spiral shape in order to improve the electrostatic shielding of the wire and reduce the leak rate of the straws \cite{WTThesis}. The position resolution of hits within the straws is approximately \mum{150} \cite{something}.
 
 
 A single tracker module is shown in \figref{fig:tracker}. Each tracker module consists of four layers of thirty two straws with stereo angles of 7.5\textdegree{}. The first two straw layers are designated as ``U'' layers, and are oriented with the tops of the straws at a greater radial position. The second two layers are designated as ``V'' layers, and are oriented with the bottoms of the straws at a greater radial position. See \figref{fig:trackermodulecoordsys}. The active straw measurement area is approximately $\SI{10}{cm}$ high by $\SI{20}{cm}$ wide. A carbon fiber post sits at the outside end of the module to provide structural rigidity to the module, and keep the straw wires under tension. 
@@ -172,14 +172,14 @@ A single tracker module is shown in \figref{fig:tracker}. Each tracker module co
 \end{figure}
 
 
-Readout electronics live in aluminum manifolds above and below the straws.
+The readout electronics for the system can be split into two groups, the front-end and back-end respectively. The front-end electronics were built and tested at the \Bu Electronic Design Facility. They start with Amplifier Shaper Discriminator with charge (Q) (ASDQ) chips that plug down onto the straws which shape and discriminate the incoming signals. These boards and their associated components live in thin aluminum manifolds above and below the straws, and the size of them was minimized in order to increase the straw measurement area. The signals from the ASDQs are passed through Flexicables to Time to Digital Converter (TDC) boards which time stamp the signals with $\SI{625}{ps}$ precision. High voltage is provided to the sense wires with high voltage boards. The back-end electronics consist of the logic boards which interface with the clock and controls for the system, and pipe out the data to FC7s and AMC13s which process and store the data. An overview diagram of the readout chain is shown in \figref{fig:TrackerReadoutChain}.
 
-
-electronics readout section / paragraph in between the module description and the station description? I think so
--mention that electronics were manufactured at BU? yes
-
-
-
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.9\textwidth]{TrackerReadoutChain}
+    \caption[Tracker electronics readout chain]{Tracker readout chain. Created by James Mott.}   
+    \label{fig:TrackerReadoutChain}
+\end{figure}
 
 
 There are two tracker stations, each consisting of eight tracker modules. The two stations live at positions in front of calorimeters 13 and 19, or at approximately 180\textdegree{} and 270\textdegree{} clockwise from the inflector. There is also a third station just after the inflector, which currently sits empty of any tracker modules. The straw tracker modules sit inside the vacuum chamber in specially modified vacuum chamber sections in a staircase-like pattern that follows the curvature of the ring. See \figref{fig:TrackerCaloWithLines}. The orientation of the trackers was designed in order to provide a long measurement arm for precise momentum measurement. The modules sit inside the vacuum in order to eliminate multiple scattering in air and produce better reconstructed tracks. The modules sit closely in front of the calorimeters to increase the number of positrons seen in both detectors at the same time, though the acceptances between the two are not the same (careful here). Due to the CBO motion of the beam, even though the calorimeters live at only two places in the ring, they measure the average beam distribution.
@@ -194,40 +194,6 @@ There are two tracker stations, each consisting of eight tracker modules. The tw
 
 
 
-
-
-
-
-
-
-- description of read out electonics - cite will
-
-
-
-
-
-
-
-
--potentially cite saskia here too
-
-
-
-
-
-
-
-
-
-
-\cite{WTThesis}
-
-
-
-With three trackers, approximately 5\% of decaying muons will result in measurable positron tracks assuming no pileup in the tracker, many of which do not hit the nearest calorimeter.
-
-
-
 % \begin{figure}[]
 %     \centering
 %     \includegraphics[width=0.9\textwidth]{trackerStation}
@@ -238,20 +204,8 @@ With three trackers, approximately 5\% of decaying muons will result in measurab
 
 
 
-
-The signals of the straws are read out through...
-
-
-
-
-
-
-
--how they work
--explanation of readout electronics 
--potential some work I've done on the boards - ignore the overall construction though
 -should mention how the trackers live in the non-uniform field region here
-
+-potentially mention the choice of straw trackers over silicon trackers because of scattering
 
 
 
