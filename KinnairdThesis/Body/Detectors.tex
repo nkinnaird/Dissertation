@@ -109,12 +109,7 @@ A 12 bit waveform digitizer (WFD) samples each photodetector channel at a rate o
 
 Should I go into the calorimeter DAQ here? Or make that it's own section - how uniform are the DAQ systems for each detector system? Are the same sorts of modules and crates and WFDs used or what? If so it's own section might make sense, otherwise probably include small pieces at the end of each individual detector about the daq system
 
-\begin{figure}[]
-    \centering
-    \includegraphics[width=0.9\textwidth]{TrackerCaloWithLines}
-    \caption[TrackerCaloWithLines]{Birds eye view of a model of a vacuum chamber containing a tracker station, and the associated calorimeter. Muons pass around the ring in the center of the storage region which is contained within the bulk of the vacuum chamber. The muons decay to positrons, some of which then pass through the trackers or hit calorimeters. Each tracking station consists of 8 tracker modules.}   
-    \label{fig:TrackerCaloWithLines}
-\end{figure}
+
 
 
 
@@ -153,6 +148,19 @@ As described in \secref{sec:muonbeamdynamics}, the muon beam moves dynamically w
 
 
 
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.9\textwidth]{TrackerCaloWithLines}
+    \caption[TrackerCaloWithLines]{Birds eye view of a model of a vacuum chamber containing a tracker station, and the associated calorimeter. Muons pass around the ring in the center of the storage region which is contained within the bulk of the vacuum chamber. The muons decay to positrons, some of which then pass through the trackers or hit calorimeters. Each tracking station consists of 8 tracker modules.}   
+    \label{fig:TrackerCaloWithLines}
+\end{figure}
+
+
+
+\cite{WTThesis}
+
+
+
 With three trackers, approximately 5\% of decaying muons will result in measurable positron tracks assuming no pileup in the tracker, many of which do not hit the nearest calorimeter.
 
 Each tracker module consists of 4 layers of 32 straws with a stereo angle of 7.5 degrees, the first two ``U'' layers oriented with the tops of the straws at a greater radial position, and the second two ``V'' layers oriented with the bottoms of the straws at a greater radial position. A tracking module is shown in \figref{fig:tracker}. There are 2 tracker stations located in front of calorimeters 13 and 19, or at approximately 180 and 270 degrees counting clockwise from the top most point of the ring where the inflector resides. \figref{fig:WorldCoordSys} shows this. (A third station sits empty after the inflector.) Each station consists of 8 tracking modules arranged in a staircase pattern that follows the curvature of the ring as seen in \figref{fig:staircase}.
@@ -164,12 +172,12 @@ Each tracker module consists of 4 layers of 32 straws with a stereo angle of 7.5
     \label{fig:tracker}
 \end{figure}
 
-\begin{figure}[]
-    \centering
-    \includegraphics[width=0.9\textwidth]{trackerStation}
-    \caption[Tracker module arrangement]{Tracker modules are arranged in the shown staircase pattern. In green and dark blue is the edge of the vacuum chamber (where the dark blue identifies the modification that was made to the old vacuum chambers), and it can be seen that vacuum chamber walls lie at the ends of the outside tracking modules. The position of a calorimeter can be seen in cyan at the right. The dark red spots are the locations of the outside magnet pole tips. From the shown geometry one can see that many positrons will hit either the tracker or the calorimeter but not both due to the acceptance differences.}
-    \label{fig:staircase}
-\end{figure}
+% \begin{figure}[]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{trackerStation}
+%     \caption[Tracker module arrangement]{Tracker modules are arranged in the shown staircase pattern. In green and dark blue is the edge of the vacuum chamber (where the dark blue identifies the modification that was made to the old vacuum chambers), and it can be seen that vacuum chamber walls lie at the ends of the outside tracking modules. The position of a calorimeter can be seen in cyan at the right. The dark red spots are the locations of the outside magnet pole tips. From the shown geometry one can see that many positrons will hit either the tracker or the calorimeter but not both due to the acceptance differences.}
+%     \label{fig:staircase}
+% \end{figure}
 
 In order to reduce the amount of multiple scattering within the straw tracking chambers as particles pass through them, the material of the straw trackers is minimized. Each straw is made of mylar foil, within which a 25 $\mu$m radius tungsten wire resides, and is filled with Argon-Ethane gas \cite{something}. Fast moving particles ionize the gas as they pass through it, and the resulting ions are drawn to the wire which is held at high voltage. When they reach the wire (and the mylar) a signal can be read out which tells us that a particle was seen to pass through the straw. By combining many such signals in a brief time span, we are able to construct tracks of incident particles. (See section blah.) The resolution of hits within the straws is approximately 150 $\mu$m \cite{something}.
 
