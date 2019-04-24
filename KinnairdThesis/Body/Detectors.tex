@@ -171,7 +171,7 @@ Our straws are $\SI{5}{mm}$ in diameter and contain a 50:50 mixture of argon-eth
 
 
 
-A single tracker module is shown in \figref{fig:tracker}. Each tracker module consists of four layers of thirty two straws each with stereo angles of $\pm$7.5\textdegree{}. The first two straw layers are designated as ``U'' layers, and are oriented with the tops of the straws at a greater radial position than the bottoms of the straws. The second two layers are designated as ``V'' layers, and are oriented with the bottoms of the straws at a greater radial position. See \figref{fig:trackermodulecoordsys}. The active straw measurement area is approximately $\SI{10}{cm}$ high by $\SI{20}{cm}$ wide. A carbon fiber post sits at the outside end of the module to provide structural rigidity to the module, and keep the straw wires under tension. 
+A single tracker module is shown in \figref{fig:tracker}. Each tracker module consists of four layers of thirty two straws each with stereo angles of $\pm$7.5\textdegree{}, for a total of 128 straws per module. The first two straw layers are designated as ``U'' layers, and are oriented with the tops of the straws at a greater radial position than the bottoms of the straws. The second two layers are designated as ``V'' layers, and are oriented with the bottoms of the straws at a greater radial position. See \figref{fig:trackermodulecoordsys}. The active straw measurement area is approximately $\SI{10}{cm}$ high by $\SI{20}{cm}$ wide. A carbon fiber post sits at the outside end of the module to provide structural rigidity to the module, and keep the straw wires under tension. 
 
 
 
@@ -209,20 +209,15 @@ There are two tracker stations, each consisting of eight tracker modules. The tw
 \subsection{Tracker readout electonics}
 
 
-The readout electronics for the system can be split into two groups, the front-end and back-end respectively. The front-end electronics were built and tested at the \Bu Electronic Design Facility. They start with Amplifier Shaper Discriminator with charge (Q) (ASDQ) chips on boards that plug down onto the straws which shape and discriminate the incoming signals. These boards and their associated components live in thin aluminum manifolds above and below the straws, and the size of them was minimized in order to increase the straw measurement area. The signals from the ASDQs are passed through Flexi Cables to Time to Digital Converter (TDC) boards which time stamp the signals with $\SI{625}{ps}$ precision. High voltage is provided to the sense wires with high voltage boards. The back-end electronics consist of the logic boards which interface with the clock and controls for the system, and pipe out the data to FC7s and AMC13s which process and store the data. An overview diagram of the readout chain is shown in \figref{fig:TrackerReadoutChain}. The logic boards, high voltage boards, and TDCs are all housed within an aluminum box which provide RF shielding.
+The readout electronics for the system are split into two groups, the front-end and back-end. The front-end electronics were built and tested at the Boston University Electronic Design Facility. They start with Amplifier Shaper Discriminator with charge (Q) (ASDQ) chips on boards that plug down directly onto the straws and provide the main signal. Each ASDQ plugs onto sixteen straws. These ASDQ boards are application specific integrated circuits (ASICs) which read out the signal from one end of the straws and shape and discriminate that signal, as well as providing some baseline restoration and tail cancellation. The ASDQs and their associated components live in thin aluminum manifolds above and below the straws. The physical footprint of these boards and components was minimized in order to increase the straw measurement area. The signals from the ASDQs are passed through Flexi Cables to Time to Digital Converter (TDC) boards which time stamp the signals with $\SI{625}{ps}$ precision \cite{WTThesis}. The Flexi Cables are flexible and thin such that the cables can be passed through the thin aperture shown on the right of \figref{fig:tracker}. High voltage is provided to the sense wires with high voltage boards, which pass the voltage through the ASDQs. A feedthrough board provides the interface between the TDCs and Flexi Cables, as well as the high voltage signal. They serve a dual purpose of providing the gas seal. Finally, there are logic boards that serve as the interface between the TDCs and the back-end electronics. They manage the clock and controls for the TDCs and store data onto FPGAs, which is piped out through a high throughput optical fiber connection. The logic boards, high voltage boards, and TDCs are all housed within an aluminum box which provides RF shielding. In each module there are eight ASDQs, four TDCs, two feedthough boards, two high voltage boards, and two logic boards. An overview diagram of the front-end readout chain is shown in \figref{fig:TrackerReadoutChain}. The back-end electronics consist of FC7s, one per tracker station, and a single AMC13 for all tracker stations. These modules provide clock and DAQ services to the whole tracker system, and ultimately pipe out the data to where it can be saved on disk.
+
 
 \begin{figure}[]
     \centering
     \includegraphics[width=0.9\textwidth]{TrackerReadoutChain}
-    \caption[Tracker electronics readout chain]{Tracker readout chain. Created by James Mott.}   
+    \caption[Tracker electronics readout chain]{Front-end tracker electronics readout chain. Created by James Mott.}   
     \label{fig:TrackerReadoutChain}
 \end{figure}
-
-
-
-
-- also look up FC7s and AMC13s to make sure I'm describing those properly
-
 
 
 
