@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/ExperimentalOverview/Auxiliary/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/TrackingFigures/CoordSys/}{Body/Figures/TrackingFigures/Electronics/}}
+\graphicspath{{Body/Figures/ExperimentalOverview/Auxiliary/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/TrackingFigures/CoordSys/}{Body/Figures/TrackingFigures/Drift/}{Body/Figures/TrackingFigures/Electronics/}}
 
 \chapter{Detector Systems}
 \label{sec:DetectorSystems}
@@ -145,7 +145,18 @@ In order to satisfy the gain requirements, a laser calibration system was put in
 As described in \secref{sec:muonbeamdynamics}, the muon beam moves dynamically within the storage ring. As explained in \secref{sec:MagneticField}, the muon beam distribution ties into the measurement of the magnetic field. The primary detector system used to measure this behavior and determine the muon beam distribution is the ``straw tracker'' system. The straw trackers characterize the beam in a non-destructive fashion by measuring decay positron trajectories and extrapolating back into the storage ring. They serve to provide the direct measurement of the pitch correction as described in \secref{sub:pitch_correction}, determine the momentum distribution of the beam, and characterize parameters of the CBO which tie into the calorimeter \wa analysis. Decay positron trajectories can also be extrapolated forwards into the calorimeter, in order to cross-check calorimeter measurements to help resolve pileup (be sure to talk about pileup in the calorimeter section - since this isn't actually done yet do I even want to say this?). Finally, the trackers also serve as a measuring device to search for a possible muon electric dipole moment. The existence of such a thing would tilt the precession plane of the muons and subsequent decay positron trajectories which the trackers are sensitive to. Details of the beginnings of such a search are given in \refref{SCThesis}. The details of the track reconstruction and analysis will be given in \chapref{chapter:TrackReconstruction}. Here will be given a description of the detectors themselves and how they work.
 
 
-In general, straw tracking detectors work by measuring hits in gas filled straws \cite{Blum}. Each straw is made up of a cylindrical piece of thin conducting material, typically Mylar, and contains a wire at the center of the straw held at high voltage, $\mathcal{O}(\SI{1000}{V})$. The minimal amount of material in straw trackers serves to reduce multiple scattering of incident particles, and was the reason a straw tracker system was chosen over other tracker types. Fast moving particles ionize the gas as they pass through it, and the resulting ions are drawn to the wire and straw surface. As the ions move to the wire, they enter a high electric field region which causes them to speed up and create more ions. This produces an avalanche gain effect to amplify the original signal. Once they reach the wire and straw surface, a signal can be read out indicating which straw was hit and at what radius the particle passed relative to the wire. By combining several such signals in a brief time span, we are able to construct tracks of incident particles.
+In general, straw tracking detectors work by measuring hits in gas filled straws \cite{Blum}. Each straw is made up of a cylindrical piece of thin conducting material, typically Mylar, and contains a wire at the center of the straw held at high voltage, $\mathcal{O}(\SI{1000}{V})$. The minimal amount of material in straw trackers serves to reduce multiple scattering of incident particles, and was the reason a straw tracker system was chosen over other tracker types. Fast moving particles ionize the gas as they pass through it, and the resulting ions are drawn to the wire and straw surface (positive and negative charges respectively). As the ions move to the wire, they enter a high electric field region which causes them to speed up and create more ions. This produces an avalanche gain effect to amplify the original signal. Once the ions reach the wire and straw surface, a signal is read out telling what the drift time of the ions was, which can be related to the radius or distance of closest approach (DCA) the particle passed relative to the wire. By combining several such signals in time and space, we are able to reconstruct tracks of incident particles. See \figref{fig:driftcircles}.
+
+\begin{figure}[]
+\centering
+        \includegraphics[width=0.6\textwidth]{StrawDriftTime}
+    \hspace{1cm}
+        \includegraphics[width=0.25\textwidth]{TrackDriftCircles}
+\caption[Straw tracker drift circles]{Diagrams showing the determination of a drift time $t_{d}$ and hit time $t_{h}$ from an incident ionizing particle (left) and the combination of several such hits to produce a track (right). Picture on left by Saskia Charity.}
+\label{fig:driftcircles}
+\end{figure}
+
+
 
 
 Our straws are $\SI{5}{mm}$ in diameter and contain a 50:50 mixture of argon-ethane gas \cite{WTThesis}. The argon component serves as the gas to be ionized. The fast moving ions near the wire in addition to producing more ions, will incite excited states of the gas, which emit photons when de-excited. These photons can restart the whole ionization and avalanche process over again as they can escape the avalanche region, leading to a break-down of the system. The ethane therefore serves to absorb the photons with its large number of molecular degrees of freedom and photo-absorption characteristics \cite{WTThesis}. The wire has a radius of \mum{25} and is made up of gold-plated tungsten. The mylar walls have a width of \mum{15} and are wound in a double spiral shape in order to improve the electrostatic shielding of the wire and reduce the gas leak rate of the straws \cite{WTThesis}. The position resolution of hits within the straws is approximately \mum{150} \cite{something}.
@@ -210,7 +221,7 @@ The readout electronics for the system can be split into two groups, the front-e
 
 
 
-
+- also look up FC7s and AMC13s to make sure I'm describing those properly
 
 
 
