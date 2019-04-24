@@ -7,20 +7,23 @@
 \chapter{Track Reconstruction and Analysis}
 \label{chapter:TrackReconstruction}
 
-As was talked about briefly in section \ref{sec:StrawTrackers}, the straw trackers are used to provide information about the muon beam, as well as info for the calorimeters. The straw track reconstruction is performed in several stages. The ``Track Finding'' stage takes incoming hits and decides which hits should be grouped together to form a single track for a single positron. The ``Track Fitting'' stage fits the measured positions of these invidividual hits and forms a single track describing the trajectory of the incident positron. Finally the ``Track Extrapolation'' stage takes the fitted track information and extrapolates the position and momentum components to the regions of interest, namely the storage region and the calorimeter.
-
-
-
-
-
--see the previous section for the hardware information...
--Geane (Geometry and Error Propagation)
+As described in section \ref{sec:StrawTrackers}, the straw trackers are used to provide information about the muon beam, important for the calorimeter \wa analysis, calculating the \wa pitch correction, and determining the spatially weighted magnetic field seen by the muons. The track reconstruction involves three stages. These include the finding stage, the fitting stage, and the extrapolation stage. The track finding stage takes incoming hits and decides which hits should be grouped together to form individual tracks. The track fitting stage fits a best trajectory to those hits. The track extrapolation stage extrapolates the fitted trajectory to the regions of interest, the storage region and the calorimeter. A fourth refinement stage is planned but not yet implemented, which would add or remove hits in the finding stage based on the results of the fitting and extrapolation stage. 
 
 
 
 
 \section{Track Finding}
 \label{sec:TrackFinding}
+
+
+From NIM section I wrote:
+ The track finding stage consists of pattern recognition routines in order to group individual hits into separate sets corresponding to individual incident tracks. The track finding starts by first grouping hits in time called time islands. Within those time islands it then groups neighboring hits in adjacent U or V layers to form clusters. Neighboring clusters are grouped per module to form seeds. Seeds in separate modules are grouped within the time island to form track candidates. These track candidates are then passed on to the track fitting stage. Basic checks such as the number of hits per straw layer for a track are made throughout the track finding in order to eliminate cases where the track finding has trouble.
+
+
+\cite{trackfinding}
+
+
+
 
 
 \begin{figure}[]
@@ -43,24 +46,43 @@ As was talked about briefly in section \ref{sec:StrawTrackers}, the straw tracke
 \section{Track Fitting}
 \label{sec:TrackFitting}
 
-The Geane fitting routines originated in Fortran with the EMC collaboration, and was used in the precursor E821 experiment as well as the PANDA experiment with some success \cite{geanemanual}, \cite{Lavezzi}. (I'm not actually aware of a useful reference for it's use in E821, and there are some other instances of its use as well in other experiments. In E821 there was a single tracking chamber which was never put to full use.) The core error propagation routines were at some point added to Geant4 under the error\_propagation directory which is included in all default installs. The tracking code strengths lie with its direct implementation and access to the Geant4 geometry and field, and its ability to handle the field inhomogeneties. The Geane fitting algorithm code which makes use of the Geant4 error propagation routines follows the structure of \cite{geanemanual} and is detailed in the \hyperref[sec:Formalism]{Formalism} section in this paper. It is a relatively straight forward least squares global \chisq minimization algorithm. 
+
+-Geane (Geometry and Error Propagation)
 
 
-Because of the proximity of the trackers to the muon beam, they will lie within a region of varying magnetic field. The radial field of the trackers rises from 0 Tesla at the outer ends to roughly .3 Tesla at the inner top and bottom ends, and the vertical field drops approximately 50\% from the storage dipole field of 1.451 Tesla. Shown in Figures \ref{fig:operaBy} and \ref{fig:operaBx} is the location of the tracker with respect to the horizontal and vertical fields respectively. These large field gradients over the tracking detector region and the long extrapolation distance back to the muon decay point are special to Muon \gmtwo. This is one of the main motivations for using the Geane fitting algorithm and routines, which has direct access to the field.
+From NIM section I wrote:
+The track fitting stage is based off of the GEANE method (Geometry and Error Propagation), that was used successfully in E821 \cite{geanemanual}. A set of track hits  Track defining objects such as transport matrices, error matrices, and predicted parameter vectors are generated within the full g-2 Geant4 simulation from initial guesses. This has the advantage of direct access to both the geometry and material of the trackers as well as the field that the decay positrons experience as they curl inward. This is important as the tracker lives in a region of high field non-uniformity as shown in Figure~\ref{fig:operaBy}. These track objects are then plugged into a global chi-squared minimization algorithm which produces an optimal state vector near the start of the tracker. This minimization is performed in the same reference frame as the tracker measurement frame, which reduces parameter correlations and improves the fitting. The final state vectors are then passed to the extrapolation stage.
+
+
+
+
+
+
+The Geane fitting routines originated in Fortran with the EMC collaboration, and was used in the precursor E821 experiment as well as the PANDA experiment with some success \cite{geanemanual}, \cite{Lavezzi}. (I'm not actually aware of a useful reference for it's use in E821, and there are some other instances of its use as well in other experiments. In E821 there was a single tracking chamber which was never put to full use.) The core error propagation routines were at some point added to Geant4 under the error\_propagation directory which is included in all default installs. The tracking code strengths lie with its direct implementation and access to the Geant4 geometry and field, and its ability to handle the field inhomogeneities. The Geane fitting algorithm code which makes use of the Geant4 error propagation routines follows the structure of \cite{geanemanual} and is detailed in the \hyperref[sec:Formalism]{Formalism} section in this paper. It is a relatively straight forward least squares global \chisq minimization algorithm. 
+
+
+Because of the proximity of the trackers to the muon beam, they will lie within a region of varying magnetic field. The radial field of the trackers rises from 0 Tesla at the outer ends to roughly .3 Tesla at the inner top and bottom ends, and the vertical field drops approximately 50\% from the storage dipole field of 1.451 Tesla. Shown in \figref{fig:Opera2DFields} is the location of the tracker with respect to the horizontal and vertical fields. These large field gradients over the tracking detector region and the long extrapolation distance back to the muon decay point are special to Muon \gmtwo. This is one of the main motivations for using the Geane fitting algorithm and routines, which has direct access to the field.
 
 \begin{figure}[]
-	\centering
-	\includegraphics[width=0.9\textwidth]{operaBy}
-    \caption[Vertical magnetic field from Opera2D]{Shown is the vertical field of the \gmtwo magnet in and around the storage region as calculated in Opera 2D. The center of the storage region lies at 7.112 m along the x axis. The black box shows the rough location of the tracker with respect to the field (size exaggerated slightly). It can be seen that there is a large inhomogeneity within the tracker space, goring from left to right.}
+\centering
+    \begin{subfigure}[]{0.75\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{operaBy}
+        \caption{Vertical magnetic field}
     \label{fig:operaBy}
+    \end{subfigure}%
+    \vspace{5mm}
+    \begin{subfigure}[]{0.75\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{operaBx}
+        \caption{Radial magnetic field}
+    \label{fig:operaBx}
+    \end{subfigure}
+\caption[Vertical and radial magnetic fields calculated in Opera2D]{Shown are the vertical (top) and radial (bottom) magnetic fields of the storage ring magnet in and around the storage region as calculated in Opera 2D. The horizontal and vertical axes are the radial and vertical coordinates of the ring respectively. The center of the storage region lies at $\SI{7.112}{m}$ along the horizontal axis. The contours represent the strengths of the vertical and radial magnetic fields. The black box shows the rough location of the tracker with respect to the ring. It can be seen that there is a large field non-uniformity within the tracker space. \bf{Fix up picture to be more readable (titles and axes), add text for tracker region and storage region, and potentially move it to a different part of the thesis with my other magnetic field work.}}
+\label{fig:Opera2DFields}
 \end{figure}
 
-\begin{figure}[]
-	\centering
-	\includegraphics[width=0.9\textwidth]{operaBx}
-    \caption[Horizontal magnetic field from Opera2D]{Shown is the radial field of the \gmtwo magnet in and around the storage region as calculated in Opera 2D. The center of the storage region lies at 7.112 m along the x axis. The black box shows the rough location of the tracker with respect to the field (size exaggerated slightly). It can be seen that there is a large homogeneity at the inner upper and lower ends compared to the right center. The shape of the pole pieces and tips can readily be seen.}
-    \label{fig:operaBx}
-\end{figure}
+
 
 
 
@@ -136,7 +158,7 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
         \begin{align} \label{eq:corr}
             \sigma_{MN} = T_{MN} \sigma_{N}, 
         \end{align}
-    for the top diagonals, and the transpose for the bottom diagaonals, where M and N are two separate planes within the detector. ($\sigma_{N}$ is the error matrix on plane N calculated from the starting plane.) This follows from equation \ref{eq:sigma} evaluated at plane M with respect to a path length from plane N, and not plane 0, which is equivalent to \ref{eq:corr}. 
+    for the top diagonals, and the transpose for the bottom diagonals, where M and N are two separate planes within the detector. ($\sigma_{N}$ is the error matrix on plane N calculated from the starting plane.) This follows from equation \ref{eq:sigma} evaluated at plane M with respect to a path length from plane N, and not plane 0, which is equivalent to \ref{eq:corr}. 
 
     You can then minimize the $\chi^{2}$ in the same way, only again with the matrix objects being aggregates of the per plane objects:
         \begin{align} \label{eq:deltafull}
@@ -148,9 +170,9 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
         \end{align}
     where $\tau$ is the combined transport matrices from the individual 5x5 matrices, a 5Nx5 object.
 
-    The unmeasured parameter errors of infinity still come into play in the final calculation in the same was as before. Because however these matrix objects are very large, and the tracking must have a certain amount of speed in order to keep up with data, it is useful to reduce the size of these matrices. (It also makes things easier programming wise. Note that there are other some other ways to speed things up, specifically the banded inversion method as described in reference \cite{trajfit}. This method was not used in favor of getting the code working in the simpler form in the first place, but it is a possiblity in the future to use this technique to speed things up even more.) It suffices to simply remove all rows and columns where said infinity values exist in the error matrix. This is mathematically equivalent to inverting the error matrix with the infinities included, which make all rows and columns where they exist go to zero. The associated unmeasured parameter rows in the residual vector and transport matrices must similarly be removed. This results in an Nx1 residual vector, NxN error matrix, 5xN combined transport matrix transpose, which multiply against the 5x5 covariance matrix out front to still result in a 5x1 fix to the starting parameters, and a scalar $\chi^2$ value. (Note that these element removals should be done just before the final calculation, and not higher up in the algrebra, otherwise plane correlations are not properly calculated.)
+    The unmeasured parameter errors of infinity still come into play in the final calculation in the same was as before. Because however these matrix objects are very large, and the tracking must have a certain amount of speed in order to keep up with data, it is useful to reduce the size of these matrices. (It also makes things easier programming wise. Note that there are other some other ways to speed things up, specifically the banded inversion method as described in reference \cite{trajfit}. This method was not used in favor of getting the code working in the simpler form in the first place, but it is a possibility in the future to use this technique to speed things up even more.) It suffices to simply remove all rows and columns where said infinity values exist in the error matrix. This is mathematically equivalent to inverting the error matrix with the infinities included, which make all rows and columns where they exist go to zero. The associated unmeasured parameter rows in the residual vector and transport matrices must similarly be removed. This results in an Nx1 residual vector, NxN error matrix, 5xN combined transport matrix transpose, which multiply against the 5x5 covariance matrix out front to still result in a 5x1 fix to the starting parameters, and a scalar $\chi^2$ value. (Note that these element removals should be done just before the final calculation, and not higher up in the algebra, otherwise plane correlations are not properly calculated.)
 
-    By calculating the last two equations one can fit the track, acquire a $\chi^{2}$ describing the degree of the fit, determine how the track parameters can be improved at the starting point, and calculate errors on those starting parameters. This algorithm can be iterated a number of times to get a best fit track until successive iterations produce no improvement, where usually 3 or 4 iterations is enough. Note that there is remarkable robustness with respect to the initial starting parameters in fitting the track. Of course if the initial starting paramaters are too poor, then the fit will not converge. All of these calculations are completed within the \hyperref[sec:GeaneFitter]{GeaneFitter.cc} file within the framework.
+    By calculating the last two equations one can fit the track, acquire a $\chi^{2}$ describing the degree of the fit, determine how the track parameters can be improved at the starting point, and calculate errors on those starting parameters. This algorithm can be iterated a number of times to get a best fit track until successive iterations produce no improvement, where usually 3 or 4 iterations is enough. Note that there is remarkable robustness with respect to the initial starting parameters in fitting the track. Of course if the initial starting parameters are too poor, then the fit will not converge. All of these calculations are completed within the \hyperref[sec:GeaneFitter]{GeaneFitter.cc} file within the framework.
 
 
 
@@ -164,21 +186,25 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
 \label{sec:TrackExtrapolation}
 
 
+From NIM section I wrote:
+The track extrapolation stage utilizes a fourth order Runge-Kutta Nystr\"{o}m algorithm \cite{SCThesis} to extrapolate tracks back through the varying magnetic field into the storage region until the approximate position of the muon decay point is reached, or forwards to the calorimeter face. This is done within the full g-2 Geant4 simulation just like the track fitting. Track parameters from the fitting along with the covariance matrix are propagated in discrete steps. At each step the position of the extrapolated track is compared to geometry in order to flag tracks which have been reconstructed as originating from un-physical locations. Because there is no fixed interaction point in the storage region, tracks are extrapolated backwards to the point of tangency where the radial momentum is equal to 0. Extensive studies were done to verify that this approximation for the muon decay point was sufficient, and it was found that a simple 1.1 mm correction to the decay point could be applied regardless of the momentum of the track \cite{SCThesis}. The extrapolated beam distribution is shown in \figref{fig:BeamCrossSection}.
+
+
+\begin{figure}[]
+  \centering
+  \includegraphics[width=0.7\textwidth]{BeamCrossSection}
+    \caption[Extrapolated muon beam distribution cross-section]{Shown is a radial slice of the extrapolated muon distribution or beam spot.}
+    \label{fig:BeamCrossSection}
+\end{figure}
 
 
 
 \begin{figure}[]
 	\centering
-	\includegraphics[width=0.9\textwidth]{BirdsEyeExtrapPreliminary}
-    \caption[Birds Eye View of Extrapolation]{preliminary replace at some point}    
-    \label{fig:BirdsEyeExtrapPreliminary}
+	\includegraphics[width=0.9\textwidth]{VertexPlanView}
+    \caption[Birds eye view of extrapolation in ring]{}    
+    \label{fig:VertexPlanView}
 \end{figure}
 
-\begin{figure}[]
-	\centering
-	\includegraphics[width=0.9\textwidth]{BeamSpotPreliminary}
-    \caption[Beam spot extrapolation]{preliminary replace at some point}    
-    \label{fig:BeamSpotPreliminary}
-\end{figure}
 
 
