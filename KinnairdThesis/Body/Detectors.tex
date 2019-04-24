@@ -151,9 +151,6 @@ In general, straw tracking detectors work by measuring hits in gas filled straws
 Our straws are $\SI{5}{mm}$ in diameter and contain a 50:50 mixture of argon-ethane gas \cite{WTThesis}. The argon component serves as the gas to be ionized. The fast moving ions near the wire in addition to producing more ions, will incite excited states of the gas, which emit photons when de-excited. These photons can restart the whole ionization and avalanche process over again as they can escape the avalanche region, leading to a break-down of the system. The ethane therefore serves to absorb the photons with its large number of molecular degrees of freedom and photo-absorption characteristics \cite{WTThesis}. The wire has a radius of \mum{25} and is made up of gold-plated tungsten. The mylar walls have a width of \mum{15} and are wound in a double spiral shape in order to improve the electrostatic shielding of the wire and reduce the gas leak rate of the straws \cite{WTThesis}. The position resolution of hits within the straws is approximately \mum{150} \cite{something}.
 
 
-A single tracker module is shown in \figref{fig:tracker}. Each tracker module consists of four layers of thirty two straws each with stereo angles of $\pm$7.5\textdegree{}. The first two straw layers are designated as ``U'' layers, and are oriented with the tops of the straws at a greater radial position. The second two layers are designated as ``V'' layers, and are oriented with the bottoms of the straws at a greater radial position. See \figref{fig:trackermodulecoordsys}. The active straw measurement area is approximately $\SI{10}{cm}$ high by $\SI{20}{cm}$ wide. A carbon fiber post sits at the outside end of the module to provide structural rigidity to the module, and keep the straw wires under tension. 
-
-
 \begin{figure}[]
     \centering
     \includegraphics[width=0.9\textwidth]{Tracker}
@@ -162,24 +159,29 @@ A single tracker module is shown in \figref{fig:tracker}. Each tracker module co
 \end{figure}
 
 
+
+A single tracker module is shown in \figref{fig:tracker}. Each tracker module consists of four layers of thirty two straws each with stereo angles of $\pm$7.5\textdegree{}. The first two straw layers are designated as ``U'' layers, and are oriented with the tops of the straws at a greater radial position than the bottoms of the straws. The second two layers are designated as ``V'' layers, and are oriented with the bottoms of the straws at a greater radial position. See \figref{fig:trackermodulecoordsys}. The active straw measurement area is approximately $\SI{10}{cm}$ high by $\SI{20}{cm}$ wide. A carbon fiber post sits at the outside end of the module to provide structural rigidity to the module, and keep the straw wires under tension. 
+
+
+
 \begin{figure}[]
 \centering
         \includegraphics[width=0.6\textwidth]{straworientation_with_strawlabel}
     \hspace{1cm}
         \includegraphics[width=0.25\textwidth]{StrawAngle}
-\caption[Tracker module coordinate system]{Orientation of U straws and V straws in the tracker module.}
+\caption[Tracker module coordinate system]{Orientation of U and V straws in the tracker module.}
 \label{fig:trackermodulecoordsys}
 \end{figure}
 
 
 
-There are two tracker stations, each consisting of eight tracker modules. The two stations live at positions in front of calorimeters 13 and 19, or at approximately 180\textdegree{} and 270\textdegree{} clockwise from the inflector. There is also a third station just after the inflector, which currently sits empty of any tracker modules. The straw tracker modules sit inside the vacuum chamber in specially modified vacuum chamber sections in a staircase-like pattern that follows the curvature of the ring. See \figref{fig:TrackerCaloWithLines}. The orientation of the trackers was designed in order to provide a long measurement arm for precise momentum measurement. The modules sit inside the vacuum in order to eliminate multiple scattering in air and produce better reconstructed tracks. The modules sit closely in front of the calorimeters to increase the number of positrons seen in both detectors at the same time, though the acceptances between the two are not the same (careful here). Due to the CBO motion of the beam, even though the calorimeters live at only two places in the ring, they measure the average beam distribution.
+There are two tracker stations, each consisting of eight tracker modules. The two stations live at positions in front of calorimeters 13 and 19, or at approximately 180\textdegree{} and 270\textdegree{} clockwise from the inflector. There is also a third station just after the inflector, which currently sits empty of any tracker modules. The straw tracker modules sit inside the vacuum chamber in specially modified vacuum chamber sections in a staircase-like pattern that follows the curvature of the ring. See \figref{fig:TrackerCaloWithLines}. The number of modules and their orientation in each station was chosen to provide a long measurement arm for precise momentum measurement of the incident tracks. The modules sit inside the vacuum in order to eliminate multiple scattering in air and produce better reconstructed tracks. Due to their proximity to the storage region, the tracker modules also live in a region of high field non-uniformity. Though the acceptances between the trackers and calorimeters are not identical, their close proximity facilitates comparison between the two measurement devices. Finally, even though the tracker stations live at only two places in the ring, they measure the average beam distribution due to the CBO motion of the beam and the long extrapolation distance of the measured trajectories.
 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=0.9\textwidth]{TrackerCaloWithLines}
-    \caption[TrackerCaloWithLines]{Birds eye view of a model of a vacuum chamber containing a tracker station, and the associated calorimeter. Muons pass around the ring in the center of the storage region which is contained within the bulk of the vacuum chamber. The muons decay to positrons, some of which then pass through the trackers or hit calorimeters. Each tracking station consists of 8 tracker modules.}   
+    \caption[TrackerCaloWithLines]{Birds eye view of a model of a vacuum chamber containing a tracker station, and the associated calorimeter. Each tracking station consists of 8 tracker modules.}
     \label{fig:TrackerCaloWithLines}
 \end{figure}
 
@@ -196,7 +198,7 @@ There are two tracker stations, each consisting of eight tracker modules. The tw
 \subsection{Tracker readout electonics}
 
 
-The readout electronics for the system can be split into two groups, the front-end and back-end respectively. The front-end electronics were built and tested at the \Bu Electronic Design Facility. They start with Amplifier Shaper Discriminator with charge (Q) (ASDQ) chips that plug down onto the straws which shape and discriminate the incoming signals. These boards and their associated components live in thin aluminum manifolds above and below the straws, and the size of them was minimized in order to increase the straw measurement area. The signals from the ASDQs are passed through Flexicables to Time to Digital Converter (TDC) boards which time stamp the signals with $\SI{625}{ps}$ precision. High voltage is provided to the sense wires with high voltage boards. The back-end electronics consist of the logic boards which interface with the clock and controls for the system, and pipe out the data to FC7s and AMC13s which process and store the data. An overview diagram of the readout chain is shown in \figref{fig:TrackerReadoutChain}.
+The readout electronics for the system can be split into two groups, the front-end and back-end respectively. The front-end electronics were built and tested at the \Bu Electronic Design Facility. They start with Amplifier Shaper Discriminator with charge (Q) (ASDQ) chips on boards that plug down onto the straws which shape and discriminate the incoming signals. These boards and their associated components live in thin aluminum manifolds above and below the straws, and the size of them was minimized in order to increase the straw measurement area. The signals from the ASDQs are passed through Flexi Cables to Time to Digital Converter (TDC) boards which time stamp the signals with $\SI{625}{ps}$ precision. High voltage is provided to the sense wires with high voltage boards. The back-end electronics consist of the logic boards which interface with the clock and controls for the system, and pipe out the data to FC7s and AMC13s which process and store the data. An overview diagram of the readout chain is shown in \figref{fig:TrackerReadoutChain}. The logic boards, high voltage boards, and TDCs are all housed within an aluminum box which provide RF shielding.
 
 \begin{figure}[]
     \centering
@@ -204,13 +206,6 @@ The readout electronics for the system can be split into two groups, the front-e
     \caption[Tracker electronics readout chain]{Tracker readout chain. Created by James Mott.}   
     \label{fig:TrackerReadoutChain}
 \end{figure}
-
-
-
-
--should mention how the trackers live in the non-uniform field region here
--potentially mention the choice of straw trackers over silicon trackers because of scattering
--talk about flobber / box at all?
 
 
 
