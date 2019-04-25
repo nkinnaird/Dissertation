@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/ExperimentalOverview/Auxiliary/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/TrackingFigures/CoordSys/}{Body/Figures/TrackingFigures/Drift/}{Body/Figures/TrackingFigures/Electronics/}}
+\graphicspath{{Body/Figures/ExperimentalOverview/Auxiliary/}{Body/Figures/ExperimentalOverview/Calorimeter/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/ExperimentalOverview/Ring/}{Body/Figures/TrackingFigures/CoordSys/}{Body/Figures/TrackingFigures/Drift/}{Body/Figures/TrackingFigures/Electronics/}}
 
 \chapter{Detector Systems}
 \label{sec:DetectorSystems}
@@ -10,7 +10,7 @@
 While the calorimeters are the primary detector and gather the most data to measure the \wa signal, there are a number of different auxiliary systems for monitoring injection and beam dynamics. These include the T0, IBMS, and fiber harps. The straw tracking detectors measure beam dynamics, but also serve as a cross check for some parameters of the calorimeter, and are used to look for a possible EDM signal. (Haven't mentioned EDMs at all at this point so maybe leave this last bit out.) Each of these systems will be described in the following sections.
 
 
-\section{Auxiliary Detectors}
+\section{Auxiliary detectors}
 
 \subsection{T0}
 \label{sec:T0}
@@ -81,10 +81,9 @@ The last auxiliary detector is the so called ``fiber harp'' system. It is made u
         \caption{Shown are fiber harp beam intensity measurements for the horizontal fiber harp. Each spectra is from a single fiber, with the spectra at the top being at the greatest radial positions. The fast oscillations of the cyclotron frequency can be seen along with the slower oscillations of the CBO.}
     \label{fig:fiberharp_measurement}
     \end{subfigure}
-\caption[Fiber harp and measurement]{F}
-\label{fig:fiberharp_measurement}
+\caption[Fiber harp and measurement]{Fiber harp related pictures.}
+\label{fig:fiberharppics}
 \end{figure}
-
 
 
 
@@ -93,36 +92,80 @@ The last auxiliary detector is the so called ``fiber harp'' system. It is made u
 \section{Calorimeters}
 \label{sec:Calorimeters}
 
-% what they do
-% what they are
-% how they work
 
-Electromagnetic calorimeters measure the times and energies of decay positrons as they curl inward from the storage region. There are 24 calorimeters located symmetrically around the inside of the ring in close proximity to the vacuum chamber, as shown in \figref{fig:TrackerCaloWithLines}. They lie close to the storage region in order to measure a large fraction of the total number of observable decay positrons, including the high energy decay positrons which curl inward only slightly more than the muons themselves do. (max acceptance)
+Electromagnetic calorimeters are the primary detector in the E989 experiment, responsible for the \wa measurement. They measure hit times and energies of decay positrons as they curl inward from the storage region. 
 
-Each calorimeter consists of 54 channels of PbF\textsubscript{2} crystals arrayed in a 6 high by 9 wide array, which measure Cerenkov light emitted by the incident positrons as they pass through the crystals \cite{Fienberg:2014kka}. (Picture of single calo and its crystals here.) Cerenkov light is naturally fast which improves timing resolution of the incoming hits. Each crystal is 2.5 x 2.5 x 14 cm\textsuperscript{3} and is wrapped in black Tedlar\textregistered\ foil to reduce light transmission between crystals and improve position reconstruction, as well as reduce pulse width \cite{Kaspar:2016ofv}. The light is read out by large area silicon photo-multiplier (SiPM) sensors. Each calorimeter sits on a board extending out from a cart containing the electronic which power the calorimeters and read out the data, as shown in Figure \ref{fig:} This is to relocate magnetic material away from the field region to avoid perturbing the field and to remove sensitive electronics from the decay path region. Similarly, due to the close proximity to the storage region and by extension the magnetic field, the calorimeters, the encapsulating material, and the SiPMs are made from non-magnetic material.
+\subsection{Requirements and systematic effects}
 
-In order to determine \amu to the precision goal, there are modest requirements on the performance of the calorimeters. They must have a relative energy resolution of better than 5\% at 2 \GeV, in order for proper event selection \cite{TDR}. They must have a timing resolution of better than 100 ps for positrons with greater than 100 \MeV energy. The calorimeters must be able to resolve multiple incoming hits through temporal or spatial separation at 100\% efficiency for time separations of greater than 5 ns in order to reduce the pileup systematic error due to the high rate. Finally, the gain of the measured hits must be stable to $<$ 0.1\% over a 200 $\mu$s time period within a fill, and unaffected by a pulse arriving in the same channel a few nanoseconds earlier. The long term gain stability over a time period of order seconds must be $<$ 1\%. The SiPMs chosen satisfy these requirements (as well as the physical ones), due to their fast rise times and consistent pulse shapes. (Should this part be here? Or elsewhere? Before perhaps? Might need to update the gain numbers...)
+In order to determine \wa to the precision goal, there are specific requirements on the performance of the calorimeters. First, they must have a relative energy resolution of better than 5\% at $\SI{2}{\GeV}$, in order for proper event selection above threshold \cite{TDR}. The energy resolution requirement is modest but not strict because the important observable is the number of detected positrons above some energy threshold, where the energy threshold can be determined emperically.
 
-(I've condensed quite a bit this section from the TDR - is that okay?)
+Second, they must have a timing resolution of better than $\SI{100}{ps}$ for positrons with greater than $\SI{100}{\MeV}$ \cite{TDR}. The calorimeters must be able to resolve multiple incoming hits through temporal or spatial separation at 100\% efficiency for time separations of greater than 5 ns in order to reduce the pileup systematic effect due to the high rate. Pileup is the term used for when multiple hits impact the detector within the deadtime such that they are registered as a single hit. Unresolved pileup means that the number of detected positrons above threshold is mis-measured. Since pileup is a time-dependent effect, where pileup decays at some lifetime approximately equal to half the muon lifetime, this leads to a mis-measurement of \wa. The requirements stated here assist in reducing the pileup systematic error below the target goal of $\SI{40}{ppb}$.
+
+Third, the gain of the measured hits must be stable to $<$ 0.1\% over a \mus{200} time period within a fill (\mus{700}), and unaffected by a pulse arriving in the same channel a few nanoseconds earlier \cite{TDR}. The long term gain stability over a time period of order seconds must be $<$ 1\%. Gain is the term used for the energy response of the detector as a function of time. After a hit, the measured energy fraction of a following hit drops sharply and then rise exponentially back to one. Hits with mis-measured energies can thus be excluded if their energies are below threshold, leading to another systematic effect and subsequent error in the \wa measurement. The requirements stated here, along with the use of a laser calibration system (\secref{sub:LaserCalibrationSystem}), assist in reducing the gain systematic error below the target goal of $\SI{20}{ppb}$.
+
+
+\subsection{Harware}
+
+
+There are 24 calorimeters located symmetrically around the inside of the ring placed flush to the vacuum chamber wall, as shown in \figref{fig:CalorimeterPositions}. (Indeed the vacuum chamber was designed so as to reduce multiple scattering of the decay positrons before entering the calorimeters.) Each calorimeter consists of 54 channels of PbF\textsubscript{2} crystals arrayed in a 6 high by 9 wide array. Each crystal is 2.5 x 2.5 x 14 cm\textsuperscript{3} and is wrapped in black Tedlar\textregistered\ foil. The PbF\textsubscript{2} material has an index of refraction of 1.8, and emits Cerenkov light as incident positrons pass through the crystals \cite{Fienberg:2014kka}. Cerenkov light is naturally fast which improves the timing resolution of the incoming hits. It's high density gives it a short radiation length, such that the energy deposition from the incident positrons is nearly 100\% over the length of the crystal. The black foil is used to reduce light transmission between crystals and improve position reconstruction, as well as reduce pulse width \cite{Kaspar:2016ofv}. The energy deposition from the incident positrons is typically restricted to only one or two crystals. The segmentation of the calorimeter combined with the black wrapping helps the spatial and temporal resolution of the detected pulses.
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{CalorimeterPositions}
+        \caption{}
+    \label{fig:CalorimeterPositions}
+    \end{subfigure}%
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{CalorimeterCrystals}
+        \caption{}
+    \label{fig:CalorimeterCrystals}
+    \end{subfigure}
+\caption[Calorimeters]{\bf{probably update these pictures at some point}}
+\label{fig:calos}
+\end{figure}
+
+
+
+Each crystal is paired with a large area silicon photo-multiplier (SiPM) sensor which reads out the emitted Cerenkov light. SiPMs are compact, operable in high magnetic field regions, have very linear responses for operation at MHz rates, are suited to measuring Cerenkov light due to their high photo-detection efficiency in the wavelengths of interest, and a high degree of gain stability \cite{Kaspar:2016ofv}. The SiPMs used are designed by Hamamatsu and detailed in \refref{Kaspar:2016ofv}. They sit on printed circuitry boards (PCBs) designed to preserve the fast SiPM pulse shape. The combined properties of the chosen SiPMs, their electronic boards, and the PbF\textsubscript{2} crystals results in an energy resolution of $(4.6 \pm 0.3) \% / \sqrt{E/\GeV}$, a timing resolution of $\SI{20}{ps}$, and a pulse width of $\SI{5}{ns}$, satisfying the stated requirements earlier \cite{Fienberg:2014kka,Kaspar:2016ofv}. Details of the pulse fitting algorithms are shared in \secref{sec:ReconWest}. See \figref{fig:CalorimeterCrystals} for a picture of the calorimeter crystals and associated SiPMs.
+
+
+
+- should I get a picture of what the energy deposition looks like? or a sipm pulse? etc 
+
+
+
+
+Each calorimeter sits on a board extending out from a cart containing the electronic which power the calorimeters and read out the data, as shown in Figure \ref{fig:CalorimeterPositions} This is to relocate magnetic material away from the field region to avoid perturbing the field and to remove sensitive electronics from the decay path region. Similarly, due to the close proximity to the storage region and by extension the magnetic field, the calorimeters, the encapsulating material, and the SiPMs are made from non-magnetic material.
+
+
 
 A 12 bit waveform digitizer (WFD) samples each photodetector channel at a rate of 800 MSPS with a 1 Gb memory buffer and the data are transferred to a bank of GPU processors for on-line data processing \cite{Sweigart:2016jty}. The timing resolution of these WFDs is $<$ 50 ps for most pulse amplitudes.
 
-Should I go into the calorimeter DAQ here? Or make that it's own section - how uniform are the DAQ systems for each detector system? Are the same sorts of modules and crates and WFDs used or what? If so it's own section might make sense, otherwise probably include small pieces at the end of each individual detector about the daq system
+
+-have I mentioned non-magnetic side of things
+
+
+% \begin{figure}[]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{CalorimeterPositions}
+%     \caption[Model of calorimeter positions relative to vacuum chamber]{}   
+%     \label{fig:CalorimeterPositions}
+% \end{figure}
 
 
 
 
--talk about the number of calorimeters and where 1 starts
--talk about cerenkov radiation if I haven't already
--briefly mention and explain pileup
--be sure to talk about gain as well
 
 
+\subsection{Laser calibration system}
+\label{sub:LaserCalibrationSystem}
 
-
-\subsection{Laser Calibration System}
-\label{LaserCalibrationSystem}
-% should I make this it's own section? or include at the end of the calo section? probably the latter
+-timing
 
 In order to satisfy the gain requirements, a laser calibration system was put into place in order to monitor the SiPM responses over short times (fill level), and long term (days to years). By comparing a known signal to the SiPM output. At the front face of each calorimeter is a board containing prisms connected to fibers from the laser system which can be pulsed in-fill or out of fill for each crystal individually. 
 
@@ -139,7 +182,7 @@ In order to satisfy the gain requirements, a laser calibration system was put in
 
 
 
-\section{Straw Trackers}
+\section{Straw trackers}
 \label{sec:StrawTrackers}
 
 As described in \secref{sec:muonbeamdynamics}, the muon beam moves dynamically within the storage ring. As explained in \secref{sec:MagneticField}, the muon beam distribution ties into the measurement of the magnetic field. The primary detector system used to measure this behavior and determine the muon beam distribution is the ``straw tracker'' system. The straw trackers characterize the beam in a non-destructive fashion by measuring decay positron trajectories and extrapolating back into the storage ring. They serve to provide the direct measurement of the pitch correction as described in \secref{sub:pitch_correction}, determine the momentum distribution of the beam, and characterize parameters of the CBO which tie into the calorimeter \wa analysis. Decay positron trajectories can also be extrapolated forwards into the calorimeter, in order to cross-check calorimeter measurements to help resolve pileup (be sure to talk about pileup in the calorimeter section - since this isn't actually done yet do I even want to say this?). Finally, the trackers also serve as a measuring device to search for a possible muon electric dipole moment. The existence of such a thing would tilt the precession plane of the muons and subsequent decay positron trajectories which the trackers are sensitive to. Details of the beginnings of such a search are given in \refref{SCThesis}. The details of the track reconstruction and analysis will be given in \chapref{chapter:TrackReconstruction}. Here will be given a description of the detectors themselves and how they work.
