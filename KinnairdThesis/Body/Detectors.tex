@@ -107,7 +107,10 @@ Third, the gain of the measured hits must be stable to $<$ 0.1\% over a \mus{200
 \subsection{Harware}
 
 
-There are 24 calorimeters located symmetrically around the inside of the ring placed flush to the vacuum chamber wall, as shown in \figref{fig:CalorimeterPositions}. (Indeed the vacuum chamber was designed so as to reduce multiple scattering of the decay positrons before entering the calorimeters.) Each calorimeter consists of 54 channels of PbF\textsubscript{2} crystals arrayed in a 6 high by 9 wide array. Each crystal is 2.5 x 2.5 x 14 cm\textsuperscript{3} and is wrapped in black Tedlar\textregistered\ foil. The PbF\textsubscript{2} material has an index of refraction of 1.8, and emits Cerenkov light as incident positrons pass through the crystals \cite{Fienberg:2014kka}. Cerenkov light is naturally fast which improves the timing resolution of the incoming hits. It's high density gives it a short radiation length, such that the energy deposition from the incident positrons is nearly 100\% over the length of the crystal. The black foil is used to reduce light transmission between crystals and improve position reconstruction, as well as reduce pulse width \cite{Kaspar:2016ofv}. The energy deposition from the incident positrons is typically restricted to only one or two crystals. The segmentation of the calorimeter combined with the black wrapping helps the spatial and temporal resolution of the detected pulses.
+There are 24 calorimeters located symmetrically around the inside of the ring placed flush to the vacuum chamber wall, as shown in \figref{fig:CalorimeterPositions}. (Indeed the vacuum chamber was designed so as to reduce multiple scattering of the decay positrons before entering the calorimeters.) Each calorimeter sits on a board extending out from a cart containing the electronics which power the calorimeters and read out the data. The carts help to relocate magnetic materials away from the field region to avoid perturbing the magnetic field, and provide easy access to the electronics and remove them from the positron decay path region.
+
+
+Each calorimeter consists of 54 channels of PbF\textsubscript{2} crystals arrayed in a 6 high by 9 wide array. Each crystal is 2.5 x 2.5 x 14 cm\textsuperscript{3} and is wrapped in black Tedlar\textregistered\ foil. The PbF\textsubscript{2} material has an index of refraction of 1.8, and emits Cerenkov light as incident positrons pass through the crystals \cite{Fienberg:2014kka}. Cerenkov light is naturally fast which improves the timing resolution of the incoming hits. It's high density gives it a short radiation length, such that the energy deposition from the incident positrons is nearly 100\% over the length of the crystal. The black foil is used to reduce light transmission between crystals and improve position reconstruction, as well as reduce pulse width \cite{Kaspar:2016ofv}. The energy deposition from the incident positrons is typically restricted to only one or two crystals. The segmentation of the calorimeter combined with the black wrapping helps the spatial and temporal resolution of the detected pulses. See \figref{fig:CalorimeterCrystals} for a picture of the calorimeter crystals.
 
 
 \begin{figure}[]
@@ -131,7 +134,7 @@ There are 24 calorimeters located symmetrically around the inside of the ring pl
 
 
 
-Each crystal is paired with a large area silicon photo-multiplier (SiPM) sensor which reads out the emitted Cerenkov light. SiPMs are compact, operable in high magnetic field regions, have very linear responses for operation at MHz rates, are suited to measuring Cerenkov light due to their high photo-detection efficiency in the wavelengths of interest, and a high degree of gain stability \cite{Kaspar:2016ofv}. The SiPMs used are designed by Hamamatsu and detailed in \refref{Kaspar:2016ofv}. They sit on printed circuitry boards (PCBs) designed to preserve the fast SiPM pulse shape. The combined properties of the chosen SiPMs, their electronic boards, and the PbF\textsubscript{2} crystals results in an energy resolution of $(4.6 \pm 0.3) \% / \sqrt{E/\GeV}$, a timing resolution of $\SI{20}{ps}$, and a pulse width of $\SI{5}{ns}$, satisfying the stated requirements earlier \cite{Fienberg:2014kka,Kaspar:2016ofv}. Details of the pulse fitting algorithms are shared in \secref{sec:ReconWest}. See \figref{fig:CalorimeterCrystals} for a picture of the calorimeter crystals and associated SiPMs.
+Each crystal is paired with a large area silicon photo-multiplier (SiPM) sensor which reads out the emitted Cerenkov light. SiPMs are compact, operable in high magnetic field regions, have very linear responses for operation at MHz rates, are suited to measuring Cerenkov light due to their high photo-detection efficiency in the wavelengths of interest, and a high degree of gain stability \cite{Kaspar:2016ofv}. The SiPMs used are designed by Hamamatsu and detailed in \refref{Kaspar:2016ofv}. They sit on printed circuitry boards (PCBs) designed to preserve the fast SiPM pulse shape, and devoid of magnetic materials. The combined properties of the chosen SiPMs, their electronic boards, and the PbF\textsubscript{2} crystals results in an energy resolution of $(4.6 \pm 0.3) \% / \sqrt{E/\GeV}$, a timing resolution of $\SI{20}{ps}$, and a pulse width of $\SI{5}{ns}$, satisfying the stated requirements earlier \cite{Fienberg:2014kka,Kaspar:2016ofv}. Details of the pulse fitting algorithms are shared in \secref{sec:ReconWest}. The SiPMs can be seen in \figref{fig:CalorimeterCrystals}. Finally, 12-bit waveform digitizers (WFD) sample each SiPM channel at a rate of 800 mega-samples per second with a 1 Gb memory buffer and the data are transferred to a bank of GPU processors for on-line data processing \cite{Sweigart:2016jty}. The timing resolution of these WFDs is $<\SI{50}{ps}$ for most pulse amplitudes.
 
 
 
@@ -140,25 +143,12 @@ Each crystal is paired with a large area silicon photo-multiplier (SiPM) sensor 
 
 
 
-Each calorimeter sits on a board extending out from a cart containing the electronic which power the calorimeters and read out the data, as shown in Figure \ref{fig:CalorimeterPositions} This is to relocate magnetic material away from the field region to avoid perturbing the field and to remove sensitive electronics from the decay path region. Similarly, due to the close proximity to the storage region and by extension the magnetic field, the calorimeters, the encapsulating material, and the SiPMs are made from non-magnetic material.
-
-
-
-A 12 bit waveform digitizer (WFD) samples each photodetector channel at a rate of 800 MSPS with a 1 Gb memory buffer and the data are transferred to a bank of GPU processors for on-line data processing \cite{Sweigart:2016jty}. The timing resolution of these WFDs is $<$ 50 ps for most pulse amplitudes.
-
-
--have I mentioned non-magnetic side of things
-
-
 % \begin{figure}[]
 %     \centering
 %     \includegraphics[width=0.5\textwidth]{CalorimeterPositions}
 %     \caption[Model of calorimeter positions relative to vacuum chamber]{}   
 %     \label{fig:CalorimeterPositions}
 % \end{figure}
-
-
-
 
 
 
