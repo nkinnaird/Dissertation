@@ -10,27 +10,35 @@
 As described in section \ref{sec:StrawTrackers}, the straw trackers are used to provide information about the muon beam, important for the calorimeter \wa analysis, calculating the \wa pitch correction, and determining the spatially weighted magnetic field seen by the muons. The track reconstruction is performed in three stages: First, individual hits in the tracker are clustered into individual tracks in the finding stage. Second, a best trajectory is fit to clustered hits in the fitting stage. Third, the best fit trajectory is extrapolated back to the storage region or forwards to the calorimeter in the extrapolation stage. A fourth refinement stage is planned but not yet implemented, which would add or remove hits in the finding stage based on the results of the fitting and extrapolation stages.
  
 
+-should I talk at all about the Garfield/digitization step?? this would be before track finding I think
+-check out docdbs 6171 and 5601 to start (maybe others)
+
 
 \section{Track Finding}
 \label{sec:TrackFinding}
 
-The track finding stage consists of pattern recognition routines in order to group individual hits into separate sets corresponding to individual incident tracks. The current implementation of these pattern recognition routines is relatively low-level and straightforward. First hits are grouped in time windows called time islands. The typical width of a time island is X$\SI{}{ns}$. 
+The track finding stage consists of pattern recognition routines in order to group individual hits into separate sets corresponding to individual incident tracks. The current implementation of these pattern recognition routines is relatively low-level and straightforward \cite{trackfinding}. First hits across all hit modules are grouped in time windows called time islands. The typical width of a time island is X$\SI{}{ns}$. Within those time islands hits are then grouped into clusters. Clusters consist of one or two hits for each U or V view in each hit module. As a reminder the U and V views of a module consist of the two U or V layers in that module, see \secref{sec:StrawTrackers}. Neighboring hit clusters in the same module are then grouped to form seeds, one per module. Finally, seeds in separate modules are grouped to form what are called track candidates. These track candidates are passed on to the fitting stage. 
 
 
-Within those time islands hits are then grouped into clusters. Clusters consist of all hits 
+
+-in the clustering and seeds case need to mention that they are combined when right next to each other
+-in the seed combination part need to talk about the stitching a little bit
+-just going to need to look through the reconstruction code to see exactly what it's doing a bit better
 
 
- where clusters are formed from hits in only U or V layers 
-
-Within those time islands it then groups neighboring hits in adjacent U or V layers to form clusters. Neighboring clusters are grouped per module to form seeds. Seeds in separate modules are grouped within the time island to form track candidates. These track candidates are then passed on to the track fitting stage. Basic checks such as the number of hits per straw layer for a track are made throughout the track finding in order to eliminate cases where the track finding has trouble.
+Basic checks such as the number of hits per straw layer for a track are made throughout the track finding in order to eliminate cases where the track finding has trouble.
 
 
-\cite{trackfinding}
+In cases where there are too many hits for the track finding to distinguish which hits belong to each other, said hits are dropped.
 
 
-sec:StrawTrackers
 
--reference U and V in track finding
+-Joes docdb 5793 on an algorithm to remove secondary particles from track finding - check this out - in general check out lots of Joes docdbs
+
+-should talk about geometry determination of hits in straws which I havent yet - maybe in the fitting side of things though - see Joes docdb 6947 to start (maybe others too)
+
+-long tracks and short tracks?
+-should I talk about the efficiency of the track finding?
 -potential for neural nets, etc.
 
 
