@@ -7,56 +7,40 @@
 \chapter{Track Reconstruction and Analysis}
 \label{chapter:TrackReconstruction}
 
-As described in section \ref{sec:StrawTrackers}, the straw trackers are used to provide information about the muon beam, important for the calorimeter \wa analysis, calculating the \wa pitch correction, and determining the spatially weighted magnetic field seen by the muons. The track reconstruction is performed in three stages: First, individual hits in the tracker are clustered into individual tracks in the finding stage. Second, a best trajectory is fit to clustered hits in the fitting stage. Third, the best fit trajectory is extrapolated back to the storage region or forwards to the calorimeter in the extrapolation stage. A fourth refinement stage is planned but not yet implemented, which would add or remove hits in the finding stage based on the results of the fitting and extrapolation stages.
- 
-
--should I talk at all about the Garfield/digitization step?? this would be before track finding I think
--check out docdbs 6171 and 5601 to start (maybe others)
+As described in section \ref{sec:StrawTrackers}, the straw trackers are used to provide information about the muon beam, important for the calorimeter \wa analysis, calculating the \wa pitch correction, and determining the spatially weighted magnetic field seen by the muons. The track reconstruction is performed in three stages: First, individual hits in the tracker are grouped into individual tracks in the finding stage. Second, a best trajectory is fit to grouped hits in the fitting stage. Third, the best fit trajectory is extrapolated back to the storage region or forwards to the calorimeter in the extrapolation stage. A fourth refinement stage is planned but not yet implemented, which would add or remove hits in the finding stage based on the results of the fitting and extrapolation stages.
 
 
 \section{Track Finding}
 \label{sec:TrackFinding}
 
-The track finding stage consists of pattern recognition routines in order to group individual hits into separate sets corresponding to individual incident tracks. The current implementation of these pattern recognition routines is relatively low-level and straightforward \cite{trackfinding}. First hits across all hit modules are grouped in time windows called time islands. The typical width of a time island is X$\SI{}{ns}$. Within those time islands hits are then grouped into clusters. Clusters consist of one or two hits for each U or V view in each hit module. As a reminder the U and V views of a module consist of the two U or V layers in that module, see \secref{sec:StrawTrackers}. Neighboring hit clusters in the same module are then grouped to form seeds, one per module. Finally, seeds in separate modules are grouped to form what are called track candidates. These track candidates are passed on to the fitting stage. 
+The track finding stage consists of pattern recognition routines in order to group individual hits into separate sets corresponding to individual incident tracks. The general implementation of these pattern recognition routines is relatively straightforward \cite{trackfinding,trackfinding2}. Hits across all modules are grouped in time windows called time islands, with a max width of $\SI{100}{ns}$. Within those time islands hits are then grouped into clusters. Clusters consist of one or two hits for each U or V view per module. As a reminder the U and V views of a module consist of the two U or V layers in that module, \secref{sec:StrawTrackers}. Hits are only clustered if they lie in close proximity in time and space to one another. The spatial constraint is defined as the difference in hit straw numbers, from 0 to 31 for the 32 straws per layer, which by default is limited to less than or equal to 4. Neighboring hit clusters in the same module are then grouped to form seeds, one per module. Finally, seeds in successive modules are grouped starting from one end of the tracker to form what are called track candidates. The seeds are formed and grouped into track candidates again only if they lie close in time and space to one another. The entire track candidate formation process occurs for all hits in a time island to find as many real tracks as possible. See \figref{fig:TrackCandidateSelection}.
 
-
-
--in the clustering and seeds case need to mention that they are combined when right next to each other
--in the seed combination part need to talk about the stitching a little bit
--just going to need to look through the reconstruction code to see exactly what it's doing a bit better
-
-
-Basic checks such as the number of hits per straw layer for a track are made throughout the track finding in order to eliminate cases where the track finding has trouble.
-
-
-In cases where there are too many hits for the track finding to distinguish which hits belong to each other, said hits are dropped.
-
-
-
--Joes docdb 5793 on an algorithm to remove secondary particles from track finding - check this out - in general check out lots of Joes docdbs
-
--should talk about geometry determination of hits in straws which I havent yet - maybe in the fitting side of things though - see Joes docdb 6947 to start (maybe others too)
-
--long tracks and short tracks?
--should I talk about the efficiency of the track finding?
--potential for neural nets, etc.
-
-
+After a track candidate has been formed a number of checks are made before passing it on to the fitting stage. If hits, clusters, or seeds are found to be shared among multiple track candidates, the candidates are dropped. Likewise, a track candidate is dropped if it is made from seeds consisting of only one type of view, or if the track candidate has less than six hits. There are also various small geometry and timing algorithms to improve the track candidates, such as removing hits from secondaries \cite{trackfinding3}. The $t_{0}$ time for the track candidate is calculated as the mean time of all hits, with some fixed offset at the end. This $t_{0}$ is helpfully constrained by geometry effects, where for a straight track passing through two layers in the same view, the sum of the drift times adds up to a constant (cite or show this?). The track candidate is supplied with an original momentum and position guess at the start of the track by fitting a circle to the hit straw wires in the horizontal plane. The final track candidates are passed on to the fitting stage. 
 
 
 \begin{figure}[]
-	\centering
-	\includegraphics[width=0.9\textwidth]{TrackAndCaloHit}
-    \caption[TrackAndCaloHit]{clean up and possibly replace}    
-    \label{fig:TrackAndCaloHit}
+    \centering
+    \includegraphics[width=0.9\textwidth]{TrackCandidateSelection}
+    \caption[Track candidate selection]{Hits in a tracker station in a single time island. The black dots indicate the position of the straws, while the blue and red points indicate hits. In blue is the first formed track candidate in the island, formed from separate seeds in different modules. The track finding algorithms will move onto the remaining hits in the time island to attempt to form other track candidates, one of which is easily observable by eye.}    
+    \label{fig:TrackCandidateSelection}
 \end{figure}
 
-\begin{figure}[]
-	\centering
-	\includegraphics[width=0.9\textwidth]{pileupEvent}
-    \caption[pileupEvent]{clean up and possibly replace}    
-    \label{fig:pileupEvent}
-\end{figure}
+% event display tracks
+
+% \begin{figure}[]
+% 	\centering
+% 	\includegraphics[width=0.9\textwidth]{TrackAndCaloHit}
+%     \caption[TrackAndCaloHit]{clean up and possibly replace}    
+%     \label{fig:TrackAndCaloHit}
+% \end{figure}
+
+% \begin{figure}[]
+% 	\centering
+% 	\includegraphics[width=0.9\textwidth]{pileupEvent}
+%     \caption[pileupEvent]{clean up and possibly replace}    
+%     \label{fig:pileupEvent}
+% \end{figure}
+
 
 
 
@@ -104,8 +88,8 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
 
 
 
-% \subsection{Track Fitting Formalism}
-% \label{sec:TrackFittingFormalism}
+\subsection{Track Fitting Formalism}
+\label{sec:TrackFittingFormalism}
 
     I recommend reading \cite{geanemanual}, Chapter 4 of \cite{Lavezzi}, and \cite{trajfit} in order to best understand the fitting algorithm. However, due to the at times confusing notation, ommitted equations or concepts, and differences between papers, I have attempted to summarize here the different sources and present the material in a more understandable and readable format. The implementation of the fitting algorithm into the code follows this section.
 
@@ -194,6 +178,11 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
 
 
 
+\subsection{Left right ambiguity}
+\label{sub:leftright}
+
+
+
 
 -go into all tests and pieces of the code
 -vacuum fitting
@@ -203,6 +192,11 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
 -different fitting modes
 -mc / data comparisons
 -don't forget about angular correction in appendix of fitting documentation - might want to put that in the appendix of my thesis
+
+
+-should talk about geometry determination of hits in straws which I havent yet - in the fitting side of things though - see Joes docdb 6947 to start (maybe others too) - for LR determination after wire fit (but only in full sequence fit I believe...)
+
+
 
 
 
