@@ -7,21 +7,31 @@
 \chapter{Track Reconstruction and Analysis}
 \label{chapter:TrackReconstruction}
 
-As described in section \ref{sec:StrawTrackers}, the straw trackers are used to provide information about the muon beam, important for the calorimeter \wa analysis, calculating the \wa pitch correction, and determining the spatially weighted magnetic field seen by the muons. The track reconstruction involves three stages. These include the finding stage, the fitting stage, and the extrapolation stage. The track finding stage takes incoming hits and decides which hits should be grouped together to form individual tracks. The track fitting stage fits a best trajectory to those hits. The track extrapolation stage extrapolates the fitted trajectory to the regions of interest, the storage region and the calorimeter. A fourth refinement stage is planned but not yet implemented, which would add or remove hits in the finding stage based on the results of the fitting and extrapolation stage. 
-
-
+As described in section \ref{sec:StrawTrackers}, the straw trackers are used to provide information about the muon beam, important for the calorimeter \wa analysis, calculating the \wa pitch correction, and determining the spatially weighted magnetic field seen by the muons. The track reconstruction is performed in three stages: First, individual hits in the tracker are clustered into individual tracks in the finding stage. Second, a best trajectory is fit to clustered hits in the fitting stage. Third, the best fit trajectory is extrapolated back to the storage region or forwards to the calorimeter in the extrapolation stage. A fourth refinement stage is planned but not yet implemented, which would add or remove hits in the finding stage based on the results of the fitting and extrapolation stages.
+ 
 
 
 \section{Track Finding}
 \label{sec:TrackFinding}
 
+The track finding stage consists of pattern recognition routines in order to group individual hits into separate sets corresponding to individual incident tracks. The current implementation of these pattern recognition routines is relatively low-level and straightforward. First hits are grouped in time windows called time islands. The typical width of a time island is X$\SI{}{ns}$. 
 
-From NIM section I wrote:
- The track finding stage consists of pattern recognition routines in order to group individual hits into separate sets corresponding to individual incident tracks. The track finding starts by first grouping hits in time called time islands. Within those time islands it then groups neighboring hits in adjacent U or V layers to form clusters. Neighboring clusters are grouped per module to form seeds. Seeds in separate modules are grouped within the time island to form track candidates. These track candidates are then passed on to the track fitting stage. Basic checks such as the number of hits per straw layer for a track are made throughout the track finding in order to eliminate cases where the track finding has trouble.
+
+Within those time islands hits are then grouped into clusters. Clusters consist of all hits 
+
+
+ where clusters are formed from hits in only U or V layers 
+
+Within those time islands it then groups neighboring hits in adjacent U or V layers to form clusters. Neighboring clusters are grouped per module to form seeds. Seeds in separate modules are grouped within the time island to form track candidates. These track candidates are then passed on to the track fitting stage. Basic checks such as the number of hits per straw layer for a track are made throughout the track finding in order to eliminate cases where the track finding has trouble.
 
 
 \cite{trackfinding}
 
+
+sec:StrawTrackers
+
+-reference U and V in track finding
+-potential for neural nets, etc.
 
 
 
@@ -177,6 +187,13 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
 
 
 
+-go into all tests and pieces of the code
+-vacuum fitting
+-checks on energy loss
+-material correlation code
+-fast fitting code
+-different fitting modes
+-mc / data comparisons
 -don't forget about angular correction in appendix of fitting documentation - might want to put that in the appendix of my thesis
 
 
