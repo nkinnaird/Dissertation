@@ -9,6 +9,8 @@
 
 As described in section \ref{sec:StrawTrackers}, the straw trackers are used to provide information about the muon beam, important for the calorimeter \wa analysis, calculating the \wa pitch correction, and determining the spatially weighted magnetic field seen by the muons. The track reconstruction is performed in three stages: First, individual hits in the tracker are grouped into individual tracks in the finding stage. Second, a best trajectory is fit to grouped hits in the fitting stage. Third, the best fit trajectory is extrapolated back to the storage region or forwards to the calorimeter in the extrapolation stage. A fourth refinement stage is planned but not yet implemented, which would add or remove hits in the finding stage based on the results of the fitting and extrapolation stages.
 
+As a brief aside, every stage of the track reconstruction is performed in the event-processing framework known as \textit{art} \cite{art}. The \textit{art} framework is a collection of modularized stages in a C++ framework useful for reading, reconstructing, filtering, analyzing, and writing data, among other things. All Fermilab experiments now use \textit{art}, and E989 is no exception.
+
 
 \section{Track Finding}
 \label{sec:TrackFinding}
