@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/TrackingFigures/}{Body/Figures/TrackingFigures/MainPlots/}{Body/Figures/TrackingFigures/MainPlots/PlanePlots/}{Body/Figures/TrackingFigures/MainPlots/PullPlots/}{Body/Figures/TrackingFigures/MainPlots/Residuals/}{Body/Figures/TrackingFigures/eLoss/}{Body/Figures/TrackingFigures/CoordSys/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/TrackingFigures/Field/}{Body/Figures/TrackingFigures/TrackingFlow/}{Body/Figures/TrackingFigures/LeftRight/}{Body/Figures/TrackingFigures/Misc/}{Body/Figures/TrackingFigures/Extrapolation/}{Body/Figures/TrackingFigures/Tracks/}}
+\graphicspath{{Body/Figures/TrackingFigures/}{Body/Figures/TrackingFigures/MainPlots/}{Body/Figures/TrackingFigures/MainPlots/PlanePlots/}{Body/Figures/TrackingFigures/MainPlots/PullPlots/}{Body/Figures/TrackingFigures/MainPlots/Residuals/}{Body/Figures/TrackingFigures/eLoss/}{Body/Figures/TrackingFigures/CoordSys/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/TrackingFigures/Field/}{Body/Figures/TrackingFigures/TrackingFlow/}{Body/Figures/TrackingFigures/LeftRight/}{Body/Figures/TrackingFigures/Misc/}{Body/Figures/TrackingFigures/Extrapolation/}{Body/Figures/TrackingFigures/Tracks/}{Body/Figures/TrackingFigures/BeamMeasurements/}{Body/Figures/TrackingFigures/MCDataComparison/}}
 
 \chapter{Track Reconstruction and Analysis}
 \label{chapter:TrackReconstruction}
@@ -47,6 +47,20 @@ After a track candidate has been formed a number of checks are made before passi
 
 \section{Track Fitting}
 \label{sec:TrackFitting}
+
+
+% Structure for the track fitting section:
+% 1. Introduction to Geane and what it gives you, why we use it, etc.
+% 2. Explanation of chi2 fitting routine used, brief mention of other possible fitting possibilties
+%     1. Material correlations
+%     2. Which parameters are measured and which aren't
+%     3. Jacobians and transformations used everywhere
+%         1. Probably some math on this last guy
+% 3. Types of fitting used, various modes and options
+%     1. Left-right ambiguity
+% 4. Plots and images everywhere showing what all I've done
+
+
 
 
 -Geane (Geometry and Error Propagation)
@@ -178,6 +192,14 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
 
 
 
+
+
+
+
+
+
+
+
 \subsection{Left right ambiguity}
 \label{sub:leftright}
 
@@ -192,12 +214,28 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
 -different fitting modes
 -mc / data comparisons
 -don't forget about angular correction in appendix of fitting documentation - might want to put that in the appendix of my thesis
+-red black point residual plots too maybe
+-talk about the dummy stuff too perhaps
 
 
 -should talk about geometry determination of hits in straws which I havent yet - in the fitting side of things though - see Joes docdb 6947 to start (maybe others too) - for LR determination after wire fit (but only in full sequence fit I believe...)
 
 
 
+
+\begin{figure}[]
+  \centering
+  \includegraphics[width=\textwidth]{FittingMatricesDiagram}
+    \caption[Fitting matrices diagram]{}
+    \label{fig:FittingMatricesDiagram}
+\end{figure}
+
+\begin{figure}[]
+  \centering
+  \includegraphics[width=\textwidth]{NewGeaneFlow}
+    \caption[Geane code flow]{}
+    \label{fig:NewGeaneFlow}
+\end{figure}
 
 
 
@@ -224,6 +262,37 @@ The track extrapolation stage utilizes a fourth order Runge-Kutta Nystr\"{o}m al
     \caption[Birds eye view of extrapolation in ring]{}    
     \label{fig:VertexPlanView}
 \end{figure}
+
+
+
+-include figure about mm shift
+
+
+
+\section{Muon Beam Measurements}
+\label{sec:MuonBeamMeasurements}
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.9\textwidth]{CBOFrequency}
+    \caption[CBO frequency]{}    
+    \label{fig:CBOFrequency}
+\end{figure}
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.9\textwidth]{CBOAmplitude}
+    \caption[CBO amplitude]{}    
+    \label{fig:CBOAmplitude}
+\end{figure}
+
+-emphasize measurements that are directly relevant to the calorimeter \wa analysis
+-cbo frequency
+-cbo amplitude
+
+
+
 
 
 
