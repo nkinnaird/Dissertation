@@ -216,6 +216,7 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
 -don't forget about angular correction in appendix of fitting documentation - might want to put that in the appendix of my thesis
 -red black point residual plots too maybe
 -talk about the dummy stuff too perhaps
+-ficticious starting plane
 
 
 -should talk about geometry determination of hits in straws which I havent yet - in the fitting side of things though - see Joes docdb 6947 to start (maybe others too) - for LR determination after wire fit (but only in full sequence fit I believe...)
@@ -242,30 +243,27 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
 \section{Track Extrapolation}
 \label{sec:TrackExtrapolation}
 
+The last stage of the track reconstruction is the track extrapolation. The extrapolation takes the fitted track results and either extrapolates them back to the storage region to the approximate position of the muon decay point, or forwards to the face of the calorimeter sitting right behind the tracker. The extrapolation stage utilizes a fourth order Runge-Kutta Nystr\"{o}m algorithm \cite{SCThesis} which discretely steps a trajectory through the magnetic field in the full \gmtwo Geant4 simulation, similar in some respects to the track fitting stage. At each step of the extrapolation, the updated track position and covariance matrix are compared to physical volumes in the simulation to flag tracks which have been reconstructed as likely originating from outside the storage region \cite{SCThesis,extrapolationerrors}. Because there is no fixed interaction point in the storage region, tracks are extrapolated backwards to the point of tangency where the radial momentum is equal to zero. Studies were done to verify that this approximation for the muon decay point was sufficient using truth Monte-Carlo, and it was found that a simple $\SI{1.1}{mm}$ correction to the radial decay position could be applied regardless of the momentum of the track \cite{SCThesis}. The vertical extrapolated distribution was found to have no biases. (What about the azimuthal point? Mentioned a little bit in DocDB 8564 but do I really want to go into it?) A birds eye view for extrapolation results is shown in \figref{fig:VertexPlanView}. A radial slice of the extrapolated beam distribution is shown in \figref{fig:BeamCrossSection}.
 
-From NIM section I wrote:
-The track extrapolation stage utilizes a fourth order Runge-Kutta Nystr\"{o}m algorithm \cite{SCThesis} to extrapolate tracks back through the varying magnetic field into the storage region until the approximate position of the muon decay point is reached, or forwards to the calorimeter face. This is done within the full g-2 Geant4 simulation just like the track fitting. Track parameters from the fitting along with the covariance matrix are propagated in discrete steps. At each step the position of the extrapolated track is compared to geometry in order to flag tracks which have been reconstructed as originating from un-physical locations. Because there is no fixed interaction point in the storage region, tracks are extrapolated backwards to the point of tangency where the radial momentum is equal to 0. Extensive studies were done to verify that this approximation for the muon decay point was sufficient, and it was found that a simple 1.1 mm correction to the decay point could be applied regardless of the momentum of the track \cite{SCThesis}. The extrapolated beam distribution is shown in \figref{fig:BeamCrossSection}.
 
+\begin{figure}[]
+    \centering
+    \includegraphics[width=\textwidth]{VertexPlanView}
+    \caption[Birds eye view of extrapolation in ring]{A birds eye view of the extrapolation results in the storage ring. The two distributions of extrapolated tracks can be seen at the left and bottom of the figure, where the tracker sits at the heads of the distributions. It can be seen that some tracks are extrapolated multiple meters back through the storage region. (Mention anything about the cuts in this plot?)}    
+    \label{fig:VertexPlanView}
+\end{figure}
 
 \begin{figure}[]
   \centering
   \includegraphics[width=0.7\textwidth]{BeamCrossSection}
-    \caption[Extrapolated muon beam distribution cross-section]{Shown is a radial slice of the extrapolated muon distribution or beam spot.}
+    \caption[Extrapolated muon beam distribution cross-section]{Shown is a radial slice of the extrapolated muon distribution or beam spot. The beam is localized off center of the storage ring due to the kicker settings used, \secref{sub:kicker}. (Mention that last bit at all? Mention anything about the cuts in this plot?)}
     \label{fig:BeamCrossSection}
 \end{figure}
 
 
 
-\begin{figure}[]
-	\centering
-	\includegraphics[width=0.9\textwidth]{VertexPlanView}
-    \caption[Birds eye view of extrapolation in ring]{}    
-    \label{fig:VertexPlanView}
-\end{figure}
 
 
-
--include figure about mm shift
 
 
 
@@ -290,9 +288,14 @@ The track extrapolation stage utilizes a fourth order Runge-Kutta Nystr\"{o}m al
 -emphasize measurements that are directly relevant to the calorimeter \wa analysis
 -cbo frequency
 -cbo amplitude
+-have a CBO subsection alongside general results? 
 
 
 
+
+
+
+-in all pictures of this chapter (and others too), make sure to to go back through figures and check that I've given credit properly
 
 
 
