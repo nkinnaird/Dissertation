@@ -63,23 +63,15 @@ After a track candidate has been formed a number of checks are made before passi
 % 4. Plots and images everywhere showing what all I've done
 
 
+The track fitting stage takes the track candidates from the track finding stage, and outputs a best fit trajectory to those candidates. This includes optimal state vectors and error matrices for the track at each measurement plane and at a ficticious starting plane at the entrance to the straw tracking detector. The track fitting routines can roughly be split into two parts, error propagation and the actual fitting and improvement of the track. Each of these will be described in turn.
 
 
--Geane (Geometry and Error Propagation)
+\subsection{Geometry and error propagation}
 
-
-From NIM section I wrote:
-The track fitting stage is based off of the GEANE method (Geometry and Error Propagation), that was used successfully in E821 \cite{geanemanual}. A set of track hits  Track defining objects such as transport matrices, error matrices, and predicted parameter vectors are generated within the full g-2 Geant4 simulation from initial guesses. This has the advantage of direct access to both the geometry and material of the trackers as well as the field that the decay positrons experience as they curl inward. This is important as the tracker lives in a region of high field non-uniformity as shown in Figure~\ref{fig:operaBy}. These track objects are then plugged into a global chi-squared minimization algorithm which produces an optimal state vector near the start of the tracker. This minimization is performed in the same reference frame as the tracker measurement frame, which reduces parameter correlations and improves the fitting. The final state vectors are then passed to the extrapolation stage.
-
-
+To put it simply, the process of error propagation involves taking track parameters and error matrices (which describe the spread in those track parameters) and transporting them along discrete steps from one point to another, accounting for changes due to any present magnetic fields or material along the step path. There is a set of error propagation routines originally written in Fortran by the EMC collaboration, called ``Geometry and error propagation'' or Geane \cite{geanemanual}. These routines were used in the E821 experiment as well as the PANDA experiment with some success \cite{Lavezzi}. The Geane routines were at one point converted to C++ and added to Geant4. The strength of using Geane within a Geant4 simulation lies in its direct access to the Geant4 geometry and field. This is crucially important for the E989 track fitting because the trackers live in a region of high field non-uniformity. Shown in \figref{fig:Opera2DFields} is the location of the tracker with respect to the radial and vertical fields. As shown the radial field of the trackers rises from $\SI{0}{T}$ at the outer ends to roughly $\SI{.3}{T}$ at the inner top and bottom ends, and the vertical field drops approximately 50\% from the storage dipole field of $\SI{1.451}{T}$. These large field gradients over the tracking measurement space must be handled appropriately, which Geane does nicely.
 
 
 
-
-The Geane fitting routines originated in Fortran with the EMC collaboration, and was used in the precursor E821 experiment as well as the PANDA experiment with some success \cite{geanemanual}, \cite{Lavezzi}. (I'm not actually aware of a useful reference for it's use in E821, and there are some other instances of its use as well in other experiments. In E821 there was a single tracking chamber which was never put to full use.) The core error propagation routines were at some point added to Geant4 under the error\_propagation directory which is included in all default installs. The tracking code strengths lie with its direct implementation and access to the Geant4 geometry and field, and its ability to handle the field inhomogeneities. The Geane fitting algorithm code which makes use of the Geant4 error propagation routines follows the structure of \cite{geanemanual} and is detailed in the \hyperref[sec:Formalism]{Formalism} section in this paper. It is a relatively straight forward least squares global \chisq minimization algorithm. 
-
-
-Because of the proximity of the trackers to the muon beam, they will lie within a region of varying magnetic field. The radial field of the trackers rises from 0 Tesla at the outer ends to roughly .3 Tesla at the inner top and bottom ends, and the vertical field drops approximately 50\% from the storage dipole field of 1.451 Tesla. Shown in \figref{fig:Opera2DFields} is the location of the tracker with respect to the horizontal and vertical fields. These large field gradients over the tracking detector region and the long extrapolation distance back to the muon decay point are special to Muon \gmtwo. This is one of the main motivations for using the Geane fitting algorithm and routines, which has direct access to the field.
 
 \begin{figure}[]
 \centering
@@ -103,9 +95,25 @@ Because of the proximity of the trackers to the muon beam, they will lie within 
 
 
 
+Geane works by...
 
-\subsection{Track Fitting Formalism}
-\label{sec:TrackFittingFormalism}
+
+-average path
+-helix
+-cite proper stuff
+
+
+
+
+
+\subsection{\texorpdfstring{\chisq}{chisq} minimization}
+% \label{sec:TrackFittingFormalism}
+
+
+-globabl chi2 minimization
+-other fitting algortihms could be used, kalman filter by lavezzi
+
+
 
     I recommend reading \cite{geanemanual}, Chapter 4 of \cite{Lavezzi}, and \cite{trajfit} in order to best understand the fitting algorithm. However, due to the at times confusing notation, ommitted equations or concepts, and differences between papers, I have attempted to summarize here the different sources and present the material in a more understandable and readable format. The implementation of the fitting algorithm into the code follows this section.
 
