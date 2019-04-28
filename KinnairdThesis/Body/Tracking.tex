@@ -63,7 +63,7 @@ After a track candidate has been formed a number of checks are made before passi
 % 4. Plots and images everywhere showing what all I've done
 
 
-The track fitting stage takes the track candidates from the track finding stage, and outputs a best fit trajectory to those candidates. This includes optimal state vectors and error matrices for the track at each measurement plane and at a ficticious starting plane at the entrance to the straw tracking detector. The track fitting routines can roughly be split into two parts, error propagation and the actual fitting and improvement of the track. Each of these will be described in turn.
+The track fitting stage takes the track candidates from the track finding stage, and outputs a best fit trajectory to those candidates. This includes optimal state vectors and error matrices for the track at each measurement plane and at a ficticious starting plane at the entrance to the straw tracking detector. The track fitting routines can roughly be split into two parts, error propagation and the actual fitting and improvement of the track. The implementation of these parts go hand in hand, and will be described in turn.
 
 
 \subsection{Geometry and error propagation}
@@ -98,11 +98,16 @@ To put it simply, the process of error propagation involves taking track paramet
 Geane works by...
 
 
+-need to see what I've written down below, and what I might move up here and such
+
 -average path
 -helix
 -cite proper stuff
 
-
+-need to talk about material effect calculations
+-reference frames
+-transport and error matrix calculations
+-eq 4.5 not quite right
 
 
 
