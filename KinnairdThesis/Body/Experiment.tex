@@ -203,8 +203,33 @@ Lastly, it is the free proton precession frequency in the field that is of inter
 where $\sigma(\text{H\textsubscript{2}O, T})$ is the temperature dependent diamagnetic shielding of protons in a water molecule, and the $\delta$'s come from corrections due to the bulk susceptibility of the water sample, paramagnetic impurities in the water sample, and the magnetic effects of the probe itself, respectively \cite{TDR}. In order to correct for these effects two additional special probes are used, both of which live in a single section of the ring which has been shimmed to extra uniformity. The first is a calibration probe which measures the free proton precession frequency at the center of the storage region corresponding to the placement of the central trolley probe. The calibration probe is made of materials in order to reduce the effects in \equref{eq:wpprobe} and has been characterized in other test magnets. The second special probe is called the `plunging probe.' This probe lives inside the vacuum chamber and drops into the storage region to measure the field at each of the 17 trolley probe locations, using a three dimensional motion system. By using these two probes, the calibration for the free proton precession frequency can be transmitted to each of the trolley probes, providing for the needed measurement inside the storage region of the magnetic field. This calibration procedure is estimated to take up about half of the target systematic uncertainty of 70 ppb at 35 ppb.
 
 
-Other pieces of the systematic uncertainty include the absolute calibration of the calibration probe, the trolley measurements, the interpolation to the fixed probes, the uncertainty relative to the muon distribution, and others such as time dependent external magnetic fields. (Include table here? Page 437 in TDR.) When all is said and done, the measurement of the magnetic field is a complex and continuous process that is done in parallel to the measurement of \wa throughout data taking. 
+Other pieces of the systematic uncertainty include the absolute calibration of the calibration probe, the trolley measurements, the interpolation to the fixed probes, the uncertainty relative to the muon distribution, and others such as time dependent external magnetic fields. See \tabref{tab:magneticfielduncertainties} When all is said and done, the measurement of the magnetic field is a complex and continuous process that is done in parallel to the measurement of \wa throughout data taking. 
 
+
+\begin{table}[]
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}lc}
+  \hline
+    \multicolumn{2}{c}{\textbf{Magnetic Field Measurement Uncertainties}} \\
+  \hline\hline
+    Source of uncertainty & E989 Goal (ppb) \\
+  \hline
+    Absolute calibration of standard probe & 35 \\
+    Calibration of trolley probes & 30 \\
+    Trolley measurements & 30 \\
+    Fixed probe interpolation & 30 \\
+    Muon distribution weighted average & 10 \\
+    Time dependent external fields & 5 \\
+    Others & 30 \\
+  \hline
+    Quadrature sum & 70 \\
+  \hline 
+\end{tabular*}
+\caption[Uncertainties in the magnetic field measurement]{Systematic errors in the magnetic field measurement. Unlisted sources of error include the measurement of higher field multipoles, trolley temperature and power supply voltage response effects, and eddy currents from the kicker, among others.}
+\label{tab:magneticfielduncertainties}
+\end{table}
 
 
 
@@ -360,7 +385,7 @@ where $x_{max}$ and $y_{max}$ are both equal to the radius of the storage ring a
     vertical waist & $f_{VW}$ & $f_{c}-2f_{y_{BO}}$ & 2.31 & $\SI{433}{ns}$ \\
   \hline
 \end{tabular*}
-\caption{Table of frequencies and corresponding periods seen in the \gmtwo experiment due to beam motion. Parameter values are from a subset of Run 1 corresponding to an $n$ value of 0.108 or a quad voltage of 18.3 kV.}
+\caption[Muon beam frequencies in the E989 experiment]{Frequencies seen in the \gmtwo experiment due to beam motion. Parameter values are from a subset of Run 1 corresponding to an $n$ value of 0.108 or a quad voltage of 18.3 kV.}
 \label{tab:frequencies}
 \end{table}
 
