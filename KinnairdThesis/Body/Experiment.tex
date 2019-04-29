@@ -7,11 +7,11 @@
 \chapter{Principle Techniques of E989}
 \label{chapter:E989}
 
-As referenced in \equref{eq:torque}, a particle in a magnetic field will experience a torque which attempts to line up the magnetic dipole moment of the particle with the external field. Because of this, in a dipole field a particles spin will turn at the Larmor precession frequency \cite{Jackson}
+As referenced in \equref{eq:torque}, a particle in a magnetic field will experience a torque which attempts to line up the magnetic dipole moment of the particle with the external field. Because of this, in a dipole field a particles spin will turn at the precession frequency \cite{Jackson}
         \begin{align} \label{eq:ws}
             \vec{\omega}_{s} = -g\frac{q}{2m}\vec{B} - (1-\gamma)\frac{q}{\gamma m}\vec{B},
         \end{align}
-where as before $m$ is the particles mass, $q = \pm e$ where $e$ is the positive elementary charge, \g is the g-factor, $\gamma$ is the Lorentz relativistic factor, and $B$ is an external magnetic field. The second term is a relativistic correction to the precession frequency called Thomas precession \cite{Jackson}. Similarly, a particle with some momentum will orbit at the cyclotron frequency
+where as before $m$ is the particles mass, $q = \pm e$ where $e$ is the positive elementary charge, \g is the g-factor, $\gamma$ is the Lorentz relativistic factor, and $B$ is an external magnetic field. The first term is the usual Larmor frequency and the second term is a relativistic correction to the precession frequency called Thomas precession \cite{Jackson}. Similarly, a particle with some momentum will orbit at the cyclotron frequency
         \begin{align} \label{eq:wc}
             \vec{\omega}_{c} = -\frac{q}{\gamma m}\vec{B}.
         \end{align}
@@ -247,7 +247,7 @@ In order to measure \gmtwo to high precision, a very large number of positrons n
     \label{fig:accelerator}
 \end{figure}
 
-The Fermilab accelerator complex produces polarized muons for E989 in a number of stages. A map of the various relevant accelerator beam-line components is shown in \figref{fig:accelerator}. Details of the full accelerator production of polarized muons can be found in \refref{Stratakis:2017uci}, and here will be given a summary of the process. First, protons are generated and accelerated in a linear accelerator (linac). They are transported to a small circular ring called the ``booster,'' which accelerates them up to 8 \GeV and batches them together. A single booster batch contains on the order of $\SI{4e12}{protons}$. It turns out that by the time we've gotten to the positron measuring side of things, this would be too much for the detector data acquisition systems to handle. Therefore the protons are injected into a ring called ``recycler,'' which re-bunches the protons into four separate bunches of $\SI{1e12}{protons}$, each with a time width of approximately $\SI{120}{ns}$. (This is less than the cyclotron period of the storage ring of 149 ns.) For a single accelerator supercycle of $\SI{1.4}{s}$, E989 recieves four booster batches of particles corresponding to sixteen bunches at an average rate of $\SI{11.4}{Hz}$,  with the time separation between bunches greater than $\SI{10}{ms}$. The timing structure is shown in \figref{fig:pulsetrain}. The sets of eight bunches are sometimes referred to as pulses, and the gathered data is tagged by which bunch or pulse it originates from. Depending on the accelerator requirements of other experiments, this timing structure is modified appropriately though it is relatively constant.
+The Fermilab accelerator complex produces polarized muons for E989 in a number of stages. A map of the various relevant accelerator beam-line components is shown in \figref{fig:accelerator}. Details of the full accelerator production of polarized muons can be found in \refref{Stratakis:2017uci}, and here will be given a summary of the process. First, protons are generated and accelerated in a linear accelerator. They are transported to a small circular ring called the ``booster,'' which accelerates them up to 8 \GeV and batches them together. A single booster batch contains on the order of $\SI{4e12}{protons}$. The protons are then injected into a ring called ``recycler,'' which re-bunches them into four separate bunches of $\SI{1e12}{protons}$, each with a time width of approximately $\SI{120}{ns}$. (This is less than the cyclotron period of the storage ring of 149 ns.) This rebunching process is done in order to reduce the level of pileup in the \gmtwo detectors, see \secref{sub:calosystematics}. For a single accelerator supercycle of $\SI{1.4}{s}$, E989 recieves four booster batches of particles corresponding to sixteen bunches at an average rate of $\SI{11.4}{Hz}$, with the time separation between bunches greater than $\SI{10}{ms}$. The timing structure is shown in \figref{fig:pulsetrain}. The sets of eight bunches are sometimes referred to as pulses, and the gathered data is tagged by which bunch or pulse it originates from. Depending on the accelerator requirements of other experiments, this timing structure is modified appropriately though it is relatively constant.
 
 \begin{figure}[]
     \centering
@@ -305,9 +305,9 @@ The E989 experiment and storage ring are shown in \figref{fig:ring}. Approximate
 \subsection{Kicker}
 \label{sub:kicker}
 
-The kicker is made up of three separate pulsed magnets located 90\textdegree{} from the exit of the inflector, where the inflector orbit crosses the central orbit. The placement of the kickers is shown in \figref{fig:vacmap}. It's important to note that the kicker must be operated within the magnetic field of the ring, and must therefore contain no magnetic elements in the hardware itself which would perturb the uniform magnetic field. For this reason the kicker is made up of thin aluminum plates which carry the current used to create the kicking magnetic field. Due to the bunched nature of the muon beam and the short cyclotron period of $\SI{149}{ns}$, ideally the kicker moves all stored muons onto the central orbit and then turns off quickly such that by the time the muons orbit back around to the kicker there is no residual kick to the beam. The kick to the beam is approximately $\SI{10}{mrad}$ using a vertical pulsed field of around $\SI{300}{Gauss}$ over three $\SI{1.27}{m}$ long magnets and with a pulse length of about $\SI{120}{ns}$. Any residual eddy currents must die away quickly enough that the magnetic field seen by the stored muons is unperturbed.
+The kicker is made up of three separate pulsed magnets located 90\textdegree{} from the exit of the inflector, where the inflector orbit crosses the central orbit. The placement of the kickers is shown in \figref{fig:vacmap}. It's important to note that the kicker must be operated within the magnetic field of the ring, and must therefore contain no magnetic elements in the hardware itself which would perturb the uniform magnetic field. For this reason the kicker is made up of thin aluminum plates which carry the current used to create the kicking magnetic field. Due to the bunched nature of the muon beam and the short cyclotron period of $\SI{149}{ns}$, ideally the kicker moves all stored muons onto the central orbit and then turns off quickly such that by the time the muons orbit back around to the kicker there is no residual kick to the beam. Any residual eddy currents must die away quickly enough that the magnetic field seen by the stored muons is unperturbed. The kick to the beam is approximately $\SI{10}{mrad}$ using a vertical pulsed field of around $\SI{300}{Gauss}$ over three $\SI{1.27}{m}$ long magnets and with a pulse length of about $\SI{120}{ns}$. 
 
-In Run 1 the kickers were not able to be run at the design voltage necessary to put the beam exactly on the central orbit. Instead the beam is kicked to a stable orbit a couple of mm off center depending on the actual value of the kick used, as shown in \figref{fig:BeamCrossSection}. \textbf{(Clarify what the exact numbers are here, or point to the section where I describe the values used in Run 1.)}  
+
 
 %A picture of one of the kickers installed into the vacuum chamber is shown in 
 
@@ -337,7 +337,7 @@ There are four electrostatic quadrupoles (quads) located around the ring as show
 \end{figure}
 
 
-Finally, muons will be lost during data taking that will affect the measurement of the precession frequency \wa. In order to reduce the number of lost muons over the course of a fill, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that will likely be lost at later times. This scraping procedure involves powering the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \textbf{something}$\SI{20}{\micro s}$. During Run 1 it was discovered that some of the quad resistors were damaged, leading to longer RC time constants such that the quad voltages had not returned to storage nominal during the designated analysis portion of the data. \textbf{(Show a picture here of those time constants?)} Note that despite this scraping procedure, some stored muons are still lost anyways. The effects on the measurement of \wa due to this are explored in \secref{sec:lostmuons}.
+Finally, muons will be lost during data taking that will affect the measurement of the precession frequency \wa. In order to reduce the number of lost muons over the course of a fill, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that will likely be lost at later times. This scraping procedure involves powering the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \textbf{something}$\SI{20}{\micro s}$. 
 
 
 
@@ -358,10 +358,10 @@ where $x_{e}$ is the radial equilibrium orbit of the beam relative to $R_{0}$, $
         \begin{equation} \label{eq:tunes}
         \begin{aligned}
             \nu_{x} &= f_{x_{BO}}/f_{c} = \sqrt{1-n}, \\
-            \nu_{y} &= f_{y_{BO}}/f_{c} = \sqrt{n}.           
+            \nu_{y} &= f_{y_{BO}}/f_{c} = \sqrt{n},           
         \end{aligned}
         \end{equation}
-Here $f_{c}$ is the cyclotron frequency. Technically $n$ is the the average field index around the ring, where this approximation is justified due to the four-fold symmetry of the discrete quadrupoles and the fact that the betatron oscillations have periods much greater than the length of the quads. A table of the important frequencies in E989 is shown in \tabref{tab:frequencies}. Lastly, the maximum angular acceptance of the ring can be determined from the betatron oscillations and the field index as 
+where $f_{c}$ is the cyclotron frequency. Technically $n$ is the the average field index around the ring, where this approximation is justified due to the four-fold symmetry of the discrete quadrupoles and the fact that the betatron oscillations have periods much greater than the length of the quads. A table of the important frequencies in E989 is shown in \tabref{tab:frequencies}. Lastly, the maximum angular acceptance of the ring can be determined from the betatron oscillations and the field index as 
         \begin{equation} \label{eq:maxangles}
         \begin{aligned}
             \psi_{x_{max}} &= \frac{x_{max}\sqrt{1-n}}{R_{0}}, \\
@@ -402,13 +402,16 @@ where $a$, $b$, and $c$ are integers. We know from \equref{eq:tunes} that
         \begin{align}
             \nu_{x}^{2} + \nu_{y}^{2} = 1,
         \end{align}
-which constrains the available $n$ values that can be chosen. \figref{fig:tuneplane} shows the space relative to the tunes for which a chosen value of $n$ will lie on a resonance. For Run 1 data taking, $n$ values of 0.108 and 0.121 were chosen corresponding to quad voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.
+which constrains the available $n$ values that can be chosen. \figref{fig:tuneplane} shows the space relative to the tunes for which a chosen value of $n$ will lie on a resonance. 
+
+% Moved to Run1 section
+% For Run 1 data taking, $n$ values of 0.108 and 0.120 were chosen corresponding to quad voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.
 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=.5\textwidth]{tuneplane}
-    \caption[Tune plane]{The tune plane, with the $\nu_{x}^{2} + \nu_{y}^{2} = 1$ constraint in red. The chosen value of $n$ lies on this circle. The original design goals for E989 were the $n$ values as shown by the red points, but due to hardware issues smaller $n$ values of 0.108 and 0.121 were chosen.}
+    \caption[Tune plane]{The tune plane, with the $\nu_{x}^{2} + \nu_{y}^{2} = 1$ constraint in red. The chosen value of $n$ lies on this circle. The original design goals for E989 were the $n$ values as shown by the red points, but due to hardware issues smaller $n$ values of 0.108 and 0.120 were chosen as described in \secref{sec:Run1}.}
     \label{fig:tuneplane}
 \end{figure}
 
@@ -534,6 +537,58 @@ where \equref{eq:psi} was used in the last equality. The pitch angle of the beam
             C_{\text{P}} = - \frac{n}{4} \frac{\langle y^{2} \rangle}{R_{0}^{2}}.
         \end{align}
 Once again $n$ is the field index, $R_{0}$ is the radius of the ring at the center of the storage region, and $\langle y^{2} \rangle$ is the vertical width of the beam. The first two are known and the last can be measured experimentally. (For this last equation make sure that what I write here gels with what I'll put in other sections, which haven't been done yet.) While this derivation was an approximation assuming continuous quads around the ring, it suffices for the level of precision necessary for the \gmtwo experiment \cite{something}.
+
+
+
+\section{Run 1 in E989}
+\label{sec:Run1}
+
+
+Run 1 for E989 was conducted in the first half of 2018. Production data was gathered from March 22nd through June 29th. Because of accelerator, experimental, and practical concerns production data taking was interrupted at various dates. Due to hardware issues both kicker and quad settings were lowered from their original design values. Stable voltage set points were identified and used in separate periods of the data taking, depending on the stabilities of the systems. The distinct datasets and their associated parameters are shown in \tabref{tab:Run1Datasets}. For Run 1, $n$ values of 0.108 and 0.120 were chosen corresponding to quad voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.
+
+
+
+
+From kicker section:
+In Run 1 the kickers were not able to be run at the design voltage necessary to put the beam exactly on the central orbit. Instead the beam is kicked to a stable orbit a couple of mm off center depending on the actual value of the kick used, as shown in \figref{fig:BeamCrossSection}. \textbf{(Clarify what the exact numbers are here, or point to the section where I describe the values used in Run 1.)}  
+
+
+From quad section:
+During Run 1 it was discovered that some of the quad resistors were damaged, leading to longer RC time constants such that the quad voltages had not returned to storage nominal during the designated analysis portion of the data. \textbf{(Show a picture here of those time constants?)} Note that despite this scraping procedure, some stored muons are still lost anyways. The effects on the measurement of \wa due to this are explored in \secref{sec:lostmuons}.
+
+
+
+
+\cite{Run1Datasets}
+
+
+
+
+\begin{landscape}
+\begin{table}[]
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lccccc}
+  \hline
+    \multicolumn{6}{c}{\textbf{Run 1 Datasets}} \\
+  \hline\hline
+    Name & Number $e^{+} > E_{\text{Th}}$ & $n$ Value & Quad Voltage (kV) & Kicker Voltage Range (kV) & $f_{CBO}$ (MHz) \\
+  \hline
+    60H & $\SI{9.3e8}{}$ & 0.108 & 18.3 & \SIrange{128}{132}{} & 0.37 \\
+    HighKick &  & 0.120 & 20.4 & \SIrange{136}{138}{} &  \\
+    9d & $\SI{2.2e9}{}$ & 0.120 & 20.4 & \SIrange{128}{132}{} &  \\
+    LowKick &  & 0.120 & 20.4 & \SIrange{123}{127}{} &  \\
+    SuperLowKick & & 0.108 & 18.3 & \SIrange{117}{119}{} &  \\
+    Endgame &  & 0.108 & 18.3 & \SIrange{122}{127}{} &  \\
+  \hline
+    % Total Positrons Above Threshold
+  \hline
+\end{tabular*}
+\caption[Run 1 datasets]{ \textbf{Update the number of positrons column once all of the datasets have been opened and energy thresholds chosen. Potentially also add further columns of interest or split into multiple tables.}}
+\label{tab:Run1Datasets}
+\end{table}
+\end{landscape}
 
 
 
