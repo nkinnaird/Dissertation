@@ -8,13 +8,13 @@
 
 The prevailing theory for particle physics, the Standard Model (SM), has had tremendous success in describing our universe. It has been used to predict and explain a wide variety of phenomena, particles, properties, and interactions to great precision. However, in spite of its success in explaining nearly all experimental results, there remain unanswered questions about our universe. Some of these include the matter-antimatter asymmetry, the source of mass for the neutrinos, the existence of dark matter, and an inability to fully incorporate our best theory of gravitation. Many particle physics experiments around the world are being devised and conducted in order to shed light on these questions and improve our understanding of reality. One such particular experiment is the Fermilab Muon \gmtwo Experiment (E989) underway at the Fermi National Accelerator Laboratory (FNAL) located in Batavia, Illinois.
 
-I have been a part of the E989 experiment since I began my graduate degree six years ago. Three years ago I moved from Boston to Batavia to get more involved by being where the action is. This dissertation will describe the E989 experiment and the work which I have done for it along the way in detail. Chapter 1 will provide experimental and theoretical background to the experiment, as well its motivation. Chapter 2 will describe the experimental principle and specifics to muon production and storage. Chapter 3 will describe the various detector systems. Chapter 4 will describe the straw tracking measurements and  the track fitting I wrote. Chapter 5 will describe the precession frequency measurement portion of the experiment, and detail my analysis results from data taken in the first half of 2018. Finally, Chapter 6 will concluded the thesis and the results contained within.
+I have been a part of the E989 experiment since I began my graduate degree six years ago. Three years ago I moved from Boston to Batavia to get more involved by being where the action is. This dissertation will describe the E989 experiment and the work which I have done for it along the way in detail. Chapter 1 will provide experimental and theoretical background to the experiment, as well its motivation. Chapter 2 will describe the experimental principle and specifics to muon production and storage. Chapter 3 will describe the various detector systems. Chapter 4 will describe the straw tracking reconstruction including the track fitting algorithm I wrote, as well as some analysis results. Chapter 5 will describe the precession frequency measurement portion of the experiment, and detail my analysis results from data taken in the first half of 2018. Chapter 6 will concluded the thesis and the results contained within.
 
 
 \section{Magnetic moments of particles}
 \label{sec:MDMs}
 
-In order to understand the purpose of the Fermilab Muon \gmtwo Experiment, first we need to understand what the $g$ in \gmtwo is. This is what the experiment is measuring. All particles have intrinsic properties. One of those properties is the magnetic dipole moment.\footnote{\textit{Magnetic dipole moment} and \textit{magnetic moment} are equivalent when talking about particles.} This property of a particle is related to its spin through the equation
+In order to understand the purpose of the Fermilab Muon \gmtwo Experiment, first we need to understand what the $g$ in \gmtwo is. This is what the experiment is measuring. All particles have intrinsic properties. One property of charged particles is the magnetic dipole moment.\footnote{\textit{Magnetic dipole moment} and \textit{magnetic moment} are equivalent when talking about particles.} This property of a particle is related to its spin through the equation
 		\begin{align}
             \vec{\mu} = g \frac{q}{2m} \vec{s},
         \label{eq:magneticmoment}
@@ -58,7 +58,7 @@ The QED contributions to \amu stem solely from loops with virtual leptons and ph
             					 &= (\QEDamu \pm \QEDamuErr) \times 10^{-10},
 		\end{aligned}
 		\end{equation}
-where in the first line $a_{\mu}^{\text{QED}}$ is expressed as a perturbative expansion of the fine structure constant. $C_{1} = 1/2$ is the Schwinger result mentioned previously stemming from the diagram shown in \figref{fig:Schwinger}. Over 99\% of the value of \amu comes from the QED sector, but the error is much smaller than the other contributions, as well as the experimental uncertainty.
+where in the first line $a_{\mu}^{\text{QED}}$ is expressed as a perturbative expansion in the fine structure constant. $C_{1} = 1/2$ is the Schwinger result mentioned previously stemming from the diagram shown in \figref{fig:Schwinger}. Over 99\% of the value of \amu comes from the QED sector, but the error is much smaller than the other contributions, as well as the experimental uncertainty.
 
 \begin{figure}[]
 \centering
@@ -70,7 +70,7 @@ where in the first line $a_{\mu}^{\text{QED}}$ is expressed as a perturbative ex
 		\setlength{\feynhandlinesize}{1pt}
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
-		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (b) at (2,-2) {$l$}; 
 		\vertex (c) at (0,2) {B};
 		\propag [fermion] (a) to (o);
 		\propag [anti fermion] (b) to (o);
@@ -88,7 +88,7 @@ where in the first line $a_{\mu}^{\text{QED}}$ is expressed as a perturbative ex
 		\setlength{\feynhandlinesize}{1pt}
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
-		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (b) at (2,-2) {$l$}; 
 		\vertex (c) at (0,2) {B};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
@@ -112,7 +112,7 @@ where in the first line $a_{\mu}^{\text{QED}}$ is expressed as a perturbative ex
 		\setlength{\feynhandlinesize}{1pt}
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
-		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (b) at (2,-2) {$l$}; 
 		\vertex (c) at (0,2) {B};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
@@ -158,7 +158,7 @@ with improvements having been made recently \cite{EW1,EW2}. Again the error on t
 		\setlength{\feynhandlinesize}{1pt}
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
-		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (b) at (2,-2) {$l$}; 
 		\vertex (c) at (0,2) {B};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
@@ -182,7 +182,7 @@ with improvements having been made recently \cite{EW1,EW2}. Again the error on t
 		\setlength{\feynhandlinesize}{1pt}
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
-		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (b) at (2,-2) {$l$}; 
 		\vertex (c) at (0,2) {B};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
@@ -206,7 +206,7 @@ with improvements having been made recently \cite{EW1,EW2}. Again the error on t
 		\setlength{\feynhandlinesize}{1pt}
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
-		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (b) at (2,-2) {$l$}; 
 		\vertex (c) at (0,2) {B};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
@@ -229,7 +229,7 @@ with improvements having been made recently \cite{EW1,EW2}. Again the error on t
 		\setlength{\feynhandlinesize}{1pt}
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
-		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (b) at (2,-2) {$l$}; 
 		\vertex (c) at (0,2) {B};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
@@ -257,7 +257,7 @@ with improvements having been made recently \cite{EW1,EW2}. Again the error on t
 \subsection{Hadronic}
 \label{subsec:Hadronic}
 
-The hadronic contributions to \amu stem from interactions with hadrons. Because they cannot be calculated perturbatively at low energies due to the QCD nature of these particles, these calculations comprise the dominant uncertainty in the SM calculation. This makes their error estimation extra important when comparing to experiment. Most active work on the theoretical side of things is in this sector. These contributions can be separated into two parts
+The hadronic contributions to \amu stem from interactions with virtual hadrons. Because they cannot be calculated perturbatively at low energies due to the QCD nature of these particles, these calculations comprise the dominant uncertainty in the SM calculation. This makes their error estimation extra important when comparing to experiment. Most active work on the theoretical side of things is in this sector. These contributions can be separated into two parts
 		\begin{align}
             a_{\mu}^{\text{Had}} = a_{\mu}^{\text{HVP}} + a_{\mu}^{\text{HLbL}}.
 		\end{align}
@@ -281,7 +281,7 @@ The cross-section data for this relation has been measured in parts by various e
             a_{\mu}^{\text{HVP;NLO}} &= (\HVPNLOamu \pm \HVPNLOamuErr) \times 10^{-10}, 
 		\end{aligned}
 		\end{equation}
-where $a_{\mu}^{\text{HVP;NLO}}$ is the next to leading order calculation. This calculation is consistent with Davier et al. \cite{HVP2}. In this way, the SM theory has some dependence on experimental results. This is acceptable as the experimental measurements are straightforward observables.
+where $a_{\mu}^{\text{HVP;NLO}}$ is the next to leading order calculation. This evaluation is consistent with Davier et al. \cite{HVP2}. In this way, the SM theory has some dependence on experimental results. This is acceptable as the experimental measurements are straightforward observables.
 
 \begin{figure}[]
 \centering
@@ -293,7 +293,7 @@ where $a_{\mu}^{\text{HVP;NLO}}$ is the next to leading order calculation. This 
 		\setlength{\feynhandlinesize}{1pt}
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
-		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (b) at (2,-2) {$l$}; 
 		\vertex (c) at (0,2) {B};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
@@ -369,7 +369,7 @@ The second of these hadronic contribution parts is a higher order four photon in
 		\setlength{\feynhandlinesize}{1pt}
 		\vertex [NWblob] (o) at (0,0) {H};
 		\vertex (a) at (-2,-2) {$l$}; 
-		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (b) at (2,-2) {$l$}; 
 		\vertex (c) at (0,2) {B};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
@@ -395,7 +395,7 @@ The second of these hadronic contribution parts is a higher order four photon in
 		\setlength{\feynhandlinesize}{1pt}
 		\vertex [NWblob] (o) at (-1,0) {H};
 		\vertex (a) at (-2,-2) {$l$}; 
-		\vertex (b) at (2,-2) {$\overline l$}; 
+		\vertex (b) at (2,-2) {$l$}; 
 		\vertex (c) at (0,2) {B};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
@@ -456,7 +456,7 @@ corresponding to a discrepancy of 3.83$\sigma$ from 0.
 
 
 
--double check the numbers here later on down the line, values like \amu experimental may even have changed if other constants have changed
+\textbf{-double check the numbers here later on down the line, values like \amu experimental may even have changed if other constants have changed}
 
 
 
@@ -469,7 +469,7 @@ While the discrepancy between experiment and theory might be attributed to misca
 		\begin{align}
             a \sim \frac{m^{2}}{\Lambda^{2}},
 		\end{align}
-where $\Lambda$ is the mass scale of the new particle and m the mass of the lepton in question, the sensitivity of the muon as compared to the electron to large mass scales is $ m_{\mu}^{2} / m_{e}^{2} \approx 43000$ greater. It is possible from this reason that even though the magnetic moment of the electron has been measured extraordinarily precisely, to .26 parts per trillion (ppt) \cite{ElectronMDM,CODATA}, it has provided no indication of anything new, whereas the magnetic moment of the muon might provide definitive evidence of new physics.
+where $\Lambda$ is the mass scale of the new particle and m the mass of the lepton in question, the sensitivity of the muon as compared to the electron to large mass scales is $ m_{\mu}^{2} / m_{e}^{2} \approx 43000$ greater. It is possible from this reason that even though the magnetic moment of the electron has been measured extraordinarily precisely, to .23 ppb \cite{ElectronMDM,CODATA}, it has provided no indication of anything new, whereas the magnetic moment of the muon might provide definitive evidence of new physics.
 
 A basic example diagram of new physics is shown in \figref{fig:BSM}. Because the discrepancy from the previous experiment was not at the 5$\sigma$ level necessary to classify it as a discovery, the E989 experiment was undertaken. Indeed with the lack of new physics results coming out of the LHC and other experiments, E989 is especially positioned to uncover something new at a time where there are so few hints of new physics. Because of this, the interest in the E821 experiment and underway E989 experiment has only grown over time. The number of citations for the E821 results has been consistently high over the years and is shown in \figref{fig:E821Citations}.
 
@@ -481,7 +481,7 @@ A basic example diagram of new physics is shown in \figref{fig:BSM}. Because the
 	\setlength{\feynhandlinesize}{1pt}
 	\vertex [ringblob] (o) at (0,0) {BSM};
 	\vertex (a) at (-2,-2) {$l$}; 
-	\vertex (b) at (2,-2) {$\overline l$}; 
+	\vertex (b) at (2,-2) {$l$}; 
 	\vertex (c) at (0,2) {B};
 	\propag [fermion] (a) to (o);
 	\propag [anti fermion] (b) to (o);
@@ -495,12 +495,12 @@ A basic example diagram of new physics is shown in \figref{fig:BSM}. Because the
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.9\textwidth]{E821Citations}
-	\caption[Citations for E821 publications vs year]{The number of citations for the BNL experiment publications as a function of year. Plot courtesy of Lee Roberts.}
+	\caption[Citations for E821 publications vs year]{The number of citations for the BNL experiment publications as a function of year. Plot courtesy of Mark Lancaster. \textbf{Update this plot before submission.}}
 	\label{fig:E821Citations}
 \end{figure}
 
 
-The E989 experiment has the goal of measuring \amu to 140 ppb over the course of several years. This would be a factor of 4 improvement over the E821 result stemming from a 20 times increase in statistics, which was the limiter in the previous experiment. Assuming the same value for \amu is measured, this would push the discrepancy over the 5$\sigma$ mark to approximately 7$\sigma$, as shown in \figref{fig:AlexKPaperComparison}. The data comprising Run 1, gathered in the spring and summer of 2018, is the subject of this thesis, and corresponds to an experimental uncertainty comparable to the E821 result. When it's all said and done, the hope is that we measure something new and exciting, pushing the discrepancy out beyond the 5$\sigma$ level. Even if we do not however, it is valuable in itself to resolve this theoretical and experimental conflict.
+The E989 experiment has the goal of measuring \amu to 140 ppb over the course of several years. This would be a factor of 4 improvement over the E821 result stemming from a 20 times increase in statistics, which was the limiter in the previous experiment. Assuming the same value for \amu is measured, this would push the discrepancy over the 5$\sigma$ mark to approximately 7$\sigma$, as shown in \figref{fig:AlexKPaperComparison}. The data comprising Run 1, gathered in the spring and summer of 2018, is the subject of this thesis, and corresponds to an experimental uncertainty comparable to the E821 result. When it's all said and done, the possibility is that we will measure something new and exciting, pushing the discrepancy out beyond the 5$\sigma$ level. Even if we do not however, it is valuable in itself to resolve this theoretical and experimental conflict.
 
 
 
