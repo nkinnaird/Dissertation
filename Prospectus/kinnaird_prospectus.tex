@@ -29,13 +29,35 @@
 \section*{Overview}
 
 
-The Fermilab Muon \gmtwo Experiment (E989) is measuring the anomalous magnetic moment of the muon \amu to high precision. The goal is 140 parts per billion, which represents a four-fold improvement over the the previous best experimental measurement of 540 parts per billion, made by the E821 collaboration at Brookhaven National Laboratory in 2001. There is currently a \SIrange{3}{4}{\sigma} discrepancy between theory and experiment, which the new measurement has been designed to resolve or confirm. The difference between theoretical and experimental values might be attributed to new physics. The new measurement is based upon the same principles as the last experiment, and if it measures the same central value, the discrepancy would be pushed over the 5$\sigma$ level needed to classify it as a discovery. The experiment is located at Fermi National Accelerator Laboratory which has the facilities necessary to produce the large number of muons for the measurement, corresponding to about $\SI{2e11}{}$ detected decay positrons above some energy threshold. In Run 1 of the experiment, E989 gathered about $\SI{1e10}{}$ decay positrons for a precision comparable to the BNL result.
+The Fermilab Muon \gmtwo Experiment (E989) is measuring the magnetic anomaly of the muon \amu to high precision, where  
+		\begin{align}
+            a_{\mu} &= \frac{g_{\mu}-2}{2}.
+        \label{eq:anamoly}
+		\end{align}
+Here $g_{\mu}$ is the g-factor of the muon, which is a proportionality constant between a particles spin and its magnetic moment, 
+		\begin{align}
+            \vec{\mu} = g \frac{q}{2m} \vec{s},
+        \label{eq:magneticmoment}
+		\end{align}
+where $m$ is the mass of the particle and $q = \pm e$ where $e$ is the positive elementary charge. The value of $a_{\mu}$ will receive corrections from all virtual particles, making it a useful parameter to probe in evaluating theoretical predictions. The measurement goal is 140 parts per billion, which represents a four-fold improvement over the the previous best experimental measurement of 540 parts per billion, made by the E821 collaboration at Brookhaven National Laboratory in 2001. There is currently a \SIrange{3}{4}{\sigma} discrepancy between theory and experiment, which the new measurement has been designed to resolve or confirm. The difference between theoretical and experimental values might be attributed to new physics. The new measurement is based upon the same principles as the last experiment, and if it measures the same central value, the discrepancy would be pushed over the 5$\sigma$ level needed to classify it as a discovery. The experiment is located at Fermi National Accelerator Laboratory which has the facilities to produce the large number of muons for the measurement, corresponding to about $\SI{2e11}{}$ detected decay positrons above some energy threshold. In Run 1 of the experiment, E989 gathered about $\SI{1e10}{}$ decay positrons for a precision comparable to the BNL result.
 
 
 % Because the muon is much more massive than the electron, \amu is more sensitive to high energy scales as compared to the anomalous magnetic moment of the electron, which has already been measured to high precision. 
 
 
-The experiment principle is summarized as follows: Polarized muons are injected into a highly uniform magnetic storage ring. The injected muons will orbit around the ring at the cyclotron frequency, and their spins will turn at the Larmor precession frequency. The difference between these two frequencies, \wa, is directly proportional to \amu and the magnetic field of the ring. \amu is then determined by measurements of the magnetic field and \wa. The magnetic field is measured by many nuclear magnetic resonance (NMR) probes located around the ring which monitor the field at all times. Separately a set of 17 NMR probes periodically measure the magnetic field where the muons live. \wa is measured by taking advantage of the parity violating nature of the weak decay of the muon, which produces a correlation between the muon spin at the time of the decay and the decay positron direction and momentum. The positrons, which spiral inward, are measured by calorimeters placed on the inside of the storage ring. The number of positrons above some energy threshold is modulated by \wa, which can be extracted.
+The experiment principle is summarized as follows: Polarized muons are injected into a highly uniform magnetic storage ring. The injected muons will orbit around the ring at the cyclotron frequency,
+        \begin{align} \label{eq:wc}
+            \vec{\omega}_{c} = -\frac{q}{\gamma m}\vec{B},
+        \end{align} 
+and their spins will turn at the precession frequency
+        \begin{align} \label{eq:ws}
+            \vec{\omega}_{s} = -g_{\mu}\frac{q}{2m}\vec{B} - (1-\gamma)\frac{q}{\gamma m}\vec{B}.
+        \end{align}
+Here $\gamma$ is the Lorentz relativistic factor, and $B$ is an external magnetic field. The precession frequency is slightly faster than the cyclotron frequency, and the difference between these two frequencies gives 
+        \begin{align} \label{eq:wasimple}
+            \vec{\omega}_{a} = \vec{\omega}_{s} - \vec{\omega}_{c} = -\frac{g_{\mu}-2}{2}\frac{q}{m}\vec{B} = - a_{\mu} \frac{q}{m}\vec{B},
+        \end{align}
+where it is found that \wa is directly proportional to \amu and the magnetic field of the ring. \amu is then determined by measurements of the magnetic field and \wa. The magnetic field is measured by many nuclear magnetic resonance (NMR) probes located around the ring which monitor the field at all times. Separately a set of 17 NMR probes periodically measure the magnetic field where the muons live. \wa is measured by taking advantage of the parity violating nature of the weak decay of the muon, which produces a correlation between the muon spin at the time of the decay and the decay positron direction and momentum. The positrons, which spiral inward, are measured by calorimeters placed on the inside of the storage ring. The number of positrons above some energy threshold is modulated by \wa, which can be extracted.
 
 
 The experiment is designed to store a large number of muons in the ring at a time for many time-dilated muon lifetimes. For Run 1 this was $\sim$10,000 injected muons per measurement period (a single ``fill''). The muons decay with a lifetime of $\SI{64.4}{\micro s}$ and data are gathered for approximately 10 muon lifetimes. Muons are produced by the accelerator complex and injected into the uniform magnetic field of the \gmtwo storage ring. The injected muons are kicked onto the right orbit within the ring using a magnetic kicker. Muons are focused vertically within the ring using electrostatic quadrupoles. The combination of these elements, the phase distribution of the injected muons, and the natural motion of the individual muons leads to a coherent motion of the beam as a whole. This is important to consider when extracting \wa or measuring the magnetic field. In the former the number of detected positrons above threshold will depend on the beam movement, and in the latter the desired value of the magnetic field is that which the muons see over the course of their lifetimes. There is a specialized detector system involving straw trackers which facilitates the measurement of the muon beam dynamics in order to account for these effects.
