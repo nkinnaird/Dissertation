@@ -233,7 +233,7 @@ Other pieces of the systematic uncertainty include the absolute calibration of t
 
 
 
-\section{Production and injection of polarized muons}
+\section{Production of polarized muons}
 \label{sec:Accelerator}
 
 As explained previously, the number of high energy positrons detected depends on the muon spin at the time of decay. In order for this detected quantity to mean anything, the muon spins themselves need to be highly polarized. Using the same parity-violation and spin momentum conservation logic as expounded upon in muon decay, it is determined that pion decay produces muons that are 100\% polarized in the pion rest frame, due to the pion having zero spin. The Feynman diagram for this decay is shown in \figref{fig:pidecay}. It's also important to note that pions decay to muons with over 99\% branching ratio due to the parity violating nature of the weak interaction, and thus a preference for the heavier muon over the electron. These two facets of pion decay are used to construct polarized muon beams. 
@@ -261,32 +261,40 @@ Each bunch is selected one at a time and sent to a target hall, where the bunch 
 
 In a pion beam the highest and lowest energy decay muons are polarized. The pion beam and any residual protons or secondaries are injected into another ring called the ``delivery ring''. By the time the pions have gotten to the delivery ring, most of them have decayed to muons. The delivery ring is used to both hold the beam until the remaining pions decay, which takes about four turns, and to select the polarized muons \cite{Stratakis:2017uci}. Forward emitted polarized muons are momentum selected at $\SI{3.094}{\GeV}$ with $\Delta p / p = 2\%$. The remaining muons, protons, and other secondary particles are separated and re-routed to a beam dump which reduces the contamination in the final polarized muon beam. This polarized muon beam is then sent to the \gmtwo building where it passes through four magnetic quadrupole focusing magnets before being injected into the storage ring.
 
-The injection of the muon beam into the \gmtwo storage ring is a specialized process. In order to measure the magnetic field to the precision described in \secref{sec:MagneticField}, the \gmtwo storage ring must be a single monolithic magnet with no end effects. This prohibits the usual design of separated magnetic elements through which the muons might be injected. Therefore we use a specialized magnet called the ``Superconducting Inflector'' magnet, or just inflector. This inflector is placed just after a bored out tunnel in the storage ring magnet, on the inside of the C shape. It cancels the majority of the fringe field of the storage ring magnet at the injection point of the muons, such that they are not lost due to motion induced by said fringe field \cite{inflector}. See \figref{fig:injectionpoint} for a view of the injection point. The inflector has a very tight $\SI{18}{mm}$ wide by $\SI{56}{mm}$ high aperture through which the muons must pass down its $\SI{1.7}{m}$ length. One side of the inflector is also closed such that an appreciable fraction of muons are lost before being injected into the ring, see \figref{fig:inflector}. Approximately 2\% of injected muons are stored with $\Delta p / p = 0.1\%$ centered around $\SI{3.094}{\GeV}$ due to these factors. A new inflector magnet is being designed with open ends in order to increase the muon flux for future runs of \gmtwo \cite{TDR}.
+
+
+
+\section{Injection of muons}
+\label{sec:injection}
+
+
+The injection of the muon beam into the \gmtwo storage ring is a specialized process. In order to measure the magnetic field to the precision described in \secref{sec:MagneticField}, the \gmtwo storage ring must be a single monolithic magnet with no end effects. This prohibits the usual design of separated magnetic elements through which the muons might be injected. Therefore we use a specialized magnet called the ``Superconducting Inflector'' magnet, or just inflector. This inflector is placed just after a bored out tunnel in the storage ring magnet, on the inside of the C shape. See \figref{fig:injectionpoint} for a view of the injection point. The inflector has a very tight $\SI{18}{mm}$ wide by $\SI{56}{mm}$ high aperture through which the muons must pass down its $\SI{1.7}{m}$ length. The inflector is made up of superconducting coils wrapped in a double cosine theta design around an aluminum mandrel \cite{inflector}. See \figref{fig:inflector}. This design serves to contain the majority of the inflector magnet field, while eliminating the the storage ring field for the muons passing down its length, such that they are not lost due to motion induced by said field. The inflector is contained within a superconducting shield which traps the fringe field of the inflector such that the storage ring magnet field is unaffected. As shown in \figref{fig:inflector}, both sides of the inflector are closed such that an appreciable fraction of muons are lost due to multiple scattering before being injected into the ring. Approximately 2\% of injected muons are stored with $\Delta p / p = 0.1\%$ centered around $\SI{3.094}{\GeV}$. A new inflector magnet is being designed with open ends in order to increase the muon flux for future runs of \gmtwo \cite{TDR}.
 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=.7\textwidth]{injectionpoint}
-    \caption[Muon injection point through inflector]{Shown is a plan view of the inflector and injection point into the storage ring.}   
+    \caption[Muon injection point through inflector]{Shown is a plan view of the inflector and injection point into the storage ring \cite{inflector}.}   
     \label{fig:injectionpoint}
 \end{figure}
 
 \begin{figure}[]
 \centering
-    \begin{subfigure}[]{0.46\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{inflector_open}
-        \caption{Open end of the inflector.}
-    \end{subfigure}%
-    \hspace{1cm}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{inflector_closed}
-        \caption{Closed end of the inflector.}
+        \caption{End view of the inflector.}
+    \end{subfigure}%
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{inflectorcrosssection}
+        \caption{Cross section view of the inflector.}
     \end{subfigure}
-\caption[Superconducting Inflector magnet]{Shown are the two ends of the inflector magnet. Superconducting coils are wrapped around a mandrel in a complicated fashion which serves to eliminate the majority of leakage fields and shield the muons passing through it. One side of the inflector magnet is closed which causes an appreciable fraction of muons to be lost due to multiple scattering.}
+\caption[Superconducting inflector magnet]{The inflector magnet (left) and a cross section view of the inflector windings and associated shield (right) \cite{inflector}.}
 \label{fig:inflector}
 \end{figure}
+
 
 
 \section{Storage of muons}
@@ -320,12 +328,12 @@ The kicker is made up of three separate pulsed magnets located 90\textdegree{} f
 
 \subsection{Electrostatic quadrupoles}
 
-There are four electrostatic quadrupoles (quads) located around the ring as shown in \figref{fig:vacmap}, which focus the beam vertically and defocus the beam horizontally. (The magnetic field of the ring serves to restore the beam radially in combination with the electric field.) Just as in the case of the kickers, the quads must be operated in the vacuum. E989 uses electrostatic focusing elements instead of magnetic ones in order to avoid magnetic field gradients which would limit the precision of the magnetic field measurement. Four quads were chosen in order to maximize the symmetry of the beam motion around the ring. The quads occupy 43\% of the ring circumference, leaving space for other elements around the ring. Each quad is made up of two segments, a short segment of 13\textdegree{} and a long segment of 26\textdegree{}. The quads are made out of as little material as possible in order to reduce multiple scattering of decay positrons passing through them. A picture of the quads installed into one of the vacuum chambers is shown in \figref{fig:Quads}. A simulation of the equipotential lines of the quads is shown in \figref{fig:QuadPotential}. 
+There are four electrostatic quadrupoles (quads) located around the ring as shown in \figref{fig:vacmap}, which focus the beam vertically and defocus the beam horizontally. (The magnetic field of the ring serves to restore the beam radially in combination with the electric field.) Just as in the case of the kickers, the quads must be operated in the vacuum. E989 uses electrostatic focusing elements instead of magnetic ones in order to avoid magnetic field gradients which would limit the precision of the magnetic field measurement. Four quads were chosen in order to maximize the symmetry of the beam motion around the ring. The quads occupy 43\% of the ring circumference, leaving space for other elements around the ring. Each quad is made up of two segments, a short segment of 13\textdegree{} and a long segment of 26\textdegree{}. The quads are made out of as little material as possible in order to reduce multiple scattering of decay positrons passing through them. A picture of the quads installed into one of the vacuum chambers is shown in \figref{fig:Quads}. A simulation of the equipotential lines of the quads is shown in \figref{fig:QuadPotential}. The original design of the quads is detailed in \refref{QuadsE821}.
 
 \begin{figure}[]
     \centering
     \includegraphics[width=.7\textwidth]{Quads}
-    \caption[Electrostatic quadrupoles installed in a vacuum chamber]{Electrostatic quadrupoles installed into a vacuum chamber. There are four plates mounted to the chamber through insulator standoffs. Also shown are the rails that the magnetic field trolley rides on around the inside of the ring, and between the quad and kicker plates.}   
+    \caption[Electrostatic quadrupoles installed in a vacuum chamber]{Electrostatic quadrupoles installed into a vacuum chamber \cite{QuadsE821}. There are four plates mounted to the chamber through insulator standoffs. Also shown are the rails that the magnetic field trolley rides on around the inside of the ring, and between the quad and kicker plates. The distance between opposing quad plates is $\SI{10}{cm}$.}
     \label{fig:Quads}
 \end{figure}
 
@@ -337,7 +345,7 @@ There are four electrostatic quadrupoles (quads) located around the ring as show
 \end{figure}
 
 
-Finally, muons will be lost during data taking that will affect the measurement of the precession frequency \wa. In order to reduce the number of lost muons over the course of a fill, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that will likely be lost at later times. This scraping procedure involves powering the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \textbf{something}$\SI{20}{\micro s}$. 
+Lastly, some of the stored muons will be lost during data taking that will affect the measurement of the precession frequency \wa. In order to reduce the number of lost muons over the course of a fill, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that will likely be lost at later times. This scraping procedure involves powering the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \textbf{something}$\SI{20}{\micro s}$. 
 
 
 
