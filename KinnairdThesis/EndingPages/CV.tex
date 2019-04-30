@@ -2,12 +2,193 @@
 
 \addcontentsline{toc}{chapter}{Curriculum Vitae}
 
-\thispagestyle{empty}
+\thispagestyle{myheadings}
 
+
+% original template from https://www.overleaf.com/latex/templates/simple-resume/gtrrjrsrfkvk
+
+
+% \usepackage{latexsym}
+% \usepackage[empty]{fullpage}
+% \usepackage{titlesec}
+% \usepackage{marvosym}
+% \usepackage[usenames,dvipsnames]{color}
+% \usepackage{verbatim}
+% \usepackage{enumitem}
+% \usepackage[pdftex, hidelinks]{hyperref}
+% \usepackage{fancyhdr}
+
+% \usepackage[charter]{mathdesign} % Bitstream Charter
+% \usepackage{newpxtext,newpxmath} % Palatino
+
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeItemNoBullet}[2]{
+  \item[]\small{
+    \hspace{-9pt}\textbf{#1}{: #2 \vspace{-6pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item[]
+  \begin{tabular*}{0.98\textwidth}{l@{\extracolsep{\fill}}r}
+      \hspace{-10pt}\textbf{#1} & #2 \\
+      \hspace{-10pt}\textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% custom commands
+\newcommand{\shorterSection}[1]{\vspace{-10pt}\section{#1}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%----------HEADING-----------------
 \begin{center}
-{\LARGE {\bf CURRICULUM VITAE}}\\
-\vspace{0.5in}
-{\large {\bf Joe Graduate}}
+  \textbf{{\huge Nicholas Kinnaird}} \\
+  \small 512-922-0534 $\vert$ nickkinn@bu.edu $\vert$ 205 N Oakhurst Dr, Aurora, IL
 \end{center}
 
-Basically, this needs to be worked out by each individual, however the same format, margins, typeface, and type size must be used as in the rest of the dissertation. 
+%-----------EDUCATION-----------------
+\shorterSection{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Boston University}{Boston, MA}
+      {Ph.D. in Physics}{2019}{
+      \resumeItemNoBullet{Dissertation}{Measurement of the Magnetic Anomaly of the Muon to X parts per billion in Run 1 of the Fermilab Muon $g − 2$ Experiment}
+      % \resumeItemNoBullet{Relevant Coursework}{Advanced Machine Learning, Advanced Database Management Systems, Applied Artificial Intelligence, AI: Innovation \& Entrepreneurship, Data Mining \& Text Mining, Introduction to Data Science}
+    }
+    \resumeSubheading
+      {Boston University}{Boston, MA}
+      {M.A. in Physics}{2016}{
+      % \resumeItemNoBullet{Relevant Coursework}{Advanced Machine Learning, Advanced Database Management Systems, Applied Artificial Intelligence, AI: Innovation \& Entrepreneurship, Data Mining \& Text Mining, Introduction to Data Science}
+    }
+    \resumeSubheading
+      {University of Texas at Austin}{Austin, TX}
+      {B.S. in Physics}{2013}
+      % \resumeItemNoBullet{Relevant Coursework}{Analysis \& Design of Algorithms, Data Structures using C, Operating Systems, Pattern Recognition}
+    \resumeSubheading
+      {University of Texas at Austin}{Austin, TX}
+      {B.S. in Mathematics}{2013}{}
+  \resumeSubHeadingListEnd
+
+% %-----------SKILLS-----------------
+% \shorterSection{Skills}
+%   \resumeSubHeadingListStart
+%   \small
+%     \item{
+%      \textbf{Languages}{: Python, C++, SQL, Java, Swift}
+%      \hfill
+%      \textbf{Technologies}{: GCP, AWS, GitHub, GitLab, Docker}
+%     }
+%     \vspace{-5pt}
+%     \item{
+%      \textbf{Libraries}{: TensorFlow, PyTorch, Keras, Scikit-Learn, Numpy, Pandas, Spark, Jupyter, OpenCV, PIL, OpenCL, OpenGL, CUDA}
+%     }
+% \resumeSubHeadingListEnd
+
+% %-----------EXPERIENCE-----------------
+% \shorterSection{Experience}
+%   \resumeSubHeadingListStart
+
+%     \resumeSubheading
+%       {CCC Information Services}{Chicago, IL}
+%       {R\&D Engineer Intern (Machine Learning)}{May 2018 - Present}
+%       \resumeItemListStart
+%         \resumeItem{RotNet}
+%           {Designed and trained a shallow CNN to classify rotated images. Achieved F1-score of 0.99 on test set of 1M+ images}
+%         \resumeItem{TagNet}
+%           {A computer vision model to classify views of automobile images
+%             \begin{itemize}
+%                 \item Implemented an expectation maximization algorithm to sample and classify images from 6M+ unlabeled images to prepare a clean dataset of 100K+ images for training
+%                 \item Designed and trained a low-complexity CNN to classify 20+ views of automobile images resulting in 30\% improvement in  F1-score compared to SVM model
+%                 \item Reduced model complexity and size by 40\% by freezing model and performing post-training quantization
+%             \end{itemize}
+%           }
+%         \resumeItem{TVR}
+%           {A computer vision model to determine if image is total loss or repairable
+%           \begin{itemize}
+%               \item Trained ensemble of CNN architectures on 1M+ automobile images to classify vehicles as total loss or repairable resulting in 25\% higher weighted F1-score and 60\% decrease in model size compared to older iteration
+%               \item Incorporated first notice of loss information using NLP to increase  F1-score by 10\%
+%           \end{itemize}
+%           }
+%       \resumeItemListEnd
+
+%     \resumeSubheading
+%       {Reliance Communications}{Mumbai, India}
+%       {Software Engineer Intern}{May 2016 - Aug 2016}
+%       \resumeItemListStart
+%         \resumeItem{Optimal Node Search}
+%           {Implemented Dijkstra's algorithm on 10K+ network nodes to find shortest path for signal propagation resulting in 25\% reduction in costs}
+%       \resumeItemListEnd
+
+%     \resumeSubheading
+%       {OSSCube}{New Delhi, India}
+%       {Software Engineer Intern}{May 2015 - Aug 2015}
+%       \resumeItemListStart
+%         \resumeItem{Squeek Twitter iOS}
+%           {Designed and developed Twitter client using Fabric SDK}
+%       \resumeItemListEnd
+
+%   \resumeSubHeadingListEnd
+
+% %-----------PROJECTS-----------------
+% \shorterSection{Projects}
+%   \resumeSubHeadingListStart
+%     \resumeSubItem{OCR using Conditional Random Fields}
+%      {A probabilistic graphical model for sequential character recognition
+%         \vspace{-5pt}
+%         \begin{itemize}
+%             \item Implemented a CRF in $O(m|\mathcal{Y}|^2)$ time to achieve a 84\% letter-wise accuracy on UPenn OCR dataset
+%             \item Implemented OpenMPI CRF using PETSc and Tao to achieve 77.1\% letter-wise accuracy
+%         \end{itemize}
+%      }
+%     \resumeSubItem{ARYouThereYet}{An augmented reality application developed on ARKit with dynamic AR nodes}
+%     \resumeSubItem{Aspect-based Sentiment Analysis}
+%       {Implemented Deep Memory Networks to achieve 78.66\% accuracy, 0.69 F1-score on SemEval 2014 dataset}
+%     \resumeSubItem{Iris Speech to Code}
+%       {A natural speech to code converter for aiding programmers with disabilities
+%         \vspace{-5pt}
+%         \begin{itemize}
+%             \item Trained an intent classification model in Microsoft Luis to classify 15+ classes or commands
+%             \item Implemented a message passing protocol using RabbitMQ to broker messages between Google API, ElectronJS, and VS Code
+%         \end{itemize}
+%       }
+%     \resumeSubItem{AI Lifeguard}{Trained a 3D-CNN model on Microsoft Azure for action localization on drowning people in swimming pools. Achieved mean IOU score of 0.45}
+%   \resumeSubHeadingListEnd
+
+% %-----------Addtional Experience & Achievements-----------------
+% \shorterSection{Additional Experience \& Achievements}
+%   \resumeSubHeadingListStart
+%   \small
+%     \item{Presented poster on \textit{Tiramisu DenseNet Architecture for Precise Segmentation} for Intel AI at \textbf{CVPR 2018}}
+%     \vspace{-5pt}
+%     \item{Selected as an \textbf{Intel AI Student Ambassador} (only 150 students) to research, publish, and share work on machine learning and deep learning}
+%     \vspace{-5pt}
+%     \item{Won \textit{Best Microsoft Hack} out of 220 teams at \textbf{HackHarvard 2017}}
+%     \vspace{-5pt}
+%     \item{Placed 16/50 at Google Games: Campus Edition 2017 at UIC}
+%     \vspace{-5pt}
+%     \item{Won \textit{Best Technical Innovation} award (out of 800 students) at \textbf{Amity University Convocation 2017}}
+%     \vspace{-5pt}
+%     \item{Elected as a \textit{Vice-Chair} for \textbf{ACM Amity Student Chapter} out of 800 students at Amity University based on high-achieving and technically strong undergraduate students}
+%   \resumeSubHeadingListEnd
+%-------------------------------------------
+\end{document}
