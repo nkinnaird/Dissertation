@@ -109,7 +109,7 @@ The $5 \times 5$ error matrix on a plane calculated in Geane describing the expe
     \begin{align} \label{eq:sigma}
         \sigma_{N}^{ij} = <p_{N}^{i}p_{N}^{j}> - <p_{N}^{i}> \cdot <p_{N}^{j}>,
     \end{align} 
-where i and j are track parameter indices and $N$ is some plane number. This error matrix will include effects from multiple scattering, delta ray production, ionization, and bremsstrahlung \cite{geanemanual,energyloss}. These matrices are transported from plane to plane by what are called transport matrices, where the $5 \times 5$ transport matrix elements between two planes are defined as 
+where i and j are track parameter indices and $N$ is some plane number. This error matrix will include effects from multiple scattering, delta ray production, ionization, and bremsstrahlung \cite{geanemanual,Lavezzi,energyloss}. These matrices are transported from plane to plane by what are called transport matrices, where the $5 \times 5$ transport matrix elements between two planes are defined as 
     \begin{align}
         T_{N,N-1}^{i,j} = \frac{\partial p^{i}_{N}}{\partial p^{j}_{N-1}}.
     \end{align}
@@ -121,7 +121,7 @@ The error matrix is propagated forward from one plane to another by
     \begin{align} \label{eq:transport}
         \sigma_{N} &= T_{N,N-1} \sigma_{N-1} T_{N,N-1}^{T} + \sigma_{\text{material}},
     \end{align}
-where $\sigma_{\text{material}}$ is the added error due to material effects between the planes. The calculation of the transport matrices themselves is done within the Geane routines in the free system on a step by step basis, where the derivation of the transport matrix elements is given in \refref{jacob}. It should briefly be pointed out that the transport matrix between any two planes (or number of steps) is the multiple of all intermediate transport matrices,
+where $\sigma_{\text{material}}$ is the added error due to material effects between the planes. See \figref{fig:FittingMatricesDiagram}. The calculation of the transport matrices themselves is done within the Geane routines in the free system on a step by step basis, where the derivation of the transport matrix elements is given in \refref{jacob}. It should briefly be pointed out that the transport matrix between any two planes (or number of steps) is the multiple of all intermediate transport matrices,
     \begin{align}
         T_{N,N-2} = T_{N,N-1} T_{N-1,N-2},
     \end{align}
@@ -135,7 +135,16 @@ where the $s$ and $f$ superscripts stand for the surface and free reference syst
     \end{align}
 
 
-Finally, while the tracker reference frame is nominally defined in the local XYZ coordinates as described previously, the straws themselves don't measure in that frame directly. As described in \secref{sec:StrawTrackers}, the straws measure drift circles in planes perpendicular to the straws themselves. The measurements from U and V straws therefore lie on the U and V measurement axes shown in \figref{fig:GeaneCoordSys}, where the measurement of the drift circle is instead taken as a U or V coordinate to the left or right of the straw wire. The new coordinate system is therefore defined as
+\begin{figure}[]
+  \centering
+  \includegraphics[width=\textwidth]{FittingMatricesDiagram}
+    \caption[Transport and error matrices for straw tracker planes]{Transport matrices are defined between straw planes, and error matrices are defined on the planes.}
+    \label{fig:FittingMatricesDiagram}
+\end{figure}
+
+
+
+Finally, while the tracker reference frame is nominally defined in the local XYZ coordinates as described previously, the straws themselves don't measure in that frame directly. As described in \secref{sec:StrawTrackers}, the straws measure drift circles in planes perpendicular to the straws themselves. The measurements from U and V straws therefore lie on the U and V measurement axes shown in \figref{fig:GeaneCoordSys}, where the measurement of the drift circle is instead taken as a U or V coordinate to the left or right of the straw wire. It's important to note that out of the five track parameters each straw only measures only a single U or V position. The new coordinate system is defined as
         \begin{align}
             \frac{1}{p}, \frac{p_{u}}{p_{z}}, \frac{p_{v}}{p_{z}}, u, v,
         \end{align}
@@ -172,12 +181,12 @@ and $J_{2}$ is a $2 \times 2$ matrix given by
                 y \\
             \end{pmatrix}.
         \end{align}
-In order to transform the transport or error matrices from the tracker reference frame to the tracker measurement frame, the same relations as in Equations~\ref{eq:Ttransform} and \ref{eq:Sigtransform} apply,
+$J_{2}$ is easily determined from \figref{fig:GeaneCoordSys}. In order to transform the transport or error matrices from the tracker reference frame to the tracker measurement frame, the same relations as in Equations~\ref{eq:Ttransform} and \ref{eq:Sigtransform} apply,
     \begin{align}
         T_{N,N-1}^{UV} &= J_{5} T_{N,N-1}^{XY} J_{5}^{-1} \\
         \sigma_{N}^{UV} &= J_{5} \sigma_{N}^{XY} J_{5}^{T}
     \end{align}
-where the superscripts of $XY$ or $UV$ identify which coordinate system the objects belong to. It's important to note that out of the five track parameters each straw only measures only a single U or V position. 
+where the superscripts of $XY$ or $UV$ identify which coordinate system the objects belong to.
 
 \begin{figure}[]
   \centering
@@ -190,73 +199,24 @@ where the superscripts of $XY$ or $UV$ identify which coordinate system the obje
 
 
 
-% \appref{app:transportmatrixproperties}
-
-
-
-
-
-\clearpage
-
-
-
--cite james thing
-
-
-
-
-
-
-
-
-
-the transformation between the two is handled in the code and given by reference .. 
-
-
-Geane does everything in the free system and converts to the surface system ... 
-
-transport matrices are calculated in ...
-
-
-step by step vs plane by plane
-
-inverse vs transpose
-
-
--it was found that doing the minimization in UV space removed correlations (cite James here) instead of XY, docdb 3813
-
--make sure to cite traj fit paper
-
-
--fit in GeV cm vs MeV mm
-
-
-
--need to see what I've written down below, and what I might move up here and such
-
--average path
--helix
--cite proper stuff
-
--need to talk about material effect calculations
--reference frames and multiplication of matrices to go between them
--transport and error matrix calculations
--eq 4.5 not quite right
-
-
-measurement error being the largest error ... 
-
-
--don't forget to cite my track fitting note probably
-
-
 
 \subsection{\texorpdfstring{\chisq}{chisq} minimization}
 % \label{sec:TrackFittingFormalism}
 
+-cite james thing
+-it was found that doing the minimization in UV space removed correlations (cite James here) instead of XY, docdb 3813
+-performing the minimization in UV is most natural
+
+
+-make sure to cite traj fit paper
+-fit in GeV cm vs MeV mm
+-measurement error being the largest error ... 
+-don't forget to cite my track fitting note maybe
+
 
 -globabl chi2 minimization
 -other fitting algortihms could be used, kalman filter by lavezzi
+-minimization done in coordinate system given by ... 
 
 
 
@@ -400,12 +360,6 @@ measurement error being the largest error ...
 
 
 
-\begin{figure}[]
-  \centering
-  \includegraphics[width=\textwidth]{FittingMatricesDiagram}
-    \caption[Fitting matrices diagram]{}
-    \label{fig:FittingMatricesDiagram}
-\end{figure}
 
 \begin{figure}[]
   \centering
