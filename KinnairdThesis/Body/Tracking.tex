@@ -144,7 +144,7 @@ where the $s$ and $f$ superscripts stand for the surface and free reference syst
 
 
 
-Finally, while the tracker reference frame is nominally defined in the local XYZ coordinates as described previously, the straws themselves don't measure in that frame directly. As described in \secref{sec:StrawTrackers}, the straws measure drift circles in planes perpendicular to the straws themselves. The measurements from U and V straws therefore lie on the U and V measurement axes shown in \figref{fig:GeaneCoordSys}, where the measurement of the drift circle is instead taken as a U or V coordinate to the left or right of the straw wire. It's important to note that out of the five track parameters each straw only measures only a single U or V position. The new coordinate system is defined as
+Finally, while the tracker reference frame is nominally defined in the local XYZ coordinates as described previously, the straws themselves don't measure in that frame directly. As described in \secref{sec:StrawTrackers}, the straws measure drift circles in planes perpendicular to the straws themselves. The measurements from U and V straws therefore lie on the U and V measurement axes shown in \figref{fig:GeaneCoordSys}, where the measurement of the drift circle is instead taken as a U or V coordinate to the left or right of the straw wire. To first order the U or V coordinate is the DCA of the hit, which can be corrected with the angle of the track to get a better estimate, as shown in \appref{app:angularcorrection}. It's important to note that out of the five track parameters each straw only measures only a single U or V position. The new coordinate system is defined as
         \begin{align}
             \frac{1}{p}, \frac{p_{u}}{p_{z}}, \frac{p_{v}}{p_{z}}, u, v,
         \end{align}
@@ -198,57 +198,40 @@ where the superscripts of $XY$ or $UV$ identify which coordinate system the obje
 
 
 
-
-
 \subsection{\texorpdfstring{\chisq}{chisq} minimization}
-% \label{sec:TrackFittingFormalism}
+\label{sec:TrackFittingAlgorithm}
 
 -cite james thing
 -it was found that doing the minimization in UV space removed correlations (cite James here) instead of XY, docdb 3813
 -performing the minimization in UV is most natural
 
-
--make sure to cite traj fit paper
 -fit in GeV cm vs MeV mm
 -measurement error being the largest error ... 
 -don't forget to cite my track fitting note maybe
 
 
--globabl chi2 minimization
--other fitting algortihms could be used, kalman filter by lavezzi
 -minimization done in coordinate system given by ... 
 
 
 
-    I recommend reading \cite{geanemanual}, Chapter 4 of \cite{Lavezzi}, and \cite{trajfit} in order to best understand the fitting algorithm. However, due to the at times confusing notation, ommitted equations or concepts, and differences between papers, I have attempted to summarize here the different sources and present the material in a more understandable and readable format. The implementation of the fitting algorithm into the code follows this section.
+The method for fitting and improving the track uses a global \chisq minimization algorithm that uses the transport and error matrices as described previously \cite{geanemanual,trajfit}. This straightforward global fitting algorithm works because of the minimal amount of material contained within the tracker. For denser detectors, other fitting algorithms such as a Kalman filter should be used \cite{Lavezzi}.
 
-    One can define a $\chi^{2}$ for a track in the usual way by dividing the residuals of measured and predicted track parameters by their errors:
+
+The $\chi^{2}$ for a track is defined as the residuals of predicted and measured parameters divided by their errors, summed over all hit planes:
+        \begin{align} \label{eq:chi2sum}
+            \chi^2 = \sum_{i=1}^{N} [(p_{i}(p)-x_{i})^{T} (\sigma_{i}^{-1}) (p_{i}(p)-x_{i})],
+        \end{align}
+
+
+
         \begin{align} \label{eq:chi2}
             \chi^2 = (\vec{p}-\vec{x})^{T} (\sigma^{-1}) (\vec{p}-\vec{x}),
         \end{align}
-    where $\vec{p}$ are predicted track parameters from a fit to the measured track parameters $\vec{x}$, and $\sigma$ is a covariance matrix of errors on the fitted parameters. The Geant4 error propagation routines can be used to determine these predicted parameters and error matrices by propagating track parameters from some initial guesses. By minimizing this $\chi^{2}$ with respect to the track parameters one can then fit and improve the track. 
-
-
-
-    % The Geant4 error propagation routines propagate particles along their average trajectories neglecting the effects of discrete processes, using a helix equation along small enough steps where the change in the magnetic field is small. The predicted parameters are then a function of path length: 
-    %     \begin{align} \label{eq:pp}
-    %         p_{l} = F_{l,l_{0}}(p_{0}),
-    %     \end{align}
-    % where the path length can be defined how one wishes. 
+where $\vec{p}$ are predicted track parameters from a fit to the measured track parameters $\vec{x}$, and $\sigma$ is a covariance matrix of errors on the fitted parameters. The Geant4 error propagation routines can be used to determine these predicted parameters and error matrices by propagating track parameters from some initial guesses. By minimizing this $\chi^{2}$ with respect to the track parameters one can then fit and improve the track. 
 
 
 
 
-    % In tandem, error matrices describing the expected distribution in true parameters about those predicted parameters due to said discrete process are also calculated:
-    %     \begin{align} \label{eq:sigma}
-    %         \sigma^{ij} = <p^{i}p^{j}> - <p^{i}> \cdot <p^{j}>,
-    %     \end{align} 
-    % where i and j are track parameter indices. These parameter vectors are 5x1 objects defined in some track representation, as described in the \hyperref[sec:Coord]{Coordinate Systems} section. The propagation of these parameters and error matrices are done using transport matrices, which express the infinitesimal changes in parameters at some plane (or path length) with respect to the parameters at some previous plane (or previous path length):
-    %     \begin{align} \label{eq:transport}
-    %         \delta p_{N} &= T_{N,N-1} \delta p_{N-1}, \\
-    %         \sigma_{N} &= T_{N,N-1} \sigma_{N-1} T_{N,N-1}^{T}.
-    %     \end{align}
-    % Said transport and error matrices are 5x5 objects since the parameter vectors are 5x1 objects as described above. The calculation of these transport matrices, as well as details on the functional form of \ref{eq:pp} are shown in \cite{jacob}.
 
     With parameters defined on such planes, one can define the $\chi^{2}$ as: 
         \begin{align} \label{eq:chi2sum}
