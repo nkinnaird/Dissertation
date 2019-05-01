@@ -68,7 +68,7 @@ The track fitting stage takes the track candidates from the track finding stage,
 
 \subsection{Geometry and error propagation}
 
-To put it simply, the process of error propagation involves taking track parameters and error matrices (which describe the spread in those track parameters) and transporting them along discrete steps from one point to another, accounting for changes due to any present magnetic fields or material along the step path. There is a set of error propagation routines originally written in Fortran by the EMC collaboration, called ``Geometry and error propagation'' or Geane \cite{geanemanual}. Geane works by propagating particles along their average trajectories neglecting the effects of discrete processes, using a helix equation along small enough steps where the change in the magnetic field is small. These routines were used in the E821 experiment as well as the PANDA experiment with some success \cite{Lavezzi}. The Geane routines were at one point converted to C++ and added to Geant4. The strength of using Geane within a Geant4 simulation lies in its direct access to the Geant4 geometry and field. This is crucially important for the E989 track fitting because the trackers live in a region of high field non-uniformity. Shown in \figref{fig:Opera2DFields} is the location of the tracker with respect to the radial and vertical fields. As shown the radial field in the tracker region rises from $\SI{0}{T}$ at the outer ends to roughly $\SI{.3}{T}$ at the inner top and bottom ends, and the vertical field drops approximately 50\% from the storage dipole field of $\SI{1.451}{T}$. These large field gradients over the tracking measurement space must be handled appropriately, which Geane does nicely.
+To put it simply, the process of error propagation involves taking track parameters and error matrices (which describe the spread in those track parameters) and transporting them along discrete steps from one point to another, accounting for changes due to any present magnetic fields or material along the step path. There is a set of error propagation routines originally written in Fortran by the EMC collaboration, called ``Geometry and Error Propagation'' or Geane \cite{geanemanual}. Geane works by propagating particles along their average trajectories neglecting the effects of discrete processes, using a helix equation along small enough steps where the change in the magnetic field is small. These routines were used in the E821 experiment as well as the PANDA experiment with some success \cite{Lavezzi}. The Geane routines were at one point converted to C++ and added to Geant4. The strength of using Geane within a Geant4 simulation lies in its direct access to the Geant4 geometry and field. This is crucially important for the E989 track fitting because the trackers live in a region of high field non-uniformity. Shown in \figref{fig:Opera2DFields} is the location of the tracker with respect to the radial and vertical fields. As shown the radial field in the tracker region rises from $\SI{0}{T}$ at the outer ends to roughly $\SI{.3}{T}$ at the inner top and bottom ends, and the vertical field drops approximately 50\% from the storage dipole field of $\SI{1.451}{T}$. These large field gradients over the tracking measurement space must be handled appropriately, which Geane does nicely.
 
 
 
@@ -96,7 +96,7 @@ Predicted track parameters in Geane are a function of path length
         \begin{align} \label{eq:pp}
             p_{l} = F_{l,l_{0}}(p_{0}),
         \end{align}
-where $p_{0}$ are some original tracker parameters and $p_{l}$ are the updated ones. The path length $l$ can be defined or limited how one wishes. The track parameter vectors $p$ are defined in some coordinate system. In the Geane routines these track parameters are $5 \times 1$ vectors either defined in the ``free'' (curvilinear) system
+where $p_{0}$ are some original tracker parameters and $p_{l}$ are the updated ones. The path length $l$ can be defined or limited how one wishes, and typically correspond to a single step in the Geant4 simulation. The track parameter vectors $p$ are defined in some coordinate system. In the Geane routines these track parameters are $5 \times 1$ vectors either defined in the ``free'' (curvilinear) system
         \begin{align}
             \frac{1}{p}, \lambda, \phi, y_{\perp}, z_{\perp},
         \end{align}
@@ -104,30 +104,30 @@ or the ``surface'' (detector) system
         \begin{align}
             \frac{1}{p}, \frac{p_{v}}{p_{u}}, \frac{p_{w}}{p_{u}}, v, w.
         \end{align}
-In the free system, the $\lambda$ and $\phi$ parameters are the dip $(\pi/2 - \theta)$ and azimuthal angles respectively, while the $y_{\perp}$ and $z_{\perp}$ parameters are defined as being in the $XY$ or $XZ$ global Geant4 planes and orthogonal to $x_{\perp}$, where $x_{\perp}$ is defined as being along the momentum vector of the particle. (Decide whether I want to try and supply a picture showing this here.) In the surface system, the UVW coordinates can be defined with any two orthogonal vectors V and W\footnote{For clarification, the UVW surface system has nothing to do with the UV orientations of the straws.}. The surface system is most usefully defined in the tracker coordinate system, where the modules are staggered in a local Z coordinate, the local vertical coordinate is still Y, and the local X coordinate increases with straw number (these are not the gobal Geant4 XYZ coordinates). See \figref{fig:trackerReferenceFrame}. The surface system is then defined as
+In the free system, the $\lambda$ and $\phi$ parameters are the dip $(\pi/2 - \theta)$ and azimuthal angles respectively, while the $y_{\perp}$ and $z_{\perp}$ parameters are defined as being in the $XY$ or $XZ$ global Geant4 planes and orthogonal to $x_{\perp}$, where $x_{\perp}$ is defined as being along the momentum vector of the particle. (Decide whether I want to try and supply a picture showing this here.) In the surface system, the UVW coordinates can be defined with any two orthogonal vectors V and W\footnote{For clarification, the UVW surface system has nothing to do with the UV orientations of the straws.}. The surface system is most usefully defined in the tracker reference frame, where the modules are staggered in a local Z coordinate, the local Y coordinate is vertical, and the local X coordinate increases with straw number. See \figref{fig:trackerReferenceFrame}. The surface system is then defined as
         \begin{align}
-            \frac{1}{p}, \frac{p_{x}}{p_{z}}, \frac{p_{y}}{p_{z}}, x, y,
+            \frac{1}{p}, \frac{p_{x}}{p_{z}}, \frac{p_{y}}{p_{z}}, x, y.
         \end{align}
-In both free and surface cases the track is represented by one momentum parameter, two directional parameters, and two position parameters. Needing six independent parameters to describe a particle in space and momentum (three momentum and three position), one parameter is left out and taken as a known variable. For Geane this is taken either as a known path length in the free system, or a known U coordinate in the surface system (or known Z coordinate in our tracker reference frame). In our tracker measurement frame, the 32 straw layers corresponding to a tracking station are defined at known Z coordinates in the tracker reference frame. The path lengths for steps in Geane can be set to be equal to the distance for a track to travel between between detector planes, and therefore the track parameter dependence on the path length can instead by replaced by a dependence on plane number.
+In both free and surface cases the track is represented by one momentum parameter, two directional parameters, and two position parameters. Needing six independent parameters to describe a particle in space and momentum (three momentum and three position parameters), one parameter is left out and taken as a known variable. For Geane this is taken either as a known path length in the free system, or a known U coordinate in the surface system (or known Z coordinate in our tracker reference frame). In our tracker measurement frame, the 32 straw layers corresponding to a tracking station are defined at known Z coordinates in the tracker reference frame. The path lengths for steps in Geane can be set to be equal to the distance for a track to travel between between detector planes, and therefore the track parameter dependence on the path length can instead by replaced by a dependence on plane number.
 
 
 \begin{figure}[]
   \centering
   \includegraphics[width=0.7\textwidth]{trackerReferenceFrame}
-    \caption[Tracker reference frame]{Shown is a model view of a tracker station in relation to the magnetic ring. Tracker modules are shown in white. Around the tracker measurement area is defined a coordinate system called the tracker reference frame. In that frame, the X coordinate is directed nearly radially outward along the straws, the Y coordinate is directed vertically up, and the Z coordinate is directed along the direction that the tracker modules are staggered.}
+    \caption[Tracker reference frame]{Shown is a model view of a tracker station in relation to the magnetic ring. Tracker modules are shown in white. Around the tracker measurement area is defined a coordinate system called the tracker reference frame. In that frame, the X coordinate is directed outward along the straws nearly radial, the Y coordinate is directed vertically up, and the Z coordinate is directed along the direction that the tracker modules are staggered.}
     \label{fig:trackerReferenceFrame}
 \end{figure}
 
 
-The $5 \times 5$ error matrix on a plane calculated in Geane describing the expected distribution in true parameters about the average ones due to discrete process are defined as
+The $5 \times 5$ error matrix on a plane calculated in Geane describing the expected distribution in true parameters about the average ones due to discrete process is defined as
     \begin{align} \label{eq:sigma}
         \sigma^{ij} = <p^{i}p^{j}> - <p^{i}> \cdot <p^{j}>,
     \end{align} 
 where i and j are track parameter indices. This error matrix will include effects from multiple scattering, delta ray production, ionization, and bremsstrahlung \cite{geanemanual,energyloss}. These matrices are transported from plane to plane through what are called transport matrices, where the $5 \times 5$ transport matrix elements between two planes are defined as 
     \begin{align}
-        T_{N,N-1}^{i,j} = \frac{\partial p^{i}_{N}}{\partial p^{j}_{N-1}}. 
+        T_{N,N-1}^{i,j} = \frac{\partial p^{i}_{N}}{\partial p^{j}_{N-1}}, 
     \end{align}
-The transport matrix $T$ is simply a Jacobian matrix between planes. Therefore the error matrix propagated forward from one plane to another is given by
+where $N$ is some plane number. The transport matrix $T$ is simply a Jacobian matrix between planes. Therefore the error matrix propagated forward from one plane to another is given by
     \begin{align} \label{eq:transport}
         \sigma_{N} &= T_{N,N-1} \sigma_{N-1} T_{N,N-1}^{T} + \sigma_{\text{material}},
     \end{align}
@@ -135,7 +135,7 @@ where $\sigma_{\text{material}}$ is the added error due to material effects betw
     \begin{align} \label{eq:transport}
         \delta p_{N} &= T_{N,N-1} \delta p_{N-1}.
     \end{align}
-The calculation of the transport matrices themselves is done within the Geane routines in the free system, where the derivation of the transport matrix elements is given in \refref{jacob}. Geane can convert between the free system and the surface system using reference frame transformation Jacobians, also derived in \refref{jacob}.
+The calculation of the transport matrices themselves is done within the Geane routines in the free system, where the derivation of the transport matrix elements is given in \refref{jacob}. Geane can convert between the free system and the surface system using further Jacobians, also derived in \refref{jacob}.
 
 
 
