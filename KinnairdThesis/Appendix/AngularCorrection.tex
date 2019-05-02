@@ -27,14 +27,14 @@ where $u$ is the parameter of interest. The angle $\theta$ can be determined fro
 	\end{align}
 where $p_{\parallel}$ is the positron momentum anti-parallel to the U measurement axis at the wire plane. Using some further trigonometric identities and solving for u gives
 	\begin{align}
-		u = -r\sqrt{1-(\frac{p_{\parallel}}{p})^{2}} + \sqrt{d^{2} + 2dr + r^{2}(1-(\frac{p_{\parallel}}{p})^{2})},
+		u = -r\sqrt{1-\Big(\frac{p_{\parallel}}{p}\Big)^{2}} + \sqrt{d^{2} + 2dr + r^{2}\Big(1-\Big(\frac{p_{\parallel}}{p}\Big)^{2}\Big)},
 	\end{align}
 for the right side correction. Similarly,  
 	\begin{align}
-		u = +r\sqrt{1-(\frac{p_{\parallel}}{p})^{2}} - \sqrt{d^{2} + 2dr + r^{2}(1-(\frac{p_{\parallel}}{p})^{2})},
+		u = +r\sqrt{1-\Big(\frac{p_{\parallel}}{p}\Big)^{2}} - \sqrt{d^{2} + 2dr + r^{2}\Big(1-\Big(\frac{p_{\parallel}}{p}\Big)^{2}\Big)},
 	\end{align}
 for the left side correction. The radius $r$ can be calculated from the momentum and magnetic field at the predicted hit position, and the momentum components can be determined within the Geant4 simulation. The straightline correction to the errors is done simpler manner using the Pythagorean theorem, 
 	\begin{align}
-		\sigma_{uv}' = \frac{\sigma_{uv}}{\sqrt{1-(\frac{p_{\parallel}}{p})^{2}}},
+		\sigma_{uv}' = \frac{\sigma_{uv}}{\sqrt{1-\big(\frac{p_{\parallel}}{p}\big)^{2}}},
 	\end{align}
 where $\sigma_{uv}'$ is the improved error from original U or V error $\sigma_{uv}$ on the DCA.
