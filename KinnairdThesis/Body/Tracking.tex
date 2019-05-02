@@ -87,15 +87,21 @@ where $p_{0}$ are some original tracker parameters and $p_{l}$ are the updated o
             \frac{1}{p}, \lambda, \phi, y_{\perp}, z_{\perp},
         \end{align}
 or the ``surface'' (detector) system 
-        \begin{align}
+        \begin{align} \label{eq:UVW}
             \frac{1}{p}, \frac{p_{v}}{p_{u}}, \frac{p_{w}}{p_{u}}, v, w.
         \end{align}
-In the free system, the $\lambda$ and $\phi$ parameters are the dip $(\pi/2 - \theta)$ and azimuthal angles respectively, while the $y_{\perp}$ and $z_{\perp}$ parameters are defined as being in the $XY$ or $XZ$ global Geant4 planes and orthogonal to $x_{\perp}$, where $x_{\perp}$ is defined as being along the momentum vector of the particle. (Decide whether I want to try and supply a picture showing this here.) In the surface system, the UVW coordinates are defined with any two orthogonal vectors V and W\footnote{For clarification, the UVW surface system has nothing to do with the UV orientations of the straws at this time.}. The surface system is most usefully defined in the tracker reference frame, where the modules are staggered in a local Z coordinate, the local Y coordinate is vertical, and the local X coordinate increases with straw number. See \figref{fig:trackerReferenceFrame}. The surface system is then defined as
+In the free system, the $\lambda$ and $\phi$ parameters are the dip $(\pi/2 - \theta)$ and azimuthal angles respectively, while the $y_{\perp}$ and $z_{\perp}$ parameters are defined as being in the $XY$ or $XZ$ global Geant4 planes and orthogonal to $x_{\perp}$, where $x_{\perp}$ is defined as being along the momentum vector of the particle. See \figref{fig:FreeSurfaceSystems}. In the surface system, the UVW coordinates are defined with any two orthogonal vectors V and W\footnote{For clarification, the UVW surface system has nothing to do with the UV orientations of the straws at this time.}. The surface system is most usefully defined in the tracker reference frame, where the modules are staggered in a local Z coordinate, the local Y coordinate is vertical, and the local X coordinate increases with straw number. See \figref{fig:trackerReferenceFrame}. The surface system is then defined as
         \begin{align}
             \frac{1}{p}, \frac{p_{x}}{p_{z}}, \frac{p_{y}}{p_{z}}, x, y.
         \end{align}
 In both free and surface systems the track is represented by one momentum parameter, two directional parameters, and two position parameters. Needing six independent parameters to describe a particle in space and momentum (three momentum and three position parameters), one parameter is left out and taken as a known variable. For Geane this is taken either as a known path length in the free system, or a known U coordinate in the surface system (or known Z coordinate in our tracker reference frame). In our tracker reference frame, the 32 straw layers corresponding to a tracking station are defined at known local Z coordinates. The path lengths for steps in Geane can be set to be equal to the distance for a track to travel between between detector planes, and therefore the track parameter dependence on the path length can instead by replaced by a dependence on plane number.
 
+\begin{figure}[]
+  \centering
+  \includegraphics[width=0.7\textwidth]{FreeSurfaceSystems}
+    \caption[Free and surface tracking coordinate systems]{Free (left) and surface (right) tracking coordinate systems.}
+    \label{fig:FreeSurfaceSystems}
+\end{figure}
 
 \begin{figure}[]
   \centering
@@ -148,7 +154,7 @@ Finally, while the tracker reference frame is nominally defined in the local XYZ
         \begin{align}
             \frac{1}{p}, \frac{p_{u}}{p_{z}}, \frac{p_{v}}{p_{z}}, u, v,
         \end{align}
-where this $Z$ variable is the tracker reference frame $Z$, and the transformation between the $XYZ$ and $UVZ$ systems is given by
+where this $Z$ variable is the tracker reference frame $Z$, and the U and V coordinates here are non-orthogonal and are different to those in \equref{eq:UVW}. The transformation between the $XYZ$ and $UVZ$ systems is given by
     \begin{align}
         p^{UV} &= J_{5} p^{XY} \\
     \end{align}
