@@ -98,7 +98,7 @@ In both free and surface systems the track is represented by one momentum parame
 
 \begin{figure}[]
   \centering
-  \includegraphics[width=0.7\textwidth]{FreeSurfaceSystems}
+  \includegraphics[width=0.5\textwidth]{FreeSurfaceSystems}
     \caption[Free and surface tracking coordinate systems]{Free (left) and surface (right) tracking coordinate systems.}
     \label{fig:FreeSurfaceSystems}
 \end{figure}
@@ -151,7 +151,7 @@ where the $s$ and $f$ superscripts stand for the surface and free reference syst
 
 
 Finally, while the tracker reference frame is nominally defined in the local XYZ coordinates as described previously, the straws themselves don't measure in that frame directly. As described in \secref{sec:StrawTrackers}, the straws measure drift circles in planes perpendicular to the straws themselves. The measurements from U and V straws therefore lie on the U and V measurement axes shown in \figref{fig:GeaneCoordSys}, where the measurement of the drift circle is instead taken as a U or V coordinate to the left or right of the straw wire. To first order the U or V coordinate is the DCA of the hit, which can be corrected with the angle of the track to get a better estimate, as shown in \appref{app:angularcorrection}. It's important to note that out of the five track parameters each straw only measures only a single U or V position. The new coordinate system is defined as
-        \begin{align}
+        \begin{align} \label{eq:trackermeasurementframe}
             \frac{1}{p}, \frac{p_{u}}{p_{z}}, \frac{p_{v}}{p_{z}}, u, v,
         \end{align}
 where this $Z$ variable is the tracker reference frame $Z$, and the U and V coordinates here are non-orthogonal and are different to those in \equref{eq:UVW}. The transformation between the $XYZ$ and $UVZ$ systems is given by
@@ -207,33 +207,46 @@ where the superscripts of $XY$ or $UV$ identify which coordinate system the obje
 \subsection{\texorpdfstring{\chisq}{chisq} minimization}
 \label{sec:TrackFittingAlgorithm}
 
--cite james thing
--it was found that doing the minimization in UV space removed correlations (cite James here) instead of XY, docdb 3813
--performing the minimization in UV is most natural
+% -cite james thing
+% -it was found that doing the minimization in UV space removed correlations (cite James here) instead of XY, docdb 3813
+% -performing the minimization in UV is most natural
 
--fit in GeV cm vs MeV mm
--measurement error being the largest error ... 
--don't forget to cite my track fitting note maybe
-
-
--minimization done in coordinate system given by ... 
+% -fit in GeV cm vs MeV mm
+% -don't forget to cite my track fitting note maybe
 
 
 
-The method for fitting and improving the track uses a global \chisq minimization algorithm that uses the transport and error matrices as described previously \cite{geanemanual,trajfit}. This straightforward global fitting algorithm works because of the minimal amount of material contained within the tracker. For denser detectors, other fitting algorithms such as a Kalman filter should be used \cite{Lavezzi}.
+The method for fitting and improving the track uses a global \chisq minimization algorithm that uses the transport and error matrices as described previously \cite{geanemanual,trajfit}. This straightforward global fitting algorithm works because of the minimal amount of material contained within the tracker and resulting small correlations between planes. For denser detectors with greater correlations, other fitting algorithms such as a Kalman filter should be used \cite{Lavezzi}. The following derivations and minimization assume measurements on planes in the tracker measurement frame described by \equref{eq:trackermeasurementframe}, but it should be noted that the results apply to any reference frame.
 
 
-The $\chi^{2}$ for a track is defined as the residuals of predicted and measured parameters divided by their errors, summed over all hit planes:
+The $\chi^{2}$ for a track is defined as the residuals between predicted and measured parameters divided by their errors on a hit plane, summed over all hit planes:
         \begin{align} \label{eq:chi2sum}
             \chi^2 = \sum_{i=1}^{N} [(p_{i}(p)-x_{i})^{T} (\sigma_{i}^{-1}) (p_{i}(p)-x_{i})],
         \end{align}
+where $x_{i}$ are vectors of the measured track parameters on plane $i$, $p_{i}$ are vectors of the average predicted track parameters which stem from some general starting parameters $p$, and $\sigma_{i}$ are the $5 \times 5$ error matrices on the plane\footnote{The vector $p$ has no numerical value at this time.}. To first order the error matrices consist only of the measurement errors on the U and V parameters and exclude the effects of random material processes. These errors are located in the U and V diagonal elements $(3,3)$ and $(4,4)$ respectively, corresponding to resolutions of \mum{150} as described in \secref{sec:StrawTrackers}. To second order these errors can be added to the material error matrices as calculated by Geane. Because the measured parameters are solely U or V measurements, the $x_{i}$ vectors are $5 \times 1$ objects where only the $(3)$ or $(4)$ elements have any meaning respectively\footnote{A straw tracker module as a whole can be approximated as measuring in 2D space, but this leads to worse tracking results as compared to the natural tracker measurement frame in 1D space of U or V. A fitting algorithm which fits the true measurement space of the drift circles themselves would be even better.}. The errors on the non-measured parameters in the diagonals of the error matrix are taken as infinite, such that when the error matrix is inverted all corresponding rows and columns of the final matrix on each plane reduce to zero and contribute nothing to the $\chi^{2}$. 
+
+
+
+-minimize the chi2 with respect to the starting parameters
+
+
+
+\clearpage
+
+
+
+ -As a reminder the initial set of starting parameters is given by a circle fit as described at the end of \secref{sec:TrackFinding}. 
+
+-need to define the starting point of the track somwehere
+
+
 
 
 
         \begin{align} \label{eq:chi2}
             \chi^2 = (\vec{p}-\vec{x})^{T} (\sigma^{-1}) (\vec{p}-\vec{x}),
         \end{align}
-where $\vec{p}$ are predicted track parameters from a fit to the measured track parameters $\vec{x}$, and $\sigma$ is a covariance matrix of errors on the fitted parameters. The Geant4 error propagation routines can be used to determine these predicted parameters and error matrices by propagating track parameters from some initial guesses. By minimizing this $\chi^{2}$ with respect to the track parameters one can then fit and improve the track. 
+where $\vec{p}$ are predicted track parameters from a fit to the measured track parameters $\vec{x}$, and $\sigma$ is a covariance matrix of errors on the fitted parameters. By minimizing this $\chi^{2}$ with respect to the track parameters one can then fit and improve the track. 
 
 
 
