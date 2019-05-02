@@ -112,19 +112,19 @@ In both free and surface systems the track is represented by one momentum parame
 
 
 The $5 \times 5$ error matrix on a plane calculated in Geane describing the expected distribution in true parameters about the average ones is defined as
-    \begin{align} \label{eq:sigma}
+    \begin{align} \label{eq:errormatrix}
         \sigma_{N}^{ij} = <p_{N}^{i}p_{N}^{j}> - <p_{N}^{i}> \cdot <p_{N}^{j}>,
     \end{align} 
 where i and j are track parameter indices and $N$ is some plane number. This error matrix will include effects from multiple scattering, delta ray production, ionization, and bremsstrahlung \cite{geanemanual,Lavezzi,energyloss}. These matrices are transported from plane to plane by what are called transport matrices, where the $5 \times 5$ transport matrix elements between two planes are defined as 
-    \begin{align}
+    \begin{align} \label{eq:transportmatrix}
         T_{N,N-1}^{i,j} = \frac{\partial p^{i}_{N}}{\partial p^{j}_{N-1}}.
     \end{align}
 The transport matrix $T$ is a Jacobian between planes which expresses the infinitesimal changes in parameters at some plane (or path length) with respect to the parameters at some previous plane (or previous path length):
-    \begin{align} \label{eq:transport}
+    \begin{align} \label{eq:parametertransport}
         \delta p_{N} &= T_{N,N-1} \delta p_{N-1}
     \end{align}
 The error matrix is propagated forward from one plane to another by
-    \begin{align} \label{eq:transport}
+    \begin{align} \label{eq:errortransport}
         \sigma_{N} &= T_{N,N-1} \sigma_{N-1} T_{N,N-1}^{T} + \sigma_{\text{material}},
     \end{align}
 where $\sigma_{\text{material}}$ is the added error due to material effects between the planes. See \figref{fig:FittingMatricesDiagram}. The calculation of the transport matrices themselves is done within the Geane routines in the free system on a step by step basis, where the derivation of the transport matrix elements is given in \refref{jacob}. It should briefly be pointed out that the transport matrix between any two planes (or number of steps) is the multiple of all intermediate transport matrices,
@@ -221,29 +221,30 @@ The method for fitting and improving the track is a global \chisq minimization a
 
 The $\chi^{2}$ for a track is defined as the residuals between predicted and measured parameters on a measurement plane, divided by their errors, summed over all hit planes:
         \begin{align} \label{eq:chi2sum}
-            \chi^2 = \sum_{i=1}^{N} [(p_{i}(p)-x_{i})^{T} (\sigma_{i}^{-1}) (p_{i}(p)-x_{i})]
+            \chi^2 = \sum_{i=1}^{N} [(p_{i}(p_{s})-x_{i})^{T} (\sigma_{i}^{-1}) (p_{i}(p_{s})-x_{i})]
         \end{align}
-$x_{i}$ are vectors of the measured track parameters on plane $i$, $p_{i}$ are vectors of the average predicted track parameters which stem from some general starting parameters $p$, and $\sigma_{i}$ are the $5 \times 5$ error matrices on the plane\footnote{The vector $p$ has no numerical value at this time.}. To first order the error matrices consist only of the measurement errors on the U and V parameters and exclude the effects of random material processes. These errors are located in the U and V diagonal elements $(3,3)$ and $(4,4)$ respectively, with corresponding resolutions of \mum{150} as described in \secref{sec:StrawTrackers}. To second order the material error matrices as calculated by Geane are added to the measurement errors. Because the measured parameters are solely U or V measurements, the $x_{i}$ vectors are $5 \times 1$ objects where only the $(3)$ or $(4)$ elements have any meaning respectively\footnote{A straw tracker module as a whole can be approximated as measuring in 2D space, but this leads to worse tracking results as compared to the natural tracker measurement frame in 1D space of U or V. A fitting algorithm which fits the true measurement space of the drift circles themselves would be even better.}. The errors on the non-measured parameters in the diagonals of the error matrix are taken as infinite, such that when the error matrix is inverted all corresponding rows and columns of the final matrix on each plane reduce to zero and contribute nothing to the $\chi^{2}$. 
+$x_{i}$ are vectors of the measured track parameters on plane $i$, $p_{i}$ are vectors of the average predicted track parameters which stem from some general starting parameters $p_{s}$, and $\sigma_{i}$ are the $5 \times 5$ error matrices on the plane\footnote{The vector $p_{s}$ has no numerical value at this time.}. To first order the error matrices consist only of the measurement errors on the U and V parameters and exclude the effects of random material processes. These errors are located in the U and V diagonal elements $(3,3)$ and $(4,4)$ respectively, with corresponding resolutions of \mum{150} as described in \secref{sec:StrawTrackers}. To second order the material error matrices as calculated by Geane are added to the measurement errors. Because the measured parameters are solely U or V measurements, the $x_{i}$ vectors are $5 \times 1$ objects where only the $(3)$ or $(4)$ elements have any meaning respectively\footnote{A straw tracker module as a whole can be approximated as measuring in 2D space, but this leads to worse tracking results as compared to the natural tracker measurement frame in 1D space of U or V. A fitting algorithm which fits the true measurement space of the drift circles themselves would be even better.}. The errors on the non-measured parameters in the diagonals of the error matrix are taken as infinite, such that when the error matrix is inverted all corresponding rows and columns of the final matrix on each plane reduce to zero and contribute nothing to the $\chi^{2}$.
 
 
-In order to fit the track, the $\chi^{2}$ is minimized with respect to the initial track parameters $p$, and evaluated at a specific set of those starting paramters $p'_{0}$:
+In order to fit the track, the $\chi^{2}$ is minimized with respect to the initial track parameters $p_{s}$, and evaluated at a specific set of those starting paramters $p'_{0}$:
     \begin{equation}
     \begin{aligned}
-        \frac{\partial \chi^{2}}{\partial p}|_{p=p'_{0}} = 0 
-            &= \sum_{i=1}^{N}[ (\frac{\partial p_{i}(p)}{\partial p}|_{p=p'_{0}})^{T} (\sigma_{i}^{-1}) (p_{i}(p'_{0})-x_{i}) \\ 
-            &+ (p_{i}(p'_{0})-x_{i})^{T} \frac{\partial(\sigma_{i}^{-1})}{\partial p}|_{p=p'_{0}} (p_{i}(p'_{0})-x_{i}) \\ 
-            &+  (p_{i}(p'_{0})-x_{i})^{T} (\sigma_{i}^{-1}) (\frac{\partial p_{i}(p)}{\partial p}|_{p=p'_{0}})]
-    \label{eq:minimize}
+        \frac{\partial \chi^{2}}{\partial p_{s}}\Big|_{p_{s}=p'_{0}} = 0 
+            &= \sum_{i=1}^{N}[ (\frac{\partial p_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}})^{T} (\sigma_{i}^{-1}) (p_{i}(p'_{0})-x_{i}) \\ 
+            &+ (p_{i}(p'_{0})-x_{i})^{T} \frac{\partial(\sigma_{i}^{-1})}{\partial p_{s}}\Big|_{p=p'_{0}} (p_{i}(p'_{0})-x_{i}) \\ 
+            &+  (p_{i}(p'_{0})-x_{i})^{T} (\sigma_{i}^{-1}) (\frac{\partial p_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}})]
+    \label{eq:chi2summinimize}
     \end{aligned}
     \end{equation}
-The middle term is small assuming that that the error matrix doesn't change much with respect to the choice of starting parameters. This is true as the error matrix is small due to the low amount of material in the tracker. (In tandem the error matrix doesn't change much from one fitting iteration to the next as long as the path length through the material remains about the same.) The first and third terms are identical in value, and so must therefore both separately be equal to zero. \equref{eq:minimize} is therefore reduced to 
-        \begin{align} \label{eq:solve}
-            0 = \sum_{i=1}^{N} T^{T}_{i0} (\sigma_{i}^{-1}) (p_{i}(p'_{0})-x_{i}),
+The middle term is small and can be neglected assuming that that the error matrix doesn't change much with respect to the choice of starting parameters. This is true as the error matrix is small due to the low amount of material in the tracker. (In tandem the error matrix doesn't change much from one fitting iteration to the next as long as the path length through the material remains about the same.) The first and third terms are identical in value, and so must therefore both separately be equal to zero. \equref{eq:chi2summinimize} is therefore reduced to 
+        \begin{align} \label{eq:chi2sumreduced}
+            0 = \sum_{i=1}^{N} T^{T}_{i0} \sigma_{i}^{-1} (p_{i}(p'_{0})-x_{i}),
         \end{align}
-where $T_{i0}$ is the transport matrix between the starting parameters and plane $i$
+where $T_{i0}$ is the transport matrix between the point at which the starting parameters are defined and plane $i$ given by \equref{eq:transportmatrix}:
         \begin{align} \label{eq:transportfrom0}
-             T_{i0} = \frac{\partial p_{i}(p)}{\partial p}.
+             T_{i0} = \frac{\partial p_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}}
         \end{align}
+
 
 
 
@@ -279,13 +280,13 @@ where $T_{i0}$ is the transport matrix between the starting parameters and plane
         \end{align}
     is the 5x5 covariance matrix of fitted parameters on the starting plane, whose diagonals describe the errors in the 5 track parameters on that plane and in the region close to it. (The fit does not directly return fit errors for track parameters on other planes.) $\Delta p_{0}$ along with $\chi^2$ is exactly what we want to determine since that is what allows us to fit and improve the track from iteration to iteration.
 
-    However, since random processes should not be neglected for optimal tracking results, it makes more sense to return to the original $\chi^2$ in equation \ref{eq:chi2}, only now the included matrix and vector objects are combined into one large linear algebra equation. Instead of a sum over N 5x1 objects multiplying 5x5 error matrices, the vectors are combined into a single 5Nx1 vector multiplying a single 5Nx5N matrix. The 5x5 diagonal blocks of this large error matrix should now include the effects due to material processes as calculated in Geant from equation \ref{eq:sigma} as well as the measurement errors. 
+    However, since random processes should not be neglected for optimal tracking results, it makes more sense to return to the original $\chi^2$ in equation \ref{eq:chi2}, only now the included matrix and vector objects are combined into one large linear algebra equation. Instead of a sum over N 5x1 objects multiplying 5x5 error matrices, the vectors are combined into a single 5Nx1 vector multiplying a single 5Nx5N matrix. The 5x5 diagonal blocks of this large error matrix should now include the effects due to material processes as calculated in Geant from equation \ref{eq:errormatrix} as well as the measurement errors. 
 
     Because now parameters at one plane are no longer independent of the parameters at other planes, due to correlations from these random processes, it's necessary to add off-diagonal elements into the large error matrix. These 5x5 blocks come from 
         \begin{align} \label{eq:corr}
             \sigma_{MN} = T_{MN} \sigma_{N}, 
         \end{align}
-    for the top diagonals, and the transpose for the bottom diagonals, where M and N are two separate planes within the detector. ($\sigma_{N}$ is the error matrix on plane N calculated from the starting plane.) This follows from equation \ref{eq:sigma} evaluated at plane M with respect to a path length from plane N, and not plane 0, which is equivalent to \ref{eq:corr}. 
+    for the top diagonals, and the transpose for the bottom diagonals, where M and N are two separate planes within the detector. ($\sigma_{N}$ is the error matrix on plane N calculated from the starting plane.) This follows from equation \ref{eq:errormatrix} evaluated at plane M with respect to a path length from plane N, and not plane 0, which is equivalent to \ref{eq:corr}. 
 
     You can then minimize the $\chi^{2}$ in the same way, only again with the matrix objects being aggregates of the per plane objects:
         \begin{align} \label{eq:deltafull}
