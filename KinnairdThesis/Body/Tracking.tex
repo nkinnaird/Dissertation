@@ -123,7 +123,7 @@ The transport matrix $T$ is a Jacobian between planes which expresses the infini
     \begin{align} \label{eq:parametertransport}
         \delta p_{N} &= T_{N,N-1} \delta p_{N-1}
     \end{align}
-The error matrix is propagated forward from one plane to another by
+Note that the transport matrix does not propagate the track parameters themselves as with an equation of motion. The error matrix is propagated forward from one plane to another by
     \begin{align} \label{eq:errortransport}
         \sigma_{N} &= T_{N,N-1} \sigma_{N-1} T_{N,N-1}^{T} + \sigma_{\text{material}},
     \end{align}
@@ -220,30 +220,59 @@ The method for fitting and improving the track is a global \chisq minimization a
 
 
 The $\chi^{2}$ for a track is defined as the residuals between predicted and measured parameters on a measurement plane, divided by their errors, summed over all hit planes:
-        \begin{align} \label{eq:chi2sum}
-            \chi^2 = \sum_{i=1}^{N} [(p_{i}(p_{s})-x_{i})^{T} (\sigma_{i}^{-1}) (p_{i}(p_{s})-x_{i})]
-        \end{align}
-$x_{i}$ are vectors of the measured track parameters on plane $i$, $p_{i}$ are vectors of the average predicted track parameters which stem from some general starting parameters $p_{s}$, and $\sigma_{i}$ are the $5 \times 5$ error matrices on the plane\footnote{The vector $p_{s}$ has no numerical value at this time.}. To first order the error matrices consist only of the measurement errors on the U and V parameters and exclude the effects of random material processes. These errors are located in the U and V diagonal elements $(3,3)$ and $(4,4)$ respectively, with corresponding resolutions of \mum{150} as described in \secref{sec:StrawTrackers}. To second order the material error matrices as calculated by Geane are added to the measurement errors. Because the measured parameters are solely U or V measurements, the $x_{i}$ vectors are $5 \times 1$ objects where only the $(3)$ or $(4)$ elements have any meaning respectively\footnote{A straw tracker module as a whole can be approximated as measuring in 2D space, but this leads to worse tracking results as compared to the natural tracker measurement frame in 1D space of U or V. A fitting algorithm which fits the true measurement space of the drift circles themselves would be even better.}. The errors on the non-measured parameters in the diagonals of the error matrix are taken as infinite, such that when the error matrix is inverted all corresponding rows and columns of the final matrix on each plane reduce to zero and contribute nothing to the $\chi^{2}$.
+    \begin{align} \label{eq:chi2sum}
+        \chi^2 = \sum_{i=1}^{N} [(p_{i}(p_{s})-x_{i})^{T} (\sigma_{i}^{-1}) (p_{i}(p_{s})-x_{i})]
+    \end{align}
+$x_{i}$ are vectors of the measured track parameters on plane $i$, $p_{i}$ are vectors of the average predicted track parameters which stem from some general starting parameters $p_{s}$, and $\sigma_{i}$ are the $5 \times 5$ error matrices on the plane\footnote{The vector $p_{s}$ has no numerical value at this time.}. To first order the error matrices consist only of the measurement errors on the U and V parameters and exclude the effects of random material processes. These errors are located in the U and V diagonal elements $(3,3)$ and $(4,4)$ respectively, with corresponding resolutions of \mum{150} as described in \secref{sec:StrawTrackers}. At second order the material error matrices as calculated by Geane are added to the measurement errors. Because the measured parameters consist of solely U or V measurements, the $x_{i}$ vectors are $5 \times 1$ objects where only the $(3)$ or $(4)$ elements have any meaning respectively\footnote{A straw tracker module as a whole can be approximated as measuring in 2D space, but this leads to worse tracking results as compared to the natural tracker measurement frame in 1D space of U or V. A fitting algorithm which fits the true measurement space of the drift circles themselves would be even better.}. The errors on the non-measured parameters in the diagonals of the error matrix are taken as infinite, such that when the error matrix is inverted all corresponding rows and columns of the final matrix on each plane reduce to zero and contribute nothing to the $\chi^{2}$.
 
 
-In order to fit the track, the $\chi^{2}$ is minimized with respect to the initial track parameters $p_{s}$, and evaluated at a specific set of those starting paramters $p'_{0}$:
+By minimizing this \chisq with respect to the starting parameters $p_{s}$, and evaluating it at the target best starting guesses $p'_{0}$, which are the parameters of interest, the track can be fit:
     \begin{equation}
     \begin{aligned}
         \frac{\partial \chi^{2}}{\partial p_{s}}\Big|_{p_{s}=p'_{0}} = 0 
-            &= \sum_{i=1}^{N}[ (\frac{\partial p_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}})^{T} (\sigma_{i}^{-1}) (p_{i}(p'_{0})-x_{i}) \\ 
-            &+ (p_{i}(p'_{0})-x_{i})^{T} \frac{\partial(\sigma_{i}^{-1})}{\partial p_{s}}\Big|_{p=p'_{0}} (p_{i}(p'_{0})-x_{i}) \\ 
-            &+  (p_{i}(p'_{0})-x_{i})^{T} (\sigma_{i}^{-1}) (\frac{\partial p_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}})]
+            &= \sum_{i=1}^{N}\Big[ \Big(\frac{\partial p_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}}\Big)^{T} (\sigma_{i}^{-1}) (p_{i}(p'_{0})-x_{i}) \\ 
+            &+ (p_{i}(p'_{0})-x_{i})^{T} \Big(\frac{\partial(\sigma_{i}^{-1})}{\partial p_{s}}\Big|_{p=p'_{0}}\Big) (p_{i}(p'_{0})-x_{i}) \\ 
+            &+  (p_{i}(p'_{0})-x_{i})^{T} (\sigma_{i}^{-1}) \Big(\frac{\partial p_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}}\Big)\Big]
     \label{eq:chi2summinimize}
     \end{aligned}
     \end{equation}
-The middle term is small and can be neglected assuming that that the error matrix doesn't change much with respect to the choice of starting parameters. This is true as the error matrix is small due to the low amount of material in the tracker. (In tandem the error matrix doesn't change much from one fitting iteration to the next as long as the path length through the material remains about the same.) The first and third terms are identical in value, and so must therefore both separately be equal to zero. \equref{eq:chi2summinimize} is therefore reduced to 
-        \begin{align} \label{eq:chi2sumreduced}
-            0 = \sum_{i=1}^{N} T^{T}_{i0} \sigma_{i}^{-1} (p_{i}(p'_{0})-x_{i}),
-        \end{align}
+The middle term is small and can be neglected assuming that that the error matrix doesn't change much with respect to the choice of starting parameters. This is true as the error matrix is already small due to the low amount of material in the tracker. (In tandem the error matrix doesn't change much from one fitting iteration to the next as long as the path length through the material remains about the same.) The first and third terms are identical in value, and so must therefore both separately be equal to zero. \equref{eq:chi2summinimize} is therefore reduced to 
+    \begin{align} \label{eq:chi2sumreduced}
+        0 = \sum_{i=1}^{N} T^{T}_{i0} \sigma_{i}^{-1} (p_{i}(p'_{0})-x_{i}),
+    \end{align}
 where $T_{i0}$ is the transport matrix between the point at which the starting parameters are defined and plane $i$ given by \equref{eq:transportmatrix}:
-        \begin{align} \label{eq:transportfrom0}
-             T_{i0} = \frac{\partial p_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}}
-        \end{align}
+    \begin{align} \label{eq:transportfrom0}
+         T_{i0} = \frac{\partial p_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}}
+    \end{align}
+In minimizing the \chisq the desire is to update some original set of starting track parameters $p_{0}$ to the new best ones $p'_{0}$. This difference, $\Delta p_{0}$, can be determined by substituting the following equation into \equref{eq:chi2sumreduced},
+    \begin{align} \label{eq:psub}
+        p_{i}(p'_{0}) = p_{i}(p_{0}) + T_{i0} \Delta p_{0},
+    \end{align}
+which follows from \equref{eq:parametertransport}. After simplifying one arrives at 
+    \begin{align} \label{eq:deltap}
+        \Delta p_{0} = \sigma_{p_{0}} \sum_{i=1}^{N} T^{T}_{i0}(\sigma_{i}^{-1})(x_{i} - p_{i}(p_{0})),
+    \end{align}
+where
+    \begin{align} \label{eq:cov}
+        \sigma_{p_{0}} = [\sum_{i=1}^{N} T^{T}_{i0} (\sigma_{i}^{-1}) T_{i0} ]^{-1}.
+    \end{align}
+$\sigma_{p_{0}}$ is a $5 \times 5$ covariance matrix of the starting fit parameters, where the diagonals describe the fit errors in the 5 track parameters at that point. 
+% \footnote{It should be noted that this minimization procedure does not supply the fit errors on each of the measurement planes, and only does so at the starting plane of the track.}
+
+To summarize, an initial set of starting parameters $p_{0}$ are propagated forwards in Geane to produce predicted track parameters, transport matrices, and error matrices. These objects along with the measured parameters are plugged into the \chisq minimization algorithm detailed here to provide a \chisq describing the goodness of the fit corresponding to those original starting parameters, an improvement $\Delta p_{0}$ to those starting track parameters, and the errors $\sigma_{p_{0}}$ on those starting parameters. This consists of a single iteration of the track fitting. In order to determine the predicted parameters of the track corresponding to the improved starting parameters, the procedure needs to be repeated. The track fitting is iterated until the \chisq no longer improves, at which point the track fitting is said to have converged. Typically three or four iterations are enough to get a best fit track, as shown in \figref{iterationsfigure}. As a reminder the initial set of starting parameters is given by a circle fit to the hit straws as described at the end of \secref{sec:TrackFinding}. The starting parameters for a track are defined on a virtual $0$ plane parallel to the measurement planes, where the placement of the $0$ plane is defined based on a track by track basis and is placed at a point $\SI{1}{cm}$ in front of the first straw tracker module that was hit. Note that there is remarkable robustness with respect to the initial starting parameters in fitting the track. Of course if the initial starting parameters are too poor, then the fit will not converge. 
+
+
+
+
+
+
+
+% could potentially show some results here
+
+
+\subsection{Including material correlations}
+
+material effects on one plane cause scattering meaning there are material correlations to all other planes...
 
 
 
@@ -252,33 +281,12 @@ where $T_{i0}$ is the transport matrix between the point at which the starting p
 
 
 
- -As a reminder the initial set of starting parameters is given by a circle fit as described at the end of \secref{sec:TrackFinding}. 
-
--need to define the starting point of the track somwehere
-
-
-
-
-
         % \begin{align} \label{eq:chi2}
         %     \chi^2 = (\vec{p}-\vec{x})^{T} (\sigma^{-1}) (\vec{p}-\vec{x}),
         % \end{align
 
-    To solve this make the substitution 
-        \begin{align} \label{eq:psub}
-            p_{i}(p'_{0}) = p_{i}(p_{0}) + \frac{\partial p_{i}(p_{0})}{\partial p} \Delta p_{0} = p_{i}(p_{0}) + T_{i0} \Delta p_{0},
-        \end{align}
-    where $p'_{0}$ are the improved starting parameters for the next iteration calculated from the previous starting parameters $p_{0}$, and $\Delta p_{0}$ are the changes in the starting parameters to improve the track. This equation can be plugged into the above if one makes the assumption that $T_{i0}$ does not change much from one iteration the next, which follows from the inherent nature of making small adjustments to the track in order to improve it.
 
-    After simplifying one arrives at 
-        \begin{align} \label{eq:deltap}
-            \Delta p_{0} = \sigma_{p_{0}} \sum_{i=1}^{N} T^{T}_{i0}(\sigma_{i}^{-1})(x_{i} - p_{i}(p_{0})),
-        \end{align}
-    where
-        \begin{align} \label{eq:cov}
-            \sigma_{p_{0}} = [\sum_{i=1}^{N} T^{T}_{i0} (\sigma_{i}^{-1}) T_{i0} ]^{-1},
-        \end{align}
-    is the 5x5 covariance matrix of fitted parameters on the starting plane, whose diagonals describe the errors in the 5 track parameters on that plane and in the region close to it. (The fit does not directly return fit errors for track parameters on other planes.) $\Delta p_{0}$ along with $\chi^2$ is exactly what we want to determine since that is what allows us to fit and improve the track from iteration to iteration.
+
 
     However, since random processes should not be neglected for optimal tracking results, it makes more sense to return to the original $\chi^2$ in equation \ref{eq:chi2}, only now the included matrix and vector objects are combined into one large linear algebra equation. Instead of a sum over N 5x1 objects multiplying 5x5 error matrices, the vectors are combined into a single 5Nx1 vector multiplying a single 5Nx5N matrix. The 5x5 diagonal blocks of this large error matrix should now include the effects due to material processes as calculated in Geant from equation \ref{eq:errormatrix} as well as the measurement errors. 
 
@@ -300,7 +308,7 @@ where $T_{i0}$ is the transport matrix between the point at which the starting p
 
     The unmeasured parameter errors of infinity still come into play in the final calculation in the same was as before. Because however these matrix objects are very large, and the tracking must have a certain amount of speed in order to keep up with data, it is useful to reduce the size of these matrices. (It also makes things easier programming wise. Note that there are other some other ways to speed things up, specifically the banded inversion method as described in reference \cite{trajfit}. This method was not used in favor of getting the code working in the simpler form in the first place, but it is a possibility in the future to use this technique to speed things up even more.) It suffices to simply remove all rows and columns where said infinity values exist in the error matrix. This is mathematically equivalent to inverting the error matrix with the infinities included, which make all rows and columns where they exist go to zero. The associated unmeasured parameter rows in the residual vector and transport matrices must similarly be removed. This results in an Nx1 residual vector, NxN error matrix, 5xN combined transport matrix transpose, which multiply against the 5x5 covariance matrix out front to still result in a 5x1 fix to the starting parameters, and a scalar $\chi^2$ value. (Note that these element removals should be done just before the final calculation, and not higher up in the algebra, otherwise plane correlations are not properly calculated.)
 
-    By calculating the last two equations one can fit the track, acquire a $\chi^{2}$ describing the degree of the fit, determine how the track parameters can be improved at the starting point, and calculate errors on those starting parameters. This algorithm can be iterated a number of times to get a best fit track until successive iterations produce no improvement, where usually 3 or 4 iterations is enough. Note that there is remarkable robustness with respect to the initial starting parameters in fitting the track. Of course if the initial starting parameters are too poor, then the fit will not converge. All of these calculations are completed within the \hyperref[sec:GeaneFitter]{GeaneFitter.cc} file within the framework.
+
 
 
 
