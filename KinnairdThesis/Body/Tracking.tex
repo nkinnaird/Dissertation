@@ -49,12 +49,13 @@ After a track candidate has been formed a number of checks are made before passi
 \label{sec:TrackFitting}
 
 
-The track fitting stage takes the track candidates from the track finding stage, and outputs a best fit trajectory to those candidates. This includes optimal state vectors and error matrices for the track at each measurement plane and at a ficticious starting plane at the entrance to the straw tracking detector. The track fitting routines can roughly be split into two parts, error propagation and the actual fitting and improvement of the track. The implementation of these parts go hand in hand, and will be described in turn.
+The track fitting stage takes the track candidates from the track finding stage, and outputs a best fit trajectory to those candidates. This includes optimal state vectors and error matrices for the track at each measurement plane and at a ficticious starting plane at the entrance to the straw tracking detector. The track fitting routines can roughly be split into two parts, error propagation and the actual fitting and improvement of the track. The implementation of these parts go hand in hand, and will be described in turn. 
 
 
 \subsection{Error propagation and coordinate systems}
+\label{sub:Geane}
 
-To put it simply, the process of error propagation involves taking track parameters and error matrices (which describe the spread in those track parameters) and transporting them along discrete steps from one point to another, accounting for changes due to any present magnetic fields or material along the step path. There is a set of error propagation routines originally written in Fortran by the EMC collaboration, called ``Geometry and Error Propagation'' or Geane \cite{geanemanual}. Geane works by propagating particles along their average trajectories neglecting the effects of discrete processes, using a helix equation along small enough steps where the change in the magnetic field is small. These routines were used in the E821 experiment as well as the PANDA experiment with some success \cite{Lavezzi}. The Geane routines were at one point converted to C++ and added to Geant4. The strength of using Geane within a Geant4 simulation lies in its direct access to the Geant4 geometry and field. This is crucially important for the E989 track fitting because the trackers live in a region of high field non-uniformity. Shown in \figref{fig:Opera2DFields} is the location of the tracker with respect to the radial and vertical fields. As shown the radial field in the tracker region rises from $\SI{0}{T}$ at the outer ends to roughly $\SI{.3}{T}$ at the inner top and bottom ends, and the vertical field drops approximately 50\% from the storage dipole field of $\SI{1.451}{T}$. These large field gradients over the tracking measurement space must be handled appropriately, which Geane does nicely.
+To put it simply, the process of error propagation involves taking track parameters and error matrices (which describe the spread in those track parameters) and transporting them along discrete steps from one point to another, accounting for changes due to any present magnetic fields or material along the step path. There is a set of error propagation routines originally written in Fortran by the EMC collaboration, called ``Geometry and Error Propagation'' or Geane \cite{geanemanual}. Geane works by propagating particles along their average trajectories neglecting the effects of discrete processes, using a helix equation along small enough steps where the change in the magnetic field is small. These routines were used in the E821 experiment as well as the PANDA and FINUDA experiments with some success \cite{Lavezzi}. The Geane routines were at one point converted to C++ and added to Geant4. The strength of using Geane within a Geant4 simulation lies in its direct access to the Geant4 geometry and field. This is crucially important for the E989 track fitting because the trackers live in a region of high field non-uniformity. Shown in \figref{fig:Opera2DFields} is the location of the tracker with respect to the radial and vertical fields. As shown the radial field in the tracker region rises from $\SI{0}{T}$ at the outer ends to roughly $\SI{.3}{T}$ at the inner top and bottom ends, and the vertical field drops approximately 50\% from the storage dipole field of $\SI{1.451}{T}$. These large field gradients over the tracking measurement space must be handled appropriately, which Geane does nicely.
 
 
 
@@ -211,10 +212,6 @@ where the superscripts of $XY$ or $UV$ identify which coordinate system the obje
 % -it was found that doing the minimization in UV space removed correlations (cite James here) instead of XY, docdb 3813
 % -performing the minimization in UV is most natural
 
-% -fit in GeV cm vs MeV mm
-% -don't forget to cite my track fitting note maybe
-
-
 
 The method for fitting and improving the track is a global \chisq minimization algorithm that uses the transport and error matrices as described previously \cite{geanemanual,trajfit}. This straightforward global fitting algorithm works because of the minimal amount of material contained within the tracker and the resulting small correlations between planes. For denser detectors with greater correlations, other fitting algorithms such as a Kalman filter should be used \cite{Lavezzi}. The following derivations and minimization assume measurements on planes in the tracker measurement frame described by \equref{eq:trackermeasurementframe}, but it should be noted that the results apply to any reference frame. A derivation for a \chisq including no material correlations is presented followed by one which includes said correlations.
 
@@ -223,7 +220,7 @@ The $\chi^{2}$ for a track is defined as the residuals between predicted and mea
     \begin{align} \label{eq:chi2sum}
         \chi^2 = \sum_{i=1}^{N} [(p_{i}(p_{s})-x_{i})^{T} (\sigma_{i}^{-1}) (p_{i}(p_{s})-x_{i})]
     \end{align}
-$x_{i}$ are vectors of the measured track parameters on plane $i$, $p_{i}$ are vectors of the average predicted track parameters which stem from some general starting parameters $p_{s}$, and $\sigma_{i}$ are the $5 \times 5$ error matrices on the plane\footnote{The vector $p_{s}$ has no numerical value at this time.}. To first order the error matrices consist only of the measurement errors on the U and V parameters and exclude the effects of random material processes. These errors are located in the U and V diagonal elements $(3,3)$ and $(4,4)$ respectively, with corresponding resolutions of \mum{150} as described in \secref{sec:StrawTrackers}. At second order the material error matrices as calculated by Geane are added to the measurement errors. Because the measured parameters consist of solely U or V measurements, the $x_{i}$ vectors are $5 \times 1$ objects where only the $(3)$ or $(4)$ elements have any meaning respectively\footnote{A straw tracker module as a whole can be approximated as measuring in 2D space, but this leads to worse tracking results as compared to the natural tracker measurement frame in 1D space of U or V. A fitting algorithm which fits the true measurement space of the drift circles themselves would be even better.}. The errors on the non-measured parameters in the diagonals of the error matrix are taken as infinite, such that when the error matrix is inverted all corresponding rows and columns of the final matrix on each plane reduce to zero and contribute nothing to the $\chi^{2}$.
+$x_{i}$ are vectors of the measured track parameters on plane $i$, $p_{i}$ are vectors of the average predicted track parameters which stem from some general starting parameters $p_{s}$, and $\sigma_{i}$ are the $5 \times 5$ error matrices on the plane\footnote{The vector $p_{s}$ has no numerical value at this time.}. To first order the error matrices consist only of the measurement errors on the U and V parameters and exclude the effects of random material processes. These errors are located in the U and V diagonal elements $(3,3)$ and $(4,4)$ respectively, with corresponding resolutions of \mum{150} as described in \secref{sec:StrawTrackers}. At second order the material error matrices as calculated by Geane are added to the measurement errors. Because the measured parameters consist of solely U or V measurements, the $x_{i}$ vectors are $5 \times 1$ objects where only the $(3)$ or $(4)$ elements have any meaning respectively\footnote{A straw tracker module as a whole can be approximated as measuring in 2D space, but this leads to correlations between measured parameters which must be taken into account, as compared to the natural tracker measurement frame in 1D space of U or V for which there are no measurement correlations \cite{UVcorrelations}. A fitting algorithm which fits the true measurement space of the drift circles themselves would be even better.}. The errors on the non-measured parameters in the diagonals of the error matrix are taken as infinite, such that when the error matrix is inverted all corresponding rows and columns of the final matrix on each plane reduce to zero and contribute nothing to the $\chi^{2}$.
 
 
 By minimizing this \chisq with respect to the starting parameters $p_{s}$, and evaluating it at the target best starting guesses $p'_{0}$, which are the parameters of interest, the track can be fit:
@@ -270,62 +267,51 @@ To summarize, an initial set of starting parameters $p_{0}$ are propagated forwa
 % could potentially show some results here
 
 
-\subsection{Including material correlations}
-
-material effects on one plane cause scattering meaning there are material correlations to all other planes...
+\subsection{Material correlations}
 
 
-
-
-\clearpage
-
-
-
-        % \begin{align} \label{eq:chi2}
-        %     \chi^2 = (\vec{p}-\vec{x})^{T} (\sigma^{-1}) (\vec{p}-\vec{x}),
-        % \end{align
-
-
-
-
-    However, since random processes should not be neglected for optimal tracking results, it makes more sense to return to the original $\chi^2$ in equation \ref{eq:chi2}, only now the included matrix and vector objects are combined into one large linear algebra equation. Instead of a sum over N 5x1 objects multiplying 5x5 error matrices, the vectors are combined into a single 5Nx1 vector multiplying a single 5Nx5N matrix. The 5x5 diagonal blocks of this large error matrix should now include the effects due to material processes as calculated in Geant from equation \ref{eq:errormatrix} as well as the measurement errors. 
-
-    Because now parameters at one plane are no longer independent of the parameters at other planes, due to correlations from these random processes, it's necessary to add off-diagonal elements into the large error matrix. These 5x5 blocks come from 
-        \begin{align} \label{eq:corr}
-            \sigma_{MN} = T_{MN} \sigma_{N}, 
+Random processes due to material contribute to the error matrix in \equref{eq:errormatrix} as described in \secref{sub:Geane}. The random scattering of a particle trajectory at one plane means that there is an extra error in all further planes. \equref{eq:chi2sum} does not take into account these material correlations between measurement planes when fitting the track. While this provides a decent approximation of the best fit track in the low material tracker, a better estimate of the track trajectory can be calculated. To do this a more general version of the \chisq equation can be used:
+        \begin{align} \label{eq:chi2full}
+            \chi^2 = (\vec{p}-\vec{x})^{T} (\sigma^{-1}) (\vec{p}-\vec{x}).
         \end{align}
-    for the top diagonals, and the transpose for the bottom diagonals, where M and N are two separate planes within the detector. ($\sigma_{N}$ is the error matrix on plane N calculated from the starting plane.) This follows from equation \ref{eq:errormatrix} evaluated at plane M with respect to a path length from plane N, and not plane 0, which is equivalent to \ref{eq:corr}. 
-
-    You can then minimize the $\chi^{2}$ in the same way, only again with the matrix objects being aggregates of the per plane objects:
-        \begin{align} \label{eq:deltafull}
-            \Delta \vec{p}_{0} = \sigma_{p_{0}} \tau^{T}\sigma^{-1}(\vec{x}-\vec{p}),
-        \end{align}
-        %
-        \begin{align} \label{eq:covfull}
-            \sigma_{p_{0}} = [\tau^{T} \sigma^{-1} \tau ]^{-1},
-        \end{align}
-    where $\tau$ is the combined transport matrices from the individual 5x5 matrices, a 5Nx5 object.
-
-    The unmeasured parameter errors of infinity still come into play in the final calculation in the same was as before. Because however these matrix objects are very large, and the tracking must have a certain amount of speed in order to keep up with data, it is useful to reduce the size of these matrices. (It also makes things easier programming wise. Note that there are other some other ways to speed things up, specifically the banded inversion method as described in reference \cite{trajfit}. This method was not used in favor of getting the code working in the simpler form in the first place, but it is a possibility in the future to use this technique to speed things up even more.) It suffices to simply remove all rows and columns where said infinity values exist in the error matrix. This is mathematically equivalent to inverting the error matrix with the infinities included, which make all rows and columns where they exist go to zero. The associated unmeasured parameter rows in the residual vector and transport matrices must similarly be removed. This results in an Nx1 residual vector, NxN error matrix, 5xN combined transport matrix transpose, which multiply against the 5x5 covariance matrix out front to still result in a 5x1 fix to the starting parameters, and a scalar $\chi^2$ value. (Note that these element removals should be done just before the final calculation, and not higher up in the algebra, otherwise plane correlations are not properly calculated.)
+Here $\vec{x}$ and $\vec{p}$ are a $5N \times 1$ vectors of the measured and predicted track parameters respectively, where $N$ is the number of planes hit, and these objects are the combined vectors of the corresponding objects in \equref{eq:chi2sum}. Similarly, $\sigma^{-1}$ is a $5N \times 5N$ matrix, where the $5 \times 5$ diagonal blocks are the individual plane error matrices described before, calculated between plane 0 and $N$. Solving for the \chisq is now recasted from a sum over measurement planes into a single large linear algebra equation. At this point both calculations of the \chisq's are equivalent.
 
 
+The new format however allows for the material correlations between planes to be included, where these correlations are added as $5 \times 5$ matrices in the off-diagonal blocks of the new large error matrix. The upper diagonals are given by 
+    \begin{align} \label{eq:corr}
+        \sigma_{MN} = T_{MN} \sigma_{N}, 
+    \end{align}
+where $\sigma_{MN}$ is the material correlation matrix between plane $M$ and plane $N$, and $\sigma_{N}$ is still defined from \equref{eq:errortransport}, as calculated from the 0 starting plane. \textbf{Need to cite or prove this equation, should do the latter but I can't quite remember the derivation at the moment.} The lower diagonals are just the transpose of \equref{eq:corr}. The \chisq is minimized in the same way as was done in the previous section such that the improvement to the starting track parameters $\Delta p_{0}$ remains a $5 \times 1$ vector and is given by
+    \begin{align} \label{eq:deltafull}
+        \Delta p_{0} &= \sigma_{p_{0}} \tau^{T}\sigma^{-1}(\vec{x}-\vec{p}), \\
+        \sigma_{p_{0}} &= [\tau^{T} \sigma^{-1} \tau ]^{-1},
+    \end{align}
+where $\tau$ is a $5N \times 5$ object of the individual transport matrices combined together.
 
 
-
+In the inversion of the $5N \times 5N$ error matrix, the unmeasured parameter errors of infinity reduce all corresponding rows and columns to 0 in the same way as described before. Because these matrix objects are very large, where $N$ ranges from \SIrange{6}{32}{}, one can imagine that the inversion is a slow process. The tracking must have a certain amount of speed for the data to be efficiently processed and fit, which makes these inversions unfeasible. The solution used was to reduce the size of the $5N \times 5N$ matrix to an $N \times N$ one, simply by eliminating the rows and columns that would be sent to 0 anyways. The corresponding rows and columns of the unmeasured parameters in the combined transport matrix $\tau$ and $5N \times 1$ residual vector are also removed, resulting in an $N \times 5$ matrix for $\tau$ and an $N \times 1$ vector for the residuals. The covariance matrix $\sigma_{p_{0}}$ remains a $5 \times 5$ matrix as it should, and the final \chisq calculation is unaffected\footnote{Note that these element removals are done just before the final calculation of the \chisq and fit to the track and not at the beginning of the algebra, otherwise the plane material correlations are not properly included.}. Note that besides this $N \times N$ matrix inversion method, there is another way to do the inversion in a faster manner, which is described in \refref{trajfit}.
 
 
 
+\clearpage % stopper for where I'm at 
 
-% Structure for the track fitting section:
-% 1. Introduction to Geane and what it gives you, why we use it, etc.
-% 2. Explanation of chi2 fitting routine used, brief mention of other possible fitting possibilties
-%     1. Material correlations
-%     2. Which parameters are measured and which aren't
-%     3. Jacobians and transformations used everywhere
-%         1. Probably some math on this last guy
-% 3. Types of fitting used, various modes and options
-%     1. Left-right ambiguity
-% 4. Plots and images everywhere showing what all I've done
+    
+% ($\sigma_{N}$ is the error matrix on plane N calculated from the starting plane.) This follows from equation \ref{eq:errormatrix} evaluated at plane M with respect to a path length from plane N, and not plane 0, which is equivalent to \ref{eq:corr}. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Truth/simulated fit results - fit to mc data}
 
 
 
@@ -335,6 +321,11 @@ material effects on one plane cause scattering meaning there are material correl
 
 
 \subsection{Plots and results and stuff}
+
+
+% 3. Types of fitting used, various modes and options
+%     1. Left-right ambiguity
+% 4. Plots and images everywhere showing what all I've done
 
 
 -go into all tests and pieces of the code
@@ -355,6 +346,11 @@ material effects on one plane cause scattering meaning there are material correl
 
 
 
+\subsection{In the code}
+
+-should this be it's own section? should the picture be include at all? moved to the appendix?
+
+Details of the track fitting code itself is described in \refref{trackfittingdoc}. 
 
 
 \begin{figure}[]
