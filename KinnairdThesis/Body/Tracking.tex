@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/TrackingFigures/}{Body/Figures/TrackingFigures/MainPlots/}{Body/Figures/TrackingFigures/MainPlots/PlanePlots/}{Body/Figures/TrackingFigures/MainPlots/PullPlots/}{Body/Figures/TrackingFigures/MainPlots/Residuals/}{Body/Figures/TrackingFigures/eLossAndMaterial/}{Body/Figures/TrackingFigures/CoordSys/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/TrackingFigures/Field/}{Body/Figures/TrackingFigures/TrackingFlow/}{Body/Figures/TrackingFigures/LeftRight/}{Body/Figures/TrackingFigures/Misc/}{Body/Figures/TrackingFigures/Extrapolation/}{Body/Figures/TrackingFigures/Tracks/}{Body/Figures/TrackingFigures/BeamMeasurements/}{Body/Figures/TrackingFigures/MCDataComparison/}}
+\graphicspath{{Body/Figures/TrackingFigures/}{Body/Figures/TrackingFigures/MainPlots/}{Body/Figures/TrackingFigures/MainPlots/PlanePlots/}{Body/Figures/TrackingFigures/MainPlots/PullPlots/}{Body/Figures/TrackingFigures/MainPlots/Residuals/}{Body/Figures/TrackingFigures/eLossAndMaterial/}{Body/Figures/TrackingFigures/CoordSys/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/TrackingFigures/Field/}{Body/Figures/TrackingFigures/TrackingFlow/}{Body/Figures/TrackingFigures/LeftRight/}{Body/Figures/TrackingFigures/Misc/}{Body/Figures/TrackingFigures/Extrapolation/}{Body/Figures/TrackingFigures/Tracks/}{Body/Figures/TrackingFigures/BeamMeasurements/}{Body/Figures/TrackingFigures/MCDataComparison/}{Body/Figures/TrackingFigures/VacuumPlots/}}
 
 \chapter{Track Reconstruction and Analysis}
 \label{chapter:TrackReconstruction}
@@ -95,7 +95,7 @@ In the free system, the $\lambda$ and $\phi$ parameters are the dip $(\pi/2 - \t
         \begin{align}
             \frac{1}{p}, \frac{p_{x}}{p_{z}}, \frac{p_{y}}{p_{z}}, x, y.
         \end{align}
-In both free and surface systems the track is represented by one momentum parameter, two directional parameters, and two position parameters. Needing six independent parameters to describe a particle in space and momentum (three momentum and three position parameters), one parameter is left out and taken as a known variable. For Geane this is taken either as a known path length in the free system, or a known U coordinate in the surface system (or known Z coordinate in our tracker reference frame). In our tracker reference frame, the 32 straw layers corresponding to a tracking station are defined at known local Z coordinates. The path lengths for steps in Geane can be set to be equal to the distance for a track to travel between between detector planes, and therefore the track parameter dependence on the path length can instead by replaced by a dependence on plane number.
+In both free and surface systems the track is represented by one momentum parameter, two directional parameters, and two position parameters. Needing six independent parameters to describe a particle in space and momentum (three momentum and three position parameters), one parameter is left out and taken as a known variable. For Geane this is taken either as a known path length in the free system, or a known U coordinate in the surface system (or known Z coordinate in our tracker reference frame). In our tracker reference frame, the 32 straw layers corresponding to a tracking station are defined at known local Z coordinates. The path lengths for steps in Geane can be set to be equal to the distance for a track to travel between between detector planes, and therefore the track parameter dependence on the path length can instead by replaced by a dependence on plane number. The number of degrees of freedom per track is the number of measurements planes it hits, $N$, minus 5 for the number of track parameters.
 
 \begin{figure}[]
   \centering
@@ -259,12 +259,68 @@ $\sigma_{p_{0}}$ is a $5 \times 5$ covariance matrix of the starting fit paramet
 To summarize, an initial set of starting parameters $p_{0}$ are propagated forwards in Geane to produce predicted track parameters, transport matrices, and error matrices. These objects along with the measured parameters are plugged into the \chisq minimization algorithm detailed here to provide a \chisq describing the goodness of the fit corresponding to those original starting parameters, an improvement $\Delta p_{0}$ to those starting track parameters, and the errors $\sigma_{p_{0}}$ on those starting parameters. This consists of a single iteration of the track fitting. In order to determine the predicted parameters of the track corresponding to the improved starting parameters, the procedure needs to be repeated. The track fitting is iterated until the \chisq no longer improves, at which point the track fitting is said to have converged. Typically three or four iterations are enough to get a best fit track, as shown in \figref{iterationsfigure}. As a reminder the initial set of starting parameters is given by a circle fit to the hit straws as described at the end of \secref{sec:TrackFinding}. The starting parameters for a track are defined on a virtual $0$ plane parallel to the measurement planes, where the placement of the $0$ plane is defined based on a track by track basis and is placed at a point $\SI{1}{cm}$ in front of the first straw tracker module that was hit. Note that there is remarkable robustness with respect to the initial starting parameters in fitting the track. Of course if the initial starting parameters are too poor, then the fit will not converge. 
 
 
+\subsection{Fits to idealized tracks in vacuum}
 
 
+The tracking algorithm was first built and tested in a toy Monte-Carlo Geant4 simulation, and then ported over to the full \gmtwo simulation in \textit{art}. In the initial tests of the track fitting material was turned off and the measured hits were defined as the truth hits with some known smearing. (The truth hits are accessible within the Geant4 simulation by defined ``dummy plane'' detectors which record hits at the straw measurement planes.) Plots showing the goodness-of-fit for the fitted tracks are shown in \figref{fig:VacuumGoodnessOfFit}. Beyond the goodness-of-fit plots, the other measure of how good the track fitting is performing is to plot the truth pulls of the fit parameters. The truth pulls are defined as the residual between the fitted parameter and the truth parameter, divided by the fit error on that parameter:
+    \begin{align}
+        \frac{\Delta p^{i}_{0}}{\sigma_{p_{0}}^{ii}} = \frac{p^{i}_{0, \text{fit}} - p^{i}_{0, \text{true}}}{\sigma_{p_{0}}^{ii}}
+    \end{align}
+Since the \chisq minimization returns fit parameters and errors on the starting plane, this is where the truth pulls are defined. Plots of the truth pulls for the five track parameters are shown in \figref{fig:VacuumTruthPulls}, where each pull is a unit Gaussian as they should be for idealized results.
 
 
+% By turning the material off, any scattering effects are eliminated which might affect the \chisq and fitted track. By taking the measured hits as truth hits, and dependence on which side of the wire the track went is removed. % This last bit is weird to say now since I haven't really talked about the left-right stuff yet.
 
-% could potentially show some results here
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Vacuum_Pvalue}
+            \caption{P value distribution for all tracks.}
+        \end{subfigure}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Vacuum_Chi2}
+            \caption{\chisq distribution for tracks which hit 24 planes.}
+        \end{subfigure}
+    \caption[P value and \chisq distribution for fitted tracks in vacuum]{Goodness-of-fit distributions for fitted tracks in vacuum, with no material effects. The P value distribution is flat, and the \chisq distribution matches a normalized \chisq pdf for 19 degrees of freedom which is overlayed in red. (\chisq distributions for tracks which hit other numbers of planes are very similar.)}
+    \label{fig:VacuumGoodnessOfFit}
+    \end{figure}
+
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Vacuum_TruthPull_1P}
+            \caption{$1/P$}
+        \end{subfigure}%
+
+        \vspace{2mm}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Vacuum_TruthPull_PuPz}
+            \caption{$P_{u}/P_{z}$}
+        \end{subfigure}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Vacuum_TruthPull_PvPz}
+            \caption{$P_{v}/P_{z}$}
+        \end{subfigure}%
+        \vspace{2mm}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Vacuum_TruthPull_U}
+            \caption{$U$}
+        \end{subfigure}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Vacuum_TruthPull_V}
+            \caption{$V$}
+        \end{subfigure}% 
+    \caption[Track parameter truth pulls for fitted tracks in vacuum]{Truth pulls for the five fitted track parameters at the starting plane of the track, for tracks in vacuum with no material effects. The plots are shown on a log scale, and each are fit to a Gaussian in red. Each fit is consistent to a unit Gaussian with a mean of zero and an RMS of 1, showing that the track fitting is working properly.}
+    \label{fig:VacuumTruthPulls}
+    \end{figure}
+
 
 
 \subsection{Material correlations}
@@ -308,6 +364,8 @@ Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \S
 
 \subsection{Fits to simulated tracks}
 
+%material fits with truth left right taken into account
+
 
 
 
@@ -318,15 +376,12 @@ Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \S
 \subsection{Left right ambiguity}
 \label{sub:leftright}
 
-
+% really define the left right ambiguity here first - with a reference back to the detector section
 
 
 
 % General notes: Just put plots in to start, I can clean up everything later 
 
-% Could show truth fit results after initial chi2 section, and then show material fit results after material correlations section
-%     -plots to show: pvalue, chi2 for a single ndf with overlaid line, 5 truth pulls, just to show that the track fitting is working
-%     -don't show distributions yet - save those for material or LR fits
 
 % -then for plots after the material correlations side of things, show the improvement of the chi2 along with all the other plots from the track fitting doc - worry about improving the plots later - need to overlay gaussians though..
 
