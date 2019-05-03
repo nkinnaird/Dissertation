@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/TrackingFigures/}{Body/Figures/TrackingFigures/MainPlots/}{Body/Figures/TrackingFigures/MainPlots/PlanePlots/}{Body/Figures/TrackingFigures/MainPlots/PullPlots/}{Body/Figures/TrackingFigures/MainPlots/Residuals/}{Body/Figures/TrackingFigures/eLoss/}{Body/Figures/TrackingFigures/CoordSys/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/TrackingFigures/Field/}{Body/Figures/TrackingFigures/TrackingFlow/}{Body/Figures/TrackingFigures/LeftRight/}{Body/Figures/TrackingFigures/Misc/}{Body/Figures/TrackingFigures/Extrapolation/}{Body/Figures/TrackingFigures/Tracks/}{Body/Figures/TrackingFigures/BeamMeasurements/}{Body/Figures/TrackingFigures/MCDataComparison/}}
+\graphicspath{{Body/Figures/TrackingFigures/}{Body/Figures/TrackingFigures/MainPlots/}{Body/Figures/TrackingFigures/MainPlots/PlanePlots/}{Body/Figures/TrackingFigures/MainPlots/PullPlots/}{Body/Figures/TrackingFigures/MainPlots/Residuals/}{Body/Figures/TrackingFigures/eLossAndMaterial/}{Body/Figures/TrackingFigures/CoordSys/}{Body/Figures/TrackingFigures/TrackerPics/}{Body/Figures/TrackingFigures/Field/}{Body/Figures/TrackingFigures/TrackingFlow/}{Body/Figures/TrackingFigures/LeftRight/}{Body/Figures/TrackingFigures/Misc/}{Body/Figures/TrackingFigures/Extrapolation/}{Body/Figures/TrackingFigures/Tracks/}{Body/Figures/TrackingFigures/BeamMeasurements/}{Body/Figures/TrackingFigures/MCDataComparison/}}
 
 \chapter{Track Reconstruction and Analysis}
 \label{chapter:TrackReconstruction}
@@ -270,11 +270,19 @@ To summarize, an initial set of starting parameters $p_{0}$ are propagated forwa
 \subsection{Material correlations}
 
 
-Random processes due to material contribute to the error matrix in \equref{eq:errormatrix} as described in \secref{sub:Geane}. The random scattering of a particle trajectory at one plane means that there is an extra error in all further planes. \equref{eq:chi2sum} does not take into account these material correlations between measurement planes when fitting the track. While it provides a decent approximation of the best fit track in the low material tracker, a better estimate of the track trajectory can be calculated. To do this a more general version of the \chisq equation is used:
+Random processes due to material contribute to the error matrix in \equref{eq:errormatrix} as described in \secref{sub:Geane}. The random scattering of a particle trajectory at one plane means that there is an extra error in all further planes, see \figref{fig:MaterialScatteringErrorDistance}. \equref{eq:chi2sum} does not take into account these material correlations between measurement planes when fitting the track. While it provides a decent approximation of the best fit track in the low material tracker, a better estimate of the track trajectory can be calculated. To do this a more general version of the \chisq equation is used:
         \begin{align} \label{eq:chi2full}
             \chi^2 = (\vec{p}-\vec{x})^{T} (\sigma^{-1}) (\vec{p}-\vec{x})
         \end{align}
 Here $\vec{x}$ and $\vec{p}$ are a $5N \times 1$ vectors of the measured and predicted track parameters respectively, where $N$ is the number of planes hit, and these objects are the combined vectors of $5 \times 1$ counterparts. Similarly, $\sigma$ is a $5N \times 5N$ matrix, where the $5 \times 5$ diagonal block matrices are the individual plane error matrices described before, calculated between plane 0 and $N$. Calculating the \chisq is now recasted from a sum over measurement planes into a single large linear algebra equation. At this point both calculations of the \chisq's are equivalent.
+
+
+\begin{figure}[]
+  \centering
+  \includegraphics[width=0.7\textwidth]{MaterialScatteringErrorDistance}
+    \caption[Material scattering error in tracker]{RMS error between the true track position and the average track position as a function of distance through the tracker. This error increases as a particle passes through more and more material. Each black point indicates the location of a straw measurement layer. If a track goes through the whole detector, on average the true position is nearly \mum{200} different from the average one. \textbf{careful here}}
+    \label{fig:MaterialScatteringErrorDistance}
+\end{figure}
 
 
 The new format however allows for the material correlations between planes to be included, where these correlations are added as $5 \times 5$ matrices in the off-diagonal blocks of the new large error matrix. The upper diagonals are given by 
@@ -312,12 +320,23 @@ Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \S
 
 
 
+
+
+% General notes: Just put plots in to start, I can clean up everything later 
+
+% Could show truth fit results after initial chi2 section, and then show material fit results after material correlations section
+%     -plots to show: pvalue, chi2 for a single ndf with overlaid line, 5 truth pulls, just to show that the track fitting is working
+%     -don't show distributions yet - save those for material or LR fits
+
+% -then for plots after the material correlations side of things, show the improvement of the chi2 along with all the other plots from the track fitting doc - worry about improving the plots later - need to overlay gaussians though..
+
+
 % Stuff I need to go into, and the general order I think of presentation:
 
 % -truth fitting in vacuum - briefly describe the existence of dummy planes
-%     -p value, chi2 with fit line, parameter pulls and residuals
-% -truth fitting in material
-% -Left right ambiguity and the different fit modes - determining LR upstream in some cases (cite Joe 6947), starting with a wire fit, main fit, full sequence fit mode 
+%     -p value, chi2 with fit line (no correlations included compared to corerlations), parameter pulls and residuals - I think for vacuum tracks just show that the track fitting is working perfectly
+% -truth fitting in material - these plots are in my track fitting doc - mention cuts used - should that the updated plots from the vacuum side of things are minimally different
+% -Left right ambiguity and the different fit modes - determining LR upstream in some cases (cite Joe 6947), starting with a wire fit, main fit, full sequence fit mode
 % -left right fitting MC
 % - MC / data comparisons from APS talk
 
