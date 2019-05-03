@@ -270,18 +270,18 @@ To summarize, an initial set of starting parameters $p_{0}$ are propagated forwa
 \subsection{Material correlations}
 
 
-Random processes due to material contribute to the error matrix in \equref{eq:errormatrix} as described in \secref{sub:Geane}. The random scattering of a particle trajectory at one plane means that there is an extra error in all further planes. \equref{eq:chi2sum} does not take into account these material correlations between measurement planes when fitting the track. While this provides a decent approximation of the best fit track in the low material tracker, a better estimate of the track trajectory can be calculated. To do this a more general version of the \chisq equation can be used:
+Random processes due to material contribute to the error matrix in \equref{eq:errormatrix} as described in \secref{sub:Geane}. The random scattering of a particle trajectory at one plane means that there is an extra error in all further planes. \equref{eq:chi2sum} does not take into account these material correlations between measurement planes when fitting the track. While it provides a decent approximation of the best fit track in the low material tracker, a better estimate of the track trajectory can be calculated. To do this a more general version of the \chisq equation is used:
         \begin{align} \label{eq:chi2full}
-            \chi^2 = (\vec{p}-\vec{x})^{T} (\sigma^{-1}) (\vec{p}-\vec{x}).
+            \chi^2 = (\vec{p}-\vec{x})^{T} (\sigma^{-1}) (\vec{p}-\vec{x})
         \end{align}
-Here $\vec{x}$ and $\vec{p}$ are a $5N \times 1$ vectors of the measured and predicted track parameters respectively, where $N$ is the number of planes hit, and these objects are the combined vectors of the corresponding objects in \equref{eq:chi2sum}. Similarly, $\sigma^{-1}$ is a $5N \times 5N$ matrix, where the $5 \times 5$ diagonal blocks are the individual plane error matrices described before, calculated between plane 0 and $N$. Solving for the \chisq is now recasted from a sum over measurement planes into a single large linear algebra equation. At this point both calculations of the \chisq's are equivalent.
+Here $\vec{x}$ and $\vec{p}$ are a $5N \times 1$ vectors of the measured and predicted track parameters respectively, where $N$ is the number of planes hit, and these objects are the combined vectors of $5 \times 1$ counterparts. Similarly, $\sigma$ is a $5N \times 5N$ matrix, where the $5 \times 5$ diagonal block matrices are the individual plane error matrices described before, calculated between plane 0 and $N$. Calculating the \chisq is now recasted from a sum over measurement planes into a single large linear algebra equation. At this point both calculations of the \chisq's are equivalent.
 
 
 The new format however allows for the material correlations between planes to be included, where these correlations are added as $5 \times 5$ matrices in the off-diagonal blocks of the new large error matrix. The upper diagonals are given by 
     \begin{align} \label{eq:corr}
         \sigma_{MN} = T_{MN} \sigma_{N}, 
     \end{align}
-where $\sigma_{MN}$ is the material correlation matrix between plane $M$ and plane $N$, and $\sigma_{N}$ is still defined from \equref{eq:errortransport}, as calculated from the 0 starting plane. \textbf{Need to cite or prove this equation, should do the latter but I can't quite remember the derivation at the moment.} The lower diagonals are just the transpose of \equref{eq:corr}. The \chisq is minimized in the same way as was done in the previous section such that the improvement to the starting track parameters $\Delta p_{0}$ remains a $5 \times 1$ vector and is given by
+where $\sigma_{MN}$ is the material correlation matrix between plane $M$ and plane $N$, $T_{MN}$ is the transport matrix between the two planes, and $\sigma_{N}$ is the ordinary error matrix as calculated from the 0 starting plane. \textbf{Need to cite or prove this equation, should do the latter but I can't quite remember the derivation at the moment.} The lower diagonals are just the transpose of \equref{eq:corr}. The \chisq is minimized in the same way as was done in the previous section such that the improvement to the starting track parameters $\Delta p_{0}$ remains a $5 \times 1$ vector and is given by
     \begin{align} \label{eq:deltafull}
         \Delta p_{0} &= \sigma_{p_{0}} \tau^{T}\sigma^{-1}(\vec{x}-\vec{p}), \\
         \sigma_{p_{0}} &= [\tau^{T} \sigma^{-1} \tau ]^{-1},
@@ -289,25 +289,18 @@ where $\sigma_{MN}$ is the material correlation matrix between plane $M$ and pla
 where $\tau$ is a $5N \times 5$ object of the individual transport matrices combined together.
 
 
-In the inversion of the $5N \times 5N$ error matrix, the unmeasured parameter errors of infinity reduce all corresponding rows and columns to 0 in the same way as described before. Because these matrix objects are very large, where $N$ ranges from \SIrange{6}{32}{}, one can imagine that the inversion is a slow process. The tracking must have a certain amount of speed for the data to be efficiently processed and fit, which makes these inversions unfeasible. The solution used was to reduce the size of the $5N \times 5N$ matrix to an $N \times N$ one, simply by eliminating the rows and columns that would be sent to 0 anyways. The corresponding rows and columns of the unmeasured parameters in the combined transport matrix $\tau$ and $5N \times 1$ residual vector are also removed, resulting in an $N \times 5$ matrix for $\tau$ and an $N \times 1$ vector for the residuals. The covariance matrix $\sigma_{p_{0}}$ remains a $5 \times 5$ matrix as it should, and the final \chisq calculation is unaffected\footnote{Note that these element removals are done just before the final calculation of the \chisq and fit to the track and not at the beginning of the algebra, otherwise the plane material correlations are not properly included.}. Note that besides this $N \times N$ matrix inversion method, there is another way to do the inversion in a faster manner, which is described in \refref{trajfit}.
+% Sentence from track fitting doc on calculation of correlation matrix but which I don't think makes much sense
+% This follows from equation \ref{eq:errormatrix} evaluated at plane M with respect to a path length from plane N, and not plane 0, which is equivalent to \ref{eq:corr}. 
+
+
+Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \SIrange{6}{32}{}, one can imagine that inverting it is a slow process. The tracking must have a certain amount of speed for the data to be efficiently processed and fit, which makes these inversions unfeasible. Note however that the diagonal errors of infinity values for non-measured parameters would reduce all the corresponding rows and columns to 0 after the inversion, in the same way as described before. This fact can be taken advantage of by removing said rows and columns that would contribute nothing to the \chisq anyway, and thus reducing the $5N \times 5N$ size to $N \times N$. The corresponding rows and columns of the unmeasured parameters in the combined transport matrix $\tau$ and $5N \times 1$ residual vector are also removed, resulting in an $N \times 5$ matrix for $\tau$ and an $N \times 1$ vector for the residuals. The covariance matrix $\sigma_{p_{0}}$ remains a $5 \times 5$ matrix. This improves the speed of the \chisq calculation dramatically, while leaving the final calculation unaffected\footnote{Note that these element removals are done just before the final calculation of the \chisq and fit to the track and not at the beginning of the algebra, otherwise the plane material correlations are not properly included.}. 
+
+%Besides this $N \times N$ matrix inversion method, there is another way to do the inversion in a faster manner, which is described in \refref{trajfit}, but was not used here. % This is kind of an odd thing to say and I wouldn't know how to justify it - it would improve the track fitting speed, but most of the time is spent in the propagation phase so it doesn't matter too much in the end
+
 
 
 
 \clearpage % stopper for where I'm at 
-
-    
-% ($\sigma_{N}$ is the error matrix on plane N calculated from the starting plane.) This follows from equation \ref{eq:errormatrix} evaluated at plane M with respect to a path length from plane N, and not plane 0, which is equivalent to \ref{eq:corr}. 
-
-
-
-
-
-
-
-
-
-
-
 
 
 
