@@ -208,10 +208,6 @@ where the superscripts of $XY$ or $UV$ identify which coordinate system the obje
 \subsection{\texorpdfstring{\chisq}{chisq} minimization}
 \label{sec:TrackFittingAlgorithm}
 
-% -cite james thing
-% -it was found that doing the minimization in UV space removed correlations (cite James here) instead of XY, docdb 3813
-% -performing the minimization in UV is most natural
-
 
 The method for fitting and improving the track is a global \chisq minimization algorithm that uses the transport and error matrices as described previously \cite{geanemanual,trajfit}. This straightforward global fitting algorithm works because of the minimal amount of material contained within the tracker and the resulting small correlations between planes. For denser detectors with greater correlations, other fitting algorithms such as a Kalman filter should be used \cite{Lavezzi}. The following derivations and minimization assume measurements on planes in the tracker measurement frame described by \equref{eq:trackermeasurementframe}, but it should be noted that the results apply to any reference frame. A derivation for a \chisq including no material correlations is presented followed by one which includes said correlations.
 
@@ -326,7 +322,7 @@ Since the \chisq minimization returns fit parameters and errors on the starting 
 \subsection{Material correlations}
 
 
-Random processes due to material contribute to the error matrix in \equref{eq:errormatrix} as described in \secref{sub:Geane}. The random scattering of a particle trajectory at one plane means that there is an extra error in all further planes, see \figref{fig:MaterialScatteringErrorDistance}. \equref{eq:chi2sum} does not take into account these material correlations between measurement planes when fitting the track. While it provides a decent approximation of the best fit track in the low material tracker, a better estimate of the track trajectory can be calculated. To do this a more general version of the \chisq equation is used:
+Random processes due to material contribute to the error matrix in \equref{eq:errormatrix} as described in \secref{sub:Geane}. The random scattering of a particle trajectory at one plane means that there is an extra correlated error in all further planes, see \figref{fig:MaterialScatteringErrorDistance}. \equref{eq:chi2sum} does not take into account these material correlations between measurement planes when fitting the track. While it provides a decent approximation of the best fit track in the low material tracker, the \chisq distribution is noticeably off as shown in \figref{fig:Chi2MaterialNoCorrelations}. To calculate a better estimate of the trajectory, a more general version of the \chisq equation is used:
         \begin{align} \label{eq:chi2full}
             \chi^2 = (\vec{p}-\vec{x})^{T} (\sigma^{-1}) (\vec{p}-\vec{x})
         \end{align}
@@ -335,10 +331,18 @@ Here $\vec{x}$ and $\vec{p}$ are a $5N \times 1$ vectors of the measured and pre
 
 \begin{figure}[]
   \centering
-  \includegraphics[width=0.7\textwidth]{MaterialScatteringErrorDistance}
+  \includegraphics[width=0.6\textwidth]{MaterialScatteringErrorDistance}
     \caption[Material scattering error in tracker]{RMS error between the true track position and the average track position as a function of distance through the tracker. This error increases as a particle passes through more and more material. Each black point indicates the location of a straw measurement layer. If a track goes through the whole detector, on average the true position is nearly \mum{200} different from the average one. \textbf{careful here}}
     \label{fig:MaterialScatteringErrorDistance}
 \end{figure}
+
+\begin{figure}[]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Chi2MaterialNoCorrelations}
+    \caption[\chisq for fitted tracks including material effects but no correlations]{The \chisq distribution for fitted tracks including material effects but excluding correlations in the calculation. The \chisq distribution is noticably different from the correct curve in red. \textbf{Axes labels and stats box don't look like previous plots, but not sure I can fix this besideds overlaying stuff.}}
+    \label{fig:Chi2MaterialNoCorrelations}
+\end{figure}
+
 
 
 The new format however allows for the material correlations between planes to be included, where these correlations are added as $5 \times 5$ matrices in the off-diagonal blocks of the new large error matrix. The upper diagonals are given by 
@@ -365,6 +369,12 @@ Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \S
 \subsection{Fits to simulated tracks}
 
 %material fits with truth left right taken into account
+
+Once the material correlations are properly included, the chi2 distribution is repaired, and the pulls look like blah
+
+Other important plots are iterations and num planes hit and blah
+
+Still truth measurements here but that's okay since blach
 
 
 
