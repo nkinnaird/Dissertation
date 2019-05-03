@@ -298,13 +298,12 @@ Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \S
 %Besides this $N \times N$ matrix inversion method, there is another way to do the inversion in a faster manner, which is described in \refref{trajfit}, but was not used here. % This is kind of an odd thing to say and I wouldn't know how to justify it - it would improve the track fitting speed, but most of the time is spent in the propagation phase so it doesn't matter too much in the end
 
 
+\subsection{Fits to simulated tracks}
+
+
 
 
 \clearpage % stopper for where I'm at 
-
-
-
-\subsection{Truth/simulated fit results - fit to mc data}
 
 
 
@@ -313,29 +312,23 @@ Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \S
 
 
 
-\subsection{Plots and results and stuff}
+% Stuff I need to go into, and the general order I think of presentation:
+
+% -truth fitting in vacuum - briefly describe the existence of dummy planes
+%     -p value, chi2 with fit line, parameter pulls and residuals
+% -truth fitting in material
+% -Left right ambiguity and the different fit modes - determining LR upstream in some cases (cite Joe 6947), starting with a wire fit, main fit, full sequence fit mode 
+% -left right fitting MC
+% - MC / data comparisons from APS talk
 
 
-% 3. Types of fitting used, various modes and options
-%     1. Left-right ambiguity
-% 4. Plots and images everywhere showing what all I've done
+
+% other things which I might want to include somehow and somewhere
+% -checks on energy loss
+% -red black point residual plots too maybe
 
 
--go into all tests and pieces of the code
--vacuum fitting
--chi2 plot and overlayed red curve for x ndf
--checks on energy loss
--material correlation code
--fast fitting code
--different fitting modes
--mc / data comparisons
--don't forget about angular correction in appendix of fitting documentation - might want to put that in the appendix of my thesis
--red black point residual plots too maybe
--talk about the dummy stuff too perhaps
--ficticious starting plane
 
-
--should talk about geometry determination of hits in straws which I havent yet - in the fitting side of things though - see Joes docdb 6947 to start (maybe others too) - for LR determination after wire fit (but only in full sequence fit I believe...)
 
 
 
