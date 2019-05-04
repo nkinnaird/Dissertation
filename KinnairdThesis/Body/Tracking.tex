@@ -368,7 +368,9 @@ Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \S
 
 \subsection{Fits to tracks including material effects}
 
-Once the material correlations are properly included, the \chisq distribution is repaired, as shown in \figref{fig:MaterialGoodnessOfFit}. The plots in this section show the results of the track fitting in the full \gmtwo Geant4 simulation with material effects turned on. Truth measurements with \mum{150} smearing are once again used as the measured hits, and a cut of $\SI{3}{\MeV}$ on the true simulated energy loss is made to remove tracks which would result in poor fits anyways. The comparison between the simulated and reconstructed energy loss for fitted tracks is shown in \figref{fig:EnergyLossComparison}. While there is a noticable difference, the energy loss in general is small so it is acceptable. The truth pulls are shown in \figref{fig:MaterialTruthPulls}. It can be seen that there is a spread in results do to the material effects which is to be expected, but the vast majority of tracks still fit well. The number of iterations it takes for a track to converge is shown in \figref{fig:Iterations}. The number of planes a track hits and the corresponding momentum dependence is shown in \figref{}.
+Once the material correlations are properly included, the \chisq distribution is repaired, as shown in \figref{fig:MaterialGoodnessOfFit}. The plots in this section show the results of the track fitting in the full \gmtwo Geant4 simulation with material effects turned on. Truth measurements with \mum{150} smearing are once again used as the measured hits, and a cut of $\SI{3}{\MeV}$ on the true simulated energy loss is made to remove tracks which would result in poor fits anyways. The comparison between the simulated and reconstructed energy loss for fitted tracks is shown in \figref{fig:EnergyLossComparison}. While there is a noticable difference, the energy loss in general is small so it is acceptable. The truth pulls are shown in \figref{fig:MaterialTruthPulls}. It can be seen that there is a spread in results do to the material effects which is to be expected, but the vast majority of tracks still fit well. The number of iterations it takes for a track to converge is shown in \figref{fig:Iterations}. The number of planes a track hits and the corresponding momentum dependence is shown in \figref{fig:NumberOfPlanesHit}. The total momentum distribution and corresponding absolute and relative residuals to truth are shown in \figref{fig:MaterialTotalMomentum}. The track fitting as a momentum resoltion of approximately 2\% depending on the momentum of the track.
+
+After the track fitting, the returned parameters in $UV$ space can be turned back into the tracker reference frame coordinates. Plots for the fitted vertical and horizontal momenta, positions, and corresponding residuals are shown in Figures~\ref{fig:MaterialFittedMomentaComponents} and \ref{fig:MaterialFittedPositionComponents}. The forward momenta plots are omitted since the majority of the total momenta is in the forward direction. More extensive plots than what is shown here can be found in \refref{trackfittingdoc}.
 
 
     \begin{figure}[]
@@ -443,6 +445,7 @@ Once the material correlations are properly included, the \chisq distribution is
             \includegraphics[width=\textwidth]{MaterialTruthLR_NumberPlanesHit}
             \caption{The number of planes hit peaks at 10, and falls off relatively linearly to the maximum number of planes at 32. There is a track finding cut of 6 that shows up in this plot as well.}
         \end{subfigure}
+        \hspace{5mm}
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_NumberPlanesHitVsP}
@@ -453,23 +456,90 @@ Once the material correlations are properly included, the \chisq distribution is
     \end{figure}
 
 
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_PTotal}
+            \caption{The fitted momentum distribution for tracks which tails off at approximately the magic momentum of $\SI{3.094}{\GeV}.$}
+        \end{subfigure}%
+
+        \vspace{2mm}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_PTotal_AbsResidual}
+            \caption{The absolute momentum residual between the reconstructed and true energy loss. The RMS is approximately $\SI{40}{\MeV}.$}
+        \end{subfigure}
+        \hspace{5mm}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_PTotal_RelResidual}
+            \caption{The relative momentum residual between the reconstructed and true energy loss. The RMS is approximately $\SI{2.4}{\%}$. This plot includes tracks of all momenta, in general the resolution of the track fitting estimate of the momentum is around 2\%.}
+        \end{subfigure}%
+    \caption[Fitted track momentum distribution and corresponding residuals to truth]{Fitted track momentum distribution and corresponding residuals to truth.}
+    \label{fig:MaterialTotalMomentum}
+    \end{figure}
 
 
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Py}
+            \caption{Vertical momentum distribution. This distribution is bounded by the storage region and muon storing which limits the vertical momentum of the muons and by extension the decay positrons.}
+        \end{subfigure}
+        \hspace{5mm}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Px}
+            \caption{Horizontal momentum distribution. This distribution has an interesting shape due to the acceptance of the tracker. It is perhaps more informative to look at the radial momentum distribution, which is shown later in \figref{blach}.}
+        \end{subfigure}
+        \vspace{2mm}
+        \begin{subfigure}
+        [t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Py_AbsResidual}
+            \caption{The vertical momentum reconstruction has a width of about $\SI{4}{\MeV}$.}
+        \end{subfigure}%
+        \hspace{5mm}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Px_AbsResidual}
+            \caption{The horizontal momentum reconstruction has a width of about $\SI{3}{\MeV}$.}
+        \end{subfigure}%
+    \caption[Fitted track vertical and horizontal momenta and corresponding residuals to truth]{Shown are the fitted vertical and horizontal momentum components (top) for tracks at the entrance to the tracker. On the bottom are the absolute residuals between the reconstructed momenta and truth.}
+    \label{fig:MaterialFittedMomentaComponents}
+    \end{figure}
 
-
-
-Other important plots are iterations and num planes hit and blah
-
-cuts and conditions
--truth LR 150 um smearing
--cut out tracks which lost more than 3 MeV in the simulation
-
-
--extra plots are shown in track fitting doc ... 
-
-
-
-
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Y}
+            \caption{Vertical position distribution. This distribution is bounded by the storage region and muon storing which limits the vertical position of the muons and by extension the decay positrons.}
+        \end{subfigure}
+        \hspace{5mm}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_X}
+            \caption{Horizontal position distribution. This distribution has an interesting shape due to the acceptance of the tracker. It is perhaps more informative to look at the radial position distribution, which is shown later in \figref{blach}.}
+        \end{subfigure}
+        \vspace{2mm}
+        \begin{subfigure}
+        [t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Y_AbsResidual}
+            \caption{The vertical position reconstruction has a width of about \mum{740} at the entrance of the tracker, which is expected just from geometry arguments from the angles of the straws which measure mostly horizontally.}
+        \end{subfigure}%
+        \hspace{5mm}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_X_AbsResidual}
+            \caption{The horizontal position reconstruction has a width of about \mum{140} at the entrance of the tracker, which is expected since the straws measure mostly horizontally with a straw resolution of \mum{150}.}
+        \end{subfigure}%
+    \caption[Fitted track vertical and horizontal positions and corresponding residuals to truth]{Shown are the fitted vertical and horizontal position components (top) for tracks at the entrance to the tracker. On the bottom are the absolute residuals between the reconstructed positions and truth.}
+    \label{fig:MaterialFittedPositionComponents}
+    \end{figure}
 
 
 
