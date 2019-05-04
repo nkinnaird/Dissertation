@@ -279,7 +279,7 @@ Since the \chisq minimization returns fit parameters and errors on the starting 
             \includegraphics[width=\textwidth]{Vacuum_Chi2}
             \caption{\chisq distribution for tracks which hit 24 planes.}
         \end{subfigure}
-    \caption[P value and \chisq distribution for fitted tracks in vacuum]{Goodness-of-fit distributions for fitted tracks in vacuum, with no material effects. The P value distribution is flat, and the \chisq distribution matches a normalized \chisq pdf for 19 degrees of freedom which is overlayed in red. (\chisq distributions for tracks which hit other numbers of planes are very similar.)}
+    \caption[P value and \chisq distribution for fitted tracks in vacuum]{Goodness-of-fit distributions for fitted tracks in vacuum, with no material effects. The P value distribution is flat, and the \chisq distribution matches a normalized \chisq pdf for 19 degrees of freedom which is overlayed in red. (\chisq distributions for tracks which hit other numbers of planes are very similar.) Only tracks which have failed due to Geant4 reasons are excluded.}
     \label{fig:VacuumGoodnessOfFit}
     \end{figure}
 
@@ -313,7 +313,7 @@ Since the \chisq minimization returns fit parameters and errors on the starting 
             \includegraphics[width=\textwidth]{Vacuum_TruthPull_V}
             \caption{$V$}
         \end{subfigure}% 
-    \caption[Track parameter truth pulls for fitted tracks in vacuum]{Truth pulls for the five fitted track parameters at the starting plane of the track, for tracks in vacuum with no material effects. The plots are shown on a log scale, and each are fit to a Gaussian in red. Each fit is consistent to a unit Gaussian with a mean of zero and an RMS of 1, showing that the track fitting is working properly.}
+    \caption[Track parameter truth pulls for fitted tracks in vacuum]{Truth pulls for the five fitted track parameters at the starting plane of the track, for tracks in vacuum with no material effects. The plots are shown on a log scale, and each are fit to a Gaussian in red. Each fit is consistent to a unit Gaussian with a mean of zero and an RMS of 1, showing that the track fitting is working properly. Only tracks which have failed due to Geant4 reasons are excluded.}
     \label{fig:VacuumTruthPulls}
     \end{figure}
 
@@ -366,15 +366,24 @@ Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \S
 %Besides this $N \times N$ matrix inversion method, there is another way to do the inversion in a faster manner, which is described in \refref{trajfit}, but was not used here. % This is kind of an odd thing to say and I wouldn't know how to justify it - it would improve the track fitting speed, but most of the time is spent in the propagation phase so it doesn't matter too much in the end
 
 
-\subsection{Fits to simulated tracks}
-
-%material fits with truth left right taken into account
+\subsection{Fits to tracks including material effects}
 
 Once the material correlations are properly included, the chi2 distribution is repaired, and the pulls look like blah
 
 Other important plots are iterations and num planes hit and blah
 
 Still truth measurements here but that's okay since blach
+
+
+cuts and conditions
+-truth LR
+-cut out tracks which lost more than 3 MeV in the simulation
+
+
+-extra plots are shown in track fitting doc ... 
+
+
+% -then for plots after the material correlations side of things, show the improvement of the chi2 along with all the other plots from the track fitting doc - worry about improving the plots later - need to overlay gaussians though..
 
 
 
@@ -393,13 +402,9 @@ Still truth measurements here but that's okay since blach
 % General notes: Just put plots in to start, I can clean up everything later 
 
 
-% -then for plots after the material correlations side of things, show the improvement of the chi2 along with all the other plots from the track fitting doc - worry about improving the plots later - need to overlay gaussians though..
-
 
 % Stuff I need to go into, and the general order I think of presentation:
 
-% -truth fitting in vacuum - briefly describe the existence of dummy planes
-%     -p value, chi2 with fit line (no correlations included compared to corerlations), parameter pulls and residuals - I think for vacuum tracks just show that the track fitting is working perfectly
 % -truth fitting in material - these plots are in my track fitting doc - mention cuts used - should that the updated plots from the vacuum side of things are minimally different
 % -Left right ambiguity and the different fit modes - determining LR upstream in some cases (cite Joe 6947), starting with a wire fit, main fit, full sequence fit mode
 % -left right fitting MC
@@ -412,6 +417,7 @@ Still truth measurements here but that's okay since blach
 % -red black point residual plots too maybe
 
 
+%differences in mc to data results are not due to bad track fitting but instead a mismatched simulation
 
 
 
