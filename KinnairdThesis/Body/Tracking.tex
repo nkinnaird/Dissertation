@@ -15,7 +15,7 @@ As a brief aside, every stage of the track reconstruction is performed in the ev
 \section{Track Finding}
 \label{sec:TrackFinding}
 
-The track finding stage consists of pattern recognition routines in order to group individual hits into separate sets corresponding to individual incident tracks. The general implementation of these pattern recognition routines is relatively straightforward \cite{trackfinding,trackfinding2}. Hits across all modules are grouped in time windows called time islands, with a max width of $\SI{100}{ns}$. Within those time islands hits are then grouped into clusters. Clusters consist of one or two hits for each U or V view per module. As a reminder the U and V views of a module consist of the two U or V layers in that module, \secref{sec:StrawTrackers}. Hits are only clustered if they lie in close proximity in time and space to one another. The spatial constraint is defined as the difference in hit straw numbers, from 0 to 31 for the 32 straws per layer, which by default is limited to less than or equal to 4. Neighboring hit clusters in the same module are then grouped to form seeds, one per module. Finally, seeds in successive modules are grouped starting from one end of the tracker to form what are called track candidates. The seeds are formed and grouped into track candidates again only if they lie close in time and space to one another. The entire track candidate formation process occurs for all hits in a time island to find as many real tracks as possible. See \figref{fig:TrackCandidateSelection}.
+The track finding stage consists of pattern recognition routines in order to group individual hits into separate sets corresponding to individual incident tracks. The general implementation of these pattern recognition routines is relatively straightforward \cite{trackfinding,trackfinding2}. Hits across all modules are grouped in time windows called time islands, with an average width of $\SI{40}{ns}$ and a max width of $\SI{100}{ns}$. Within those time islands hits are then grouped into clusters. Clusters consist of one or two hits for each U or V view per module. As a reminder the U and V views of a module consist of the two U or V layers in that module, \secref{sec:StrawTrackers}. Hits are only clustered if they lie in close proximity in time and space to one another. The spatial constraint is defined as the difference in hit straw numbers, from 0 to 31 for the 32 straws per layer, which by default is limited to less than or equal to 4. Neighboring hit clusters in the same module are then grouped to form seeds, one per module. Finally, seeds in successive modules are grouped starting from one end of the tracker to form what are called track candidates. The seeds are formed and grouped into track candidates again only if they lie close in time and space to one another. The entire track candidate formation process occurs for all hits in a time island to find as many real tracks as possible. See \figref{fig:TrackCandidateSelection}.
 
 After a track candidate has been formed a number of checks are made before passing it on to the fitting stage. If hits, clusters, or seeds are found to be shared among multiple track candidates, the candidates are dropped. Likewise, a track candidate is dropped if it is made from seeds consisting of only one type of view, or if the track candidate has less than six hits. There are also various small geometry and timing algorithms to improve the track candidates, such as removing hits from secondaries \cite{trackfinding3}. The $t_{0}$ time for the track candidate is calculated as the mean time of all hits, with some fixed offset at the end. This $t_{0}$ is helpfully constrained by geometry effects, where for a straight track passing through two layers in the same view, the sum of the drift times adds up to a constant (cite or show this?). The track candidate is supplied with an original momentum and position guess at the start of the track by fitting a circle to the hit straw wires in the horizontal plane. The final track candidates are passed on to the fitting stage. 
 
@@ -672,7 +672,26 @@ The last stage of the track reconstruction is the track extrapolation. The extra
 \section{Muon Beam Measurements}
 \label{sec:MuonBeamMeasurements}
 
--for showing plots include a bulleted list or table of the tracking cuts made
+-for showing plots include a bulleted list or table of the tracking cuts made - doc db 16282 and 16420
+
+
+\begin{itemize}
+    \item{Non-failed track or vertex}
+    \item{No volumes hit}
+    \item{Number of tracking planes hit $\geq 12$}
+    \item{p value $> 5\%$}
+    \item{Vertical extrapolation uncertainty: $0.5 < \sigma_{y} < \SI{3.5}{mm}$}
+    \item{Radial extrapolation uncertainty: $0.5 < \sigma_{r} < \SI{5}{mm}$}
+    \item{Horizontal entrance into tracker: $60 < X < \SI{150}{mm}$}
+    \item{Vertical entrance into tracker: $-40 < Y < \SI{40}{mm}$}
+    \item{Drift time: $0 < t_{d} < \SI{70}{ns}$}
+    \item{Track UV residuals $< \mum{500}$}
+    \item{Fraction of missed planes $< 30\%$}
+    \item{$|$Number of U hits - number of V hits$|$ $\leq 4$}
+\end{itemize}
+
+
+\cite{trackcuts1,trackcuts2}
 
 -emphasize measurements that are directly relevant to the calorimeter \wa analysis
 -cbo frequency
