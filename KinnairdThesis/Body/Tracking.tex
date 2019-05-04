@@ -368,12 +368,97 @@ Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \S
 
 \subsection{Fits to tracks including material effects}
 
-Once the material correlations are properly included, the chi2 distribution is repaired, and the pulls look like blah
+Once the material correlations are properly included, the \chisq distribution is repaired, as shown in \figref{fig:MaterialGoodnessOfFit}. The plots in this section show the results of the track fitting in the full \gmtwo Geant4 simulation with material effects turned on. Truth measurements with \mum{150} smearing are once again used as the measured hits, and a cut of $\SI{3}{\MeV}$ on the true simulated energy loss is made to remove tracks which would result in poor fits anyways. The comparison between the simulated and reconstructed energy loss for fitted tracks is shown in \figref{fig:EnergyLossComparison}. While there is a noticable difference, the energy loss in general is small so it is acceptable. The truth pulls are shown in \figref{fig:MaterialTruthPulls}. It can be seen that there is a spread in results do to the material effects which is to be expected, but the vast majority of tracks still fit well. The number of iterations it takes for a track to converge is shown in \figref{fig:Iterations}. The number of planes a track hits and the corresponding momentum dependence is shown in \figref{}.
+
+
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_Pvalue}
+            \caption{P value distribution for all tracks.}
+        \end{subfigure}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_Chi2}
+            \caption{\chisq distribution for tracks which hit 10 planes.}
+        \end{subfigure}
+    \caption[P value and \chisq distribution for fitted tracks in the \gmtwo Geant4 simulation with material effects included]{Goodness-of-fit distributions for fitted tracks in the full \gmtwo Geant4 simulation with material effects included. The P value distribution is flat, and the \chisq distribution matches a normalized \chisq pdf for 5 degrees of freedom which is overlayed in red.}
+    \label{fig:MaterialGoodnessOfFit}
+    \end{figure}
+
+    \begin{figure}[]
+      \centering
+      \includegraphics[width=.5\textwidth]{MaterialTruthLR_EnergyLost}
+        \caption[Simulated true energy loss vs Geane predicted energy loss for tracks]{Simulated true energy loss (black) vs Geane predicted energy loss (red) between the first and last hits of fitted tracks. There is a difference between the two curves coming from the difference in physics lists between the main Geant4 simulation and the Geane prediction. The energy loss is in general very small compared to the magnitude of the momentum due to the low amount of material in the tracker, so this difference is acceptable. Sources of energy loss come from ionization and bremsstrahlung processes, which account for the long Landau tail running off to infinity. Originally the Geane physics list was taking too much energy away due to bremsstrahlung processes, so the energy loss calculations were modified \cite{trackfittingdoc}.}
+        \label{fig:EnergyLossComparison}
+    \end{figure}
+
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_TruthPull_1P}
+            \caption{$1/P$}
+        \end{subfigure}%
+
+        \vspace{2mm}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_TruthPull_PuPz}
+            \caption{$P_{u}/P_{z}$}
+        \end{subfigure}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_TruthPull_PvPz}
+            \caption{$P_{v}/P_{z}$}
+        \end{subfigure}%
+        \vspace{2mm}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_TruthPull_U}
+            \caption{$U$}
+        \end{subfigure}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_TruthPull_V}
+            \caption{$V$}
+        \end{subfigure}% 
+    \caption[Track parameter truth pulls for fitted tracks in the \gmtwo Geant4 simulation with material effects included]{Truth pulls for the five fitted track parameters at the starting plane of the track for fitted tracks in the full \gmtwo Geant4 simulation with material effects included. The plots are shown on a log scale, and each are fit to a Gaussian in red. Each fit is close to a unit Gaussian with a mean of zero and an RMS of 1, but there are tracks which due to the material effects lie outside the Gaussian.}
+    \label{fig:MaterialTruthPulls}
+    \end{figure}
+
+    \begin{figure}[]
+      \centering
+      \includegraphics[width=.4\textwidth]{MaterialTruthLR_NumberIterations}
+        \caption[Number of iterations for the track fitting to converge]{Number of iterations for the track fitting to converge. The track fitting does not take less than three iterations, and the number of iterations is capped at ten.}
+        \label{fig:Iterations}
+    \end{figure}
+
+
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_NumberPlanesHit}
+            \caption{The number of planes hit peaks at 10, and falls off relatively linearly to the maximum number of planes at 32. There is a track finding cut of 6 that shows up in this plot as well.}
+        \end{subfigure}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{MaterialTruthLR_NumberPlanesHitVsP}
+            \caption{The number of planes hit vs the momentum of the track. Tracks with higher momentum in general hit more planes.}
+        \end{subfigure}
+    \caption[Number of planes hit for fitted tracks]{Number of planes hit per track (left) and the momentum dependence (right).}
+    \label{fig:NumberOfPlanesHit}
+    \end{figure}
+
+
+
+
+
+
 
 Other important plots are iterations and num planes hit and blah
-
-Still truth measurements here but that's okay since blach
-
 
 cuts and conditions
 -truth LR 150 um smearing
@@ -383,7 +468,8 @@ cuts and conditions
 -extra plots are shown in track fitting doc ... 
 
 
-% -then for plots after the material correlations side of things, show the improvement of the chi2 along with all the other plots from the track fitting doc - worry about improving the plots later - need to overlay gaussians though..
+
+
 
 
 
