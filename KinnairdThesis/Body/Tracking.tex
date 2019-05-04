@@ -49,7 +49,7 @@ After a track candidate has been formed a number of checks are made before passi
 \label{sec:TrackFitting}
 
 
-The track fitting stage takes the track candidates from the track finding stage, and outputs a best fit trajectory to those candidates. This includes optimal state vectors and error matrices for the track at each measurement plane and at a ficticious starting plane at the entrance to the straw tracking detector. The track fitting routines can roughly be split into two parts, error propagation and the actual fitting and improvement of the track. The implementation of these parts go hand in hand, and will be described in turn. 
+The track fitting stage takes the track candidates from the track finding stage, and outputs a best fit trajectory to those candidates. This includes optimal state vectors and error matrices for the track at each measurement plane and at a ficticious starting plane at the entrance to the straw tracking detector. The track fitting routines can roughly be split into two parts, error propagation and the actual fitting and improvement of the track. The implementation of these parts go hand in hand, and will be described in turn. Details of the track fitting code itself is described in \refref{trackfittingdoc}. 
 
 
 \subsection{Error propagation and coordinate systems}
@@ -368,9 +368,9 @@ Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \S
 
 \subsection{Fits to tracks including material effects}
 
-Once the material correlations are properly included, the \chisq distribution is repaired, as shown in \figref{fig:MaterialGoodnessOfFit}. The plots in this section show the results of the track fitting in the full \gmtwo Geant4 simulation with material effects turned on. Truth measurements with \mum{150} smearing are once again used as the measured hits, and a cut of $\SI{3}{\MeV}$ on the true simulated energy loss is made to remove tracks which would result in poor fits anyways. The comparison between the simulated and reconstructed energy loss for fitted tracks is shown in \figref{fig:EnergyLossComparison}. While there is a noticable difference, the energy loss in general is small so it is acceptable. The truth pulls are shown in \figref{fig:MaterialTruthPulls}. It can be seen that there is a spread in results do to the material effects which is to be expected, but the vast majority of tracks still fit well. The number of iterations it takes for a track to converge is shown in \figref{fig:Iterations}. The number of planes a track hits and the corresponding momentum dependence is shown in \figref{fig:NumberOfPlanesHit}. The total momentum distribution and corresponding absolute and relative residuals to truth are shown in \figref{fig:MaterialTotalMomentum}. The track fitting as a momentum resoltion of approximately 2\% depending on the momentum of the track.
+Once the material correlations are properly included, the \chisq distribution is repaired, as shown in \figref{fig:MaterialGoodnessOfFit}. The plots in this section show the results of the track fitting in the full \gmtwo Geant4 simulation with material effects turned on. Truth measurements with \mum{150} smearing are once again used as the measured hits, and a cut of $\SI{3}{\MeV}$ on the true simulated energy loss is made to remove tracks which would result in poor fits anyways. The comparison between the simulated and reconstructed energy loss for fitted tracks is shown in \figref{fig:EnergyLossComparison}. While there is a noticable difference, the energy loss in general is small so it is acceptable. Truth pulls for the tracks are shown in \figref{fig:MaterialTruthPulls}. It can be seen that there is a slight spread in results due to the material effects. This is to be expected and the vast majority of tracks still fit well. The number of iterations it takes to fit a track is shown in \figref{fig:Iterations}. The number of planes a track hits and the corresponding momentum dependence is shown in \figref{fig:NumberOfPlanesHit}. The total momentum distribution and residuals to truth are shown in \figref{fig:MaterialTotalMomentum}. The track fitting has a momentum resoltion of approximately 2\% with just a slight dependence on the momentum of the track.
 
-After the track fitting, the returned parameters in $UV$ space can be turned back into the tracker reference frame coordinates. Plots for the fitted vertical and horizontal momenta, positions, and corresponding residuals are shown in Figures~\ref{fig:MaterialFittedMomentaComponents} and \ref{fig:MaterialFittedPositionComponents}. The forward momenta plots are omitted since the majority of the total momenta is in the forward direction. More extensive plots than what is shown here can be found in \refref{trackfittingdoc}.
+After the track fitting has determined the best fit parameters in the $UV$ space, the returned parameters can be turned back into the tracker reference frame coordinates. Plots for the fitted vertical and horizontal momenta, positions, and corresponding residuals are shown in Figures~\ref{fig:MaterialFittedMomentaComponents} and \ref{fig:MaterialFittedPositionComponents}. The forward momenta plots are omitted since the majority of the total momenta is in the forward direction. More extensive plots than what is shown here can be found in \refref{trackfittingdoc}.
 
 
     \begin{figure}[]
@@ -391,8 +391,8 @@ After the track fitting, the returned parameters in $UV$ space can be turned bac
 
     \begin{figure}[]
       \centering
-      \includegraphics[width=.5\textwidth]{MaterialTruthLR_EnergyLost}
-        \caption[Simulated true energy loss vs Geane predicted energy loss for tracks]{Simulated true energy loss (black) vs Geane predicted energy loss (red) between the first and last hits of fitted tracks. There is a difference between the two curves coming from the difference in physics lists between the main Geant4 simulation and the Geane prediction. The energy loss is in general very small compared to the magnitude of the momentum due to the low amount of material in the tracker, so this difference is acceptable. Sources of energy loss come from ionization and bremsstrahlung processes, which account for the long Landau tail running off to infinity. Originally the Geane physics list was taking too much energy away due to bremsstrahlung processes, so the energy loss calculations were modified \cite{trackfittingdoc}.}
+      \includegraphics[width=.6\textwidth]{MaterialTruthLR_EnergyLost}
+        \caption[Simulated true energy loss vs Geane predicted energy loss for tracks]{Simulated true energy loss (black) vs Geane predicted energy loss (red) for fitted tracks. As shown there is a mismatch between the two. This is acceptable as the energy loss is in general very small compared to the total momentum of each track, $200\keV \ll 2 \GeV$. Sources of energy loss come from ionization and bremsstrahlung processes, which account for the long Landau tail running off to infinity. Originally the Geane physics calculations were taking too much energy away due to bremsstrahlung processes in our low material tracker, so the energy loss calculations were modified slightly \cite{trackfittingdoc}.}
         \label{fig:EnergyLossComparison}
     \end{figure}
 
@@ -426,14 +426,14 @@ After the track fitting, the returned parameters in $UV$ space can be turned bac
             \includegraphics[width=\textwidth]{MaterialTruthLR_TruthPull_V}
             \caption{$V$}
         \end{subfigure}% 
-    \caption[Track parameter truth pulls for fitted tracks in the \gmtwo Geant4 simulation with material effects included]{Truth pulls for the five fitted track parameters at the starting plane of the track for fitted tracks in the full \gmtwo Geant4 simulation with material effects included. The plots are shown on a log scale, and each are fit to a Gaussian in red. Each fit is close to a unit Gaussian with a mean of zero and an RMS of 1, but there are tracks which due to the material effects lie outside the Gaussian.}
+    \caption[Track parameter truth pulls for fitted tracks in the \gmtwo Geant4 simulation with material effects included]{Truth pulls for the five fitted track parameters at the starting plane of the track for fitted tracks in the full \gmtwo Geant4 simulation with material effects included. The plots are shown on a log scale, and each are fit to a Gaussian in red. Each fit is close to a unit Gaussian with a mean of zero and an RMS of 1, but there are tracks which lie outside the Gaussian due to material effects and imperfect resulting fits.}
     \label{fig:MaterialTruthPulls}
     \end{figure}
 
     \begin{figure}[]
       \centering
-      \includegraphics[width=.4\textwidth]{MaterialTruthLR_NumberIterations}
-        \caption[Number of iterations for the track fitting to converge]{Number of iterations for the track fitting to converge. The track fitting does not take less than three iterations, and the number of iterations is capped at ten.}
+      \includegraphics[width=.6\textwidth]{MaterialTruthLR_NumberIterations}
+        \caption[Number of iterations for the track fitting to converge]{Number of iterations for the track fitting to converge per track. The track fitting does not take less than three iterations, and the number of iterations is capped at ten.}
         \label{fig:Iterations}
     \end{figure}
 
@@ -443,7 +443,7 @@ After the track fitting, the returned parameters in $UV$ space can be turned bac
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_NumberPlanesHit}
-            \caption{The number of planes hit peaks at 10, and falls off relatively linearly to the maximum number of planes at 32. There is a track finding cut of 6 that shows up in this plot as well.}
+            \caption{The number of planes hit peaks at 10, and falls off to the maximum number of planes at 32.}
         \end{subfigure}
         \hspace{5mm}
         \begin{subfigure}[t]{0.45\textwidth}
@@ -458,7 +458,7 @@ After the track fitting, the returned parameters in $UV$ space can be turned bac
 
     \begin{figure}[]
     \centering
-        \begin{subfigure}[t]{0.45\textwidth}
+        \begin{subfigure}[t]{0.6\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_PTotal}
             \caption{The fitted momentum distribution for tracks which tails off at approximately the magic momentum of $\SI{3.094}{\GeV}.$}
@@ -468,13 +468,13 @@ After the track fitting, the returned parameters in $UV$ space can be turned bac
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_PTotal_AbsResidual}
-            \caption{The absolute momentum residual between the reconstructed and true energy loss. The RMS is approximately $\SI{40}{\MeV}.$}
+            \caption{The residual between the reconstructed and true total momentum. The RMS is approximately $\SI{40}{\MeV}$, though there are some tails which spread out from the distribution.}
         \end{subfigure}
         \hspace{5mm}
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_PTotal_RelResidual}
-            \caption{The relative momentum residual between the reconstructed and true energy loss. The RMS is approximately $\SI{2.4}{\%}$. This plot includes tracks of all momenta, in general the resolution of the track fitting estimate of the momentum is around 2\%.}
+            \caption{The relative residual between the reconstructed and true total momentum. The RMS is approximately $\SI{2.4}{\%}$. This plot includes tracks of all momenta; in general the resolution of the total momentum is around 2\% for all energies.}
         \end{subfigure}%
     \caption[Fitted track momentum distribution and corresponding residuals to truth]{Fitted track momentum distribution and corresponding residuals to truth.}
     \label{fig:MaterialTotalMomentum}
@@ -486,28 +486,27 @@ After the track fitting, the returned parameters in $UV$ space can be turned bac
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Py}
-            \caption{Vertical momentum distribution. This distribution is bounded by the storage region and muon storing which limits the vertical momentum of the muons and by extension the decay positrons.}
+            \caption{Vertical momentum distribution. This distribution is bounded by the storage region which limits the vertical momentum of the muons and by extension the decay positrons.}
         \end{subfigure}
         \hspace{5mm}
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Px}
-            \caption{Horizontal momentum distribution. This distribution has an interesting shape due to the acceptance of the tracker. It is perhaps more informative to look at the radial momentum distribution, which is shown later in \figref{blach}.}
+            \caption{Horizontal momentum distribution. This distribution has an interesting shape due to the acceptance of the tracker. It is perhaps more informative to look at the radial momentum distribution, which is shown in \figref{fig:TracksDataMCSecond}.}
         \end{subfigure}
         \vspace{2mm}
-        \begin{subfigure}
-        [t]{0.45\textwidth}
+        \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Py_AbsResidual}
-            \caption{The vertical momentum reconstruction has a width of about $\SI{4}{\MeV}$.}
+            \caption{The vertical momentum residual, which has a width of about $\SI{4}{\MeV}$.}
         \end{subfigure}%
         \hspace{5mm}
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Px_AbsResidual}
-            \caption{The horizontal momentum reconstruction has a width of about $\SI{3}{\MeV}$.}
+            \caption{The horizontal momentum residual, which has a width of about $\SI{3}{\MeV}$.}
         \end{subfigure}%
-    \caption[Fitted track vertical and horizontal momenta and corresponding residuals to truth]{Shown are the fitted vertical and horizontal momentum components (top) for tracks at the entrance to the tracker. On the bottom are the absolute residuals between the reconstructed momenta and truth.}
+    \caption[Fitted track vertical and horizontal momenta and corresponding residuals to truth]{Shown are the fitted vertical and horizontal momentum components (top) for tracks at the entrance to the tracker, and their residuals to truth (bottom).}
     \label{fig:MaterialFittedMomentaComponents}
     \end{figure}
 
@@ -516,35 +515,31 @@ After the track fitting, the returned parameters in $UV$ space can be turned bac
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Y}
-            \caption{Vertical position distribution. This distribution is bounded by the storage region and muon storing which limits the vertical position of the muons and by extension the decay positrons.}
+            \caption{Vertical position distribution. This distribution is bounded by the storage region which limits the vertical positions of the muons and by extension the decay positrons.}
         \end{subfigure}
         \hspace{5mm}
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_X}
-            \caption{Horizontal position distribution. This distribution has an interesting shape due to the acceptance of the tracker. It is perhaps more informative to look at the radial position distribution, which is shown later in \figref{blach}.}
+            \caption{Horizontal position distribution. This distribution has an interesting shape due to the acceptance of the tracker. It is perhaps more informative to look at the radial position distribution, which is shown later in \figref{fig:TracksDataMCSecond}.}
         \end{subfigure}
         \vspace{2mm}
-        \begin{subfigure}
-        [t]{0.45\textwidth}
+        \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Y_AbsResidual}
-            \caption{The vertical position reconstruction has a width of about \mum{740} at the entrance of the tracker, which is expected just from geometry arguments from the angles of the straws which measure mostly horizontally.}
+            \caption{The vertical position residual, which has a width of about \mum{740} at the entrance of the tracker. This is expected from geometry arguments with the angles of the straws which measure mostly horizontally.}
         \end{subfigure}%
         \hspace{5mm}
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_X_AbsResidual}
-            \caption{The horizontal position reconstruction has a width of about \mum{140} at the entrance of the tracker, which is expected since the straws measure mostly horizontally with a straw resolution of \mum{150}.}
+            \caption{The horizontal position residual, which has a width of about \mum{140} at the entrance of the tracker. This is close to the input straw resolution of \mum{150} but slightly better due to the face that both straws measure mostly horizontally.}
         \end{subfigure}%
-    \caption[Fitted track vertical and horizontal positions and corresponding residuals to truth]{Shown are the fitted vertical and horizontal position components (top) for tracks at the entrance to the tracker. On the bottom are the absolute residuals between the reconstructed positions and truth.}
+    \caption[Fitted track vertical and horizontal positions and corresponding residuals to truth]{Shown are the fitted vertical and horizontal position components (top) for tracks at the entrance to the tracker, and their residuals to truth (bottom).}
     \label{fig:MaterialFittedPositionComponents}
     \end{figure}
 
 
-
-
-\clearpage % stopper for where I'm at 
 
 
 
@@ -554,43 +549,96 @@ After the track fitting, the returned parameters in $UV$ space can be turned bac
 % really define the left right ambiguity here first - with a reference back to the detector section
 
 
-
-% General notes: Just put plots in to start, I can clean up everything later 
-
-
-
-% Stuff I need to go into, and the general order I think of presentation:
-
-% -truth fitting in material - these plots are in my track fitting doc - mention cuts used - should that the updated plots from the vacuum side of things are minimally different
 % -Left right ambiguity and the different fit modes - determining LR upstream in some cases (cite Joe 6947), starting with a wire fit, main fit, full sequence fit mode
 % -left right fitting MC
-% - MC / data comparisons from APS talk
 
 
 
-% other things which I might want to include somehow and somewhere
-% -checks on energy loss
-% -red black point residual plots too maybe
+\subsection{Fits to tracks from data and comparison with Monte-Carlo}
 
 
 %differences in mc to data results are not due to bad track fitting but instead a mismatched simulation
 
 
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[t]{0.47\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{TrackerWiggleDataMC}
+            \caption{}
+        \end{subfigure}
+        \hspace{5mm}
+        \begin{subfigure}[t]{0.47\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{TotalMomentumDataMC}
+            \caption{}
+        \end{subfigure}
+    \caption[Fitted tracks in data compared to Monte-Carlo, track times and total momentum]{}
+    \label{fig:TracksDataMCFirst}
+    \end{figure}
 
 
-\subsection{In the code}
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[t]{0.47\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{RadialMomentumDataMC}
+            \caption{}
+        \end{subfigure}
+        \hspace{5mm}
+        \begin{subfigure}[t]{0.47\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{RadialPositionDataMC}
+            \caption{}
+        \end{subfigure}
+        \vspace{2mm}
+        \begin{subfigure}[t]{0.47\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{VerticalMomentumDataMC}
+            \caption{}
+        \end{subfigure}%
+        \hspace{5mm}
+        \begin{subfigure}[t]{0.47\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{VerticalPositionDataMC}
+            \caption{}
+        \end{subfigure}%
+    \caption[Fitted tracks in data compared to Monte-Carlo, radial and vertical momentum and position distributions]{}
+    \label{fig:TracksDataMCSecond}
+    \end{figure}
 
--should this be it's own section? should the picture be include at all? moved to the appendix?
-
-Details of the track fitting code itself is described in \refref{trackfittingdoc}. 
 
 
-\begin{figure}[]
-  \centering
-  \includegraphics[width=\textwidth]{NewGeaneFlow}
-    \caption[Geane code flow]{}
-    \label{fig:NewGeaneFlow}
-\end{figure}
+\clearpage % stopper for where I'm at 
+
+
+
+
+
+
+
+
+% other things which I might want to include somehow and somewhere
+% -red black point residual plots too maybe
+
+
+
+
+
+
+% \subsection{In the code}
+
+% -should this be it's own section? should the picture be include at all? moved to the appendix?
+
+% Details of the track fitting code itself is described in \refref{trackfittingdoc}. 
+
+
+% \begin{figure}[]
+%   \centering
+%   \includegraphics[width=\textwidth]{NewGeaneFlow}
+%     \caption[Geane code flow]{}
+%     \label{fig:NewGeaneFlow}
+% \end{figure}
 
 
 
