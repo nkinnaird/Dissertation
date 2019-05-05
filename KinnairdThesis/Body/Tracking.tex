@@ -12,7 +12,7 @@ As described in section \ref{sec:StrawTrackers}, the straw trackers are used to 
 As a brief aside, every stage of the track reconstruction is performed in the event-processing framework known as \textit{art} \cite{art}. The \textit{art} framework is a collection of modularized stages in a C++ framework useful for reading, reconstructing, filtering, analyzing, and writing data, among other things. All Fermilab experiments now use \textit{art}, and E989 is no exception.
 
 
-\section{Track Finding}
+\section{Track finding}
 \label{sec:TrackFinding}
 
 The track finding stage consists of pattern recognition routines in order to group individual hits into separate sets corresponding to individual incident tracks. The general implementation of these pattern recognition routines is relatively straightforward \cite{trackfinding,trackfinding2}. Hits across all modules are grouped in time windows called time islands, with an average width of $\SI{40}{ns}$ and a max width of $\SI{100}{ns}$. Within those time islands hits are then grouped into clusters. Clusters consist of one or two hits for each U or V view per module. As a reminder the U and V views of a module consist of the two U or V layers in that module, \secref{sec:StrawTrackers}. Hits are only clustered if they lie in close proximity in time and space to one another. The spatial constraint is defined as the difference in hit straw numbers, from 0 to 31 for the 32 straws per layer, which by default is limited to less than or equal to 4. Neighboring hit clusters in the same module are then grouped to form seeds, one per module. Finally, seeds in successive modules are grouped starting from one end of the tracker to form what are called track candidates. The seeds are formed and grouped into track candidates again only if they lie close in time and space to one another. The entire track candidate formation process occurs for all hits in a time island to find as many real tracks as possible. See \figref{fig:TrackCandidateSelection}.
@@ -45,7 +45,7 @@ After a track candidate has been formed a number of checks are made before passi
 
 
 
-\section{Track Fitting}
+\section{Track fitting}
 \label{sec:TrackFitting}
 
 
@@ -647,10 +647,10 @@ Fits to data are done with \texttt{mainFit}. Due to imperfect left-right assignm
 
 
 
-\section{Track Extrapolation}
+\section{Track extrapolation}
 \label{sec:TrackExtrapolation}
 
-The last stage of the track reconstruction is the track extrapolation. The extrapolation takes the fitted track results and either extrapolates them back to the storage region to the approximate position of the muon decay point, or forwards to the face of the calorimeter sitting right behind the tracker. The extrapolation stage utilizes a fourth order Runge-Kutta Nystr\"{o}m algorithm \cite{SCThesis} which discretely steps a trajectory through the magnetic field in the full \gmtwo Geant4 simulation, similar in some respects to the track fitting stage. At each step of the extrapolation, the updated track position and covariance matrix are compared to physical volumes in the simulation to flag tracks which have been reconstructed as likely originating from outside the storage region \cite{SCThesis,extrapolationerrors}. Because there is no fixed interaction point in the storage region, tracks are extrapolated backwards to the point of tangency where the radial momentum is equal to zero. Studies were done to verify that this approximation for the muon decay point was sufficient using truth Monte-Carlo, and it was found that a simple $\SI{1.1}{mm}$ correction to the radial decay position could be applied regardless of the momentum of the track \cite{SCThesis}. The vertical extrapolated distribution was found to have no biases. (What about the azimuthal point? Mentioned a little bit in DocDB 8564 but do I really want to go into it?) A birds eye view for extrapolation results is shown in \figref{fig:VertexPlanView}. A radial slice of the extrapolated beam distribution is shown in \figref{fig:BeamCrossSection}.
+The last stage of the track reconstruction is the track extrapolation. The extrapolation takes the fitted track results and either extrapolates them back to the storage region to the approximate position of the muon decay point, or forwards to the face of the calorimeter sitting right behind the tracker. The extrapolation stage utilizes a fourth order Runge-Kutta Nystr\"{o}m algorithm \cite{SCThesis} which discretely steps a trajectory through the magnetic field in the full \gmtwo Geant4 simulation, similar in some respects to the track fitting stage. At each step of the extrapolation, the updated track position and covariance matrix are compared to physical volumes in the simulation to flag tracks which have been reconstructed as likely originating from outside the storage region \cite{SCThesis,extrapolationerrors}. Because there is no fixed interaction point in the storage region, tracks are extrapolated backwards to the point of tangency where the radial momentum is equal to zero. Studies were done to verify that this approximation for the muon decay point was sufficient using truth Monte-Carlo, and it was found that a simple $\SI{1.1}{mm}$ correction to the radial decay position could be applied regardless of the momentum of the track \cite{SCThesis}. The vertical extrapolated distribution was found to have no biases. (What about the azimuthal point? Mentioned a little bit in DocDB 8564 but do I really want to go into it?) A birds eye view for tracks extrapolated back into the storage ring is shown in \figref{fig:VertexPlanView}.
 
 
 \begin{figure}[]
@@ -660,22 +660,14 @@ The last stage of the track reconstruction is the track extrapolation. The extra
     \label{fig:VertexPlanView}
 \end{figure}
 
-\begin{figure}[]
-  \centering
-  \includegraphics[width=0.7\textwidth]{BeamCrossSection}
-    \caption[Extrapolated muon beam distribution cross-section]{Shown is a radial slice of the extrapolated muon distribution or beam spot. The beam is localized off center of the storage ring due to the kicker settings used, \secref{sub:kicker}. (Mention that last bit at all? Mention anything about the cuts in this plot?)}
-    \label{fig:BeamCrossSection}
-\end{figure}
 
 
-
-
-
-
-
-
-\section{Muon Beam Measurements}
+\section{Muon beam measurements}
 \label{sec:MuonBeamMeasurements}
+
+All stages of the track reconstruction have ultimately lead to the goal of determining muon beam parameters and dynamics. 
+
+
 
 
 
@@ -697,12 +689,111 @@ The last stage of the track reconstruction is the track extrapolation. The extra
 
 \cite{trackcuts1,trackcuts2}
 
+
+
+
+ A radial slice of the extrapolated beam distribution is shown in \figref{fig:BeamCrossSection}.
+
+\begin{figure}[]
+  \centering
+  \includegraphics[width=0.7\textwidth]{BeamCrossSection}
+    \caption[Extrapolated muon beam distribution cross-section]{Shown is a radial slice of the extrapolated muon distribution or beam spot. The beam is localized off center of the storage ring due to the kicker settings used, \secref{sub:kicker}. (Mention that last bit at all? Mention anything about the cuts in this plot?)}
+    \label{fig:BeamCrossSection}
+\end{figure}
+
+
+
+
+-shown for station 12, station 18 is similar... 
+
+
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[t]{0.47\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{RadialPosition}
+            \caption{}
+        \end{subfigure}
+        \hspace{5mm}
+        \begin{subfigure}[t]{0.47\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{VerticalPosition}
+            \caption{}
+        \end{subfigure}
+    \caption[]{Plots courtesy of James Mott.}
+    \label{fig:}
+    \end{figure}
+
+
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[t]{0.47\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{RadialPositionVsTime_S12}
+            \caption{}
+        \end{subfigure}
+        \hspace{5mm}
+        \begin{subfigure}[t]{0.47\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{VerticalPositionVsTime_S12}
+            \caption{}
+        \end{subfigure}
+    \caption[]{Plots courtesy of James Mott.}
+    \label{fig:}
+    \end{figure}
+
+
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[t]{0.47\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{AvgRadPosVsTime_S12}
+            \caption{}
+        \end{subfigure}
+        \hspace{5mm}
+        \begin{subfigure}[t]{0.47\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{AvgVertPosVsTime_S12}
+            \caption{}
+        \end{subfigure}
+    \caption[]{Plots courtesy of James Mott.}
+    \label{fig:}
+    \end{figure}
+
+
+
+
+
+
+
+
+    % \begin{figure}[]
+    % \centering
+    %     \begin{subfigure}[t]{0.47\textwidth}
+    %         \centering
+    %         \includegraphics[width=\textwidth]{}
+    %         \caption{}
+    %     \end{subfigure}
+    %     \hspace{5mm}
+    %     \begin{subfigure}[t]{0.47\textwidth}
+    %         \centering
+    %         \includegraphics[width=\textwidth]{}
+    %         \caption{}
+    %     \end{subfigure}
+    % \caption[]{}
+    % \label{fig:}
+    % \end{figure}
+
+
+
+
 -emphasize measurements that are directly relevant to the calorimeter \wa analysis
 -cbo frequency
 -cbo amplitude
 -have a CBO subsection alongside general results? 
 
 
+\cite{cbofrequency}
 
 
 
@@ -712,6 +803,8 @@ The last stage of the track reconstruction is the track extrapolation. The extra
     \caption[CBO frequency]{}    
     \label{fig:CBOFrequency}
 \end{figure}
+
+
 
 \begin{figure}[]
     \centering
