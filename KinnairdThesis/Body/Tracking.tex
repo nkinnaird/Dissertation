@@ -549,18 +549,18 @@ After the track fitting has determined the best fit parameters in the $UV$ space
 
 Before actual data can be fitted, the left-right ambiguity problem needs to be dealt with. Since straws only measure drift circles and not actual U or V positions, and since tracks are in general passing forwards through the detector, there is an ambiguity as to which side of the wire a particle passed for each hit. In general if even a single left-right choice for a hit is wrong then a track will fit poorly. There are a couple of different track fitting modes used to deal with this problem, which are detailed in \refref{trackfittingdoc} and summarized here and in \refref{leftrightpresentation}.
 
-\subsection*{wireFit}
+\subsection*{\texttt{wireFit}}
 
 The first fit to any set of tracks in data is to do a fit to the wire centers, which requires no left-right information. The errors on the measured hits are set as the RMS of a uniform distribution with a width of a straw diameter. After a wire fit, an approximation of the best fit track is acquired which provides some left-right information. The number of fitting iterations is capped at three for the wire fit.
 
-\subsection*{mainfit}
+\subsection*{\texttt{mainfit}}
 
-The primary fit mode for analyzing data is called ``mainFit.'' After the wire fit is completed, the predicted track parameters at each measurement plane are compared with the locations of the wires for the straws that were hit. The left-right choices for each hit are set depending on which side of the wire the predicted track passed. The measured hit positions and errors are updated from the wire values to the angular-corrected DCA values based on the the left-right choices of each hit, and the fitting is repeated. At each iteration of the fitting, the left-right choices for each hit are updated based on where the previous predicted track parameters ended up. This is the fastest fit mode and with this method about 66\% of tracks are fit well. Since there is no shortage when it comes to statistics for positron tracks, this is acceptable.
+The primary fit mode for analyzing data is called \texttt{mainFit}. After the wire fit is completed, the predicted track parameters at each measurement plane are compared with the locations of the wires for the straws that were hit. The left-right choices for each hit are set depending on which side of the wire the predicted track passed. The measured hit positions and errors are updated from the wire values to the angular-corrected DCA values based on the the left-right choices of each hit, and the fitting is repeated. At each iteration of the fitting, the left-right choices for each hit are updated based on where the previous predicted track parameters ended up. This is the fastest fit mode and with this method about 66\% of tracks are fit well. Since there is no shortage when it comes to statistics for positron tracks, this is acceptable.
 
 
-\subsection*{fullSeqFit}
+\subsection*{\texttt{fullSeqFit}}
 
-The secondary fit mode is called ``fullSeqFit.'' This fit mode does a better job of determining the left-right choices for the hits in a track, but is much slower than ``mainFit.'' Since there is no statistics problem when it comes to tracks, this fit mode is usually ignored. Here is given a short summary, see \refref{trackfittingdoc} for more technical details on all parts of this fitting mode.
+The secondary fit mode is called \texttt{fullSeqFit}. This fit mode does a better job of determining the left-right choices for the hits in a track, but is much slower than \texttt{mainFit}. Since there is no statistics problem when it comes to tracks, this fit mode is usually ignored. Here is given a short summary, see \refref{trackfittingdoc} for more technical details on all parts of this fitting mode.
 
 After a wire fit, the geometry of the straw layers is used to resolve some of the left-right choices for a hit on a track. The left-right ambiguity is partially resolved through the shift in layers for each view as detailed in \secref{sec:StrawTrackers}, where if a particle passes straight through both layers in a view it can be seen to go to the left of one wire and the right of the other. This implies that for curved tracks with certain angles through tracker modules, the left-right choices for some hits are known precisely \cite{JoeLR}. For these hit planes the left-right choices are locked in and taken as known for the rest of the fitting.
 
@@ -572,21 +572,16 @@ with the measured parameters set to the different left-right combinations, \equr
 
 \subsection{Fits to tracks from data and comparison with Monte-Carlo}
 
-Fits are with mainFit
+
+Fits to data are done with \texttt{mainFit}. Due to imperfect left-right assignments and the use of real DCA and DCA error measurements, the tracks from data are naturally more messy. See \figref{fig:pValueData} for a plot of the goodness-of-fit for the tracks. While not all tracks are fitted perfectly, enough of them are fit well in order to pass on the results to the extrapolation stage. Fitted tracks to Run 1 data are compared to results from Monte-Carlo. Track times and fitted total momenta are shown in \figref{fig:TracksDataMCFirst}. Fitted track radial and vertical momentum and position distributions are shown in \figref{fig:TracksDataMCSecond}. In general the results are very similar between the two. There are mismatches in the distributions because the idealized simulation did not reflect the real run conditions at the time of this track fitting analysis. As described in \secref{sec:Run1} and explored later in \secref{sec:MuonBeamMeasurements}, the muon beam was imperfectly stored in the ring leading to the measured distributions here.
 
 
-with the left right data and the real DCA and error mesurements , the p value distribution looks like ... 
-
-
-\begin{figure}[]
-    \centering
-    \includegraphics[width=.5\textwidth]{LatestData_Pvalue_lessCut}
-    \caption[P value distribution for fitted tracks in data]{P value distribution for fitted tracks in data. A cut has been made at 1\% to remove tracks which have failed the fitting. The distribution can be seen to rise towards zero where tracks have been fit but imperfectly.}
-    \label{fig:pValueData}
-\end{figure}
-
-
-%differences in mc to data results are not due to bad track fitting but instead a mismatched simulation
+    \begin{figure}[]
+        \centering
+        \includegraphics[width=.6\textwidth]{LatestData_Pvalue_lessCut}
+        \caption[P value distribution for fitted tracks in data]{P value distribution for fitted tracks in data. A cut has been made at 1\% to remove tracks which have entirely failed the fitting. The distribution can be seen to rise towards zero where tracks have been fit but imperfectly.}
+        \label{fig:pValueData}
+    \end{figure}
 
 
     \begin{figure}[]
@@ -594,15 +589,15 @@ with the left right data and the real DCA and error mesurements , the p value di
         \begin{subfigure}[t]{0.47\textwidth}
             \centering
             \includegraphics[width=\textwidth]{TrackerWiggleDataMC}
-            \caption{}
+            \caption{Track times for tracks with energy greater than $\SI{1.8}{\GeV}$. The \gmtwo frequency can be seen in both the data and simulation.}
         \end{subfigure}
         \hspace{5mm}
         \begin{subfigure}[t]{0.47\textwidth}
             \centering
             \includegraphics[width=\textwidth]{TotalMomentumDataMC}
-            \caption{}
+            \caption{Fitted track total momentum, there is a very slight mismatch between data and Monte-Carlo.}
         \end{subfigure}
-    \caption[Fitted tracks in data compared to Monte-Carlo, track times and total momentum]{}
+    \caption[Fitted tracks in data compared to Monte-Carlo, track times and total momentum]{Fitted track results in data (black) vs Monte-Carlo (red). The amount of entries in each are normalized to each other so that they can be compared. Shape differences between the two are due to a mismatch between simulation conditions and the real experiment, and not any problem with the track fitting.}
     \label{fig:TracksDataMCFirst}
     \end{figure}
 
@@ -612,27 +607,27 @@ with the left right data and the real DCA and error mesurements , the p value di
         \begin{subfigure}[t]{0.47\textwidth}
             \centering
             \includegraphics[width=\textwidth]{RadialMomentumDataMC}
-            \caption{}
+            \caption{Fitted track radial momenta. The radial momentum of the tracks are negative as particles are curving inwards through the tracker. There is a very noticeable difference between data and Monte-Carlo results.}
         \end{subfigure}
         \hspace{5mm}
         \begin{subfigure}[t]{0.47\textwidth}
             \centering
             \includegraphics[width=\textwidth]{RadialPositionDataMC}
-            \caption{}
+            \caption{Fitted track radial positions. The shape depends on the acceptance of the tracker and in general lies below the magic radius of $\SI{7.112}{m}$. Data and Monte-Carlo results match well.}
         \end{subfigure}
         \vspace{2mm}
         \begin{subfigure}[t]{0.47\textwidth}
             \centering
             \includegraphics[width=\textwidth]{VerticalMomentumDataMC}
-            \caption{}
+            \caption{Fitted track vertical momenta. The momentum is bounded by the storage region, and data has a slightly wider width than Monte-Carlo.}
         \end{subfigure}%
         \hspace{5mm}
         \begin{subfigure}[t]{0.47\textwidth}
             \centering
             \includegraphics[width=\textwidth]{VerticalPositionDataMC}
-            \caption{}
+            \caption{Fitted track vertical positions. The positions are bounded by the storage region. There is a noticeable difference between data and Monte-Carlo.}
         \end{subfigure}%
-    \caption[Fitted tracks in data compared to Monte-Carlo, radial and vertical momentum and position distributions]{}
+    \caption[Fitted tracks in data compared to Monte-Carlo, radial and vertical momentum and position distributions]{Fitted track results in data (black) vs Monte-Carlo (red). The amount of entries in each are normalized to each other so that they can be compared. Shape differences between the two are due to a mismatch between simulation conditions and the real experiment, and not any problem with the track fitting.}
     \label{fig:TracksDataMCSecond}
     \end{figure}
 
@@ -641,26 +636,7 @@ with the left right data and the real DCA and error mesurements , the p value di
 \clearpage % stopper for where I'm at 
 
 
-
-
-
-
-
-
-% other things which I might want to include somehow and somewhere
-% -red black point residual plots too maybe
-
-
-
-
-
-
 % \subsection{In the code}
-
-% -should this be it's own section? should the picture be include at all? moved to the appendix?
-
-% Details of the track fitting code itself is described in \refref{trackfittingdoc}. 
-
 
 % \begin{figure}[]
 %   \centering
@@ -701,7 +677,6 @@ The last stage of the track reconstruction is the track extrapolation. The extra
 \section{Muon Beam Measurements}
 \label{sec:MuonBeamMeasurements}
 
--for showing plots include a bulleted list or table of the tracking cuts made - doc db 16282 and 16420
 
 
 \begin{itemize}
@@ -747,10 +722,8 @@ The last stage of the track reconstruction is the track extrapolation. The extra
 
 
 
-\clearpage
+\cleardoublepage
 
-
--in all pictures of this chapter (and others too), make sure to to go back through figures and check that I've given credit properly
 
 
 
