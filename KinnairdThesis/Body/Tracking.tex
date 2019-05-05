@@ -366,7 +366,7 @@ Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \S
 %Besides this $N \times N$ matrix inversion method, there is another way to do the inversion in a faster manner, which is described in \refref{trajfit}, but was not used here. % This is kind of an odd thing to say and I wouldn't know how to justify it - it would improve the track fitting speed, but most of the time is spent in the propagation phase so it doesn't matter too much in the end
 
 
-\subsection{Fits to tracks including material effects}
+\subsection{Fits to simulated tracks including material effects}
 
 Once the material correlations are properly included, the \chisq distribution is repaired, as shown in \figref{fig:MaterialGoodnessOfFit}. The plots in this section show the results of the track fitting in the full \gmtwo Geant4 simulation with material effects turned on. Truth measurements with \mum{150} smearing are once again used as the measured hits, and a cut of $\SI{3}{\MeV}$ on the true simulated energy loss is made to remove tracks which would result in poor fits anyways. The comparison between the simulated and reconstructed energy loss for fitted tracks is shown in \figref{fig:EnergyLossComparison}. While there is a noticable difference, the energy loss in general is small so it is acceptable. Truth pulls for the tracks are shown in \figref{fig:MaterialTruthPulls}. It can be seen that there is a slight spread in results due to the material effects. This is to be expected and the vast majority of tracks still fit well. The number of iterations it takes to fit a track is shown in \figref{fig:Iterations}. The number of planes a track hits and the corresponding momentum dependence is shown in \figref{fig:NumberOfPlanesHit}. The total momentum distribution and residuals to truth are shown in \figref{fig:MaterialTotalMomentum}. The track fitting has a momentum resoltion of approximately 2\% with just a slight dependence on the momentum of the track.
 
@@ -540,21 +540,37 @@ After the track fitting has determined the best fit parameters in the $UV$ space
     \end{figure}
 
 
+\clearpage % do this so left-right section isn't separated by 5 pages of plots - might want to remove this down the line depending on how my edits change the text
 
 
-
-\subsection{Left right ambiguity}
+\subsection{Left right ambiguity and fit modes}
 \label{sub:leftright}
 
-% really define the left right ambiguity here first - with a reference back to the detector section
 
+Before actual data can be fitted, the left-right ambiguity problem needs to be dealt with. Since straws only measure drift circles and not actual U or V positions, and since tracks are in general passing forwards through the detector, there is an ambiguity as to which side of the wire a particle passed for each hit. In general if even a single left-right choice for a hit is wrong then a track will fit poorly. There are a couple of different track fitting modes used to deal with this problem, which are detailed in \refref{trackfittingdoc} and summarized in \refref{leftrightpresentation}.
 
-% -Left right ambiguity and the different fit modes - determining LR upstream in some cases (cite Joe 6947), starting with a wire fit, main fit, full sequence fit mode
-% -left right fitting MC
+\subsection*{wireFit}
+
+The first fit to any set of tracks in data is to do a fit to the wire centers, which requires no left-right information. The errors on the measured hits are set as the RMS of a uniform distribution with a width of a straw diameter. After a wire fit, an approximation of the best fit track is made which provides some left-right information. The number of fitting iterations is capped at three for the wire fit.
+
+\subsection*{mainfit}
+
+The primary fit mode is called ``mainFit,'' and it is the mode used when analyzing the data. After the wire fit is completed, the predicted track parameters at each measurement plane are compared with the locations of the straw wires that were hit. The left-right choices for each hit are set depending on which side of the wire the predicted track from the wire fit went. The fitting is repeated with the new measurement positions and corresponding DCA errors, and at each iteration of the fitting the left-right choices for each hit are updated based on where the previous predicted track parameters ended up. This is the fastest fit mode and with this method about 66\% of tracks are fitted well.
+
+\subsection*{fullSeqFit}
+
+The seconday fit mode is called ``fullSeqFit.'' This fit mode does a better job of determining the left-right choices for the hits in a track, but is much slower than ``mainFit.'' Since there is no statistics problem when it comes to tracks, this fit mode is usually ignored. Here is given a short summary, see \refref{trackfittingdoc} for more technical details on all parts of this fitting mode.
+
+After a wire fit, this fit mode first uses the geometry of the straw layers to resolve some of the left-right choices for a hit on a track. The left-right ambiguity is partially resolved through the shift in layers for each view as detailed in \secref{sec:StrawTrackers}, where if a particle passes through both layers in a view in a certain way it can be seen to go to the left of one wire and the right of the other. This means that for a certain set of tracks with a certain angle at some planes, the left-right choices for a set of hits are known precisely \cite{JoeLR}. For these hit planes the left-right choices are locked in. 
+
+For the remaining hits where the left-right choices are unknown, an approximate \chisq is calculated for each combination of left-right hits, $2^{N_{\text{unknown}}}$, using the Geane track objects calculated by the wire fit but with the measured parameters set to the different left-right combinations. This is sped up by only checking the left-right combinations for the U or V layers at a time respectively, $2^{N_{\text{U,unknown}}} + 2^{N_{\text{V,unknown}}} \ll 2^{N_{\text{unknown}}}$. This allows for a measure of how good a left-right combination is to be determined without having to propagate every track in Geane in the full fitting. Once the approximate \chisq's have been calculated, the best tracks are fitted with the full Geane propagation and \chisq minimization algorithm. Typically the best 10 to 15 combinations are fitted, and the final track with the best \chisq is taken as the track. This gets the left-right choices for the fitted track right 99\% of the time with simulated data, but is very slow due to the combination checking and even more so the Geane propagation for each of the best track combinations. If the track fitting can be sped up significantly or a majority of the left-right choices constrained upstream somehow, then this fit mode would be more useful. 
+
 
 
 
 \subsection{Fits to tracks from data and comparison with Monte-Carlo}
+
+Fits are with mainFit
 
 
 %differences in mc to data results are not due to bad track fitting but instead a mismatched simulation
