@@ -665,7 +665,7 @@ The last stage of the track reconstruction is the track extrapolation. The extra
 \section{Muon beam measurements}
 \label{sec:MuonBeamMeasurements}
 
-All stages of the track reconstruction have ultimately lead to the goal of determining muon beam parameters and dynamics. As described in \secref{sec:muonbeamdynamics}, the muon beam is not a fixed entity. How the muons move in the storage region ultimately affect the calculation of the E-field and pitch corrections, the weighting of the muon distribution with respect to the measured field, and the calorimeter precession frequency analysis. Here are presented plots which describe the muons in the storage region, for those muons which decayed to positrons which then passed through the tracking detectors. There is still on-going work in regards to analyzing the acceptance differences between the tracker and calorimeter, in order to make sure that the correct muon beam dynamics are described in regards to those positrons which hit the calorimeters and are responsible for the measurement of \wa. 
+All stages of the track reconstruction have ultimately lead to the goal of determining the characteristics of the muon beam. As described in \secref{sec:muonbeamdynamics}, the muon beam is not a fixed entity. Where the muons live and how they move in the storage region ultimately affect the calculation of the E-field and pitch corrections, the weighting of the muon distribution with respect to the measured field, and the calorimeter precession frequency analysis. Here are presented plots for the 60H dataset which describe the muon beam in the storage region, for those muons which decayed to positrons which then passed through the tracking detectors. There is still on-going work in regards to analyzing the acceptance differences between the tracker and calorimeter, in order to make sure that the correct muon beam dynamics are described in regards to those positrons which hit the calorimeters and are responsible for the measurement of \wa.
 
 The following cuts are applied to the track reconstruction \cite{trackcuts1,trackcuts2}:
 \begin{itemize}
@@ -682,13 +682,10 @@ The following cuts are applied to the track reconstruction \cite{trackcuts1,trac
     \item{Fraction of missed planes $< 30\%$}
     \item{$|$Number of U hits - number of V hits$|$ $\leq 4$}
 \end{itemize}
-These cuts remove those tracks which fail or are too poor, and cut out those tracks which end up in the tails of the various distributions. By applying these cuts a clean sample of the extrapolated muon decay positions is extracted without biasing the results. 
+These cuts remove failed or poorly fitted tracks, and cut out those tracks which end up in the tails of various quality checking distributions. By applying these cuts a clean sample of the extrapolated muon decay positions is extracted without biasing the results.
 
 
-First, a radial slice of the extrapolated beam distribution is shown in \figref{fig:BeamCrossSection}. As shown the beam is off-center due to kicker effects, but note that it is relatively well localized. The radial and vertical projections of this cross-section are shown in \figref{fig:RadialVerticalProjections}. The vertical distribution is very similar to that from the track fitting results, while the radial distribution of the stored muons has an interesting shape due to how the muons are stored. These two distributions in general appear wider than they actually are, because all tracks of all times are included in these plots. \figref{fig:RadialVerticalVsTime} shows the radial and vertical distributions of the muon beam as a function of time, where an oscillation in the distributions is immediately apparent. Plotted in \figref{fig:RadialVerticalMeans} are the means of the radial and vertical distributions respectively. This oscillation as described before is the CBO. It can be seen that over a course of a fill, the CBO starts to decay away, and there is a corresponding beam motion as a consequence.
-
-
-\textbf{-a table of muon beam width and means might be useful...}
+First, a radial slice of the extrapolated beam distribution is shown in \figref{fig:BeamCrossSection}. As shown the beam is off-center due to kicker effects. The radial and vertical projections of this cross-section are shown in \figref{fig:RadialVerticalProjections}. The vertical distribution is very similar to that from the track fitting results, while the radial distribution of the stored muons has a non-Gaussian shape due to the storage procedure of the muons. These two distributions in general appear wider than they actually are at a single point in time, because tracks of all times are included in these plots and the beam is moving in time. \figref{fig:RadialVerticalVsTime} shows the radial and vertical distributions of the muon beam as a function of time in fill, with the means plotted in \figref{fig:RadialVerticalMeans}. \tabref{tab:MuonBeamParameters} gives the measured values of the beam parameters corresponding to the various datasets. Because of the bad quad resistors, the beam is actually seen to start at a greater vertical position than the center of the storage ring, and slowly move downwards over the course of a fill. Similarly, the vertical width of the beam decreases slowly over the course of a fill. \textbf{Include plots for this or reference another document?}
 
 
 \begin{figure}[]
@@ -699,73 +696,95 @@ First, a radial slice of the extrapolated beam distribution is shown in \figref{
 \end{figure}
 
 
-
-    \begin{figure}[]
-    \centering
-        \begin{subfigure}[t]{0.47\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{RadialPosition}
-            \caption{The radial position of $\SI{0}{mm}$ corresponds to the magic radius of $\SI{7.112}{m}$. The radial distribution is peaked almost $\SI{2}{cm}$ radial outward from the center.}
-        \end{subfigure}
-        \hspace{5mm}
-        \begin{subfigure}[t]{0.47\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{VerticalPosition}
-            \caption{The vertical distribution looks closely centered in the storage region, which as a reminder has a width of $\SI{9}{cm}$.}
-        \end{subfigure}
-    \caption[Muon beam radial and vertical distributions]{Shown are the muon beam radial (left) and vertical (right) distributions for all track times. Plots courtesy of James Mott.}
-    \label{fig:RadialVerticalProjections}
-    \end{figure}
-
-
-    \begin{figure}[]
-    \centering
-        \begin{subfigure}[t]{0.47\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{RadialPositionVsTime_S12}
-            \caption{The radial distribution of the muons can be seen to both oscillate radially inward and outward as a function of time, and bunch and spread out as a function of time. This behavior is the CBO of the beam.}
-        \end{subfigure}
-        \hspace{5mm}
-        \begin{subfigure}[t]{0.47\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{VerticalPositionVsTime_S12}
-            \caption{The vertical distribution of the muons is relatively stable as a function of time, but there is an oscillation that can just barely be seen, corresponding to the CBO.}
-        \end{subfigure}
-    \caption[Muon beam radial and vertical distributions as a function of time in fill]{Shown are the muon beam radial (left) and vertical (right) distributions as a function of time in fill for tracks in Station 12. In general the distributions for Station 18 are very similar. Plots courtesy of James Mott.}
-    \label{fig:RadialVerticalVsTime}
-    \end{figure}
+\begin{figure}[]
+\centering
+    \begin{subfigure}[t]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{RadialPosition}
+        \caption{The radial position of $\SI{0}{mm}$ corresponds to the magic radius of $\SI{7.112}{m}$. The radial distribution is peaked radial outward from the center.}
+    \end{subfigure}
+    \hspace{5mm}
+    \begin{subfigure}[t]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{VerticalPosition}
+        \caption{The vertical distribution looks closely centered in the storage region, which as a reminder has a width of $\SI{9}{cm}$.}
+    \end{subfigure}
+\caption[Muon beam radial and vertical distributions]{Shown are the muon beam radial (left) and vertical (right) distributions for all track times. Plots courtesy of James Mott.}
+\label{fig:RadialVerticalProjections}
+\end{figure}
 
 
-    \begin{figure}[]
-    \centering
-        \begin{subfigure}[t]{0.47\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{AvgRadPosVsTime_S12}
-            \caption{The radial distribution mean oscillates at the CBO frequency. It can be seen to rise at early times in Station 12 due to the scraping procedure, and then slowly relax away once the scraping is turned off and the muons decay away.}
-        \end{subfigure}
-        \hspace{5mm}
-        \begin{subfigure}[t]{0.47\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{AvgVertPosVsTime_S12}
-            \caption{The vertical distribution mean oscillates at the vertical waist frequency, as described in \tabref{tab:frequencies}. As shown for these early track times the beam is actually stored slightly higher than the center of the storage region.}
-        \end{subfigure}
-    \caption[Muon beam radial and vertical distribution means as a function of time in fill]{Shown are the muon beam radial (left) and vertical (right) distribution means as a function of time in fill for tracks in Station 12. In general the distributions for Station 18 are very similar. Plots courtesy of James Mott.}
-    \label{fig:RadialVerticalMeans}
-    \end{figure}
+\begin{figure}[]
+\centering
+    \begin{subfigure}[t]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{RadialPositionVsTime_S12}
+        \caption{The radial distribution of the muons can be seen to both oscillate radially inward and outward as a function of time, and bunch and spread out as a function of time. This behavior is the CBO of the beam.}
+    \end{subfigure}
+    \hspace{5mm}
+    \begin{subfigure}[t]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{VerticalPositionVsTime_S12}
+        \caption{The vertical distribution of the muons is relatively stable as a function of time, but there is an oscillation that can just barely be seen, corresponding to the CBO.}
+    \end{subfigure}
+\caption[Muon beam radial and vertical distributions as a function of time in fill]{Shown are the muon beam radial (left) and vertical (right) distributions as a function of time in fill for tracks in Station 12. In general the distributions for Station 18 are very similar. Plots courtesy of James Mott.}
+\label{fig:RadialVerticalVsTime}
+\end{figure}
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[t]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{AvgRadPosVsTime_S12}
+        \caption{The radial distribution mean oscillates at the CBO frequency. It can be seen to rise at early times in Station 12 due to the scraping procedure, and then slowly relax away once the scraping is turned off and the muons decay away.}
+    \end{subfigure}
+    \hspace{5mm}
+    \begin{subfigure}[t]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{AvgVertPosVsTime_S12}
+        \caption{The vertical distribution mean oscillates at the vertical waist frequency, as described in \tabref{tab:frequencies}. As shown for these early track times the beam is actually stored slightly higher than the center of the storage region.}
+    \end{subfigure}
+\caption[Muon beam radial and vertical distribution means as a function of time in fill]{Shown are the muon beam radial (left) and vertical (right) distribution means as a function of time in fill for tracks in Station 12. In general the distributions for Station 18 are very similar. Plots courtesy of James Mott.}
+\label{fig:RadialVerticalMeans}
+\end{figure}
+
+
+\begin{landscape}
+\begin{table}[]
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lccccc}
+  \hline
+    \multicolumn{6}{c}{\textbf{Run 1 Dataset Muon Beam Parameters}} \\
+  \hline\hline
+    Name & Radial Mean & Radial Mode & Radial Width & Vertical Mean & Vertical Width \\
+  \hline
+    60H & 7.61 & 19.14 & 18.43 & 0.15 & 12.88 \\
+    HighKick &  &  &  &  &  \\
+    9d &  &  &  &  &  \\
+    LowKick &  &  &  &  &  \\
+    SuperLowKick & &  &  &  &  \\
+    Endgame &  &  &  &  &  \\
+  \hline
+\end{tabular*}
+\caption[Run 1 dataset muon beam parameters]{Table of muon beam widths and means. Both radial and vertical values are defined with respect to the center of the storage region. All values are in units of mm. \textbf{Numbers input from root file, not from E-field/pitch workshop values. Verify this table with James, make sure the parameters are associated with the plots and cuts I've listed and shown. Might want to reduce the table if most dataset results are the same.}}
+\label{tab:MuonBeamParameters}
+\end{table}
+\end{landscape}
 
 
 
 
-
-
-As described in \secref{sec:Run1}, the CBO characteristics of the beam were found to be changing over the course of a fill. Using the tracking results shown here, the CBO frequency and amplitude can be characterized \cite{cbofrequency}. The CBO frequency as a function of time in fill is shown in \figref{fig:CBOFrequency}. The CBO amplitude as a function of time in fill is shown in \figref{fig:CBOAmplitude}. Both of these characteristics will be folded into the precession frequency analysis as will be described later.
+The observed oscillation is the CBO as described before in \secref{sub:CBO}. It can be seen that over a course of a fill, the CBO decays away, and there is a corresponding beam motion as a consequence. As described in \secref{sec:Run1}, the CBO characteristics of the beam were found to be changing over the course of a fill. Using the tracking results shown here, the CBO frequency and amplitude can be characterized \cite{cbofrequency}. The CBO frequency as a function of time in fill is shown in \figref{fig:CBOFrequency}. The CBO amplitude as a function of time in fill is shown in \figref{fig:CBOAmplitude}. Both of these characteristics will be folded into the precession frequency analysis as will be described later.
 
 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=0.6\textwidth]{CBOFrequency}
-    \caption[CBO frequency as a function of time]{The CBO frequency as a function of time in fill. It can be seen to rise at early times and rise slowly at later times. This frequency change is due to the slowly changing quad voltages over each fill. The CBO frequency is fit to a function which includes a linear term and two exponentials. Plot courtesy of James Mott.}    
+    \caption[CBO frequency as a function of time]{The CBO frequency as a function of time in fill. It can be seen to rise at early times and rise slowly at later times. This frequency change is due to the slowly changing quad voltages over each fill. The CBO frequency is fit to a function which includes a linear term and two exponentials. Plot courtesy of James Mott.}
     \label{fig:CBOFrequency}
 \end{figure}
 
@@ -774,9 +793,30 @@ As described in \secref{sec:Run1}, the CBO characteristics of the beam were foun
 \begin{figure}[]
     \centering
     \includegraphics[width=0.6\textwidth]{CBOAmplitude}
-    \caption[CBO amplitude as a function of time]{The CBO amplitude as a function of time in fill. The beginning of the data is not well understood, but after around \mus{50} the CBO amplitude falls away. Different evenlopes for the amplitude are fit to the data with various degrees of success. Since most of the muons decay away early in the fill, it's the early fitted times that are most important, for which even the simple exponential in red is sufficient. Plot courtesy of James Mott.}    
+    \caption[CBO amplitude as a function of time]{The CBO amplitude as a function of time in fill. The beginning of the data is not well understood, but after around \mus{50} the CBO amplitude falls away. Different evenlopes for the amplitude are fit to the data with various degrees of success. Since most of the muons decay away early in the fill, it's the early fitted times that are most important, for which even the simple exponential in red is sufficient. The value for $T/2\pi$ in the blue curve is approximately \mus{114.5}. Plot courtesy of James Mott.}
     \label{fig:CBOAmplitude}
 \end{figure}
+% phi is around 0.482, not sure about B and C, and each of these are allowed to float
+
+
+% \begin{figure}[]
+% \centering
+%     \begin{subfigure}[t]{0.47\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{CBOFrequency}
+%         \caption{}
+%     \end{subfigure}
+%     \hspace{5mm}
+%     \begin{subfigure}[t]{0.47\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{CBOAmplitude}
+%         \caption{}
+%     \end{subfigure}
+% \caption[]{}
+% \label{fig:}
+% \end{figure}
+
+
 
 
 
