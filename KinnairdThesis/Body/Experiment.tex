@@ -327,6 +327,7 @@ The kicker is made up of three separate pulsed magnets located 90\textdegree{} f
 \end{figure}
 
 \subsection{Electrostatic quadrupoles}
+\label{sub:quads}
 
 There are four electrostatic quadrupoles (quads) located around the ring as shown in \figref{fig:vacmap}, which focus the beam vertically and defocus the beam horizontally. (The magnetic field of the ring serves to restore the beam radially in combination with the electric field.) Just as in the case of the kickers, the quads must be operated in the vacuum. E989 uses electrostatic focusing elements instead of magnetic ones in order to avoid magnetic field gradients which would limit the precision of the magnetic field measurement. Four quads were chosen in order to maximize the symmetry of the beam motion around the ring. The quads occupy 43\% of the ring circumference, leaving space for other elements around the ring. Each quad is made up of two segments, a short segment of 13\textdegree{} and a long segment of 26\textdegree{}. The quads are made out of as little material as possible in order to reduce multiple scattering of decay positrons passing through them. A picture of the quads installed into one of the vacuum chambers is shown in \figref{fig:Quads}. A simulation of the equipotential lines of the quads is shown in \figref{fig:QuadPotential}. The original design of the quads is detailed in \refref{QuadsE821}.
 
@@ -345,7 +346,7 @@ There are four electrostatic quadrupoles (quads) located around the ring as show
 \end{figure}
 
 
-Lastly, some of the stored muons will be lost during data taking that will affect the measurement of the precession frequency \wa. In order to reduce the number of lost muons over the course of a fill, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that will likely be lost at later times. This scraping procedure involves powering the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \textbf{something}$\SI{20}{\micro s}$. 
+Lastly, some of the stored muons will be lost during data taking that will affect the measurement of the precession frequency \wa. In order to reduce the number of lost muons over the course of a fill, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that will likely be lost at later times. This scraping procedure involves powering the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \textbf{something}$\SI{20}{\micro s}$. Note that despite this scraping procedure, some stored muons are still lost anyways. The effects on the measurement of \wa due to this are explored in \secref{sec:lostmuons}.
 
 
 
@@ -552,29 +553,15 @@ Once again $n$ is the field index, $R_{0}$ is the radius of the ring at the cent
 \label{sec:Run1}
 
 
-Run 1 for E989 was conducted in the first half of 2018. Production data was gathered from March 22nd through June 29th. Because of accelerator, experimental, and practical concerns production data taking was interrupted at various dates. Due to hardware issues both kicker and quad settings were lowered from their original design values. Stable voltage set points were identified and used in separate periods of the data taking, depending on the stabilities of the systems. The distinct datasets and their associated parameters are shown in \tabref{tab:Run1Datasets}. For Run 1, $n$ values of 0.108 and 0.120 were chosen corresponding to quad voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.
+Run 1 for E989 was conducted in the first half of 2018. Production data was gathered from March 22nd through June 29th. The number of injected muons per fill was $\mathcal{O}(4,000)$. Because of accelerator, experimental, and practical concerns production data taking was interrupted at various dates. Due to hardware issues both kicker and quad settings were originally lowered from their technical design values. Various voltage set points for both systems were identified and used in separate periods of the data taking, depending on the stabilities of the systems. The distinct designated datasets gathered by E989 and their associated parameters are shown in \tabref{tab:Run1Datasets}. Due to the lower kicker voltages, the muon beam was stored on a radius several mm offset from the central orbit of the storage ring, as shown in \figref{fig:BeamCrossSection}. The chosen quad $n$ values were 0.108 and 0.120, corresponding to quad voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively. During Run 1 it was also discovered that some of the quad resistors were damaged, leading to longer RC time constants such that the quad voltages had not reached storage nominal at the beginning of the designated analysis portion of the data, and were still changing over the course of a fill. See \figref{fig:QuadTraces}. The muon beam was therefore seen to move as a function of time in-fill. See \secref{sec:MuonBeamMeasurements} for a summary of the muon beam characteristics for Run 1. As described in various sections in this chapter and in \secref{sec:MuonBeamMeasurements}, these muon beam characteristics fold into the measurement of \gmtwo in a variety of ways, for which work is still on-going.
 
 
-
-
-From kicker section:
-In Run 1 the kickers were not able to be run at the design voltage necessary to put the beam exactly on the central orbit. Instead the beam is kicked to a stable orbit a couple of mm off center depending on the actual value of the kick used, as shown in \figref{fig:BeamCrossSection}. \textbf{(Clarify what the exact numbers are here, or point to the section where I describe the values used in Run 1.)}  
-
-
-From quad section:
-During Run 1 it was discovered that some of the quad resistors were damaged, leading to longer RC time constants such that the quad voltages had not returned to storage nominal during the designated analysis portion of the data. \textbf{(Show a picture here of those time constants?)} Note that despite this scraping procedure, some stored muons are still lost anyways. The effects on the measurement of \wa due to this are explored in \secref{sec:lostmuons}.
-
-
-
--number of muons per fill number somewhere...
-% Kiburg 13699
-% Polly 12936 but neither of these quite give the actual number of muons per fill
-
-
-
-\cite{Run1Datasets}
-
-
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.8\textwidth]{QuadTraces}
+    \caption[Electrostatic quadrupole high voltage traces]{Traces for the high voltages as a function of time on some of the quad plates. The different plates are identified in the legend, where for instance Q1LT stands for the top long plate of quad 1. The beam is injected at the green line and the scraping procedure occurs until the quad voltages relax to their design values, in this case $\SI{20.4}{kV}$. As shown some of the high voltage traces do not relax in a smooth and fast exponential manner, due to damaged quad resistors. The traces in orange and brown are for good quad resistors, while the traces in red and blue show the results from damaged quad resistors. Plot courtesy of }   
+    \label{fig:QuadTraces}
+\end{figure}
 
 
 \begin{landscape}
@@ -588,27 +575,23 @@ During Run 1 it was discovered that some of the quad resistors were damaged, lea
   \hline\hline
     Name & Number $e^{+} > E_{\text{Th}}$ & $n$ Value & Quad Voltage (kV) & Kicker Voltage Range (kV) & $f_{CBO}$ (MHz) \\
   \hline
-    60H & $\SI{9.3e8}{}$ & 0.108 & 18.3 & \SIrange{128}{132}{} & 0.37 \\
-    HighKick &  & 0.120 & 20.4 & \SIrange{136}{138}{} &  \\
-    9d & $\SI{2.2e9}{}$ & 0.120 & 20.4 & \SIrange{128}{132}{} &  \\
-    LowKick &  & 0.120 & 20.4 & \SIrange{123}{127}{} &  \\
-    SuperLowKick & & 0.108 & 18.3 & \SIrange{117}{119}{} &  \\
-    Endgame &  & 0.108 & 18.3 & \SIrange{122}{127}{} &  \\
+    60H & $\SI{9.3e8}{}$ & 0.108 & 18.3 & $128-132$ & 0.37 \\
+    HighKick &  & 0.120 & 20.4 & $136-138$ &  \\
+    9d & $\SI{2.2e9}{}$ & 0.120 & 20.4 & $128-132$ &  \\
+    LowKick &  & 0.120 & 20.4 & $123-127$ &  \\
+    SuperLowKick & & 0.108 & 18.3 & $117-119$ &  \\
+    Endgame &  & 0.108 & 18.3 & $122-127$ &  \\
   \hline
-    % Total Positrons Above Threshold
+    \multicolumn{3}{c}{Total Positrons Above Threshold} & \multicolumn{3}{c}{} \\
   \hline
 \end{tabular*}
-\caption[Run 1 datasets]{ \textbf{Update the number of positrons column once all of the datasets have been opened and energy thresholds chosen. Potentially also add further columns of interest or split into multiple tables.}}
+\caption[Run 1 datasets]{The different designated datasets acquired during Run 1 of E989 and their associated parameters \cite{Run1Datasets}. \textbf{Update the number of positrons column once all of the datasets have been opened and energy thresholds chosen. Potentially also add further columns of interest or split into multiple tables.}}
 \label{tab:Run1Datasets}
 \end{table}
 \end{landscape}
 
 
 
-
-
 \cleardoublepage
-
-
 
 
