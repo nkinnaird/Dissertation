@@ -18,7 +18,18 @@ The measurement of \wa is determined by counting the number of detected positron
 The calorimeters measure hit times and energies of impacting particles, where these hit times and energies are determined from SiPM current signals and a reconstruction procedure. The reconstruction procedure consists of the steps need to take the raw signals and produce correct measurements of the positron energies and times. In E989 there are two separate reconstruction algorithms, \texttt{ReconWest} and \texttt{ReconEast}. Using separate reconstruction methods gives confidence in any final results be removing any single points of failure. The reconstruction method used in this analysis is \texttt{ReconWest}. A summary of its details will be presented here. A more thorough description is detailed by A. Fienberg \cite{AFThesis}.
 
 
-The raw data are digitized waveforms, which are voltage versus time signals output from each SiPM. Due to the incredible amount of data coming in with the high muon fill rate, only those traces which exceed some threshold are saved to disk. An online processing system checks the traces against this preconfigured threshold by passing all of the data through a GPU farm \cite{Gohn:2016shi}. If any trace is found above threshold, then the data is saved from every SiPM in every calorimeter, for a time range around the over-threshold pulse. This time range is called a time island, similar to in the tracking reconstruction, and typically has a width of $\SI{40}{ns}$ \cite{AFThesis}.
+The raw data are digitized waveforms, which are voltage versus time signals output from each SiPM. Due to the incredible amount of data coming in with the high muon fill rate, only those traces which exceed some threshold are saved to disk. An online processing system checks the traces against this preconfigured threshold by passing all of the data through a GPU farm \cite{Gohn:2016shi}. If any trace is found above threshold, then the data is saved from every SiPM in every calorimeter, for a time range around the over-threshold pulse. This time range is called a time island, similar to in the tracking reconstruction, and typically has a width of $\SI{40}{ns}$ \cite{AFThesis}. These traces are corrected for undesired digitzer effects.
+
+
+The trace pulses are then fit with templates in order to extract the pulse area and peak times. Each SiPM has its own templates, one for positrons and one for laser pulses. These templates are extracted from data, where each template is determined by collecting many traces from a SiPM, normalizing by pulse area, aligning in time, and averaging them. These templates were checked against many systematic effects in order to make sure that the constructed templates did not bias the energy or time measurements, such as hit angle, energy (pulse size), position, and rate, and aging \cite{Kaspar:2016ofv,AFThesis}. Each trace is fit using a \chisq minimization algorithm with the corresponding SiPM templates in order to determine the time and energy of the hit. In order to fit for multiple pulses in a single trace or time island, the fitting procedure first fits with a single template, and then checks the residuals for any remaining peaks. If peaks exist above some threshold, then the fitting is repeated until all pulses have been fit. The time measurement performance in the pulse finding was found to be unaffected by the number of pulses in a trace, and there is 100\% pileup separation at \ns{5} \cite{AFThesis}. 
+
+
+
+\textbf{probably a picture of a pulse and template here - single, potentiall a multi pulse fit as well}
+
+
+Once the pulses have been fit with the template, the energy of the pulse needs to be determined from the area...
+
 
 
 
