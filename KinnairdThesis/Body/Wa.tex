@@ -24,22 +24,20 @@ The raw data are digitized waveforms, which are voltage versus time signals outp
 The trace pulses are then fit with templates in order to extract the pulse area and peak times. Each SiPM has its own templates, one for positrons and one for laser pulses. These templates are extracted from data, where each template is determined by collecting many traces from a SiPM, normalizing by pulse area, aligning in time, and averaging them. These templates were checked against many systematic effects in order to make sure that the constructed templates did not bias the energy or time measurements, such as hit angle, energy (pulse size), position, and rate, and aging \cite{Kaspar:2016ofv,AFThesis}. Each trace is fit using a \chisq minimization algorithm with the corresponding SiPM templates in order to determine the time and energy of the hit. In order to fit for multiple pulses in a single trace or time island, the fitting procedure first fits with a single template, and then checks the residuals for any remaining peaks. If peaks exist above some threshold, then the fitting is repeated until all pulses have been fit. The time measurement performance in the pulse finding was found to be unaffected by the number of pulses in a trace, and there is 100\% pileup separation at \ns{5} \cite{AFThesis}. 
 
 
-
 \textbf{probably a picture of a pulse and template here - single, potentiall a multi pulse fit as well}
 
 
-Once the pulses have been fit with the template, the pulse areas need to be converted to real energy units using an energy calibration procedure. A couple of different techniques exist that can be used, including a method that counts photo-statistics seen in the SiPMs. The default method used is a comparison of lost muon energy signatures in the calorimeters. As described in \refref{lostmuons}, muons lost from the storage ring can spiral inward and hit consecutive calorimeters with a specific time separation between calorimeter hits. These lost muons are minimum-ionizing particles, and thus leave a very distinct energy signature in the crystals. Selecting on the time signature allows hits corresponding to lost muons to be isolated, and different channels can be equalized based on the energy signatures. Finally, determining the energy calibration for positron hits as compared to lost muon hits needs to be done. Again there are a couple of different techniques, including a comparison of endpoint energies for high energy positrons which tail off at the magic momentum of $\SI{3.094}{\GeV}$ and comparing to simulation. The default technique is to calibrate the energies such that the optimal energy threshold for the \wa analyis is $\SI{1.7}{\GeV}$ \cite{AFThesis}. Ultimately the energy calibration doesn't matter too much because it is not the energy units that we really care about. What we really care about is the number of positrons above some energy threshold, where that threshold can be optimized emperically. In fact, besides the use of general physics intuition, the entire \wa analysis could be done without even considering the energy of the incident positrons, and only considering the amplitude of the SiPM pulses. \textbf{Is it a little awkward to talk about lost muons here when I haven't talked about them at all yet? Also haven't talked about the optimal threshold yet}
+Once the pulses have been fit with the template, the pulse areas need to be converted to real energy units using an energy calibration procedure. A couple of different techniques exist that can be used, including a method that counts photo-statistics seen in the SiPMs. The default method used is a comparison of lost muon energy signatures in the calorimeters. As described in \refref{lostmuons}, muons lost from the storage ring can spiral inward and hit consecutive calorimeters with a specific time separation between calorimeter hits. These lost muons are minimum-ionizing particles, and thus leave a very distinct energy signature in the crystals. Selecting on the time signature allows hits corresponding to lost muons to be isolated, and different channels can be equalized based on the energy signatures. \textbf{Is it a little awkward to talk about lost muons here when I haven't talked about them at all yet?} Finally, determining the energy calibration for positron hits as compared to lost muon hits needs to be done. Again there are a couple of different techniques, including a comparison of endpoint energies for high energy positrons which tail off at the magic momentum of $\SI{3.094}{\GeV}$ and comparing to simulation. The default technique is to calibrate the energies such that the optimal energy threshold for the \wa analyis is $\SI{1.7}{\GeV}$ \cite{AFThesis}. Ultimately the energy calibration doesn't matter too much because it is not the energy units that we really care about. What we really care about is the number of positrons above some energy threshold, where that threshold can be optimized emperically. In fact, besides the use of general physics intuition, the entire \wa analysis could be done without even considering the energy of the incident positrons, and only considering the amplitude of the SiPM pulses. \textbf{Haven't talked about the optimal threshold yet} After the energy calibration is completed the energies of the pulses are modified according to the laser systems measurement of the gain. Systematic effects from this are studied in \secref{sub:gain}. \textbf{Maybe I should be showing gain curves here and talking about it a bit more?}
+
+
+Each pulse fit now has an energy and a time associated with it. In order to measure \wa to high precision, the time reconstruction of the pulse is the most important part. The fitted pulse times for each pulse need to be aligned both on a fill-by-fill basis relative to the injection time of the beam, corrected for any channel differences due to differing pulse shapes or fiber lengths, and corrected for any calorimeter differences due to the use of different laser system components. The former is corrected for using the T0 detector as described in \secref{sec:T0}. The latter are corrected by aligning calorimeter channels in time using signals from islands with large simultaneous pulses in neighboring crystals, and aligning calorimeters using lost muon coincident events as described before.
 
 
 
 
 
--clockticks
 
 
-
-
--need to mention gain
 
 
 -clustering
@@ -116,6 +114,11 @@ Once the reconstruction has processed all the hits into clusters, the time spect
 
 \section{Systematic errors}
 \label{sec:Systematic Errors}
+
+
+
+\subsection{Gain}
+\label{sub:gain}
 
 
 
