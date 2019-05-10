@@ -2,48 +2,61 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/RatioAnalysis/}{Body/Figures/RatioAnalysis/MethodOverview/}}
+\graphicspath{{Body/Figures/WaGeneral/}{Body/Figures/RatioAnalysis/}{Body/Figures/RatioAnalysis/MethodOverview/}}
 
 \chapter{\texorpdfstring{\wa}{wa} Measurement}
 \label{chapter:SpinPrecessionMeasurement}
 
 
-The measurement of \wa is determined by counting the number of detected positrons in the calorimeters above some energy threshold, as described in \secref{section:WaIntro}. Doing so results in a histogram of counts which is modulated by \wa, \figref{fig:gm2wiggle}. Fitting for the frequency allows \wa to be extracted. The \wa measurement therefore consists of the steps needed to construct the histogram of counts, and the fitting of said histogram.
+The measurement of \wa is determined by counting the number of detected positrons in the calorimeters above some energy threshold, as described in \secref{section:WaIntro}. Doing so results in a histogram of counts which is modulated by \wa, \figref{fig:gm2wiggle}. Fitting for the frequency allows \wa to be extracted. The \wa measurement therefore consists of the steps needed to construct the histogram of counts, the fitting of that histogram, and any systematic studies done in the analysis.
 
 
 \section{Reconstruction}
 \label{sec:ReconWest}
 
 
-The calorimeters measure hit times and energies of impacting particles, where these hit times and energies are determined from SiPM current signals and a reconstruction procedure. The reconstruction procedure consists of the steps need to take the raw signals and produce correct measurements of the positron energies and times. In E989 there are two separate reconstruction algorithms, \texttt{ReconWest} and \texttt{ReconEast}. Using separate reconstruction methods gives confidence in any final results be removing any single points of failure. The reconstruction method used in this analysis is \texttt{ReconWest}. A summary of its details will be presented here. A more thorough description is detailed by A. Fienberg \cite{AFThesis}.
+The calorimeters measure hit times and energies of impacting particles, where these hit times and energies are determined from the raw SiPM signals and a reconstruction procedure. In E989 there are two overall separate reconstruction algorithms, \texttt{ReconWest} and \texttt{ReconEast}. Each of these reconstruction algorithms is modularized, and the steps of the reconstruction process can be switched in and out at will. Using separate reconstruction methods gives confidence in any final results by removing single points of failure. The reconstruction method used in this analysis is \texttt{ReconWest}. A summary of its details will be presented here. A more thorough description is detailed by A. Fienberg \cite{AFThesis}.
 
 
-The raw data are digitized waveforms, which are voltage versus time signals output from each SiPM. Due to the incredible amount of data coming in with the high muon fill rate, only those traces which exceed some threshold are saved to disk. An online processing system checks the traces against this preconfigured threshold by passing all of the data through a GPU farm \cite{Gohn:2016shi}. If any trace is found above threshold, then the data is saved from every SiPM in every calorimeter, for a time range around the over-threshold pulse. This time range is called a time island, similar to in the tracking reconstruction, and typically has a width of $\SI{40}{ns}$ \cite{AFThesis}. These traces are corrected for undesired digitzer effects.
+The raw data are digitized waveforms, which are voltage versus time traces output from each SiPM for each calorimeter crystal hit. Due to the incredible amount of data coming in with the high muon fill rate, only those pulses which exceed some threshold are saved to disk. An online processing system checks the traces against this pre-configured threshold by passing all of the data through a GPU farm \cite{Gohn:2016shi}. If any trace is found above threshold, then the data is saved from every SiPM in every calorimeter, for a time range around the over-threshold trace. This time range is called a time island, similar to that in the tracking reconstruction, and typically has a width of $\SI{40}{ns}$ \cite{AFThesis}.
 
 
-The trace pulses are then fit with templates in order to extract the pulse area and peak times. Each SiPM has its own templates, one for positrons and one for laser pulses. These templates are extracted from data, where each template is determined by collecting many traces from a SiPM, normalizing by pulse area, aligning in time, and averaging them. These templates were checked against many systematic effects in order to make sure that the constructed templates did not bias the energy or time measurements, such as hit angle, energy (pulse size), position, and rate, and aging \cite{Kaspar:2016ofv,AFThesis}. Each trace is fit using a \chisq minimization algorithm with the corresponding SiPM templates in order to determine the time and energy of the hit. In order to fit for multiple pulses in a single trace or time island, the fitting procedure first fits with a single template, and then checks the residuals for any remaining peaks. If peaks exist above some threshold, then the fitting is repeated until all pulses have been fit. The time measurement performance in the pulse finding was found to be unaffected by the number of pulses in a trace, and there is 100\% pileup separation at \ns{5} \cite{AFThesis}. 
+The traces are then fit with templates in order to extract the the area and peak times of any present pulses. Each SiPM has its own templates, one for positrons and one for laser pulses. These templates are extracted from data, where each template is determined by collecting many single pulse traces from a SiPM, normalizing by pulse area, aligning in time, and averaging them. These templates were checked against many systematic effects in order to make sure that the constructed templates did not bias the energy or time measurements, such as hit angle, energy (pulse size), position, and rate, as well as aging effects \cite{Kaspar:2016ofv,AFThesis}. Each trace is fit using a \chisq minimization algorithm with the corresponding SiPM templates in order to determine the time and energy of the hit. In order to fit for multiple pulses in a single time island, the fitting procedure first fits with a single template, and then checks the residuals for any remaining peaks. If peaks exist above some threshold, then the fitting is repeated until all pulses have been fit. The time measurement performance in the pulse finding was found to be unaffected by the number of pulses in a time island, and there is 100\% pileup separation at \ns{5} \cite{AFThesis}. See \figref{fig:TemplateFit} for a typical single template fit to a SiPM trace.
 
 
-\textbf{probably a picture of a pulse and template here - single, potentiall a multi pulse fit as well, template fit per crystal..}
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.6\textwidth]{TemplateFit}
+    \caption[Template fit to SiPM trace]{A template fit in purple to a SiPM trace delineated by the black points which is in units of ADC counts. Plot courtesy of Aaron Fienberg.}
+    \label{fig:TemplateFit}
+\end{figure}
 
 
-Once the pulses have been fit with the template, the pulse areas need to be converted to real energy units using an energy calibration procedure. A couple of different techniques exist that can be used, including a method that counts photo-statistics seen in the SiPMs. The default method used is a comparison of lost muon energy signatures in the calorimeters. As described in \refref{lostmuons}, muons lost from the storage ring can spiral inward and hit consecutive calorimeters with a specific time separation between calorimeter hits. These lost muons are minimum-ionizing particles, and thus leave a very distinct energy signature in the crystals. Selecting on the time signature allows hits corresponding to lost muons to be isolated, and different channels can be equalized based on the energy signatures. \textbf{Is it a little awkward to talk about lost muons here when I haven't talked about them at all yet?} Finally, determining the energy calibration for positron hits as compared to lost muon hits needs to be done. Again there are a couple of different techniques, including a comparison of endpoint energies for high energy positrons which tail off at the magic momentum of $\SI{3.094}{\GeV}$ and comparing to simulation. The default technique is to calibrate the energies such that the optimal energy threshold for the \wa analyis is $\SI{1.7}{\GeV}$ \cite{AFThesis}. Ultimately the energy calibration doesn't matter too much because it is not the energy units that we really care about. What we really care about is the number of positrons above some energy threshold, where that threshold can be optimized emperically. In fact, besides the use of general physics intuition, the entire \wa analysis could be done without even considering the energy of the incident positrons, and only considering the amplitude of the SiPM pulses. \textbf{Haven't talked about the optimal threshold yet} After the energy calibration is completed the energies of the pulses are modified according to the laser systems measurement of the gain. Systematic effects from this are studied in \secref{sub:gain}. \textbf{Maybe I should be showing gain curves here and talking about it a bit more?}
+Once a pulse has been fit with a template, the pulse area needs to be converted to real energy units using an energy calibration procedure. A couple of different techniques exist that can be used, including a method that counts photo-statistics seen in the SiPMs \cite{AFThesis}. The default method used is a comparison of lost muon energy signatures in the calorimeters. As described in \refref{lostmuons}, muons lost from the storage ring can spiral inward and hit consecutive calorimeters with a specific time separation between calorimeter hits. These lost muons are minimum-ionizing particles, and thus leave a very distinct energy signature in the crystals, see \secref{sec:lostmuons}. Selecting on the time signature allows hits corresponding to lost muons to be isolated, and the energy signature can be used to determine the appropriate conversions from area to energy\footnote{Different channels can also be equalized based on the energy signatures.}. 
 
 
-Each pulse fit now has an energy and a time associated with it. In order to measure \wa to high precision, the time reconstruction of the pulse is the most important part. The fitted pulse times for each pulse need to be aligned both on a fill-by-fill basis relative to the injection time of the beam, corrected for any channel differences due to differing pulse shapes or fiber lengths, and corrected for any calorimeter differences due to the use of different laser system components. The former is corrected for using the T0 detector as described in \secref{sec:T0}. The latter are corrected by aligning calorimeter channels in time using signals from islands with large simultaneous pulses in neighboring crystals, and aligning calorimeters using lost muon coincident events as described before.
+The energy calibration for positron hits as compared to lost muon hits then needs to be determined. Again there are a couple of different techniques, including a comparison of endpoint energies for high energy positrons which tail off at the magic momentum of $\SI{3.094}{\GeV}$, and comparison with simulation. The default technique is to calibrate the energies such that the optimal energy threshold for the \wa analysis is near $\SI{1.7}{\GeV}$ \cite{AFThesis}. Ultimately the energy calibration doesn't matter too much because it is not the energy units that really matter. What really matters is the number of positrons above some energy threshold, where that threshold can be optimized empirically. In fact, the entire \wa analysis could be done without even considering the energy of the incident positrons, and only considering the amplitude of the SiPM pulses\footnote{This statement ignores the effects of pileup which must be accounted for, and applies for a threshold style analysis, and not for other analysis methods which depend on the energy of the pulses.}.
 
 
-The last part of the calorimeter reconstruction is the clustering. Clustering is the stage which takes the individual template fit results from separate crystals, and turns them into the times, energies, and positions of decay positrons impacts. For a time island with a single positron impact, the procedure is pretty straightforward. The energy for the positron hit cluster is the sum of each individual crystal energy hits. The time for the cluster is taken as the time of the maximum energy hit in the island. This works because most of the positrons energy is localized to a single crystal, and is within $\SI{100}{ps}$ of an energy-weighted calculation of the time. The position of the cluster is determined with a logarithmic weighting function, which for a $\SI{2}{\GeV}$ positron in the E989 calorimeters has a resolution of $\SI{2}{mm}$ \cite{AFThesis}. For a time island with multiple positron impacts, the individual crystal hits are separated in time, where the time partitioning separates hits that are $\SI{2.5}{ns}$ apart, and the clustering proceeds as before. For hits which are within this time window, a pileup event has occurred. If the pileup event happens within the same crystal, then the multiple hits are measured as a single hit, and this needs to be corrected for using a pileup subtraction technique, as described in \secref{sub:pileupsubtraction}. For hits that occur in separate crystals, the pileup can be resolved using the spatial separation of the calorimeters. This is an ongoing area of work, and one technique is described in \refref{AFThesis}. For this analysis the spatial separation was turned off, which simplifies the analysis somewhat. This increases the amount of pileup seen in the data, which again is handled by the pileup subtraction technique. For the precision of the Run 1 analysis result, this was found to be acceptable. For the final goal of $\SI{140}{ppb}$ more work will need to be done on this.
+Each pulse fit now has an associated energy and time. Because the measurement of \wa depends heavily on the time reconstruction since the analysis is a frequency extraction, pulse times need to be corrected for various effects in order to reach the precision goal. The fitted times for each pulse need to be aligned on a fill-by-fill basis relative to the injection time of the beam, corrected for any channel differences due to differing pulse shapes or fiber lengths, and corrected for any calorimeter time misalignments due to the use of different laser system components. The fill-by-fill alignment is corrected for using the T0 detector as described in \secref{sec:T0}. The channel differences are corrected by aligning calorimeter channels in time using signals from islands with large simultaneous pulses in neighboring crystals. Calorimeters are time aligned using lost muon coincident events as described before. Once the times of the pulse fits or crystal hits have been determined, the energies can be corrected appropriately for gain effects measured by the laser system. As described in \secref{sub:LaserCalibrationSystem}, the laser calibration system corrects for in-fill, out-of-fill, and SDTP effects \cite{Gain}. \figref{fig:IFGFunction} shows an in-fill gain function fit to data for a single calorimeter. Systematic effects for corrected gain effects are studied in \secref{sub:gainerror}. 
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.6\textwidth]{IFGFunction}
+    \caption[In-fill gain function fit for a single calorimeter crystal]{In-fill gain function fit for a single calorimeter crystal (top) and fit residuals (bottom). Each crystal has its own in-fill and SDTP gain function parameters. Plot courtesy of Matthias Smith.}
+    \label{fig:IFGFunction}
+\end{figure}
 
 
+The last part of the calorimeter reconstruction is the clustering. Clustering is the stage which takes the individual template fit results from separate crystals, and turns them into the times, energies, and positions of decay positron impacts. For a time island with a single positron impact, the procedure is straightforward. The energy for the positron hit cluster is the sum of the individual hit crystal energies. The time for the cluster is taken as the time of the maximum energy hit in the island. This works because most of the deposited energy from a hit is localized to a single crystal. The position of the cluster is determined with a logarithmic weighting function between crystal hits, which for a $\SI{2}{\GeV}$ positron in the E989 calorimeters results in a resolution of $\SI{2}{mm}$ \cite{AFThesis}. See \figref{fig:CaloCluster} for a single calorimeter cluster from a positron hit in the calorimeter. For a time island with multiple positron impacts, the individual crystal hits are separated in time, where the time partitioning separates hits that are $\SI{2.5}{ns}$ apart, and the clustering proceeds as before. For hits which are within this time window, a pileup event has occurred. If the pileup event happens within the same crystal, then the multiple hits are measured as a single hit, and this needs to be corrected for using a pileup subtraction technique, as described in \secref{sub:pileupsubtraction}. For hits that occur in separate crystals, the pileup can be resolved using the spatial separation of the calorimeters. This is an ongoing area of work, and one technique is described in \refref{AFThesis}. For this analysis the spatial separation was turned off, which simplifies the analysis somewhat. This increases the amount of pileup seen in the data, which then needs to be handled by the pileup subtraction technique. For the precision of the Run 1 analysis result, this was found to be acceptable. 
 
 
-
--quick summary of reconstruction process
-
-
-
-
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.9\textwidth]{CaloCluster}
+    \caption[Calorimeter cluster from SiPM traces fit with templates]{A single positron hit in the calorimeter, which resulted in a reconstructed calorimeter cluster. Each box is a crystal in the calorimeter, where the contained trace is the SiPM output fit with a template. The positron hit the crystal three from the left and three from the bottom, where it deposited most of its energy. Some of the energy was deposited in the neighboring crystals. Plot courtesy of Aaron Fienberg.}
+    \label{fig:CaloCluster}
+\end{figure}
 
 
 
@@ -65,8 +78,12 @@ Once the reconstruction has processed all the hits into clusters, the time spect
 \section{Lost muons}
 \label{sec:lostmuons}
 
+-need to include delta t plot and energy deposition plot
 
-\refref{lostmuons}
+
+\cite{lostmuons}
+
+
 
 
 \section{Fitting}
@@ -121,8 +138,15 @@ Once the reconstruction has processed all the hits into clusters, the time spect
 
 
 \subsection{Gain}
-\label{sub:gain}
+\label{sub:gainerror}
 
+
+-talk about the equations here - slight reference to either detector section or reconstruction section in this chapter
+
+
+
+\subsection{Pileup}
+\label{sub:pileuperror}
 
 
 \cleardoublepage
