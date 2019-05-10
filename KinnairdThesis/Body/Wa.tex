@@ -28,9 +28,7 @@ The trace pulses are then fit with templates in order to extract the pulse area 
 \textbf{probably a picture of a pulse and template here - single, potentiall a multi pulse fit as well}
 
 
-Once the pulses have been fit with the template, the energy of the pulse needs to be determined from the area...
-
-
+Once the pulses have been fit with the template, the pulse areas need to be converted to real energy units using an energy calibration procedure. A couple of different techniques exist that can be used, including a method that counts photo-statistics seen in the SiPMs. The default method used is a comparison of lost muon energy signatures in the calorimeters. As described in \refref{lostmuons}, muons lost from the storage ring can spiral inward and hit consecutive calorimeters with a specific time separation between calorimeter hits. These lost muons are minimum-ionizing particles, and thus leave a very distinct energy signature in the crystals. Selecting on the time signature allows hits corresponding to lost muons to be isolated, and different channels can be equalized based on the energy signatures. Finally, determining the energy calibration for positron hits as compared to lost muon hits needs to be done. Again there are a couple of different techniques, including a comparison of endpoint energies for high energy positrons which tail off at the magic momentum of $\SI{3.094}{\GeV}$ and comparing to simulation. The default technique is to calibrate the energies such that the optimal energy threshold for the \wa analyis is $\SI{1.7}{\GeV}$ \cite{AFThesis}. Ultimately the energy calibration doesn't matter too much because it is not the energy units that we really care about. What we really care about is the number of positrons above some energy threshold, where that threshold can be optimized emperically. In fact, besides the use of general physics intuition, the entire \wa analysis could be done without even considering the energy of the incident positrons, and only considering the amplitude of the SiPM pulses. \textbf{Is it a little awkward to talk about lost muons here when I haven't talked about them at all yet? Also haven't talked about the optimal threshold yet}
 
 
 
@@ -40,10 +38,6 @@ Once the pulses have been fit with the template, the energy of the pulse needs t
 
 
 
-
-
-
--overview of reconstruction
 
 -need to mention gain
 
@@ -69,6 +63,10 @@ Once the reconstruction has processed all the hits into clusters, the time spect
 
 \section{Lost muons}
 \label{sec:lostmuons}
+
+
+\refref{lostmuons}
+
 
 \section{Fitting}
 \label{sec:Fitting}
