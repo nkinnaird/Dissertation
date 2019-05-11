@@ -162,6 +162,13 @@ where $y_{th}=E_{th}/E_{max}$. By fitting \equref{eq:5parfunc}, \wa can be extra
 \end{figure}
 
 
+The statistical error on the \wa measurement, assuming bin errors are Gaussian and a \chisq minimization is used with the fit function described in \equref{eq:5parfunc}, is \cite{statisticspaper}
+        \begin{align} \label{eq:waprecision}
+            \frac{\sigma_{\omega_{a}}}{\omega_{a}} = \frac{\sqrt{2}}{\sqrt{N_{\text{total}}}A\gamma\tau_{\mu}\omega_{a}},
+        \end{align}
+where $N_{\text{total}}$ is the total number of counts included in the above-threshold histogram. This equation assumes a weighting of one for every count included in the fitted histogram. Other weighting schemes exist which slightly improve the statistical precision of the \wa measurement \cite{statisticspaper}, but they are not used in this analysis. What \equref{eq:waprecision} reveals is that the statistical precision of \wa is maximized when the quantity $NA^{2}$ is at a maximum. It was found for E989 that the optimal energy threshold was about $\SI{1.7}{\GeV}$ as shown in \figref{fig:OptimalEnergyThreshold}, which includes detector acceptance effects and corresponds to an asymmetry of about $A = 0.37$. \equref{eq:waprecision} can be rearranged in order to solve for the number of positrons needed to be collected above threshold for a specific precision goal. For a statistical error of $\SI{100}{ppb}$ on \wa, the required number of positrons above threshold is approximately $\SI{170e9}{}$, determined from the values $A = 0.37$, $\gamma = 29.3$ (described later), $\tau_{\mu} = \SI{2.2}{\micro s}$, and $\omega_{a} = \SI{1.44}{\text{rad}/\micro s}$. This statistical error of \wa combined with the systematic uncertainties given in \tabref{tab:wauncertainties}, provide the total error on \wa.
+
+
 
 \section{Measuring the magnetic field}
 \label{sec:MagneticField}
