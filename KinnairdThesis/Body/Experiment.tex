@@ -40,14 +40,10 @@ Here the $p$, $e$, and $\mu$ subscripts stand for the relevant quantities for th
 \section{Measuring \texorpdfstring{\wa}{wa}}
 \label{section:WaIntro}
 
-How can \wa for muons be measured? The answer lies with two key points in the dynamics of muon decay. Positive muons decay to a positron and two neutrinos, as shown in \figref{fig:mudecay}. The first point is that because of the parity violating nature of the weak interaction, the decay positron will be preferentially emitted right-handed, with its spin directed in the same direction as its momentum \cite{Bucksbaum}. The second key point is that angular momentum must be conserved. Consider the most extreme examples of maximum and minimum energy positrons as shown in \figref{fig:MuonDecayImproved}. In the muon rest frame, decay positrons with maximum energy will be emitted opposite to the two neutrinos. Since neutrinos and anti-neutrinos must be left and right-handed respectively, thus having their spins anti-parallel and parallel to their momentum, by the law of conservation of angular momentum the positron must have its spin be parallel to the spin of the muon at the time of the decay. By the opposite argument, decay positrons emitted with minimum energy such that the neutrinos are ejected opposite to one another must have their spins be anti-parallel to that of the muon at the time of decay. These two points combined together means that higher energy decay positrons will preferentially be emitted in directions parallel to the muon spin at the time of decay, while lower energy decay positrons will preferentially be emitted in directions anti-parallel to the muon spin at the time of the decay. 
+How can \wa for muons be measured? The answer lies with two key points in the dynamics of muon decay. Positive muons decay to a positron and two neutrinos, as shown in \figref{fig:mudecay}. The first point is that because of the parity violating nature of the weak interaction, the decay positron will be preferentially emitted right-handed, with its spin directed in the same direction as its momentum \cite{Bucksbaum}. The second key point is that angular momentum must be conserved. Consider the most extreme examples of maximum and minimum energy positrons as shown in \figref{fig:MuonDecayImproved}. In the muon rest frame, decay positrons with maximum energy will be emitted opposite to the two neutrinos. Since neutrinos and anti-neutrinos must be left and right-handed respectively, thus having their spins anti-parallel and parallel to their momentum, by the law of conservation of angular momentum the positron must have its spin be parallel to the spin of the muon at the time of the decay. By the opposite argument, decay positrons emitted with minimum energy such that the neutrinos are ejected opposite to one another must have their spins be anti-parallel to that of the muon at the time of decay. Together, these two points mean that higher energy decay positrons will preferentially be emitted in directions parallel to the muon spin at the time of decay, while lower energy decay positrons will preferentially be emitted in directions anti-parallel to the muon spin at the time of the decay. 
 
 \begin{figure}[]
 \centering
-    \subcaptionbox{$\mu^{+}$ decay through a $W^{+}$ boson to a positron, muon anti-neutrino, and an electron neutrino. This is the dominant decay mode.
-    \label{fig:mudecay}}
-    {
-    \centering
         \begin{tikzpicture}[baseline=(o.base)]
         \begin{feynhand}
         \large
@@ -65,43 +61,44 @@ How can \wa for muons be measured? The answer lies with two key points in the dy
         \propag [anti fermion] (c) to (e);
         \end{feynhand}
         \end{tikzpicture} 
-    }
-    \hspace{10mm}
-    \subcaptionbox{$\pi^{+}$ decay through a $W^{+}$ boson to a $\mu^{+}$.
-    \label{fig:pidecay}}
-    {
-    \centering
-        \begin{tikzpicture}[baseline=(o.base)]
-        \begin{feynhand}
-        \large
-        \setlength{\feynhandlinesize}{1pt}
-        \vertex [dot] (o) at (0,0);
-        \vertex (a) at (-1.5,1.5) {$u$}; 
-        \vertex (b) at (-1.5,-1.5) {$\overline d$}; 
-        \vertex (c) at (2,0);
-        \vertex (d) at (3.5,1.5) {$\mu^{+}$};
-        \vertex (e) at (3.5,-1.5) {$\nu_{\mu}$};
-        \propag [fermion] (a) to (o);
-        \propag [anti fermion] (b) to (o);
-        \propag [boson] (o) to [edge label = $W^{+}$] (c);
-        \propag [anti fermion] (c) to (d);
-        \propag [fermion] (c) to (e);
-        \end{feynhand}
-        \end{tikzpicture}  
-    }
-\caption[Feynman diagrams for muon and pion decay]{Feynman diagrams for muon (left) and pion (right) decay.}    
-\label{fig:DecayDiagrams}
+\caption[Feynman diagram for muon decay]{Feynman diagram for muon decay. $\mu^{+}$ decay through a $W^{+}$ boson to a positron, muon anti-neutrino, and an electron neutrino. This process consists of nearly 100\% of the muon decay branching ratio, with other decay states including radiative processes.}
+\label{fig:mudecay}
 \end{figure}
+
+    % \hspace{10mm}
+    % \subcaptionbox{$\pi^{+}$ decay through a $W^{+}$ boson to a $\mu^{+}$.
+    % \label{fig:pidecay}}
+    % {
+    % \centering
+    %     \begin{tikzpicture}[baseline=(o.base)]
+    %     \begin{feynhand}
+    %     \large
+    %     \setlength{\feynhandlinesize}{1pt}
+    %     \vertex [dot] (o) at (0,0);
+    %     \vertex (a) at (-1.5,1.5) {$u$}; 
+    %     \vertex (b) at (-1.5,-1.5) {$\overline d$}; 
+    %     \vertex (c) at (2,0);
+    %     \vertex (d) at (3.5,1.5) {$\mu^{+}$};
+    %     \vertex (e) at (3.5,-1.5) {$\nu_{\mu}$};
+    %     \propag [fermion] (a) to (o);
+    %     \propag [anti fermion] (b) to (o);
+    %     \propag [boson] (o) to [edge label = $W^{+}$] (c);
+    %     \propag [anti fermion] (c) to (d);
+    %     \propag [fermion] (c) to (e);
+    %     \end{feynhand}
+    %     \end{tikzpicture}  
+    % }
+
 
 \begin{figure}[]
     \centering
     \includegraphics[width=0.6\textwidth]{MuonDecayImproved}
-    \caption[Muon decay pictures for maximum and minimum energy decay positrons]{Muon decay pictures for maximum and minimum energy decay positrons. Due to the conservation of angular momentum and the single possible helicity states of the decay neutrinos, the spin of the decay positron is exactly parallel to the spin of the muon at the time of the decay for maximum energy decay positrons (top), or anti-parallel for minimum energy decay positrons (bottom).}
+    \caption[Muon decay for maximum and minimum energy decay positrons]{Muon decay in the rest frame for maximum (top) and minimum (bottom) energy decay positrons. Due to the conservation of angular momentum and the single possible helicity states of the decay neutrinos, the spin of the decay positron is exactly parallel to the spin of the muon at the time of the decay for maximum energy decay positrons, or anti-parallel for minimum energy decay positrons.}
     \label{fig:MuonDecayImproved}
 \end{figure}
 
 
-This correlation between the emitted direction of the decay positron and the spin of the muon is the signature needed to measure \wa. By placing an ensemble of polarized muons within a magnetic storage ring, those muons will orbit at the cyclotron frequency and their spins will precess at the Larmor frequency. As they go around the ring they will decay to positrons whose energy and decay directions contain information about the spin of the muon. The differential decay distribution in the muon rest frame is described by \cite{Bucksbaum}
+This correlation between the emitted direction of a high energy decay positron and the spin of the muon is the signature needed to measure \wa. By placing an ensemble of polarized muons within a magnetic storage ring, those muons will orbit at the cyclotron frequency and their spins will precess at the spin precession frequency. As they go around the ring they will decay to positrons whose energy and decay directions contain information about the spin of the muon. The differential decay distribution in the muon rest frame is described by \cite{Bucksbaum}
         \begin{align} \label{eq:diffdecaydist}
             dP(y, \theta) \propto N(y)[1 \pm A(y)\cos(\theta)]dy d\Omega,
         \end{align}
@@ -241,7 +238,9 @@ Other pieces of the systematic uncertainty include the absolute calibration of t
 \section{Production of polarized muons}
 \label{sec:Accelerator}
 
-As explained previously, the number of high energy positrons detected depends on the muon spin at the time of decay. In order for this detected quantity to mean anything, the muon spins themselves need to be highly polarized. Using the same parity-violation and spin momentum conservation logic as expounded upon in muon decay, it is determined that pion decay produces muons that are 100\% polarized in the pion rest frame, due to the pion having zero spin. The Feynman diagram for this decay is shown in \figref{fig:pidecay}. It's also important to note that pions decay to muons with over 99\% branching ratio due to the parity violating nature of the weak interaction, and thus a preference for the heavier muon over the electron. These two facets of pion decay are used to construct polarized muon beams. 
+As explained previously, the number of high energy positrons detected depends on the muon spin at the time of decay. In order for this detected quantity to mean anything, the muon spins themselves need to be highly polarized. Using the same parity-violation and spin momentum conservation logic as expounded upon in muon decay, it is determined that pion decay produces muons that are 100\% polarized in the pion rest frame, due to the pion having zero spin. It's also important to note that pions decay to muons with over 99\% branching ratio due to the parity violating nature of the weak interaction, and thus a preference for the heavier muon over the electron. These two facets of pion decay are used to construct polarized muon beams. 
+
+% The Feynman diagram for this decay is shown in \figref{fig:pidecay}. 
 
 In order to measure \gmtwo to high precision, a very large number of positrons need to be detected, and hence a large number of highly polarized muons injected into the storage ring. The BNL E821 experiment observed on the order of 10 billion positrons above threshold, and its final result was statistics limited. In order to reach the goal of 140 ppb, 20 times that number of statistics needs to be gathered. The only facility in the world that can produce such a high number of polarized muons is Fermilab. 
 
