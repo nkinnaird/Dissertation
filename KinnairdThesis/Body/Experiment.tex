@@ -7,11 +7,11 @@
 \chapter{Principle Techniques of E989}
 \label{chapter:E989}
 
-As referenced in \equref{eq:torque}, a particle in a magnetic field will experience a torque which attempts to line up the magnetic dipole moment of the particle with the external field. Because of this, in a dipole field a particles spin will turn at the precession frequency \cite{Jackson}
+A particle with non-zero spin in a magnetic field will experience a torque which attempts to line up the magnetic dipole moment of the particle with the external field. Because of this, in a dipole field a particle's spin will turn at the spin precession frequency \cite{Jackson}
         \begin{align} \label{eq:ws}
             \vec{\omega}_{s} = -g\frac{q}{2m}\vec{B} - (1-\gamma)\frac{q}{\gamma m}\vec{B},
         \end{align}
-where as before $m$ is the particles mass, $q = \pm e$ where $e$ is the positive elementary charge, \g is the g-factor, $\gamma$ is the Lorentz relativistic factor, and $B$ is an external magnetic field. The first term is the usual Larmor frequency and the second term is a relativistic correction to the precession frequency called Thomas precession \cite{Jackson}. Similarly, a particle with some momentum will orbit at the cyclotron frequency
+where $m$ is the particles mass, $q = \pm e$ where $e$ is the positive elementary charge, \g is the g-factor, $\gamma$ is the Lorentz relativistic factor, and $B$ is an external magnetic field. The first term is the usual Larmor frequency and the second term is a relativistic correction to the precession frequency called Thomas precession. Similarly, a particle with some momentum perpendicular to the magnetic field will orbit at the cyclotron frequency
         \begin{align} \label{eq:wc}
             \vec{\omega}_{c} = -\frac{q}{\gamma m}\vec{B}.
         \end{align}
@@ -19,9 +19,9 @@ By taking the difference between these two frequencies we arrive at the ``spin d
         \begin{align} \label{eq:wasimple}
             \vec{\omega}_{a} = \vec{\omega}_{s} - \vec{\omega}_{c} = -\frac{g-2}{2}\frac{q}{m}\vec{B} = - a \frac{q}{m}\vec{B},
         \end{align}
-a frequency that is directly proportional to anomaly $a$. If $g = 2$ as in a Dirac theory, then the particles spin would turn at the same rate as the momentum vector, and this spin difference frequency \wa would be identically zero. If this spin difference frequency for a muon and the external magnetic dipole field can be measured, then the anomalous magnetic moment of the muon \amu can be measured. 
+a frequency that is directly proportional to anomaly $a$. If $g = 2$ as in a Dirac theory, then the particle's spin would turn at the same rate as the momentum vector, and this spin difference frequency \wa would be identically zero. If this spin difference frequency for a muon and the external magnetic dipole field can be measured, then the anomalous magnetic moment of the muon \amu can be extracted.
 
-As will be detailed below in \secref{sec:MagneticField}, the measurement of the magnetic field is related to the Larmor precession frequency of free protons in water 
+As will be detailed in \secref{sec:MagneticField}, the measurement of the magnetic field is related to the Larmor precession frequency of free protons in water 
         \begin{align} \label{eq:wp}
             \omega_{p} = -g_{p} \frac{e}{2m_{p}} B,
         \end{align}
@@ -29,13 +29,11 @@ where $g_{p}$ and $m_{p}$ are the g-factor and mass of the proton respectively. 
         \begin{align} \label{eq:amu}
             a_{\mu} = \frac{g_{p}}{2} \frac{\omega_{a}}{\omega_{p}} \frac{m_{\mu}}{m_{p}}.
         \end{align}
-Using the magnetic moment formulas for the proton, electron, and muon as shown in \equref{eq:magneticmoment}, \equref{eq:amu} can be transformed to either of the following consistent equations:
-        \begin{equation} 
-        \begin{aligned} \label{eq:amuratios}
-            a_{\mu} &= \frac{g_{e}}{2} \frac{\omega_{a}}{\omega_{p}} \frac{m_{\mu}}{m_{e}} \frac{\mu_{p}}{\mu_{e}} \\ 
-            a_{\mu} &= \frac{\omega_{a}/\omega_{p}}{\lambda - \omega_{a}/\omega_{p}}
-        \end{aligned}
-        \end{equation}
+Using the magnetic moment formulae for the proton, electron, and muon as shown in \equref{eq:magneticmoment}, \equref{eq:amu} can be transformed to either of the following consistent equations:
+        \begin{align} 
+            a_{\mu} &= \frac{g_{e}}{2} \frac{\omega_{a}}{\omega_{p}} \frac{m_{\mu}}{m_{e}} \frac{\mu_{p}}{\mu_{e}} \label{eq:amuratios} \\ 
+            a_{\mu} &= \frac{\omega_{a}/\omega_{p}}{\lambda - \omega_{a}/\omega_{p}} \label{eq:amulambda}
+        \end{align}
 Here the $p$, $e$, and $\mu$ subscripts stand for the relevant quantities for the proton, electron, and muon respectively. In the second equation $\lambda = \mu_{\mu}/\mu_{p}$. As mentioned before the electron g-factor $g_{e}$ has been measured to extremely high precision, 0.26 ppt \cite{ElectronMDM,CODATA}. The muon-electron mass ratio $m_{\mu}/m_{e}$ and muon-proton magnetic moment ratio $\lambda$ have been measured to 22 ppb \cite{CODATA,MuoniumHyperfine}. Finally the proton-electron magnetic moment ratio $\mu_{p}/\mu_{e}$ has been measured to 3 ppb \cite{CODATA}. The errors on these terms are small compared to the target uncertainty for E989 of 140 ppb, the measurement of which now comes down to measuring the ratio $\omega_{a}/\omega_{p}$. 
 
 
