@@ -98,13 +98,13 @@ How can \wa for muons be measured? The answer lies with two key points in the dy
 \end{figure}
 
 
-This correlation between the emitted direction of a high energy decay positron and the spin of the muon is the signature needed to measure \wa. By placing an ensemble of polarized muons within a magnetic storage ring, those muons will orbit at the cyclotron frequency and their spins will precess at the spin precession frequency. As they go around the ring they will decay to positrons whose energy and decay directions contain information about the spin of the muon. The differential decay distribution in the muon rest frame is described by \cite{Bucksbaum}
+This correlation between the emitted direction of a high energy decay positron and the spin of the muon is the signature needed to measure \wa. By placing an ensemble of polarized muons within a magnetic storage ring, those muons will orbit at the cyclotron frequency and their spins will precess at the spin precession frequency. As they go around the ring they will decay to positrons whose energy and decay directions contain information about the spin of the muon. The differential decay distribution for positive muons in the muon rest frame is described by \cite{Bucksbaum}
         \begin{align} \label{eq:diffdecaydist}
-            dP(y, \theta) \propto N(y)[1 \pm A(y)\cos(\theta)]dy d\Omega,
+            dP(y, \theta) \propto N(y)[1 + A(y)\cos(\theta)]dy d\Omega,
         \end{align}
-where $y=E/E_{max}$ is the energy fraction of the positron, $\theta$ is the angle between the spin of the muon and the momentum of the positron $\cos^{-1}(\hat{p} \cdot \hat{s})$, and the $\pm$ stands for the positive and negative muon respectively. $N(y)$ is the number distribution of decay positrons and $A(y)$ is the so called 'asymmetry' encoding the preferred positron decay direction. Here the energy of the positron is assumed to be much greater than its mass. The number distribution and asymmetry are given by \cite{Bucksbaum}
+where $y=E/E_{max}$ is the energy fraction of the positron and $\theta$ is the angle between the spin of the muon and the momentum of the positron at the time of decay. $N(y)$ is the number distribution of decay positrons and $A(y)$ is the so called `asymmetry' encoding the preferred positron decay direction. Here the energy of the positron is assumed to be much greater than its mass. The number distribution and asymmetry are given by \cite{Bucksbaum}
         \begin{align}
-            N(y) &= 2y^{2}(3-2y^{2}), \label{eq:Nmrf} \\
+            N(y) &= 2y^{2}(3-2y), \label{eq:Nmrf} \\
             A(y) &= \frac{2y-1}{3-2y}, \label{eq:Amrf}
         \end{align}
 and are shown in \figref{fig:NA2mrf}. 
@@ -124,20 +124,20 @@ and are shown in \figref{fig:NA2mrf}.
         \caption{Lab frame}
     \label{fig:NA2lab}    
     \end{subfigure}
-\caption[Number distribution and asymmetry for muon decay in the muon rest frame and lab frame]{Decay number distribution $N$ and asymmetry $A$ in the muon rest frame (left) and in the lab frame (right) as a function of positron energy with a maximum positron energy of 3.1 \GeV.}
+\caption[Number distribution and asymmetry for muon decay in the muon rest frame and lab frame]{Decay number distribution $N$ and asymmetry $A$ in the muon rest frame (left) and in the lab frame (right) as a function of positron energy with a maximum positron energy of 3.1 \GeV. $N$ is multiplied by arbitrary factors in both pictures.}
 \label{fig:NA2}
 \end{figure}
 
-In the lab frame for high energy positrons, nearly all positrons will be emitted parallel to the muon momentum, which makes it challenging to select purely on the decay angle of the positron. That's not a problem though, as we already know that decay positrons with higher energies will be emitted in directions parallel to the muon spin at the time of decay. Essentially, the energy distribution of detected positrons for high energies is modulated by \wa, or $\theta = \omega_{a}t + \phi$. The number of detected positrons at some time and energy in the lab frame for some initial number $N_{0}$ of muons can then be described by
+In the lab frame, nearly all of the highest energy positrons will be emitted parallel to the muon momentum, which makes it challenging to select purely on the decay angle of the positron. That's not a problem however, as we already know that decay positrons with the highest energies will be emitted parallel to the muon spin at the time of decay. Essentially, the energy distribution of detected high energy positrons is modulated by \wa, or $\theta = \omega_{a}t + \phi$. The number of detected positrons at some time and energy in the lab frame for some initial number $N_{0}$ of muons can then be described by
         \begin{align}
             N_{d}(t, E) = N_{0}(E) \cdot e^{-t/\gamma\tau_{\mu}} \cdot [1 + A(E) \cos(\omega_{a}t+\phi(E))],
         \end{align}
-where the $d$ subscript stands for 'detected,' the muons are decaying at a lifetime of $\gamma\tau_{\mu}$, and all the relevant parameters are energy dependent. Here $N_{0}(E)$ and $A(E)$ have been transformed from Equations~\ref{eq:Nmrf} and \ref{eq:Amrf} to the lab frame,
+where the $d$ subscript stands for `detected,' the muons are decaying with a lifetime of $\gamma\tau_{\mu}$, and all the relevant parameters are energy dependent. Here $N_{0}(E)$ and $A(E)$ have been transformed from Equations~\ref{eq:Nmrf} and \ref{eq:Amrf} to the lab frame:
         \begin{align}
             N_{0}(E) &\propto (y-1)(4y^{2}-5y-5), \label{eq:Nlab} \\
             A(E) &= \frac{-8y^{2}+y+1}{4y^{2}-5y-5}, \label{eq:Alab}
         \end{align}
-where as a reminder $y=E/E_{max}$. Here the polarization of the muons is assumed to be unity. These are shown in \figref{fig:NA2lab}. To increase the amount of statistics, all positrons above some energy threshold cut $E_{th}$ can be taken as the observable,
+where as a reminder $y=E/E_{max}$. Here the polarization of the muons is assumed to be unity. These relations are shown in \figref{fig:NA2lab}. To increase the amount of statistics, all positrons above some energy threshold cut $E_{th}$ can be taken as the observable,
         \begin{align} \label{eq:5parfunc}
             N_{d}(t, E_{th}) = N_{0}(E_{th}) \cdot e^{-t/\gamma\tau_{\mu}} \cdot [1 + A(E_{th}) \cos(\omega_{a}t+\phi(E_{th}))],
         \end{align}
@@ -146,13 +146,13 @@ where the number and asymmetry of the detected positrons is now calculated by si
             N_{0}(E_{th}) &\propto (y_{th}-1)^{2}(-y_{th}^{2}+y_{th}+3), \label{eq:Nth} \\
             A(E_{th}) &= \frac{y_{th}(2y_{th}+1)}{-y_{th}^{2}+y_{th}+3}, \label{eq:Ath}
         \end{align}
-where $y_{th}=E_{th}/E_{max}$. By fitting \equref{eq:5parfunc}, \wa can be extracted. An sample of data adhering to \equref{eq:5parfunc} is shown in \figref{fig:gm2wiggle}.
+where $y_{th}=E_{th}/E_{max}$. By counting decay positrons above some energy threshold and fitting the resulting time spectrum with \equref{eq:5parfunc}, \wa can be extracted. An sample of data adhering to such a time spectrum is shown in \figref{fig:gm2wiggle}.
 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=0.9\textwidth]{gm2wiggle}
-    \caption[\gmtwo wiggle example]{The number of detected positrons above some energy threshold ($y \sim 0.55$) as a function of time. The time axis is wrapped around every \mus{100}.}
+    \caption[\gmtwo time spectrum example]{The number of detected positrons above some energy threshold ($y \sim 0.55$) as a function of time, where the data plotted come from Run 1 and correspond to nearly $\SI{1e9}{}$ counts. The time axis is wrapped around every \mus{100}. See \chapref{chapter:wa} for how such a histogram is fitted.}
     \label{fig:gm2wiggle}
 \end{figure}
 
@@ -161,7 +161,7 @@ The statistical error on the \wa measurement, assuming bin errors are Gaussian a
         \begin{align} \label{eq:waprecision}
             \frac{\sigma_{\omega_{a}}}{\omega_{a}} = \frac{\sqrt{2}}{\sqrt{N_{\text{total}}}A\gamma\tau_{\mu}\omega_{a}},
         \end{align}
-where $N_{\text{total}}$ is the total number of counts included in the above-threshold histogram. This equation assumes a weighting of one for every count included in the fitted histogram. Other weighting schemes exist which slightly improve the statistical precision of the \wa measurement \cite{statisticspaper}, but they are not used in this analysis. What \equref{eq:waprecision} reveals is that the statistical precision of \wa is maximized when the quantity $NA^{2}$ is at a maximum. It was found for E989 that the optimal energy threshold was about $\SI{1.7}{\GeV}$ as shown in \figref{fig:OptimalEnergyThreshold}, which includes detector acceptance effects and corresponds to an asymmetry of about $A = 0.37$. \equref{eq:waprecision} can be rearranged in order to solve for the number of positrons needed to be collected above threshold for a specific precision goal. For a statistical error of $\SI{100}{ppb}$ on \wa, the required number of positrons above threshold is approximately $\SI{170e9}{}$, determined from the values $A = 0.37$, $\gamma = 29.3$ (described later), $\tau_{\mu} = \SI{2.2}{\micro s}$, and $\omega_{a} = \SI{1.44}{\text{rad}/\micro s}$. This statistical error of \wa combined with the systematic uncertainties given in \tabref{tab:wauncertainties}, provide the total error on \wa.
+where $N_{\text{total}}$ is the total number of counts included in the above-threshold time spectrum. This equation assumes a weighting of one for every count included in the fitted time spectrum. Other weighting schemes exist which slightly improve the statistical precision of the \wa measurement \cite{statisticspaper}, but they are not used in this analysis. What \equref{eq:waprecision} reveals is that the statistical precision of \wa is maximized when the quantity $NA^{2}$ is at a maximum. It was found for E989 that the optimal energy threshold was about $\SI{1.7}{\GeV}$ as shown in \figref{fig:OptimalEnergyThreshold}, which includes detector acceptance effects and corresponds to an asymmetry of about $A = 0.37$. \equref{eq:waprecision} can be rearranged in order to solve for the number of positrons needed to be collected above threshold for a specific precision goal. For a statistical error of $\SI{100}{ppb}$ on \wa, the required number of positrons above threshold is approximately $\SI{170e9}{}$, determined from the values $A = 0.37$, $\gamma = 29.3$ (described later), $\tau_{\mu} = \SI{2.2}{\micro s}$, and $\omega_{a} = \SI{1.44}{\text{rad}/\micro s}$. This statistical error of \wa combined with the systematic uncertainties given in \tabref{tab:wauncertainties}, provide the total error on \wa.
 
 
 
