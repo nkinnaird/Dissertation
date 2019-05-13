@@ -349,7 +349,7 @@ There are four electrostatic quadrupoles (quads) located around the ring as show
 \end{figure}
 
 
-Some of the stored muons will be lost during data taking that can adversely affect the measurement of the precession frequency \wa. See \secref{sec:lostmuons}. In order to reduce the number of lost muons, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that are more likely to be lost at later times. This scraping procedure involves powering the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \mus{8}, such that by \mus{30} the beam is stable and centered due to the characteristic RC time constant of the system. The operational performance of the quads in Run 1 is described in \secref{sec:Run1}, where it was found that the quads had a longer RC time constant than the design.
+Some of the stored muons will be lost during data taking that can adversely affect the measurement of the spin difference frequency \wa. See \secref{sec:lostmuons}. In order to reduce the number of lost muons, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that are more likely to be lost at later times. This scraping procedure involves powering the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \mus{8}, such that by \mus{30} the beam is stable and centered due to the characteristic RC time constant of the system. The operational performance of the quads in Run 1 is described in \secref{sec:Run1}, where it was found that the quads had a longer RC time constant than the design.
 
 
 
@@ -450,8 +450,9 @@ where the term waist is used to describe the vertical width when its at its mini
 
 
 \subsection{Beam debunching}
+\label{sub:beam_debunching}
 
-As described above, the muon beam is injected into the ring with a time spread of $\SI{120}{ns}$ and a range of momenta. At early times the beam will occupy a portion of the ring less than the whole since the cyclotron period is $\SI{149}{ns}$. Therefore early in the fill the detectors located at discrete points around the ring will measure counts from the beam where there will be a fast oscillation in the signal due to this cyclotron period. As time increases throughout the fill, the momentum distribution of the muons will cause the beam to spread out within the storage ring until the entire azimuth is filled. Since almost all muons are at the same momentum, it turns out that the slower moving muons at smaller radii catch up to the faster moving muons at the outer radii after many turns around the ring. By $\SI{30}{\micro s}$ the muon beam has gone around the ring two hundred times. As the beam fills the storage ring, the cyclotron frequency in the data reduces and the beam is seen to debunch. This phenomena is referred to as the ``fast rotation.'' See \figref{fig:fastrotation} for how this looks in the data. When dealing with the data and attempting to extract \wa, the typical procedure is to both bin out the fast rotation in periods of the cyclotron frequency, and to randomize each hit time by $\pm T_{C}/2$ where $T_{c}$ is the cyclotron period. In this way the fast rotation is removed entirely and the five parameter function described in \equref{eq:5parfunc} remains satisfactory, barring other effects. 
+As described in Sections~\ref{sec:Accelerator} and \ref{sec:injection}, the muon beam is injected into the ring with a time spread of $\SI{120}{ns}$ and a range of momenta. At early times the beam will occupy a portion of the ring less than the whole since the cyclotron period is $\SI{149}{ns}$. Therefore early in the fill the detectors located at discrete points around the ring will measure counts from the beam where there will be a fast oscillation in the signal due to this cyclotron period. As time increases throughout the fill, the momentum distribution of the muons will cause the beam to spread out within the storage ring until the entire azimuth is filled. Since almost all muons are at the same momentum, it turns out that the slower moving muons at smaller radii catch up to the faster moving muons at the outer radii after many turns around the ring. By $\SI{30}{\micro s}$ the muon beam has gone around the ring two hundred times. As the beam fills the storage ring, the cyclotron frequency in the data reduces and the beam is seen to debunch. This phenomena is referred to as the ``fast rotation.'' This debunching signal is seen in the data as shown in \figref{fig:fastrotation}. When dealing with the data and attempting to extract \wa, the typical procedure is to both bin out the fast rotation in periods of the cyclotron frequency, and to randomize each hit time by $\pm T_{C}/2$ where $T_{c}$ is the cyclotron period. In this way the fast rotation is removed entirely and the five parameter function described in \equref{eq:5parfunc} remains satisfactory, barring other effects.
 
 \begin{figure}[]
     \centering
@@ -464,7 +465,7 @@ As described above, the muon beam is injected into the ring with a time spread o
 
 \section{Corrections to \texorpdfstring{\wa}{wa}}
 
-\equref{eq:wasimple} is an idealized version of the spin difference frequency. Including practical experimental concerns, there are two corrections that must be applied to \wa.
+\equref{eq:wasimple} is an idealized version of the spin difference frequency with no electric fields and motion perpendicular to the magnetic field. Including practical experimental concerns, there are two corrections that must be applied to \wa.
 
 \subsection{Electric field correction}
 \label{sub:electric_field_correction}
@@ -473,9 +474,9 @@ In the presence of an electric field, the spin difference frequency is altered t
         \begin{align} \label{eq:waelectric}
             \vec{\omega}_{a} = -\frac{q}{m} [a\vec{B} - \Big(a - \frac{1}{\gamma^{2}-1}\Big)(\vec{\beta} \times \vec{E}) ],
         \end{align}
-where now there is an extra term dependent on the electric field strength and the momentum of the particles. This is necessary to include since we use electrostatic quadrupoles for vertical focusing as described above. The second term cancels to first order for a specific momentum or value of $\gamma$. This "magic momentum" can be understood as the momentum at which a relativistic particle moving through an electric field has its spin exactly follow its momentum. This magic momentum is $\SI{3.094}{\GeV}$ for muons, hence the momentum value of the injected muons. This value has driven many of the design constraints of the \gmtwo experiment, including the size of the storage ring, choice of the magnetic field magnitude, and so on.
+where now there is an extra term dependent on the electric field strength and the momentum of the particles. This is necessary to include since we use electrostatic quadrupoles for vertical focusing as described above. The second term cancels to first order for a specific momentum or value of $\gamma$. This ``magic momentum'' can be understood as the momentum at which a relativistic particle moving through an electric field has its spin exactly follow its momentum. This magic momentum is $\SI{3.094}{\GeV}$ for muons, hence the momentum value of the injected muons. This value sets the energy and time scales of the experiment and has driven many of the design constraints, including the size of the storage ring, choice of the magnetic field magnitude, etc.
 
-Not all muons will have the magic momentum however as described in the \secref{sec:Accelerator}, and therefore a correction to the measured \wa frequency needs to be applied. Approximating the storage ring as having an electric field applied over the whole azimuth of the ring, the spin difference frequency for muons with momentum $p \neq p_{m}$ (where $p_{m}$ is the magic momentum) becomes  
+Not all muons will have the magic momentum however as described in the \secref{sub:beam_debunching}, and therefore a correction to the measured \wa frequency needs to be applied. Approximating the storage ring as having an electric field applied over the whole azimuth of the ring, the spin difference frequency for muons with momentum $p \neq p_{m}$ (where $p_{m}$ is the magic momentum) becomes  
         \begin{align} \label{eq:waEfield}
             \omega_{a}' = \omega_{a} \Big[ 1 - \beta \frac{E_{r}}{c B_{y}} \Big( 1 - \frac{1}{a \beta^{2} \gamma^{2}} \Big) \Big].
         \end{align}
@@ -487,7 +488,7 @@ The last fraction can be related to the field index described in \equref{eq:fiel
         \begin{align}
             \frac{\Delta p}{p_{m}} = (1-n) \frac{\Delta R}{R_{0}} = (1-n) \frac{x_{e}}{R_{0}}, 
         \end{align}
-since we know that the magic momentum muons live at the center of the storage ring radius $R_{0}$. In this equation $x_{e} = \Delta R$ is the equilibrium radius of the beam relative to the central storage radius. Noting that the electric field strength is 
+since we know that the magic momentum muons live at the center of the storage ring radius $R_{0}$. In this equation $x_{e} = \Delta R$ is the equilibrium radius of the muon relative to the central storage radius. Noting that the electric field strength for a quadrupole is 
         \begin{align}
             E = \kappa x = \frac{n \beta c B_{y}}{R_{0}} x,
         \end{align}
@@ -499,17 +500,21 @@ Taking the time average of the beam motion, where $x$ is simply equal to $x_{e}$
         \begin{align}
             C_{\text{E}} = -2n (1-n) \beta^{2} \frac{\langle x_{e}^{2} \rangle}{R_{0}^{2}}.
         \end{align}
-This electric field correction can be determined through analysis which relates the beam momentum to the equilbrium radius. (Should I expand on that somehow here?) The assumptions made here are sufficient for the \gmtwo measurement \cite{something}.
+Since the equilibrium radius of the beam is set by the momentum distribution of the muons, this electric field correction can be determined by a measurement of the momentum spread of the beam which comes from an analysis of the fast rotation \cite{fastrotation1,fastrotation2}. For the precision goal of E989, the assumptions made in this derivation are acceptable \cite{TDR}. In E821 the electric field correction was approximately $\SI{500}{ppb}$ on \wa \cite{E821FinalReport}. In E989 the scale of the correction will be the same considering the experimental principles are identical.
+
+
+% Small corrections to the electric field correction due to the non-linearity and non-uniformity of the quads, as well as the assumptions made in this derivation, are discussed in \refref{}.
+
 
 
 \subsection{Pitch correction}
 \label{sub:pitch_correction}
 
-Particles injected into the \gmtwo storage ring will have some motion component that is vertical, or parallel to the magnetic field vector (hence the need for vertically focusing electrostatic quadrupoles). This will reduce the magnetic field seen by the muons in their rest frame slightly. Including this motion into the spin difference frequency (along with the electric field correction describe previously), \wa becomes
-        \begin{align} \label{eq:wafinal}
-            \vec{\omega}_{a} = -\frac{q}{m} [a\vec{B} - a \Big(\frac{\gamma}{\gamma+1}\Big)(\vec{\beta} \cdot \vec{B})\vec{B} - \Big(a - \frac{1}{\gamma^{2}-1}\Big)(\vec{\beta} \times \vec{E}) ],
+Particles injected into the \gmtwo storage ring will have some motion component that is vertical, or parallel to the magnetic field vector (hence the need for vertically focusing electrostatic quadrupoles). This will slightly reduce the magnetic field seen by the muons in their rest frame. Including this motion into the spin difference frequency, \wa becomes
+        \begin{align} \label{eq:wapitch}
+            \vec{\omega}_{a} = -\frac{q}{m} [a\vec{B} - a \Big(\frac{\gamma}{\gamma+1}\Big)(\vec{\beta} \cdot \vec{B})\vec{\beta}],
         \end{align}
-where now there is an extra term in the middle dependent on the vertical betatron motion of the beam. Similar to the electric field case, this term can be neglected to first order as the muon momentum is nearly all perpendicular to the field, but a correction again needs to be applied to \wa to account for this effect.
+where now there is an extra term dependent on the vertical betatron motion of the beam. Similar to the electric field case, this term can be neglected to first order as the muon momentum is nearly all perpendicular to the field, but a correction again needs to be applied to \wa to account for this effect.
 
 \begin{figure}[]
     \centering
