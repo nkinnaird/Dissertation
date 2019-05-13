@@ -500,7 +500,7 @@ Taking the time average of the beam motion, where $x$ is simply equal to $x_{e}$
         \begin{align}
             C_{\text{E}} = -2n (1-n) \beta^{2} \frac{\langle x_{e}^{2} \rangle}{R_{0}^{2}}.
         \end{align}
-Since the equilibrium radius of the beam is set by the momentum distribution of the muons, this electric field correction can be determined by a measurement of the momentum spread of the beam which comes from an analysis of the fast rotation \cite{fastrotation1,fastrotation2}. For the precision goal of E989, the assumptions made in this derivation are acceptable \cite{TDR}. In E821 the electric field correction was approximately $\SI{500}{ppb}$ on \wa \cite{E821FinalReport}. In E989 the scale of the correction will be the same considering the experimental principles are identical.
+Since the equilibrium radius of the beam is set by the momentum distribution of the muons, this electric field correction can be determined by a measurement of the momentum spread of the beam which comes from an analysis of the fast rotation \cite{fastrotation1,fastrotation2}. For the precision goal of E989, the assumptions made in this derivation are acceptable \cite{TDR} and results will be cross-checked with spin-tracking simulations as was done in E821 \cite{E821FinalReport}. In E821 the electric field correction was approximately $\SI{500}{ppb}$ on \wa \cite{E821FinalReport}. In E989 the scale of the correction will be the same considering the experimental principles are identical.
 
 
 % Small corrections to the electric field correction due to the non-linearity and non-uniformity of the quads, as well as the assumptions made in this derivation, are discussed in \refref{}.
@@ -518,7 +518,7 @@ where now there is an extra term dependent on the vertical betatron motion of th
 
 \begin{figure}[]
     \centering
-    \includegraphics[width=.4\textwidth]{PitchAxes}
+    \includegraphics[width=.3\textwidth]{PitchAxes}
     \caption[Pitching beam motion]{Beam motion $\beta$ relative to the vertical and azimuthal axes Y and Z respectively. $\psi$ is the pitch angle of the beam, and the dashed lines represent the parallel and perpendicular motions of the beam.}   
     \label{fig:PitchAxes}
 \end{figure}
@@ -529,30 +529,31 @@ Since the muons in the storage ring will be oscillating vertically as they are f
         \end{align}
 where $\psi_{0}$ is the amplitude of the oscillation and $\omega_{y}$ is the vertical betatron frequency. Shown in \figref{fig:PitchAxes} is an exaggerated example of the beam motion relative to the vertical and azimuthal axes. Assuming that the field is purely vertical, $\vec{B} = B_{y}\hat{y}$ and that the beam motion is in the vertical-azimuthal plane,
         \begin{align}
-            \vec{\beta} = \beta_{y}\hat{y} + \beta_{z}\hat{z} = \beta\cos(\psi)\hat{y} + \beta\sin(\psi)\hat{z},
+            \vec{\beta} = \beta_{y}\hat{y} + \beta_{z}\hat{z} = \beta\sin(\psi)\hat{y} + \beta\cos(\psi)\hat{z},
         \end{align}
 then \wa becomes
         \begin{align}
-            \vec{\omega}_{a} = -\frac{q}{m} [a B_{y} \hat{y} - a \Big(\frac{\gamma}{\gamma+1}\Big) \beta_{y}B_{y} (\beta\cos(\psi)\hat{y} + \beta\sin(\psi)\hat{z})],        
+            \vec{\omega}_{a} = -\frac{q}{m} [a B_{y} \hat{y} - a \Big(\frac{\gamma}{\gamma+1}\Big) \beta_{y}B_{y} (\beta\sin(\psi)\hat{y} + \beta\cos(\psi)\hat{z})].        
         \end{align}
-where in this case the electric field part has been ignored. Using the small angle approximation such that $\cos(\psi) \approx 1$ and $\sin(\psi) \approx \psi$, $\vec{\omega}_{a}$ can be separated into its vertical and azimuthal components
+Using the small angle approximation such that $\cos(\psi) \approx 1$ and $\sin(\psi) \approx \psi$, $\vec{\omega}_{a}$ can be separated into its vertical and azimuthal components
         \begin{align}
             \omega_{ay} &= \omega_{a}\Big[ 1 - \Big(\frac{\gamma-1}{\gamma}\Big) \psi^{2} \Big], \\     
             \omega_{az} &= -\omega_{a} \Big(\frac{\gamma-1}{\gamma}\Big) \psi.
         \end{align}
-Looking at \figref{fig:PitchAxes} again, it can be seen that the spin difference frequency can be resolved into its parallel and perpendicular components $\omega_{\parallel}$ and $\omega_{\perp}$ respectively. As the pitch angle of the beam motion oscillates about the azimuthal axes at a frequency much greater than the \gmtwo frequency, it can be seen that the parallel component averages to 0 over time. (Haven't given a number for the vertical betatron frequency yet.) We then only care about the perpendicular oscillation of the beam, which can be determined with a simple rotation matrix such that
+Looking at \figref{fig:PitchAxes} again, it can be seen that the spin difference frequency can be resolved into its parallel and perpendicular components $\omega_{\parallel}$ and $\omega_{\perp}$ respectively. As the pitch angle of the beam motion oscillates about the azimuthal axes at a frequency much greater than the \gmtwo frequency, it can be seen that the parallel component averages to 0 over time. We then only care about the perpendicular oscillation of the beam, which can be determined with a simple rotation matrix such that
         \begin{align}
             \omega_{a} \approx \omega_{\perp} = \omega_{ay} \cos(\psi) - \omega_{az}\sin(\psi) \approx \omega_{a} \Big[ 1 - \frac{\psi^{2}}{2} \Big],
         \end{align}
 where in the last approximation the small angle approximation was used once again, but this time with $\cos(\psi) \approx 1 - \psi^{2}/2$. The pitch correction then is the additional term which serves to lower the measured spin difference frequency. Taking the time average,
         \begin{align}
-            C_{\text{P}} = \frac{\Delta\omega_{a}}{\omega_{a}} = - \frac{\langle \psi^{2} \rangle}{2} = - \frac{\langle \psi_{0}^{2} \rangle}{4},
+            C_{\text{P}} = \frac{\Delta\omega_{a}}{\omega_{a}} = - \frac{\langle \psi^{2} \rangle}{2}.
         \end{align}
-where \equref{eq:psi} was used in the last equality. The pitch angle of the beam cannot be measured directly, however we know from \equref{eq:maxangles} that the angle of the beam can be related to the vertical distribution of the beam, such that 
+The pitch angle of the beam cannot be measured directly, however we know from \equref{eq:maxangles} that the angle of the beam can be related to the vertical distribution of the beam, such that 
         \begin{align}
-            C_{\text{P}} = - \frac{n}{4} \frac{\langle y^{2} \rangle}{R_{0}^{2}}.
+            C_{\text{P}} = - \frac{n}{2} \frac{\langle y^{2} \rangle}{R_{0}^{2}}.
         \end{align}
-Once again $n$ is the field index, $R_{0}$ is the radius of the ring at the center of the storage region, and $\langle y^{2} \rangle$ is the vertical width of the beam. The first two are known and the last can be measured experimentally. (For this last equation make sure that what I write here gels with what I'll put in other sections, which haven't been done yet.) While this derivation was an approximation assuming continuous quads around the ring, it suffices for the level of precision necessary for the \gmtwo experiment \cite{something}.
+Once again $n$ is the field index, $R_{0}$ is the radius of the ring at the center of the storage region, and $\langle y^{2} \rangle$ is the vertical width of the beam. The first two are known and the last can be measured experimentally. Just as in the case of the electric field correction, the assumptions made in this derivation are acceptable for the precision goal of E989, and results will be cross-checked with spin-tracking simulations. In E821 the pitch correction was approximately $\SI{300}{ppb}$ on \wa \cite{E821FinalReport}, and the scale for the E989 correction will be the same.
+
 
 
 
