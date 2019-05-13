@@ -356,23 +356,23 @@ Some of the stored muons will be lost during data taking that can adversely affe
 \section{Muon beam dynamics}
 \label{sec:muonbeamdynamics}
 
-Muons injected into the storage ring will occupy a region in phase space corresponding to a width of momenta and positions. Individual muons will undergo simple harmonic motion or betatron oscillations within the storage ring, in both the vertical and horizontal directions. The strength of the electrostatic focusing in relation to the magnetic field strength can be characterized by the field index
-        \begin{align} \label{eq:fieldindex}
-            n = \frac{\kappa R_{0}}{\beta B_{0}},
-        \end{align}
-where $\kappa$ is the electric quadrupole gradient, $B_{0}$ is the magnetic field strength, $R_{0}$ is the central storage ring radius, and $\beta$ is the relativistic velocity of the muon beam. The horizontal and vertical equations of motion, including the effects of the discrete quadrupoles, are given by
+Muons injected into the storage ring will occupy a region in phase space of momenta and positions defined by the injection and collimator apertures. Individual muons will undergo simple harmonic motion, or betatron oscillations, within the storage ring in both the vertical and horizontal directions. The horizontal ($x$) and vertical ($y$) equations of motion, including the effects of the discrete quadrupoles, are given by
         \begin{align} \label{eq:betatronmotion}
             x &= x_{e} + A_{x}(s) \cos(\nu_{x} \frac{s}{R_{0}} + \phi_{x}), \\
             y &= A_{y}(s) \cos(\nu_{y} \frac{s}{R_{0}} + \phi_{y}), 
         \end{align}
-where $x_{e}$ is the radial equilibrium orbit of the beam relative to $R_{0}$, $A_{x}(s)$ and $A_{y}(s)$ are the amplitudes of the motions containing the effects of the discreteness of the quads, and $s$ is the arc length of the trajectory. Here $\nu_{x}$ and $\nu_{y}$ are the so-called horizontal and vertical ``tunes'' of the beam motion, which are ratios of the betatron frequencies to the cyclotron frequency. They can be related to the field index $n$ by
+where $x_{e}$ is the radial equilibrium orbit of the beam relative to $R_{0}$, $A_{x}(s)$ and $A_{y}(s)$ are the amplitudes of the motions containing the effects of the discreteness of the quads, and $s$ is the arc length of the trajectory. Here $\nu_{x}$ and $\nu_{y}$ are the so-called horizontal and vertical ``tunes'' of the beam motion, which are ratios of the betatron frequencies to the cyclotron frequency $f_{c}$: 
         \begin{equation} \label{eq:tunes}
         \begin{aligned}
-            \nu_{x} &= f_{x_{BO}}/f_{c} = \sqrt{1-n}, \\
-            \nu_{y} &= f_{y_{BO}}/f_{c} = \sqrt{n},           
+            \nu_{x} &= f_{x_{BO}}/f_{c} = \sqrt{1-n} \\
+            \nu_{y} &= f_{y_{BO}}/f_{c} = \sqrt{n}
         \end{aligned}
         \end{equation}
-where $f_{c}$ is the cyclotron frequency. Technically $n$ is the the average field index around the ring, where this approximation is justified due to the four-fold symmetry of the discrete quadrupoles and the fact that the betatron oscillations have periods much greater than the length of the quads. A table of the important frequencies in E989 is shown in \tabref{tab:frequencies}. Lastly, the maximum angular acceptance of the ring can be determined from the betatron oscillations and the field index as 
+These are related to the field index $n$, where the field index characterizes the strength of the electrostatic focusing in relation to the magnetic field strength: 
+        \begin{align} \label{eq:fieldindex}
+            n = \frac{\kappa R_{0}}{\beta B_{0}},
+        \end{align}
+where $\kappa$ is the electric quadrupole gradient, $B_{0}$ is the magnetic field strength, $R_{0}$ is the central storage ring radius, and $\beta$ is the relativistic velocity of the muon beam. Technically $n$ is the the average field index around the ring, where this approximation is justified due to the four-fold symmetry of the discrete quadrupoles and the fact that the betatron oscillations have periods much greater than the length of the quads. A table of the important frequencies in E989 is shown in \tabref{tab:frequencies}. Lastly, the maximum angular acceptance of the ring can be determined from the betatron oscillations and the field index as 
         \begin{equation} \label{eq:maxangles}
         \begin{aligned}
             \psi_{x_{max}} &= \frac{x_{max}\sqrt{1-n}}{R_{0}}, \\
@@ -405,7 +405,7 @@ where $x_{max}$ and $y_{max}$ are both equal to the radius of the storage ring a
 \end{table}
 
 
-As the muon beam goes around the ring, the muons will experience local field gradients and inhomogeneities. The tunes are thus chosen to avoid resonances where muons might be lost from having passed through such perturbations too many times. The muons within the ring should then sample the entire azimuth equally and remain stored. The general resonance condition is \cite{Wiedermann}
+As the muon beam goes around the ring, the muons will experience local field gradients and inhomogeneities. The tunes are thus chosen to avoid resonances where muons might be lost from repeatedly passing through such perturbations. The muons within the ring should then sample the entire azimuth equally and remain stored. The general resonance condition is \cite{Wiedermann}
         \begin{align}
             a \nu_{x} + b \nu_{y} = c,
         \end{align}
@@ -413,7 +413,7 @@ where $a$, $b$, and $c$ are integers. We know from \equref{eq:tunes} that
         \begin{align}
             \nu_{x}^{2} + \nu_{y}^{2} = 1,
         \end{align}
-which constrains the available $n$ values that can be chosen. \figref{fig:tuneplane} shows the space relative to the tunes for which a chosen value of $n$ will lie on a resonance. 
+which constrains the available $n$ values that can be chosen. \figref{fig:tuneplane} shows the space relative to the tunes for which a chosen value of $n$ will lie on a resonance. The operational $n$ values and corresponding quad voltages in Run 1 are described in \secref{sec:Run1}.
 
 % Moved to Run1 section
 % For Run 1 data taking, $n$ values of 0.108 and 0.120 were chosen corresponding to quad voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.
@@ -431,20 +431,20 @@ which constrains the available $n$ values that can be chosen. \figref{fig:tunepl
 \subsection{Coherent betatron oscillation}
 \label{sub:CBO}
 
-With each individual muon undergoing betatron oscillations, the muon beam as a whole will oscillate. The beam can be described as having a width and a mean dependent on the initial phase space parameters determined by injection and kicker effects. This overall distribution of the beam will oscillate coherently every betatron wavelength, thus moving around the ring at some frequency. Individual detectors around the ring measure the beam in discrete pieces based on their individual acceptances, where these acceptances depend on the radial and vertical characteristics of the beam. Because the betatron frequencies are smaller than the cyclotron frequency, there is an aliasing effect such that the betatron motion of the beam is instead observed as an apparent slow-moving oscillation. We call the the measurable signal of this coherent radial motion coherent betatron oscillation (CBO). See \figref{fig:cbo} for a pictorial view of this phenomena. The frequency of the CBO is just the beat frequency between the cyclotron frequency and the horizontal betatron frequency
+With each individual muon undergoing betatron oscillations, the muon beam as a whole will oscillate. The beam can be described as having a width and a mean dependent on the initial phase space parameters determined by injection and kicker effects. This overall distribution of the beam will oscillate coherently every betatron wavelength, thus moving around the ring at some frequency. Individual detectors around the ring measure the beam in discrete pieces based on their individual azimuthal acceptances, where these acceptances depend on the radial and vertical characteristics of the beam. Because the radial betatron frequency is larger than half the cyclotron frequency, there is an aliasing effect such that the radial betatron motion of the beam is instead observed as an apparent slow-moving oscillation. We call the the measurable signal of this coherent radial motion coherent betatron oscillation (CBO). See \figref{fig:cbo} for a pictorial view of this phenomena. The frequency of the CBO is just the beat frequency between the cyclotron frequency and the horizontal betatron frequency
         \begin{align}
             f_{CBO} = f_{c}-f_{x_{BO}}.
         \end{align}
-There is also a horizontal CBO effect, but the rate of oscillation is fast enough that the effect tends to average out. What can be seen in the data however is the vertical width of the beam, to which the detectors are sensitive. Though the principles are the same, we call this effect the vertical waist (VW),
+There is also a vertical CBO effect, but the non-aliased rate of oscillation is fast enough such that the effect tends to average out. What can be seen in the data however is the vertical width of the beam, which is aliased in a similar way to the radial oscillation. Though the principles are the same, we call this effect the vertical waist (VW),
         \begin{align}
             f_{VW} = f_{c}-2f_{y_{BO}},
         \end{align}
-where the term waist is used a description of the vertical width when its at its minimum. Both of these frequencies are included in \tabref{tab:frequencies}. For an individual detector the CBO has a specific phase, which goes from \SIrange{0}{2\pi}{} around the ring. When adding all of the detector signals together, the CBO effect tends to cancel out. However, due to acceptance differences between the different detectors, the CBO effect is still observable in the data. When fitting the data to extract \wa, these effects need to be included as will be discussed later.
+where the term waist is used to describe the vertical width when its at its minimum. Both of these frequencies are included in \tabref{tab:frequencies}. For an individual detector the CBO has a specific phase, which goes from \SIrange{0}{2\pi}{} around the ring. When adding all of the detector signals together, the CBO effect tends to cancel out. However, due to acceptance differences between the different detectors, the CBO effect is still observable in the data. When fitting the data to extract \wa, these effects need to be included as will be discussed in \secref{sub:cboterms}.
 
 \begin{figure}[]
     \centering
     \includegraphics[width=.6\textwidth]{cbo}
-    \caption[Coherent betatron oscillation]{Marked by the black vertical lines are integer steps in the circumference of the ring, corresponding to the cyclotron wavelength $\lambda_{c}$. The blue line shows the motion of the beam due to the betatron oscillations $\lambda_{x}$. Since $\lambda_{x} < \lambda_{c}$, there is an aliasing effect in the observed signal, which is identified by the red line. The beam is thus seen as appearing to move back and forth with a slow oscillation, and this is what we call CBO.}
+    \caption[Coherent betatron oscillation]{Marked by the black vertical lines are integer steps in the circumference of the ring, corresponding to the cyclotron wavelength $\lambda_{c}$. The blue line shows the motion of the beam due to the betatron oscillations $\lambda_{x}$. Since $\lambda_{x} > \lambda_{c}/2$, there is an aliasing effect in the observed signal, which is identified by the red line. The beam is thus seen as appearing to move back and forth with a slow oscillation, known as CBO.}
     \label{fig:cbo}
 \end{figure}
 
