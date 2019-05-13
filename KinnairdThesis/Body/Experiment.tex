@@ -19,7 +19,7 @@ By taking the difference between these two frequencies we arrive at the ``spin d
         \begin{align} \label{eq:wasimple}
             \vec{\omega}_{a} = \vec{\omega}_{s} - \vec{\omega}_{c} = -\frac{g-2}{2}\frac{q}{m}\vec{B} = - a \frac{q}{m}\vec{B},
         \end{align}
-a frequency that is directly proportional to anomaly $a$. If $g = 2$ as in a Dirac theory, then the particle's spin would turn at the same rate as the momentum vector, and this spin difference frequency \wa would be identically zero. If this spin difference frequency for a muon and the external magnetic dipole field can be measured, then the anomalous magnetic moment of the muon \amu can be extracted.
+a frequency that is directly proportional to the anomaly $a$. If $g = 2$ as in a Dirac theory, then the particle's spin would turn at the same rate as the momentum vector, and this spin difference frequency \wa would be identically zero. If this spin difference frequency for a muon and the external magnetic dipole field can be measured, then the anomalous magnetic moment of the muon \amu can be extracted.
 
 As will be detailed in \secref{sec:MagneticField}, the measurement of the magnetic field is related to the Larmor precession frequency of free protons in water 
         \begin{align} \label{eq:wp}
@@ -29,12 +29,24 @@ where $g_{p}$ and $m_{p}$ are the g-factor and mass of the proton respectively. 
         \begin{align} \label{eq:amu}
             a_{\mu} = \frac{g_{p}}{2} \frac{\omega_{a}}{\omega_{p}} \frac{m_{\mu}}{m_{p}}.
         \end{align}
-Using the magnetic moment formulae for the proton, electron, and muon as shown in \equref{eq:magneticmoment}, \equref{eq:amu} can be transformed to either of the following consistent equations:
+Using the magnetic moment formulae for the proton, electron, and muon as shown in \equref{eq:magneticmoment}, \equref{eq:amu} can be transformed into
         \begin{align} 
-            a_{\mu} &= \frac{g_{e}}{2} \frac{\omega_{a}}{\omega_{p}} \frac{m_{\mu}}{m_{e}} \frac{\mu_{p}}{\mu_{e}} \label{eq:amuratios} \\ 
-            a_{\mu} &= \frac{\omega_{a}/\omega_{p}}{\lambda - \omega_{a}/\omega_{p}} \label{eq:amulambda}
+            a_{\mu} &= \frac{g_{e}}{2} \frac{\omega_{a}}{\omega_{p}} \frac{m_{\mu}}{m_{e}} \frac{\mu_{p}}{\mu_{e}}, \label{eq:amuratios}
         \end{align}
-Here the $p$, $e$, and $\mu$ subscripts stand for the relevant quantities for the proton, electron, and muon respectively. In the second equation $\lambda = \mu_{\mu}/\mu_{p}$. As mentioned before the electron g-factor $g_{e}$ has been measured to extremely high precision, 0.26 ppt \cite{ElectronMDM,CODATA}. The muon-electron mass ratio $m_{\mu}/m_{e}$ and muon-proton magnetic moment ratio $\lambda$ have been measured to 22 ppb \cite{CODATA,MuoniumHyperfine}. Finally the proton-electron magnetic moment ratio $\mu_{p}/\mu_{e}$ has been measured to 3 ppb \cite{CODATA}. The errors on these terms are small compared to the target uncertainty for E989 of 140 ppb, the measurement of which now comes down to measuring the ratio $\omega_{a}/\omega_{p}$. 
+where the $p$, $e$, and $\mu$ subscripts stand for the relevant quantities for the proton, electron, and muon respectively. The experimental error on \amu then becomes the quadrature sum of each individual quantity error. As mentioned in \secref{sec:BSM} the electron g-factor $g_{e}$ has been measured to extremely high precision, 0.26 ppt \cite{ElectronMDM,CODATA}. The muon-electron mass ratio $m_{\mu}/m_{e}$ has been measured to 22 ppb \cite{CODATA,MuoniumHyperfine}. Finally the proton-electron magnetic moment ratio $\mu_{p}/\mu_{e}$ has been measured to 3 ppb \cite{CODATA}. These are small compared to the target statistical error on \wa of $\SI{100}{ppb}$, and target systematic errors on \wa and $\omega_{p}$, both at $\SI{70}{ppb}$\footnote{The measurement of $\omega_{p}$ has neglibible statistical error.}. These errors added in quadrature is approximately $\SI{140}{ppb}$, which is the target of the E989 experiment.
+
+
+
+% Using the magnetic moment formulae for the proton, electron, and muon as shown in \equref{eq:magneticmoment}, \equref{eq:amu} can be transformed to either of the following consistent equations:
+%         \begin{align} 
+%             a_{\mu} &= \frac{g_{e}}{2} \frac{\omega_{a}}{\omega_{p}} \frac{m_{\mu}}{m_{e}} \frac{\mu_{p}}{\mu_{e}} \label{eq:amuratios} \\ 
+%             a_{\mu} &= \frac{\omega_{a}/\omega_{p}}{\lambda - \omega_{a}/\omega_{p}} \label{eq:amulambda}
+%         \end{align}
+% Here the $p$, $e$, and $\mu$ subscripts stand for the relevant quantities for the proton, electron, and muon respectively. In the second equation $\lambda = \mu_{\mu}/\mu_{p}$. As mentioned before the electron g-factor $g_{e}$ has been measured to extremely high precision, 0.26 ppt \cite{ElectronMDM,CODATA}. The muon-electron mass ratio $m_{\mu}/m_{e}$ and muon-proton magnetic moment ratio $\lambda$ have been measured to 22 ppb \cite{CODATA,MuoniumHyperfine}. Finally the proton-electron magnetic moment ratio $\mu_{p}/\mu_{e}$ has been measured to 3 ppb \cite{CODATA}. The errors on these terms are small compared to the target uncertainty for E989 of 140 ppb, the measurement of which now comes down to measuring the ratio $\omega_{a}/\omega_{p}$. 
+
+
+
+
 
 
 \section{Measuring \texorpdfstring{\wa}{wa}}
