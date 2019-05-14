@@ -11,7 +11,7 @@
 The measurement of \wa is determined by counting the number of detected positrons in the calorimeters above some energy threshold, as described in \secref{section:WaIntro}. Doing so results in a histogram of counts which is modulated by \wa, \figref{fig:gm2wiggle}. Fitting for the frequency allows \wa to be extracted. The \wa measurement therefore consists of the steps needed to construct the histogram of counts, the fitting of that histogram, and any systematic studies done in the analysis.
 
 
-\section{Reconstruction}
+\section{Reconstruction of decay positron hits}
 \label{sec:ReconWest}
 
 
@@ -60,21 +60,25 @@ The last part of the calorimeter reconstruction is the clustering. Clustering is
 
 
 
-\section{Histogramming}
+\section{Construction of time spectra histograms}
 \label{sec:Histogramming}
 
 
-Once the reconstruction has processed all the hits into clusters, the time spectra histogram needs to be made. First an energy threshold needs to be chosen. As described at the end of \secref{section:WaIntro}, the optimal energy threshold is where the quantity $NA^{2}$ reaches the maximum, at least in the case of a five parameter fit. By scanning over the choice of energy threshold and fitting the resulting time spectra, the optimal energy threshold can be determined as seen in \figref{fig:OptimalEnergyThreshold}. The optimal choice of energy threshold was thus determined to be $\SI{1700}{\MeV}$.
+Once the reconstruction has processed all the hits into clusters, the time spectra histograms needs to be made. Some of the parameter choices for the constructed histograms were informed by analysis results. 
 
 
 
+- maybe e threshold is its own section??
 
--reread through Jon's thesis where he talks about this stuff to see if there is a way I want to go about things
-- maybe make some comment about how certain choices in the histogramming were informed by analysis results?
+First an energy threshold needs to be chosen. As described at the end of \secref{section:WaIntro}, the optimal energy threshold is where the quantity $NA^{2}$ reaches the maximum, at least in the case of a five parameter fit. By scanning over the choice of energy threshold and fitting the resulting time spectra, the optimal energy threshold can be determined as seen in \figref{fig:OptimalEnergyThreshold}. The optimal choice of energy threshold was thus determined to be $\SI{1700}{\MeV}$.
+
+
+
+-all parameters were identical between the analyzed datasets for comparison and combinations sake
 
 
 -need a table of chosen parameters in the histogramming - maybe at the end though
--pileup sdt, sgt, adt, energy threshold, others?
+-pileup sdt, sgt, adt, energy threshold, bin width
 
 
     \begin{figure}[]
@@ -103,7 +107,7 @@ Once the reconstruction has processed all the hits into clusters, the time spect
 
 
 
-
+-need to include bin width
 -artificial deadtime - how to talk about this when I have yet to get to pileup method 
 -time randomization - at end after application of adt
 
@@ -116,27 +120,9 @@ Once the reconstruction has processed all the hits into clusters, the time spect
 
 
 
+\subsection{Ratio Method}
 
-
-
-\section{Lost muons}
-\label{sec:lostmuons}
-
--need to include delta t plot and energy deposition plot
-
-
-\cite{lostmuons}
-
-
-
-
-\section{Fitting}
-\label{sec:Fitting}
-
-
-
-
--detail the ratio method - might need to pull stuff out from my appendix
+-detail the ratio method - might need to pull stuff out from my appendix - this should actually go into my histogram construction really
 
 
     \begin{figure}[]
@@ -172,6 +158,32 @@ Once the reconstruction has processed all the hits into clusters, the time spect
     \caption[]{}
     \label{}
     \end{figure}
+
+
+
+-mention how I create 4 pileup histograms for the ratio ...
+
+
+
+
+\section{Lost muons}
+\label{sec:lostmuons}
+
+-need to include delta t plot and energy deposition plot
+-this should potentially be in the fitting section...
+
+
+\cite{lostmuons}
+
+
+
+
+\section{Fitting}
+\label{sec:Fitting}
+
+
+-should I include stuff about my tmethod fits? just basic fit results but no systematic studies and all that?
+
 
 
 \subsection{CBO terms}
