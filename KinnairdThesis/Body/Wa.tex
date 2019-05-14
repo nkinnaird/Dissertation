@@ -144,7 +144,7 @@ The optimal bin width for the time spectra was determined to be $\SI{149.2}{ns}$
 
 -include sam dataset names here or in the run 1 section
 
-
+-I should probably talk a little bit about the energy spectra as well
 
 
 
@@ -163,16 +163,12 @@ As described in \secref{sec:Calorimeters}, there will be a certain amount of pil
 \end{figure}
 
 
-In order to eliminate this effect, an approximation of the pileup is constructed and then subtracted from the time spectra before fitting. The method used in this analysis is called the asymmetric shadow method, originally developed in E821 \cite{E821PileupShadow}. This method statistically constructs an approximation for the pileup from the data itself by assuming that the probability of a pileup pulse occurring is the same as the probabilty that two pulses will be offset by some small amount of time, such as \ns{10}. The procedure operates by looking in time windows after trigger pulses to see if a `shadow' pulse exists. If such a pulse exists, then a shadow doublet is created with times and energies as 
+Before fitting the data, the pileup needs to be removed. There are various methods to construct pileup spectra which are then subtracted off the main time and energy spectra. The method used in this analysis is called the `asymmetric shadow method', originally developed in E821 \cite{E821PileupShadow}. This method statistically constructs an approximation for the pileup from the data itself by assuming that the probability of a pileup pulse occurring is the same as the probabilty that two pulses will be offset by some small amount of time, such as \ns{10}. The method works by looking in time windows after trigger pulses to see if a `shadow' pulse exists. If such a pulse exists, then a shadow doublet is created, see \figref{fig:ShadowPileupMethod}. The widths of the time window and time offset from the trigger pulse to the window are called the shadow dead time (SDT) and shadow gap time (SGT) respectively. The times and energies of the constructed pileup doublets are taken as
             \begin{gather}
                 E_{\text{doublet}} = C \cdot (E_{1} + E_{2}), \\
                 t_{\text{doublet}} = \frac{t_{1} \cdot E_{1} + (t_{2}-SGT) \cdot E_{2}}{E_{1} + E_{2}},
             \end{gather}
-where $C$ is some energy scaling factor that has a default value of 1, $E_{1,2}$ and $t_{1,2}$ are the energies and times of the trigger and shadow pulses respectively, and SGT is the shadow gap time, or time between the trigger pulse and the start of the shadow window.
-
-
--need to introduce sgt and sdt well somehow
-
+where the energy of the doublet is the sum of the two singlet pulses $E_{1,2}$ times some constant $C$ that has a default value of 1, and the time of the doublet is the energy-weighted time of the two singlets $t_{1,2}$. When constructing the pileup approximation the procedure is to time order all clusters within a single fill, look in shadow windows of each cluster, and construct shadow doublets accordingly. This is done for all fills to produce the pileup time and energy spectra.
 
 \begin{figure}[]
     \centering
@@ -182,38 +178,15 @@ where $C$ is some energy scaling factor that has a default value of 1, $E_{1,2}$
 \end{figure}
 
 
-
-
-The procedure is then to time order all clusters within a single fill, look some time distance away from each cluster, the shadow gap time (SGT), in some time window, the shadow dead time (SDT), 
-
-
-
-
-
-
-
-
-
-Only doublets, as will be shown later in sec blah only the double pileup is necessary for the level of statistics in Run 1
-
-
-% pileup figures copied from 60H report - will need to remake all - get rid of titles, drop some of them as they're unimportant, etc...
+The pileup energy spectra as compared to the cluster energy spectra is shown in \figref{fig:ClusterEnergiesVsPileupEnergies}. In general, the two lobes starting at approximately $\SI{3}{\GeV}$ and $\SI{6}{\GeV}$ consist of double and triple pileup respectively\footnote{All orders of pileup fill out the whole energy range, just certain areas consist mostly of one or the other.}. It can be seen that the shadow method of pileup construction produces a pileup energy spectra which is a decent approximation of the cluster energies above the maximum energy that a single decay positron would have at $\SI{3.094}{\GeV}$, for cases of double and even triple pileup. The shape difference arises from two factors. First, the shadow method is only written to construct doublets, and does not construct triplets which would then be subtracted off. Second, the real pileup in the data contaminates the construction of the shadow pileup, such that a shadow doublet can be constructed from real pileup pulses. While this alleviates the triplet problem slightly, it means that the doublet pileup spectrum is slightly off. The corrected energy spectra (cluster energies minus pileup energies), can be seen in \figref{fig:AddedEnergies}. The shape mismatch is even more apparent as the corrected energy spectrum is high for energies above $\SI{3.094}{\GeV}$ and then goes negative before tailing off to zero. It has been determined that regardless of this shape mismatch, the systematic error on the extracted \wa frequency due to the pileup is within the target uncertainty for the level of statistics in the Run~1 dataset, \secref{sub:pileuperror}. This is in part due to the fact that it is the pileup time spectrum that is most important, as it is subtracted off the threshold time spectra before fitting. The pileup time spectrum for those pileup pulses above energy threshold is shown in \figref{fig:PileupTimeSpectrum}.
 
 
     \begin{figure}[]
         \centering
         \includegraphics[width=\textwidth]{ClusterEnergiesVsPileupEnergies}
-        \caption[ClusterEnergiesVsPileupEnergies]{Cluster energies in black are plotted vs pileup energies in red, for all calorimeters added together. At energies below about 2.4 GeV the pileup spectrum goes negative. In this plot the absolute value of the pileup energies is plotted, and a spike at about 2.4 GeV can be seen as a consequence of this.}    
+        \caption[Cluster energies vs pileup energies]{Cluster energies in black are plotted vs pileup energies in red, for all calorimeters added together, plotted on a log scale. At energies below about 2.4 GeV the pileup energy spectrum goes negative. In this plot the absolute value of the pileup energies is plotted, and a spike at about 2.4 GeV can be seen as a consequence of this. The shapes do not match perfectly for the constructed pileup spectra, which can be seen at high energies. It should be noted that for energies above $\SI{3.094}{\GeV}$ there is still a shape mis-match even though the red and black curves overlap due to the plotting scale.}    
         \label{fig:ClusterEnergiesVsPileupEnergies}
     \end{figure}
-
-    \begin{figure}[]
-        \centering
-        \includegraphics[width=\textwidth]{PileupTimeSpectrum}
-        \caption[PileupTimeSpectrum]{Plotted is constructed pileup time spectrum on a linear (left) and log (right) scale. The histogram on the right is fit to a simple two parameter exponential to get an idea of the lifetime of the pileup, calculated here as $\SI{31.99}{\mu s}$, which is close to half of the muon lifetime at about $\SI{64.4}{\mu s}$. Reasons for why these two values don't equal include the absence of triplets, lost muons, and an improper fitting function.}
-        \label{fig:PileupTimeSpectrum}
-    \end{figure}
-
 
 
     \begin{figure}[]
@@ -229,23 +202,53 @@ Only doublets, as will be shown later in sec blah only the double pileup is nece
             \includegraphics[width=\textwidth]{AddedEnergiesZoomed}
             \caption{Linear scale - zoomed in to show the shape.}
         \end{subfigure}
-    \caption[AddedEnergies]{Plots for the pre-corrected and corrected energy spectra are shown, all calorimeters added together. Because the triplets and contamination are not accounted for, the corrected energy spectrum does not lie exactly along zero above the energy response of the detectors.}
+    \caption[Non-corrected and pileup corrected cluster energies]{Plots for the pre-corrected and corrected energy spectra are shown, all calorimeters added together. Because the triplets and contamination are not accounted for, the corrected energy spectrum does not lie exactly along zero above the energy response of the detectors.}
     \label{fig:AddedEnergies}
     \end{figure}
 
-    \begin{figure}[]
-        \centering
-        \includegraphics[width=.8\textwidth]{CaloEnergies}
-        \caption[CaloEnergies]{Pre-corrected and corrected energy spectra for calorimeters 1, 7, 13, and 23 plotted on a log scale.}    
-        \label{fig:CaloEnergies}
-    \end{figure}
 
     \begin{figure}[]
         \centering
-        \includegraphics[width=.8\textwidth]{CaloEnergiesZoomed}
-        \caption[CaloEnergiesZoomed]{Pre-corrected and corrected energy spectra for calorimeters 1, 7, 13, and 23 plotted on a linear scale and zoomed in.}    
-        \label{fig:CaloEnergiesZoomed}
+        \includegraphics[width=\textwidth]{PileupTimeSpectrum}
+        \caption[Pileup time spectrum above threshold]{Plotted is constructed pileup time spectrum on a linear (left) and log (right) scale. The histogram on the right is fit to a simple two parameter exponential to get an idea of the lifetime of the pileup, calculated here as $\SI{31.99}{\mu s}$, which is close to half of the muon lifetime at about $\SI{64.44}{\mu s}$.}
+        \label{fig:PileupTimeSpectrum}
     \end{figure}
+
+
+
+
+
+
+
+-need to mention the energy response of the detectors a little better - don't think I go into it in the detectors section but maybe I can put it in there
+
+
+
+
+-go into studies for adt and sgt and all that...
+
+
+
+
+
+
+
+
+
+
+    % \begin{figure}[]
+    %     \centering
+    %     \includegraphics[width=.8\textwidth]{CaloEnergies}
+    %     \caption[CaloEnergies]{Pre-corrected and corrected energy spectra for calorimeters 1, 7, 13, and 23 plotted on a log scale.}    
+    %     \label{fig:CaloEnergies}
+    % \end{figure}
+
+    % \begin{figure}[]
+    %     \centering
+    %     \includegraphics[width=.8\textwidth]{CaloEnergiesZoomed}
+    %     \caption[CaloEnergiesZoomed]{Pre-corrected and corrected energy spectra for calorimeters 1, 7, 13, and 23 plotted on a linear scale and zoomed in.}    
+    %     \label{fig:CaloEnergiesZoomed}
+    % \end{figure}
 
 
 
@@ -261,6 +264,8 @@ Only doublets, as will be shown later in sec blah only the double pileup is nece
 % https://gm2-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=13963&filename=PileupScaleShadowTesting.pdf&version=1
 % https://gm2-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=14394&filename=PileupFormEtc.pdf&version=2
 
+
+% pileup figures copied from 60H report - will need to remake all - get rid of titles, drop some of them as they're unimportant, etc...
 
 
 
