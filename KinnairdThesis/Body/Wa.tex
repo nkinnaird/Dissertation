@@ -2,20 +2,20 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/WaGeneral/Reconstruction/}{Body/Figures/WaGeneral/Histogramming/}{Body/Figures/RatioAnalysis/}{Body/Figures/RatioAnalysis/MethodOverview/}}
+\graphicspath{{Body/Figures/WaGeneral/Temporary/}{Body/Figures/WaGeneral/Reconstruction/}{Body/Figures/WaGeneral/Histogramming/}{Body/Figures/RatioAnalysis/}{Body/Figures/RatioAnalysis/MethodOverview/}}
 
 \chapter{\texorpdfstring{\wa}{wa} Measurement}
 \label{chapter:wa}
 
 
-The measurement of \wa is determined by counting the number of detected positrons in the calorimeters above some energy threshold, as described in \secref{section:WaIntro}. Doing so results in a histogram of counts which is modulated by \wa, \figref{fig:gm2wiggle}. Fitting for the frequency allows \wa to be extracted. The \wa measurement therefore consists of the steps needed to construct the histogram of counts, the fitting of that histogram, and any systematic studies done in the analysis.
+The measurement of \wa is determined by counting the number of detected positrons in the calorimeters above some energy threshold, as described in \secref{section:WaIntro}. Doing so results in a histogram of counts which is modulated by \wa, \figref{fig:gm2wiggle}. Fitting for the frequency allows \wa to be extracted. The \wa measurement therefore consists of the steps needed to construct the histogram of counts, the fitting of that histogram, and any systematic studies done in the analysis. 
 
 
 \section{Reconstruction of decay positron hits}
 \label{sec:ReconWest}
 
 
-The calorimeters measure hit times and energies of impacting particles, where these hit times and energies are determined from the raw SiPM signals and a reconstruction procedure. In E989 there are two overall separate reconstruction algorithms, \texttt{ReconWest} and \texttt{ReconEast}. Each of these reconstruction algorithms is modularized, and the steps of the reconstruction process can be switched in and out at will. Using separate reconstruction methods gives confidence in any final results by removing single points of failure. The reconstruction method used in this analysis is \texttt{ReconWest}. A summary of its details will be presented here. A more thorough description is detailed by A. Fienberg \cite{AFThesis}.
+The calorimeters measure hit times and energies of impacting particles, where these hit times and energies are determined from the raw SiPM signals and a reconstruction procedure. In E989 there are two overall separate reconstruction algorithms, \texttt{ReconWest} and \texttt{ReconEast}, both written in the \textit{art} framework similar to the tracking reconstruction. Each of these reconstruction algorithms is modularized, and the steps of the reconstruction process can be switched in and out at will. Using separate reconstruction methods gives confidence in any final results by removing single points of failure. The reconstruction method used in this analysis is \texttt{ReconWest}. A summary of its details will be presented here. A more thorough description is detailed by A. Fienberg \cite{AFThesis}.
 
 
 The raw data are digitized waveforms, which are voltage versus time traces output from each SiPM for each calorimeter crystal hit. Due to the incredible amount of data coming in with the high muon fill rate, only those pulses which exceed some threshold are saved to disk. An online processing system checks the traces against this pre-configured threshold by passing all of the data through a GPU farm \cite{Gohn:2016shi}. If any trace is found above threshold, then the data is saved from every SiPM in every calorimeter, for a time range around the over-threshold trace. This time range is called a time island, similar to that in the tracking reconstruction, and typically has a width of $\SI{40}{ns}$ \cite{AFThesis}.
@@ -64,7 +64,10 @@ The last part of the calorimeter reconstruction is the clustering. Clustering is
 \label{sec:Histogramming}
 
 
-Once the reconstruction has processed all the hits into clusters, the time spectra histograms needs to be made. It should be noted that some of the parameter choices for the constructed histograms were informed by analysis results. All analysis parameters were chosen to be identical between the distinct analyzed datasets, in order to simplify both the comparison and combination of different dataset results. This section describes the justification for the different histogram parameters chosen. A table of the histogram parameters is shown in \tabref{tab:histogramparameters}.
+Once the reconstruction has processed all the hits into clusters, the time spectra histograms needs to be made. At the very last stage of the reconstruction procedure, an \textit{art} module takes the produced clusters and puts them into \ROOT \texttt{TTree} formats. There is of order 20,000--140,000 cluster data files per dataset, which are combined down to order 200--1,400 \ROOT \texttt{TTree} files. These \ROOT \texttt{TTree}s are then passed through a \ROOT macro to produce \ROOT files with the histograms defined by the \texttt{TH1F} class, one \ROOT histogram file per tree file.
+
+
+It should be noted that some of the parameter choices for the constructed histograms were informed by analysis results. All analysis parameters were chosen to be identical between the distinct analyzed datasets, in order to simplify both the comparison and combination of different dataset results. This section describes the justification for the different histogram parameters chosen. A table of the histogram parameters is shown in \tabref{tab:histogramparameters}.
 
 
 \begin{table}[]
@@ -77,11 +80,12 @@ Once the reconstruction has processed all the hits into clusters, the time spect
   \hline\hline
     Parameter & Value \\
   \hline
-    Energy threshold & $\SI{1700}{\MeV}$ \\
-    Bin width & $\SI{149.2}{\micro s}$ \\
+    Energy threshold $(E_{th})$ & $\SI{1700}{\MeV}$ \\
+    Bin width $(T_{c})$ & $\SI{149.2}{ns}$ \\
     Artifical dead time (ADT) & $\SI{6}{ns}$ \\
     Shadow dead time (SDT) & $\SI{6}{ns}$ \\
     Shadow gap time (SGT) & $\SI{12}{ns}$ \\
+    Pileup energy scaling (C) & $1$ \\
     \gmtwo period $(T_{a})$ in Ratio Method & \mus{4.365411} \\
     Muon lifetime (\taumu) in Ratio Method & \mus{64.44} \\
   \hline 
@@ -92,12 +96,9 @@ Once the reconstruction has processed all the hits into clusters, the time spect
 
 
 
-
 % \subsection{Optimal energy threshold}
 
-First an energy threshold needs to be chosen. As described at the end of \secref{section:WaIntro}, the optimal energy threshold is where the quantity $NA^{2}$ reaches the maximum, at least in the case of a five parameter fit. By scanning over the choice of energy threshold and fitting the resulting time spectra with \equref{eq:5parfunc}, the optimal energy threshold can be determined as seen in \figref{fig:OptimalEnergyThreshold} \footnote{Using the final fit function used, a slightly better estimate can be found. }. The optimal choice of energy threshold was determined to be $\SI{1700}{\MeV}$, in accordance with the cluster reconstruction energy calibration.
-
-
+First an energy threshold needs to be chosen. As described at the end of \secref{section:WaIntro}, the optimal energy threshold is where the quantity $NA^{2}$ reaches the maximum, at least in the case of a five parameter fit\footnote{Using the final fit function and looking at the error directly on the fitted \wa frequency, a slightly better estimate can be found.}. By scanning over the choice of energy threshold and fitting the resulting time spectra with \equref{eq:5parfunc}, the optimal energy threshold can be determined as seen in \figref{fig:OptimalEnergyThreshold}. The optimal choice of energy threshold was determined to be $\SI{1700}{\MeV}$, in accordance with the cluster reconstruction energy calibration. Any detected hits above this energy threshold are included, while those below are left out.
 
     \begin{figure}[]
     \centering
@@ -125,9 +126,23 @@ First an energy threshold needs to be chosen. As described at the end of \secref
 
 
 
--need to include bin width
+-describe adt here and point to equations in pileup subtraction method
+
+
+
+
+The optimal bin width for the time spectra was determined to be $\SI{149.2}{ns}$, as the average of the cyclotron periods from a fast rotation analysis to the data \cite{fastrotationsomething}. As described in \secref{sub:beam_debunching}, these bin widths combined with a time randomization on each pulse of $T_{c}/2 = \SI{149.2}{ns} / 2$ serve to eliminate the fast rotation signal in the data\footnote{Some analyzers randomize all times in a single fill by half the cyclotron period as opposed to each individual pulse}. This randomization is done using \ROOT's \texttt{TRandom3} class. The default random seed for each histogram \ROOT file is the hash of the input file name using C++'s standard hash class. Histograms are defined with a time range of 0--\mus{699.8972} (the closest integer multiple of the bin width to \mus{700}), corresponding to 4691 bins. Clusters with times $<$ \mus{25} or $>$ \mus{660} are dropped, corresponding to 4256 bins containing data.
+
+
+
+
+
 -artificial deadtime - how to talk about this when I have yet to get to pileup method 
 -time randomization - at end after application of adt
+-hashing, root, etc. 
+
+
+-include sam dataset names here or in the run 1 section
 
 
 
@@ -135,6 +150,16 @@ First an energy threshold needs to be chosen. As described at the end of \secref
 
 \subsection{Pileup subtraction}
 \label{sub:pileupsubtraction}
+
+
+-include here a mention of the pileup multiplier and time shift
+
+% https://gm2-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=13963&filename=PileupScaleShadowTesting.pdf&version=1
+% https://gm2-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=14394&filename=PileupFormEtc.pdf&version=2
+
+
+
+
 
 
 
@@ -201,6 +226,32 @@ First an energy threshold needs to be chosen. As described at the end of \secref
 
 
 -should I include stuff about my tmethod fits? just basic fit results but no systematic studies and all that?
+-a root macro is used to fit the data, and then to make plots
+
+
+Fit is from \mus{30.2}--\mus{650}, corresponding to 4154 bins.
+
+
+\begin{table}[]
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}lc}
+  \hline
+    \multicolumn{2}{c}{\textbf{Fit Procedure Parameters}} \\
+  \hline\hline
+    Parameter & Value \\
+  \hline
+    Fit start time & \mus{30.2} \\
+    Fit end time & \mus{650} \\
+  \hline 
+\end{tabular*}
+\caption[]{\textbf{fill this table out more once I've gone through the various parts}}
+\label{tab:fitprocedureparameters}
+\end{table}
+
+
+
 
 
 
