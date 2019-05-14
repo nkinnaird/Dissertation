@@ -64,21 +64,39 @@ The last part of the calorimeter reconstruction is the clustering. Clustering is
 \label{sec:Histogramming}
 
 
-Once the reconstruction has processed all the hits into clusters, the time spectra histograms needs to be made. Some of the parameter choices for the constructed histograms were informed by analysis results. 
+Once the reconstruction has processed all the hits into clusters, the time spectra histograms needs to be made. It should be noted that some of the parameter choices for the constructed histograms were informed by analysis results. All analysis parameters were chosen to be identical between the distinct analyzed datasets, in order to simplify both the comparison and combination of different dataset results. This section describes the justification for the different histogram parameters chosen. A table of the histogram parameters is shown in \tabref{tab:histogramparameters}.
+
+
+\begin{table}[]
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}lc}
+  \hline
+    \multicolumn{2}{c}{\textbf{Time Spectra Parameters}} \\
+  \hline\hline
+    Parameter & Value \\
+  \hline
+    Energy threshold & $\SI{1700}{\MeV}$ \\
+    Bin width & $\SI{149.2}{\micro s}$ \\
+    Artifical dead time (ADT) & $\SI{6}{ns}$ \\
+    Shadow dead time (SDT) & $\SI{6}{ns}$ \\
+    Shadow gap time (SGT) & $\SI{12}{ns}$ \\
+    \gmtwo period $(T_{a})$ in Ratio Method & \mus{4.365411} \\
+    Muon lifetime (\taumu) in Ratio Method & \mus{64.44} \\
+  \hline 
+\end{tabular*}
+\caption[Parameters used in the construction of \wa time spectra]{Parameters used in the construction of \wa time spectra. \textbf{fill this table out more once I've gone through the various parts}}
+\label{tab:histogramparameters}
+\end{table}
 
 
 
-- maybe e threshold is its own section??
 
-First an energy threshold needs to be chosen. As described at the end of \secref{section:WaIntro}, the optimal energy threshold is where the quantity $NA^{2}$ reaches the maximum, at least in the case of a five parameter fit. By scanning over the choice of energy threshold and fitting the resulting time spectra, the optimal energy threshold can be determined as seen in \figref{fig:OptimalEnergyThreshold}. The optimal choice of energy threshold was thus determined to be $\SI{1700}{\MeV}$.
+% \subsection{Optimal energy threshold}
 
+First an energy threshold needs to be chosen. As described at the end of \secref{section:WaIntro}, the optimal energy threshold is where the quantity $NA^{2}$ reaches the maximum, at least in the case of a five parameter fit. By scanning over the choice of energy threshold and fitting the resulting time spectra with \equref{eq:5parfunc}, the optimal energy threshold can be determined as seen in \figref{fig:OptimalEnergyThreshold} \footnote{Using the final fit function used, a slightly better estimate can be found. }. The optimal choice of energy threshold was determined to be $\SI{1700}{\MeV}$, in accordance with the cluster reconstruction energy calibration.
 
-
--all parameters were identical between the analyzed datasets for comparison and combinations sake
-
-
--need a table of chosen parameters in the histogramming - maybe at the end though
--pileup sdt, sgt, adt, energy threshold, bin width
 
 
     \begin{figure}[]
