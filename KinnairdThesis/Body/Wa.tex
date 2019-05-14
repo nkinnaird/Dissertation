@@ -163,13 +163,38 @@ As described in \secref{sec:Calorimeters}, there will be a certain amount of pil
 \end{figure}
 
 
-In order to eliminate this effect, an approximation of the pileup is constructed and then subtracted from the time spectra before fitting. The method used in this analysis is called the shadow method, originally developed in E821 \cite{E821PileupShadow}.
+In order to eliminate this effect, an approximation of the pileup is constructed and then subtracted from the time spectra before fitting. The method used in this analysis is called the asymmetric shadow method, originally developed in E821 \cite{E821PileupShadow}. This method statistically constructs an approximation for the pileup from the data itself by assuming that the probability of a pileup pulse occurring is the same as the probabilty that two pulses will be offset by some small amount of time, such as \ns{10}. The procedure operates by looking in time windows after trigger pulses to see if a `shadow' pulse exists. If such a pulse exists, then a shadow doublet is created with times and energies as 
+            \begin{gather}
+                E_{\text{doublet}} = C \cdot (E_{1} + E_{2}), \\
+                t_{\text{doublet}} = \frac{t_{1} \cdot E_{1} + (t_{2}-SGT) \cdot E_{2}}{E_{1} + E_{2}},
+            \end{gather}
+where $C$ is some energy scaling factor that has a default value of 1, $E_{1,2}$ and $t_{1,2}$ are the energies and times of the trigger and shadow pulses respectively, and SGT is the shadow gap time, or time between the trigger pulse and the start of the shadow window.
+
+
+-need to introduce sgt and sdt well somehow
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=\textwidth]{ShadowPileupMethod}
+    \caption[Shadow pileup method]{}
+    \label{fig:ShadowPileupMethod}
+\end{figure}
+
+
+
+
+The procedure is then to time order all clusters within a single fill, look some time distance away from each cluster, the shadow gap time (SGT), in some time window, the shadow dead time (SDT), 
 
 
 
 
 
 
+
+
+
+Only doublets, as will be shown later in sec blah only the double pileup is necessary for the level of statistics in Run 1
 
 
 % pileup figures copied from 60H report - will need to remake all - get rid of titles, drop some of them as they're unimportant, etc...
