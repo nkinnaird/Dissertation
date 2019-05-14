@@ -178,7 +178,10 @@ where the energy of the doublet is the sum of the two singlet pulses $E_{1,2}$ t
 \end{figure}
 
 
-The pileup energy spectra as compared to the cluster energy spectra is shown in \figref{fig:ClusterEnergiesVsPileupEnergies}. In general, the two lobes starting at approximately $\SI{3}{\GeV}$ and $\SI{6}{\GeV}$ consist of double and triple pileup respectively\footnote{All orders of pileup fill out the whole energy range, just certain areas consist mostly of one or the other.}. It can be seen that the shadow method of pileup construction produces a pileup energy spectra which is a decent approximation of the cluster energies above the maximum energy that a single decay positron would have at $\SI{3.094}{\GeV}$, for cases of double and even triple pileup. The shape difference arises from two factors. First, the shadow method is only written to construct doublets, and does not construct triplets which would then be subtracted off. Second, the real pileup in the data contaminates the construction of the shadow pileup, such that a shadow doublet can be constructed from real pileup pulses. While this alleviates the triplet problem slightly, it means that the doublet pileup spectrum is slightly off. The corrected energy spectra (cluster energies minus pileup energies), can be seen in \figref{fig:AddedEnergies}. The shape mismatch is even more apparent as the corrected energy spectrum is high for energies above $\SI{3.094}{\GeV}$ and then goes negative before tailing off to zero. It has been determined that regardless of this shape mismatch, the systematic error on the extracted \wa frequency due to the pileup is within the target uncertainty for the level of statistics in the Run~1 dataset, \secref{sub:pileuperror}. This is in part due to the fact that it is the pileup time spectrum that is most important, as it is subtracted off the threshold time spectra before fitting. The pileup time spectrum for those pileup pulses above energy threshold is shown in \figref{fig:PileupTimeSpectrum}.
+The pileup energy spectra as compared to the cluster energy spectra is shown in \figref{fig:ClusterEnergiesVsPileupEnergies}. In general, the two lobes starting at approximately $\SI{3}{\GeV}$ and $\SI{6}{\GeV}$ consist of double and triple pileup respectively\footnote{All orders of pileup fill out the whole energy range, just certain areas consist mostly of one or the other.}. It can be seen that the shadow method of pileup construction produces a pileup energy spectra which is a decent approximation of the cluster energies above the maximum energy that a single decay positron would have at $\SI{3.094}{\GeV}$, for cases of double and even triple pileup. The shape difference arises from two factors. First, the shadow method is only written to construct doublets, and does not construct triplets which would then be subtracted off. Second, the real pileup in the data contaminates the construction of the shadow pileup, such that a shadow doublet can be constructed from real pileup pulses. While this alleviates the triplet problem slightly, it means that the doublet pileup spectrum is slightly off. The corrected energy spectra (cluster energies minus pileup energies), can be seen in \figref{fig:AddedEnergies}. The shape mismatch is even more apparent as the corrected energy spectrum is high for energies above $\SI{3.094}{\GeV}$ and then goes negative before tailing off to zero. It has been determined that regardless of this shape mismatch, the systematic error on the extracted \wa frequency due to the pileup is within the target uncertainty for the level of statistics in the Run~1 dataset, \secref{sub:pileuperror}. This is in part due to the fact that it is the pileup time spectrum that is most important, as it is subtracted off the threshold time spectra before fitting. The pileup time spectrum for those pileup pulses above energy threshold is shown in \figref{fig:PileupTimeSpectrum}. Similar to how individual counts in the time histogram are time randomized to remove the fast rotation, the same time randomization is applied to the pileup doublet times.
+
+
+Since the pileup is statistically constructed and then subtracted from the data, the errors on the final time histogram are no longer Gaussian. The proper calculation of the errors is detailed in \appref{app:PileupErrors}.
 
 
     \begin{figure}[]
@@ -217,6 +220,12 @@ The pileup energy spectra as compared to the cluster energy spectra is shown in 
 
 
 
+-read through pileup in 60H report and see what I've missed
+- P = D - S stuff.....
+
+
+- need to mention errors calculated in appendix and later read through both to make sure they jive
+
 
 
 
@@ -225,7 +234,8 @@ The pileup energy spectra as compared to the cluster energy spectra is shown in 
 
 
 
--go into studies for adt and sgt and all that...
+-go into studies for adt and sgt and all that... - need to mention actual numbers
+-need to mention C factor of 1 coming from spatial separation being turned off and then point to the systematic study section to show its okay
 
 
 
