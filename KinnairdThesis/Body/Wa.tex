@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/WaGeneral/}{Body/Figures/RatioAnalysis/}{Body/Figures/RatioAnalysis/MethodOverview/}}
+\graphicspath{{Body/Figures/WaGeneral/Reconstruction/}{Body/Figures/WaGeneral/Histogramming/}{Body/Figures/RatioAnalysis/}{Body/Figures/RatioAnalysis/MethodOverview/}}
 
 \chapter{\texorpdfstring{\wa}{wa} Measurement}
 \label{chapter:wa}
@@ -64,24 +64,48 @@ The last part of the calorimeter reconstruction is the clustering. Clustering is
 \label{sec:Histogramming}
 
 
-Once the reconstruction has processed all the hits into clusters, the time spectra histograms need to be made.
+Once the reconstruction has processed all the hits into clusters, the time spectra histogram needs to be made. First an energy threshold needs to be chosen. As described at the end of \secref{section:WaIntro}, the optimal energy threshold is where the quantity $NA^{2}$ reaches the maximum, at least in the case of a five parameter fit. By scanning over the choice of energy threshold and fitting the resulting time spectra, the optimal energy threshold can be determined as seen in \figref{fig:OptimalEnergyThreshold}. The optimal choice of energy threshold was thus determined to be $\SI{1700}{\MeV}$.
 
 
--optimal energy threshold - reference last bit of wa intro section
 
-\begin{figure}[]
+
+
+- maybe make some comment about how certain choices in the histogramming were informed by analysis results?
+
+
+-need a table of chosen parameters in the histogramming - maybe at the end though
+-pileup sdt, sgt, adt, energy threshold, others?
+
+
+    \begin{figure}[]
     \centering
-    % \includegraphics[width=0.9\textwidth]{OptimalEnergyThreshold}
-    \rule{10cm}{10cm}
-    \caption[put caption here]{put a picture of the scanned optimal energy threshold here}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{TemporaryEThresholdNA2}
+            \caption{}
+        \end{subfigure}
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{TemporaryEThresholdRatio}
+            \caption{}
+        \end{subfigure}% 
+    \caption[Determination of optimal energy threshold]{The optimal energy threshold can be determined from the $NA^{2}$ quantity as described in \secref{section:WaIntro} from a five parameter fit to the data (left), or from the calculated error with the final fit function (right). \textbf{temporary energy threshold plots - replace - also not sure how to introduce R and ratio fit stuff here when I haven't talked about it yet}}
     \label{fig:OptimalEnergyThreshold}
-\end{figure}
+    \end{figure}
+
+% \begin{figure}[]
+%     \centering
+%     % \includegraphics[width=0.9\textwidth]{OptimalEnergyThreshold}
+%     \rule{10cm}{10cm}
+%     \caption[put caption here]{put a picture of the scanned optimal energy threshold here}
+%     \label{fig:OptimalEnergyThreshold}
+% \end{figure}
 
 
 
 
--artificial deadtime
--time randomization
+-artificial deadtime - how to talk about this when I have yet to get to pileup method 
+-time randomization - at end after application of adt
 
 
 
@@ -89,6 +113,10 @@ Once the reconstruction has processed all the hits into clusters, the time spect
 
 \subsection{Pileup subtraction}
 \label{sub:pileupsubtraction}
+
+
+
+
 
 
 \section{Lost muons}
