@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/WaGeneral/Temporary/}{Body/Figures/WaGeneral/Reconstruction/}{Body/Figures/WaGeneral/Histogramming/}{Body/Figures/RatioAnalysis/}{Body/Figures/RatioAnalysis/MethodOverview/}}
+\graphicspath{{Body/Figures/WaGeneral/Temporary/}{Body/Figures/WaGeneral/Reconstruction/}{Body/Figures/WaGeneral/Histogramming/}{Body/Figures/WaGeneral/Pileup/}{Body/Figures/WaGeneral/Pileup/TimeAndEnergySpectra/}{Body/Figures/RatioAnalysis/}{Body/Figures/RatioAnalysis/MethodOverview/}}
 
 \chapter{\texorpdfstring{\wa}{wa} Measurement}
 \label{chapter:wa}
@@ -150,6 +150,85 @@ The optimal bin width for the time spectra was determined to be $\SI{149.2}{ns}$
 
 \subsection{Pileup subtraction}
 \label{sub:pileupsubtraction}
+
+
+As described in \secref{sec:Calorimeters}, there will be a certain amount of pileup in the detectors, where pileup again is the term for when multiple positrons hit the calorimeters within the dead time of the detector such that they are registered as a single hit. Two positrons below-threshold can thus be counted as a single positron above threshold, thus including a count in the time spectra that should not have been included. Similarly, two above-threshold positrons can be registered as a single positron above-threshold, thus excluding a count that should have been included in the time spectra. Because lower energy positrons travel shorter distances than higher energy positrons, such that the muons for lower energy decay positrons have traveled further around the ring than those for higher energy positrons and their spins have precessed more because of this, the \gmtwo phase of pileup events is mis-measured. See \figref{fig:PileupExample}. The lifetime of the pileup effect is approximately half the lifetime of muon decay, since the probability of detecting a pileup event is nearly the probability of detecting a single decay positron squared\footnote{The lifetime is not exactly half $\gamma$\taumu both because of triple and higher orders of pileup, as well as the fact that detector dead time effects need to be convoluted with the non-pileup time and energy spectra.}. The pileup effect is rate dependent and will therefore occur more often at the peaks of the \gmtwo oscillations, thus leading to oscillations in the pileup spectrum at \wa and 2\wa. Since the pileup effect is a time dependent effect with its own phase, an uncorrected pileup effect in the data will lead to a mis-measurement of the \gmtwo phase.
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.5\textwidth]{PileupExample}
+    \caption[Pileup example]{Pileup example, where two low energy positrons are registered as a single high energy positron. The black arrows indicate the (exaggerated) direction of the muon spins at the time of decay. Because of acceptance effects the lower energy decay positrons typically come from muons which have traveled further around the ring, and thus the muon spins have precessed in the magnetic field more, leading to a different measured \gmtwo phase for pileup events.}
+    \label{fig:PileupExample}
+\end{figure}
+
+
+In order to eliminate this effect, an approximation of the pileup is constructed and then subtracted from the time spectra before fitting. The method used in this analysis is called the shadow method, originally developed in E821 \cite{E821PileupShadow}.
+
+
+
+
+
+
+
+
+% pileup figures copied from 60H report - will need to remake all - get rid of titles, drop some of them as they're unimportant, etc...
+
+
+    \begin{figure}[]
+        \centering
+        \includegraphics[width=\textwidth]{ClusterEnergiesVsPileupEnergies}
+        \caption[ClusterEnergiesVsPileupEnergies]{Cluster energies in black are plotted vs pileup energies in red, for all calorimeters added together. At energies below about 2.4 GeV the pileup spectrum goes negative. In this plot the absolute value of the pileup energies is plotted, and a spike at about 2.4 GeV can be seen as a consequence of this.}    
+        \label{fig:ClusterEnergiesVsPileupEnergies}
+    \end{figure}
+
+    \begin{figure}[]
+        \centering
+        \includegraphics[width=\textwidth]{PileupTimeSpectrum}
+        \caption[PileupTimeSpectrum]{Plotted is constructed pileup time spectrum on a linear (left) and log (right) scale. The histogram on the right is fit to a simple two parameter exponential to get an idea of the lifetime of the pileup, calculated here as $\SI{31.99}{\mu s}$, which is close to half of the muon lifetime at about $\SI{64.4}{\mu s}$. Reasons for why these two values don't equal include the absence of triplets, lost muons, and an improper fitting function.}
+        \label{fig:PileupTimeSpectrum}
+    \end{figure}
+
+
+
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[]{0.8\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{AddedEnergies}
+            \caption{Log scale - the corrected energy spectrum goes negative around 5 GeV.}
+        \end{subfigure}% %you need this % here to add spacing between subfigures
+        \vspace{1cm}
+        \begin{subfigure}[]{0.8\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{AddedEnergiesZoomed}
+            \caption{Linear scale - zoomed in to show the shape.}
+        \end{subfigure}
+    \caption[AddedEnergies]{Plots for the pre-corrected and corrected energy spectra are shown, all calorimeters added together. Because the triplets and contamination are not accounted for, the corrected energy spectrum does not lie exactly along zero above the energy response of the detectors.}
+    \label{fig:AddedEnergies}
+    \end{figure}
+
+    \begin{figure}[]
+        \centering
+        \includegraphics[width=.8\textwidth]{CaloEnergies}
+        \caption[CaloEnergies]{Pre-corrected and corrected energy spectra for calorimeters 1, 7, 13, and 23 plotted on a log scale.}    
+        \label{fig:CaloEnergies}
+    \end{figure}
+
+    \begin{figure}[]
+        \centering
+        \includegraphics[width=.8\textwidth]{CaloEnergiesZoomed}
+        \caption[CaloEnergiesZoomed]{Pre-corrected and corrected energy spectra for calorimeters 1, 7, 13, and 23 plotted on a linear scale and zoomed in.}    
+        \label{fig:CaloEnergiesZoomed}
+    \end{figure}
+
+
+
+
+
+
+
+
 
 
 -include here a mention of the pileup multiplier and time shift
