@@ -146,6 +146,8 @@ The optimal bin width for the time spectra was determined to be $\SI{149.2}{ns}$
 
 -I should probably talk a little bit about the energy spectra as well
 
+- need to mention how the spectra are split into different calorimeters
+
 
 
 \subsection{Pileup subtraction}
@@ -163,12 +165,23 @@ As described in \secref{sec:Calorimeters}, there will be a certain amount of pil
 \end{figure}
 
 
-Before fitting the data, the pileup needs to be removed. There are various methods to construct pileup spectra which are then subtracted off the main time and energy spectra. The method used in this analysis is called the `asymmetric shadow method', originally developed in E821 \cite{E821PileupShadow}. This method statistically constructs an approximation for the pileup from the data itself by assuming that the probability of a pileup pulse occurring is the same as the probabilty that two pulses will be offset by some small amount of time, such as \ns{10}. The method works by looking in time windows after trigger pulses to see if a `shadow' pulse exists. If such a pulse exists, then a shadow doublet is created, see \figref{fig:ShadowPileupMethod}. The widths of the time window and time offset from the trigger pulse to the window are called the shadow dead time (SDT) and shadow gap time (SGT) respectively. The times and energies of the constructed pileup doublets are taken as
+Before fitting the data, the pileup needs to be removed. There are various methods to construct pileup spectra which are then subtracted off the main time and energy spectra. The method used in this analysis is called the `asymmetric shadow method', originally developed in E821 \cite{E821PileupShadow}. This method statistically constructs an approximation for the pileup from the data by assuming that the probability of a pileup pulse occurring is the same as the probabilty that two pulses will be offset by some small amount of time, such as \ns{10}. The method works by looking in time windows after trigger pulses to see if a `shadow' pulse exists. If such a pulse exists, then a shadow doublet is created, see \figref{fig:ShadowPileupMethod}. The width of the time window and the time offset from the trigger pulse to the window are called the shadow dead time (SDT) and shadow gap time (SGT) respectively. The times and energies of the constructed pileup doublets are taken as
             \begin{gather}
-                E_{\text{doublet}} = C \cdot (E_{1} + E_{2}), \\
-                t_{\text{doublet}} = \frac{t_{1} \cdot E_{1} + (t_{2}-SGT) \cdot E_{2}}{E_{1} + E_{2}},
+                E_{\text{doublet}} = C \cdot (E_{1} + E_{2}), \label{eq:Edoublet} \\
+                t_{\text{doublet}} = \frac{t_{1} \cdot E_{1} + (t_{2}-SGT) \cdot E_{2}}{E_{1} + E_{2}}, \label{eq:tdoublet}
             \end{gather}
-where the energy of the doublet is the sum of the two singlet pulses $E_{1,2}$ times some constant $C$ that has a default value of 1, and the time of the doublet is the energy-weighted time of the two singlets $t_{1,2}$. When constructing the pileup approximation the procedure is to time order all clusters within a single fill, look in shadow windows of each cluster, and construct shadow doublets accordingly. This is done for all fills to produce the pileup time and energy spectra.
+where the energy of the doublet is the sum of the two singlet pulses $E_{1,2}$ times some constant $C$ that has a default value of 1, and the time of the doublet is the energy-weighted time of the two singlets $t_{1,2}$. The procedure for constructing the pileup spectra is as follows:
+\begin{itemize}
+    \item{Put each hit into a vector corresponding to a specific fill and a specific calorimeter}
+    \item{Time order the hits}
+    \item{Loop through the hits, for each hit look within a window of width SDT a time SGT later to see if a shadow pulse exists}
+    \item{If a shadow pulse exists, construct a shadow doublet with energies and times as defined in Equations~\ref{eq:Edoublet} and \ref{eq:tdoublet}}
+    \item{Randomize $t_{\text{doublet}}$ over the range $\pm T_{c}/2$}
+    \item{Per calorimeter, construct pileup energy and time spectra as $P = D - S$, where $D$ is the sum of doublets and $S$ is the sum of singlets used in the construction of the doublets, but with all times set as $t_{\text{doublet}}$; when constructing the pileup time spectra, only include those doublets and singlets above the energy threshold}
+\end{itemize}
+Thus pileup energy and time spectra are constructed for each calorimeter, which can then be subtracted off the main calorimeter histograms, as well as added together and subtracted off the added histogram.
+
+
 
 \begin{figure}[]
     \centering
