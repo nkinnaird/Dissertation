@@ -257,7 +257,7 @@ The pileup energy spectra as compared to the cluster energy spectra is shown in 
 
 The method used in this analysis to extract \wa is called the ``Ratio Method.'' It is a technique that modifies the data in such a way that the exponential decay in the time histogram is removed, and slow effects are reduced. It was used successfully in the E821 experiment \cite{JKThesis,LDThesis,JPThesis}. A full derivation of the equations in the method is given in \appref{app:RatioDerivation}, here is given a short summary.
 
-The method works by dividing the data into four separate datasets, one with the times of all clusters shifted up by half a \gmtwo period, $+$\Tatwo, one with times shifted down by half a \gmtwo period, $-$\Tatwo, and two left alone. Assuming the data is described by the five parameter function \equref{eq:5parfunc} shown in \figref{fig:fiveparamfunc} (repeat it here?), and that the data is equally split into four, then the new four datasets are given as:
+The method works by dividing the data into four separate datasets, one with the times of all clusters shifted up by half a \gmtwo period, $+$\Tatwo, one with times shifted down by half a \gmtwo period, $-$\Tatwo, and two left alone\. Assuming the data is described by the five parameter function \equref{eq:5parfunc} shown in \figref{fig:fiveparamfunc} (repeat it here?), and that the data is equally split into four, then the new four datasets are given as:
     \begin{equation}
     \begin{aligned}
         u_{+}(t) &= \frac{1}{4} N_{5}(t+T/2) \\
@@ -266,7 +266,7 @@ The method works by dividing the data into four separate datasets, one with the 
         v_{2}(t) &= \frac{1}{4} N_{5}(t)
     \end{aligned}
     \end{equation}
-To be explicit here regarding the signs, the counts that are filled into the histogram described by $u_{+}$ have their times shifted as $t \rightarrow t - T/2$, which is what the function $N_{5}(t+T/2)$ describes, and vice versa for $u_{-}$. In order to time shift the data as such, \Ta needs to be known a priori to high precision. The value used is taken from the E821 result, and its value is taken as $1/f_{a}$, where $f_{a}$ is \SI{0.2290735}{MHz}:
+To be explicit here regarding the signs, the counts that are filled into the histogram described by $u_{+}$ have their times shifted as $t \rightarrow t - T/2$, which is what the function $N_{5}(t+T/2)$ describes, and vice versa for $u_{-}$footnote{When handling the pileup in the ratio method, the pileup time spectra are split into four datasets in the same way as the ratio method, where associated doublets and singlets are kept together, and the four datasets are individual subtracted off the four ratio datasets before forming the ratio.}. In order to time shift the data as such, \Ta needs to be known a priori to high precision. The value used is taken from the E821 result, and its value is taken as $1/f_{a}$, where $f_{a}$ is \SI{0.2290735}{MHz}:
         \begin{align}
             T_{a} \approx \SI{4.365411}{\mu s}
         \label{eq:Ta}
@@ -278,7 +278,7 @@ The datasets are then combined as
     \begin{equation}
     \begin{aligned}
         U(t) &= u_{+}(t) + u_{-}(t), \\
-        V(t) &= v_{1}(t) + v_{2}(t), \\
+        V(t) &= v_{1}(t) + v_{2}(t),
     \label{eq:UandV}
     \end{aligned}
     \end{equation}
@@ -306,7 +306,11 @@ and these functions have been determined from the time shifted five parameter fu
     \label{eqn:fourHistsInText}
     \end{aligned}
     \end{equation}
-where the factors out front are each close to $1/4$ and account for the amount of muon decay over \Tatwo, and $\tau = \tau_{\mu}$. In the latter case the muon lifetime must be known a priori, and it's value is taken as \mus{64.44}, determined from fits to the data. A systematic study regarding this parameter is described in \secref{sub:TimeShiftingParameters}. Both the values for \taumu and \Ta are given in \tabref{tab:histogramparameters}.
+where the factors out front are each close to $1/4$ and account for the amount of muon decay over \Tatwo, and $\tau = \tau_{\mu}$. In the latter case the muon lifetime must be known a priori, and it's value is taken as \mus{64.44}, determined from fits to the data. A systematic study regarding this parameter is described in \secref{sub:TimeShiftingParameters}. Both the values for \taumu and \Ta are given in \tabref{tab:histogramparameters}. The ratio spectrum is then almost exactly described by just the cosine term:
+    \begin{align}
+        R(t) \approx A \cos(\omega_{a}t),
+    \end{align}
+
 
 
     \begin{figure}[]
@@ -314,7 +318,7 @@ where the factors out front are each close to $1/4$ and account for the amount o
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{FiveParamFunc}
-            \caption{}
+            \caption{The five parameter function defined in \equref{fig:fiveparamfunc}, which describes the incoming data at first order.}
         \label{fig:fiveparamfunc}
         \end{subfigure}%
 
@@ -322,38 +326,37 @@ where the factors out front are each close to $1/4$ and account for the amount o
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{UVFuncs}
-            \caption{}
+            \caption{The $U(t)$ and $V(t)$ functions which describe the time-shifted and unshifted datasets as described in the text.}
         \label{fig:UVfuncs}
         \end{subfigure}
+        \hspace{5mm}
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{RatioNumFunc}
-            \caption{}
+            \caption{The numerator function in the formed ratio, $V(t) - U(t)$. It is an exponentially decaying cosine.}
         \label{fig:rationumfunc}
         \end{subfigure}%
         \vspace{2mm}
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{RatioDenomFunc}
-            \caption{}
+            \caption{The denominator function in the formed ratio, $V(t) + U(t)$. It is an exponentially decaying curve.}
         \label{fig:ratiodenomfunc}
         \end{subfigure}
+        \hspace{5mm}
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{RatioFunc}
-            \caption{}
+            \caption{The formed ratio function, describing the data after it has been handled as described in the text. To first order it is reduced to a simple cosine form.}
         \label{fig:ratiofunc}
         \end{subfigure}% 
-    \caption[]{\textbf{should I just use the ones I make with the data or no?}}
-    \label{}
+    \caption[Ratio formation function]{Functions describing the formation of the ratio in the data. \textbf{should I just use the ones I make with the data or no?}}
+    \label{fig:RatioFormationFunctions}
     \end{figure}
 
 
 
--mention how I create 4 pileup histograms for the ratio ...
-
-
-
+-read through 60h report and make sure I didn't miss anything
 
 
 
