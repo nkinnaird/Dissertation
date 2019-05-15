@@ -255,7 +255,9 @@ The pileup energy spectra as compared to the cluster energy spectra is shown in 
 \subsection{Ratio Method}
 
 
-The method used in this analysis to extract \wa is called the ``Ratio Method.'' It is a technique that modifies the data in such a way that the exponential decay in the time histogram is removed, and slow effects are reduced. It was used successfully in the E821 experiment \cite{JKThesis,LDThesis,JPThesis}. The method works by dividing the data into four separate datasets, one with the times of all clusters shifted up by half a \gmtwo period, $+$\Tatwo, one with times shifted down by half a \gmtwo period, $-$\Tatwo, and two left alone. Assuming the data is described by the five parameter function \equref{eq:5parfunc} shown in \figref{fig:fiveparamfunc} (repeat it here?), and that the data is equally split into four, then the new four datasets are given as:
+The method used in this analysis to extract \wa is called the ``Ratio Method.'' It is a technique that modifies the data in such a way that the exponential decay in the time histogram is removed, and slow effects are reduced. It was used successfully in the E821 experiment \cite{JKThesis,LDThesis,JPThesis}. A full derivation of the equations in the method is given in \appref{app:RatioDerivation}, here is given a short summary.
+
+The method works by dividing the data into four separate datasets, one with the times of all clusters shifted up by half a \gmtwo period, $+$\Tatwo, one with times shifted down by half a \gmtwo period, $-$\Tatwo, and two left alone. Assuming the data is described by the five parameter function \equref{eq:5parfunc} shown in \figref{fig:fiveparamfunc} (repeat it here?), and that the data is equally split into four, then the new four datasets are given as:
     \begin{equation}
     \begin{aligned}
         u_{+}(t) &= \frac{1}{4} N_{5}(t+T/2) \\
@@ -269,26 +271,42 @@ To be explicit here regarding the signs, the counts that are filled into the his
             T_{a} \approx \SI{4.365411}{\mu s}
         \label{eq:Ta}
         \end{align}
-This value for $f_{a}$ was determined by averaging column 2 of Table XV of the E821 Final Report \cite{E821FinalReport}, which consits of the $f_{a}$ results for the different run periods in that experiment. A systematic error on the choice of this parameter is calculated in \secref{sub:gm2periodGuess}.
+This value for $f_{a}$ was determined by averaging column 2 of Table XV of the E821 Final Report \cite{E821FinalReport}, which consits of the $f_{a}$ results for the different run periods in that experiment. A systematic error on the choice of this parameter is calculated in \secref{sub:TimeShiftingParameters}.
 
 
 The datasets are then combined as 
-
-
--show u and v here and point to figures...
-
-
-
-
-
--detail the ratio method - might need to pull stuff out from my appendix 
-
--referance taumu and Ta and point to table 
-
--perhaps cite redin statistics paper again for weighting scheme
-
-
--A full derivation is given in appendix...
+    \begin{equation}
+    \begin{aligned}
+        U(t) &= u_{+}(t) + u_{-}(t), \\
+        V(t) &= v_{1}(t) + v_{2}(t), \\
+    \label{eq:UandV}
+    \end{aligned}
+    \end{equation}
+and shown in \figref{fig:UVfuncs}. It is immediately apparent that the $U(t)$ data are shifted 180\textdegree{} out of phase from the $V(t)$ data. The ratio is then defined as 
+    \begin{align}
+        R(t) &= \frac{V(t) - U(t)}{V(t) + U(t)}
+    \label{eq:ratiointext}
+    \end{align}
+where the numerator and denominator are plotted in Figures~\ref{fig:rationumfunc} and \ref{fig:ratiodenomfunc} respectively. The numerator is seen to be an exponentially decaying cosine, while the denominator is a simple exponential, both of which can be seen as originating from the difference and sum of the $U(t)$ and $V(t)$ data respectively\footnote{The ratio can also be defined with $U(t) - V(t)$ in the numerator, but then the phase of the ratio spectrum will be shifted 180\textdegree{} from the original $N_{5}(t)$ spectrum.}. The resulting ratio spectrum can be seen in \figref{fig:ratiofunc}, where the exponential is seen to have been eliminated. The fit function is then reduced from 5 parameters down to 3:
+    \begin{align}
+        R(t) \approx A \cos(\omega_{a}t) - C,
+    \label{eq:ratiowithC}
+    \end{align}
+where  
+    \begin{align}
+        C = \frac{1}{16} \Big(\frac{T}{\tau}\Big)^{2} \approx 2.87 * 10^{-4},
+    \end{align}
+and these functions have been determined from the time shifted five parameter function plugged into the $U(t)$ and $V(t)$ variables. In addition to the exponential being eliminated, any slow terms in the data get time shifted and then divided as well, such that such effects are reduced. In order to eliminate the constant $C$ at the end of \equref{eq:ratiowithC}, a different weighting scheme as opposed to equal weighting can be used as described in \refref{statisticspaper}:
+    \begin{equation}
+    \begin{aligned}
+        u_{+}(t) &= \frac{e^{T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t+T/2) \\
+        u_{-}(t) &= \frac{e^{-T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t-T/2) \\
+        v_{1}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t) \\
+        v_{2}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t).
+    \label{eqn:fourHistsInText}
+    \end{aligned}
+    \end{equation}
+where the factors out front are each close to $1/4$ and account for the amount of muon decay over \Tatwo, and $\tau = \tau_{\mu}$. In the latter case the muon lifetime must be known a priori, and it's value is taken as \mus{64.44}, determined from fits to the data. A systematic study regarding this parameter is described in \secref{sub:TimeShiftingParameters}. Both the values for \taumu and \Ta are given in \tabref{tab:histogramparameters}.
 
 
     \begin{figure}[]
@@ -448,8 +466,8 @@ For errors relating to the choice of SDT and SGT - the idea is this: Show the pl
 
 
 
-\subsection{gm2 period guess}
-\label{sub:gm2periodGuess}
+\subsection{gm2 period guess and muon lifetime}
+\label{sub:TimeShiftingParameters}
 
 
 \cleardoublepage
