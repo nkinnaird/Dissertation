@@ -60,11 +60,11 @@ The last part of the calorimeter reconstruction is the clustering. Clustering is
 
 
 
-\section{Construction of time spectra histograms}
+\section{Construction of hit energy and time spectra}
 \label{sec:Histogramming}
 
 
-Once the reconstruction has processed all the hits into clusters, the time spectra histograms needs to be made. At the very last stage of the reconstruction procedure, an \textit{art} module takes the produced clusters and puts them into \ROOT \texttt{TTree} formats. There is of order 20,000--140,000 cluster data files per dataset, which are combined down to order 200--1,400 \ROOT \texttt{TTree} files. These \ROOT \texttt{TTree}s are then passed through a \ROOT macro to produce \ROOT files with the histograms defined by the \texttt{TH1F} class, one \ROOT histogram file per tree file.
+Once the reconstruction has processed all calorimeter hits into clusters, the energy and time spectra histograms are made. At the very last stage of the reconstruction procedure, an \textit{art} module takes the produced clusters and puts them into \ROOT \texttt{TTree} formats, where individual data members include the energies, times, calorimeter numbers, etc. of the individual clusters. There is of order 20,000--140,000 cluster data files per dataset, which are combined down to order 200--1,400 \ROOT \texttt{TTree} files. These \ROOT \texttt{TTree}s are then passed through a \ROOT macro to produce \ROOT files with the histograms defined by the \texttt{TH1F} class, one \ROOT histogram file per tree file.
 
 
 It should be noted that some of the parameter choices for the constructed histograms were informed by analysis results. All analysis parameters were chosen to be identical between the distinct analyzed datasets, in order to simplify both the comparison and combination of different dataset results. This section describes the justification for the different histogram parameters chosen. A table of the histogram parameters is shown in \tabref{tab:histogramparameters}.
@@ -95,10 +95,7 @@ It should be noted that some of the parameter choices for the constructed histog
 \end{table}
 
 
-
-% \subsection{Optimal energy threshold}
-
-First an energy threshold needs to be chosen. As described at the end of \secref{section:WaIntro}, the optimal energy threshold is where the quantity $NA^{2}$ reaches the maximum, at least in the case of a five parameter fit\footnote{Using the final fit function and looking at the error directly on the fitted \wa frequency, a slightly better estimate can be found.}. By scanning over the choice of energy threshold and fitting the resulting time spectra with \equref{eq:5parfunc}, the optimal energy threshold can be determined as seen in \figref{fig:OptimalEnergyThreshold}. The optimal choice of energy threshold was determined to be $\SI{1700}{\MeV}$, in accordance with the cluster reconstruction energy calibration. Any detected hits above this energy threshold are included, while those below are left out.
+Energy and time histograms are made for each individual calorimeter. These are summed together to form histograms of all hit times and energies. An energy threshold is applied to the clusters before filling the time histograms. As described at the end of \secref{section:WaIntro}, the optimal energy threshold is where the quantity $NA^{2}$ reaches the maximum, at least in the case of a five parameter fit\footnote{Using the final fit function and looking at the error directly on the fitted \wa frequency, a slightly better estimate can be found.}. By scanning over the choice of energy threshold and fitting the resulting time spectra with \equref{eq:5parfunc}, the optimal energy threshold can be determined as seen in \figref{fig:OptimalEnergyThreshold}. The optimal choice of energy threshold was determined to be $\SI{1700}{\MeV}$, in accordance with the cluster reconstruction energy calibration. 
 
     \begin{figure}[]
     \centering
@@ -131,7 +128,7 @@ First an energy threshold needs to be chosen. As described at the end of \secref
 
 
 
-The optimal bin width for the time spectra was determined to be $\SI{149.2}{ns}$, as the average of the cyclotron periods from a fast rotation analysis to the data \cite{fastrotationsomething}. As described in \secref{sub:beam_debunching}, these bin widths combined with a time randomization on each pulse of $T_{c}/2 = \SI{149.2}{ns} / 2$ serve to eliminate the fast rotation signal in the data\footnote{Some analyzers randomize all times in a single fill by half the cyclotron period as opposed to each individual pulse}. This randomization is done using \ROOT's \texttt{TRandom3} class. The default random seed for each histogram \ROOT file is the hash of the input file name using C++'s standard hash class. Histograms are defined with a time range of 0--\mus{699.8972} (the closest integer multiple of the bin width to \mus{700}), corresponding to 4691 bins. Clusters with times $<$ \mus{25} or $>$ \mus{660} are dropped, corresponding to 4256 bins containing data.
+The optimal bin width for the time histograms was determined to be $\SI{149.2}{ns}$, as the average of the cyclotron period determined from a fast rotation analysis to the data \cite{fastrotationsomething}. As described in \secref{sub:beam_debunching}, these bin widths combined with a time randomization on each cluster of $T_{c}/2 = \SI{149.2}{ns} / 2$ serve to eliminate the fast rotation signal in the data\footnote{Some analyzers randomize all times in a single fill by half the cyclotron period as opposed to each individual pulse}. This randomization is done using \ROOT's \texttt{TRandom3} class. The default random seed for each histogram \ROOT file is the hash of the input file name using C++'s standard hash class. Histograms are defined with a time range of 0--\mus{699.8972} (the closest integer multiple of the bin width to \mus{700}), corresponding to 4691 bins. Clusters with times $<$ \mus{25} or $>$ \mus{660} are dropped, corresponding to 4256 bins containing data.
 
 
 
@@ -148,13 +145,19 @@ The optimal bin width for the time spectra was determined to be $\SI{149.2}{ns}$
 
 - need to mention how the spectra are split into different calorimeters
 
+-should I show an energy spectra here without the pileup subtracted - I need to talk about the lost muon peak 
 
 
 \subsection{Pileup subtraction}
 \label{sub:pileupsubtraction}
 
 
-As described in \secref{sec:Calorimeters}, there will be a certain amount of pileup in the detectors, where pileup again is the term for when multiple positrons hit the calorimeters within the dead time of the detector such that they are registered as a single hit. Two positrons below-threshold can thus be counted as a single positron above threshold, thus including a count in the time spectra that should not have been included. Similarly, two above-threshold positrons can be registered as a single positron above-threshold, thus excluding a count that should have been included in the time spectra. Because lower energy positrons travel shorter distances than higher energy positrons, such that the muons for lower energy decay positrons have traveled further around the ring than those for higher energy positrons and their spins have precessed more because of this, the \gmtwo phase of pileup events is mis-measured. See \figref{fig:PileupExample}. The lifetime of the pileup effect is approximately half the lifetime of muon decay, since the probability of detecting a pileup event is nearly the probability of detecting a single decay positron squared\footnote{The lifetime is not exactly half $\gamma$\taumu both because of triple and higher orders of pileup, as well as the fact that detector dead time effects need to be convoluted with the non-pileup time and energy spectra.}. The pileup effect is rate dependent and will therefore occur more often at the peaks of the \gmtwo oscillations, thus leading to oscillations in the pileup spectrum at \wa and 2\wa. Since the pileup effect is a time dependent effect with its own phase, an uncorrected pileup effect in the data will lead to a mis-measurement of the \gmtwo phase.
+As described in \secref{sec:Calorimeters}, there will be a certain amount of pileup in the detectors. Pileup again is the term for when multiple particles hit the calorimeters within the dead time of the detector such that they are registered as a single hit or cluster. Two clusters with energies below threshold can thus be counted as a single cluster above threshold, thus including a count in the time histogram that should not have been included. Similarly, two above-threshold particles can be registered as a single cluster above-threshold, thus excluding a count that should have been included in the time histogram. Lower energy positrons travel shorter distances before striking the calorimeter than higher energy positrons, due to acceptance effects. Therefore the muons from which the lower energy decay positrons originated from on average travel further around the ring than those muons which produce higher energy decay positrons. The muons for lower energy positrons therefore have their spins precess as they have spent more time in the magnetic field than those muons which produce higher energy positrons. Clusters which originate from pileup events therefore have a different \gmtwo phase than non-pileup events. See \figref{fig:PileupExample}. The rate of double pileup events in the detectors, where the word double indicates cases where two hits are registered as a single cluster, will go approximately as half the rate of single hit events\footnote{It is not exact when including the non-linear dead time of the detectors}. Similarly for triple and higher orders of the pileup effect. Because the rate of hits in the detectors oscillates at the \gmtwo frequency, pileup will increase and decrease accordingly leading to oscillations in the pileup time spectra at \wa and 2\wa. The lifetime of the overall pileup effect is approximately half the lifetime at which clusters are registered in the detectors, at \taumu, since double pileup is the dominant contribution.  Since pileup is a time dependent effect that changes over the course of a fill, the extracted \gmtwo phase corresponding to the \wa frequency will be pulled, leading to a mis-measurement of both. 
+
+
+
+
+% -need to mention the \% level effect of pileup - ~1\% but where do you get that number...
 
 
 \begin{figure}[]
@@ -253,7 +256,14 @@ Since the pileup is statistically constructed and then subtracted from the data,
 
 
 
+-what do I need to justify?
+    -choice of adt - should just be 5 ns from reconstruction stuff
+    -choice of sdt - to align with choice of adt 
+    -choice of sgt - double sdt to account for potential triple cases and separate out slightly
+    -choice of pileup multiplier - could show scaling plots 
 
+-plots to show this?
+    -I did studies with 
 
 
 
