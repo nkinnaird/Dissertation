@@ -11,11 +11,11 @@ In the aysmmetric shadow window pileup method, shadow doublets are constructed f
  	\begin{align}
  		P = D - S,
 	\end{align}
-where $D$ or $S$ are only added or subtracted when they are above some energy threshold. If the threshold is set to 0, then for every doublet one entry will be added and two will be subtracted. Since these entries are exactly correlated, the error in each time bin will be 
+where $D$ or $S$ are only added or subtracted when they are above some energy threshold. If the threshold is set to zero, then for every doublet one entry will be added and two will be subtracted. Since these entries are exactly correlated, the error in each time bin will be 
  	\begin{align}
  		\sigma_{P} = \sqrt{N_{D}},
 	\end{align}
-where $N_{D}$ is the number of doublets in that time bin. If the energy threshold is above 0, then we can determine whether the counts in the pileup histogram increase or decrease based on whether the singlets and doublets are above threshold or not. Table \ref{Tab:PileupDoublets} shows the different combinations of counts put into the pileup histogram. The counts that go into $P$ will be
+where $N_{D}$ is the number of doublets in that time bin. If the energy threshold is above zero, then we can determine whether the counts in the pileup histogram increase or decrease based on whether the singlets and doublets are above threshold or not. Table \ref{Tab:PileupDoublets} shows the different combinations of counts put into the pileup histogram. The counts that go into $P$ will be
 	\begin{equation}	
 	\begin{aligned}
  		P &= \sum_{i}N_{i} - \text{singlets above threshold} \\
@@ -27,7 +27,7 @@ and the errors are
  	\begin{align}
  		\sigma_{P} = \sqrt{N_{1} + N_{4}}.
 	\end{align}
-This makes sense considering the cases individually. In the cases for $N_{1}$, you will gain a count from the doublet above threshold, and lose no counts since both singlets are below threshold. In the cases for $N_{2}$ and $N_{3}$, you will gain a count from the doublet, and lose a count from one of the singlets which is above threshold. In the cases for $N_{4}$, you will gain a count from the doublet and lose two counts from the singlets which are both above threshold. Since the doublet and singlets are exactly correlated, the $N_{1}$ and $N_{4}$ cases naturally result in a single weight being added into the error, while the $N_{2}$ and $N_{3}$ cases result in no additions to the error.
+Consider the individual cases: In the cases for $N_{1}$, you will gain a count from the doublet above threshold, and lose no counts since both singlets are below threshold. In the cases for $N_{2}$ and $N_{3}$, you will gain a count from the doublet, and lose a count from one of the singlets which is above threshold. In the cases for $N_{4}$, you will gain a count from the doublet and lose two counts from the singlets which are both above threshold. Since the doublet and singlets are exactly correlated, the $N_{1}$ and $N_{4}$ cases naturally result in a single weight being added into the error, while the $N_{2}$ and $N_{3}$ cases result in no additions to the error.
 
 \begin{table}[]
 \centering
@@ -45,11 +45,11 @@ This makes sense considering the cases individually. In the cases for $N_{1}$, y
 \end{table}
 
 
-Now what about the pileup subtracted time spectrum? Our corrected spectrum can be written as
+Consider now the pileup subtracted time spectrum? The corrected spectrum can be written as
  	\begin{align}
  		N_{\text{corrected}} = N_{\text{measured}} - P.
 	\end{align}
-What is in $N_{\text{measured}}$ doesn't matter exactly. What we care about is what is in $N_{\text{measured}}$ that is also within $P$, for that is where the correlations come from. Since $N_{\text{measured}}$ is the sum of all singlets above threshold, we can write it as
+The content in $N_{\text{measured}}$ doesn't matter exactly. What matters is what is in $N_{\text{measured}}$ that is also within $P$, for that is where the correlations come from. Since $N_{\text{measured}}$ is the sum of all singlets above threshold, we can write it as
  	\begin{align}
  		N_{\text{measured}} = N_{\text{other}} + N_{2} + N_{3} + 2 N_{4}
 	\end{align}
