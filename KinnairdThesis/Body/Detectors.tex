@@ -241,12 +241,53 @@ There are two tracker stations, each consisting of eight tracker modules. The tw
 \subsection{Tracker readout electronics}
 
 
-The readout electronics for the system are split into two groups, the front-end and back-end. The front-end electronics were built and tested in the Boston University Electronic Design Facility. They start with ASDQ (Amplifier Shaper Discriminator with charge (Q)) chips on boards that plug down directly onto the straws and provide the main signal. Each ASDQ plugs onto sixteen straws. These ASDQ boards are application specific integrated circuits (ASICs) which read out the signal from one end of the straws and shape and discriminate that signal, as well as providing some baseline restoration and tail cancellation. The ASDQs and their associated components are contained within thin aluminum manifolds above and below the straws. The physical footprint of these boards and components was minimized in order to increase the straw measurement area. The signals from the ASDQs are passed through Flexi Cables to Time to Digital Converter (TDC) boards which time stamp the signals with $\SI{625}{ps}$ precision \cite{WTThesis}. The Flexi Cables are flexible and thin such that the cables can be passed through the thin aperture shown on the right of \figref{fig:tracker}. High voltage is provided to the sense wires with high voltage boards, which pass the voltage through the ASDQs. A feedthrough board provides the interface between the TDCs and Flexi Cables, as well as the high voltage signal. They serve a dual purpose of providing the gas seal. Finally, there are logic boards that serve as the interface between the TDCs and the back-end electronics. They manage the clock and controls for the TDCs and store data onto FPGAs, which is piped out through a high throughput optical fiber connection. The logic boards, high voltage boards, and TDCs are all housed within an aluminum box which provides RF shielding. In each module there are eight ASDQs, four TDCs, two feedthrough boards, two high voltage boards, and two logic boards. An overview diagram of the front-end readout chain is shown in \figref{fig:TrackerReadoutChain}. The back-end electronics consist of FC7s, one per tracker station, and a single AMC13 for all tracker stations. These modules provide clock and DAQ services to the whole tracker system, and ultimately pipe out the data to where it can be saved on disk.
+The readout electronics for the system are split into two groups, the front-end and back-end. The front-end electronics were built and tested in the Boston University Electronic Design Facility. They start with ASDQ (Amplifier Shaper Discriminator with charge (Q)) chips on boards that plug down directly onto the straws and provide the main signal. Each ASDQ plugs onto sixteen straws. These ASDQ boards are application specific integrated circuits (ASICs) which read out the signal from one end of the straws and shape and discriminate that signal, as well as providing some baseline restoration and tail cancellation. The ASDQs and their associated components are contained within thin aluminum manifolds above and below the straws, \figref{fig:ASDQs}. The physical footprint of these boards and components was minimized in order to increase the straw measurement area. The signals from the ASDQs are passed through Flexi Cables to Time to Digital Converter (TDC) boards which time stamp the signals with $\SI{625}{ps}$ precision \cite{WTThesis}, \figref{fig:flexis}. The Flexi Cables are flexible and thin such that the cables can be passed through the thin aperture shown on the right of \figref{fig:tracker}. High voltage is provided to the sense wires with high voltage boards, which pass the voltage through the ASDQs. A feedthrough board provides the interface between the TDCs and Flexi Cables, as well as the high voltage signal, \figref{fig:FeedthroughAndHousing}. They serve a dual purpose of providing the gas seal. Finally, there are logic boards that serve as the interface between the TDCs and the back-end electronics. They manage the clock and controls for the TDCs and store data onto FPGAs, which is piped out through a high throughput optical fiber connection. The logic boards, high voltage boards, and TDCs are all housed within an aluminum box which provides RF shielding, \figref{fig:FeedthroughAndHousing}. In each module there are eight ASDQs, four TDCs, two feedthrough boards, two high voltage boards, and two logic boards. An overview diagram of the front-end readout chain is shown in \figref{fig:TrackerReadoutChain}. The back-end electronics consist of FC7s, one per tracker station, and a single AMC13 for all tracker stations. These modules provide clock and DAQ services to the whole tracker system, and ultimately pipe out the data to where it can be saved on disk.
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[t]{1\textwidth}
+    \centering
+        \includegraphics[width=0.63\textwidth]{ASDQs}
+    \hspace{1mm}
+        \includegraphics[width=0.33\textwidth]{ASDQ_Side}
+    \caption{ASDQs contained within the aluminum manifold (left) that plug down onto the straws (right).}
+    \label{fig:ASDQs}
+    \end{subfigure}
+    \begin{subfigure}[t]{1\textwidth}
+    \centering
+        \includegraphics[width=0.63\textwidth]{CoolingBars}
+    \hspace{1mm}
+        \includegraphics[width=0.34\textwidth]{CoolingBar_Side}
+    \caption{Copper cooling bars (left) keep the ASDQs cool, and a high voltage spacer (right in white) keep the high voltage components isolated.}
+    \end{subfigure}
+    \begin{subfigure}[t]{1\textwidth}
+    \centering
+        \includegraphics[width=0.63\textwidth]{Flexicables}
+    \hspace{1mm}
+        \includegraphics[width=0.34\textwidth]{Flexicable_Side}
+    \caption{Flexi Cables plug down onto the ASDQ boards and run left through a small aperture in the tracking detector to the TDCs.}
+    \label{fig:flexis}
+    \end{subfigure}
+\caption[Tracker front end readout electronics]{Some of the front end readout electronics for the straw tracking detector. Images courtesy of James Mott. \bf{Find pictures of the TDCs, LBs, and HV boards. Will might have them.}}
+\label{fig:FrontEndElectronics}
+\end{figure}
 
 
 \begin{figure}[]
     \centering
-    \includegraphics[width=0.9\textwidth]{TrackerReadoutChain}
+        \includegraphics[width=0.5\textwidth]{FeedthroughBoard}
+    \hspace{1mm}
+        \includegraphics[width=0.3\textwidth]{Flobber}
+    \caption[Tracker feedthough board and electronics housing]{Tracker feedthrough board (left) and the electronics housing (right). The feedthrough board plugs onto the end of the tracker snout to form a gas seal. Flexi Cables plug into the back side of the feedthrough board. The housing fits onto the two feedthrough boards which the TDCs, logic boards, and high voltage boards plug into.}
+    \label{fig:FeedthroughAndHousing}
+\end{figure}
+
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.8\textwidth]{TrackerReadoutChain}
     \caption[Tracker electronics readout chain]{Front-end tracker electronics readout chain. Created by James Mott.}   
     \label{fig:TrackerReadoutChain}
 \end{figure}
