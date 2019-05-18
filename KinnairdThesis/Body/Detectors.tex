@@ -16,7 +16,7 @@ There is a variety of different detector systems used in E989. The primary detec
 \subsection{T0}
 \label{sec:T0}
 
-During data taking, a reference time must be chosen so as to align all different detector systems in time. When taking data from fill to fill, decay positron spectra must be aligned in phase. Without this functionality, analyzing the data from different systems and comparing them would be impossible. To do this a ``T0'' counter is placed just on the outside of the ring before the inflector. It is made up of a scintillating paddle connected to two photo-multiplier tubes (PMTs) \cite{t0Hannah,t0Aaron}. See \figref{fig:T0counter}. One PMT, PMT A, has a 1\% neutral density filter resulting in low photo-electron statistics, and acts primarily as a timing measurement. The other, PMT B, has a 10\% neutral density filter resulting in higher statistics, and acts as a shape counter and proxy for fill intensity. (In general the signals are very similar.) Together they provide a measure of the injected beam profile in time, allowing to align the detectors each fill, and the data from fill to fill. Some measured T0 pulses are shown in \figref{fig:T0pulses}. The shape of the incoming pulses has a somewhat trident-like shape, with a very large spike in the middle of the time width, and two spikes on the outside edges. This shape owes itself to the accelerator complex, and varies from bunch to bunch.
+During data taking, a reference time must be chosen so as to align all different detector systems in time. When taking data from fill to fill, decay positron spectra must be aligned in phase. Without this functionality, analyzing the data from different systems and comparing them would be impossible. To do this a ``T0'' counter is placed just on the outside of the ring before the inflector. It is made up of a scintillating paddle connected to two photo-multiplier tubes (PMTs) \cite{t0Hannah,t0Aaron}. See \figref{fig:T0counter}. One PMT, PMT A, has a 1\% neutral density filter resulting in low photo-electron statistics, and acts primarily as a timing measurement. The other, PMT B, has a 10\% neutral density filter resulting in higher statistics, and acts as a shape counter and proxy for fill intensity. (In general the signals are very similar.) Together they provide a measure of the injected beam profile in time, from which the timing alignments can be made. Some measured T0 pulses are shown in \figref{fig:T0pulses}. The shape of the incoming pulses has a somewhat trident-like shape, with a very large spike in the middle of the time width, and two spikes on the outside edges. This shape owes itself to the accelerator complex, and varies from bunch to bunch.
 
 
 \begin{figure}[]
@@ -64,21 +64,28 @@ While the T0 provides timing and intensity measurements, the inflector beam moni
 \subsection{Fiber harps}
 \label{sec:FiberHarps}
 
-The last auxiliary detector is the so called ``fiber harp'' system. It is made up of four scintillating fiber detectors located within the ring that serve to measure the beam intensity as a function of time and position \cite{fiberharp}. Two of the detectors measure the radial components of the beam, and two measure the horizontal components. The fiber harps are located at positions 180\textdegree{} and 270\textdegree{} clockwise from the inflector. One of these devices is shown in \figref{fig:fiberharp}. The fiber can measure beam properties throughout the fill, providing a diagnostic tool which is sensitive to the scraping procedure and the CBO properties of the beam. An example of fiber harp measurements is shown in \figref{fig:fiberharp_measurement}. However because the fiber harps are a destructive measurement of the beam due to multiple scattering in the fibers, the system was designed to be retractable. They are inserted during special diagnostic or systematic runs, and are pulled out of the beam path during production data taking.
+The last auxiliary detector is the so called ``fiber harp'' system. It is made up of four scintillating fiber detectors that serve to measure the beam intensity as a function of time and position \cite{fiberharp}. Two of the detectors measure the radial components of the beam, and two measure the vertical components. Each pair of fiber harps are located 180\textdegree{} and 270\textdegree{} in azimuth clockwise from the inflector. One of these devices is shown in \figref{fig:fiberharp}. The fiber can measure beam properties throughout the fill, providing a diagnostic tool which is sensitive to the scraping procedure and the CBO properties of the beam. An example of fiber harp measurements is shown in \figref{fig:fiberharp_measurement}. However, because the fiber harps are a destructive measurement of the beam due to multiple scattering in the fibers, the system was designed to be retractable. They are inserted during special diagnostic or systematic runs, and are pulled out of the beam path during production data taking.
+
+
+
+% It consists of a pair of two scintillating fiber planes measuring the radial and vertical components of the beam located at 180\textdegree{} and 270\textdegree{} in azimuth clockwise from the inflector \cite{fiberharp}. They can be inserted into the storage region during special diagnostic or systematic runs on order to measure the beam profile and temporal structure of the beam.
 
 
 \begin{figure}[]
 \centering
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}[]{0.45\textwidth}
         \centering
+        \vspace{-11mm}
         \includegraphics[width=\textwidth]{fiberharp}
+        \vspace{2mm}
         \caption{Picture of one of the fiber harps. A row of seven scintillating fibers measures the beam intensity as a function of time at vertical or horizontal positions depending on which fiber harp is inserted.}
     \label{fig:fiberharp}
     \end{subfigure}%
     \hspace{10mm}
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{fiberharp_measurement}
+        \vspace{-3mm}
         \caption{Shown are fiber harp beam intensity measurements for the horizontal fiber harp. Each spectra is from a single fiber, with the spectra at the top being at the greatest radial positions. The fast oscillations of the cyclotron frequency can be seen along with the slower oscillations of the CBO.}
     \label{fig:fiberharp_measurement}
     \end{subfigure}
