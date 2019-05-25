@@ -405,6 +405,22 @@ Fit is from \mus{30.2}--\mus{650}, corresponding to 4154 bins.
 
 
 
+\begin{gather}
+    R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)} \\[6pt]
+    f_{\pm}(t) = f(t \pm T_{a}/2) \\[6pt]
+    f(t) = \Lambda(t) \cdot V(t) \cdot N_{cbo}(t) \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))) \\[6pt]
+    N_{cbo}(t) = 1 + A_{cbo-N} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-N}) \\[6pt]
+    A_{cbo}(t) = A \cdot (1 + A_{cbo-A} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-A})) \\[6pt]
+    \phi_{cbo}(t) = \phi + A_{cbo-\phi} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-\phi}) \\[6pt]
+    \omega_{cbo}(t) = \omega_{cbo} \cdot (1 + \delta_{cbo}(t)) \text{, $\delta_{cbo}(t)$ fixed} \\[6pt]
+    \Lambda(t) = 1 - \kappa_{loss} \int_{0}^{t} L(t')e^{(t'/\gamma\tau_{\mu})} dt' \\[6pt]
+    V(t) = 1 + A_{VW} \cdot e^{-t/\tau_{VW}} \cos(\omega_{VW}t + \phi_{VW}) \\[6pt]
+    \omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + R \times 10^{-6})
+\end{gather}
+
+
+
+
 
 \subsection{CBO terms}
 \label{sub:cboterms}
