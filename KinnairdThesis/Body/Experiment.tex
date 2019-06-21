@@ -370,14 +370,14 @@ There are four electrostatic quadrupoles located around the ring as shown in \fi
 \end{figure}
 
 
-Some of the stored muons will be lost during data taking that can adversely affect the measurement of the spin difference frequency \wa. See \secref{sec:lostmuons}. In order to reduce the number of lost muons, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that are more likely to be lost at later times. This scraping procedure involves powering the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \mus{8}, such that by \mus{30} the beam is stable and centered due to the characteristic RC time constant of the system. The operational performance of the quadrupoles in Run 1 is described in \secref{sec:Run1}, where it was found that the quads had a longer RC time constant than the design.
+Some of the stored muons will be lost during data taking that can adversely affect the measurement of the spin difference frequency \wa. See \secref{sec:lostmuons}. In order to reduce the number of lost muons, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that are more likely to be lost at later times. This scraping procedure involves powering the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. These collimators have a radius of $\SI{45}{mm}$ and define the storage region aperture. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \mus{8}, such that by \mus{30} the beam is stable and centered due to the characteristic RC time constant of the system. The operational performance of the quadrupoles in Run 1 is described in \secref{sec:Run1}, where it was found that the quads had a longer RC time constant than the design.
 
 
 
 \section{Muon beam dynamics}
 \label{sec:muonbeamdynamics}
 
-Muons injected into the storage ring will occupy a region in phase space of momenta and positions defined by the injection and collimator apertures. Individual muons will undergo simple harmonic motion, or betatron oscillations, within the storage ring in both the vertical and horizontal directions. The horizontal ($x$) and vertical ($y$) equations of motion, including the effects of the discrete quadrupoles, are given by
+Muons injected into the storage ring will occupy a region in phase space of momenta and positions defined by the injection and collimator apertures. Individual muons will undergo betatron motion within the storage ring in both the vertical and horizontal directions. The horizontal ($x$) and vertical ($y$) equations of motion, including the effects of the discrete quadrupoles, are given by
         \begin{align} \label{eq:betatronmotion}
             x &= x_{e} + A_{x}(s) \cos(\nu_{x} \frac{s}{R_{0}} + \phi_{x}), \\
             y &= A_{y}(s) \cos(\nu_{y} \frac{s}{R_{0}} + \phi_{y}), 
@@ -393,14 +393,14 @@ These are related to the field index $n$, where the field index characterizes th
         \begin{align} \label{eq:fieldindex}
             n = \frac{\kappa R_{0}}{\beta B_{0}},
         \end{align}
-where $\kappa$ is the electric quadrupole gradient, $B_{0}$ is the magnetic field strength, $R_{0}$ is the central storage ring radius, and $\beta$ is the relativistic velocity of the muon beam. Technically $n$ is the the average field index around the ring, where this approximation is justified due to the four-fold symmetry of the discrete quadrupoles and the fact that the betatron oscillations have periods much greater than the length of the quads. A table of the important frequencies in E989 is shown in \tabref{tab:frequencies}. Lastly, the maximum angular acceptance of the ring can be determined from the betatron oscillations and the field index as 
+where $\kappa$ is the electric quadrupole gradient, $B_{0}$ is the magnetic field strength, $R_{0}$ is the central storage ring radius, and $\beta \cdot c$ is the velocity of the muon beam. Technically $n$ is the the average field index around the ring, where this approximation is justified due to the four-fold symmetry of the discrete quadrupoles and the fact that the betatron oscillations have wavelengths much greater than the length of the quads. A table of the important frequencies in E989 is shown in \tabref{tab:frequencies}. Lastly, the maximum angular acceptance of the ring can be determined from the betatron oscillations and the field index as 
         \begin{equation} \label{eq:maxangles}
         \begin{aligned}
             \psi_{x_{max}} &= \frac{x_{max}\sqrt{1-n}}{R_{0}}, \\
             \psi_{y_{max}} &= \frac{y_{max}\sqrt{n}}{R_{0}},
         \end{aligned}
         \end{equation}
-where $x_{max}$ and $y_{max}$ are both equal to the radius of the storage ring aperture at $\SI{45}{mm}$.
+where $x_{max}$ and $y_{max}$ are both equal to the radius of the storage region aperture at $\SI{45}{mm}$.
 
 
 \begin{table}[]
@@ -426,15 +426,17 @@ where $x_{max}$ and $y_{max}$ are both equal to the radius of the storage ring a
 \end{table}
 
 
-As the muon beam goes around the ring, the muons will experience local field gradients and inhomogeneities. The tunes are thus chosen to avoid resonances where muons might be lost from repeatedly passing through such perturbations. The muons within the ring should then sample the entire azimuth equally and remain stored. The general resonance condition is \cite{Wiedermann}
+As the muon beam goes around the ring, the muons will experience local field gradients and inhomogeneities. The muons will inevitably pass through the perturbations many times. However, if they don't pass through the perturbations at the same phases of their betatron motion, the amplitude of the would-be resonant oscillation won't continue to grow. The tunes are chosen to avoid these resonances by having the muons sample the entire azimuth of the ring equally, thus keeping the beam stored. The general resonance condition is \cite{Wiedermann}
         \begin{align}
             a \nu_{x} + b \nu_{y} = c,
+        \label{eq:tunecondition}
         \end{align}
 where $a$, $b$, and $c$ are integers. We know from \equref{eq:tunes} that 
         \begin{align}
             \nu_{x}^{2} + \nu_{y}^{2} = 1,
+        \label{eq:tuneone}
         \end{align}
-which constrains the available $n$ values that can be chosen. \figref{fig:tuneplane} shows the space relative to the tunes for which a chosen value of $n$ will lie on a resonance. The operational $n$ values and corresponding quad voltages in Run 1 are described in \secref{sec:Run1}.
+which constrains the available $n$ values that can be chosen. \figref{fig:tuneplane} shows the intersections of the resonant lines of \equref{eq:tunecondition} along with the circular arc of \equref{eq:tuneone} in the tune plane, for which a chosen value of $n$ will lie on a resonance. The operational $n$ values and corresponding quad voltages in Run 1 are described in \secref{sec:Run1}.
 
 % Moved to Run1 section
 % For Run 1 data taking, $n$ values of 0.108 and 0.120 were chosen corresponding to quad voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.
@@ -452,17 +454,18 @@ which constrains the available $n$ values that can be chosen. \figref{fig:tunepl
 \subsection{Coherent betatron oscillation}
 \label{sub:CBO}
 
-With each individual muon undergoing betatron oscillations, the muon beam as a whole will oscillate. The beam can be described as having a width and a mean dependent on the initial phase space parameters determined by injection and kicker effects. This overall distribution of the beam will oscillate coherently every betatron wavelength, thus moving around the ring at some frequency\footnote{The four-fold quadrupole symmetry was chosen in order to minimize this beam `breathing.'}. Individual detectors around the ring measure the beam in discrete pieces based on their individual azimuthal acceptances, where these acceptances depend on the radial and vertical characteristics of the beam. Because the radial betatron frequency is larger than half the cyclotron frequency, there is an aliasing effect such that the radial betatron motion of the beam is instead observed as an apparent slow-moving oscillation. We call the the measurable signal of this coherent radial motion coherent betatron oscillation (CBO). See \figref{fig:cbo} for a pictorial view of this phenomena. Since the acceptance of the calorimeters depend on the beam properties, the CBO will modulate the \wa signal.
+The muon beam consists of many muons, each individually undergoing betatron oscillations. If the phase of the oscillations of the individual muons are incoherent, then the beam can be thought of as a static entity, constant in time around the ring. However, due to injection and kicker effects which induce a particular phase space distribution on the injected beam, the beam itself can be said to oscillate. The beam is then described by a width and mean dependent on the injection process, and the strength and phase of the kicker pulse, such that the phase distribution of the beam oscillates coherently every betatron wavelength\footnote{The four-fold quadrupole symmetry was chosen in order to minimize this beam `breathing.'}. Due to the mismatching of betatron wavelengths to the ring circumference in order to avoid resonances, a singular time slice of the distribution can be said to move around the ring over time. Individual detectors around the ring measure the beam in discrete pieces based on their individual azimuthal acceptances, where these acceptances depend on the radial and vertical characteristics of the beam. Because the radial betatron frequency is larger than half the cyclotron frequency, there is an aliasing effect such that the radial betatron motion of the beam is instead observed as an apparent slow-moving oscillation. We call the measurable signal of this coherent radial motion coherent betatron oscillation (CBO). See \figref{fig:cbo} for a pictorial view of this phenomenon. Since the acceptance of the calorimeters depend on the beam properties, the CBO will modulate the \wa signal.
 
 The frequency of the CBO is just the beat frequency between the cyclotron frequency and the horizontal betatron frequency
         \begin{align}
             f_{CBO} = f_{c}-f_{x_{BO}}.
         \end{align}
-There is also a vertical CBO effect, but the non-aliased rate of oscillation is fast enough such that the effect tends to average out. What can be seen in the data however is the vertical width of the beam, which is aliased in a similar way to the radial oscillation. Though the principles are the same, we call this effect the vertical waist (VW),
+There is also a vertical CBO effect, but the non-aliased rate of oscillation is fast enough such that the effect tends to average out. However, the detectors are sensitive to oscillations of the vertical width of the beam, which is aliased in a similar way to the radial oscillation. Though the principles are the same, we call this effect the vertical waist (VW),
         \begin{align}
             f_{VW} = f_{c}-2f_{y_{BO}},
         \end{align}
-where the term waist is used to describe the vertical width when its at its minimum. Both of these frequencies are included in \tabref{tab:frequencies}. For an individual detector the CBO has a specific phase, which goes from \SIrange{0}{2\pi}{} around the ring. When adding all of the detector signals together, the CBO effect tends to cancel out. However, due to acceptance differences between the different detectors, the CBO effect is still observable in the data. When fitting the data to extract \wa, these effects need to be included as will be discussed in \secref{sub:cboterms}.
+where the term \textit{waist} refers to the minimum vertical width. Both of these frequencies are included in \tabref{tab:frequencies}. The phase of the CBO signal varies systematically by detector, from 0 \SIrange{0}{2\pi}{} around the ring. When adding all of the detector signals together, the CBO oscillations tend to cancel out. However, due to acceptance differences between the different detectors, the CBO oscillations are still observable in the data. When fitting the data to extract \wa, these effects must be accounted for in the fit function, as will be discussed in \secref{sub:cboterms}.
+
 
 \begin{figure}[]
     \centering
@@ -480,7 +483,7 @@ As described in Sections~\ref{sec:Accelerator} and \ref{sec:injection}, the muon
 \begin{figure}[]
     \centering
     \includegraphics[width=.8\textwidth]{fastrotation}
-    \caption[Beam debunching fast rotation]{The fast rotation signal can be seen in the data as an oscillation with a period of $\SI{149}{ns}$, corresponding to the fast oscillations in these plots. The plots here are from a subset of data from Run 1. In individual calorimeters at early times the fast rotation signal is seen to be very large, as shown on the top left. As time passes and the beam debunches, the amplitude of the fast rotation signal diminishes as shown on the top right. When adding all calorimeters together, the signal reduces as shown in the bottom two plots. In all cases the slow oscillation is the \gmtwo frequency.}
+    \caption[Beam debunching fast rotation]{In the data, the fast rotation signal is a fast ($\SI{149.2}{ns}$) modulation on top of the slower ($\mus{4.365}$) \wa frequency. The plots here are from a subset of data from Run 1. In individual calorimeters at early times the fast rotation signal is seen to be very large, as shown on the top left. As time passes and the beam debunches, the amplitude of the fast rotation signal diminishes as shown on the top right. When adding all calorimeters together, the signal is reduced as shown in the bottom two plots, due to the fast rotation signal being unaligned in phase for the different detectors.}
     \label{fig:fastrotation}
 \end{figure}
 
@@ -488,7 +491,8 @@ As described in Sections~\ref{sec:Accelerator} and \ref{sec:injection}, the muon
 
 \section{Corrections to \texorpdfstring{\wa}{wa}}
 
-\equref{eq:wasimple} is an idealized version of the spin difference frequency with no electric fields and motion perpendicular to the magnetic field. Including practical experimental concerns, there are two corrections that must be applied to \wa.
+\equref{eq:wasimple} is an idealized version of the spin difference frequency which ignores two important beam dynamics effects: torques exerted by the electric field and changes in the rest frame magnetic field resulting from the vertical pitching motion of the muons. Including practical experimental concerns, these two corrections must be applied to \wa.
+
 
 \subsection{Electric field correction}
 \label{sub:electric_field_correction}
