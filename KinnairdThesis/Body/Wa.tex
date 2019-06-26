@@ -308,7 +308,7 @@ and these functions have been determined from the time-shifted five parameter fu
     \label{eqn:fourHistsInText}
     \end{aligned}
     \end{equation}
-Here $\tau = \tau_{\mu}$, and the factors out front are each close to $1/4$ and account for the degree of muon decay over a time period of \Tatwo. Similar to \Ta, the muon lifetime must be known a priori. It's value is taken as \mus{64.44}, determined from fits to the data. A systematic study regarding this parameter is described in \secref{sub:TimeShiftingParameters}. The ratio spectrum is then almost exactly described by just the cosine term,
+Here $\tau = \gamma\tau_{\mu}$, and the factors out front are each close to $1/4$ and account for the degree of muon decay over a time period of \Tatwo. Similar to \Ta, the muon lifetime must be known a priori. It's value is taken as \mus{64.44}, determined from fits to the data. A systematic study regarding this parameter is described in \secref{sub:TimeShiftingParameters}. The ratio spectrum is then almost exactly described by just the cosine term,
     \begin{align}
         R(t) \approx A \cos(\omega_{a}t),
     \end{align}
@@ -366,11 +366,10 @@ in the absence of other effects in the data. When other such effects are include
 \label{sec:lostmuons}
 
 -need to include delta t plot and energy deposition plot
--this should potentially be in the fitting section...
+-include here the construction of the lost muon histogram here, and then have a separate section in the fitting part where I expand it
 
 
 \cite{lostmuons}
--also Sudeshna's talk in the Elba collaboration meeting
 
 
 
@@ -378,8 +377,119 @@ in the absence of other effects in the data. When other such effects are include
 \section{Fitting}
 \label{sec:Fitting}
 
+The ratio method function, expanded to include the additional effects in the data, is given by
+    \begin{gather}
+        R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)}, \\
+        f_{\pm}(t) = f(t \pm T_{a}/2), \\
+        f(t) = \Lambda(t) \cdot V(t) \cdot N_{cbo}(t) \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))).
+    \label{eq:fullratiofunction}
+    \end{gather}
+It was found in the analysis, that while the ratio method reduces the sensitivity of the \wa extraction to various effects in the data, those effects still need to be included in the fit function for a proper estimatation of \wa. Because of the reduction in sensitivity, those parameters which the ratio has trouble fitting can be constrained using the standard threshold fit function, 
+    \begin{align}
+        f(t) = \Lambda(t) \cdot V(t) \cdot N_{cbo}(t) \cdot \boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\gamma\tau_{\mu}}} \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))).
+    \label{eq:TmethodFunction}
+    \end{align}
+Fitting the data with this function, referred to as the ``Threshold Method'' or just ``T-Method,'' while not the subject of this dissertation, was done in this analysis as a diagnostic tool for the ratio method. In all fits, the fit parameter for \wa is recast in terms of a ppm level shift \textbf{R} on reference frequency,
+    \begin{align}
+        \omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + \textbf{R} \times 10^{-6}).
+    \label{eq:wablind}
+    \end{align}
+This reference frequency of $\SI{0.2291}{MHz}$ was the same reference frequency used in E821, and \textbf{R} is blinded at the hardware and software levels \cite{ClockManual,SoftwareBlinding}. Each of the individual extra terms $\{N_{cbo}(t), A_{cbo}(t), \phi_{cbo}(t), V(t), \Lambda(t)\}$ will be described in turn in the following sections\footnote{In all cases the actual fit parameters are in bold.}.
 
--should I include stuff about my tmethod fits? just basic fit results but no systematic studies and all that?
+
+
+\subsection{CBO terms}
+\label{sub:cboterms}
+
+
+As described in \secref{sub:CBO}, the CBO modulates the \wa oscillation. This shows up as a modification on the five parameter function parameters $\{N_{0}, A, \phi\} \rightarrow \{N_{0} \cdot N_{cbo}(t), A_{cbo}(t), \phi_{cbo}(t)\}$ where these terms are given as
+    \begin{align}
+        N_{cbo}(t) &= (1 + \boldsymbol{A_{cbo-N}} \cdot e^{-t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{cbo-N}})) \label{eq:Ncbo} \\ 
+        A_{cbo}(t) &= \boldsymbol{A} \cdot (1 + \boldsymbol{A_{cbo-A}} \cdot e^{-t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{cbo-A}})) \label{eq:Acbo} \\ 
+        \phi_{cbo}(t) &= \boldsymbol{\phi_{0}} + \boldsymbol{A_{cbo-\phi}} \cdot e^{-t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{cbo-\phi}}) \label{eq:Phicbo}
+    \end{align}
+In \equref{eq:Ncbo} the $N_{0}$ term is left out since the ratio fit includes the $N_cbo(t)$ term but not $N_{0}$, and in \equref{eq:Phicbo}, $\phi_{cbo}(t)$ has an additive phase instead of a multiplicative one since $\phi_{0}$ is not an amplitude and can be equal to zero. As described in \secref{sec:MuonBeamMeasurements}, the default model for the CBO modulation is assumed as an exponenetially decaying envelope. The CBO frequency, $\omega_{cbo}(t)$, was time-dependent for Run~1 as found in \secref{sec:MuonBeamMeasurements}. The function for the CBO frequency shown in \figref{fig:CBOFrequency} is given in the fit function as
+    \begin{align}
+        \omega_{cbo}(t) = \boldsymbol{\omega_{cbo}} \cdot \Big(1 + \frac{Ae^{(-t/\tau_{A})}}{\omega_{0}t} + \frac{Be^{(-t/\tau_{B})}}{\omega_{0}t}\Big),
+    \label{eq:label}
+    \end{align}
+where $\boldsymbol{\omega_{cbo}}$ is the free fit parameter, and the model parameters $\{\omega_{0}, A, \tau_{A}, B, \tau_{B}\}$ are fixed from the tracking analysis. These parameters for the various datasets and stations are given in \tabref{tab:CBOFrequencyParameters}. 
+
+
+
+% \begin{landscape}
+\begin{table}[]
+\centering
+\small
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lcccccc}
+  \hline
+    \multicolumn{7}{c}{\textbf{CBO Frequency Model Parameters}} \\
+  \hline\hline
+    Dataset & Tracker Station & $\omega_{0}$ (rad/\mus{}) & $A$ (rad) & $\tau_{A}$ (\mus{}) & $B$ (rad) & $\tau_{B}$ (\mus{}) \\
+  \hline
+    \multirow{2}{*}{60H} & 12 & 2.3389 & 2.9 & 81.8 & 5.12 & 7.7 \\
+                         & 18 & 2.3387 & 2.82 & 81.1 & 5.08 & 8.2 \\
+  \hline
+    \multirow{2}{*}{HighKick} & 12 &  &  &  &  &  \\
+                              & 18 &  &  &  &  &  \\
+  \hline
+    \multirow{2}{*}{9d} & 12 & 2.6106 & 2.86 & 72.8 & 5.50 & 8.5 \\
+                        & 18 & 2.6110 & 2.89 & 79.2 & 5.44 & 9.2 \\
+  \hline
+    \multirow{2}{*}{LowKick} & 12 &  &  &  &  &  \\
+                             & 18 &  &  &  &  &  \\
+  \hline
+    \multirow{2}{.07\textwidth}{SuperLowKick} & 12 &  &  &  &  &  \\
+                                              & 18 &  &  &  &  &  \\
+  \hline
+    \multirow{2}{*}{Endgame} & 12 & 2.3377 & 7.43 & 95.1 & 4.71 & 9.0 \\
+                             & 18 & 2.3379 & 7.44 & 95.2 & 4.90 & 9.2 \\                                                        
+  \hline
+\end{tabular*}
+\caption[Dataset CBO frequency model parameters]{}
+\label{tab:CBOFrequencyParameters}
+\end{table}
+% \end{landscape}
+
+
+
+
+
+
+-higher order terms
+
+
+
+
+    % V(t) = 1 + A_{VW} \cdot e^{-t/\tau_{VW}} \cos(\omega_{VW}t + \phi_{VW}) \\[6pt]
+
+
+Also talk about the vertical waist term here
+
+
+Systematic studies relating to the choice of envelope, inclusion of various beam dynamics terms, and choice of fixed parameters in the frequency model are explored in \secref{sub:cboerror}.
+
+
+
+
+
+
+
+\subsection{Lost muon term}
+
+
+
+    % \Lambda(t) = 1 - \kappa_{loss} \int_{0}^{t} L(t')e^{(t'/\gamma\tau_{\mu})} dt' \\[6pt]
+
+
+
+
+\clearpage % remove this once the section has been sorted out
+
+\subsection{Fit code/parameter specifics}
+
 -a root macro is used to fit the data, and then to make plots
 
 
@@ -408,26 +518,12 @@ Fit is from \mus{30.2}--\mus{650}, corresponding to 4154 bins.
 
 
 
-\begin{gather}
-    R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)} \\[6pt]
-    f_{\pm}(t) = f(t \pm T_{a}/2) \\[6pt]
-    f(t) = \Lambda(t) \cdot V(t) \cdot N_{cbo}(t) \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))) \\[6pt]
-    N_{cbo}(t) = 1 + A_{cbo-N} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-N}) \\[6pt]
-    A_{cbo}(t) = A \cdot (1 + A_{cbo-A} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-A})) \\[6pt]
-    \phi_{cbo}(t) = \phi + A_{cbo-\phi} \cdot e^{-t/\tau_{cbo}} \cdot \cos(\omega_{cbo}(t) \cdot t + \phi_{cbo-\phi}) \\[6pt]
-    \omega_{cbo}(t) = \omega_{cbo} \cdot (1 + \delta_{cbo}(t)) \text{, $\delta_{cbo}(t)$ fixed} \\[6pt]
-    \Lambda(t) = 1 - \kappa_{loss} \int_{0}^{t} L(t')e^{(t'/\gamma\tau_{\mu})} dt' \\[6pt]
-    V(t) = 1 + A_{VW} \cdot e^{-t/\tau_{VW}} \cos(\omega_{VW}t + \phi_{VW}) \\[6pt]
-    \omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + R \times 10^{-6})
-\label{eq:fullratiofunction}
-\end{gather}
 
 
 
 
 
-\subsection{CBO terms}
-\label{sub:cboterms}
+
 
 
 
@@ -486,6 +582,17 @@ For errors relating to the choice of SDT and SGT - the idea is this: Show the pl
 -pileup multiplier - amplitude
 -pileup time shift - phase
 -pileup energy scaling - phase
+
+
+\subsection{CBO systematic errors}
+\label{sub:cboerror}
+
+
+
+\subsection{Lost muons}
+\label{sub:lostmuonserror}
+-also Sudeshna's talk in the Elba collaboration meeting - this probably just for the systematic error
+
 
 
 
