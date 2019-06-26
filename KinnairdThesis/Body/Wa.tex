@@ -225,9 +225,7 @@ The pileup energy spectra as compared to the cluster energy spectra is shown in 
 
 
 
--should I show per calorimeter pileup energy and time spectra????
-
-
+% -should I show per calorimeter pileup energy and time spectra????
 
     % \begin{figure}[]
     %     \centering
@@ -250,14 +248,18 @@ The pileup energy spectra as compared to the cluster energy spectra is shown in 
 % https://gm2-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=14394&filename=PileupFormEtc.pdf&version=2
 
 
-
+\clearpage %remove this once I've cleaned up the pileup figures
 
 \subsection{Ratio Method}
 
 
-The method used in this analysis to extract \wa is called the ``Ratio Method.'' It is a technique that modifies the data in such a way that the exponential decay in the time histogram is removed, and slow effects are reduced. It was used successfully in the E821 experiment \cite{JKThesis,LDThesis,JPThesis}. A full derivation of the equations in the method is given in \appref{app:RatioDerivation}, here is given a short summary.
+The method used in this analysis to extract \wa is called the ``Ratio Method,'' or sometimes ``R-Method.'' It is a technique that modifies the data in such a way that the exponential decay in the time histogram is removed, and slow effects are reduced. It was used successfully in the E821 experiment \cite{JKThesis,LDThesis,JPThesis}. A full derivation of the equations in the method is given in \appref{app:RatioDerivation}; here is given a short summary. \figref{fig:RatioFormationFunctions} provides a pictorial representation of how the method works.
 
-The method works by dividing the data into four separate datasets, one with the times of all clusters shifted up by half a \gmtwo period, $+$\Tatwo, one with times shifted down by half a \gmtwo period, $-$\Tatwo, and two left alone\. Assuming the data is described by the five parameter function \equref{eq:5parfunc} shown in \figref{fig:fiveparamfunc} (repeat it here?), and that the data is equally split into four, then the new four datasets are given as:
+The method works by dividing the data into four separate datasets, one with the times of all clusters shifted up by half a \gmtwo period, $+$\Tatwo, one with cluster times shifted down by half a \gmtwo period, $-$\Tatwo, and two unchanged. Assuming the data is described by the five parameter function described in \secref{section:WaIntro} and shown in \figref{fig:fiveparamfunc}, %\equref{eq:5parfunc}
+        \begin{align} \label{eq:5parfuncrepeated}
+            N_{d}(t, E_{th}) = N_{0}(E_{th}) \cdot e^{-t/\gamma\tau_{\mu}} \cdot [1 + A(E_{th}) \cos(\omega_{a}t+\phi(E_{th}))],
+        \end{align}
+and that the data is equally split into four subsets, then the new four datasets are given as\footnote{When handling the pileup in the ratio method, the pileup time spectra are split into four datasets and time-shifted in the same way as the cluster hit times. Associated doublets and singlets are kept together in the same individual dataset, and the four pileup datasets are subtracted off their respective ratio datasets before forming the ratio.}:
     \begin{equation}
     \begin{aligned}
         u_{+}(t) &= \frac{1}{4} N_{5}(t+T/2) \\
@@ -266,9 +268,9 @@ The method works by dividing the data into four separate datasets, one with the 
         v_{2}(t) &= \frac{1}{4} N_{5}(t)
     \end{aligned}
     \end{equation}
-To be explicit here regarding the signs, the counts that are filled into the histogram described by $u_{+}$ have their times shifted as $t \rightarrow t - T/2$, which is what the function $N_{5}(t+T/2)$ describes, and vice versa for $u_{-}$footnote{When handling the pileup in the ratio method, the pileup time spectra are split into four datasets in the same way as the ratio method, where associated doublets and singlets are kept together, and the four datasets are individual subtracted off the four ratio datasets before forming the ratio.}. In order to time shift the data as such, \Ta needs to be known a priori to high precision. The value used is taken from the E821 result, and its value is taken as $1/f_{a}$, where $f_{a}$ is \SI{0.2290735}{MHz}:
+In order to time shift the data as such, \Ta needs to be known a priori to high precision. The value used is taken from the E821 result, and its value is taken as $1/f_{a}$, where $f_{a}$ is \SI{0.2290735}{MHz}:
         \begin{align}
-            T_{a} \approx \SI{4.365411}{\mu s}
+            T_{a} \approx \SI{4.365411}{\micro s}
         \label{eq:Ta}
         \end{align}
 This value for $f_{a}$ was determined by averaging column 2 of Table XV of the E821 Final Report \cite{E821FinalReport}, which consits of the $f_{a}$ results for the different run periods in that experiment. A systematic error on the choice of this parameter is calculated in \secref{sub:TimeShiftingParameters}.
@@ -282,12 +284,12 @@ The datasets are then combined as
     \label{eq:UandV}
     \end{aligned}
     \end{equation}
-and shown in \figref{fig:UVfuncs}. It is immediately apparent that the $U(t)$ data are shifted 180\textdegree{} out of phase from the $V(t)$ data. The ratio is then defined as 
+both of which are shown in \figref{fig:UVfuncs}. It is immediately apparent that the $U(t)$ data are shifted 180\textdegree{} out of phase from the $V(t)$ data. The ratio is then defined as\footnote{The ratio can also be defined with $U(t) - V(t)$ in the numerator, however then the phase of the ratio spectrum is shifted 180\textdegree{} from the original $N_{5}(t)$ spectrum.}
     \begin{align}
         R(t) &= \frac{V(t) - U(t)}{V(t) + U(t)}
-    \label{eq:ratiointext}
+    \label{eq:ratioUV}
     \end{align}
-where the numerator and denominator are plotted in Figures~\ref{fig:rationumfunc} and \ref{fig:ratiodenomfunc} respectively. The numerator is seen to be an exponentially decaying cosine, while the denominator is a simple exponential, both of which can be seen as originating from the difference and sum of the $U(t)$ and $V(t)$ data respectively\footnote{The ratio can also be defined with $U(t) - V(t)$ in the numerator, but then the phase of the ratio spectrum will be shifted 180\textdegree{} from the original $N_{5}(t)$ spectrum.}. The resulting ratio spectrum can be seen in \figref{fig:ratiofunc}, where the exponential is seen to have been eliminated. The fit function is then reduced from 5 parameters down to 3:
+where the numerator and denominator are plotted in Figures~\ref{fig:rationumfunc} and \ref{fig:ratiodenomfunc} respectively. The numerator is seen to be an exponentially decaying cosine, while the denominator is a simple exponential, both of which can be seen as originating from the difference and sum of the $U(t)$ and $V(t)$ data respectively. The resulting ratio spectrum can be seen in \figref{fig:ratiofunc}, where the exponential has been eliminated. The fit function is then reduced from five parameters down to three:
     \begin{align}
         R(t) \approx A \cos(\omega_{a}t) - C,
     \label{eq:ratiowithC}
@@ -296,20 +298,22 @@ where
     \begin{align}
         C = \frac{1}{16} \Big(\frac{T}{\tau}\Big)^{2} \approx 2.87 * 10^{-4},
     \end{align}
-and these functions have been determined from the time shifted five parameter function plugged into the $U(t)$ and $V(t)$ variables. In addition to the exponential being eliminated, any slow terms in the data get time shifted and then divided as well, such that such effects are reduced. In order to eliminate the constant $C$ at the end of \equref{eq:ratiowithC}, a different weighting scheme as opposed to equal weighting can be used as described in \refref{statisticspaper}:
+and these functions have been determined from the time-shifted five parameter function plugged into the $U(t)$ and $V(t)$ variables. In addition to the exponential being eliminated, any slow terms in the data get time-shifted and divided as well, such that slow effects are reduced. In order to eliminate the constant $C$ at the end of \equref{eq:ratiowithC}, a different weighting scheme can be used as described in \refref{statisticspaper}:
     \begin{equation}
     \begin{aligned}
         u_{+}(t) &= \frac{e^{T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t+T/2) \\
         u_{-}(t) &= \frac{e^{-T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t-T/2) \\
         v_{1}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t) \\
-        v_{2}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t).
+        v_{2}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t)
     \label{eqn:fourHistsInText}
     \end{aligned}
     \end{equation}
-where the factors out front are each close to $1/4$ and account for the amount of muon decay over \Tatwo, and $\tau = \tau_{\mu}$. In the latter case the muon lifetime must be known a priori, and it's value is taken as \mus{64.44}, determined from fits to the data. A systematic study regarding this parameter is described in \secref{sub:TimeShiftingParameters}. Both the values for \taumu and \Ta are given in \tabref{tab:histogramparameters}. The ratio spectrum is then almost exactly described by just the cosine term:
+Here $\tau = \tau_{\mu}$, and the factors out front are each close to $1/4$ and account for the degree of muon decay over a time period of \Tatwo. Similar to \Ta, the muon lifetime must be known a priori. It's value is taken as \mus{64.44}, determined from fits to the data. A systematic study regarding this parameter is described in \secref{sub:TimeShiftingParameters}. The ratio spectrum is then almost exactly described by just the cosine term,
     \begin{align}
         R(t) \approx A \cos(\omega_{a}t),
     \end{align}
+in the absence of other effects in the data. When other such effects are included, the fit function used is simply an extension of the explicit ratio function, \equref{eq:ratioUV} transformed into \equref{eq:fullratiofunction}.
+
 
 
 
@@ -318,7 +322,7 @@ where the factors out front are each close to $1/4$ and account for the amount o
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{FiveParamFunc}
-            \caption{The five parameter function defined in \equref{fig:fiveparamfunc}, which describes the incoming data at first order.}
+            \caption{The five parameter function defined in \equref{eq:5parfuncrepeated}, which describes the incoming data to first order.}
         \label{fig:fiveparamfunc}
         \end{subfigure}%
 
@@ -326,7 +330,7 @@ where the factors out front are each close to $1/4$ and account for the amount o
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{UVFuncs}
-            \caption{The $U(t)$ and $V(t)$ functions which describe the time-shifted and unshifted datasets as described in the text.}
+            \caption{$U(t)$ and $V(t)$ functions which describe the time-shifted and unshifted ratio datasets.}
         \label{fig:UVfuncs}
         \end{subfigure}
         \hspace{5mm}
@@ -350,13 +354,11 @@ where the factors out front are each close to $1/4$ and account for the amount o
             \caption{The formed ratio function, describing the data after it has been handled as described in the text. To first order it is reduced to a simple cosine form.}
         \label{fig:ratiofunc}
         \end{subfigure}% 
-    \caption[Ratio formation function]{Functions describing the formation of the ratio in the data. \textbf{should I just use the ones I make with the data or no?}}
+    \caption[Ratio formation functions]{Functions describing the formation of the ratio in the data.}
     \label{fig:RatioFormationFunctions}
     \end{figure}
 
 
-
--read through 60h report and make sure I didn't miss anything
 
 
 
@@ -368,6 +370,7 @@ where the factors out front are each close to $1/4$ and account for the amount o
 
 
 \cite{lostmuons}
+-also Sudeshna's talk in the Elba collaboration meeting
 
 
 
@@ -416,6 +419,7 @@ Fit is from \mus{30.2}--\mus{650}, corresponding to 4154 bins.
     \Lambda(t) = 1 - \kappa_{loss} \int_{0}^{t} L(t')e^{(t'/\gamma\tau_{\mu})} dt' \\[6pt]
     V(t) = 1 + A_{VW} \cdot e^{-t/\tau_{VW}} \cos(\omega_{VW}t + \phi_{VW}) \\[6pt]
     \omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + R \times 10^{-6})
+\label{eq:fullratiofunction}
 \end{gather}
 
 
