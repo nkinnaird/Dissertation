@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/WaGeneral/Temporary/}{Body/Figures/WaGeneral/Reconstruction/}{Body/Figures/WaGeneral/Histogramming/}{Body/Figures/WaGeneral/Pileup/}{Body/Figures/WaGeneral/Pileup/TimeAndEnergySpectra/}{Body/Figures/RatioAnalysis/}{Body/Figures/RatioAnalysis/MethodOverview/}}
+\graphicspath{{Body/Figures/WaGeneral/Temporary/}{Body/Figures/WaGeneral/Temporary/FitResiduals/}{Body/Figures/WaGeneral/Reconstruction/}{Body/Figures/WaGeneral/Histogramming/}{Body/Figures/WaGeneral/Pileup/}{Body/Figures/WaGeneral/Pileup/TimeAndEnergySpectra/}{Body/Figures/RatioAnalysis/}{Body/Figures/RatioAnalysis/MethodOverview/}}
 
 \chapter{\texorpdfstring{\wa}{wa} Measurement}
 \label{chapter:wa}
@@ -251,7 +251,9 @@ The pileup energy spectra as compared to the cluster energy spectra is shown in 
 \clearpage %remove this once I've cleaned up the pileup figures
 
 \subsection{Ratio Method}
+\label{sub:ratio_method}
 
+% I put this here because technically the ratio method involves modifying the actual data that is being fit
 
 The method used in this analysis to extract \wa is called the ``Ratio Method,'' or sometimes ``R-Method.'' It is a technique that modifies the data in such a way that the exponential decay in the time histogram is removed, and slow effects are reduced. It was used successfully in the E821 experiment \cite{JKThesis,LDThesis,JPThesis}. A full derivation of the equations in the method is given in \appref{app:RatioDerivation}; here is given a short summary. \figref{fig:RatioFormationFunctions} provides a pictorial representation of how the method works.
 
@@ -362,39 +364,45 @@ in the absence of other effects in the data. When other such effects are include
 
 
 
-\section{Lost muons}
-\label{sec:lostmuons}
-
--need to include delta t plot and energy deposition plot
--include here the construction of the lost muon histogram here, and then have a separate section in the fitting part where I expand it
-
-
-\cite{lostmuons}
-
-
-
-
-\section{Fitting}
+\section{Fitting the data}
 \label{sec:Fitting}
 
-The ratio method function, expanded to include the additional effects in the data, is given by
+
+The basic five parameter function used to the fit the data as described before is given as\footnote{In all cases here and onwards the actual fit parameters are in bold.}
+    \begin{align}
+        f(t) = \boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\tau}} \cdot (1 + \boldsymbol{A} \cdot \cos(\omega_{a}t + \boldsymbol{\phi})),
+    \label{eq:fiveparfuncagain}
+    \end{align}
+where the fit parameter for \wa is recast in terms of a ppm level shift \textbf{R} on a reference frequency,
+    \begin{align}
+        \omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + \textbf{R} \times 10^{-6}).
+    \label{eq:wablind}
+    \end{align}
+This reference frequency of $\SI{0.2291}{MHz}$ was the same reference frequency used in E821, and \textbf{R} is blinded at the hardware and software levels \cite{ClockManual,SoftwareBlinding}. Fitting the data with \equref{eq:fiveparfuncagain} however is insufficient to properly describe the data. \figref{fig:FFT_fiveParameter} shows there are peaks in the FFT due to beam dynamics frequencies corresponding to the CBO, VW, and some beat frequencies with \wa. In order to properly account for these effects, additional terms need to be added to the fit function. 
+
+    \begin{figure}[]
+        \centering
+        \includegraphics[width=.8\textwidth]{FFT_fiveParameter}
+        \caption[FFT of five parameter fit residuals]{FFT of five parameter fit residuals. Peaks corresponding to beam dynamics frequencies of the CBO and VW and some beat frequencies with \wa are readily apparent. A rise at low frequencies corresponds to the effects of the lost muons in the data. \textbf{update picture with latest data results}}
+        \label{fig:FFT_fiveParameter}
+    \end{figure}
+
+\equref{eq:fiveparfuncagain} can be expanded to 
+    \begin{align}
+        f(t) = \Lambda(t) \cdot V(t) \cdot N_{cbo}(t) \cdot \boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\tau}} \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))),
+    \label{eq:TmethodFunction}
+    \end{align}
+where many additional terms have been added in order to account for effects in the data. The various additional terms $\{N_{cbo}(t), A_{cbo}(t), \phi_{cbo}(t), V(t), \Lambda(t)\}$ are described in the following sections. Fitting the data with this function, referred to as the ``Threshold Method'' or just ``T-Method,'' while not the subject of this dissertation, was done in this analysis as a diagnostic tool for the ratio method analysis. 
+
+
+In order to fit the ratio time spectra as constucted in \secref{sub:ratio_method}, a different function is used. Including the additional effects previously mentioned, the fit function goes as
     \begin{gather}
         R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)}, \\
         f_{\pm}(t) = f(t \pm T_{a}/2), \\
         f(t) = \Lambda(t) \cdot V(t) \cdot N_{cbo}(t) \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))).
     \label{eq:fullratiofunction}
     \end{gather}
-It was found in the analysis, that while the ratio method reduces the sensitivity of the \wa extraction to various effects in the data, those effects still need to be included in the fit function for a proper estimatation of \wa. Because of the reduction in sensitivity, those parameters which the ratio has trouble fitting can be constrained using the standard threshold fit function, 
-    \begin{align}
-        f(t) = \Lambda(t) \cdot V(t) \cdot N_{cbo}(t) \cdot \boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\gamma\tau_{\mu}}} \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))).
-    \label{eq:TmethodFunction}
-    \end{align}
-Fitting the data with this function, referred to as the ``Threshold Method'' or just ``T-Method,'' while not the subject of this dissertation, was done in this analysis as a diagnostic tool for the ratio method. In all fits, the fit parameter for \wa is recast in terms of a ppm level shift \textbf{R} on reference frequency,
-    \begin{align}
-        \omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + \textbf{R} \times 10^{-6}).
-    \label{eq:wablind}
-    \end{align}
-This reference frequency of $\SI{0.2291}{MHz}$ was the same reference frequency used in E821, and \textbf{R} is blinded at the hardware and software levels \cite{ClockManual,SoftwareBlinding}. Each of the individual extra terms $\{N_{cbo}(t), A_{cbo}(t), \phi_{cbo}(t), V(t), \Lambda(t)\}$ will be described in turn in the following sections\footnote{In all cases the actual fit parameters are in bold.}.
+The $f(t)$ given here differs from that in \equref{eq:TmethodFunction} in that the $\boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\tau}}$ terms have divided out, thus reducing the number of fit parameters necessary to model the data. The fit function used in fitting the ratio time spectra is seen to be identical in form to the construction of the ratio time spectra as seen in Equations~\ref{eq:UandV} and \ref{eq:ratioUV}. It should be noted here that while the ratio method reduces the sensitivity of the \wa extraction to various effects in the data, those effects still need to be included in the fit function for a proper estimatation of \wa. Because of the reduction in sensitivity, there are some parameters which the ratio has trouble fitting by itself. Using the T-Method fit function is then a useful tool for constraining these specific parameters.
 
 
 
@@ -408,7 +416,7 @@ As described in \secref{sub:CBO}, the CBO modulates the \wa oscillation. This sh
         A_{cbo}(t) &= \boldsymbol{A} \cdot (1 + \boldsymbol{A_{cbo-A}} \cdot e^{-t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{cbo-A}})) \label{eq:Acbo} \\ 
         \phi_{cbo}(t) &= \boldsymbol{\phi_{0}} + \boldsymbol{A_{cbo-\phi}} \cdot e^{-t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{cbo-\phi}}) \label{eq:Phicbo}
     \end{align}
-In \equref{eq:Ncbo} the $N_{0}$ term is left out since the ratio fit includes the $N_cbo(t)$ term but not $N_{0}$, and in \equref{eq:Phicbo}, $\phi_{cbo}(t)$ has an additive phase instead of a multiplicative one since $\phi_{0}$ is not an amplitude and can be equal to zero. As described in \secref{sec:MuonBeamMeasurements}, the default model for the CBO modulation is assumed as an exponenetially decaying envelope. The CBO frequency, $\omega_{cbo}(t)$, was time-dependent for Run~1 as found in \secref{sec:MuonBeamMeasurements}. The function for the CBO frequency shown in \figref{fig:CBOFrequency} is given in the fit function as
+In \equref{eq:Ncbo} the $N_{0}$ term is left out since the ratio fit includes the $N_cbo(t)$ term but not $N_{0}$, and in \equref{eq:Phicbo}, $\phi_{cbo}(t)$ has an additive phase instead of a multiplicative one since $\phi_{0}$ is not an amplitude and can be equal to zero. Each of the terms then includes additional fit parameters in an extra amplitude and phase, as well as one shared CBO lifetime and frequency. As described in \secref{sec:MuonBeamMeasurements}, the default model for the CBO modulation is assumed as an exponenetially decaying envelope. The CBO frequency, $\omega_{cbo}(t)$, was time-dependent for Run~1 as found in \secref{sec:MuonBeamMeasurements}. The function for the CBO frequency shown in \figref{fig:CBOFrequency} is given in the fit function as
     \begin{align}
         \omega_{cbo}(t) = \boldsymbol{\omega_{cbo}} \cdot \Big(1 + \frac{Ae^{(-t/\tau_{A})}}{\omega_{0}t} + \frac{Be^{(-t/\tau_{B})}}{\omega_{0}t}\Big),
     \label{eq:label}
@@ -466,7 +474,7 @@ where $\boldsymbol{\omega_{cbo}}$ is the free fit parameter, and the model param
     % V(t) = 1 + A_{VW} \cdot e^{-t/\tau_{VW}} \cos(\omega_{VW}t + \phi_{VW}) \\[6pt]
 
 
-Also talk about the vertical waist term here
+Also talk about the vertical waist term here - probably its own sections
 
 
 Systematic studies relating to the choice of envelope, inclusion of various beam dynamics terms, and choice of fixed parameters in the frequency model are explored in \secref{sub:cboerror}.
@@ -477,7 +485,14 @@ Systematic studies relating to the choice of envelope, inclusion of various beam
 
 
 
-\subsection{Lost muon term}
+\subsection{Lost muons}
+\label{subsec:lostmuons}
+
+-need to include delta t plot and energy deposition plot
+-include here the construction of the lost muon histogram here, and then have a separate section in the fitting part where I expand it
+
+
+\cite{lostmuons}
 
 
 
@@ -518,7 +533,24 @@ Fit is from \mus{30.2}--\mus{650}, corresponding to 4154 bins.
 
 
 
+\section{Fit results}
 
+Fit results are blah..
+
+
+In order to verify the integrity of the fit other checks are done ... 
+
+
+
+
+\clearpage
+
+-put here paramter values and all that for single seed fits to the individual datasets
+-include FFT plots and pull plots 
+-perhaps include or reference the average value of R
+-fit start scans go here
+-per calorimeter fits go here
+-use Elba figures for now - just 9d, to put things into persepctive and order, and then I can go back later and include what I need to
 
 
 
@@ -598,6 +630,11 @@ For errors relating to the choice of SDT and SGT - the idea is this: Show the pl
 
 \subsection{gm2 period guess and muon lifetime}
 \label{sub:TimeShiftingParameters}
+
+
+\subsection{Systematic error summary}
+
+-include here a big table (with each of the individual errors making up say pileup and the like) of all systematic errors
 
 
 \cleardoublepage
