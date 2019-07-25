@@ -417,9 +417,8 @@ As described in \secref{sub:CBO}, the CBO modulates the \wa oscillation. This sh
         \phi_{cbo}(t) &= \boldsymbol{\phi_{0}} + \boldsymbol{A_{cbo-\phi}} \cdot e^{-t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{cbo-\phi}}) \label{eq:Phicbo}
     \end{align}
 In \equref{eq:Ncbo} the $N_{0}$ term is left out since the ratio fit includes the $N_{cbo}(t)$ term but not $N_{0}$, and in \equref{eq:Phicbo}, $\phi_{cbo}(t)$ has an additive phase instead of a multiplicative one since $\phi_{0}$ is not an amplitude and can be equal to zero. Each of the terms then includes additional fit parameters in an extra amplitude and phase, as well as one shared CBO lifetime and frequency. As described in \secref{sec:MuonBeamMeasurements}, the default model for the CBO modulation is assumed as an exponenetially decaying envelope. The CBO frequency, $\omega_{cbo}(t)$, was time-dependent for Run~1 as found in \secref{sec:MuonBeamMeasurements}. The function for the CBO frequency shown in \figref{fig:CBOFrequency} is given in the fit function as
-    \begin{align}
+    \begin{align} \label{eq:CBOfreqForm}
         \omega_{cbo}(t) = \boldsymbol{\omega_{cbo}} \cdot \Big(1 + \frac{Ae^{(-t/\tau_{A})}}{\omega_{0}t} + \frac{Be^{(-t/\tau_{B})}}{\omega_{0}t}\Big),
-    \label{eq:label}
     \end{align}
 where $\boldsymbol{\omega_{cbo}}$ is the free fit parameter, and the model parameters $\{\omega_{0}, A, \tau_{A}, B, \tau_{B}\}$ are fixed from the tracking analysis. These parameters for the various datasets and stations are given in \tabref{tab:CBOFrequencyParameters}. 
 
@@ -464,31 +463,44 @@ where $\boldsymbol{\omega_{cbo}}$ is the free fit parameter, and the model param
 
 Two things should be noted here. The first is that Equations~\ref{eq:Acbo} and \ref{eq:Phicbo} are not necessarily needed in order to properly describe the data, whereas \equref{eq:Ncbo} always is. This is typically dataset or random seed dependent, and terms are dropped from the fit function if the parameter amplitudes are the same value or smaller than their respective errors. The second is that Equations~\ref{eq:Ncbo}-\ref{eq:Phicbo} are a first order modification on the fit parameters, whereas there is reason to believe that higher orders of beam dynamics effects exist in the data even if they are too small to see. As the $N_{cbo}(t)$ is the largest, it stands to reason that the second order term $N_{2cbo}(t)$ is also the largest of the second order terms. Including this term is sometimes necessary in fitting the data, and the form is given as
     \begin{align}
-        N_{2cbo}(t) &= (1 + \boldsymbol{A_{2cbo-N}} \cdot e^{-2t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{2cbo-N}})). \label{eq:Ncbo}
+        N_{2cbo}(t) &= (1 + \boldsymbol{A_{2cbo-N}} \cdot e^{-2t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{2cbo-N}})). \label{eq:N2cbo}
     \end{align}
 It should be noted that the form is assumed to be the same, except the lifetime of the effect is half the CBO lifetime, $\tau_{cbo}/2$. This is due to the fact that the $N_{2cbo}(t)$ is reasoned to come from the width of the oscillating beam, as opposed to the oscillating mean.  Finally, as will be shown in \secref{sub:per_calorimeter_fits}, each of these individual CBO terms described here is necessary in order to fit the individual calorimeters, where the CBO effect is stronger compared to the sum of the calorimeter data. Systematic studies relating to the choice of envelope, inclusion of various beam dynamics terms, and choice of fixed parameters in the frequency model are explored in \secref{sub:cboerror}.
 
 
 \subsection{VW term}
 
--write some stuff here on the VW as I see it now, don't worry about getting it exactly right here because I still need to figure out exactly how to handle it in the data
+\textbf{write some stuff here on the VW as I see it now, don't worry about getting it exactly right here because I still need to figure out exactly how to handle it in the data}
 
 
-While still a beam dynamics term, the VW effect is treated slightly differently due to complications with the ratio method
+While still a beam dynamics term, the VW effect is treated slightly differently due to complications with the ratio method. The form for the VW term is taken identically to the CBO terms, 
+    \begin{align} \label{eq:VWterm}
+        V(t) = 1 + \boldsymbol{A_{VW}} \cdot e^{-t/\boldsymbol{\tau_{VW}}} \cos(\omega_{VW}(t) \cdot t + \boldsymbol{\phi_{VW}}), 
+    \end{align}
+with an exponentially decaying envelope, and an additional amplitude and phase parameter. The VW frequency $\omega_{VW}$ is given in \equref{eq:VWfreq}, where it is seen to be dependent on the cyclotron frequency and vertical betatron frequency. Using Equations~\ref{eq:tunes} and \ref{eq:CBOfreq}, the dependence on the CBO frequency is seen as
+    \begin{equation}
+    \begin{aligned}
+        \omega_{VW}(t) &= 2\pi (f_{c} - 2f_{y_{BO}}), \\
+                    % &= 2\pi \Big[f_{c} - 2f_{cbo}\sqrt{\frac{f_{c}}{f_{cbo}}-1}\Big]
+                    &= 2\pi \Big(f_{c} - 2f_{cbo}(t)\sqrt{f_{c}/f_{cbo}(t)-1}\Big),
+    \label{eq:VWfreqOne}
+    \end{aligned}
+    \end{equation}
+where $f_{cbo}(t) = \omega_{cbo}(t)/2\pi$ is determined in the tracking analysis as described in \secref{sub:cboterms} and given by \equref{eq:CBOfreqForm}. While \equref{eq:VWfreqOne} is the theoretical frequency for the VW effect, it was found in the tracking analysis that including an adjustment factor on the CBO frequency $f_{cbo} \rightarrow \kappa f_{cbo}$ on the order of about a percent resulted in better agreement between the directly measured VW frequency \cite{cbofrequency,verticalbetatron}. In the fitting function itself, the VW frequency is then taken as
+    \begin{align} \label{eq:VWfreqKappa}
+        \omega_{VW}(t) = 2\pi \Big(f_{c} - 2 \cdot \boldsymbol{\kappa_{VW}} \cdot f_{cbo}(t)\sqrt{f_{c}/(\boldsymbol{\kappa_{VW}} \cdot f_{cbo}(t))-1}\Big),
+    \end{align}
+where now the VW frequency fit parameter is $\boldsymbol{\kappa_{VW}}$. The origin of this extra factor is unclear, whether it is a tracker measurement issue, something to do with the frequency function approximation, or if it has something to do with the electrostatic quadrupoles.
 
 
 
 
-    % V(t) = 1 + A_{VW} \cdot e^{-t/\tau_{VW}} \cos(\omega_{VW}t + \phi_{VW}) \\[6pt]
-
-
-Also talk about the vertical waist term here - probably its own section
 
 
 
--check to see what I have in previous beam dynamics sections
-
-
+parameters typically fixed...
+include James plot
+include my plot I think showing essentially the same thing and describe it briefly
 
 
 
