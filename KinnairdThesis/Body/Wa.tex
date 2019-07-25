@@ -481,14 +481,14 @@ with an exponentially decaying envelope, and an additional amplitude and phase p
     \begin{equation}
     \begin{aligned}
         \omega_{VW}(t) &= 2\pi (f_{c} - 2f_{y_{BO}}), \\
-                    % &= 2\pi \Big[f_{c} - 2f_{cbo}\sqrt{\frac{f_{c}}{f_{cbo}}-1}\Big]
-                    &= 2\pi \Big(f_{c} - 2f_{cbo}(t)\sqrt{f_{c}/f_{cbo}(t)-1}\Big),
+                    % &= 2\pi \Big[f_{c} - 2f_{cbo}\sqrt{\frac{2f_{c}}{f_{cbo}}-1}\Big]
+                    &= 2\pi \Big(f_{c} - 2f_{cbo}(t)\sqrt{2f_{c}/f_{cbo}(t)-1}\Big),
     \label{eq:VWfreqOne}
     \end{aligned}
     \end{equation}
 where $f_{cbo}(t) = \omega_{cbo}(t)/2\pi$ is determined in the tracking analysis as described in \secref{sub:cboterms} and given by \equref{eq:CBOfreqForm}. While \equref{eq:VWfreqOne} is the theoretical frequency for the VW effect, it was found in the tracking analysis that including an adjustment factor on the CBO frequency $f_{cbo} \rightarrow \kappa f_{cbo}$ on the order of about a percent resulted in better agreement between the directly measured VW frequency \cite{cbofrequency,verticalbetatron}. In the fitting function itself, the VW frequency is then taken as
     \begin{align} \label{eq:VWfreqKappa}
-        \omega_{VW}(t) = 2\pi \Big(f_{c} - 2 \cdot \boldsymbol{\kappa_{VW}} \cdot f_{cbo}(t)\sqrt{f_{c}/(\boldsymbol{\kappa_{VW}} \cdot f_{cbo}(t))-1}\Big),
+        \omega_{VW}(t) = 2\pi \Big(f_{c} - 2 \cdot \boldsymbol{\kappa_{VW}} \cdot f_{cbo}(t)\sqrt{2f_{c}/(\boldsymbol{\kappa_{VW}} \cdot f_{cbo}(t))-1}\Big),
     \end{align}
 where now the VW frequency fit parameter is $\boldsymbol{\kappa_{VW}}$. The origin of this extra factor is unclear, whether it is a tracker measurement issue, something to do with the frequency function approximation, or if it has something to do with the electrostatic quadrupoles.
 
