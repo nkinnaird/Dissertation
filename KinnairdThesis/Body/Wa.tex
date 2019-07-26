@@ -498,9 +498,10 @@ where now the VW frequency fit parameter is $\boldsymbol{\kappa_{VW}}$. The orig
 
 
 
-parameters typically fixed...
+parameters typically fixed in ratio method...
 include James plot
 include my plot I think showing essentially the same thing and describe it briefly
+might want to just include an early time FFT with no caption or anything just temporarily in case I end up putting that in
 
 
 
@@ -509,8 +510,8 @@ include my plot I think showing essentially the same thing and describe it brief
 \label{subsec:lostmuons}
 
 -need to include delta t plot and energy deposition plot
--include here the construction of the lost muon histogram here, and then have a separate section in the fitting part where I expand it
-
+-include here the construction of the lost muon histogram and then go into the fitting stuff
+-look through 60h report for things I should mention - things like arbitraty 10 to the 10 factor and such
 
 \cite{lostmuons}
 
@@ -555,7 +556,37 @@ Fit is from \mus{30.2}--\mus{650}, corresponding to 4154 bins.
 
 \section{Fit results}
 
-Fit results are blah..
+Fit results are blah from a single random seed ... 
+
+Include here a table of the fit parameters and p value and such, per dataset, include 9d numbers from Elba for now
+
+
+
+
+% \begin{landscape}
+\begin{table}[]
+\centering
+\small
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lcccccc}
+  \hline
+    \multicolumn{7}{c}{\textbf{Fit Parameter Values}} \\
+  \hline\hline
+    Parameter & 60h & HighKick & 9d & LowKick & SuperLowKick & Endgame \\
+  \hline
+    $N_{0}$ & 12 & 2.3389 & 2.9 & 81.8 & 5.12 & 7.7 \\
+    $\tau_{\mu}$ (\mus{}) & 12 & 2.3389 & 2.9 & 81.8 & 5.12 & 7.7 \\
+                                                     
+  \hline
+\end{tabular*}
+\caption[Fit parameter values versus dataset]{Fit parameters from ...\textbf{update numbers and such when results are final, including whether blinded or not, probably make R row bold, include errors and make it all look nice, do T method and R method side by side, state which parameters are fixed}}
+\label{tab:DatasetFitParametersValues}
+\end{table}
+% \end{landscape}
+
+
+
 
 
 In order to verify the integrity of the fit other checks are done ... 
