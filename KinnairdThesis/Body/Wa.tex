@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}}
+\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/Pileup/Scaling/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}}
 
 \chapter{\texorpdfstring{\wa}{wa} Measurement}
 \label{chapter:wa}
@@ -125,7 +125,7 @@ The optimal bin width for the time histograms was determined to be $\SI{149.2}{n
 As described in \secref{sec:Calorimeters}, there will be a certain amount of pileup in the detectors. Pileup again is the term for when multiple particles hit a calorimeter within the dead time of the detector such that they are registered as a single hit or cluster. The measured energy and time spectra for all observed clusters will include this pileup background. For the energy threshold time histogram, the number of counts will be wrong for cases where two below-threshold particles are registered as a single cluster above threshold, and where two above-energy threshold particles are registered as a single cluster. In the former, an extra count is added into the histogram, and in the latter a count is missed. The case where two lower energy positrons are registered as a single higher energy cluster will have a different \gmtwo phase than an actual single cluster at the same energy. This is because the lower energy positrons on average decay from muons which have travelled further around the ring, due to acceptance effects. These muons which have travelled further around the ring have spent more time in the magnetic field, and thus their spins have precessed more. See \figref{fig:PileupExample}. Clusters which originate from pileup events therefore have a different \gmtwo phase than non-pileup events. 
 
 
-If pileup was a constant effect, then the phase of the time histogram would be shifted by some constant amount, and the extracted \wa frequency would be unaffected. However, the rate of pileup in the detectors changes over the time of a fill, as muons decay away. The rate of double pileup events in the detectors, where the word double indicates cases where two hits are registered as a single cluster, will go approximately as half the rate of single hit events\footnote{It is not exact when including the non-linear dead time of the detectors}, and similarly for triple and higher orders of the pileup effect. Because the rate of hits in the detectors oscillates at the \gmtwo frequency, pileup will increase and decrease accordingly leading to oscillations in the pileup time spectra at \wa and 2\wa. The lifetime of the overall pileup effect is approximately half the lifetime at which clusters are registered in the detectors, at \taumu, since double pileup is the dominant contribution. In order to to extract the correct \wa frequency, the pileup effect thus needs to be included in the fit function or subtracted out of the data. The former is challenging due to the non-linear nature of the dead time of the detectors, and would in the end include another phase in the argument of the cosine term in the fit function, thus worsening the statistical precision of the extracted \wa frequency. All analyzers thus construct an approximation of the pileup effect and subtract it from the data before fitting.
+If pileup was a constant effect, then the phase of the time histogram would be shifted by some constant amount, and the extracted \wa frequency would be unaffected. However, the rate of pileup in the detectors changes over the time of a fill, as muons decay away. The rate of double pileup events in the detectors, where the word double indicates cases where two hits are registered as a single cluster, will go approximately as half the rate of single hit events\footnote{It is not exactly half when including the non-linear dead time of the detectors}, and similarly for triple and higher orders of the pileup effect. Because the rate of hits in the detectors oscillates at the \gmtwo frequency, pileup will increase and decrease accordingly leading to oscillations in the pileup time spectra at \wa and 2\wa. The lifetime of the overall pileup effect is approximately half the lifetime at which clusters are registered in the detectors, at \taumu, since double pileup is the dominant contribution. In order to to extract the correct \wa frequency, the pileup effect thus needs to be included in the fit function or subtracted out of the data. The former is challenging due to the non-linear nature of the dead time of the detectors, and would in the end include another phase in the argument of the cosine term in the fit function, thus worsening the statistical precision of the extracted \wa frequency. All analyzers thus construct an approximation of the pileup effect and subtract it from the data before fitting.
 
 
 % -need to mention the \% level effect of pileup - ~1\% but where do you get that number...
@@ -165,44 +165,88 @@ The value of the SGT is simply set to twice the SDT, in order to push the shadow
 \begin{figure}[]
     \centering
     \includegraphics[width=\textwidth]{ShadowPileupMethod}
-    \caption[Shadow pileup method]{}
+    \caption[Shadow pileup method]{The shadow pileup method looks for shadow clusters within a time window SDT, a small time away (SGT) from trigger clusters. If a shadow cluster is found, an artificial doublet is formed and included in the pileup spectra if it exceeds the chosen energy threshold.}
     \label{fig:ShadowPileupMethod}
 \end{figure}
 
 
-The pileup energy spectra as compared to the cluster energy spectra is shown in \figref{fig:ClusterEnergiesVsPileupEnergies}. In general, the two lobes starting at approximately $\SI{3}{\GeV}$ and $\SI{6}{\GeV}$ consist of double and triple pileup events respectively\footnote{All orders of pileup fill out the whole energy range, but certain areas consist of mostly one or the other.}. It can be seen that the shadow method of pileup construction produces a pileup energy spectra which is a decent approximation of the cluster energies above the maximum energy that a single decay positron would have at $(\SI{3.094}{\GeV}) + \text{detector resolution}$, for cases of double and even triple pileup. The shape difference arises from two factors: First, the shadow method is only written to construct doublets, and does not consider cases of triple or higher orders of pileup. Second, the real pileup in the data contaminates the construction of the shadow pileup spectra, such that a shadow doublet can be constructed from real pileup pulses. While this alleviates the triplet problem slightly, it means that the doublet pileup spectrum is slightly wrong. The corrected energy spectra (cluster energies minus pileup energies), can be seen in \figref{fig:AddedEnergies}. The shape mismatch is even more apparent as the corrected energy spectrum is high for energies above the expected tail of the true energy distribution, and then goes negative before tailing off to zero. It has been determined that regardless of this shape mismatch, the systematic error on the extracted \wa frequency due to the pileup is within the target uncertainty for the level of statistics in the Run~1 dataset, \secref{sub:pileuperror}. This is in part due to the fact that it is the pileup time spectrum that is most important, as opposed to the pileup energy spectrum. The pileup time spectrum for those pileup pulses above energy threshold is shown in \figref{fig:PileupTimeSpectrum}. Finally, since the pileup is statistically constructed and then subtracted from the data, the errors on the final time histogram are no longer Gaussian. The proper calculation of the errors is detailed in \appref{app:PileupErrors}.
+The pileup energy spectra as compared to the cluster energy spectra is shown in \figref{fig:ClusterEnergiesVsPileupEnergies}. In general, the two lobes starting at approximately $\SI{3}{\GeV}$ and $\SI{6}{\GeV}$ consist of double and triple pileup events respectively\footnote{All orders of pileup fill out the whole energy range, but certain areas consist of mostly one or the other.}. It can be seen that the shadow method of pileup construction produces a pileup energy spectra which is a decent approximation of the cluster energies above the maximum energy that a single decay positron would have at $(\SI{3.094}{\GeV}) + \text{detector resolution}$, for cases of double and even triple pileup. The shape difference arises from two factors: First, the shadow method is only written to construct doublets, and does not consider cases of triple or higher orders of pileup. Second, the real pileup in the data contaminates the construction of the shadow pileup spectra, such that a shadow doublet can be constructed from real pileup pulses. While this alleviates the triplet problem slightly, it means that the doublet pileup spectrum is slightly wrong. The corrected energy spectra (cluster energies minus pileup energies), can be seen in \figref{fig:AddedEnergies}. The shape mismatch is even more apparent as the corrected energy spectrum is high for energies above the expected tail of the true energy distribution, and then goes negative before tailing off to zero. 
 
 
     \begin{figure}[]
         \centering
         \includegraphics[width=\textwidth]{ClusterEnergiesVsPileupEnergies}
-        \caption[Cluster energies vs pileup energies]{Cluster energies in black are plotted vs pileup energies in red, for all calorimeters added together, plotted on a log scale. At energies below about 2.4 GeV the pileup energy spectrum goes negative. In this plot the absolute value of the pileup energies is plotted, and a spike at about 2.4 GeV can be seen as a consequence of this. The shapes do not match perfectly for the constructed pileup spectra, which can be seen at high energies. It should be noted that for energies above $\SI{3.094}{\GeV}$ there is still a shape mis-match even though the red and black curves overlap due to the plotting scale.\textbf{update pictures with latest data, improved captions, and plotting styles}}    
+        \caption[Cluster energies vs pileup energies]{Cluster energies in black are plotted vs pileup energies in red, for all calorimeters added together, plotted on a log scale. At energies below about 2.4 GeV the pileup energy spectrum goes negative. In this plot the absolute value of the pileup energies is plotted, and a spike at about 2.4 GeV can be seen as a consequence of this. The shapes do not match perfectly for the constructed pileup spectra, which can be seen at high energies. It should be noted that for energies above $\SI{3.094}{\GeV}$ there is still a shape mis-match even though the red and black curves overlap due to the plotting scale. Data from the 60h dataset.}    
         \label{fig:ClusterEnergiesVsPileupEnergies}
     \end{figure}
 
 
     \begin{figure}[]
     \centering
-        \begin{subfigure}[]{0.8\textwidth}
+        \begin{subfigure}[]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{AddedEnergies}
             \caption{Log scale - the corrected energy spectrum goes negative around 5 GeV.}
         \end{subfigure}% %you need this % here to add spacing between subfigures
-        \vspace{1cm}
-        \begin{subfigure}[]{0.8\textwidth}
+        \hspace{1cm}
+        \begin{subfigure}[]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{AddedEnergiesZoomed}
             \caption{Linear scale - zoomed in to show the shape.}
         \end{subfigure}
-    \caption[Non-corrected and pileup corrected cluster energies]{Plots for the pre-corrected and corrected energy spectra are shown, all calorimeters added together. Because the triplets and contamination are not accounted for, the corrected energy spectrum does not lie exactly along zero above the energy response of the detectors.\textbf{update pictures with latest data, improved captions, and plotting styles}}
+    \caption[Non-corrected and pileup corrected cluster energies]{Plots for the pre-corrected and corrected energy spectra are shown, all calorimeters added together. Because the triplets and contamination are not accounted for, the corrected energy spectrum does not lie exactly along zero above the energy response of the detectors. Data from the 60h dataset.}
     \label{fig:AddedEnergies}
     \end{figure}
+
+
+
+In order to produce a slightly better estimate of the pileup, a multiplier can be applied to the pileup energy and time spectra. By taking the ratio of cluster energies over pileup energies and fitting the region where the energies are dominated by real pileup doublets, a correction factor of approximately 3\% is found, as shown in \figref{fig:EnergyRatio}. Similarly, the cluster times can be examined for cluster energies over \SI{3500}{\MeV}, where the clusters consist purely of pileup pulses, \figref{fig:PileupTimesRatio}. By taking the ratio of the pileup corrected times over all times, the level of residual pileup can be determined. Just as in the ratio of the energies, an approximately 3\% factor is found. When applying this multiplier, the cluster times above \SI{3.5}{\GeV} can be seen to be eliminated as in \figref{fig:PileupTimesRatio}. As will be shown in \secref{sub:pileuperror}, the scale of this multiplier is well within $1\sigma$ of the pileup multiplier error. The final pileup time spectrum for those pileup pulses above energy threshold is shown in \figref{fig:PileupTimeSpectrum}. 
+
+
+    \begin{figure}[]
+        \centering
+        \includegraphics[width=.5\textwidth]{EnergyRatio}
+        \caption[Cluster energies divided by pileup energies]{Cluster energies over pileup energies. A region from \SI{3500}{}--\SI{4500}{\MeV} is fit to a straight line, where the doublets dominate the energy distribution. Data from the 9d dataset.}    
+        \label{fig:EnergyRatio}
+    \end{figure}
+
+
+    \begin{figure}[]
+    \centering
+        \begin{subfigure}[]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{PileupSubtractedTimesComparison-NoAutoScaling}
+            % \caption{Cluster t}
+        \end{subfigure}% %you need this % here to add spacing between subfigures
+        \hspace{1cm}
+        \begin{subfigure}[]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{PileupSubtractedTimesRatio-NoAutoScaling}
+            % \caption{}
+        \end{subfigure}
+
+        \begin{subfigure}[]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{PileupSubtractedTimesComparison-AutoScaling}
+            % \caption{}
+        \end{subfigure}% %you need this % here to add spacing between subfigures
+        \hspace{1cm}
+        \begin{subfigure}[]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{PileupSubtractedTimesRatio-AutoScaling}
+            % \caption{}
+        % \label{fig:correctedclustertimes}
+        \end{subfigure}
+    \caption[Cluster times above \SI{3.5}{\GeV}]{Cluster times and pileup corrected times for counts above \SI{3.5}{\GeV} (left) and their ratio (right). The top two plots are used to determine the approximate level of residual pileup left in the data, coming out to about 3\%. The bottom two plots show the application of that factor and the resulting removal of the remaining pileup. Data from the 9d dataset.}
+    \label{fig:PileupTimesRatio}
+    \end{figure}
+
 
 
     \begin{figure}[]
         \centering
         \includegraphics[width=\textwidth]{PileupTimeSpectrum}
-        \caption[Pileup time spectrum above threshold]{Plotted is constructed pileup time spectrum on a linear (left) and log (right) scale. The histogram on the right is fit to a simple two parameter exponential to get an idea of the lifetime of the pileup, calculated here as $\SI{31.99}{\mu s}$, which is close to half of the muon lifetime at about $\SI{64.44}{\mu s}$.\textbf{update pictures with latest data, improved captions, and plotting styles}}
+        \caption[Pileup time spectrum above threshold]{Plotted is constructed pileup time spectrum on a linear (left) and log (right) scale. The histogram on the right is fit to a simple two parameter exponential to get an idea of the lifetime of the pileup, calculated here as $\SI{31.99}{\micro s}$, which is close to half of the muon lifetime at about $\SI{64.44}{\micro s}$. Data from the 60h dataset.}
         \label{fig:PileupTimeSpectrum}
     \end{figure}
 
@@ -210,30 +254,13 @@ The pileup energy spectra as compared to the cluster energy spectra is shown in 
 
 
 
-% -should I show per calorimeter pileup energy and time spectra????
-
-    % \begin{figure}[]
-    %     \centering
-    %     \includegraphics[width=.8\textwidth]{CaloEnergies}
-    %     \caption[CaloEnergies]{Pre-corrected and corrected energy spectra for calorimeters 1, 7, 13, and 23 plotted on a log scale.}    
-    %     \label{fig:CaloEnergies}
-    % \end{figure}
-
-    % \begin{figure}[]
-    %     \centering
-    %     \includegraphics[width=.8\textwidth]{CaloEnergiesZoomed}
-    %     \caption[CaloEnergiesZoomed]{Pre-corrected and corrected energy spectra for calorimeters 1, 7, 13, and 23 plotted on a linear scale and zoomed in.}    
-    %     \label{fig:CaloEnergiesZoomed}
-    % \end{figure}
-
-
+It has been determined that regardless of any residual shape mismatch in the cluster times below \SI{3.5}{\GeV}, the systematic error on the extracted \wa frequency due to the pileup is within the target uncertainty for the level of statistics in the Run~1 dataset, \secref{sub:pileuperror}. For analyses past Run~1 where the error budget is reduced, it may be necessary to improve the shadow method to account for triplets and the contamination. Finally, since the pileup is statistically constructed and then subtracted from the data, the errors on the final time histogram are no longer Gaussian. The proper calculation of the errors is detailed in \appref{app:PileupErrors}.
 
 
 % https://gm2-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=13963&filename=PileupScaleShadowTesting.pdf&version=1
 % https://gm2-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=14394&filename=PileupFormEtc.pdf&version=2
 
 
-\clearpage %remove this once I've cleaned up the pileup figures
 
 \subsection{Ratio Method}
 \label{sub:ratio_method}
