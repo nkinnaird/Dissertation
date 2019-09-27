@@ -303,7 +303,7 @@ both of which are shown in \figref{fig:UVfuncs}. It is immediately apparent that
         R(t) &= \frac{V(t) - U(t)}{V(t) + U(t)}
     \label{eq:ratioUV}
     \end{align}
-where the numerator and denominator are plotted in Figures~\ref{fig:rationumfunc} and \ref{fig:ratiodenomfunc} respectively. The numerator is seen to be an exponentially decaying cosine, while the denominator is a simple exponential, both of which can be seen as originating from the difference and sum of the $U(t)$ and $V(t)$ data respectively. The resulting ratio spectrum can be seen in \figref{fig:ratiofunc}, where the exponential has been eliminated. The fit function is then reduced from five parameters down to three:
+where the numerator and denominator are plotted in Figures~\ref{fig:rationumfunc} and \ref{fig:ratiodenomfunc} respectively. The numerator is an exponentially decaying cosine, while the denominator is a simple exponential, both of which can be seen as originating from the difference and sum of the $U(t)$ and $V(t)$ data respectively. The resulting ratio spectrum can be seen in \figref{fig:ratiofunc}, where the exponential has been eliminated. The fit function is then reduced from five parameters down to three:
     \begin{align}
         R(t) \approx A \cos(\omega_{a}t) - C,
     \label{eq:ratiowithC}
@@ -312,21 +312,7 @@ where
     \begin{align}
         C = \frac{1}{16} \Big(\frac{T}{\tau}\Big)^{2} \approx 2.87 * 10^{-4},
     \end{align}
-and these functions have been determined from the time-shifted five parameter function plugged into the $U(t)$ and $V(t)$ variables. In addition to the exponential being eliminated, any slow terms in the data get time-shifted and divided as well, such that slow effects are reduced. In order to eliminate the constant $C$ at the end of \equref{eq:ratiowithC}, a different weighting scheme can be used as described in \refref{statisticspaper}:
-    \begin{equation}
-    \begin{aligned}
-        u_{+}(t) &= \frac{e^{T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t+T/2) \\
-        u_{-}(t) &= \frac{e^{-T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t-T/2) \\
-        v_{1}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t) \\
-        v_{2}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t)
-    \label{eqn:fourHistsInText}
-    \end{aligned}
-    \end{equation}
-Here $\tau = \gamma\tau_{\mu}$, and the factors out front are each close to $1/4$ and account for the degree of muon decay over a time period of \Tatwo. Similar to \Ta, the muon lifetime must be known a priori. It's value is taken as \mus{64.44}, determined from fits to the data. A systematic study regarding this parameter is described in \secref{sub:TimeShiftingParameters}. The ratio spectrum is then almost exactly described by just the cosine term,
-    \begin{align} \label{eq:threeparamratio}
-        R(t) \approx A \cos(\omega_{a}t),
-    \end{align}
-in the absence of other effects in the data. 
+and these functions have been determined from the time-shifted five parameter function plugged into the $U(t)$ and $V(t)$ variables. In addition to the exponential being eliminated, any slow terms in the data get time-shifted and divided as well, such that the amplitude of said slow effects are reduced. For faster effects, the degree of cancellation of the effect is dependent on the frequency. Effects at frequencies which are an odd multiple of \wa are preserved while effects at an even multiple of \wa are completely cancelled out. An example is shown in \figref{fig:CancellationInRatioMethod}. While this makes fitting the data easier in some cases, in others it is a downside that effects which still need to be included in the fit function now have their amplitudes reduced, making them harder to fit.
 
 
     \begin{figure}[]
@@ -371,6 +357,31 @@ in the absence of other effects in the data.
     \end{figure}
 
 
+    \begin{figure}[]
+        \centering
+        \includegraphics[width=.6\textwidth]{Fitted_Avw_Vs_Wvw_1x-10x}
+        \caption[Cancellation of effect in Ratio Method versus frequency]{Fitted amplitude for a VW effect as a function of frequency in units of \wa in a Toy MC simulation, with a five parameter function in red and a three parameter ratio function in black. The input amplitude was 0.05. The fall off of red points is due to the high frequencies relative to the bin widths leading to an underestimate of the amplitude; performing an integral fit removes this trend. As shown the amplitude of the effect goes to zero for frequencies which are an even multiple of \wa.}
+        \label{fig:CancellationInRatioMethod}
+    \end{figure}
+
+
+
+ In order to eliminate the constant $C$ at the end of \equref{eq:ratiowithC}, a different weighting scheme can be used as described in \refref{statisticspaper}:
+    \begin{equation}
+    \begin{aligned}
+        u_{+}(t) &= \frac{e^{T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t+T/2) \\
+        u_{-}(t) &= \frac{e^{-T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t-T/2) \\
+        v_{1}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t) \\
+        v_{2}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t)
+    \label{eqn:fourHistsInText}
+    \end{aligned}
+    \end{equation}
+Here $\tau = \gamma\tau_{\mu}$, and the factors out front are each close to $1/4$ and account for the degree of muon decay over a time period of \Tatwo. Similar to \Ta, the muon lifetime must be known a priori. It's value is taken as \mus{64.44}, determined from fits to the data. A systematic study regarding this parameter is described in \secref{sub:TimeShiftingParameters}. The ratio spectrum is then almost exactly described by just the cosine term,
+    \begin{align} \label{eq:threeparamratio}
+        R(t) \approx A \cos(\omega_{a}t),
+    \end{align}
+in the absence of other effects in the data. 
+
 
 
 
@@ -393,7 +404,7 @@ This reference frequency of $\SI{0.2291}{MHz}$ was the same reference frequency 
     \begin{figure}[]
         \centering
         \includegraphics[width=.8\textwidth]{FFT_fiveParameter}
-        \caption[FFT of five parameter fit residuals]{FFT of five parameter fit residuals. Peaks corresponding to beam dynamics frequencies of the CBO and VW and some beat frequencies with \wa are readily apparent. A rise at low frequencies corresponds to the effects of the lost muons in the data. \textbf{update picture with latest data results}}
+        \caption[FFT of five parameter fit residuals]{FFT of five parameter fit residuals. Peaks corresponding to beam dynamics frequencies of the CBO and VW and some beat frequencies with \wa are readily apparent. A rise at low frequencies corresponds to the effects of the lost muons in the data. From the 60h dataset.}
         \label{fig:FFT_fiveParameter}
     \end{figure}
 
@@ -402,7 +413,7 @@ This reference frequency of $\SI{0.2291}{MHz}$ was the same reference frequency 
         f(t) = \Lambda(t) \cdot V(t) \cdot N_{cbo}(t) \cdot \boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\tau}} \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))),
     \label{eq:TmethodFunction}
     \end{align}
-where many additional terms have been added in order to account for effects in the data. The various additional terms $\{N_{cbo}(t), A_{cbo}(t), \phi_{cbo}(t), V(t), \Lambda(t)\}$ are described in the following sections. Fitting the data with this function, referred to as the ``Threshold Method'' or just ``T-Method,'' while not the subject of this dissertation, was done in this analysis as a diagnostic tool for the ratio method analysis. 
+where many additional terms have been added in order to account for effects in the data. The various additional terms $\{N_{cbo}(t), A_{cbo}(t), \phi_{cbo}(t), V(t), \Lambda(t)\}$ are described in the following sections. Fitting the data with this function, referred to as the ``Threshold Method'' or just ``T-Method,'' while not the subject of this dissertation, was done in this analysis as a diagnostic and informative tool for the Ratio Method analysis. 
 
 
 In order to fit the ratio time spectra as constucted in \secref{sub:ratio_method}, a different function is used. While the immediate inclination is to use an expansion of \equref{eq:threeparamratio} with included additional effects similar to the T-Method fit function, instead the fit function used is a return to the explicit definition of the construction of the ratio time spectra in Equations~\ref{eq:UandV} and \ref{eq:ratioUV}. Including the additional effects previously mentioned, the fit function goes as
@@ -412,7 +423,7 @@ In order to fit the ratio time spectra as constucted in \secref{sub:ratio_method
         f(t) = \Lambda(t) \cdot V(t) \cdot N_{cbo}(t) \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))).
     \label{eq:fullratiofunction}
     \end{gather}
-The $f(t)$ given here differs from that in \equref{eq:TmethodFunction} in that the $\boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\tau}}$ terms have divided out, thus reducing the number of fit parameters necessary to model the data. Using this function as opposed to an expansion of the three parameter ratio function eliminates any approximations made in that three parameter function derivation, and any fit parameters should be identical in value between the T-Method and Ratio Method results. It should be noted here that while the ratio method reduces the sensitivity of the \wa extraction to various effects in the data, those effects still need to be included in the fit function for a proper estimatation of \wa. Because of the reduction in sensitivity, there are some parameters which the ratio has trouble fitting by itself. Using the T-Method fit function is then a useful tool for constraining these specific parameters.
+The $f(t)$ given here differs from that in \equref{eq:TmethodFunction} in that the $\boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\tau}}$ terms have divided out, thus reducing the number of fit parameters necessary to model the data. Using this function as opposed to an expansion of the three parameter ratio function eliminates any approximations made in that three parameter function derivation, and any fit parameters should be consistent in value between the T-Method and Ratio Method results, barring adjustments due to the application of the Ratio Method. It should be noted here that while the Ratio Method reduces the sensitivity of the \wa extraction to various effects in the data, those effects typically still need to be included in the fit function for a proper estimatation of \wa. Because of the reduction in sensitivity, there are some parameters which the ratio has trouble fitting by itself. Using the T-Method fit function is then a useful tool for constraining these specific parameters.
 
 
 
@@ -420,7 +431,7 @@ The $f(t)$ given here differs from that in \equref{eq:TmethodFunction} in that t
 \label{sub:cboterms}
 
 
-As described in \secref{sub:CBO}, the CBO modulates the \wa oscillation. This shows up as a first order modification on the five parameter function parameters $\{N_{0}, A, \phi\} \rightarrow \{N_{0} \cdot N_{cbo}(t), A_{cbo}(t), \phi_{cbo}(t)\}$ where these terms are given as
+As described in \secref{sub:CBO}, the CBO modulates the \wa oscillation. This shows up as a modification on the five parameter function parameters $\{N_{0}, A, \phi\} \rightarrow \{N_{0} \cdot N_{cbo}(t), A_{cbo}(t), \phi_{cbo}(t)\}$ where these terms are given to first order as
     \begin{align}
         N_{cbo}(t) &= (1 + \boldsymbol{A_{cbo-N}} \cdot e^{-t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{cbo-N}})) \label{eq:Ncbo} \\ 
         A_{cbo}(t) &= \boldsymbol{A} \cdot (1 + \boldsymbol{A_{cbo-A}} \cdot e^{-t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{cbo-A}})) \label{eq:Acbo} \\ 
@@ -430,7 +441,7 @@ In \equref{eq:Ncbo} the $N_{0}$ term is left out since the ratio fit includes th
     \begin{align} \label{eq:CBOfreqForm}
         \omega_{cbo}(t) = \boldsymbol{\omega_{cbo}} \cdot \Big(1 + \frac{Ae^{(-t/\tau_{A})}}{\omega_{0}t} + \frac{Be^{(-t/\tau_{B})}}{\omega_{0}t}\Big),
     \end{align}
-where $\boldsymbol{\omega_{cbo}}$ is the free fit parameter, and the model parameters $\{\omega_{0}, A, \tau_{A}, B, \tau_{B}\}$ are fixed from the tracking analysis. These parameters for the various datasets and stations are given in \tabref{tab:CBOFrequencyParameters}. 
+where $\boldsymbol{\omega_{cbo}}$ is the free fit parameter, and the model parameters $\{\omega_{0}, A, \tau_{A}, B, \tau_{B}\}$ are fixed from the tracking analysis. These parameters for the various datasets and two tracker stations are given in \tabref{tab:CBOFrequencyParameters}. 
 
 
 
@@ -446,7 +457,7 @@ where $\boldsymbol{\omega_{cbo}}$ is the free fit parameter, and the model param
   \hline\hline
     Dataset & Tracker Station & $\omega_{0}$ (rad/\mus{}) & $A$ (rad) & $\tau_{A}$ (\mus{}) & $B$ (rad) & $\tau_{B}$ (\mus{}) \\
   \hline
-    \multirow{2}{*}{60H} & 12 & 2.3389 & 2.9 & 81.8 & 5.12 & 7.7 \\
+    \multirow{2}{*}{60h} & 12 & 2.3389 & 2.9 & 81.8 & 5.12 & 7.7 \\
                          & 18 & 2.3387 & 2.82 & 81.1 & 5.08 & 8.2 \\
   \hline
     \multirow{2}{*}{HighKick} & 12 & 2.6145 & 3.27 & 52.8 & 6.96 & 6.6 \\
@@ -465,17 +476,24 @@ where $\boldsymbol{\omega_{cbo}}$ is the free fit parameter, and the model param
                              & 18 & 2.3379 & 7.44 & 95.2 & 4.90 & 9.2 \\                                                        
   \hline
 \end{tabular*}
-\caption[Dataset CBO frequency model parameters]{Fixed parameters in the CBO frequency model \cite{CBOFreqTrackingElog,JamesPersonalComm}. \textbf{Here I source personal communication with James, as I don't think there's an actual presentation with these numbers anywhere. Plus these numbers might change if certain runs and things are dropped out.}}
+\caption[Dataset CBO frequency model parameters]{Fixed parameters in the CBO frequency model \cite{CBOFreqTrackingElog,JamesPersonalComm}. \textbf{Here I source personal communication with James, as I don't think there's a source for the HighKick numbers.}}
 \label{tab:CBOFrequencyParameters}
 \end{table}
 % \end{landscape}
 
 
-Two things should be noted here. The first is that Equations~\ref{eq:Acbo} and \ref{eq:Phicbo} are not necessarily needed in order to properly describe the data, whereas \equref{eq:Ncbo} always is. This is typically dataset or random seed dependent, and terms are dropped from the fit function if the parameter amplitudes are the same value or smaller than their respective errors. The second is that Equations~\ref{eq:Ncbo}-\ref{eq:Phicbo} are a first order modification on the fit parameters, whereas there is reason to believe that higher orders of beam dynamics effects exist in the data even if they are too small to see. As the $N_{cbo}(t)$ is the largest, it stands to reason that the second order term $N_{2cbo}(t)$ is also the largest of the second order terms. Including this term is sometimes necessary in fitting the data, and the form is given as
+It should be noted that Equations~\ref{eq:Acbo} and \ref{eq:Phicbo} are not necessarily needed in order to get good fits to the data (whereas \equref{eq:Ncbo} always is). This is typically dataset or random seed dependent. While some datasets had certain parameters with large errors relative to their amplitudes, for this analysis all terms were successfully included in all dataset fits with appropriate tuning of the starting parameters with well converging fits. 
+
+
+When considering higher order CBO modifications to the fit function, the only term that was found to be fittable was the second order CBO modulation on the $\boldsymbol{N_{0}}$ term, 
     \begin{align}
         N_{2cbo}(t) &= (1 + \boldsymbol{A_{2cbo-N}} \cdot e^{-2t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{2cbo-N}})). \label{eq:N2cbo}
     \end{align}
-It should be noted that the form is assumed to be the same, except the lifetime of the effect is half the CBO lifetime, $\tau_{cbo}/2$. This is due to the fact that the $N_{2cbo}(t)$ is reasoned to come from the width of the oscillating beam, as opposed to the oscillating mean.  Finally, as will be shown in \secref{sub:per_calorimeter_fits}, each of these individual CBO terms described here is necessary in order to fit the individual calorimeters, where the CBO effect is stronger compared to the sum of the calorimeter data. Systematic studies relating to the choice of envelope, inclusion of various beam dynamics terms, and choice of fixed parameters in the frequency model are explored in \secref{sub:cboerror}.
+This stands to reason as the $N_{cbo}(t)$ is the largest CBO effect. The form is assumed to be the same as the first order CBO terms, except the lifetime of the effect is half the CBO lifetime, $\tau_{cbo}/2$. This is due to the fact that the $N_{2cbo}(t)$ is reasoned to come from the width of the oscillating beam, as opposed to the oscillating mean. Indeed as will be shown in \secref{sub:per_calorimeter_fits}, the inclusion of this term is necessary to get good fits to the per calorimeter data, where the CBO effect is stronger compared to in the sum of the calorimeter data. For this reason, and again because the $N_{2cbo}(t)$ term is fittable in the calorimeter sum data, this term is included in fits to each of the datasets.
+
+
+Systematic studies relating to the choice of envelope and choice of fixed parameters in the frequency model are explored in \secref{sub:cboerror}. For future runs beyond Run~1, it may be necessary to include the higher order modifications to the $\boldsymbol{A}$ and $\boldsymbol{\phi}$ terms.
+
 
 
 \subsection{VW term}
