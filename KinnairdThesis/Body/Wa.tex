@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}}
+\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}}
 
 \chapter{\texorpdfstring{\wa}{wa} Measurement}
 \label{chapter:wa}
@@ -101,36 +101,21 @@ Energy and time histograms are made for each individual calorimeter. These are s
     \centering
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{TemporaryEThresholdNA2}
+            \includegraphics[width=\textwidth]{FiveParameter_NAsq_Vs_ETh_9d}
             \caption{}
         \end{subfigure}
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{TemporaryEThresholdRatio}
+            \includegraphics[width=\textwidth]{FullRatio_sigmaR_Vs_ETh_9d}
             \caption{}
         \end{subfigure}% 
-    \caption[Determination of optimal energy threshold]{The optimal energy threshold can be determined from the $NA^{2}$ quantity as described in \secref{section:WaIntro} from a five parameter fit to the data (left), or from the calculated error with the final fit function (right). \textbf{temporary energy threshold plots - replace - also not sure how to introduce R and ratio fit stuff here when I haven't talked about it yet}}
+    \caption[Determination of optimal energy threshold]{The optimal energy threshold can be determined from the $NA^{2}$ quantity as described in \secref{section:WaIntro} from five parameter fits to the data (left), or from the calculated error with the final fit function (right). The maximum and minimum are determined using seven parameter polynomial fits to the relevant quantities. The optimal threshold varies slightly per calorimeter and per dataset. Since the region of the minimum is flat, a single energy threshold of 1700 \MeV was chosen. These plots come from analyses to the 9d dataset.}
     \label{fig:OptimalEnergyThreshold}
     \end{figure}
 
-% \begin{figure}[]
-%     \centering
-%     % \includegraphics[width=0.9\textwidth]{OptimalEnergyThreshold}
-%     \rule{10cm}{10cm}
-%     \caption[put caption here]{put a picture of the scanned optimal energy threshold here}
-%     \label{fig:OptimalEnergyThreshold}
-% \end{figure}
 
+The optimal bin width for the time histograms was determined to be $\SI{149.2}{ns}$, the average of the cyclotron periods determined from a fast rotation analysis to the data \cite{fastrotationsomething}. As described in \secref{sub:beam_debunching}, this bin width combined with a time randomization on each cluster over a range of $\pm T_{c}/2 = \SI{149.2}{ns} / 2$ serves to eliminate the fast rotation signal in the data\footnote{Some analyzers randomize all times in a single fill by half the cyclotron period as opposed to each individual pulse.}. This randomization is done using \ROOT's \texttt{TRandom3} class. As will be described in \secref{sub:vw_term}, the cluster times are also randomized by $\pm T_{VW}/2$, where $T_{VW}$ is determined per dataset. This is done in order to remove the effects of the VW in the data. \textbf{Should I put the actual numbers here? Need to look them up again.} The default random seed for each histogram \ROOT file is the hash of the input file name using C++'s standard hash class. Histograms are defined with a time range of 0--\mus{699.8972} (the closest integer multiple of the bin width to \mus{700}), corresponding to 4691 bins. Clusters with times $<$ \mus{25} or $>$ \mus{660} are dropped, corresponding to 4256 bins containing data.
 
-The optimal bin width for the time histograms was determined to be $\SI{149.2}{ns}$, the average of the cyclotron periods determined from a fast rotation analysis to the data \cite{fastrotationsomething}. As described in \secref{sub:beam_debunching}, this bin width combined with a time randomization on each cluster over a range of $\pm T_{c}/2 = \SI{149.2}{ns} / 2$ serves to eliminate the fast rotation signal in the data\footnote{Some analyzers randomize all times in a single fill by half the cyclotron period as opposed to each individual pulse.}. This randomization is done using \ROOT's \texttt{TRandom3} class. The default random seed for each histogram \ROOT file is the hash of the input file name using C++'s standard hash class. Histograms are defined with a time range of 0--\mus{699.8972} (the closest integer multiple of the bin width to \mus{700}), corresponding to 4691 bins. Clusters with times $<$ \mus{25} or $>$ \mus{660} are dropped, corresponding to 4256 bins containing data.
-
-
-
-
--include sam dataset names here or in the run 1 section?
--I should probably talk a little bit about the energy spectra as well
-- need to mention how the spectra are split into different calorimeters
--should I show an energy spectra here without the pileup subtracted - I need to talk about the lost muon peak 
 
 
 \subsection{Pileup subtraction}
@@ -467,8 +452,9 @@ It should be noted that the form is assumed to be the same, except the lifetime 
 
 
 \subsection{VW term}
+\label{sub:vw_term}
 
-\textbf{write some stuff here on the VW as I see it now, don't worry about getting it exactly right here because I still need to figure out exactly how to handle it in the data}
+\textbf{include latest VW work, some plots, etc.}
 
 
 While still a beam dynamics term, the VW effect is treated slightly differently due to complications with the ratio method. The form for the VW term is taken identically to the CBO terms, 
