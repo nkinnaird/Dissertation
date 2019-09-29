@@ -114,7 +114,7 @@ Energy and time histograms are made for each individual calorimeter. These are s
     \end{figure}
 
 
-The optimal bin width for the time histograms was determined to be $\SI{149.2}{ns}$, the average of the cyclotron periods determined from a fast rotation analysis to the data \cite{fastrotationsomething}. As described in \secref{sub:beam_debunching}, this bin width combined with a time randomization on each cluster over a range of $\pm T_{c}/2 = \SI{149.2}{ns} / 2$ serves to eliminate the fast rotation signal in the data\footnote{Some analyzers randomize all times in a single fill by half the cyclotron period as opposed to each individual pulse.}. This randomization is done using \ROOT's \texttt{TRandom3} class. As will be described in \secref{sub:vw_term}, the cluster times are also randomized by $\pm T_{VW}/2$, where $T_{VW}$ is determined per dataset. This is done in order to remove the effects of the VW in the data. \textbf{Should I put the actual numbers here? Need to look them up again.} The default random seed for each histogram \ROOT file is the hash of the input file name using C++'s standard hash class. Histograms are defined with a time range of 0--\mus{699.8972} (the closest integer multiple of the bin width to \mus{700}), corresponding to 4691 bins. Clusters with times $<$ \mus{25} or $>$ \mus{660} are dropped, corresponding to 4256 bins containing data.
+The optimal bin width for the time histograms was determined to be $\SI{149.2}{ns}$, the average of the cyclotron periods determined from a fast rotation analysis to the data \cite{fastrotationsomething}. As described in \secref{sub:beam_debunching}, this bin width combined with a time randomization on each cluster over a range of $\pm T_{c}/2 = \SI{149.2}{ns} / 2$ serves to eliminate the fast rotation signal in the data\footnote{Some analyzers randomize all times in a single fill by half the cyclotron period as opposed to each individual pulse.}. This randomization is done using \ROOT's \texttt{TRandom3} class. As will be described in \secref{sub:vw_term}, the cluster times are also randomized by $\pm T_{VW}/2$, where $T_{VW}$ is determined per dataset. This is done in order to remove the effects of the VW in the data. \textbf{Should I put the actual numbers here? Need to look them up again.} The default random seed for each histogram \ROOT file is the hash of the input file name using C++'s standard hash class. Histograms are defined with a time range of 0--\mus{699.8972} (the closest integer multiple of the bin width to \mus{700}), corresponding to 4691 bins. Clusters with times less than \mus{25} or greater than \mus{660} are dropped, corresponding to 4256 bins containing data.
 
 
 
@@ -499,10 +499,61 @@ Systematic studies relating to the choice of envelope and choice of fixed parame
 \subsection{VW term}
 \label{sub:vw_term}
 
-\textbf{include latest VW work, some plots, etc.}
+As mentioned briefly at the end of \secref{sec:Histogramming}, the VW effect is time-randomized out of the data, such that $V(t) = 1$. This is done due to complications with the Ratio Method. In the 60h and Endgame datasets, the VW frequency was found to be nearly 10 $\cdot$ \wa, on a potential resonance. While to first order this even multiple frequency implies the VW effect should completely cancel in the Ratio Method, \figref{fig:CancellationInRatioMethod}, the FR effect in combination with the VW leads to a complicated envelope for the VW effect in the Ratio Method fits and inflated VW amplitudes \cite{VWinRatio}. See Figures~\ref{fig:VWresonance} and \ref{fig:JamesMC_VW_FR}.
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.7\textwidth]{AvwResonance_60h}
+    \caption[VW amplitude resonance in the 60h dataset]{Fitted VW amplitude as a function of the choice of \gmtwo period offset in units of thousands of ppm for the 60h dataset. The default time-shift used lies at 0 on this plot, right on the resonance where the VW amplitude blows up. Only by time-shifting by a drastically different amount (which negatively affects R), can the resonance be avoided.}
+    \label{fig:VWresonance}
+\end{figure}
 
 
-While still a beam dynamics term, the VW effect is treated slightly differently due to complications with the ratio method. The form for the VW term is taken identically to the CBO terms, 
+\begin{figure}[]
+\centering
+    \begin{subfigure}[t]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{JamesMC_noFR}
+        \caption{Without the FR effect included.}
+    \end{subfigure}%
+
+    \begin{subfigure}[t]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{JamesMC_withFR}
+        \caption{With the FR effect included.}
+    \end{subfigure}
+\caption[]{Ratio data with and without the FR effect from a Toy MC simulation, with a VW effect with a frequency $f_{VW} = 10 \cdot \omega_{a}$. The \wa wiggle itself has been removed, and the lifetime of the VW was set to a large number. The top plot shows ratio data which is consistent with 0 after all effects have been removed and the VW has divided out. The bottom plot shows ratio data inconsistent with 0, with oscillations at the VW frequency, and an interesting beating structure. Note the different scales.}
+\label{fig:JamesMC_VW_FR}
+\end{figure}
+
+
+For the 9d dataset which has a VW frequency that's nearly 9 $\cdot$ \wa and avoids said resonance (and by extension the HighKick), it was found that the Ratio Method flattened out the VW amplitudes as a function of calorimeter leading to a systematically smaller VW amplitude in the calorimeter sum fit. The simplest solution to remove both of these problems was to randomize out the VW effect entirely. \tabref{tab:A_change} gives the change in asymmetry and corresponding change in the statistical error on R due to this added time randomization for three of the Run~1 datasets. It was found that the added randomization increased the statistical error on R by a negligible amount for the Run~1 analysis. It was also found that the added level of time-randomization changed the mean value R for many random seed fits to the data by a small amount, statistically consistent without the extra randomization \cite{VWinRatio}. Going forward for the future runs, it may be necessary to include the proper VW envelope in the fits using a functional form of the FR instead of randomizing out the effect.
+
+\begin{table}[]
+\centering
+\small
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lcccc}
+  \hline
+    \multicolumn{5}{c}{\textbf{Change in Asymmetry due to VW Randomization}} \\
+  \hline\hline
+    Dataset & $A$ no randomization & $A$ with randomization & $\Delta A$ & $\Delta \sigma_{R}$ (ppb) \\
+  \hline
+    60h & $0.3697$ & $0.3637$ & $-0.0060$ & $22.7$ \\
+  \hline
+    9d & $0.3714$ & $0.3639$ & $-0.0075$ & $18.1$ \\
+  \hline
+    Endgame & $0.3747$ & $0.3686$ & $-0.0061$ & $10.7$ \\
+  \hline
+\end{tabular*}
+\caption[]{Asymmetry values in three of the Run!1 datasets with and without the VW randomization, and the corresponding change in the statistical error on R. An energy cut of 1700 MeV was applied to the data. The HighKick dataset has the lowest asymmetry and the least statistics, so the increase in the statistical error would be negligible as it is for the other datasets.}
+\label{tab:A_change}
+\end{table}
+
+
+
+Barring the envelope changes in the Ratio Method, here is still given the form for the VW in the T-Method fits in case it is useful later on. The form for the VW term is taken identically to the CBO terms, 
     \begin{align} \label{eq:VWterm}
         V(t) = 1 + \boldsymbol{A_{VW}} \cdot e^{-t/\boldsymbol{\tau_{VW}}} \cos(\omega_{VW}(t) \cdot t + \boldsymbol{\phi_{VW}}), 
     \end{align}
@@ -520,47 +571,6 @@ where $f_{cbo}(t) = \omega_{cbo}(t)/2\pi$ is determined in the tracking analysis
         \omega_{VW}(t) = 2\pi \Big(f_{c} - 2 \cdot \boldsymbol{\kappa_{VW}} \cdot f_{cbo}(t)\sqrt{2f_{c}/(\boldsymbol{\kappa_{VW}} \cdot f_{cbo}(t))-1}\Big),
     \end{align}
 where now the VW frequency fit parameter is $\boldsymbol{\kappa_{VW}}$. The origin of this extra factor is unclear, whether it is a tracker measurement issue, something to do with the frequency function approximation, or if it has something to do with the electrostatic quadrupoles.
-
-
-In the fitting of the ratio...
-
-
-\begin{figure}[]
-    \centering
-    \includegraphics[width=\textwidth]{VWRatioDiff}
-    \caption[Difference in ratio value with and without the VW effect as a function of VW frequency]{Plotted is the difference in the maximum value of the ratio with and without a VW function included, as a function of both the amplitude of the VW effect and the VW frequency in units of the \gmtwo frequency, in a toy Monte-Carlo simulation. Note that this is not $\boldsymbol{R}$ the frequency fit parameter, but the actual value of the ratio fit function. The difference reaches a minimum for even multiples of the \gmtwo frequency, where the VW effect divides out almost entirely. The $n = 0.108$ datasets, including the 60h and Endgame datasets, live at the bottom center of this plot, marked by a red circle, where the VW frequency is nearly equal to 10 times the \gmtwo frequency, and the difference in the ratio is approximately \SI{5e-6}{} at 30 $\mu s$. Plot courtesy of James Mott. \textbf{update picture as necessary}}
-    \label{fig:VWRatioDiff}
-\end{figure}
-
-
-\begin{figure}[]
-\centering
-    \begin{subfigure}[]{0.46\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Fitted_Avw_Vs_Wvw-9x-10x}
-        \caption{}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \hspace{1cm}
-    \begin{subfigure}[]{0.46\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Fitted_Avw_Vs_Wvw-10x}
-        \caption{}
-    \end{subfigure}
-\caption[]{\textbf{update pictures as needed}}
-\label{fig:}
-\end{figure}
-
-
-
-
-
-
-
-
-parameters typically fixed in ratio method...
-include James plot
-include my plot I think showing essentially the same thing and describe it briefly
-might want to just include an early time FFT with no caption or anything just temporarily in case I end up putting that in
 
 
 
@@ -701,17 +711,28 @@ In order to verify the integrity of the fit other checks are done ...
 \label{sub:per_calorimeter_fits}
 
 
+\subsection{Fit start scans}
+
+-include here the Kawall band equation as well as the full form
+
+
+\subsection{Fit end scans}
+
+\subsection{Fits to many random seeds}
+
+\subsection{Energy threshold scan fits}
+
+-should include here plots of A and N as well as R
+
 
 
 \clearpage
 
 -put here paramter values and all that for single seed fits to the individual datasets
+-modulo plots
+-maybe correlation matrix plots - or maybe those go into an appendix
 -include FFT plots and pull plots 
 -perhaps include or reference the average value of R
--fit start scans go here
--per calorimeter fits go here
--use Elba figures for now - just 9d, to put things into persepctive and order, and then I can go back later and include what I need to
-
 
 
 
@@ -788,13 +809,22 @@ For errors relating to the choice of SDT and SGT - the idea is this: Show the pl
 
 
 
-\subsection{gm2 period guess and muon lifetime}
+\subsection{gm2 period guess and muon lifetime - Ratio construction parameters}
 \label{sub:TimeShiftingParameters}
+
+
+
+\subsection{Fits to bunch number}
+
+
+\subsection{Binning}
+
 
 
 \subsection{Systematic error summary}
 
 -include here a big table (with each of the individual errors making up say pileup and the like) of all systematic errors
+
 
 
 \cleardoublepage
