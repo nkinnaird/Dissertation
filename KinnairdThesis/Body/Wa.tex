@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/Pileup/Scaling/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}}
+\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/Pileup/Scaling/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}}
 
 \chapter{\texorpdfstring{\wa}{wa} Measurement}
 \label{chapter:wa}
@@ -60,7 +60,7 @@ The last part of the calorimeter reconstruction is the clustering. Clustering is
 
 
 
-\section{Construction of hit energy and time spectra}
+\section{Construction of positron hit energy and time spectra}
 \label{sec:Histogramming}
 
 
@@ -95,7 +95,15 @@ It should be noted that some of the parameter choices for the constructed histog
 \end{table}
 
 
-Energy and time histograms are made for each individual calorimeter. These are summed together to form histograms of all hit times and energies. An energy threshold is applied to the clusters before filling the time histograms. As described at the end of \secref{section:WaIntro}, the optimal energy threshold is where the quantity $NA^{2}$ reaches the maximum, at least in the case of a five parameter fit\footnote{Using the final fit function and looking at the error directly on the fitted \wa frequency, a slightly better estimate can be found.}. By scanning over the choice of energy threshold and fitting the resulting time spectra with \equref{eq:5parfunc}, the optimal energy threshold can be determined as seen in \figref{fig:OptimalEnergyThreshold}. The optimal choice of energy threshold was determined to be $\SI{1700}{\MeV}$, in accordance with the cluster reconstruction energy calibration. 
+Energy and time histograms are made for each individual calorimeter. These are summed together to form histograms of all hit times and energies. \figref{fig:energyHist} shows a sample energy spectrum for the Endgame dataset. An energy threshold is applied to the clusters before filling the time histograms. As described at the end of \secref{section:WaIntro}, the optimal energy threshold is where the quantity $NA^{2}$ reaches the maximum, at least in the case of a five parameter fit\footnote{Using the final fit function and looking at the error directly on the fitted \wa frequency, a slightly better estimate can be found.}. By scanning over the choice of energy threshold and fitting the resulting time spectra with \equref{eq:5parfunc}, the optimal energy threshold can be determined as seen in \figref{fig:OptimalEnergyThreshold}. The optimal choice of energy threshold was determined to be $\SI{1700}{\MeV}$, in accordance with the cluster reconstruction energy calibration. 
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.7\textwidth]{basicEnergyHist}
+    \caption[Sample energy spectrum]{Energy spectrum for hits in all calorimeters for the Endgame dataset on a linear scale. The peak at about 170 \MeV corresponds to lost muons.}
+    \label{fig:energyHist}
+\end{figure}
+
 
     \begin{figure}[]
     \centering
@@ -499,12 +507,12 @@ Systematic studies relating to the choice of envelope and choice of fixed parame
 \subsection{VW term}
 \label{sub:vw_term}
 
-As mentioned briefly at the end of \secref{sec:Histogramming}, the VW effect is time-randomized out of the data, such that $V(t) = 1$. This is done due to complications with the Ratio Method. In the 60h and Endgame datasets, the VW frequency was found to be nearly 10 $\cdot$ \wa, on a potential resonance. While to first order this even multiple frequency implies the VW effect should completely cancel in the Ratio Method, \figref{fig:CancellationInRatioMethod}, the FR effect in combination with the VW leads to a complicated envelope for the VW effect in the Ratio Method fits and inflated VW amplitudes \cite{VWinRatio}. See Figures~\ref{fig:VWresonance} and \ref{fig:JamesMC_VW_FR}.
+As mentioned briefly at the end of \secref{sec:Histogramming}, the VW effect is time-randomized out of the data, such that $V(t) = 1$. This is done due to complications with the Ratio Method. In the 60h and Endgame datasets, the VW frequency was found to be nearly 10 $\cdot$ \wa, on a potential resonance. While to first order this even multiple frequency implies the VW effect should completely cancel out in the Ratio Method, \figref{fig:CancellationInRatioMethod}, the FR effect in combination with the VW leads to a modified envelope for the VW effect in the Ratio Method fits and inflated VW amplitudes \cite{VWinRatio}. See Figures~\ref{fig:VWresonance} and \ref{fig:JamesMC_VW_FR}.
 
 \begin{figure}[]
     \centering
     \includegraphics[width=.7\textwidth]{AvwResonance_60h}
-    \caption[VW amplitude resonance in the 60h dataset]{Fitted VW amplitude as a function of the choice of \gmtwo period offset in units of thousands of ppm for the 60h dataset. The default time-shift used lies at 0 on this plot, right on the resonance where the VW amplitude blows up. Only by time-shifting by a drastically different amount (which negatively affects R), can the resonance be avoided.}
+    \caption[VW amplitude resonance in the 60h dataset]{Fitted VW amplitude as a function of the choice of  offset from $T_{a}$ in units of thousands of ppm for the 60h dataset. The default time-shift lies at 0 on this plot, right on the resonance where the VW amplitude blows up. Only by time-shifting by a drastically different amount (which negatively affects R), can the resonance be avoided.}
     \label{fig:VWresonance}
 \end{figure}
 
@@ -522,12 +530,12 @@ As mentioned briefly at the end of \secref{sec:Histogramming}, the VW effect is 
         \includegraphics[width=\textwidth]{JamesMC_withFR}
         \caption{With the FR effect included.}
     \end{subfigure}
-\caption[]{Ratio data with and without the FR effect from a Toy MC simulation, with a VW effect with a frequency $f_{VW} = 10 \cdot \omega_{a}$. The \wa wiggle itself has been removed, and the lifetime of the VW was set to a large number. The top plot shows ratio data which is consistent with 0 after all effects have been removed and the VW has divided out. The bottom plot shows ratio data inconsistent with 0, with oscillations at the VW frequency, and an interesting beating structure. Note the different scales.}
+\caption[]{Ratio data with and without the FR effect from a Toy MC simulation, with a VW effect with a frequency $\omega_{VW} = 10 \cdot \omega_{a}$. The \wa wiggle itself has been removed, and the lifetime of the VW was set to a large number. The top plot shows ratio data which is consistent with 0 after all effects have been removed and the VW has divided out. The bottom plot shows ratio data inconsistent with 0, with oscillations at the VW frequency, and an interesting beating structure. Note the different scales.}
 \label{fig:JamesMC_VW_FR}
 \end{figure}
 
 
-For the 9d dataset which has a VW frequency that's nearly 9 $\cdot$ \wa and avoids said resonance (and by extension the HighKick), it was found that the Ratio Method flattened out the VW amplitudes as a function of calorimeter leading to a systematically smaller VW amplitude in the calorimeter sum fit. The simplest solution to remove both of these problems was to randomize out the VW effect entirely. \tabref{tab:A_change} gives the change in asymmetry and corresponding change in the statistical error on R due to this added time randomization for three of the Run~1 datasets. It was found that the added randomization increased the statistical error on R by a negligible amount for the Run~1 analysis. It was also found that the added level of time-randomization changed the mean value R for many random seed fits to the data by a small amount, statistically consistent without the extra randomization \cite{VWinRatio}. Going forward for the future runs, it may be necessary to include the proper VW envelope in the fits using a functional form of the FR instead of randomizing out the effect.
+For the 9d dataset which has a VW frequency that's nearly 9 $\cdot$ \wa and avoids said resonance (and by extension the HighKick), it was found that the Ratio Method flattened out the VW amplitudes as a function of calorimeter number leading to a systematically smaller VW amplitude in the calorimeter sum fit. The simplest solution to remove both of these problems was to randomize out the VW effect entirely. \tabref{tab:A_change} gives the change in asymmetry and corresponding change in the statistical error on R due to this added time randomization for three of the Run~1 datasets. It was found that the added randomization increased the statistical error on R by a negligible amount for the Run~1 analysis. It was also found that the added level of time-randomization changed the mean value of R for many random seed fits to the data by a small amount, statistically consistent without the extra randomization \cite{VWinRatio}. Going forward for the future runs, it may be necessary to include the proper VW envelope in the fits using a functional form of the FR instead of randomizing out the effect.
 
 \begin{table}[]
 \centering
@@ -547,13 +555,13 @@ For the 9d dataset which has a VW frequency that's nearly 9 $\cdot$ \wa and avoi
     Endgame & $0.3747$ & $0.3686$ & $-0.0061$ & $10.7$ \\
   \hline
 \end{tabular*}
-\caption[]{Asymmetry values in three of the Run!1 datasets with and without the VW randomization, and the corresponding change in the statistical error on R. An energy cut of 1700 MeV was applied to the data. The HighKick dataset has the lowest asymmetry and the least statistics, so the increase in the statistical error would be negligible as it is for the other datasets.}
+\caption[]{Asymmetry values in three of the Run~1 datasets with and without the VW randomization, and the corresponding change in the statistical error on R. An energy cut of 1700 MeV was applied to the data. The HighKick dataset has the lowest asymmetry and the least statistics, so the increase in the statistical error would be negligible as it is for the other datasets.}
 \label{tab:A_change}
 \end{table}
 
 
 
-Barring the envelope changes in the Ratio Method, here is still given the form for the VW in the T-Method fits in case it is useful later on. The form for the VW term is taken identically to the CBO terms, 
+Barring the envelope changes in the Ratio Method, here is still given the form for the VW as it is used in the T-Method fits. The form for the VW term is taken identically to the CBO terms, 
     \begin{align} \label{eq:VWterm}
         V(t) = 1 + \boldsymbol{A_{VW}} \cdot e^{-t/\boldsymbol{\tau_{VW}}} \cos(\omega_{VW}(t) \cdot t + \boldsymbol{\phi_{VW}}), 
     \end{align}
@@ -570,7 +578,7 @@ where $f_{cbo}(t) = \omega_{cbo}(t)/2\pi$ is determined in the tracking analysis
     \begin{align} \label{eq:VWfreqKappa}
         \omega_{VW}(t) = 2\pi \Big(f_{c} - 2 \cdot \boldsymbol{\kappa_{VW}} \cdot f_{cbo}(t)\sqrt{2f_{c}/(\boldsymbol{\kappa_{VW}} \cdot f_{cbo}(t))-1}\Big),
     \end{align}
-where now the VW frequency fit parameter is $\boldsymbol{\kappa_{VW}}$. The origin of this extra factor is unclear, whether it is a tracker measurement issue, something to do with the frequency function approximation, or if it has something to do with the electrostatic quadrupoles.
+where now the VW frequency fit parameter is $\boldsymbol{\kappa_{VW}}$. The origin of this extra factor is unclear, whether it is a tracker measurement issue, something to do with the frequency function approximation, or if it has something to do with the electrostatic quadrupoles. The inclusion of the extra factor however provides better fits and so it is kept in.
 
 
 
@@ -578,20 +586,115 @@ where now the VW frequency fit parameter is $\boldsymbol{\kappa_{VW}}$. The orig
 \subsection{Lost muons}
 \label{subsec:lostmuons}
 
+
+Muons lost from the storage ring during the frequency analyis portion of each fill will distort the observed decay positron spectrum. These muon losses typically originate from those muons with larger betatron amplitudes impacting material near the edge of the storage ring, thus losing energy and spiralling inward out of the ring. A fraction of these lost muons will then pass through multiple calorimeters. Because lost muons are minimum-ionizing particles (MIPs), they will deposit a small amount of energy in hit calorimeters, around 170 \MeV as shown in \figref{fig:energyHist}.
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{triples_deltaT_Endgame}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \vspace{1cm}
+    \begin{subfigure}[]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{triples_Edep_Endgame}
+        \caption{}
+    \end{subfigure}
+\caption[]{\textbf{update pictures as needed}}
+\label{fig:}
+\end{figure}
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{deltaT12_beforeAccSubtraction_Endgame}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \vspace{1cm}
+    \begin{subfigure}[]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{deltaT12_afterAccSubtraction_Endgame}
+        \caption{}
+    \end{subfigure}
+\caption[]{\textbf{update pictures as needed}}
+\label{fig:}
+\end{figure}
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.8\textwidth]{deltaT12_timeInFill_finalCuts_Endgame}
+    \caption[]{\textbf{update picture as necessary}}
+    \label{fig:}
+\end{figure}
+
+
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.8\textwidth]{Triples_vs_all_Endgame}
+    \caption[]{\textbf{update picture as necessary}}
+    \label{fig:}
+\end{figure}
+
+
+
+
+% \begin{figure}[]
+%     \centering
+%     \includegraphics[width=.8\textwidth]{}
+%     \caption[]{\textbf{update picture as necessary}}
+%     \label{fig:}
+% \end{figure}
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.8\textwidth]{deuteron_Population_Endgame}
+    \caption[]{\textbf{update picture as necessary}}
+    \label{fig:}
+\end{figure}
+
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.8\textwidth]{fractionalLosses_dataset_comparison}
+    \caption[]{\textbf{update picture as necessary}}
+    \label{fig:}
+\end{figure}
+
+
+
+
+
+Just start with the introduction of the lost muons here, and if I decide I want to move it to the histogramming side of things I can
+
 -need to include delta t plot and energy deposition plot
 -include here the construction of the lost muon histogram and then go into the fitting stuff
 -look through 60h report for things I should mention - things like arbitraty 10 to the 10 factor and such
 
-\cite{lostmuons}
+-decide which plots to put in
+
+\cite{lostmuonspaper}
+\cite{lostmuonsDenverTalk}
+
+- maybe cite Kevin's note too
+
+    % \Lambda(t) = 1 - \boldsymbol{\kappa_{loss}} \int_{0}^{t} L(t')e^{(t'/\gamma\tau_{\mu})} dt'
+
+
+-reference lost muons systematics error section 
 
 
 
-    % \Lambda(t) = 1 - \kappa_{loss} \int_{0}^{t} L(t')e^{(t'/\gamma\tau_{\mu})} dt' \\[6pt]
 
 
-
-
-\clearpage % remove this once the section has been sorted out
 
 \subsection{Fit code/parameter specifics}
 
@@ -629,6 +732,10 @@ Fit is from \mus{30.2}--\mus{650}, corresponding to 4154 bins.
 \section{Fit results}
 
 Fit results are blah from a single random seed ... 
+
+remind that R is blinded
+mention that a different blinding is used for 60h
+mention that R will be slightly different between datasets due to field conditions 
 
 Include here a table of the fit parameters and p value and such, per dataset, include 9d numbers from Elba for now
 
@@ -806,7 +913,16 @@ For errors relating to the choice of SDT and SGT - the idea is this: Show the pl
 \label{sub:lostmuonserror}
 -also Sudeshna's talk in the Elba collaboration meeting - this probably just for the systematic error
 
+-negative side cut
+-chart with different fits
 
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.8\textwidth]{deltaT13_timeInFill_noCuts_Endgame}
+    \caption[]{\textbf{update picture as necessary}}
+    \label{fig:}
+\end{figure}
 
 
 \subsection{gm2 period guess and muon lifetime - Ratio construction parameters}
