@@ -608,7 +608,7 @@ where now the VW frequency fit parameter is $\boldsymbol{\kappa_{VW}}$. The orig
 \label{subsec:lostmuons}
 
 
-Muons lost from the storage ring during the frequency analyis portion of each fill will distort the observed decay positron spectrum. They show up as a rise at low frequencies in the FFT due to their slow nature, \figref{fig:FFT_fiveParameter}. These muon losses typically originate from those muons with larger betatron amplitudes impacting material near the edge of the storage ring, thus losing energy and spiralling inward out of the ring, or from those muons which experience local field inhomogeneities and have their trajectories modified. A fraction of these lost muons will then pass through multiple calorimeters. Because lost muons are minimum-ionizing particles (MIPs), they will deposit a small amount of energy in hit calorimeters, around 170 \MeV as shown in \figref{fig:energyHist}. These lost muons typically have a flight time between adjacent calorimeters of \ns{6.5} \cite{lostmuonspaper,lostmuonsDenverTalk}. The $\Delta t$ and energy deposition distributions are shown in \figref{fig:lostmuondistributions}. By looking for coincidences between three adjacent calorimeters and then subtracting backgrounds, a pure sample of lost muons can be constructed. The lost muon spectrum then consists almost purely of triple coincidences, or just triples.
+Muons lost from the storage ring during the frequency analyis portion of each fill will distort the observed decay positron spectrum. These hits show up as a rise at low frequencies in the FFT of the fit residuals due to the slow nature of the effect, \figref{fig:FFT_fiveParameter}. These muon losses typically originate from those muons with large betatron amplitudes which hit material near the edge of the storage ring, or those muons which experience local field perturbations one too many times. In both cases the muons will lose energy and spiral inward out of the ring, a fraction of which will then pass through multiple calorimeters. Because lost muons are minimum-ionizing particles (MIPs), they are relatively easily identified by their small energy deposition signature in hit calorimeters, around 170 \MeV as shown in the left peak in \figref{fig:energyHist}. These lost muons typically have a flight time between adjacent calorimeters of $\Delta t_{12} = \SI{6.5}{ns}$ \cite{lostmuonspaper,lostmuonsDenverTalk}. The $\Delta t$ and energy deposition distributions are shown in \figref{fig:lostmuondistributions}. By looking for coincidences between three adjacent calorimeters, or triples, and then applying cuts and subtracting backgrounds, a pure sample of lost muons can be constructed. This lost muon spectrum $L(t)$ can then be implemented into the fit function in order to account for the positrons that would have been observed in the absence of losses.
 
 \begin{figure}[]
 \centering
@@ -650,7 +650,7 @@ Muons lost from the storage ring during the frequency analyis portion of each fi
 
 
 
-The cuts used for the lost muon selection are given in \tabref{tab:lostmuoncuts}. Only those triple coincidences where every cluster consists of three or less crystals hit, with 80\% of the energy deposited in one crystal, are included. $\Delta t$ and energy deposition ranges are taken as $\SI{5}{ns} \leq \Delta t_{12, 23} \leq \SI{7.5}{ns}$ and $\SI{100}{\MeV} \leq E_{1,2,3} \leq \SI{250}{\MeV}$, where these ranges come from inspection of \figref{fig:lostmuondistributions}. The \DT distribution as a function of time in-fill is shown in \figref{fig:deltaT12_AccSub}. By examining this distribution in the range $\SI{2}{ns} \leq \Delta t_{12} \leq \SI{4}{ns}$, and averaging the contained counts, an approximation for the accidental background can be determined and subtracted off the triples spectrum. The accidental background typically comes from either double coincidences and a real positron hit, or a particle shower induced by an incident positron which hits a coincident calorimeter. 
+The cuts used for the lost muon selection are given in \tabref{tab:lostmuoncuts}. Triple coincidences are only included where every cluster consists of three or less crystals hit, with 80\% of the energy deposited in one crystal. $\Delta t$ and energy deposition ranges are taken as $\SI{5}{ns} \leq \Delta t_{12, 23} \leq \SI{7.5}{ns}$ and $\SI{100}{\MeV} \leq E_{1,2,3} \leq \SI{250}{\MeV}$, where these ranges come from inspection of \figref{fig:lostmuondistributions}. The \DT distribution as a function of time in-fill is shown in \figref{fig:deltaT12_AccSub}. By examining this distribution in the range $\SI{2}{ns} \leq \Delta t_{12} \leq \SI{4}{ns}$, and averaging the contained counts, an approximation for the accidental background can be determined and subtracted off the triples spectrum. The accidental background typically comes from either double coincidences and a real positron hit, or a particle shower induced by an incident positron which hits an adjacent calorimeter. 
 
 
 % \begin{figure}[]
@@ -664,20 +664,23 @@ The cuts used for the lost muon selection are given in \tabref{tab:lostmuoncuts}
 \begin{figure}[]
 \centering
         \includegraphics[width=1\textwidth]{deltaT12_beforeAccSubtraction_Endgame}
-\caption[Lost muon \DT distribution as a function of time in-fill]{\DT distribution as a function of time in-fill before any cuts. Note the log scale. Lost muons have a \DT distribution centered at \ns{6.5}. The accidental background can be seen as counts out at $\Delta t$'s far from the center of the distribution. Color striations in the core of the distribution correspond to CBO periods. There are two bands of hits that do not fall off as severely with time as the lost muons do. The band contained between 7 and \ns{8} corresponds to deuterons, while the band contained between 6 and \ns{7} corresponds to protons. Data from the Endgame dataset.}
+\caption[Lost muon \DT distribution as a function of time in-fill]{\DT distribution as a function of time in-fill before any cuts. Note the log scale. Lost muons have a \DT distribution centered at \ns{6.5}. The accidental background can be seen as counts out at $\Delta t$'s far from the center of the distribution. Color striations in the core of the distribution correspond to CBO periods. There are two bands of hits that do not fall off as severely with time as the lost muons do. The band contained mostly between 7 and \ns{8} corresponds to deuterons, while the band contained mostly between 6 and \ns{7} corresponds to protons. Data from the Endgame dataset.}
 \label{fig:deltaT12_AccSub}
 \end{figure}
 
 
-Also shown in \figref{fig:deltaT12_AccSub} are two bands of stable beam contaminants corresponding to stored dueterons and protons. These particles have different times of flights between calorimeters due to their larger masses. By looking at the $\Delta t_{13}$ distribution for times greater than \mus{300}, the deuteron population is easily isolated, \figref{fig:deuteronPop}. While the deuteron population is mostly removed by the \DT cut, an additional cut of $\Delta t_{13} \leq \SI{14.4}{ns}$ helps remove any remaining deuteron contaminants. The proton population, due to it's nearness to the real lost muon population, is harder to remove. The simplest solution is to simply cut on the negative side of the \DT or $\Delta t_{13}$ distribution. See \secref{sub:lostmuonserror} for the results using this additional cut, and the systematic error on R. It was found that the proton contamination makes almost no difference to the fitted value of R. The default then is to use the previously specified cut ranges in order to increase the amount of statistics in the lost muons distribution with which to fit. \figref{fig:finalDT12Dist} shows the final \DT distribution with cuts as a function of time in-fill for selected lost muons. A study into the exact rate of these beam contaminants is included in \refref{lostmuonsKevin}.
+Also shown in \figref{fig:deltaT12_AccSub} are two bands of stable beam contaminants corresponding to stored deuterons and protons. These particles have different times of flights between calorimeters due to their larger masses. By looking at the $\Delta t_{13}$ distribution for times greater than \mus{300}, the deuteron population is easily isolated, \figref{fig:deuteronPop}. While the deuteron population is mostly removed by the \DT cut, an additional cut of $\Delta t_{13} \leq \SI{14.4}{ns}$ helps remove any remaining deuteron contamination. The proton population, due to it's nearness to the real lost muon population, is harder to remove. The simplest solution is to simply cut on the negative side of the \DT or $\Delta t_{13}$ distributions. See \secref{sub:lostmuonserror} for the results using this additional cut. It was found that the proton contamination makes almost no difference to the fitted value of R. The default choice then is to use the previously specified cut ranges in order to increase the amount of statistics in the lost muons distribution with which to fit. A study into the exact rate of these beam contaminants is included in \refref{lostmuonsKevin}.
 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=.7\textwidth]{deuteron_Population_Endgame}
-    \caption[Deuteron population at late times]{$\Delta t_{13}$ distribution as a function of energy for times greater than \mus{300}. The lost muons can be seen as a blob centered at 170 \MeV and a smaller $\Delta t_{13}$, while the deuterons can be seen at a higher $\Delta t_{13}$. While the deuterons have a preferentially larger energy deposition, they can be seen to extend to low energies. Data from the Endgame dataset.}
+    \caption[Deuteron population at late times]{$\Delta t_{13}$ distribution as a function of energy for times greater than \mus{300}. The lost muons can be seen as a blob centered at 170 \MeV and $\Delta t_{13} \approx \SI{12.5}{ns}$, while the deuterons can be seen as the oblong blob at $\Delta t_{13} \geq \SI{14.4}{ns}$. While the deuterons have a preferentially larger energy deposition, they can be seen to extend to low energies, making cutting on energy unrealistic. Though not easily separated by eye, the stored protons are contained within the upper right portion of the lost muons blob. Data from the Endgame dataset.}
     \label{fig:deuteronPop}
 \end{figure}
+
+
+The last background is the quadruples spectrum. Due to how the triple coincidences are constructed, real quadruples will be counted as two separate triples. While the quadruples spectrum can be used instead of the triples spectrum for a purer sample of lost muons, the amount of statistics is much reduced, and similarly for higher order coincidences. The quadruples spectrum is constructed in the same was as the triples with the same cut ranges. The quadruple background is removed by subtracting off those triples which originated from quadruple coincidences.
 
 
 \begin{figure}[]
@@ -687,43 +690,39 @@ Also shown in \figref{fig:deltaT12_AccSub} are two bands of stable beam contamin
     \label{fig:finalDT12Dist}
 \end{figure}
 
-
-The last subtracted background is the quadruples spectrum. Due to how the coincident triple are constructed, real quadruples will be counted as two separate triple coincidences. While the quadruples spectrum can be used instead of the triples for a purer sample of lost muons, the amount of stats is much reduced, and similarly for higher order coincidences. The final 1D triple losses spectrum $L(t)$ is shown in \figref{fig:triples}.
-
-
 \begin{figure}[]
     \centering
-    \includegraphics[width=\textwidth]{Triples_vs_all_Endgame}
-    \caption[Lost muon triples spectrum compared to quadruples and accidental background]{Lost muon 1D triples spectrum as a function of time in-fill, after all cuts and background subtractions. Also shown are the quadruples and accidental background distributions, which can be seen to be much smaller than the triples. The shape of the triples spectrum comes from beam dynamics (CBO) and lost muon acceptance effects. Data from the Endgame dataset.}
+    \includegraphics[width=0.9\textwidth]{Triples_vs_all_Endgame}
+    \caption[Lost muon triples spectrum compared to quadruples and accidental background]{Lost muon triples spectrum $L(t)$ as a function of time in-fill, after all cuts and background subtractions. Also shown are the quadruples and accidental background distributions, which can be seen to be much smaller than the triples. The shape of the triple and quadruple spectra can be seen to be nearly the same. The shape of the triples spectrum comes from beam dynamics (CBO) and lost muon acceptance effects. Data from the Endgame dataset.}
     \label{fig:triples}
 \end{figure}
 
 
-Once we have the lost muon distribution we need to include it in the fit function in order to account for the changing number of hits over the course of the data-taking. The true lost muon rate will be given by $L(t)/\epsilon$, where $\epsilon$ is the loss detection efficiency \cite{AFThesis}. The change in the number of muons within the storage ring can be written as 
+\figref{fig:finalDT12Dist} shows the final \DT distribution with cuts as a function of time in-fill for selected lost muons. The final 1D triple losses spectrum $L(t)$ is shown in \figref{fig:triples}. Once we have the lost muon distribution we need to include it in the fit function in order to account for the changing number of hits over the course of the fill. The true lost muon rate will be given by $L(t)/\epsilon$, where $\epsilon$ is the loss detection efficiency \cite{AFThesis}. The change in the number of muons within the storage ring can be written as 
     \begin{align} 
-        dN = -\frac{N}{\tau} dt - \frac{L(t)}{\epsilon} dt 
+        dN = -\frac{N}{\tau} dt - \frac{L(t)}{\epsilon} dt, 
     \end{align}
-where the solution can be determined by inspection and is given as
+where the solution can be determined by inspection as
     \begin{align} 
-        N(t) = N_{0} \cdot e^{-t/\tau} \cdot (1 - \frac{1}{\epsilon N_{0}} \int_{t_{0}}^{t} L(t')e^{(t'/\tau)} dt')
+        N(t) = N_{0} \cdot e^{-t/\tau} \cdot (1 - \frac{1}{\epsilon N_{0}} \int_{t_{0}}^{t} L(t')e^{(t'/\tau)} dt').
     \end{align}
-where $t_{0}$ can be taken as any time at or before the start of the fitting range. The modification $\Lambda(t)$ as listed in \equref{eq:TmethodFunction} is then taken as
+The parameter $\tau$ is the same muon lifetime as in the T-Method fit function, except here it is set as the default value of \mus{64.44}\footnote{The fitted \wa frequncy is largely insensitive to this parameter, and especially so in the Ratio Method fits, so this is acceptable.}. The value for $t_{0}$ can be taken as any time at or before the start of the fitting range, as it simply changes the scale of $N_{0}$ which is largely unimportant. The modification $\Lambda(t)$ as listed in \equref{eq:TmethodFunction} is then taken as
     \begin{align} \label{eq:lambdalosses}
-        \Lambda(t) = 1 - \boldsymbol{\kappa_{loss}} \int_{t_{0}}^{t} L(t')e^{(t'/\gamma\tau_{\mu})} dt'
+        \Lambda(t) = 1 - \boldsymbol{\kappa_{loss}} \int_{t_{0}}^{t} L(t')e^{(t'/\tau)} dt'
     \end{align}
-where $\boldsymbol{\kappa_{loss}} = 1/\epsilon N_{0}$ is taken as the fit parameter\footnote{By construction $\kappa_{loss}$ is a very small parameter, $\mathcal{O}(10^{-10})$. This factor is absorbed into the parameter in such that the fit parameter is $\mathcal{O}(1)$.}. The fractional losses, the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter, for the four analyzed Run~1 datasets are shown in \figref{fig:fractionallosses}.
+where $\boldsymbol{\kappa_{loss}} = 1/\epsilon N_{0}$ is taken as the fit parameter\footnote{By construction $\kappa_{loss}$ is a very small parameter, $\mathcal{O}(10^{-10})$. This factor is absorbed into the parameter in such that the fit parameter is $\mathcal{O}(1)$.}. The fractional losses (the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter) for the four analyzed Run~1 datasets are shown in \figref{fig:fractionallosses}.
 
 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=.8\textwidth]{fractionalLosses_dataset_comparison}
-    \caption[Fractional muon losses in the analyzed Run~1 datasets]{Fractional losses for the four Run~1 datasets analyzed in this analysis. The curves begin at \mus{30.2} which is where the fit begins. A value of 1\% at a specific time $t$ indicates that there are 1\% fewer stored muons at that time than there would be if there were no losses at all. The Endgame and 60h datasets can be seen to have the most losses, while the 9d and HighKick have less. This is due to the higher kicks in the latter datasets which puts the muon beam on a more central orbit. The tail up at the end of the Endgame dataset correspond to the remnant proton and deuteron contaminants.}
+    \caption[Fractional muon losses in the analyzed Run~1 datasets]{Fractional losses for the four Run~1 datasets analyzed in this analysis. The curves begin at \mus{30.2} which is where the fit begins. A value of 1\% at a specific time $t$ indicates that there are 1\% fewer stored muons at that time than there would be if there were no losses at all. The Endgame and 60h datasets can be seen to have the most losses, while the 9d and HighKick have less. This is due to the higher kicks in the latter datasets which put the muon beam on a more central orbit. The upward tail at the end of the Endgame dataset corresponds to the remnant proton contamination. \textbf{should I move this to the systematics error section?}}
     \label{fig:fractionallosses}
 \end{figure}
 
 
-It should be noted here that due to the slow nature of the lost muons effect, the Ratio Method is largely insensitive to the lost muons as it divides the effect out. No rise appears in the FFT of the ratio fit residuals, \figref{fig:fft_threeParamRatio}, and letting $\kappa_{loss}$ float in the fit does not produce nice convergence. Because however R changes on the order of tens of ppb when the lost muon term is included with $\kappa_{loss}$ fixed to the value determined from a T-Method fit, by default it is included. See \secref{sub:lostmuonserror} for more discussion on this.
+It should be noted that the Ratio Method is largely insensitive to the slow lost muons effect which divides out. No rise appears in the FFT of the ratio fit residuals, \figref{fig:fft_threeParamRatio}, and letting $\boldsymbol{\kappa_{loss}}$ float in the fit does not produce fit nice convergence. Because however $\boldsymbol{R}$ changes on the order of tens of ppb when the lost muon term is included with $\boldsymbol{\kappa_{loss}}$ fixed to the value determined from a T-Method fit, by default it is included. See \secref{sub:lostmuonserror} for more discussion on this.
 
 
 \subsection{Fit code/parameter specifics}
@@ -735,6 +734,8 @@ when all is said and done there is X fit parameters used in the fit, on the orde
 
 
 Fit is from \mus{30.2}--\mus{650}, corresponding to 4154 bins.
+
+fit level of 2...
 
 
 calo fit end time
