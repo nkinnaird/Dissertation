@@ -630,11 +630,7 @@ Muons lost from the storage ring during the frequency analyis portion of each fi
 
 
 
-The cuts used for the lost muon selection are given in \tabref{tab:lostmuoncuts}. Only those triple coincidences where every cluster consists of three or less crystals hit, with 80\% of the energy deposited in one crystal, are included. $\Delta t$ and energy deposition ranges are taken as $\SI{5}{ns} \leq \Delta t_{12, 23} \leq \SI{7.5}{ns}$ and $\SI{100}{\MeV} \leq E_{1,2,3} \leq \SI{250}{\MeV}$, where these ranges come from inspection of \figref{fig:lostmuondistributions}. The \DT distribution as a function of time in-fill is shown in \figref{fig:deltaT12_AccSub}. By examining this distribution in the range $\SI{2}{ns} \leq \Delta t_{12} \leq \SI{4}{ns}$, and averaging the contained counts, an approximation for the accidental background can be determined and subtracted off the triples spectrum.
-
-
-
-The deuteron population is mostly removed by the \DT cut, with 
+The cuts used for the lost muon selection are given in \tabref{tab:lostmuoncuts}. Only those triple coincidences where every cluster consists of three or less crystals hit, with 80\% of the energy deposited in one crystal, are included. $\Delta t$ and energy deposition ranges are taken as $\SI{5}{ns} \leq \Delta t_{12, 23} \leq \SI{7.5}{ns}$ and $\SI{100}{\MeV} \leq E_{1,2,3} \leq \SI{250}{\MeV}$, where these ranges come from inspection of \figref{fig:lostmuondistributions}. The \DT distribution as a function of time in-fill is shown in \figref{fig:deltaT12_AccSub}. By examining this distribution in the range $\SI{2}{ns} \leq \Delta t_{12} \leq \SI{4}{ns}$, and averaging the contained counts, an approximation for the accidental background can be determined and subtracted off the triples spectrum. The accidental background typically comes from either double coincidences and a real positron hit, or a particle shower induced by an incident positron which hits a coincident calorimeter. 
 
 
 \begin{figure}[]
@@ -646,41 +642,22 @@ The deuteron population is mostly removed by the \DT cut, with
 \end{figure}
 
 
-
-% \begin{figure}[]
-% \centering
-%     \begin{subfigure}[]{\textwidth}
-%         \centering
-%         \includegraphics[width=\textwidth]{deltaT12_beforeAccSubtraction_Endgame}
-%         \caption{Before accidental background subtraction.}
-%     \label{fig:deltaT12_beforeAccSub}
-%     \end{subfigure}% %you need this % here to add spacing between subfigures
-%     \begin{subfigure}[]{\textwidth}
-%         \centering
-%         \includegraphics[width=\textwidth]{deltaT12_afterAccSubtraction_Endgame}
-%         \caption{After accidental background subtraction. Note the change in colors at the far left of the plot.}
-%     \label{fig:deltaT12_afterAccSub}
-%     \end{subfigure}
-% \caption[Lost muon \DT distribution as a function of time in-fill]{\DT distribution as a function of time in-fill. Note the log scale. Lost muons have a \DT distribution centered at \ns{6.5}. The accidental background can be seen as counts out at $\Delta t$s far from the center. Color striations in the core of the distribution correspond to CBO periods. There are two bands of hits that do not fall off as severely with time as the lost muons do. The band contained between 7 and \ns{8} corresponds to deuterons, while the band contained between 6 and \ns{7} corresponds to protons. Data from the Endgame dataset.}
-% \label{fig:deltaT12_AccSub}
-% \end{figure}
-
-
+Also shown in \figref{fig:deltaT12_AccSub} are two bands of stable beam contaminants corresponding to stored dueterons and protons. These particles have different times of flights between calorimeters due to their larger masses. By looking at the $\Delta t_{13}$ distribution for times greater than \mus{300}, the deuteron population is easily isolated, \figref{fig:deuteronPop}. While the deuteron population is mostly removed by the \DT cut, an additional cut of $\Delta t_{13} \leq \SI{14.4}{ns}$ helps remove any remaining deuteron contaminants. The proton population, due to it's nearness to the real lost muon population, is harder to remove. The simplest solution is to simply cut on the negative side of the \DT or $\Delta t_{13}$ distribution. See \secref{sub:lostmuonserror} for the results using this additional cut, and the systematic error on R. It was found that the proton contamination makes almost no difference to the fitted value of R. The default then is to use the previously specified cut ranges in order to increase the amount of statistics in the lost muons distribution with which to fit. \figref{fig:finalDT12Dist} shows the final \DT distribution with cuts as a function of time in-fill for selected lost muons.
 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=.8\textwidth]{deuteron_Population_Endgame}
-    \caption[]{Data from the Endgame dataset.}
-    \label{fig:}
+    \caption[Deuteron population at late times]{$\Delta t_{13}$ distribution as a function of energy for times greater than \mus{300}. The lost muons can be seen as a blob centered at 170 \MeV and a smaller $\Delta t_{13}$, while the deuterons can be seen at a higher $\Delta t_{13}$. While the deuterons have a preferentially larger energy deposition, they can be seen to extend to low energies. Data from the Endgame dataset.}
+    \label{fig:deuteronPop}
 \end{figure}
 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=.8\textwidth]{deltaT12_timeInFill_finalCuts_Endgame}
-    \caption[]{Data from the Endgame dataset.}
-    \label{fig:}
+    \caption[Final \DT distribution for selected lost muons]{Final \DT distribution for selected lost muons as a function of time in-fill. Data from the Endgame dataset.}
+    \label{fig:finalDT12Dist}
 \end{figure}
 
 
