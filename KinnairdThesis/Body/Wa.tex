@@ -954,26 +954,69 @@ For errors relating to the choice of SDT and SGT - the idea is this: Show the pl
 
 \subsection{Lost muons}
 \label{sub:lostmuonserror}
+
+
+As mentioned in \secref{subsec:lostmuons}, the triples spectrum is made with cuts as defined in \tabref{tab:lostmuoncuts}. Various backgrounds are subtracted off the triples spectrum in order to generate a clean sample of lost muons. Similarly, stable beam contaminants in the form of deuterons and protons contaminate the lost muon spectrum. The former are largely removed by straightforward \DT and $\Delta t_{13}$ cuts. The latter can be mostly removed by cutting on the negative side of the $\Delta t_{13}$ distribution which separates the populations more readily, \figref{fig:deltaT13}, with $\Delta t_{13} \leq \SI{12.5}{ns}$. While this does largely remove the protons at the cost of statistics, the fitted \BK parameter simply grows larger to compensate. Ultimately the effect on \BR is negligible, with $\Delta \boldsymbol{R} = \SI{-0.3}{ppb}$.
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.8\textwidth]{deltaT13_timeInFill_noCuts_Endgame}
+    \caption[Lost muon $\Delta t_{13}$ distribution as a function of time in-fill]{Lost muon $\Delta t_{13}$ distribution as a function of time in-fill.}
+    \label{fig:deltaT13}
+\end{figure}
+
+
+-taken conservatively at less than 1 ppb ... 
+
+
+\begin{table}[]
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lcccc}
+  \hline
+    \multicolumn{5}{c}{\textbf{Various Lost Muon Cuts}} \\
+  \hline\hline
+    & \multicolumn{2}{c}{9d Dataset} & \multicolumn{2}{c}{Endgame Dataset} \\
+  \hline
+    Type of fit or cut & $\Delta \boldsymbol{R}$ (ppb) & \BK & $\Delta \boldsymbol{R}$ (ppb) & \BK \\
+  \hline
+    No quadruple subraction & 0.2 & 1.811 & -0.1 & 1.717 \\
+    No accidental subraction & 0.1 & 2.503 & $<1$ & 2.339 \\
+    $\Delta t_{13} \leq \SI{12.5}{ns}$ & 0.1 & 4.469 & -0.3 & 4.248 \\
+    $\SI{5}{ns} \leq \Delta t_{12, 23} \leq \SI{8.5}{ns}$ & N\textbackslash A & N\textbackslash A & $<1$ & 1.709 \\
+    $\SI{100}{\MeV} \leq E_{1,2,3} \leq \SI{500}{\MeV}$ & N\textbackslash A & N\textbackslash A & $<1$ & 2.09 \\
+  \hline 
+\end{tabular*}
+\caption[]{}
+\label{tab:lostmuonsvariousfits}
+\end{table}
+
+
+-the T-Method fits, though the delta Rs are noticably larger, are still the same order of magnitude...
+
+
+
+- scan over fixed k loss parameters and a separate chart for them
+- though the endgame has the most lost muons, interestingly enough it is in the 9d that the change in R with versus without the lost muons is the largest - this is potentially due to the fact that..
+
+
+
 -also Sudeshna's talk in the Elba collaboration meeting - this probably just for the systematic error
 
--negative side cut
 -chart with different fits
--if different cuts are made then k loss simply compensates and the fit is basically the same
 
 
 - a systematic error comes from the fact that muons are lost preferentially at earlier times (changing over the course of a fill)
 -if lost muons originate from different points in the beam line, then they will have precessed a different amount leading to a different phase
 
 
+-probably move losses fraction figure to here somewhere
 
 
 
-\begin{figure}[]
-    \centering
-    \includegraphics[width=.8\textwidth]{deltaT13_timeInFill_noCuts_Endgame}
-    \caption[]{\textbf{update picture as necessary}}
-    \label{fig:}
-\end{figure}
+
 
 
 \subsection{gm2 period guess and muon lifetime - Ratio construction parameters}
