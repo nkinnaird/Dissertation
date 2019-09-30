@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/Pileup/Scaling/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}}
+\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/Pileup/Scaling/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/60h/SingleIteration/SingleFits/}}
 
 \chapter{\texorpdfstring{\wa}{wa} Measurement}
 \label{chapter:wa}
@@ -431,7 +431,28 @@ In order to fit the ratio time spectra as constucted in \secref{sub:ratio_method
         f(t) = \Lambda(t) \cdot V(t) \cdot N_{cbo}(t) \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))).
     \label{eq:fullratiofunction}
     \end{gather}
-The $f(t)$ given here differs from that in \equref{eq:TmethodFunction} in that the $\boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\tau}}$ terms have divided out, thus reducing the number of fit parameters necessary to model the data. Using this function as opposed to an expansion of the three parameter ratio function eliminates any approximations made in that three parameter function derivation, and any fit parameters should be consistent in value between the T-Method and Ratio Method results, barring adjustments due to the application of the Ratio Method. It should be noted here that while the Ratio Method reduces the sensitivity of the \wa extraction to various effects in the data, those effects typically still need to be included in the fit function for a proper estimatation of \wa. Because of the reduction in sensitivity, there are some parameters which the ratio has trouble fitting by itself. Using the T-Method fit function is then a useful tool for constraining these specific parameters.
+The $f(t)$ given here differs from that in \equref{eq:TmethodFunction} in that the $\boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\tau}}$ terms have divided out, thus reducing the number of fit parameters necessary to model the data. Using this function as opposed to an expansion of the three parameter ratio function eliminates any approximations made in that three parameter function derivation, and any fit parameters should be consistent in value between the T-Method and Ratio Method results, barring adjustments due to the application of the Ratio Method. 
+
+Because the Ratio Method reduces the sensitivity of the \wa extraction to various effects in the data, peaks that appear in the FFT of the five parameter fit residuals don't appear in the FFT of the three parameter ratio fit residuals, \figref{fig:fft_threeParamRatio}. Indeed except for bad fits, unless one looks at the FFT over the early part of the fit (first \mus{30}) or at the shape of the Ratio Method denominator, one might not know the effects even exist in the data at all. However those effects typically still need to be included in the fit function for a proper estimatation of \wa, and because of the reduction in sensitivity, there are some parameters which the ratio has trouble fitting by itself. Using the T-Method fit function is then a useful tool for constraining these specific parameters.
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[t]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FFT_threeParRatio_60h}
+        \caption{FFT of fit residuals over all times within the fit range. There is no immediately apparent structure for residual effects left out of the fit function.}
+    \end{subfigure}%
+
+    \begin{subfigure}[t]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FFT_threeParRatio_earlyTimes_60h}
+        \caption{FFT of fit residuals over the first \mus{30}. The CBO peak can be seen above the noise, though the corresponding beat frequencies do not appear.}
+    \end{subfigure}
+\caption[FFT of three parameter ratio fit residuals]{FFT of three parameter ratio fit residuals. Dashed blue lines indicate various beam dynamics frequencies and their beat frequencies with \wa. Data from the 60h dataset.}
+\label{fig:fft_threeParamRatio}
+\end{figure}
+
 
 
 
@@ -530,7 +551,7 @@ As mentioned briefly at the end of \secref{sec:Histogramming}, the VW effect is 
         \includegraphics[width=\textwidth]{JamesMC_withFR}
         \caption{With the FR effect included.}
     \end{subfigure}
-\caption[]{Ratio data with and without the FR effect from a Toy MC simulation, with a VW effect with a frequency $\omega_{VW} = 10 \cdot \omega_{a}$. The \wa wiggle itself has been removed, and the lifetime of the VW was set to a large number. The top plot shows ratio data which is consistent with 0 after all effects have been removed and the VW has divided out. The bottom plot shows ratio data inconsistent with 0, with oscillations at the VW frequency, and an interesting beating structure. Note the different scales.}
+\caption[VW envelope in Ratio Method Toy MC data with and without FR effect]{Ratio data with and without the FR effect from a Toy MC simulation, with a VW effect with a frequency $\omega_{VW} = 10 \cdot \omega_{a}$. The \wa wiggle itself has been removed, and the lifetime of the VW was set to a large number. The top plot shows ratio data which is consistent with 0 after all effects have been removed and the VW has divided out. The bottom plot shows ratio data inconsistent with 0, with oscillations at the VW frequency, and an interesting beating structure. Note the different scales.}
 \label{fig:JamesMC_VW_FR}
 \end{figure}
 
@@ -702,6 +723,7 @@ where $\boldsymbol{\kappa_{loss}} = 1/\epsilon N_{0}$ is taken as the fit parame
 \end{figure}
 
 
+It should be noted here that due to the slow nature of the lost muons effect, the Ratio Method is largely insensitive to the lost muons as it divides the effect out. No rise appears in the FFT of the ratio fit residuals, \figref{fig:fft_threeParamRatio}, and letting $\kappa_{loss}$ float in the fit does not produce nice convergence. Because however R changes on the order of tens of ppb when the lost muon term is included with $\kappa_{loss}$ fixed to the value determined from a T-Method fit, by default it is included. See \secref{sub:lostmuonserror} for more discussion on this.
 
 
 \subsection{Fit code/parameter specifics}
@@ -749,6 +771,13 @@ mention that a different blinding is used for 60h
 mention that R will be slightly different between datasets due to field conditions 
 
 Include here a table of the fit parameters and p value and such, per dataset, include 9d numbers from Elba for now
+
+
+
+Ratio Method fits including the CBO terms typically converge with lifetimes with large errors compared to T-Method fits, due to the reduction in sensitivity in the Ratio Method. In the HighKick dataset specifically, the CBO lifetime which is smaller than the other datasets does not like to converge nicely in the ratio fits, and is therefore fixed to that from a T-Method fit.
+
+
+I should show an FFT of the ratio fit residuals 
 
 
 	\begin{table}[]
