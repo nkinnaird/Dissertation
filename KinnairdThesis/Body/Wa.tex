@@ -1123,7 +1123,7 @@ In order to determine if there is a systematic error from the choice of SGT, the
     Endgame & -431.4 & 0.012 & 0.982 & 5.3 \\
   \hline
 \end{tabular*}
-\caption[Systematic error due to fixed pileup scale factor]{Systematic error due to the fixed pileup scale parameter $C$ in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. All units are in ppb except for the error on the $C$ parameter and it's minimum which are unit-less.}
+\caption[Systematic error due to fixed pileup energy scale factor]{Systematic error due to the fixed pileup scale parameter $C$ in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. All units are in ppb except for the error on the $C$ parameter and it's minimum which are unit-less.}
 \label{tab:systematicError_pileupC}
 \end{table}
 
@@ -1150,7 +1150,37 @@ In order to determine if there is a systematic error from the choice of SGT, the
 \label{fig:}
 \end{figure}
 
+
+
+\begin{table}[]
+\centering
+\small
+\setlength\tabcolsep{20pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{0.6\linewidth}{@{\extracolsep{\fill}}lcK}
+% \begin{tabular}{@{\extracolsep{\fill}}lcccK}
+  \hline
+    \multicolumn{3}{c}{\textbf{Systematic Error due to Pileup Time Shift}} \\
+  \hline\hline
+    Dataset & \multicolumn{1}{c}{$dR/dP_{t}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
+  \hline
+    60h & 7.0 & 17.6 \\
+    HighKick & 7.6 & 19.0 \\
+    9d & 6.8 & 17.1 \\ 
+    Endgame & 5.7 & 14.3 \\
+  \hline
+\end{tabular*}
+\caption[Systematic error due to pilep time shift]{Systematic error due to the pileup time-shift parameter $P_{t}$ in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. Units for the slope and error columns are ppb/ns and ppb respectively. The error on the $P_{t}$ is by default taken to be \ns{2.5} as described in the text. \textbf{fix spacing of table}}
+\label{tab:systematicError_pileupTimeShift}
+\end{table}
+
+
+-error conservatively taken at half the deadtime at 2.5 ns
+
+
 -maybe put in fit start time scan of various time shifts converging to one
+
+-maybe add plot of nice energy threshold where pileup goes smooth and phase error would disappear
 
 
 
