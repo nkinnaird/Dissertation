@@ -922,13 +922,6 @@ In order to verify the integrity of the fit other checks are done ...
 
 
 
-\subsection{Gain systematic errors}
-\label{sub:gainerror}
-
-
--talk about the equations here - slight reference to either detector section or reconstruction section in this chapter - might want to put this after pileup if I introduce various equations and the like in that section
-
-
 
 \subsection{Pileup systematic errors}
 \label{sub:pileuperror}
@@ -1031,62 +1024,62 @@ Similarly to the scan over SDT, scanning over the choice of SGT (default value o
 \end{figure}
 
 
-
-
-- pileup multiplier error here before energy scaling and time shift which are the phase error
-- explain the width of the chi2 plot as the error - might have to move this up to a different section if I use the same width thing earlier
-- describe fit function used for chi2 plot since I don't use the default polynomial function
-
-- in fit parameters in figure mention units of ppm
-
--mention default pileup multiplier and how it is within 1 sigma of 1 
--mention that the minimum kind of floats around 1 either side and is random seed dependent
+The pileup amplitude error is simply the error on $R$ assuming the scale of the pileup was incorrectly constructed. In order to evaluate this error, different scaling constants were applied other than the default value of $\sim1.03$ and the change in $R$ was calculated. The results of such a scan are shown in \figref{fig:PMscan}. As shown there is a clear minimum near 1 in the \chisq plot and a clear trend in $R$. The systematic error on $R$ is simply calculated as 
+    \begin{align}
+        \delta R = \sigma_{P_{m}} \times \frac{dR}{dP_{m}},
+    \end{align}
+where $P_{m}$ is the value of the pileup multiplier. The error $\sigma_{P_{m}}$ is calculated as the width of the fitted parabola in the \chisq plot, defined as the change in $P_{m}$ from the minimum for the \chisq to increase by 1. This is calculated simply as 
+    \begin{align}
+        \sigma_{P_{m}} = \sqrt{\frac{2}{f''(\chi^{2})}} = \frac{1}{\sqrt{p_{2}}},
+    \end{align}
+where $p_{2}$ is the fit parameter as given in the top right of the \chisq plot. The slopes in $R$, uncertainties in pileup multiplier, and final pileup multiplier systematic errors for the four different Run~1 datasets are given in \tabref{tab:systematicError_pileupMultplier}. It should be noted that the default used pileup multiplier of $\sim1.03$ does not necessarily correspond to the minimum in the \chisq plot, but is within $1\sigma$ of 1 or the minimum (except the Endgame which is closer to $2\sigma$)\footnote{Monte-Carlo tests with various random seeds showed this minimum fluctating around zero both above and below. The distance from 1 therefore is not a good measure for the uncertainty in the pileup multiplier compared to the width of the \chisq fit.}. As shown in the table, the uncertainties on the pileup multipler are of order 2 to 5\%, while the systematic errors on $R$ are on the order of \SI{10}{} to \SI{20}{ppb} depending on dataset. 
 
 
 \begin{figure}[]
 \centering
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupMultiplier_Canv_9d}
-        \caption{}
+        \caption{\chisq versus pileup multiplier. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.45\textwidth}
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupMultiplier_Canv_9d}
-        \caption{}
+        \caption{Fitted $R$ versus pileup multiplier. Units are in ppm.}
     \end{subfigure}
 \caption[]{Data from 9d dataset.}
-\label{fig:}
+\label{fig:PMscan}
 \end{figure}
 
 
 \begin{table}[]
 \centering
-\small
-\setlength\tabcolsep{20pt}
+% \small
+\setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{0.85\linewidth}{@{\extracolsep{\fill}}lcccK}
+\begin{tabular*}{0.65\linewidth}{@{\extracolsep{\fill}}lcccK}
 % \begin{tabular}{@{\extracolsep{\fill}}lcccK}
   \hline
     \multicolumn{5}{c}{\textbf{Systematic Error due to Pileup Amplitude}} \\
   \hline\hline
     Dataset & \multicolumn{1}{c}{$dR/dP_{m}$} & $\sigma_{P_{m}}$ & $P_{m_{\text{min}}}$ & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
   \hline
-    60h & -419.3 & 0.053 & 0.993 & 22.2 \\
-    HighKick & -372.8 & 0.051 & 0.997 & 19.0 \\
-    9d & -245.2 & 0.037 & 1.020 & 9.0 \\ 
-    Endgame & -335.3 & 0.028 & 0.985 & 9.4 \\
+    60h & $-419.3$ & 0.053 & 0.993 & 22.2 \\
+    HighKick & $-372.8$ & 0.051 & 0.997 & 19.0 \\
+    9d & $-245.2$ & 0.037 & 1.020 & 9.0 \\ 
+    Endgame & $-335.3$ & 0.028 & 0.985 & 9.4 \\
   \hline
 \end{tabular*}
-\caption[Systematic error due to pileup amplitude]{Systematic error due to the pileup amplitude in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. All units are in ppb except for the error on the $P_{m}$ parameter and it's minimum which are unit-less.}
+\caption[Systematic error due to pileup amplitude]{Systematic error due to the pileup amplitude in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. Units for $dR/dP_{m}$ and $\delta R$ are in ppb.}
 \label{tab:systematicError_pileupMultplier}
 \end{table}
 
 
 
--I need to go and look at the errors for these various slopes and see what scale they are - can make a note in that case if they are large or small
 
--mention different slopes in pileup error between datasets which is odd
+
+The phase error is...
 
 
 
@@ -1097,6 +1090,7 @@ Similarly to the scan over SDT, scanning over the choice of SGT (default value o
         \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupEnergyScaling_Canv_9d}
         \caption{}
     \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupEnergyScaling_Canv_9d}
@@ -1109,29 +1103,28 @@ Similarly to the scan over SDT, scanning over the choice of SGT (default value o
 
 \begin{table}[]
 \centering
-\small
-\setlength\tabcolsep{20pt}
+% \small
+\setlength\tabcolsep{12pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{0.85\linewidth}{@{\extracolsep{\fill}}lcccK}
+\begin{tabular*}{0.65\linewidth}{@{\extracolsep{\fill}}lcccK}
 % \begin{tabular}{@{\extracolsep{\fill}}lcccK}
   \hline
-    \multicolumn{5}{c}{\textbf{Systematic Error due to Pileup Energy Scale Constant $C$}} \\
+    \multicolumn{5}{c}{\textbf{Systematic Error due to Pileup Energy Scale}} \\
   \hline\hline
     Dataset & \multicolumn{1}{c}{$dR/dC$} & $\sigma_{C}$ & $C_{\text{min}}$ & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
   \hline
-    60h & -835.1 & 0.023 & 0.997 & 19.4 \\
-    HighKick & -167.7 & 0.022 & 0.995 & 3.7 \\
-    9d & -332.0 & 0.016 & 1.000 & 5.5 \\ 
-    Endgame & -431.4 & 0.012 & 0.982 & 5.3 \\
+    60h & $-835.1$ & 0.023 & 0.997 & 19.4 \\
+    HighKick & $-167.7$ & 0.022 & 0.995 & 3.7 \\
+    9d & $-332.0$ & 0.016 & 1.000 & 5.5 \\ 
+    Endgame & $-431.4$ & 0.012 & 0.982 & 5.3 \\
   \hline
 \end{tabular*}
-\caption[Systematic error due to fixed pileup energy scale factor]{Systematic error due to the fixed pileup scale parameter $C$ in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. All units are in ppb except for the error on the $C$ parameter and it's minimum which are unit-less.}
+\caption[Systematic error due to fixed pileup energy scale factor]{Systematic error due to the fixed pileup scale parameter $C$ in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. Units for $dR/dC$ and $\delta R$ are in ppb.}
 \label{tab:systematicError_pileupC}
 \end{table}
 
 
 
--include minimum and width/error in chart for pileup energy scaling error
 -need to mention larger slope/systematic error in 60h
 
 
@@ -1143,6 +1136,7 @@ Similarly to the scan over SDT, scanning over the choice of SGT (default value o
         \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupTimeShift_Canv_9d}
         \caption{}
     \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupTimeShift_Canv_9d}
@@ -1156,10 +1150,10 @@ Similarly to the scan over SDT, scanning over the choice of SGT (default value o
 
 \begin{table}[]
 \centering
-\small
+% \small
 \setlength\tabcolsep{20pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{0.6\linewidth}{@{\extracolsep{\fill}}lcK}
+\begin{tabular*}{0.7\linewidth}{@{\extracolsep{\fill}}lcK}
 % \begin{tabular}{@{\extracolsep{\fill}}lcccK}
   \hline
     \multicolumn{3}{c}{\textbf{Systematic Error due to Pileup Time Shift}} \\
@@ -1172,7 +1166,7 @@ Similarly to the scan over SDT, scanning over the choice of SGT (default value o
     Endgame & 5.7 & 14.3 \\
   \hline
 \end{tabular*}
-\caption[Systematic error due to pilep time shift]{Systematic error due to the pileup time-shift parameter $P_{t}$ in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. Units for the slope and error columns are ppb/ns and ppb respectively. The error on the $P_{t}$ is by default taken to be \ns{2.5} as described in the text. \textbf{fix spacing of table}}
+\caption[Systematic error due to pilep time shift]{Systematic error due to the pileup time-shift parameter $P_{t}$ in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. Units for $dR/dP_{t}$ and $\delta R$ are in ppb/ns and ppb respectively. The error on the $P_{t}$ is by default taken to be \ns{2.5} as described in the text. \textbf{fix spacing of table}}
 \label{tab:systematicError_pileupTimeShift}
 \end{table}
 
@@ -1187,17 +1181,11 @@ Similarly to the scan over SDT, scanning over the choice of SGT (default value o
 
 
 
-For errors relating to the choice of SDT and SGT - the idea is this: Show the plots which show how the choices of SDT and SGT don't matter as long as the automatic pileup scaling is applied (shapes are the same) - this implies that the error due to these guys is contained within the pileup multiplier error, and can thus be ignored in favor of the latter - point back to pileup section when talking about this - I can also potentially if I have time do scans on these parameters and look at the effect on R
-
-% https://gm2-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=13963&filename=PileupScaleShadowTesting.pdf&version=1
-% https://gm2-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=14394&filename=PileupFormEtc.pdf&version=2
+\subsection{Gain systematic errors}
+\label{sub:gainerror}
 
 
--pileup multiplier - amplitude
--pileup time shift - phase
--pileup energy scaling - phase
-
--identify all pileup plots as coming from the 9d
+-talk about the equations here - slight reference to either detector section or reconstruction section in this chapter - might want to put this after pileup if I introduce various equations and the like in that section
 
 
 \subsection{CBO systematic errors}
@@ -1258,7 +1246,7 @@ Of more interest is the choice of fixed value for the \K parameter in the ratio 
 
 \begin{table}[]
 \centering
-\small
+% \small
 % \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular*}{0.75\linewidth}{@{\extracolsep{\fill}}lGcJG}
