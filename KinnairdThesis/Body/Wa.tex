@@ -708,14 +708,14 @@ The parameter $\tau$ is the same muon lifetime as in the T-Method fit function, 
     \begin{align} \label{eq:lambdalosses}
         \Lambda(t) = 1 - \boldsymbol{\kappa_{loss}} \int_{t_{0}}^{t} L(t')e^{(t'/\tau)} dt'
     \end{align}
-where $\boldsymbol{\kappa_{loss}} = 1/\epsilon N_{0}$ is taken as the fit parameter\footnote{By construction $\kappa_{loss}$ is a very small parameter, $\mathcal{O}(10^{-10})$. This factor is absorbed into the parameter in such that the fit parameter is $\mathcal{O}(1)$.}. The fractional losses (the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter) for the four analyzed Run~1 datasets are shown in \figref{fig:fractionallosses}.
+where $\boldsymbol{\kappa_{loss}} = 1/\epsilon N_{0}$ is taken as the fit parameter\footnote{By construction $\kappa_{loss}$ is a very small parameter, $\mathcal{O}(10^{-10})$. This factor is absorbed into the parameter in such that the fit parameter is $\mathcal{O}(1)$.}. The fractional losses (the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter) for the Run~1 precession frequency analysis datasets are shown in \figref{fig:fractionallosses}.
 
 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=.8\textwidth]{fractionalLosses_dataset_comparison}
-    \caption[Fractional muon losses in the analyzed Run~1 datasets]{Fractional losses for the four Run~1 datasets analyzed in this analysis. The curves begin at \mus{30.2} which is where the fit begins. A value of 1\% at a specific time $t$ indicates that there are 1\% fewer stored muons at that time than there would be if there were no losses at all. The Endgame and 60h datasets can be seen to have the most losses, while the 9d and HighKick have less. This is due to the higher kicks in the latter datasets which put the muon beam on a more central orbit. The upward tail at the end of the Endgame dataset corresponds to the remnant proton contamination. \textbf{should I move this to the systematics error section?}}
+    \caption[Fractional muon losses in the analyzed Run~1 datasets]{Fractional losses for the Run~1 precession frequency analysis datasets. The curves begin at \mus{30.2} which is where the fit begins. A value of 1\% at a specific time $t$ indicates that there are 1\% fewer stored muons at that time than there would be if there were no losses at all. The Endgame and 60h datasets can be seen to have the most losses, while the 9d and HighKick have less. This is due to the higher kicks in the latter datasets which put the muon beam on a more central orbit. The upward tail at the end of the Endgame dataset corresponds to the remnant proton contamination. \textbf{should I move this to the systematics error section?}}
     \label{fig:fractionallosses}
 \end{figure}
 
@@ -942,7 +942,7 @@ As a reminder the default values used for the ADT and SDT were \ns{5} each, and 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ShadowDeadTime_Canv_9d_fixed}
-        \caption{Fitted $R$ versus SDT. Units are in ppm.}
+        \caption{Sensitivity of $R$ to value of SDT. Units are in ppm.}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
@@ -972,7 +972,7 @@ As a reminder the default values used for the ADT and SDT were \ns{5} each, and 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ShadowDeadTime_Canv_9d_auto}
-        \caption{Fitted $R$ versus SDT. Units are in ppm.}
+        \caption{Sensitivity of $R$ to value of SDT. Units are in ppm.}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
@@ -1005,7 +1005,7 @@ Similarly to the scan over SDT, scanning over the choice of SGT (default value o
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ShadowGapTime_Canv_9d}
-        \caption{Fitted $R$ versus SGT. Units are in ppm.}
+        \caption{Sensitivity of $R$ to value of SGT. Units are in ppm.}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
@@ -1032,7 +1032,7 @@ where $P_{m}$ is the value of the pileup multiplier. The error $\sigma_{P_{m}}$ 
     \begin{align}
         \sigma_{P_{m}} = \sqrt{\frac{2}{f''(\chi^{2})}} = \frac{1}{\sqrt{p_{2}}},
     \end{align}
-where $p_{2}$ is the fit parameter as given in the top right of the \chisq plot. The slopes in $R$, uncertainties in pileup multiplier, and final pileup multiplier systematic errors for the four different Run~1 datasets are given in \tabref{tab:systematicError_pileupMultplier}. It should be noted that the default used pileup multiplier of $\sim1.03$ does not necessarily correspond to the minimum in the \chisq plot, but is within $1\sigma$ of 1 or the minimum (except the Endgame which is closer to $2\sigma$)\footnote{Monte-Carlo tests with various random seeds showed this minimum fluctating around zero both above and below. The distance from 1 therefore is not a good measure for the uncertainty in the pileup multiplier compared to the width of the \chisq fit.}. As shown in the table, the uncertainties on the pileup multipler are of order 2 to 5\%, while the systematic errors on $R$ are on the order of \SI{10}{} to \SI{20}{ppb} depending on dataset. 
+where $p_{2}$ is the fit parameter as given in the top right of the \chisq plot. The sensitivities of $R$ to the pileup multiplier, associated uncertainties, and final corresponding systematic errors for the Run~1 precession frequency analysis datasets are given in \tabref{tab:systematicError_pileupMultplier}. It should be noted that the default used pileup multiplier of $\sim1.03$ does not necessarily correspond to the minimum in the \chisq plot, but is within $1\sigma$ of 1 or the minimum (except the Endgame which is closer to $2\sigma$)\footnote{Monte-Carlo tests with various random seeds showed this minimum fluctating around zero both above and below. The distance from 1 therefore is not a good measure for the uncertainty in the pileup multiplier compared to the width of the \chisq fit.}. As shown in the table, the uncertainties on the pileup multipler are of order 2 to 5\%, while the systematic errors on $R$ are on the order of \SI{10}{} to \SI{20}{ppb} depending on dataset. 
 
 
 \begin{figure}[]
@@ -1046,9 +1046,9 @@ where $p_{2}$ is the fit parameter as given in the top right of the \chisq plot.
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupMultiplier_Canv_9d}
-        \caption{Fitted $R$ versus pileup multiplier. Units are in ppm.}
+        \caption{Sensitivity of $R$ to value of pileup multiplier. Units are in ppm.}
     \end{subfigure}
-\caption[]{Data from 9d dataset.}
+\caption[Pileup multiplier scan]{Pileup multiplier scan. Data from 9d dataset.}
 \label{fig:PMscan}
 \end{figure}
 
@@ -1071,16 +1071,68 @@ where $p_{2}$ is the fit parameter as given in the top right of the \chisq plot.
     Endgame & $-335.3$ & 0.028 & 0.985 & 9.4 \\
   \hline
 \end{tabular*}
-\caption[Systematic error due to pileup amplitude]{Systematic error due to the pileup amplitude in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. Units for $dR/dP_{m}$ and $\delta R$ are in ppb.}
+\caption[Systematic error due to pileup amplitude]{Systematic error due to the pileup amplitude in the Ratio Method fits for the Run~1 precession frequency analysis datasets. The bold column gives the systematic error on \R. Units for $dR/dP_{m}$ and $\delta R$ are in ppb.}
 \label{tab:systematicError_pileupMultplier}
 \end{table}
 
 
+The pileup phase error is the error on $R$ assuming the phase of the pileup was incorrectly constructed. This is separated into two parts. The first part is calculated by applying time-shifts to \equref{eq:tdoublet}, assuming that the time of the constructed shadow doublet was incorrect in some way. A scan over pileup time-shifts is shown in \figref{fig:PTSscan}. A clear slope in $R$ is observed, however there is no clear minimum in the \chisq plot. Because the width of the \chisq curve cannot be taken as the uncertainty in the pileup time-shift, instead the uncertainty is taken conservatively at half the dead time at \ns{2.5}. The systematic error is calculated in the same way as for the pileup amplitude uncertainty,
+    \begin{align}
+        \delta R = \sigma_{P_{t}} \times \frac{dR}{dP_{t}},
+    \end{align}
+where $P_{m}$ is the value of the pileup time-shift. The sensitivities of $R$ to the pileup time-shift and corresponding systematic errors for the Run~1 precession frequency analysis datasets are given in \tabref{tab:systematicError_pileupTimeShift}.
 
 
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupTimeShift_Canv_9d}
+        \caption{\chisq versus pileup time-shift. There is no clear minimum in the plot.} 
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupTimeShift_Canv_9d}
+        \caption{Sensitivity of $R$ to value of pileup time-shift. Units are in ppm.}
+    \end{subfigure}
+\caption[Pileup time-shift scan]{Scan over pileup time-shift. Data from 9d dataset.}
+\label{fig:PTSscan}
+\end{figure}
 
-The phase error is...
 
+\begin{table}[]
+\centering
+% \small
+\setlength\tabcolsep{20pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{0.7\linewidth}{@{\extracolsep{\fill}}lcK}
+% \begin{tabular}{@{\extracolsep{\fill}}lcccK}
+  \hline
+    \multicolumn{3}{c}{\textbf{Systematic Error due to Pileup Time Shift}} \\
+  \hline\hline
+    Dataset & \multicolumn{1}{c}{$dR/dP_{t}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
+  \hline
+    60h & 7.0 & 17.6 \\
+    HighKick & 7.6 & 19.0 \\
+    9d & 6.8 & 17.1 \\ 
+    Endgame & 5.7 & 14.3 \\
+  \hline
+\end{tabular*}
+\caption[Systematic error due to pilep time shift]{Systematic error due to the pileup time-shift parameter $P_{t}$ in the Ratio Method fits for the Run~1 precession frequency analysis datasets. The bold column gives the systematic error on \R. Units for $dR/dP_{t}$ and $\delta R$ are in ppb/ns and ppb respectively. The error on the $P_{t}$ is by default taken to be \ns{2.5} as described in the text. \textbf{fix spacing of table}}
+\label{tab:systematicError_pileupTimeShift}
+\end{table}
+
+
+% -maybe put in fit start time scan of various time shifts converging to one
+% -maybe add plot of nice energy threshold where pileup goes smooth and phase error would disappear
+
+
+The second part of the pileup phase error comes from the choice of constant $C$ in the calculation of the energy of the pileup doublet as given in \equref{eq:Edoublet}. If the energy of the pileup pulses are systematically miscalculated, then doublets will be added or lost near the energy threshold applied when constructing the pileup spectrum, leading to an error on the phase. In order to calculate the systematic error from this parameter the parameter $C$ is scanned over in steps of 0.01 from 0.9 to 1.1, \figref{fig:PEscan}. As in the pileup amplitude error, the systematic error on $R$ is calculated as 
+    \begin{align}
+        \delta R = \sigma_{C} \times \frac{dR}{dC},
+    \end{align}
+where $C$ is the value of the pileup energy scaling constant. Similarly to the pileup amplitude error, there is a clear minimum in the \chisq plot which can be used to estimate the uncertainty in the pileup energy scale. \tabref{tab:systematicError_pileupC} gives the sensitivities of $R$ to the pileup energy scale, the associated uncertainties, and the corresponding systematic errors. As shown the value for $C$ which produces the minimum in the \chisq plot is consistent with 1\footnote{Because the spatial separation is turned off in the clustering portion of the reconstruction, a value of $C = 1$ is to be expected.}. Of interest to note is that the sensitivity of $R$ to $C$ in the 60h dataset is noticably larger than in the rest of the datasets. The origin of this is currently unknown.
 
 
 \begin{figure}[]
@@ -1088,16 +1140,16 @@ The phase error is...
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupEnergyScaling_Canv_9d}
-        \caption{}
+        \caption{\chisq versus pileup energy scale. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupEnergyScaling_Canv_9d}
-        \caption{}
+        \caption{Sensitivity of $R$ to value of pileup energy scale. Units are in ppm.}
     \end{subfigure}
-\caption[]{Data from 9d dataset.}
-\label{fig:}
+\caption[Pileup energy scale scan]{Scan over pileup energy scale. Data from 9d dataset.}
+\label{fig:PEscan}
 \end{figure}
 
 
@@ -1119,64 +1171,40 @@ The phase error is...
     Endgame & $-431.4$ & 0.012 & 0.982 & 5.3 \\
   \hline
 \end{tabular*}
-\caption[Systematic error due to fixed pileup energy scale factor]{Systematic error due to the fixed pileup scale parameter $C$ in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. Units for $dR/dC$ and $\delta R$ are in ppb.}
+\caption[Systematic error due to fixed pileup energy scale factor]{Systematic error due to the fixed pileup scale parameter $C$ in the Ratio Method fits for the Run~1 precession frequency analysis. The bold column gives the systematic error on \R. Units for $dR/dC$ and $\delta R$ are in ppb.}
 \label{tab:systematicError_pileupC}
 \end{table}
 
 
-
--need to mention larger slope/systematic error in 60h
-
-
-
-\begin{figure}[]
-\centering
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupTimeShift_Canv_9d}
-        \caption{}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \hspace{1cm}
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupTimeShift_Canv_9d}
-        \caption{}
-    \end{subfigure}
-\caption[]{Data from 9d dataset.}
-\label{fig:}
-\end{figure}
-
+\tabref{tab:PileupErrorsTotal} gives the quadrature sum for the total pileup systematic error for the Run~1 precession frequency analysis datasets. As shown for each dataset the total error is below the target error of \SI{40}{ppb} in spite of the contamination in the pileup shadow method. For future runs of the experiment with increased rate and therefor increased pileup, these errors may grow. In that case either the pileup shadow method needs to be improved to account for the contamination and pileup triplets, or a different pileup construction method needs to be used.
 
 
 \begin{table}[]
 \centering
-% \small
-\setlength\tabcolsep{20pt}
+\setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{0.7\linewidth}{@{\extracolsep{\fill}}lcK}
-% \begin{tabular}{@{\extracolsep{\fill}}lcccK}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcGGGG}
   \hline
-    \multicolumn{3}{c}{\textbf{Systematic Error due to Pileup Time Shift}} \\
+    \multicolumn{6}{c}{\textbf{Total Pileup Systematic Errors}} \\
   \hline\hline
-    Dataset & \multicolumn{1}{c}{$dR/dP_{t}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
+    Type of Error & Parameter & \multicolumn{1}{c}{60h} & \multicolumn{1}{c}{HighKick} & \multicolumn{1}{c}{9d} & \multicolumn{1}{c}{Endgame} \\
   \hline
-    60h & 7.0 & 17.6 \\
-    HighKick & 7.6 & 19.0 \\
-    9d & 6.8 & 17.1 \\ 
-    Endgame & 5.7 & 14.3 \\
+    Amplitude & $P_{m}$  & 22.2 & 19.0 & 9.0  & 9.4 \\
+    Phase     & $P_{t}$  & 17.6 & 19.0 & 17.1 & 14.3 \\
+    Phase     & $C$      & 19.4 & 3.7  & 5.5  & 5.3 \\
   \hline
+    Quadrature sum &  & 34.3 & 27.1 & 20.1 & 17.9 \\
+  \hline 
 \end{tabular*}
-\caption[Systematic error due to pilep time shift]{Systematic error due to the pileup time-shift parameter $P_{t}$ in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. Units for $dR/dP_{t}$ and $\delta R$ are in ppb/ns and ppb respectively. The error on the $P_{t}$ is by default taken to be \ns{2.5} as described in the text. \textbf{fix spacing of table}}
-\label{tab:systematicError_pileupTimeShift}
+\caption[Total pileup systematic errors]{Total pileup systematic errors for the Run~1 precession frequency analysis datasets.}
+\label{tab:PileupErrorsTotal}
 \end{table}
 
 
--error conservatively taken at half the deadtime at 2.5 ns
 
 
--maybe put in fit start time scan of various time shifts converging to one
 
--maybe add plot of nice energy threshold where pileup goes smooth and phase error would disappear
+-need to describe scans a little more deliberately - scan over x parameter in steps of x units, also refer to the slope as the sensitivity of R to blah
 
 
 
@@ -1233,13 +1261,13 @@ As mentioned in \secref{subsec:lostmuons}, the triples spectrum is made with cut
 
 
 
-Of more interest is the choice of fixed value for the \K parameter in the ratio fits, fixed from the corresponding T-Method fits. The systematic error can be determined by simply scanning over the value of \K as in \figref{fig:kappaLossScan}, where the error on the parameter is that taken from a T-Method fit to the same data\footnote{The size of the error on \K is entirely due to statistics.}. \tabref{tab:systematicError_kappaLoss} gives the systematic errors on \R for the four different analyzed Run~1 datasets. Interestingly enough, though the Endgame dataset has the most lost muons, it is seen that the change in \R versus \K is larger in the other datasets. This is potentially due to the fact that \textbf{try to come up with something for this unless I can explain it away as an oddity.}
+Of more interest is the choice of fixed value for the \K parameter in the ratio fits, fixed from the corresponding T-Method fits. The systematic error can be determined by simply scanning over the value of \K as in \figref{fig:kappaLossScan}, where the error on the parameter is that taken from a T-Method fit to the same data\footnote{The size of the error on \K is entirely due to statistics.}. \tabref{tab:systematicError_kappaLoss} gives the systematic errors on \R for the Run~1 precession frequency analysis datasets. Interestingly enough, though the Endgame dataset has the most lost muons, it is seen that the change in \R versus \K is larger in the other datasets. This is potentially due to the fact that \textbf{try to come up with something for this unless I can explain it away as an oddity.}
 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=.7\textwidth]{FullRatio_R_Vs_kappa_loss_Canv_9d}
-    \caption[Scan over fixed \K]{The slope in \R as a function of the fixed \K parameter, with a fit in red. Error bars have been removed from the plot. Units are in ppm, data from the 9d dataset.}
+    \caption[Scan over fixed \K]{The sensitivity of \R to the fixed \K parameter. Error bars have been removed from the plot. Units are in ppm, data from the 9d dataset.}
     \label{fig:kappaLossScan}
 \end{figure}
 
@@ -1261,7 +1289,7 @@ Of more interest is the choice of fixed value for the \K parameter in the ratio 
     Endgame & -2.6 & 0.038 & 0.1 & -6.1 \\
   \hline
 \end{tabular*}
-\caption[Systematic error due to fixed $\kappa_{loss}$]{Systematic error due to the fixed $\kappa_{loss}$ parameter in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. The last column on the right gives the change in \R with the lost muons term included versus without, providing an absolute upper bound on systematic error. All units are in ppb except for the $\sigma_{\kappa_{loss}}$ parameter which is unit-less and comes from the T-Method fits.}
+\caption[Systematic error due to fixed $\kappa_{loss}$]{Systematic error due to the fixed $\kappa_{loss}$ parameter in the Ratio Method fits for the Run~1 precession frequency analysis datasets. The bold column gives the systematic error on \R. The last column on the right gives the change in \R with the lost muons term included versus without, providing an absolute upper bound on systematic error. All units are in ppb except for the $\sigma_{\kappa_{loss}}$ parameter which is unit-less and comes from the T-Method fits.}
 \label{tab:systematicError_kappaLoss}
 \end{table}
 
