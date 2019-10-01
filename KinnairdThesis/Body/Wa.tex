@@ -926,18 +926,16 @@ In order to verify the integrity of the fit other checks are done ...
 \label{sub:gainerror}
 
 
--talk about the equations here - slight reference to either detector section or reconstruction section in this chapter
+-talk about the equations here - slight reference to either detector section or reconstruction section in this chapter - might want to put this after pileup if I introduce various equations and the like in that section
 
 
 
 \subsection{Pileup systematic errors}
 \label{sub:pileuperror}
 
+In the construction of the pileup as described in \secref{sub:pileupsubtraction}, various parameter choices are made. Systematic errors due to the choices for these parameters need to be calculated or dismissed. \tabref{tab:histogramparameters} gives the default values used for the ADT, SDT, SGT, and C parameters. In broad strokes the pileup systematic error can be separated into two parts, the error on the amplitude of the pileup, and the error on the phase of the pileup. How these various parameters feed into the two separate errors will be discussed in turn.
 
-In the construction of the pileup as described in \secref{sub:pileupsubtraction}, various constants, parameters, and choices are made or used in regards to shadow dead times, energy scaling of shadow pileup doublets, etc. Systematic errors due to the choices for these parameters need to be calculated or dismissed as negligible. \tabref{tab:histogramparameters} gives the default values used for the ADT, SDT, SGT, and C. As a reminder the choices for the parameters are taken as \SI{5}{ns}, \SI{5}{ns}, \SI{10}{ns}, and 1 respectively.
-
-
-In order to determine if there is a systematic error from the choice of SDT, the parameter was scanned over as shown in \figref{}
+As a reminder the default values used for the ADT and SDT were \ns{5} each, and a default pileup multiplier of about 1.03 was applied to the data using the ratio of cluster energies over pileup energies, or pileup corrected cluster times over all cluster times for cluster energies above \SI{3.5}{\GeV}. In order to determine whether a systematic error needs to be included for the choice of ADT or SDT, the SDT parameter was scanned over from \ns{5} to \ns{10} in steps of \ns{1}. This was done with and without the same automatic pileup amplitude scaling as shown in Figures~\ref{fig:SDTscan_noScaling} and \ref{fig:SDTscan_autoScaling}. In the former scan results, there is a clear minimum in the \chisq plot and a steep slope in $R$. In the latter however, the minimum in the \chisq plot has disappeared, while the slope in $R$ has become much reduced to the point of elimination\footnote{This slope in $R$ varies between positive and negative values based on dataset, so there is no real clear trend in $R$}. The fact that applying the automatic pileup amplitude scaling produces nearly identical pileup spectra with no clear trend in $R$ regardless of the choice of SDT (and by extension ADT), any systematic error due to the choice of these two parameters can be subsumed into the pileup amplitude error itself, discussed down below.
 
 
 \begin{figure}[]
@@ -945,26 +943,28 @@ In order to determine if there is a systematic error from the choice of SDT, the
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_ShadowDeadTime_Canv_9d_fixed}
-        \caption{}
+        \caption{\chisq versus SDT. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ShadowDeadTime_Canv_9d_fixed}
-        \caption{}
+        \caption{Fitted $R$ versus SDT. Units are in ppm.}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{SDT_CorrEnergyComparison_9d_fixed}
-        \caption{}
+        \includegraphics[width=\textwidth]{SDT_PileupTimeComparison_9d_fixed}
+        \caption{The pileup time spectrum for different choices of SDT.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
     \begin{subfigure}[]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{SDT_PileupTimeComparison_9d_fixed}
-        \caption{}
+        \includegraphics[width=\textwidth]{SDT_CorrEnergyComparison_9d_fixed}
+        \caption{The corrected energy spectrum for different choices of SDT.}
     \end{subfigure}
-\caption[]{Data from 9d dataset.}
-\label{fig:}
+\caption[Pileup shadow dead time scan without automatic pileup amplitude scaling]{Shadow dead time scan results without automatic pileup amplitude scaling. A clear minimum in the \chisq plot is seen near \ns{5} corresponding to the choice of ADT, and a steep slope in the slope for $R$ is observed. In the bottom two spectra plots the magenta curve corresponds to a choice SDT = \ns{5} while the black curve corresponds to SDT = \ns{10}. The larger choice of SDT leads to an greater estimation of the pileup, which in the energy spectra plot leads to a corresponding over-subtraction in the energy spectrum at energies where hits consist mostly or purely of pileup pulses. Data from 9d dataset.}
+\label{fig:SDTscan_noScaling}
 \end{figure}
 
 
@@ -973,31 +973,32 @@ In order to determine if there is a systematic error from the choice of SDT, the
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_ShadowDeadTime_Canv_9d_auto}
-        \caption{}
+        \caption{\chisq versus SDT. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ShadowDeadTime_Canv_9d_auto}
-        \caption{}
+        \caption{Fitted $R$ versus SDT. Units are in ppm.}
     \end{subfigure}
 
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{SDT_CorrEnergyComparison_9d_auto}
-        \caption{}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{SDT_PileupTimeComparison_9d_auto}
-        \caption{}
+        \caption{The pileup time spectrum for different choices of SDT.}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{SDT_CorrEnergyComparison_9d_auto}
+        \caption{The corrected energy spectrum for different choices of SDT.}
     \end{subfigure}
-\caption[]{Data from 9d dataset.}
-\label{fig:}
+\caption[Pileup shadow dead time scan with automatic pileup amplitude scaling]{Shadow dead time scan results with automatic pileup amplitude scaling. No clear minimum is observed in the \chisq plot, and the slope for $R$ is small. In the bottom two spectra plots the magenta curve corresponds to a choice SDT = \ns{5} while the black curve corresponds to SDT = \ns{10}. With the automatic amplitude scaling applied, the time and energy spectra lie on top of each other. That combined with the lack of clear minimum in the \chisq plot and small slope in $R$ indicate that there is no real systematic error due to the choice of SDT. Data from 9d dataset.}
+\label{fig:SDTscan_autoScaling}
 \end{figure}
 
 
-
-In order to determine if there is a systematic error from the choice of SGT, the parameter was scanned over as shown in \figref{}
+Similarly to the scan over SDT, scanning over the choice of SGT (default value of \ns{10} or twice the SDT) allows for determination of a potential systematic error. The results of such a scan with the automatic pileup amplitude scaling is shown in \figref{fig:SGTscan}. Just as in the SDT scan with the automatic scaling, there is no minimum in the \chisq plot, the slope in $R$ is negligible, and the pileup spectra for the various choices of SGT are nearly identical. Therefore again any systematic error due to the choice of SGT is subsumbed into the pileup amplitude error.
 
 
 \begin{figure}[]
@@ -1005,30 +1006,31 @@ In order to determine if there is a systematic error from the choice of SGT, the
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_ShadowGapTime_Canv_9d}
-        \caption{}
+        \caption{\chisq versus SGT. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ShadowGapTime_Canv_9d}
-        \caption{}
+        \caption{Fitted $R$ versus SGT. Units are in ppm.}
     \end{subfigure}
 
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{SGT_CorrEnergyComparison_9d}
-        \caption{}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{SGT_PileupTimeComparison_9d}
-        \caption{}
+        \caption{The pileup time spectrum for different choices of SGT.}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{SGT_CorrEnergyComparison_9d}
+        \caption{The corrected energy spectrum for different choices of SGT.}
     \end{subfigure}
-\caption[]{Data from 9d dataset.}
-\label{fig:}
+\caption[Pileup shadow gap time scan with automatic pileup amplitude scaling]{Shadow gap time scan results with automatic pileup amplitude scaling. No clear minimum is observed in the \chisq plot, and the slope for $R$ is small. In the bottom two spectra plots one of the grey curves (hidden) corresponds to a choice SGT = \ns{10} while the black curve corresponds to SGT = \ns{20}. With the automatic amplitude scaling applied, the time and energy spectra lie on top of each other. That combined with the lack of clear minimum in the \chisq plot and small slope in $R$ indicate that there is no real systematic error due to the choice of SGT. Data from 9d dataset.}
+\label{fig:SGTscan}
 \end{figure}
 
 
--show 9d plots for sgt, claim small slope which changes with dataset so no real slope, point out how spectra lie on top of each other, and then claim that any error is contained within pileup multiplier error later on
 
 
 - pileup multiplier error here before energy scaling and time shift which are the phase error
@@ -1312,7 +1314,9 @@ Of more interest is the choice of fixed value for the \K parameter in the ratio 
 
 \subsection{Binning systematic errors}
 
+\subsection{Random seed systematic errors}
 
+-not a systematic error per se but ... 
 
 \subsection{Systematic error summary}
 
