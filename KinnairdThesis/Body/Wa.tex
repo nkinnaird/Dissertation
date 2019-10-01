@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/Pileup/Scaling/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/60h/SingleIteration/SingleFits/}}
+\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/Pileup/Scaling/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/60h/SingleIteration/SingleFits/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}}
 
 \chapter{\texorpdfstring{\wa}{wa} Measurement}
 \label{chapter:wa}
@@ -570,13 +570,11 @@ For the 9d dataset which has a VW frequency that's nearly 9 $\cdot$ \wa and avoi
     Dataset & $A$ no randomization & $A$ with randomization & $\Delta A$ & $\Delta \sigma_{R}$ (ppb) \\
   \hline
     60h & $0.3697$ & $0.3637$ & $-0.0060$ & $22.7$ \\
-  \hline
     9d & $0.3714$ & $0.3639$ & $-0.0075$ & $18.1$ \\
-  \hline
     Endgame & $0.3747$ & $0.3686$ & $-0.0061$ & $10.7$ \\
   \hline
 \end{tabular*}
-\caption[]{Asymmetry values in three of the Run~1 datasets with and without the VW randomization, and the corresponding change in the statistical error on R. An energy cut of 1700 MeV was applied to the data. The HighKick dataset has the lowest asymmetry and the least statistics, so the increase in the statistical error would be negligible as it is for the other datasets.}
+\caption[Asymmetry values in Run~1 datasets with VW time randomization]{Asymmetry values in three of the Run~1 datasets with and without the VW randomization, and the corresponding change in the statistical error on R. An energy cut of 1700 MeV was applied to the data. The HighKick dataset has the lowest asymmetry and the least statistics, so the increase in the statistical error would be negligible as it is for the other datasets.}
 \label{tab:A_change}
 \end{table}
 
@@ -917,14 +915,14 @@ In order to verify the integrity of the fit other checks are done ...
     Quadrature sum & 70 \\
   \hline 
 \end{tabular*}
-\caption[Uncertainties in the precession frequency measurement]{Systematic errors in the precession frequency measurement. \textbf{fill this table out more once I've gone through the various parts}}
+\caption[Uncertainties in the precession frequency measurement]{Systematic errors in the precession frequency measurement. \textbf{fill this table out more once I've gone through the various parts - mention that this is the final expected table}}
 \label{tab:wauncertainties}
 \end{table}
 
 
 
 
-\subsection{Gain}
+\subsection{Gain systematic errors}
 \label{sub:gainerror}
 
 
@@ -932,7 +930,7 @@ In order to verify the integrity of the fit other checks are done ...
 
 
 
-\subsection{Pileup}
+\subsection{Pileup systematic errors}
 \label{sub:pileuperror}
 
 
@@ -952,11 +950,35 @@ For errors relating to the choice of SDT and SGT - the idea is this: Show the pl
 
 
 
-\subsection{Lost muons}
+\subsection{Lost muons systematic errors}
 \label{sub:lostmuonserror}
 
 
-As mentioned in \secref{subsec:lostmuons}, the triples spectrum is made with cuts as defined in \tabref{tab:lostmuoncuts}. Various backgrounds are subtracted off the triples spectrum in order to generate a clean sample of lost muons. Similarly, stable beam contaminants in the form of deuterons and protons contaminate the lost muon spectrum. The former are largely removed by straightforward \DT and $\Delta t_{13}$ cuts. The latter can be mostly removed by cutting on the negative side of the $\Delta t_{13}$ distribution which separates the populations more readily, \figref{fig:deltaT13}, with $\Delta t_{13} \leq \SI{12.5}{ns}$. While this does largely remove the protons at the cost of statistics, the fitted \BK parameter simply grows larger to compensate. Ultimately the effect on \BR is negligible, with $\Delta \boldsymbol{R} = \SI{-0.3}{ppb}$.
+As mentioned in \secref{subsec:lostmuons}, the triples spectrum is made with cuts as defined in \tabref{tab:lostmuoncuts}. Various backgrounds are subtracted off the triples spectrum in order to generate a clean sample of lost muons. \tabref{tab:lostmuonsvariousfits} gives the change in \R for various sets of cuts and background subtractions for the 9d and Endgame datasets. As shown the various different backgrounds and cuts ultimately make very little difference in the final fitted \R value. Similarly, stable beam contaminants in the form of deuterons and protons contaminate the lost muon spectrum. The former are largely removed by straightforward \DT and $\Delta t_{13}$ cuts. The latter can be mostly removed by cutting on the negative side of the $\Delta t_{13}$ distribution which separates the populations more readily, \figref{fig:deltaT13}, with $\Delta t_{13} \leq \SI{12.5}{ns}$. While this does largely remove the protons at the cost of statistics, the fitted \K parameter simply grows larger to compensate. Ultimately the effect on \R is negligible, with $\Delta R = \SI{-0.3}{ppb}$. The sum of these separate types of errors is conservatively taken at \SI{1}{ppb} for all datasets\footnote{For the T-Method fits, though the changes in \R are noticably larger with the various cuts, they are still the same order of magnitude and the error is conservatively below \SI{1}{ppb}.}.
+
+
+\begin{table}[]
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lcccc}
+  \hline
+    \multicolumn{5}{c}{\textbf{$\Delta R$ with Various Lost Muon Cuts}} \\
+  \hline\hline
+    & \multicolumn{2}{c}{9d Dataset} & \multicolumn{2}{c}{Endgame Dataset} \\
+  \hline
+    Type of fit or cut & $\Delta R$ (ppb) & \K & $\Delta R$ (ppb) & \K \\
+  \hline
+    No quadruple subraction & 0.2 & 1.811 & -0.1 & 1.717 \\
+    No accidental subraction & 0.1 & 2.503 & $<0.1$ & 2.339 \\
+    $\Delta t_{13} \leq \SI{12.5}{ns}$ & 0.1 & 4.469 & -0.3 & 4.248 \\
+    $\SI{5}{ns} \leq \Delta t_{12, 23} \leq \SI{8.5}{ns}$ & N/A & N/A & $<0.1$ & 1.709 \\
+    $\SI{100}{\MeV} \leq E_{1,2,3} \leq \SI{500}{\MeV}$ & N/A & N/A & $<0.1$ & 2.09 \\
+  \hline 
+\end{tabular*}
+\caption[Effect on fitted R value due to lost muon cuts in the 9d and Endgame datasets]{Effect on the fitted \R value in the 9d and Endgame datasets with various different cuts used or backgrounds subtracted. Ultimately how the muon loss spectrum $L(t)$ is created has little bearing on the final fitted \R value. Also included are the various corresponding \K values which compensate for the level of statistics contained within $L(t)$ due to the various cuts. \textbf{decide whether to fill out the N/A 9d fits or not}}
+\label{tab:lostmuonsvariousfits}
+\end{table}
 
 
 \begin{figure}[]
@@ -967,49 +989,47 @@ As mentioned in \secref{subsec:lostmuons}, the triples spectrum is made with cut
 \end{figure}
 
 
--taken conservatively at less than 1 ppb ... 
+
+Of more interest is the choice of fixed value for the \K parameter in the ratio fits, fixed from the corresponding T-Method fits. The systematic error can be determined by simply scanning over the value of \K as in \figref{fig:kappaLossScan}, where the error on the parameter is that taken from a T-Method fit to the same data\footnote{The size of the error on \K is entirely due to statistics.}. \tabref{tab:systematicError_kappaLoss} gives the systematic errors on \R for the four different analyzed Run~1 datasets. Interestingly enough, though the Endgame dataset has the most lost muons, it is seen that the change in \R versus \K is larger in the other datasets. This is potentially due to the fact that \textbf{try to come up with something for this unless I can explain it away as an oddity.}
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.7\textwidth]{FullRatio_R_Vs_kappa_loss_Canv_9d}
+    \caption[Scan over fixed \K]{The slope in \R as a function of the fixed \K parameter, with a fit in red. Error bars have been removed from the plot. Units are in ppm, data from the 9d dataset.}
+    \label{fig:kappaLossScan}
+\end{figure}
 
 
 \begin{table}[]
 \centering
+\small
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lcccc}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lGcJG}
   \hline
-    \multicolumn{5}{c}{\textbf{Various Lost Muon Cuts}} \\
+    \multicolumn{5}{c}{\textbf{Systematic Error due to Fixed $\kappa_{loss}$}} \\
   \hline\hline
-    & \multicolumn{2}{c}{9d Dataset} & \multicolumn{2}{c}{Endgame Dataset} \\
+    Dataset & \multicolumn{1}{c}{$dR/d\kappa_{loss}$} & $\sigma_{\kappa_{loss}}$ & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} & \multicolumn{1}{c}{$\Delta R$ (with - without)} \\
   \hline
-    Type of fit or cut & $\Delta \boldsymbol{R}$ (ppb) & \BK & $\Delta \boldsymbol{R}$ (ppb) & \BK \\
+    60h & -3.5 & 0.338 & 1.2 & -31.4 \\
+    HighKick & -7.1 & 0.697 & 4.9 & -40.1 \\
+    9d & -18.3 & 0.170 & 3.1 & -45.7 \\
+    Endgame & -2.6 & 0.038 & 0.1 & -6.1 \\
   \hline
-    No quadruple subraction & 0.2 & 1.811 & -0.1 & 1.717 \\
-    No accidental subraction & 0.1 & 2.503 & $<1$ & 2.339 \\
-    $\Delta t_{13} \leq \SI{12.5}{ns}$ & 0.1 & 4.469 & -0.3 & 4.248 \\
-    $\SI{5}{ns} \leq \Delta t_{12, 23} \leq \SI{8.5}{ns}$ & N\textbackslash A & N\textbackslash A & $<1$ & 1.709 \\
-    $\SI{100}{\MeV} \leq E_{1,2,3} \leq \SI{500}{\MeV}$ & N\textbackslash A & N\textbackslash A & $<1$ & 2.09 \\
-  \hline 
 \end{tabular*}
-\caption[]{}
-\label{tab:lostmuonsvariousfits}
+\caption[Systematic error due to fixed $\kappa_{loss}$]{Systematic error due to the fixed $\kappa_{loss}$ parameter in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. The last column on the right gives the change in \R with the lost muons term included versus without, providing an absolute upper bound on systematic error. All units are in ppb except for the $\sigma_{\kappa_{loss}}$ parameter which is unit-less and comes from the T-Method fits.}
+\label{tab:systematicError_kappaLoss}
 \end{table}
 
 
--the T-Method fits, though the delta Rs are noticably larger, are still the same order of magnitude...
-
-
-
-- scan over fixed k loss parameters and a separate chart for them
-- though the endgame has the most lost muons, interestingly enough it is in the 9d that the change in R with versus without the lost muons is the largest - this is potentially due to the fact that..
-
-
-
--also Sudeshna's talk in the Elba collaboration meeting - this probably just for the systematic error
-
--chart with different fits
 
 
 - a systematic error comes from the fact that muons are lost preferentially at earlier times (changing over the course of a fill)
 -if lost muons originate from different points in the beam line, then they will have precessed a different amount leading to a different phase
+
+
+-this error dominates the uncertainty...
 
 
 -probably move losses fraction figure to here somewhere
@@ -1018,8 +1038,18 @@ As mentioned in \secref{subsec:lostmuons}, the triples spectrum is made with cut
 
 
 
+-also Sudeshna's talk in the Elba collaboration meeting - this probably just for the systematic error
 
-\subsection{gm2 period guess and muon lifetime - Ratio construction parameters}
+
+
+
+
+
+-put in a chart at the end summarizing the total lost muons systematic error - unless I want to keep the pieces separate, and have one giant chart at the end which might be too much
+
+
+
+\subsection{Ratio construction systematic errors}
 \label{sub:TimeShiftingParameters}
 
 
@@ -1027,7 +1057,7 @@ As mentioned in \secref{subsec:lostmuons}, the triples spectrum is made with cut
 \subsection{Fits to bunch number}
 
 
-\subsection{Binning}
+\subsection{Binning systematic errors}
 
 
 

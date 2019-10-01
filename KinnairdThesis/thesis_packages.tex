@@ -100,15 +100,20 @@
 
 \def\DT{$\Delta t_{12}$\xspace}
 
-\def\BR{$\boldsymbol{R}$\xspace}
-\def\BK{$\boldsymbol{\kappa_{loss}}$\xspace}
+\def\R{$R$\xspace}
+\def\K{$\kappa_{loss}$\xspace}
 
 \newcolumntype{L}{D{.}{.}{2,3}} % define a column type L with specific spacing before and after the decimal point
 \makeatletter
 \newcolumntype{B}{>{\boldmath\DC@{.}{.}{2,3}}l<{\DC@end}} % define a column that's bold and does the above
 \makeatother
-\newcolumntype{G}{D{.}{.}{2,1}}
 
+\newcolumntype{G}{D{.}{.}{2,1}}
+\newcolumntype{H}{D{.}{.}{1,1}}
+
+\makeatletter
+\newcolumntype{J}{>{\boldmath\DC@{.}{.}{1,1}}l<{\DC@end}} % define a column that's bold and does the above
+\makeatother
 
 % define amu values here so that I can change them easily and automate their sum
 
