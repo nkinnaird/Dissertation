@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/Pileup/Scaling/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/60h/SingleIteration/SingleFits/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}}
+\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/Pileup/Scaling/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/60h/SingleIteration/SingleFits/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupGapTime/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/auto-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/fixed-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupEnergyScale/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupTimeShift/}{Body/Figures/Wa/Datasets/9d/SingleIteration/PileupMultiplierScan/}}
 
 \chapter{\texorpdfstring{\wa}{wa} Measurement}
 \label{chapter:wa}
@@ -934,6 +934,227 @@ In order to verify the integrity of the fit other checks are done ...
 \label{sub:pileuperror}
 
 
+In the construction of the pileup as described in \secref{sub:pileupsubtraction}, various constants, parameters, and choices are made or used in regards to shadow dead times, energy scaling of shadow pileup doublets, etc. Systematic errors due to the choices for these parameters need to be calculated or dismissed as negligible. \tabref{tab:histogramparameters} gives the default values used for the ADT, SDT, SGT, and C. As a reminder the choices for the parameters are taken as \SI{5}{ns}, \SI{5}{ns}, \SI{10}{ns}, and 1 respectively.
+
+
+In order to determine if there is a systematic error from the choice of SDT, the parameter was scanned over as shown in \figref{}
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_ShadowDeadTime_Canv_9d_fixed}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_ShadowDeadTime_Canv_9d_fixed}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{SDT_CorrEnergyComparison_9d_fixed}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{SDT_PileupTimeComparison_9d_fixed}
+        \caption{}
+    \end{subfigure}
+\caption[]{Data from 9d dataset.}
+\label{fig:}
+\end{figure}
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_ShadowDeadTime_Canv_9d_auto}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_ShadowDeadTime_Canv_9d_auto}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{SDT_CorrEnergyComparison_9d_auto}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{SDT_PileupTimeComparison_9d_auto}
+        \caption{}
+    \end{subfigure}
+\caption[]{Data from 9d dataset.}
+\label{fig:}
+\end{figure}
+
+
+
+In order to determine if there is a systematic error from the choice of SGT, the parameter was scanned over as shown in \figref{}
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_ShadowGapTime_Canv_9d}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_ShadowGapTime_Canv_9d}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{SGT_CorrEnergyComparison_9d}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{SGT_PileupTimeComparison_9d}
+        \caption{}
+    \end{subfigure}
+\caption[]{Data from 9d dataset.}
+\label{fig:}
+\end{figure}
+
+
+-show 9d plots for sgt, claim small slope which changes with dataset so no real slope, point out how spectra lie on top of each other, and then claim that any error is contained within pileup multiplier error later on
+
+
+- pileup multiplier error here before energy scaling and time shift which are the phase error
+- explain the width of the chi2 plot as the error - might have to move this up to a different section if I use the same width thing earlier
+- describe fit function used for chi2 plot since I don't use the default polynomial function
+
+- in fit parameters in figure mention units of ppm
+
+-mention default pileup multiplier and how it is within 1 sigma of 1 
+-mention that the minimum kind of floats around 1 either side and is random seed dependent
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupMultiplier_Canv_9d}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupMultiplier_Canv_9d}
+        \caption{}
+    \end{subfigure}
+\caption[]{Data from 9d dataset.}
+\label{fig:}
+\end{figure}
+
+
+\begin{table}[]
+\centering
+\small
+\setlength\tabcolsep{20pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{0.85\linewidth}{@{\extracolsep{\fill}}lcccK}
+% \begin{tabular}{@{\extracolsep{\fill}}lcccK}
+  \hline
+    \multicolumn{5}{c}{\textbf{Systematic Error due to Pileup Amplitude}} \\
+  \hline\hline
+    Dataset & \multicolumn{1}{c}{$dR/dP_{m}$} & $\sigma_{P_{m}}$ & $P_{m_{\text{min}}}$ & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
+  \hline
+    60h & -419.3 & 0.053 & 0.993 & 22.2 \\
+    HighKick & -372.8 & 0.051 & 0.997 & 19.0 \\
+    9d & -245.2 & 0.037 & 1.020 & 9.0 \\ 
+    Endgame & -335.3 & 0.028 & 0.985 & 9.4 \\
+  \hline
+\end{tabular*}
+\caption[Systematic error due to pileup amplitude]{Systematic error due to the pileup amplitude in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. All units are in ppb except for the error on the $P_{m}$ parameter and it's minimum which are unit-less.}
+\label{tab:systematicError_pileupMultplier}
+\end{table}
+
+
+
+
+
+-mention different slopes in pileup error between datasets which is odd
+
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupEnergyScaling_Canv_9d}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupEnergyScaling_Canv_9d}
+        \caption{}
+    \end{subfigure}
+\caption[]{Data from 9d dataset.}
+\label{fig:}
+\end{figure}
+
+
+\begin{table}[]
+\centering
+\small
+\setlength\tabcolsep{20pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{0.85\linewidth}{@{\extracolsep{\fill}}lcccK}
+% \begin{tabular}{@{\extracolsep{\fill}}lcccK}
+  \hline
+    \multicolumn{5}{c}{\textbf{Systematic Error due to Pileup Energy Scale Constant $C$}} \\
+  \hline\hline
+    Dataset & \multicolumn{1}{c}{$dR/dC$} & $\sigma_{C}$ & $C_{\text{min}}$ & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
+  \hline
+    60h & -835.1 & 0.023 & 0.997 & 19.4 \\
+    HighKick & -167.7 & 0.022 & 0.995 & 3.7 \\
+    9d & -332.0 & 0.016 & 1.000 & 5.5 \\ 
+    Endgame & -431.4 & 0.012 & 0.982 & 5.3 \\
+  \hline
+\end{tabular*}
+\caption[Systematic error due to fixed pileup scale factor]{Systematic error due to the fixed pileup scale parameter $C$ in the Ratio Method fits for the four analyzed datasets in Run~1. The bold column gives the systematic error on \R. All units are in ppb except for the error on the $C$ parameter and it's minimum which are unit-less.}
+\label{tab:systematicError_pileupC}
+\end{table}
+
+
+
+-include minimum and width/error in chart for pileup energy scaling error
+-need to mention larger slope/systematic error in 60h
+
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupTimeShift_Canv_9d}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupTimeShift_Canv_9d}
+        \caption{}
+    \end{subfigure}
+\caption[]{Data from 9d dataset.}
+\label{fig:}
+\end{figure}
+
+-maybe put in fit start time scan of various time shifts converging to one
+
+
+
+
 For errors relating to the choice of SDT and SGT - the idea is this: Show the plots which show how the choices of SDT and SGT don't matter as long as the automatic pileup scaling is applied (shapes are the same) - this implies that the error due to these guys is contained within the pileup multiplier error, and can thus be ignored in favor of the latter - point back to pileup section when talking about this - I can also potentially if I have time do scans on these parameters and look at the effect on R
 
 % https://gm2-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=13963&filename=PileupScaleShadowTesting.pdf&version=1
@@ -944,13 +1165,15 @@ For errors relating to the choice of SDT and SGT - the idea is this: Show the pl
 -pileup time shift - phase
 -pileup energy scaling - phase
 
+-identify all pileup plots as coming from the 9d
+
 
 \subsection{CBO systematic errors}
 \label{sub:cboerror}
 
 
 
-\subsection{Lost muons systematic errors}
+\subsection{Lost muon systematic errors}
 \label{sub:lostmuonserror}
 
 
@@ -1004,9 +1227,9 @@ Of more interest is the choice of fixed value for the \K parameter in the ratio 
 \begin{table}[]
 \centering
 \small
-\setlength\tabcolsep{10pt}
+% \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lGcJG}
+\begin{tabular*}{0.75\linewidth}{@{\extracolsep{\fill}}lGcJG}
   \hline
     \multicolumn{5}{c}{\textbf{Systematic Error due to Fixed $\kappa_{loss}$}} \\
   \hline\hline
@@ -1075,7 +1298,7 @@ Of more interest is the choice of fixed value for the \K parameter in the ratio 
 % \begin{figure}[]
 %     \centering
 %     \includegraphics[width=.8\textwidth]{}
-%     \caption[]{\textbf{update picture as necessary}}
+%     \caption[]{Data from some dataset.}
 %     \label{fig:}
 % \end{figure}
 
@@ -1092,7 +1315,33 @@ Of more interest is the choice of fixed value for the \K parameter in the ratio 
 %         \includegraphics[width=\textwidth]{}
 %         \caption{}
 %     \end{subfigure}
-% \caption[]{\textbf{update pictures as needed}}
+% \caption[]{Data from some dataset.}
 % \label{fig:}
 % \end{figure}
 
+% \begin{figure}[]
+% \centering
+%     \begin{subfigure}[]{0.45\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{}
+%         \caption{}
+%     \end{subfigure}% %you need this % here to add spacing between subfigures
+%     \begin{subfigure}[]{0.45\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{}
+%         \caption{}
+%     \end{subfigure}
+
+%     \begin{subfigure}[]{0.45\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{}
+%         \caption{}
+%     \end{subfigure}% %you need this % here to add spacing between subfigures
+%     \begin{subfigure}[]{0.45\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{}
+%         \caption{}
+%     \end{subfigure}
+% \caption[]{Data from some dataset.}
+% \label{fig:}
+% \end{figure}
