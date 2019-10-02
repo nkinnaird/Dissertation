@@ -19,7 +19,10 @@
 \usepackage{ifthen}
 \usepackage{lscape,afterpage}
 \usepackage{xspace}
+
 \usepackage{siunitx}
+\sisetup{detect-weight=true, detect-family=true}
+
 \usepackage{xcolor}
 
 \usepackage{appendix}
@@ -109,6 +112,7 @@
 \makeatother
 
 \newcolumntype{F}{D{.}{.}{3,1}}
+\newcolumntype{E}{D{.}{.}{3,3}}
 
 \newcolumntype{H}{D{.}{.}{1,1}}
 \makeatletter
@@ -119,6 +123,10 @@
 \makeatletter
 \newcolumntype{K}{>{\boldmath\DC@{.}{.}{2,1}}c<{\DC@end}} % define a column that's bold and does the above
 \makeatother
+
+% command to make row in table bold
+\newcommand\setrow[1]{\gdef\rowmac{#1}#1\ignorespaces}
+\newcommand\clearrow{\global\let\rowmac\relax}
 
 
 % define amu values here so that I can change them easily and automate their sum
