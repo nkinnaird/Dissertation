@@ -926,113 +926,114 @@ In order to verify the integrity of the fit other checks are done ...
 \subsection{Pileup systematic errors}
 \label{sub:pileuperror}
 
-In the construction of the pileup as described in \secref{sub:pileupsubtraction}, various parameter choices are made. Systematic errors due to the choices for these parameters need to be calculated or dismissed. \tabref{tab:histogramparameters} gives the default values used for the ADT, SDT, SGT, and C parameters. In broad strokes the pileup systematic error can be separated into two parts, the error on the amplitude of the pileup, and the error on the phase of the pileup. How these various parameters feed into the two separate errors will be discussed in turn.
+As described in \secref{sub:pileupsubtraction}, the pileup background oscillates at \wa which by extension means a strong effect on the final fitted $R$ value. If the subtracted pileup spectrum is misconstructed in any way, there will be a systematic error on $R$. In general the pileup systematic error can be separated into two parts, the error on the amplitude and the error on the phase. In order to estimate the two parts, the uncertainties on the pileup amplitude and phase need to be estimated along with the sensitivities of $R$ to them. \tabref{tab:histogramparameters} gives the default values used for the pileup construction parameters \{ADT, SDT, SGT, C\}. How these parameters feed into the amplitude and phase systematic errors will be discussed in turn, and the overall errors calculated for the different Run~1 datasets.
 
-As a reminder the default values used for the ADT and SDT were \ns{5} each, and a default pileup multiplier of about 1.03 was applied to the data using the ratio of cluster energies over pileup energies, or pileup corrected cluster times over all cluster times for cluster energies above \SI{3.5}{\GeV}. In order to determine whether a systematic error needs to be included for the choice of ADT or SDT, the SDT parameter was scanned over from \ns{5} to \ns{10} in steps of \ns{1}. This was done with and without the same automatic pileup amplitude scaling as shown in Figures~\ref{fig:SDTscan_noScaling} and \ref{fig:SDTscan_autoScaling}. In the former scan results, there is a clear minimum in the \chisq plot and a steep slope in $R$. In the latter however, the minimum in the \chisq plot has disappeared, while the slope in $R$ has become much reduced to the point of elimination\footnote{This slope in $R$ varies between positive and negative values based on dataset, so there is no real clear trend in $R$}. The fact that applying the automatic pileup amplitude scaling produces nearly identical pileup spectra with no clear trend in $R$ regardless of the choice of SDT (and by extension ADT), any systematic error due to the choice of these two parameters can be subsumed into the pileup amplitude error itself, discussed down below.
+
+As a reminder the default values used for the ADT and SDT were \ns{5} each, and a default automatic pileup amplitude multiplier of $\sim1.03$ was applied to the pileup spectra. In order to calculate the systematic dependence on the choice of ADT or SDT, the SDT parameter was scanned over from \ns{5} to \ns{10} in steps of \ns{1}. This was done with and without the same automatic pileup amplitude scaling procedure as described in \secref{sub:pileupsubtraction}. The results of the study for the 9d dataset are shown in Figures~\ref{fig:SDTscan_noScaling} and \ref{fig:SDTscan_autoScaling}. In the case where there was no automatic scaling applied there is a clear minimum in the \chisq results and a steep slope in $R$ corresponding to a large sensitivity of $R$ to the choice of SDT. In the case where the automatic scaling was applied however, the minimum in the \chisq results has disappeared, while the sensitivity of $R$ has become much reduced to the point of no longer being a clear trend\footnote{This slope in $R$ varies between positive and negative values based on dataset, so there is no real clear trend in $R$.}. The fact that applying the automatic pileup amplitude scaling produces nearly identical pileup spectra with no clear trend in $R$ regardless of the choice of SDT (and by extension ADT), any systematic error due to the choice of these two parameters can be subsumed into the direct pileup amplitude error itself, discussed down below. It should be noted in fact that the choices of ADT and SDT are largely irrelevant barring statistics, as the automatic amplitude scaling procedure can always account for any differences between the two. 
 
 
 \begin{figure}[]
 \centering
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_ShadowDeadTime_Canv_9d_fixed}
         \caption{\chisq versus SDT. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ShadowDeadTime_Canv_9d_fixed}
-        \caption{Sensitivity of $R$ to value of SDT. Units are in ppm.}
+        \caption{$R$ versus SDT. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of SDT, with units in ppm/ns.}
     \end{subfigure}
 
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{SDT_PileupTimeComparison_9d_fixed}
         \caption{The pileup time spectrum for different choices of SDT.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{SDT_CorrEnergyComparison_9d_fixed}
         \caption{The corrected energy spectrum for different choices of SDT.}
     \end{subfigure}
-\caption[Pileup shadow dead time scan without automatic pileup amplitude scaling]{Shadow dead time scan results without automatic pileup amplitude scaling. A clear minimum in the \chisq plot is seen near \ns{5} corresponding to the choice of ADT, and a steep slope in the slope for $R$ is observed. In the bottom two spectra plots the magenta curve corresponds to a choice SDT = \ns{5} while the black curve corresponds to SDT = \ns{10}. The larger choice of SDT leads to an greater estimation of the pileup, which in the energy spectra plot leads to a corresponding over-subtraction in the energy spectrum at energies where hits consist mostly or purely of pileup pulses. Data from 9d dataset.}
+\caption[Pileup shadow dead time scan without automatic pileup amplitude scaling]{Shadow dead time scan results without automatic pileup amplitude scaling. A clear minimum in the \chisq plot is seen near \ns{5} corresponding to the choice of ADT, and a large sensitivity for $R$ is observed. In the bottom two spectra plots the magenta curve corresponds to a choice SDT = \ns{5} while the black curve corresponds to SDT = \ns{10}. The larger choice of SDT leads to a greater estimation of the pileup, which as shown in the energy spectra plot leads to a corresponding over-subtraction at energies where hits consist mostly or purely of pileup pulses. Data from 9d dataset.}
 \label{fig:SDTscan_noScaling}
 \end{figure}
 
 
 \begin{figure}[]
 \centering
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_ShadowDeadTime_Canv_9d_auto}
         \caption{\chisq versus SDT. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ShadowDeadTime_Canv_9d_auto}
-        \caption{Sensitivity of $R$ to value of SDT. Units are in ppm.}
+        \caption{$R$ versus SDT. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of SDT, with units in ppm/ns.}
     \end{subfigure}
 
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{SDT_PileupTimeComparison_9d_auto}
         \caption{The pileup time spectrum for different choices of SDT.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{SDT_CorrEnergyComparison_9d_auto}
         \caption{The corrected energy spectrum for different choices of SDT.}
     \end{subfigure}
-\caption[Pileup shadow dead time scan with automatic pileup amplitude scaling]{Shadow dead time scan results with automatic pileup amplitude scaling. No clear minimum is observed in the \chisq plot, and the slope for $R$ is small. In the bottom two spectra plots the magenta curve corresponds to a choice SDT = \ns{5} while the black curve corresponds to SDT = \ns{10}. With the automatic amplitude scaling applied, the time and energy spectra lie on top of each other. That combined with the lack of clear minimum in the \chisq plot and small slope in $R$ indicate that there is no real systematic error due to the choice of SDT. Data from 9d dataset.}
+\caption[Pileup shadow dead time scan with automatic pileup amplitude scaling]{Shadow dead time scan results with automatic pileup amplitude scaling. No clear minimum is observed in the \chisq plot, and the sensitivity for $R$ is small. In the bottom two spectra plots the magenta curve corresponds to a choice SDT = \ns{5} while the black curve corresponds to SDT = \ns{10}. With the automatic amplitude scaling applied, the time and energy spectra are nearly identical and lie on top of each other. That combined with the lack of clear minimum in the \chisq plot and no clear sensitivity in $R$ indicate that there is no real systematic error due to the choice of SDT. Data from 9d dataset.}
 \label{fig:SDTscan_autoScaling}
 \end{figure}
 
 
-Similarly to the scan over SDT, scanning over the choice of SGT (default value of \ns{10} or twice the SDT) allows for determination of a potential systematic error. The results of such a scan with the automatic pileup amplitude scaling is shown in \figref{fig:SGTscan}. Just as in the SDT scan with the automatic scaling, there is no minimum in the \chisq plot, the slope in $R$ is negligible, and the pileup spectra for the various choices of SGT are nearly identical. Therefore again any systematic error due to the choice of SGT is subsumbed into the pileup amplitude error.
+In order to calculate the systematic dependence on the choice of SGT (default value of \ns{10}), the SGT parameter was scanned over from \ns{10} to \ns{20} in steps of \ns{1}. The results of the study with the automatic pileup amplitude scaling applied is shown in \figref{fig:SGTscan}. Just as in the SDT scan with the automatic pileup amplitude scaling, there is no minimum in the \chisq results, the sensitivity of $R$ to the value of SGT not so clear, and the pileup spectra for the various choices of SGT are nearly identical. Therefore again any systematic error due to the choice of SGT is subsumbed into the pileup amplitude error.
 
 
 \begin{figure}[]
 \centering
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_ShadowGapTime_Canv_9d}
         \caption{\chisq versus SGT. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ShadowGapTime_Canv_9d}
-        \caption{Sensitivity of $R$ to value of SGT. Units are in ppm.}
+        \caption{$R$ versus SGT. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of SGT, with units in ppm/ns.}
     \end{subfigure}
 
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{SGT_PileupTimeComparison_9d}
         \caption{The pileup time spectrum for different choices of SGT.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{SGT_CorrEnergyComparison_9d}
         \caption{The corrected energy spectrum for different choices of SGT.}
     \end{subfigure}
-\caption[Pileup shadow gap time scan with automatic pileup amplitude scaling]{Shadow gap time scan results with automatic pileup amplitude scaling. No clear minimum is observed in the \chisq plot, and the slope for $R$ is small. In the bottom two spectra plots one of the grey curves (hidden) corresponds to a choice SGT = \ns{10} while the black curve corresponds to SGT = \ns{20}. With the automatic amplitude scaling applied, the time and energy spectra lie on top of each other. That combined with the lack of clear minimum in the \chisq plot and small slope in $R$ indicate that there is no real systematic error due to the choice of SGT. Data from 9d dataset.}
+\caption[Pileup shadow gap time scan with automatic pileup amplitude scaling]{Shadow gap time scan results with automatic pileup amplitude scaling. No clear minimum is observed in the \chisq plot, and the trend for $R$ isn't clear, with points fluctuating above and below the fit curve. In the bottom two spectra plots one of the grey curves (hidden) corresponds to a choice SGT = \ns{10} while the black curve corresponds to SGT = \ns{20}. With the automatic amplitude scaling applied, the time and energy spectra lie on top of each other. That combined with the lack of clear minimum in the \chisq plot and small sensitivity in $R$ indicate that there is no real systematic error due to the choice of SGT. Data from 9d dataset.}
 \label{fig:SGTscan}
 \end{figure}
 
 
-The pileup amplitude error is simply the error on $R$ assuming the scale of the pileup was incorrectly constructed. In order to evaluate this error, different scaling constants were applied other than the default value of $\sim1.03$ and the change in $R$ was calculated. The results of such a scan are shown in \figref{fig:PMscan}. As shown there is a clear minimum near 1 in the \chisq plot and a clear trend in $R$. The systematic error on $R$ is simply calculated as 
+The pileup amplitude systematic error is the error on $R$ assuming the scale of the pileup was incorrectly constructed. In order to evaluate this error, multipliers were applied to the pileup spectra from 0.9 to 1.1 in steps of 0.01 (dropping the default automatic pileup scaling of $\sim1.03$ mentioned before). The data was then re-fit to find the change in $R$. The results of the study for the 9d dataset are shown in \figref{fig:PMscan}. As shown there is a clear minimum near 1 in the \chisq results and a large sensitivity of $R$ to the multiplier. The systematic error on $R$ is calculated as 
     \begin{align}
         \delta R = \sigma_{P_{m}} \times \frac{dR}{dP_{m}},
     \end{align}
-where $P_{m}$ is the value of the pileup multiplier. The error $\sigma_{P_{m}}$ is calculated as the width of the fitted parabola in the \chisq plot, defined as the change in $P_{m}$ from the minimum for the \chisq to increase by 1. This is calculated simply as 
+where $P_{m}$ is the value of the pileup multiplier. The error $\sigma_{P_{m}}$ is calculated as the width of the fitted parabola in the \chisq plot, defined as the change in $P_{m}$ from the minimum for the \chisq to increase by 1. This is calculated as 
     \begin{align}
         \sigma_{P_{m}} = \sqrt{\frac{2}{f''(\chi^{2})}} = \frac{1}{\sqrt{p_{2}}},
     \end{align}
-where $p_{2}$ is the fit parameter as given in the top right of the \chisq plot. The sensitivities of $R$ to the pileup multiplier, associated uncertainties, and final corresponding systematic errors for the Run~1 precession frequency analysis datasets are given in \tabref{tab:systematicError_pileupMultplier}. It should be noted that the default used pileup multiplier of $\sim1.03$ does not necessarily correspond to the minimum in the \chisq plot, but is within $1\sigma$ of 1 or the minimum (except the Endgame which is closer to $2\sigma$)\footnote{Monte-Carlo tests with various random seeds showed this minimum fluctating around zero both above and below. The distance from 1 therefore is not a good measure for the uncertainty in the pileup multiplier compared to the width of the \chisq fit.}. As shown in the table, the uncertainties on the pileup multipler are of order 2 to 5\%, while the systematic errors on $R$ are on the order of \SI{10}{} to \SI{20}{ppb} depending on dataset. 
+where $p_{2}$ is the fit parameter as given in the top right of the \chisq plot. The sensitivities of $R$ to the pileup multiplier, uncertainties in the pileup amplitude, and final corresponding systematic errors for the Run~1 precession frequency analysis datasets are given in \tabref{tab:systematicError_pileupMultplier}. As shown in the table, the uncertainties on the pileup amplitude are of order 2 to 5\%, while the systematic errors on $R$ are on the order of \SI{10}{} to \SI{20}{ppb} depending on dataset.  It should be noted that the default automatic pileup multiplier of $\sim1.03$ does not necessarily correspond to the minimum in the \chisq plot, but is within $1\sigma$ of 1 or the minimum (except the Endgame which is closer to $2\sigma$)\footnote{Monte-Carlo tests with various random seeds showed this minimum fluctuating above and below 1. The distance from 1 therefore is not a good measure for the uncertainty in the pileup amplitude compared to the width of the \chisq parabola fit.}.
 
 
 \begin{figure}[]
@@ -1046,7 +1047,7 @@ where $p_{2}$ is the fit parameter as given in the top right of the \chisq plot.
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupMultiplier_Canv_9d}
-        \caption{Sensitivity of $R$ to value of pileup multiplier. Units are in ppm.}
+        \caption{$R$ versus pileup multiplier. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup multiplier, with units in ppm.}
     \end{subfigure}
 \caption[Pileup multiplier scan]{Pileup multiplier scan. Data from 9d dataset.}
 \label{fig:PMscan}
@@ -1076,25 +1077,25 @@ where $p_{2}$ is the fit parameter as given in the top right of the \chisq plot.
 \end{table}
 
 
-The pileup phase error is the error on $R$ assuming the phase of the pileup was incorrectly constructed. This is separated into two parts. The first part is calculated by applying time-shifts to \equref{eq:tdoublet}, assuming that the time of the constructed shadow doublet was incorrect in some way. A scan over pileup time-shifts is shown in \figref{fig:PTSscan}. A clear slope in $R$ is observed, however there is no clear minimum in the \chisq plot. Because the width of the \chisq curve cannot be taken as the uncertainty in the pileup time-shift, instead the uncertainty is taken conservatively at half the dead time at \ns{2.5}. The systematic error is calculated in the same way as for the pileup amplitude uncertainty,
+The pileup phase error is the error on $R$ assuming the phase of the pileup was incorrectly constructed. This is separated into two parts. The first part is calculated by applying time-shifts to $t_{\text{doublet}}$ as given in \equref{eq:tdoublet}. Doing this artificially applies a phase shift to the pileup time spectrum. The data is then re-fit with the different pileup spectra and the change in $R$ is calculated. \figref{fig:PTSscan} shows the study results for the 9d dataset with time-shifts applied between \ns{-10} and \ns{10} in steps of \ns{1}. A clear sensitivity of $R$ to the value of time-shift is observed, however there is no clear minimum in the \chisq results. Because the width of the \chisq parabolic fit cannot be taken as the uncertainty in the pileup time-shift parameter , instead the uncertainty is taken conservatively at half the ADT at \ns{2.5}. The systematic error is calculated in the same way as for the pileup amplitude uncertainty,
     \begin{align}
         \delta R = \sigma_{P_{t}} \times \frac{dR}{dP_{t}},
     \end{align}
-where $P_{m}$ is the value of the pileup time-shift. The sensitivities of $R$ to the pileup time-shift and corresponding systematic errors for the Run~1 precession frequency analysis datasets are given in \tabref{tab:systematicError_pileupTimeShift}.
+where $P_{t}$ is the value of the pileup time-shift. The sensitivities of $R$ to the pileup time-shift and corresponding systematic errors for the Run~1 precession frequency analysis datasets are given in \tabref{tab:systematicError_pileupTimeShift}.
 
 
 \begin{figure}[]
 \centering
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupTimeShift_Canv_9d}
         \caption{\chisq versus pileup time-shift. There is no clear minimum in the plot.} 
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupTimeShift_Canv_9d}
-        \caption{Sensitivity of $R$ to value of pileup time-shift. Units are in ppm.}
+        \caption{$R$ versus pileup time-shift. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pile time-shift, with units in ppm/ns.}
     \end{subfigure}
 \caption[Pileup time-shift scan]{Scan over pileup time-shift. Data from 9d dataset.}
 \label{fig:PTSscan}
@@ -1128,25 +1129,25 @@ where $P_{m}$ is the value of the pileup time-shift. The sensitivities of $R$ to
 % -maybe add plot of nice energy threshold where pileup goes smooth and phase error would disappear
 
 
-The second part of the pileup phase error comes from the choice of constant $C$ in the calculation of the energy of the pileup doublet as given in \equref{eq:Edoublet}. If the energy of the pileup pulses are systematically miscalculated, then doublets will be added or lost near the energy threshold applied when constructing the pileup spectrum, leading to an error on the phase. In order to calculate the systematic error from this parameter the parameter $C$ is scanned over in steps of 0.01 from 0.9 to 1.1, \figref{fig:PEscan}. As in the pileup amplitude error, the systematic error on $R$ is calculated as 
+The second part of the pileup phase error comes from the choice of constant $C$ in the calculation of $E_{\text{doublet}}$ as given in \equref{eq:Edoublet}. If the energy of the pileup pulses are systematically misconstructed, then pileup shadow doublets will be added or lost near the applied energy threshold when constructing the pileup spectrum. This leads to an error on the pileup phase since it is energy-dependent. In order to calculate the systematic error from the energy construction, the parameter $C$ was scanned over from 0.9 to 1.1, in steps of 0.01. The results of the study for the 9d dataset are shown in \figref{fig:PEscan}. The systematic error on $R$ is calculated as 
     \begin{align}
-        \delta R = \sigma_{C} \times \frac{dR}{dC},
+        \delta R = \sigma_{C} \times \frac{dR}{dC}.
     \end{align}
-where $C$ is the value of the pileup energy scaling constant. Similarly to the pileup amplitude error, there is a clear minimum in the \chisq plot which can be used to estimate the uncertainty in the pileup energy scale. \tabref{tab:systematicError_pileupC} gives the sensitivities of $R$ to the pileup energy scale, the associated uncertainties, and the corresponding systematic errors. As shown the value for $C$ which produces the minimum in the \chisq plot is consistent with 1\footnote{Because the spatial separation is turned off in the clustering portion of the reconstruction, a value of $C = 1$ is to be expected.}. Of interest to note is that the sensitivity of $R$ to $C$ in the 60h dataset is noticably larger than in the rest of the datasets. The origin of this is currently unknown.
+Similarly to the pileup amplitude error, there is a clear minimum in the \chisq results which can be used to estimate the uncertainty in the pileup energy scale\footnote{The trend isn't as clean as in the scan over the pileup amplitude multiplier, but that is acceptable.}. \tabref{tab:systematicError_pileupC} gives the sensitivities of $R$ to the pileup energy scale, uncertainties in the pileup energy scale, and the corresponding final systematic errors for the Run~1 precession frequency analysis datasets. As shown the uncertainties on the pileup energy scale are of order 1 to 2\%, and the value for $C$ which produces the minimum in the \chisq results is consistent with 1\footnote{Because the spatial separation is turned off in the clustering portion of the reconstruction, a value of $C = 1$ is to be expected.}. Interestingly, the sensitivity of $R$ to $C$ in the 60h dataset is noticably larger than in the rest of the datasets, though the origin of this is currently unknown. \textbf{what to do about this?}
 
 
 \begin{figure}[]
 \centering
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupEnergyScaling_Canv_9d}
         \caption{\chisq versus pileup energy scale. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupEnergyScaling_Canv_9d}
-        \caption{Sensitivity of $R$ to value of pileup energy scale. Units are in ppm.}
+        \caption{$R$ versus $C$. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of $C$, with units in ppm.}
     \end{subfigure}
 \caption[Pileup energy scale scan]{Scan over pileup energy scale. Data from 9d dataset.}
 \label{fig:PEscan}
@@ -1171,12 +1172,12 @@ where $C$ is the value of the pileup energy scaling constant. Similarly to the p
     Endgame & $-431.4$ & 0.012 & 0.982 & 5.3 \\
   \hline
 \end{tabular*}
-\caption[Systematic error due to fixed pileup energy scale factor]{Systematic error due to the fixed pileup scale parameter $C$ in the Ratio Method fits for the Run~1 precession frequency analysis. The bold column gives the systematic error on \R. Units for $dR/dC$ and $\delta R$ are in ppb.}
+\caption[Systematic error due to fixed pileup energy scale factor]{Systematic error due to the fixed pileup energy scale parameter $C$ in the Ratio Method fits for the Run~1 precession frequency analysis. The bold column gives the systematic error on \R. Units for $dR/dC$ and $\delta R$ are in ppb.}
 \label{tab:systematicError_pileupC}
 \end{table}
 
 
-\tabref{tab:PileupErrorsTotal} gives the quadrature sum for the total pileup systematic error for the Run~1 precession frequency analysis datasets. As shown for each dataset the total error is below the target error of \SI{40}{ppb} in spite of the contamination in the pileup shadow method. For future runs of the experiment with increased rate and therefor increased pileup, these errors may grow. In that case either the pileup shadow method needs to be improved to account for the contamination and pileup triplets, or a different pileup construction method needs to be used.
+\tabref{tab:PileupErrorsTotal} gives the quadrature sum for the total pileup systematic errors for the Run~1 precession frequency analysis datasets. As shown for each dataset the total error is below the target final error of \SI{40}{ppb} in spite of the contamination in the pileup shadow method. For future runs of the experiment with increased rate and therefore increased pileup, these errors may grow. In that case either the pileup shadow method might need to be improved to account for the contamination and pileup triplets, or discarded in favor of a different method.
 
 
 \begin{table}[]
@@ -1199,12 +1200,6 @@ where $C$ is the value of the pileup energy scaling constant. Similarly to the p
 \caption[Total pileup systematic errors]{Total pileup systematic errors for the Run~1 precession frequency analysis datasets.}
 \label{tab:PileupErrorsTotal}
 \end{table}
-
-
-
-
-
--need to describe scans a little more deliberately - scan over x parameter in steps of x units, also refer to the slope as the sensitivity of R to blah
 
 
 
