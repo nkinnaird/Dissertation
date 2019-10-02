@@ -736,6 +736,12 @@ Fit is from \mus{30.2}--\mus{650}, corresponding to 4154 bins.
 fit level of 2...
 
 
+remind that R is blinded - this should be in fit code specifics
+mention that a different blinding is used for 60h
+mention that R will be slightly different between datasets due to field conditions 
+
+
+
 calo fit end time
 
 
@@ -765,9 +771,6 @@ calo fit end time
 
 Fit results are blah from a single random seed ... 
 
-remind that R is blinded - this should be in fit code specifics
-mention that a different blinding is used for 60h
-mention that R will be slightly different between datasets due to field conditions 
 
 Include here a table of the fit parameters and p value and such, per dataset, include 9d numbers from Elba for now
 
@@ -786,78 +789,153 @@ I should show an FFT of the ratio fit residuals
 -include FFT plots and pull plots 
 -perhaps include or reference the average value of R
 
+-only show 60h residuals and fft?
+
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=\textwidth]{fullRatio_moduloPlot_60h}
+    \caption[]{Data from some dataset.}
+    \label{fig:}
+\end{figure}
+
+
+    \begin{figure}[h]
+    \centering
+        \begin{subfigure}[]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{fitResidual_60h}
+            \caption{Fit residuals.}
+        \end{subfigure}
+        \begin{subfigure}[]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{fitPull_60h}
+            \caption{Fit pulls.}
+        \end{subfigure}% %you need this % here to add spacing between subfigures
+        \vspace{4mm}
+        \begin{subfigure}[]{0.7\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{fitPull_projected_60h}
+            \caption{Fit pulls projected onto the y axis. Note the Gaussian shape centered around 0 with unit width.}
+        \end{subfigure}
+    \caption[fitResidual]{Residuals and pulls for the full ratio fit. \textbf{fix up}}
+    \label{fig:fitResidual}
+    \end{figure}
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=\textwidth]{FFTComparison_FullRatio_60h}
+    \caption[]{Data from some dataset.}
+    \label{fig:}
+\end{figure}
+
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=\textwidth]{fullRatio_moduloPlot_HighKick}
+    \caption[]{Data from some dataset.}
+    \label{fig:}
+\end{figure}
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=\textwidth]{fullRatio_moduloPlot_9d}
+    \caption[]{Data from some dataset.}
+    \label{fig:}
+\end{figure}
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=\textwidth]{fullRatio_moduloPlot_Endgame}
+    \caption[]{Data from some dataset.}
+    \label{fig:}
+\end{figure}
 
 
 
 
 
 
-	\begin{table}[]
-	\centering
-	\setlength\tabcolsep{10pt}
-	\renewcommand{\arraystretch}{1.2}
-	\begin{tabular*}{.85\linewidth}{@{\extracolsep{\fill}}lcccc}
-	  \hline
-	  	\multicolumn{5}{c}{\textbf{9d Fit Results}} \\
-	  \hline\hline
-	  	& \multicolumn{2}{c}{T Method} & \multicolumn{2}{c}{R Method} \\
-	  \hline\hline
-	    $\chi^{2}$/NDF & \multicolumn{2}{c}{$4444/4444$} & \multicolumn{2}{c}{$4444/4444$} \\
-	  	p value        & \multicolumn{2}{c}{$0.5$} & \multicolumn{2}{c}{$0.5$}  \\
-	  \hline\hline
-	  	Parameter & Value & Error & Value & Error \\
-	  \hline
-		$N_{0}$    			  		&  $\SI{3.452e+06}{}$ & $\SI{271.5}{}$ & $\SI{3.452e+06}{}$ & $\SI{271.5}{}$ \\
-		$\tau$ (\mus{})   	    	&  $\SI{64.44}{}$ & $\SI{0.0038}{}$ & $\SI{64.44}{}$ & $\SI{0.0038}{}$ \\
-		$A$    			 	  		&  $\SI{0.3704}{}$ & $\SI{4.396e-05}{}$ & $\SI{0.3704}{}$ & $\SI{4.396e-05}{}$ \\
-		$R$ (ppm, blinded) 	  		&  $\SI{-20.450}{}$ & $\SI{1.311}{}$ & $\SI{-20.450}{}$ & $\SI{1.311}{}$ \\
-		$\phi$   			  		&  $\SI{2.091}{}$ & $\SI{2.161e-4}{}$ & $\SI{2.091}{}$ & $\SI{2.161e-4}{}$ \\
-		$\omega_{cbo}$ (rad/\mus{}) &  $\SI{0.367}{}$ & $\SI{6.936e-05}{}$ & $\SI{0.367}{}$ & $\SI{6.936e-05}{}$ \\
-		$\tau_{cbo}$ (\mus{})       &  $\SI{178.9}{}$ & $\SI{14.7}{}$ & $\SI{178.9}{}$ & $\SI{14.7}{}$ \\
-		$A_{cbo-N}$   	 	  		&  $\SI{0.00432}{}$ & $\SI{1.547e-4}{}$ & $\SI{0.00432}{}$ & $\SI{1.547e-4}{}$ \\
-		$\phi_{cbo-N}$   	  		&  $\SI{-1.824}{}$ & $\SI{0.034}{}$ & $\SI{-1.824}{}$ & $\SI{0.034}{}$ \\
-		$A_{2cbo-N}$   	 	  		&  $\SI{}{}$ & $\SI{}{}$ & $\SI{}{}$ & $\SI{}{}$ \\
-		$\phi_{2cbo-N}$   	  		&  $\SI{}{}$ & $\SI{}{}$ & $\SI{}{}$ & $\SI{}{}$ \\
-		$A_{cbo-A}$   	 	  		&  $\SI{6.075e-4}{}$ & $\SI{2.647e-4}{}$ & $\SI{6.075e-4}{}$ & $\SI{2.647e-4}{}$ \\
-		$\phi_{cbo-A}$   	  		&  $\SI{-0.470}{}$ & $\SI{0.434}{}$ & $\SI{-0.470}{}$ & $\SI{0.434}{}$ \\
-		$A_{cbo-\phi}$   	  		&  $\SI{2.586e-4}{}$ & $\SI{1.304e-4}{}$ & $\SI{2.586e-4}{}$ & $\SI{1.304e-4}{}$ \\
-		$\phi_{cbo-\phi}$     		&  $\SI{-1.391}{}$ & $\SI{0.510}{}$ & $\SI{-1.391}{}$ & $\SI{0.510}{}$ \\
-		$\kappa_{VW}$   	    	&  $\SI{2.309}{}$ & $\SI{0.00757}{}$ & $\SI{2.309}{}$ & $\SI{0.00757}{}$ \\
-		$\tau_{VW}$ (\mus{})        &  $\SI{11.69}{}$ & $\SI{4.91}{}$ & $\SI{11.69}{}$ & $\SI{4.91}{}$ \\
-		$A_{VW}$   	 		  		&  $\SI{0.018}{}$ & $\SI{0.019}{}$ & $\SI{0.018}{}$ & $\SI{0.019}{}$ \\
-		$\phi_{VW}$   	  	  		&  $\SI{1.328}{}$ & $\SI{1.689}{}$ & $\SI{1.328}{}$ & $\SI{1.689}{}$ \\
-		$\kappa_{loss}$   	    	&  $\SI{6.616}{}$ & $\SI{0.245}{}$ & $\SI{6.616}{}$ & $\SI{0.245}{}$ \\
-	  \hline
-	\end{tabular*}
-	\caption[Fit parameter values versus dataset]{Fit parameters from ...\textbf{update numbers and such when results are final, including whether blinded or not, probably make R row bold, include errors and make it all look nice, do T method and R method side by side, state which parameters are fixed}}
-	\label{tab:DatasetFitParametersValue}
-	\end{table}
+    \begin{table}[]
+    \centering
+    \setlength\tabcolsep{10pt}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular*}{.85\linewidth}{@{\extracolsep{\fill}}lcc}
+      \hline
+        \multicolumn{3}{c}{\textbf{60h Fit Results}} \\
+      \hline\hline
+     & \multicolumn{2}{c}{R Method} \\
+      \hline\hline
+        $\chi^{2}$/NDF & \multicolumn{2}{c}{$4242/4142$} \\
+        p value        & \multicolumn{2}{c}{$0.1356$}  \\
+      \hline\hline
+        Parameter & Value & Error \\
+      \hline
+        $A$                         &  $\SI{0.36373}{}$ & $\SI{4.42713e-05}{}$ \\
+        $R$ (ppm, blinded)          &  $\SI{-20.8479}{}$ & $\SI{1.35811}{}$ \\
+        $\phi$                      &  $\SI{2.09073}{}$ & $\SI{0.000224489}{}$ \\
+        $\omega_{cbo}$ (rad/\mus{}) &  $\SI{2.33828}{}$ & $\SI{0.00140852}{}$ \\
+        $\tau_{cbo}$ (\mus{})       &  $\SI{175.156}{}$ & $\SI{46.8221}{}$ \\
+        $A_{cbo-N}$                 &  $\SI{0.00430767}{}$ & $\SI{0.000499527}{}$ \\
+        $\phi_{cbo-N}$              &  $\SI{-2.34335}{}$ & $\SI{0.107281}{}$ \\
+        $A_{2cbo-N}$                &  $\SI{0.000192864}{}$ & $\SI{0.000129951}{}$ \\
+        $\phi_{2cbo-N}$             &  $\SI{3.33059}{}$ & $\SI{0.638245}{}$ \\
+        $A_{cbo-A}$                 &  $\SI{0.000552079}{}$ & $\SI{0.000398326}{}$ \\
+        $\phi_{cbo-A}$              &  $\SI{-0.271305}{}$ & $\SI{0.73659}{}$ \\
+        $A_{cbo-\phi}$              &  $\SI{0.000799459}{}$ & $\SI{0.000415112}{}$ \\
+        $\phi_{cbo-\phi}$           &  $\SI{-1.18297}{}$ & $\SI{0.532946}{}$ \\
+        $\kappa_{loss}$             &  $\SI{8.97432}{}$ & $\SI{0}{}$ \\
+      \hline
+    \end{tabular*}
+    \caption[Fit parameter values versus dataset]{Fit parameters from ...\textbf{update numbers and such when results are final, including whether blinded or not, probably make R row bold, include errors and make it all look nice, do T method and R method side by side, state which parameters are fixed}}
+    \label{tab:DatasetFitParametersValue}
+    \end{table}
+
+
+    \begin{landscape}
+    \begin{table}[]
+    \centering
+    \small
+    % \setlength\tabcolsep{10pt}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccccc}
+      \hline
+        \multicolumn{9}{c}{\textbf{Fit Results}} \\
+      \hline\hline
+     & \multicolumn{2}{c}{60h} & \multicolumn{2}{c}{60h} & \multicolumn{2}{c}{60h} & \multicolumn{2}{c}{60h} \\
+      \hline\hline
+        $\chi^{2}$/NDF & \multicolumn{2}{c}{$4242/4142$} & \multicolumn{2}{c}{$4242/4142$} & \multicolumn{2}{c}{$4242/4142$} & \multicolumn{2}{c}{$4242/4142$} \\
+        p value        & \multicolumn{2}{c}{$0.1356$} & \multicolumn{2}{c}{$0.1356$} & \multicolumn{2}{c}{$0.1356$} & \multicolumn{2}{c}{$0.1356$}  \\
+      \hline\hline
+        Parameter & Value & Error & Value & Error & Value & Error & Value & Error \\
+      \hline
+        $A$                         &  $\SI{0.3637}{}$ & $\SI{4.4e-05}{}$ & $\SI{0.3632}{}$ & $\SI{4.6e-05}{}$ & $\SI{0.3639}{}$ & $\SI{2.9e-05}{}$ & $\SI{0.3686}{}$ & $\SI{2.1e-05}{}$ \\
+        $R$ (ppm, blinded)          &  $\SI{-20.848}{}$ & $\SI{1.358}{}$ & $\SI{-17.543}{}$ & $\SI{1.411}{}$ & $\SI{-17.821}{}$ & $\SI{0.903}{}$ & $\SI{-17.567}{}$ & $\SI{0.639}{}$ \\
+        $\phi$                      &  $\SI{2.091}{}$ & $\SI{2.2e-4}{}$ & $\SI{2.081}{}$ & $\SI{2.3e-4}{}$ & $\SI{2.080}{}$ & $\SI{1.5e-4}{}$ & $\SI{2.076}{}$ & $\SI{1.1e-4}{}$ \\
+        $\omega_{cbo}$ (rad/\mus{}) &  $\SI{2.338}{}$ & $\SI{1.41e-3}{}$ & $\SI{2.599}{}$ & $\SI{6.56e-3}{}$ & $\SI{2.615}{}$ & $\SI{5.55e-3}{}$ & $\SI{2.339}{}$ & $\SI{0.78e-3}{}$ \\
+        $\tau_{cbo}$ (\mus{})       &  $\SI{175.2}{}$ & $\SI{46.8}{}$ & $\SI{99.4}{}$ & $\SI{0}{}$ & $\SI{137.4}{}$ & $\SI{62.0}{}$ & $\SI{200.3}{}$ & $\SI{33.5}{}$ \\
+        $A_{cbo-N}$                 &  $\SI{4.31e-3}{}$ & $\SI{5.0e-4}{}$ & $\SI{4.28e-3}{}$ & $\SI{9.9e-4}{}$ & $\SI{3.93e-3}{}$ & $\SI{9.7e-4}{}$ & $\SI{3.23e-3}{}$ & $\SI{2.0e-4}{}$ \\
+        $\phi_{cbo-N}$              &  $\SI{-2.343}{}$ & $\SI{0.107}{}$ & $\SI{3.817}{}$ & $\SI{0.446}{}$ & $\SI{3.302}{}$ & $\SI{0.374}{}$ & $\SI{-0.710}{}$ & $\SI{0.062}{}$ \\
+        $A_{2cbo-N}$                &  $\SI{1.9e-4}{}$ & $\SI{1.3e-4}{}$ & $\SI{4.9e-4}{}$ & $\SI{4.5e-4}{}$ & $\SI{2.2e-4}{}$ & $\SI{2.7e-4}{}$ & $\SI{1.2e-4}{}$ & $\SI{0.5e-4}{}$ \\
+        $\phi_{2cbo-N}$             &  $\SI{3.331}{}$ & $\SI{0.638}{}$ & $\SI{5.665}{}$ & $\SI{1.274}{}$ & $\SI{-4.936}{}$ & $\SI{1.127}{}$ & $\SI{0.322}{}$ & $\SI{0.448}{}$ \\
+        $A_{cbo-A}$                 &  $\SI{05.5e-4}{}$ & $\SI{3.9e-4}{}$ & $\SI{9.5e-4}{}$ & $\SI{4.1e-4}{}$ & $\SI{6.4e-4}{}$ & $\SI{2.5e-4}{}$ & $\SI{2.7e-4}{}$ & $\SI{1.9e-4}{}$ \\
+        $\phi_{cbo-A}$              &  $\SI{-0.271}{}$ & $\SI{0.737}{}$ & $\SI{-2.073}{}$ & $\SI{0.600}{}$ & $\SI{1.750}{}$ & $\SI{0.561}{}$ & $\SI{-2.825}{}$ & $\SI{0.686}{}$ \\
+        $A_{cbo-\phi}$              &  $\SI{8.0e-4}{}$ & $\SI{4.2e-4}{}$ & $\SI{5.7e-4}{}$ & $\SI{4.4e-4}{}$ & $\SI{8.8e-4}{}$ & $\SI{3.1e-4}{}$ & $\SI{1.9e-4}{}$ & $\SI{1.9e-4}{}$ \\
+        $\phi_{cbo-\phi}$           &  $\SI{-1.183}{}$ & $\SI{0.533}{}$ & $\SI{1.227}{}$ & $\SI{0.920}{}$ & $\SI{4.313}{}$ & $\SI{0.415}{}$ & $\SI{-1.576}{}$ & $\SI{0.995}{}$ \\
+        $\kappa_{loss}$             &  $\SI{8.974}{}$ & $\SI{0}{}$ & $\SI{5.651}{}$ & $\SI{0}{}$ & $\SI{2.510}{}$ & $\SI{0}{}$ & $\SI{2.345}{}$ & $\SI{0}{}$ \\
+      \hline
+    \end{tabular*}
+    \caption[Fit parameter values versus dataset]{Fit parameters from ...\textbf{update numbers and such when results are final, including whether blinded or not, probably make R row bold, include errors and make it all look nice, do T method and R method side by side, state which parameters are fixed}}
+    \label{tab:DatasetFitParametersValue}
+    \end{table}
+    \end{landscape}
 
 
 
 
-% \begin{landscape}
-% \begin{table}[]
-% \centering
-% \small
-% \setlength\tabcolsep{10pt}
-% \renewcommand{\arraystretch}{1.2}
-% \begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lcccccccccccc}
-%   \hline
-%     \multicolumn{13}{c}{\textbf{Fit Parameter Values}} \\
-%   \hline\hline
-%     		  & \multicolumn{2}{c}{60h} & \multicolumn{2}{c}{HighKick} & \multicolumn{2}{c}{9d} & \multicolumn{2}{c}{LowKick} & \multicolumn{2}{c}{SuperLowKick} & \multicolumn{2}{c}{Endgame} \\
-%   \hline
-%     Parameter & T & R & T & R & T & R & T & R & T & R & T & R \\
-%   \hline
-%     $N_{0}$ &  &  &  &  &  &  &  &  &  &  &  &  \\
-%     % $\tau_{\mu}$ (\mus{}) & 12 & 2.3389 & 2.9 & 81.8 & 5.12 & 7.7 \\                                        
-%   \hline
-% \end{tabular*}
-% \caption[Fit parameter values versus dataset]{Fit parameters from ...\textbf{update numbers and such when results are final, including whether blinded or not, probably make R row bold, include errors and make it all look nice, do T method and R method side by side, state which parameters are fixed}}
-% \label{tab:DatasetFitParametersValues}
-% \end{table}
-% \end{landscape}
 
 
 
@@ -921,7 +999,85 @@ In order to verify the integrity of the fit other checks are done ...
         \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_Endgame}
         \caption{}
     \end{subfigure}
-\caption[]{chi2s calo fits Data from some dataset.}
+\caption[]{Rs calo fits Data from some dataset.}
+\label{fig:}
+\end{figure}
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatioFit_phi_Vs_Calo_Canv_Endgame}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatioFit_A_Vs_Calo_Canv_Endgame}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatioFit_omega_cbo_Vs_Calo_Canv_Endgame}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatioFit_tau_cbo_Vs_Calo_Canv_Endgame}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatioFit_A_cbo-N_Vs_Calo_Canv_Endgame}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatioFit_phi_cbo-N_Vs_Calo_Canv_Endgame}
+        \caption{}
+    \end{subfigure}
+\caption[]{Endgame calo fits Data from some dataset.}
+\label{fig:}
+\end{figure}
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatioFit_A_cbo-A_Vs_Calo_Canv_Endgame}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatioFit_phi_cbo-A_Vs_Calo_Canv_Endgame}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatioFit_A_cbo-phi_Vs_Calo_Canv_Endgame}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatioFit_phi_cbo-phi_Vs_Calo_Canv_Endgame}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatioFit_A_2cbo-N_Vs_Calo_Canv_Endgame}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatioFit_phi_2cbo-N_Vs_Calo_Canv_Endgame}
+        \caption{}
+    \end{subfigure}
+\caption[]{Endgame calo fits Data from some dataset.}
 \label{fig:}
 \end{figure}
 
@@ -1210,7 +1366,7 @@ In order to verify the integrity of the fit other checks are done ...
 
 
 
-
+\clearpage % remove this once things are sorted
 
 
 \section{Systematic errors}
