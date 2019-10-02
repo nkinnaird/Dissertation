@@ -128,6 +128,8 @@
 \newcommand\setrow[1]{\gdef\rowmac{#1}#1\ignorespaces}
 \newcommand\clearrow{\global\let\rowmac\relax}
 
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{#1}} % define a new command thead which centers table headers in the first row and works with the rest of the table environment
+
 
 % define amu values here so that I can change them easily and automate their sum
 
