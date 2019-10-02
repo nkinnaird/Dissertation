@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/Pileup/Scaling/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/60h/SingleIteration/SingleFits/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupGapTime/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/auto-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/fixed-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupEnergyScale/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupTimeShift/}{Body/Figures/Wa/Datasets/9d/SingleIteration/PileupMultiplierScan/}}
+\graphicspath{{Body/Figures/Wa/Temporary/}{Body/Figures/Wa/Temporary/FitResiduals/}{Body/Figures/Wa/Reconstruction/}{Body/Figures/Wa/Histogramming/}{Body/Figures/Wa/Pileup/}{Body/Figures/Wa/Pileup/TimeAndEnergySpectra/}{Body/Figures/Wa/Pileup/Scaling/}{Body/Figures/Wa/RatioAnalysis/}{Body/Figures/Wa/RatioAnalysis/MethodOverview/}{Body/Figures/Wa/RatioAnalysis/VW_Studies/}{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/60h/SingleIteration/SingleFits/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupGapTime/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/auto-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/fixed-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupEnergyScale/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupTimeShift/}{Body/Figures/Wa/Datasets/9d/SingleIteration/PileupMultiplierScan/}{Body/Figures/Wa/Datasets/60h/BunchNum/}{Body/Figures/Wa/Datasets/HighKick/BunchNum/}{Body/Figures/Wa/Datasets/9d/BunchNum/}{Body/Figures/Wa/Datasets/Endgame/BunchNum/}{Body/Figures/Wa/Datasets/60h/SingleIteration/FitStartScans/}{Body/Figures/Wa/Datasets/HighKick/SingleIteration/FitStartScans/}{Body/Figures/Wa/Datasets/9d/SingleIteration/FitStartScans/}{Body/Figures/Wa/Datasets/Endgame/SingleIteration/FitStartScans/}{Body/Figures/Wa/Datasets/60h/SingleIteration/FitEndScans/}{Body/Figures/Wa/Datasets/HighKick/SingleIteration/FitEndScans/}{Body/Figures/Wa/Datasets/9d/SingleIteration/FitEndScans/}{Body/Figures/Wa/Datasets/Endgame/SingleIteration/FitEndScans/}{Body/Figures/Wa/Datasets/60h/EnergyThreshold/}{Body/Figures/Wa/Datasets/HighKick/EnergyThreshold/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}{Body/Figures/Wa/Datasets/Endgame/EnergyThreshold/}{Body/Figures/Wa/Datasets/60h/RandSeeds/}{Body/Figures/Wa/Datasets/HighKick/RandSeeds/}{Body/Figures/Wa/Datasets/9d/RandSeeds/}{Body/Figures/Wa/Datasets/Endgame/RandSeeds/}}
 
 \chapter{\texorpdfstring{\wa}{wa} Measurement}
 \label{chapter:wa}
@@ -765,7 +765,7 @@ calo fit end time
 
 Fit results are blah from a single random seed ... 
 
-remind that R is blinded
+remind that R is blinded - this should be in fit code specifics
 mention that a different blinding is used for 60h
 mention that R will be slightly different between datasets due to field conditions 
 
@@ -777,6 +777,19 @@ Ratio Method fits including the CBO terms typically converge with lifetimes with
 
 
 I should show an FFT of the ratio fit residuals 
+
+
+
+-put here paramter values and all that for single seed fits to the individual datasets
+-modulo plots
+-maybe correlation matrix plots - or maybe those go into an appendix
+-include FFT plots and pull plots 
+-perhaps include or reference the average value of R
+
+
+
+
+
 
 
 	\begin{table}[]
@@ -861,27 +874,276 @@ In order to verify the integrity of the fit other checks are done ...
 
 -include here the Kawall band equation as well as the full form
 
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_FS_canv_60h}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_FS_canv_HighKick}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_FS_canv_9d}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_FS_canv_Endgame}
+        \caption{}
+    \end{subfigure}
+\caption[]{chi2s fit start Data from some dataset.}
+\label{fig:}
+\end{figure}
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_FS_canv_60h}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_FS_canv_HighKick}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_FS_canv_9d}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_FS_canv_Endgame}
+        \caption{}
+    \end{subfigure}
+\caption[]{R fit starts Data from some dataset.}
+\label{fig:}
+\end{figure}
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_phi_FS_Canv_Endgame}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_A_FS_Canv_Endgame}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_omega_cbo_FS_Canv_Endgame}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_phi_cbo-N_FS_Canv_Endgame}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_A_cbo-N_FS_Canv_Endgame}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_A_cbo-phi_FS_Canv_Endgame}
+        \caption{}
+    \end{subfigure}
+\caption[]{other parameter fit starts endgame - missing plots are those for fixed parameters Data from some dataset.}
+\label{fig:}
+\end{figure}
+
 
 \subsection{Fit end scans}
 
 
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_FE_Canv_60h}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_FE_Canv_HighKick}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_FE_Canv_9d}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_FE_Canv_Endgame}
+        \caption{}
+    \end{subfigure}
+\caption[]{R fit ends Data from some dataset.}
+\label{fig:}
+\end{figure}
+
+
 \subsection{Energy threshold scan fits}
 
--should include here plots of A and N as well as R
+-should include here plots of A and N as well as R - though maybe I should move them up to the histogram construction side of things
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FiveParameter_N_0_Vs_ETh_60h}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FiveParameter_A_Vs_ETh_60h}
+        \caption{}
+    \end{subfigure}
+\caption[]{60h five parameter fit N and A Data from some dataset.}
+\label{fig:}
+\end{figure}
+
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_ETh_60h}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_ETh_HighKick}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_ETh_9d}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_ETh_Endgame}
+        \caption{}
+    \end{subfigure}
+\caption[]{R energy threshold scans Data from some dataset.}
+\label{fig:}
+\end{figure}
+
+
+
+
+
+\subsection{Fits to bunch number}
+
+- this should maybe go up by fit results section
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_BunchNum_Canv_60h}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_BunchNum_Canv_HighKick}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_BunchNum_Canv_9d}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_BunchNum_Canv_Endgame}
+        \caption{}
+    \end{subfigure}
+\caption[]{R bunch nums Data from some dataset.}
+\label{fig:}
+\end{figure}
+
 
 
 \subsection{Fits to many random seeds}
 
 
 
-\clearpage
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_Iter_Canv_hist_60h}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_Iter_Canv_hist_HighKick}
+        \caption{}
+    \end{subfigure}
 
--put here paramter values and all that for single seed fits to the individual datasets
--modulo plots
--maybe correlation matrix plots - or maybe those go into an appendix
--include FFT plots and pull plots 
--perhaps include or reference the average value of R
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_Iter_Canv_hist_9d}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_Iter_Canv_hist_Endgame}
+        \caption{}
+    \end{subfigure}
+\caption[]{chi2 fits to many seeds Data from some dataset.}
+\label{fig:}
+\end{figure}
 
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_Iter_Canv_hist_60h}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_Iter_Canv_hist_HighKick}
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_Iter_Canv_hist_9d}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_Iter_Canv_hist_Endgame}
+        \caption{}
+    \end{subfigure}
+\caption[]{R fits to many seeds Data from some dataset.}
+\label{fig:}
+\end{figure}
 
 
 
@@ -1320,7 +1582,6 @@ Of more interest is the choice of fixed value for the \K parameter in the ratio 
 
 
 
-\subsection{Fits to bunch number}
 
 
 \subsection{Binning systematic errors}
