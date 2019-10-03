@@ -315,7 +315,7 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_phi_cbo-phi_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{$\phi_{cbo-\phi}$}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
@@ -334,7 +334,6 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
 
 
 
--put here per calo fits of endgame dataset parameters besides chi2 and R
 
 
 \subsection{Fit start scans}
@@ -557,11 +556,14 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
 \subsection{Fits to many random seeds}
 \label{sub:randomSeedFits}
 
--make a table of results with RMS and errors on the mean
--point out how HighKick, 9d, and Endgame are all consistent, and remind that 60h has a different blinding
 
+While the single seed fit results presented earlier indicate good fits and well understood parameters, it is always a good idea to fit other random seeds in case the single seed results ended up on an outlier. Doing so not only improves the confidence of the result, but also gives a more central $R$ value to quote as being closer to the `true' $R$ of the dataset. Figures~\ref{fig:randomSeedFits_chi2} and \ref{fig:randomSeedFits_R} give the \chisq and $R$ distributions for fits to 50 different random seeds for the four Run~1 precession frequency analysis datasets. As shown the \chisq distributions are nicely centered around 1 as they should be for proper fits to the data. \tabref{tab:RandomSeedFitResults} compares the random seed fit results between the different datasets.
 
--do I want to include plots of random seed fits to other parameters? 
+The means for the $R$ distributions of the datasets which shared the same blinding string \{HighKick, 9d, Endgame\} are close but not quite consistent when accounting for the error on the mean, calculated as
+  \begin{align}
+    \sigma_{\mu} = \text{RMS}/\sqrt{N},
+  \end{align}
+where $N$ is the number of random seeds in this case. This inconsistency is on the order of couple hundres of ppb or up to $20\sigma$ in the mean error. This is very likely attributable to different field conditions over the course of Run~1.
 
 
 
@@ -570,26 +572,26 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_Iter_Canv_hist_60h}
-        \caption{}
+        \caption{60h dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_Iter_Canv_hist_HighKick}
-        \caption{}
+        \caption{HighKick dataset.}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_Iter_Canv_hist_9d}
-        \caption{}
+        \caption{9d dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_Iter_Canv_hist_Endgame}
-        \caption{}
+        \caption{Endgame dataset.}
     \end{subfigure}
-\caption[]{chi2 fits to many seeds Data from some dataset.}
-\label{fig:}
+\caption[\chisq's for fits to many random seeds]{\chisq's for fits to 50 different random seeds for the Run~1 precession frequency analysis datasets. The distributions are nicely centered around 1 which is to be expected for proper fits to the data.}
+\label{fig:randomSeedFits_chi2}
 \end{figure}
 
 
@@ -598,31 +600,50 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_Iter_Canv_hist_60h}
-        \caption{}
+        \caption{60h dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_Iter_Canv_hist_HighKick}
-        \caption{}
+        \caption{HighKick dataset.}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_Iter_Canv_hist_9d}
-        \caption{}
+        \caption{9d dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_Iter_Canv_hist_Endgame}
-        \caption{}
+        \caption{Endgame dataset.}
     \end{subfigure}
-\caption[]{R fits to many seeds Data from some dataset.}
-\label{fig:}
+\caption[$R$ values for fits to many random seeds]{$R$ values for fits to 50 different random seeds for the Run~1 precession frequency analysis datasets.}
+\label{fig:randomSeedFits_R}
 \end{figure}
 
 
-\clearpage % remove this once things are sorted
 
+\begin{table}[]
+\centering
+% \small
+% \setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc}
+  \hline
+    \multicolumn{5}{c}{\textbf{Random Seed Fit Results}} \\
+  \hline\hline
+    Dataset & \chisq Mean & $R$ Mean (ppm) & $R$ RMS (ppb) & $R$ Error on Mean (ppb) \\
+  \hline
+    60h & 0.999 & $-20.556$ & 344.3 & 48.7 \\
+    HighKick & 1.001 & $-17.475$ & 422.6 & 59.8 \\
+    9d & 0.999 & $-17.718$ & 211.8 & 30.0 \\
+    Endgame & 1.002 & $-17.341$ & 124.9 & 17.7 \\ 
+  \hline
+\end{tabular*}
+\caption[Random seed fit results]{Random seed fit results to the four Run~1 precession frequency analysis datasets. The \chisq means are consistent with 1. As a reminder the 60h dataset used a different blinding than the other three, hence the significantly different $R$ mean.}
+\label{tab:RandomSeedFitResults}
+\end{table}
 
 
 
