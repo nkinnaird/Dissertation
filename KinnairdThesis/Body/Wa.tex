@@ -723,48 +723,37 @@ where $\boldsymbol{\kappa_{loss}} = 1/\epsilon N_{0}$ is taken as the fit parame
 It should be noted that the Ratio Method is largely insensitive to the slow lost muons effect which divides out. No rise appears in the FFT of the ratio fit residuals, \figref{fig:fft_threeParamRatio}, and letting $\boldsymbol{\kappa_{loss}}$ float in the fit does not produce fit nice convergence. Because however $\boldsymbol{R}$ changes on the order of tens of ppb when the lost muon term is included with $\boldsymbol{\kappa_{loss}}$ fixed to the value determined from a T-Method fit, by default it is included. See \secref{sub:lostmuonserror} for more discussion on this.
 
 
-\subsection{Fit code/parameter specifics}
+\subsection{Fit procedures and parameters}
 
+\chisq fits are done to the pileup corrected positron time spectra and ratio data in \texttt{ROOT} using the standard \texttt{TH1F} and \texttt{TGraph} fit methods with a strategy level of two. Fits are performed in stages where groups of parameters are freed, fit, and then fixed before fitting the next set of parameters. In the final fit all parameters are fit at once. Each of the four Run~1 precession frequency analysis datasets are fit with 14 parameters. Of those 13 are free except for the \K parameter which is determined and fixed from a T-Method fit\footnote{In the HighKick dataset $\tau_{cbo}$ is also fixed from a T-Method fit as the lifetime is relatively small and the Ratio Method can't successfully fit it.}. In the T-Method fits there are two extra free fit parameters, those being the $N_{0}$ and $\tau$ terms which are left out of the Ratio Method fits.
 
-when all is said and done there is X fit parameters used in the fit, on the order of 20 depending on dataset...
+Fits to calorimeter sum spectra are done from 30.2--\mus{650}, corresponding to 4155 bins. The choice of fit start time was made to lie directly on a zero crossing, which from E821 was shown to reduce some systematic errors \textbf{cite this?}. The choice of fit end time was made to be just before the quad storage field turned off, in order for the fill time to fit within the timing structure of the experimental beam. Individual calorimeter fits were performed out to \mus{400}, in order to stay within the region of Poisson statistics such that \chisq fits are satisfied. \tabref{tab:fitprocedureparameters} gives the various fit procedure parameters.
 
--a root macro is used to fit the data, and then to make plots
-
-
-Fit is from \mus{30.2}--\mus{650}, corresponding to 4154 bins.
-
-fit level of 2...
-
-
-remind that R is blinded - this should be in fit code specifics
-mention that a different blinding is used for 60h
-mention that R will be slightly different between datasets due to field conditions 
-
--need to talk about hardware blinding here potentially - or have I done that already? probably - look in bib and then in text
-
-
-calo fit end time
+As a reminder $R$ is blinded at the hardware and software levels \cite{ClockManual,SoftwareBlinding}. The software blinding string used for the 60h dataset was different than that used when fitting the HighKick, 9d, and Endgame datasets, each of which used the same blinding string. This was done in order to perform a software-level relative unblinding between different analyzers with the 60h dataset in order to determine if there were any obvious problems in the analyses \cite{BU60hReport}. \textbf{Cite a summary talk somewhere? Can't find any.} This means that in the following results, $R$ values between different datasets are comparable between the datasets except for the 60h, and barring any differences due to field conditions which are not discussed in this dissertation.
 
 
 \begin{table}[]
 \centering
 \setlength\tabcolsep{10pt}
-\renewcommand{\arraystretch}{1.2}
+\renewcommand{\arraystretch}{1.2}{}
 \begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}lc}
   \hline
     \multicolumn{2}{c}{\textbf{Fit Procedure Parameters}} \\
   \hline\hline
     Parameter & Value \\
   \hline
+    Fit strategy level & 2 \\
     Fit start time & \mus{30.2} \\
     Fit end time & \mus{650} \\
+    Bins in fit & 4155 \\
+    Number of fit parameters & 14 \\
+    Number of free fit parameters & 13 \\
+    Number of free fit parameters (HighKick) & 12 \\
+    Fit end time (calorimeters) & \mus{400} \\
   \hline 
 \end{tabular*}
-\caption[]{\textbf{fill this table out more once I've gone through the various parts}}
+\caption[Fit procedure parameters]{Various parameters used in the fit procedure.}
 \label{tab:fitprocedureparameters}
 \end{table}
-
-
-
 
 
