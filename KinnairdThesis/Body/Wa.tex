@@ -105,21 +105,33 @@ Energy and time histograms are made for each individual calorimeter. These are s
 \end{figure}
 
 
-    \begin{figure}[]
-    \centering
-        \begin{subfigure}[t]{0.45\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{FiveParameter_NAsq_Vs_ETh_9d}
-            \caption{}
-        \end{subfigure}
-        \begin{subfigure}[t]{0.45\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{FullRatio_sigmaR_Vs_ETh_9d}
-            \caption{}
-        \end{subfigure}% 
-    \caption[Determination of optimal energy threshold]{The optimal energy threshold can be determined from the $NA^{2}$ quantity as described in \secref{section:WaIntro} from five parameter fits to the data (left), or from the calculated error with the final fit function (right). The maximum and minimum are determined using seven parameter polynomial fits to the relevant quantities. The optimal threshold varies slightly per calorimeter and per dataset. Since the region of the minimum is flat, a single energy threshold of 1700 \MeV was chosen. These plots come from analyses to the 9d dataset.}
-    \label{fig:OptimalEnergyThreshold}
-    \end{figure}
+\begin{figure}[]
+\centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FiveParameter_N_0_Vs_ETh_9d}
+        % \caption{}
+    \end{subfigure}
+     \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FiveParameter_A_Vs_ETh_9d}
+        % \caption{}
+    \end{subfigure}
+       
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FiveParameter_NAsq_Vs_ETh_9d}
+        % \caption{}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_sigmaR_Vs_ETh_9d}
+        % \caption{}
+    \end{subfigure}% 
+\caption[Determination of optimal energy threshold]{The optimal energy threshold can be determined from the $NA^{2}$ quantity as described in \secref{section:WaIntro} from five parameter fits to the data (bottom-left) or from the calculated error with the final fit function (bottom-right). Fitted $N$ and $A$ parameters are also shown (top) which satisfy Equations~\ref{eq:Nth} and \ref{eq:Ath}. The maximum and minimum are determined using seven parameter polynomial fits to the relevant quantities. The optimal threshold varies slightly per calorimeter and per dataset. Since the region of the minimum is relatively flat, a single energy threshold of 1700 \MeV was chosen. Data from the 9d dataset.}
+\label{fig:OptimalEnergyThreshold}
+\end{figure}
+
 
 
 The optimal bin width for the time histograms was determined to be $\SI{149.2}{ns}$, the average of the cyclotron periods determined from a fast rotation analysis to the data \cite{fastrotationsomething}. As described in \secref{sub:beam_debunching}, this bin width combined with a time randomization on each cluster over a range of $\pm T_{c}/2 = \SI{149.2}{ns} / 2$ serves to eliminate the fast rotation signal in the data\footnote{Some analyzers randomize all times in a single fill by half the cyclotron period as opposed to each individual pulse.}. This randomization is done using \ROOT's \texttt{TRandom3} class. As will be described in \secref{sub:vw_term}, the cluster times are also randomized by $\pm T_{VW}/2$, where $T_{VW}$ is determined per dataset. This is done in order to remove the effects of the VW in the data. \textbf{Should I put the actual numbers here? Need to look them up again.} The default random seed for each histogram \ROOT file is the hash of the input file name using C++'s standard hash class. Histograms are defined with a time range of 0--\mus{699.8972} (the closest integer multiple of the bin width to \mus{700}), corresponding to 4691 bins. Clusters with times less than \mus{25} or greater than \mus{660} are dropped, corresponding to 4256 bins containing data.

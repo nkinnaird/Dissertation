@@ -121,7 +121,7 @@ $\kappa_{loss}$    & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.0
 \tabref{tab:DatasetFitResults} gives the collated single seed fit results for the four Run~1 precession frequency analysis datasets. The final statistical errors on $R$ for the 60h, HighKick, 9d, and Endgame datasets are \SI{1.358}{}, \SI{1.411}{}, \SI{0.903}{}, and \SI{0.639}{ppm} respectively. The single seed $R$ results for the HighKick, 9d, and Endgame datasets, all of which used the same blinding string, are all well within $1\sigma$ of each other. The average $R$ value for fits to 50 different random seeds are provided in \secref{sub:randomSeedFits}.
 
 
-The CBO frequencies for the 60h and Endgame datasets with $n$ values of 0.108 were found to be \SI{2.338}{} and \SI{2.339}{rad/\mus{}} respectively, corresponding to approximately \SI{0.37}{MHz}. For the HighKick and 9d datasets with $n$ values of 0.120, the CBO frequencies were found to be \SI{2.559}{} and \SI{2.615}{rad/\mus{}} respectively, corresponding to approximately \SI{0.415}{MHz}. Slight differences in the final fitted CBO frequencies can be attributed to changing quad resistor degredation over the course of the run, and statistics. These frequencies correspond to the expected frequencies as described in \secref{sec:muonbeamdynamics}\footnote{The VW frequencies, though time-randomized out in this analysis, were found to be approximately \SI{2.30}{} and \SI{2.04}{MHz} for the datasets with $n=0.108$ and $n=0.120$ respectively.}.
+The CBO frequencies for the 60h and Endgame datasets with $n$ values of 0.108 were found to be 2.338 and 2.339 rad/\mus{} respectively, corresponding to approximately \SI{0.37}{MHz}. For the HighKick and 9d datasets with $n$ values of 0.120, the CBO frequencies were found to be 2.559 and 2.615 rad/\mus{} respectively, corresponding to approximately \SI{0.415}{MHz}. Slight differences in the final fitted CBO frequencies can be attributed to changing quad resistor degredation over the course of the run, and statistics. These frequencies correspond to the expected frequencies as described in \secref{sec:muonbeamdynamics}\footnote{The VW frequencies, though time-randomized out in this analysis, were found to be approximately \SI{2.30}{} and \SI{2.04}{MHz} for the datasets with $n=0.108$ and $n=0.120$ respectively.}.
 
 
 The CBO lifetimes between the different datasets are relatively consistent, barring the HighKick dataset for which a smaller CBO lifetime was measured. Ratio Method fits typically converge with lifetimes with large errors compared to T-Method fits, due to the reduction in sensitivity in the Ratio Method. In the HighKick dataset, the CBO lifetime which is smaller than the other datasets did not like to converge nicely in the ratio fits, and was therefore fixed to that from a T-Method fit. The main CBO amplitudes $A_{cbo-N}$ for the different datasets were on the order of 0.3--0.4\%, while the higher order CBO amplitudes were in general an order of magnitude less. The strength of the various higher order CBO amplitudes flucuated between each other for different datasets, with one parameter being large compared to another in one dataset and opposite for a different dataset. In some cases, the errors on the higher order CBO term amplitudes was of the order the amplitude itself. While this implies these terms can be dropped from the fit function, all terms were included for analysis uniformity among the different datasets. These relatively large errors, while making some of the fits more challenging to get to converge, were nonetheless handled appropriately with well converging fits.
@@ -197,7 +197,8 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
 \subsection{Individual calorimeter fits}
 \label{sub:per_calorimeter_fits}
 
--the average R value is consitent with the single fits R values and the average R values as described later...
+
+Fits to all 24 individual calorimters for each of the Run~1 precession frequency datasets were performed with the same number of free fit parameters as used in the calorimeter sum fits. \figref{fig:caloFits_chi2} shows the \chisq/NDF's for the calorimeter fits which are nicely spread around 1. \figref{fig:caloFits_R} shows the fitted $R$ values as a function of calorimeter number. Straight line fits were performed to the $R$ values, and the fitted constant returned a value in each case that was consistent with the calorimeter sum fit $R$ values. Examining the $R$ values as a function of calorimeter between datasets more carefully, particular calorimter numbers do not tend to lie above or below the fitted line uniformly. The spread in $R$ values for each calorimeter then can be said to driven statistically, though it should be noted that with the larger error bars on the individual calorimeter fits it's hard to tell if there are any preferences one way or another.
 
 
 \begin{figure}[]
@@ -251,9 +252,12 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
         \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_Endgame}
         \caption{Endgame dataset.}
     \end{subfigure}
-\caption[$R$ versus calorimeter number]{$R$ versus calorimter for the Run~1 precession frequency analysis datasets.}
+\caption[$R$ versus calorimeter number]{$R$ versus calorimter for the Run~1 precession frequency analysis datasets. A straight line fit was performed on the fitted values, with the fit result shown in the upper right box as parameter $p_{1}$ in units of ppm.}
 \label{fig:caloFits_R}
 \end{figure}
+
+
+Figures~\ref{fig:caloFits_EndgamePars_1} and \ref{fig:fig:caloFits_EndgamePars_2} show calorimter fit results for the other free parameters in the fit for the Endgame dataset. The \gmtwo phases are relatively consistent among the different calorimeters, barring calorimeters 13 and 19 which lie lower on the plot. These two calorimeters sit behind the tracker stations, implying a different level of acceptance and therefore the different \gmtwo phase can be expected. Similarly the different calorimeters have different fit asymmetries, once again due to their different acceptances. The CBO parameters are in general consistent with some spread due to acceptance, with the phases running from 0--2$\pi$ around the ring as expected. As one might notice, the amplitudes of the CBO parameters are an order of magnitude higher than in the calorimeter sum fits. Because the phases vary around the ring, when adding up all the calorimeters, the CBO effect becomes reduced. In fact, while it is not always necessary to include the higher order CBO terms for good fits to the calorimeter sum data, there are many calorimeters which need the higher order terms for good fits.
 
 
 \begin{figure}[]
@@ -290,7 +294,7 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
         \includegraphics[width=\textwidth]{FullRatioFit_phi_cbo-N_Vs_Calo_Canv_Endgame}
         \caption{$\phi_{cbo-N}$}
     \end{subfigure}
-\caption[Endgame fit parameters versus calorimeter number]{Endgame fit parameters versus calorimeter number.}
+\caption[Endgame fit parameters versus calorimeter number]{Endgame fit parameters versus calorimeter number. The CBO phase $\phi_{cbo-N}$ runs from 0--2$\pi$ around the ring.}
 \label{fig:caloFits_EndgamePars_1}
 \end{figure}
 
@@ -328,17 +332,35 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
         \includegraphics[width=\textwidth]{FullRatioFit_phi_2cbo-N_Vs_Calo_Canv_Endgame}
         \caption{$\phi_{2cbo-N}$}
     \end{subfigure}
-\caption[Endgame fit parameters versus calorimeter number]{Endgame fit parameters versus calorimeter number.}
+\caption[Endgame fit parameters versus calorimeter number]{Endgame fit parameters versus calorimeter number. The CBO phases $\phi_{cbo-A}$ and $\phi_{cbo-\phi}$ run from 0--2$\pi$ around the ring, while $\phi_{2cbo-N}$ runs around twice.}
 \label{fig:fig:caloFits_EndgamePars_2}
 \end{figure}
 
 
 
 
+\subsection{Fit start and end scans}
 
-\subsection{Fit start scans}
 
--include here the Kawall band equation as well as the full form
+In order to determine if there are any deficiencies as a function of time, for instance if the CBO was modelled incorrectly, fits are performed with varying fit start and end times. If a parameter is incorrectly modelled, it will wander away from the statistically allowed deviation as the mismodelled effect grows stronger or weaker. This was observed both in E821 and in preliminary fits to the E989 data. The statistically allowed deviation between two sets of data, where one is a subset of the other, is given as \cite{E821FinalReport}
+  \begin{align} \label{eq:sigmaDiffFull}
+    \sigma_{diff} = \sqrt{\sigma_{2} - \sigma_{1}(2 \frac{A_{1}}{A_{2}}\cos(\phi_{1}-\phi_{2}) - 1)},
+  \end{align}
+where the subscript 2 stands for the larger dataset while the subscript 1 stands for the smaller sub-dataset. This statistically allowed deviatino depends both on the size of the datasets as well as their ``analyzing powers,'' which come from the asymmetry and phases of the datasets. For fit start scans the analyzing powers are the same, such that the approximation 
+  \begin{align} \label{eq:sigmaDiffApprox}
+    \sigma_{diff} \approx \sqrt{\sigma_{2} - \sigma_{1}}
+  \end{align}
+can be made. 
+
+
+It should be noted that for fit start scans, where much of the data is dropped at late fit start times, certain CBO parameters start to become unstable as the CBO effect has become diminished in the data\footnote{The same applies to the VW effect when not time-randomized out.}. Fits with start times at \mus{100} are half a lifetime or more along the CBO effect, meaning that amplitudes either start to go to 0 or become unfittable. In particular, the CBO lifetime itself become very hard to fit and tends to converge to whatever the upper bound of the fit limit is while sending the amplitude to zero. For those parameters which were found to be unstable, they were fixed to their starting fit results and passed forward to the following fits. These typically included most of the higher order CBO amplitudes and phases, though in some cases they can still be fit out to late times depending on the dataset.
+
+
+Fit start time scans were performed from \mus{30.2} to \mus{100.1} in steps of \mus{1} corresponding to 71 separate fits. In order to assist convergence, the final fit parameters from one fit were passed on as the starting parameters to the next. The \chisq/NDF's as a function of fit start time for the four Run~1 precession frequency analysis datasets are shown in \figref{fig:fitStartTime_chi2}. The error on the individual points are given as 
+  \begin{align}
+    \sigma_{\chi^{2}} = \sqrt{2/NDF},
+  \end{align}
+where NDF changes as the fit start time is pushed later in time and bins are left out of the fit. The two bands indicate the $1\sigma$ statistically allowed deviation as given by \equref{eq:sigmaDiffApprox}\footnote{These statistical deviation bands are sometimes referred to as Kawall bands.}. As shown the goodness of fit for the four datasets are all consistent with fit start time, only wandering in and near the bands without diverging.
 
 \begin{figure}[]
 \centering
@@ -366,6 +388,9 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
 \caption[\chisq/NDF versus fit start time]{\chisq/NDF versus fit start time for the Run~1 precession frequency analysis datasets. The fit points lie in and around the $1\sigma$ statistical bands.}
 \label{fig:fitStartTime_chi2}
 \end{figure}
+
+
+The dataset fit $R$ values for varying fit start times are shown in \figref{fig:fitStartTime_R}. Again the parameter is consistent as a function of fit start time, only wandering around a little. The only dataset for which $R$ goes noticably outside the bands is that for the HighKick, however that is at late fit start times and the change is still less than $2\sigma,$ so there is nothing particularly indicative of unaccounted effects. \figref{fig:fitStartScan_EndgamePars} shows the fit start scan results for the other free parameters in the fit for the Endgame dataset. In all cases the fit parameters only wander in and near the bands, showing that all effects in the ratio data are properly accounted for.
 
 
 \begin{figure}[]
@@ -435,7 +460,7 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
 \end{figure}
 
 
-\subsection{Fit end scans}
+For fit end scans, all of the same methods and conclusions apply. In general fit end scans are both less dangerous and more stable than fit start scans, as the amount of data being removed from the fit is relatively small. While these fit end scans in a T-Method fit might be be able to be ignored, it's nice to check that they satisfy the statistical deviations in the Ratio Method as the ratio data errors grow larger with less data \cite{BU60hReport}. Fit end time scans were performed from \mus{650} to \mus{400} in steps of \mus{10}, corresponding to 26 separate fits. As in the fit start time scan, fit results from the end of one fit were passed on as the starting parameters to the next. $R$ values for fit end scans for the Run~1 precession frequency analysis datasets are shown in \figref{fig:fitEndTime_R}. As shown the $R$ values are comfortably within and near the bands. The only dataset where $R$ wanders a little more than the others is in the 60h dataset, however it veers back to towards the band at the end of the scan.
 
 
 \begin{figure}[]
@@ -466,26 +491,10 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
 \end{figure}
 
 
-\subsection{Energy threshold scan fits}
+\subsection{Energy threshold scans}
 
--should include here plots of A and N as well as R - though maybe I should move them up to the histogram construction side of things
 
-\begin{figure}[]
-\centering
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FiveParameter_N_0_Vs_ETh_60h}
-        \caption{}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FiveParameter_A_Vs_ETh_60h}
-        \caption{}
-    \end{subfigure}
-\caption[]{60h five parameter fit N and A Data from some dataset.}
-\label{fig:}
-\end{figure}
-
+Similarly to fit start and end time scans, it is worthwhile to vary the energy threshold applied to the positron time spectrum in order to check if there are any inconsistencies with regards to the energy measurement of positron hits. The energy threshold was varied from \SI{1.2}{\GeV} to \SI{2.2}{\GeV} in steps of \SI{50}{\MeV} corresponding to 21 separate fits. The fitted $R$ values for the four Run~1 precession frequency analysis datasets are shown in \figref{fig:energyThresholdScan_R}. The statistical bands are the same as those defined in \equref{eq:sigmaDiffFull}, where now the analyzing power part of the equation plays a larger role as the asymmetries and phases of the different fit points are significantly different. As shown there are no major deviations in the fitted $R$ values.
 
 
 \begin{figure}[]
@@ -493,26 +502,26 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ETh_60h}
-        \caption{}
+        \caption{60h dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ETh_HighKick}
-        \caption{}
+        \caption{HighKick dataset.}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ETh_9d}
-        \caption{}
+        \caption{9d dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ETh_Endgame}
-        \caption{}
+        \caption{Endgame dataset.}
     \end{subfigure}
-\caption[]{R energy threshold scans Data from some dataset.}
-\label{fig:}
+\caption[Energy threshold scan fits]{$R$ versus energy threshold for the Run~1 precession frequency analysis datasets. The fit points lie in and around the $1\sigma$ statistical bands.}
+\label{fig:energyThresholdScan_R}
 \end{figure}
 
 
