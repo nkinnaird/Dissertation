@@ -191,12 +191,13 @@ The CBO lifetimes between the different datasets are relatively consistent, barr
 
 
 
-
-Beyond looking at residuals .. In order to verify the integrity of the fit other checks are done ... 
+Beyond looking at single fit residuals to evaluate the integrity of the fits, other checks are made by slicing up the data in different ways and making sure they are consistent. These include fitting individual calorimeters, modifying the fit start and end times, modifying the applied energy thresholds, and fitting individual beam bunches.
 
 
 \subsection{Individual calorimeter fits}
 \label{sub:per_calorimeter_fits}
+
+-the average R value is consitent with the single fits R values and the average R values as described later...
 
 
 \begin{figure}[]
@@ -204,26 +205,26 @@ Beyond looking at residuals .. In order to verify the integrity of the fit other
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_60h}
-        \caption{}
+        \caption{60h dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_HighKick}
-        \caption{}
+        \caption{HighKick dataset.}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_9d}
-        \caption{}
+        \caption{9d dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{Endgame dataset.}
     \end{subfigure}
-\caption[]{chi2s calo fits Data from some dataset.}
-\label{fig:}
+\caption[\chisq/NDF versus calorimeter number]{\chisq/NDF versus calorimter for the Run~1 precession frequency analysis datasets.}
+\label{fig:caloFits_chi2}
 \end{figure}
 
 
@@ -232,26 +233,26 @@ Beyond looking at residuals .. In order to verify the integrity of the fit other
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_60h}
-        \caption{}
+        \caption{60h dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_HighKick}
-        \caption{}
+        \caption{HighKick dataset.}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_9d}
-        \caption{}
+        \caption{9d dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{Endgame dataset.}
     \end{subfigure}
-\caption[]{Rs calo fits Data from some dataset.}
-\label{fig:}
+\caption[$R$ versus calorimeter number]{$R$ versus calorimter for the Run~1 precession frequency analysis datasets.}
+\label{fig:caloFits_R}
 \end{figure}
 
 
@@ -260,57 +261,56 @@ Beyond looking at residuals .. In order to verify the integrity of the fit other
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_phi_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{$\phi$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_A_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{$A$}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_omega_cbo_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{$\omega_{cbo}$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_tau_cbo_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{$\tau_{cbo}$}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_A_cbo-N_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{$A_{cbo-N}$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_phi_cbo-N_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{$\phi_{cbo-N}$}
     \end{subfigure}
-\caption[]{Endgame calo fits Data from some dataset.}
-\label{fig:}
+\caption[Endgame fit parameters versus calorimeter number]{Endgame fit parameters versus calorimeter number.}
+\label{fig:caloFits_EndgamePars_1}
 \end{figure}
-
 
 \begin{figure}[]
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_A_cbo-A_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{$A_{cbo-A}$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_phi_cbo-A_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{$\phi_{cbo-A}$}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_A_cbo-phi_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{$A_{cbo-\phi}$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
@@ -321,15 +321,15 @@ Beyond looking at residuals .. In order to verify the integrity of the fit other
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_A_2cbo-N_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{$A_{2cbo-N}$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatioFit_phi_2cbo-N_Vs_Calo_Canv_Endgame}
-        \caption{}
+        \caption{$\phi_{2cbo-N}$}
     \end{subfigure}
-\caption[]{Endgame calo fits Data from some dataset.}
-\label{fig:}
+\caption[Endgame fit parameters versus calorimeter number]{Endgame fit parameters versus calorimeter number.}
+\label{fig:fig:caloFits_EndgamePars_2}
 \end{figure}
 
 
@@ -346,53 +346,54 @@ Beyond looking at residuals .. In order to verify the integrity of the fit other
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_FS_canv_60h}
-        \caption{}
+        \caption{60h dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_FS_canv_HighKick}
-        \caption{}
+        \caption{HighKick dataset.}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_FS_canv_9d}
-        \caption{}
+        \caption{9d dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2NDF_Vs_FS_canv_Endgame}
-        \caption{}
+        \caption{Endgame dataset.}
     \end{subfigure}
-\caption[]{chi2s fit start Data from some dataset.}
-\label{fig:}
+\caption[\chisq/NDF versus fit start time]{\chisq/NDF versus fit start time for the Run~1 precession frequency analysis datasets. The fit points lie in and around the $1\sigma$ statistical bands.}
+\label{fig:fitStartTime_chi2}
 \end{figure}
+
 
 \begin{figure}[]
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_FS_canv_60h}
-        \caption{}
+        \caption{60h dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_FS_canv_HighKick}
-        \caption{}
+        \caption{HighKick dataset.}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_FS_canv_9d}
-        \caption{}
+        \caption{9d dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_FS_canv_Endgame}
-        \caption{}
+        \caption{Endgame dataset.}
     \end{subfigure}
-\caption[]{R fit starts Data from some dataset.}
-\label{fig:}
+\caption[$R$ versus fit start time]{$R$ versus fit start time for the Run~1 precession frequency analysis datasets. The fit points lie in and around the $1\sigma$ statistical bands.}
+\label{fig:fitStartTime_R}
 \end{figure}
 
 
@@ -401,37 +402,37 @@ Beyond looking at residuals .. In order to verify the integrity of the fit other
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_phi_FS_Canv_Endgame}
-        \caption{}
+        \caption{$\phi$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_A_FS_Canv_Endgame}
-        \caption{}
+        \caption{$A$}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_omega_cbo_FS_Canv_Endgame}
-        \caption{}
+        \caption{$\omega_{cbo}$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_phi_cbo-N_FS_Canv_Endgame}
-        \caption{}
+        \caption{$\phi_{cbo-N}$}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_A_cbo-N_FS_Canv_Endgame}
-        \caption{}
+        \caption{$A_{cbo-N}$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_A_cbo-phi_FS_Canv_Endgame}
-        \caption{}
+        \caption{$A_{cbo-\phi}$}
     \end{subfigure}
-\caption[]{other parameter fit starts endgame - missing plots are those for fixed parameters Data from some dataset.}
-\label{fig:}
+\caption[Fit start scans for free parameters in the Endgame dataset]{Fit start scans for free parameters in the Endgame dataset. Those parameters not shown here are fixed to their starting values over the course of the scan, as at late times they can be unstable as the effects die away.}
+\label{fig:fitStartScan_EndgamePars}
 \end{figure}
 
 
@@ -443,26 +444,26 @@ Beyond looking at residuals .. In order to verify the integrity of the fit other
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_FE_Canv_60h}
-        \caption{}
+        \caption{60h dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_FE_Canv_HighKick}
-        \caption{}
+        \caption{HighKick dataset.}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_FE_Canv_9d}
-        \caption{}
+        \caption{9d dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_FE_Canv_Endgame}
-        \caption{}
+        \caption{Endgame dataset.}
     \end{subfigure}
-\caption[]{R fit ends Data from some dataset.}
-\label{fig:}
+\caption[$R$ versus fit end time]{$R$ versus fit end time for the Run~1 precession frequency analysis datasets. The fit points lie in and around the $1\sigma$ statistical bands.}
+\label{fig:fitEndTime_R}
 \end{figure}
 
 
