@@ -520,7 +520,7 @@ Similarly to fit start and end time scans, it is worthwhile to vary the energy t
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ETh_Endgame}
         \caption{Endgame dataset.}
     \end{subfigure}
-\caption[Energy threshold scan fits]{$R$ versus energy threshold for the Run~1 precession frequency analysis datasets. The fit points lie in and around the $1\sigma$ statistical bands.}
+\caption[$R$ versus energy threshold]{$R$ versus energy threshold for the Run~1 precession frequency analysis datasets. The fit points lie in and around the $1\sigma$ statistical bands.}
 \label{fig:energyThresholdScan_R}
 \end{figure}
 
@@ -530,7 +530,9 @@ Similarly to fit start and end time scans, it is worthwhile to vary the energy t
 
 \subsection{Fits to bunch number}
 
-- this should maybe go up by fit results section
+
+As described in \secref{sec:Accelerator}, eight separate bunches of muons are sent to the E989 experiment with the same timing structure. In order to check if there were any significant differences in the final fitted $R$ values between bunches which might come from systematic differences in the bunches, the bunches were fit individually. \figref{fig:bunchNum_R} shows the fitted $R$ values for the eight individual bunches alongside the bunch-sum result, for the Run~1 precession frequency analysis datasets. In all cases there appear no systematically different $R$ values per bunch, and the eight individual bunches when fit to a straight line are very consistent with the bunch-sum result.
+
 
 
 \begin{figure}[]
@@ -538,26 +540,26 @@ Similarly to fit start and end time scans, it is worthwhile to vary the energy t
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_BunchNum_Canv_60h}
-        \caption{}
+        \caption{60h dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_BunchNum_Canv_HighKick}
-        \caption{}
+        \caption{HighKick dataset.}
     \end{subfigure}
 
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_BunchNum_Canv_9d}
-        \caption{}
+        \caption{9d dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_BunchNum_Canv_Endgame}
-        \caption{}
+        \caption{Endgame dataset.}
     \end{subfigure}
-\caption[]{R bunch nums Data from some dataset.}
-\label{fig:}
+\caption[$R$ versus bunch number]{$R$ versus bunch number for the Run~1 precession frequency analysis datasets. Bunch number 0 corresponds to the data from all bunches added together. The blue dashed line intersects the bunch number 0 point, and it's value is displayed in the top left of each plot. The red line corresponds to a fit to bunches 1--8, with $p_{0}$ being the fit parameter. In all cases the fitted $R$ value to bunches 1--8 is well within $1\sigma$ of the all-bunches result.}
+\label{fig:bunchNum_R}
 \end{figure}
 
 
