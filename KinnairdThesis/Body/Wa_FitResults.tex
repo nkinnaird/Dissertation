@@ -8,43 +8,82 @@
 
 
 \section{Fit results}
-
-Fit results are blah from a single random seed ... 
-
+\label{sec:fit_results}
 
 
-
-
-Ratio Method fits including the CBO terms typically converge with lifetimes with large errors compared to T-Method fits, due to the reduction in sensitivity in the Ratio Method. In the HighKick dataset specifically, the CBO lifetime which is smaller than the other datasets does not like to converge nicely in the ratio fits, and is therefore fixed to that from a T-Method fit.
-
-
-I should show an FFT of the ratio fit residuals 
-
-
-
--put here paramter values and all that for single seed fits to the individual datasets
--modulo plots
--maybe correlation matrix plots - or maybe those go into an appendix
--include FFT plots and pull plots 
--perhaps include or reference the average value of R
-
--only show 60h residuals and fft?
+Fit results for the four Run~1 precession frequency analysis datasets are provided here. Figures~\ref{fig:moduloPlot_60h}--\ref{fig:moduloPlot_Endgame} show results for single random seed results to calorimeter sum data for the four datasets. In each dataset case the \chisq/NDF is acceptable as evidenced by the p value included in the plot results. The fit residuals and their FFT for the 60h dataset fit results are provided in Figures~\ref{fig:fitResiduals_60h} and \ref{fig:FFT_60h}. As shown all structure has been eliminated within the fit residuals implying that all effects in the data have properly been accounted for in the fit function. The same observations are made for the HighKick, 9d, and Endgame dataset fit residuals though those plots are not included here (\textbf{Should I include those plots? There's a lot. Toss them in the appendix as well?}). \figref{fig:CorrMat_60h} and \tabref{Tab:CorrMat_60h} give the fit result correlation matrix for the fit to the 60h dataset. As shown the only fit parameter that is significantly correlated with $R$ is the \gmtwo phase. This is very beneficial for the final fitted $R$ value as slight mis-fits or incorrectly modelled fit terms will only weakly correlate. The various different CBO parameters are self-correlated to different degrees depending on the parameter and the dataset that is being fit. \appref{app:CorrelationMatrices} provides the correlation matrices for the HighKick, 9d, and Endgame datasets.
 
 
 
 \begin{figure}[]
     \centering
-    \includegraphics[width=\textwidth]{fullRatio_moduloPlot_60h}
-    \caption[]{Data from some dataset.}
-    \label{fig:}
+    \includegraphics[width=.8\textwidth]{fullRatio_moduloPlot_60h}
+    \caption[60h dataset calorimter sum fit result]{Single random seed fit result to calorimeter sum of 60h dataset. The x axis is in units of \mus{} modulo \mus{100}, with successive portions of the data points and fit shifted downwards on the plot. The fit ranges from 30.2--\mus{650}.}
+    \label{fig:moduloPlot_60h}
 \end{figure}
 
 
 \begin{figure}[]
     \centering
+    \includegraphics[width=.8\textwidth]{fullRatio_moduloPlot_HighKick}
+    \caption[HighKick dataset calorimter sum fit result]{Single random seed fit result to calorimeter sum of HighKick dataset. The x axis is in units of \mus{} modulo \mus{100}, with successive portions of the data points and fit shifted downwards on the plot. The fit ranges from 30.2--\mus{650}.}
+    \label{fig:moduloPlot_HighKick}
+\end{figure}
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.8\textwidth]{fullRatio_moduloPlot_9d}
+    \caption[9d dataset calorimter sum fit result]{Single random seed fit result to calorimeter sum of 9d dataset. The x axis is in units of \mus{} modulo \mus{100}, with successive portions of the data points and fit shifted downwards on the plot. The fit ranges from 30.2--\mus{650}.}
+    \label{fig:moduloPlot_9d}
+\end{figure}
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.8\textwidth]{fullRatio_moduloPlot_Endgame}
+    \caption[Endgame dataset calorimter sum fit result]{Single random seed fit result to calorimeter sum of Endgame dataset. The x axis is in units of \mus{} modulo \mus{100}, with successive portions of the data points and fit shifted downwards on the plot. The fit ranges from 30.2--\mus{650}.}
+    \label{fig:moduloPlot_Endgame}
+\end{figure}
+
+
+
+
+\begin{figure}[h]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fitResidual_60h}
+        \caption{Fit residuals.}
+    \end{subfigure}
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fitPull_60h}
+        \caption{Fit pulls.}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \vspace{4mm}
+    \begin{subfigure}[]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fitPull_projected_60h}
+        \caption{Fit pulls projected onto the y axis. Note the Gaussian shape centered around 0 with unit width.}
+    \end{subfigure}
+\caption[Residuals and pulls for the ratio fit to the 60h dataset]{Residuals and pulls for the ratio fit to the 60h dataset. There is no obvious structure in any of the plots.}
+\label{fig:fitResiduals_60h}
+\end{figure}
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.8\textwidth]{FFTComparison_FullRatio_60h}
+    \caption[FFT of the 60h dataset fit residuals]{FFT of the 60h dataset fit residuals compared to the fit residuals from a 5 parameter fit to the data. All peaks have been eliminated above the noise.}
+    \label{fig:FFT_60h}
+\end{figure}
+
+
+
+\begin{figure}[]
+    \centering
     \includegraphics[width=\textwidth]{CorrelationMatrixFullRatioFit_60h}
-    \caption[]{Data from some dataset.}
-    \label{fig:}
+    \caption[60h ratio fit correlation matrix]{Correlation matrix for the ratio fit to the 60h dataset. The only significant correlation with $R$ is the \gmtwo phase.}
+    \label{fig:CorrMat_60h}
 \end{figure}
 
 
@@ -72,154 +111,24 @@ $\phi_{cbo-\phi}$  & 0.019 & -0.005 & 0.007 & -0.209 & -0.036 & 0.026 & 0.183 & 
 $\kappa_{loss}$    & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000  \\
   \bottomrule
 \end{tabular*}
-\caption[]{60h Correlation matrix for the full ratio fit. The only significant correlation to R is the \gmtwo phase.}
-\label{Tab:CorrMat}
-\end{table}
-\end{landscape}
-
-
-    \begin{figure}[h]
-    \centering
-        \begin{subfigure}[]{0.45\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{fitResidual_60h}
-            \caption{Fit residuals.}
-        \end{subfigure}
-        \begin{subfigure}[]{0.45\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{fitPull_60h}
-            \caption{Fit pulls.}
-        \end{subfigure}% %you need this % here to add spacing between subfigures
-        \vspace{4mm}
-        \begin{subfigure}[]{0.7\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{fitPull_projected_60h}
-            \caption{Fit pulls projected onto the y axis. Note the Gaussian shape centered around 0 with unit width.}
-        \end{subfigure}
-    \caption[fitResidual]{Residuals and pulls for the full ratio fit. \textbf{fix up}}
-    \label{fig:fitResidual}
-    \end{figure}
-
-
-\begin{figure}[]
-    \centering
-    \includegraphics[width=\textwidth]{FFTComparison_FullRatio_60h}
-    \caption[]{Data from some dataset.}
-    \label{fig:}
-\end{figure}
-
-
-
-\begin{figure}[]
-    \centering
-    \includegraphics[width=\textwidth]{fullRatio_moduloPlot_HighKick}
-    \caption[]{Data from some dataset.}
-    \label{fig:}
-\end{figure}
-
-\begin{figure}[]
-    \centering
-    \includegraphics[width=\textwidth]{fullRatio_moduloPlot_9d}
-    \caption[]{Data from some dataset.}
-    \label{fig:}
-\end{figure}
-
-\begin{figure}[]
-    \centering
-    \includegraphics[width=\textwidth]{fullRatio_moduloPlot_Endgame}
-    \caption[]{Data from some dataset.}
-    \label{fig:}
-\end{figure}
-
-\begin{landscape}
-\begin{table}[]
-\setlength\tabcolsep{5pt}
-\footnotesize
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lLBLLLLLLLLLLLL}
-  \toprule
-            & \thead{$A$} & \thead{$R$} & \thead{$\phi$} & \thead{$\omega_{cbo}$} & \thead{$\tau_{cbo}$} & \thead{$A_{cbo-N}$} & \thead{$\phi_{cbo-N}$} & \thead{$A_{2cbo-N}$} & \thead{$\phi_{2cbo-N}$} & \thead{$A_{cbo-A}$} & \thead{$\phi_{cbo-A}$} & \thead{$A_{cbo-\phi}$} & \thead{$\phi_{cbo-\phi}$} & \thead{$\kappa_{loss}$} \\
-  \midrule
-$A$                & 1.000 & 0.005 & -0.007 & 0.031 & 0.000 & 0.022 & -0.024 & 0.008 & -0.022 & 0.006 & -0.066 & -0.059 & -0.018 & 0.000  \\
-$R$                & 0.005 & 1.000 & -0.828 & 0.012 & 0.000 & 0.022 & -0.022 & 0.007 & -0.017 & -0.053 & -0.012 & 0.003 & 0.021 & 0.000  \\
-$\phi$             & -0.007 & -0.828 & 1.000 & -0.017 & 0.000 & -0.031 & 0.031 & -0.010 & 0.024 & 0.073 & 0.019 & -0.002 & -0.028 & 0.000  \\
-$\omega_{cbo}$     & 0.031 & 0.012 & -0.017 & 1.000 & 0.000 & 0.233 & -0.861 & 0.108 & -0.701 & -0.041 & -0.690 & -0.236 & -0.577 & 0.000  \\
-$\tau_{cbo}$       & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000  \\
-$A_{cbo-N}$        & 0.022 & 0.022 & -0.031 & 0.233 & 0.000 & 1.000 & -0.203 & 0.020 & -0.150 & 0.045 & -0.184 & -0.068 & -0.127 & 0.000  \\
-$\phi_{cbo-N}$     & -0.024 & -0.022 & 0.031 & -0.861 & 0.000 & -0.203 & 1.000 & -0.101 & 0.608 & 0.050 & 0.617 & 0.205 & 0.500 & 0.000  \\
-$A_{2cbo-N}$       & 0.008 & 0.007 & -0.010 & 0.108 & 0.000 & 0.020 & -0.101 & 1.000 & -0.073 & -0.029 & -0.074 & -0.041 & -0.087 & 0.000  \\
-$\phi_{2cbo-N}$    & -0.022 & -0.017 & 0.024 & -0.701 & 0.000 & -0.150 & 0.608 & -0.073 & 1.000 & 0.030 & 0.473 & 0.198 & 0.402 & 0.000  \\
-$A_{cbo-A}$        & 0.006 & -0.053 & 0.073 & -0.041 & 0.000 & 0.045 & 0.050 & -0.029 & 0.030 & 1.000 & 0.025 & 0.013 & 0.020 & 0.000  \\
-$\phi_{cbo-A}$     & -0.066 & -0.012 & 0.019 & -0.690 & 0.000 & -0.184 & 0.617 & -0.074 & 0.473 & 0.025 & 1.000 & 0.166 & 0.409 & 0.000  \\
-$A_{cbo-\phi}$     & -0.059 & 0.003 & -0.002 & -0.236 & 0.000 & -0.068 & 0.205 & -0.041 & 0.198 & 0.013 & 0.166 & 1.000 & 0.148 & 0.000  \\
-$\phi_{cbo-\phi}$  & -0.018 & 0.021 & -0.028 & -0.577 & 0.000 & -0.127 & 0.500 & -0.087 & 0.402 & 0.020 & 0.409 & 0.148 & 1.000 & 0.000  \\
-$\kappa_{loss}$    & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000  \\
-  \bottomrule
-\end{tabular*}
-\caption[]{highkick Correlation matrix for the full ratio fit. The only significant correlation to R is the \gmtwo phase.}
-\label{Tab:CorrMat}
-\end{table}
-\end{landscape}
-
-\begin{landscape}
-\begin{table}[]
-\setlength\tabcolsep{5pt}
-\footnotesize
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lLBLLLLLLLLLLLL}
-  \toprule
-            & \thead{$A$} & \thead{$R$} & \thead{$\phi$} & \thead{$\omega_{cbo}$} & \thead{$\tau_{cbo}$} & \thead{$A_{cbo-N}$} & \thead{$\phi_{cbo-N}$} & \thead{$A_{2cbo-N}$} & \thead{$\phi_{2cbo-N}$} & \thead{$A_{cbo-A}$} & \thead{$\phi_{cbo-A}$} & \thead{$A_{cbo-\phi}$} & \thead{$\phi_{cbo-\phi}$} & \thead{$\kappa_{loss}$} \\
-  \midrule
-$A$                & 1.000 & 0.006 & -0.008 & 0.007 & -0.034 & 0.037 & -0.002 & 0.009 & 0.002 & 0.063 & 0.004 & 0.053 & -0.022 & 0.000  \\
-$R$                & 0.006 & 1.000 & -0.829 & 0.084 & -0.001 & 0.018 & -0.085 & -0.011 & -0.008 & 0.043 & -0.096 & -0.024 & -0.082 & 0.000  \\
-$\phi$             & -0.008 & -0.829 & 1.000 & -0.116 & 0.001 & -0.026 & 0.118 & 0.015 & 0.011 & -0.061 & 0.132 & 0.031 & 0.114 & 0.000  \\
-$\omega_{cbo}$     & 0.007 & 0.084 & -0.116 & 1.000 & 0.074 & 0.036 & -0.912 & -0.123 & -0.240 & 0.282 & -0.781 & -0.138 & -0.788 & 0.000  \\
-$\tau_{cbo}$       & -0.034 & -0.001 & 0.001 & 0.074 & 1.000 & -0.788 & -0.143 & -0.413 & -0.104 & -0.398 & 0.056 & -0.671 & -0.086 & 0.000  \\
-$A_{cbo-N}$        & 0.037 & 0.018 & -0.026 & 0.036 & -0.788 & 1.000 & 0.027 & 0.319 & 0.049 & 0.347 & -0.099 & 0.523 & -0.012 & 0.000  \\
-$\phi_{cbo-N}$     & -0.002 & -0.085 & 0.118 & -0.912 & -0.143 & 0.027 & 1.000 & 0.147 & 0.222 & -0.247 & 0.705 & 0.174 & 0.721 & 0.000  \\
-$A_{2cbo-N}$       & 0.009 & -0.011 & 0.015 & -0.123 & -0.413 & 0.319 & 0.147 & 1.000 & 0.068 & 0.130 & 0.060 & 0.271 & 0.099 & 0.000  \\
-$\phi_{2cbo-N}$    & 0.002 & -0.008 & 0.011 & -0.240 & -0.104 & 0.049 & 0.222 & 0.068 & 1.000 & -0.044 & 0.173 & 0.113 & 0.178 & 0.000  \\
-$A_{cbo-A}$        & 0.063 & 0.043 & -0.061 & 0.282 & -0.398 & 0.347 & -0.247 & 0.130 & -0.044 & 1.000 & -0.268 & 0.247 & -0.206 & 0.000  \\
-$\phi_{cbo-A}$     & 0.004 & -0.096 & 0.132 & -0.781 & 0.056 & -0.099 & 0.705 & 0.060 & 0.173 & -0.268 & 1.000 & 0.033 & 0.616 & 0.000  \\
-$A_{cbo-\phi}$     & 0.053 & -0.024 & 0.031 & -0.138 & -0.671 & 0.523 & 0.174 & 0.271 & 0.113 & 0.247 & 0.033 & 1.000 & 0.131 & 0.000  \\
-$\phi_{cbo-\phi}$  & -0.022 & -0.082 & 0.114 & -0.788 & -0.086 & -0.012 & 0.721 & 0.099 & 0.178 & -0.206 & 0.616 & 0.131 & 1.000 & 0.000  \\
-$\kappa_{loss}$    & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000  \\
-  \bottomrule
-\end{tabular*}
-\caption[]{9d Correlation matrix for the full ratio fit. The only significant correlation to R is the \gmtwo phase.}
-\label{Tab:CorrMat}
-\end{table}
-\end{landscape}
-
-\begin{landscape}
-\begin{table}[]
-\setlength\tabcolsep{5pt}
-\footnotesize
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lLBLLLLLLLLLLLL}
-  \toprule
-            & \thead{$A$} & \thead{$R$} & \thead{$\phi$} & \thead{$\omega_{cbo}$} & \thead{$\tau_{cbo}$} & \thead{$A_{cbo-N}$} & \thead{$\phi_{cbo-N}$} & \thead{$A_{2cbo-N}$} & \thead{$\phi_{2cbo-N}$} & \thead{$A_{cbo-A}$} & \thead{$\phi_{cbo-A}$} & \thead{$A_{cbo-\phi}$} & \thead{$\phi_{cbo-\phi}$} & \thead{$\kappa_{loss}$} \\
-  \midrule
-$A$                & 1.000 & 0.005 & -0.008 & -0.003 & 0.022 & -0.029 & 0.005 & -0.003 & 0.003 & -0.031 & -0.011 & -0.021 & -0.015 & 0.000  \\
-$R$                & 0.005 & 1.000 & -0.828 & -0.032 & 0.002 & -0.001 & 0.044 & 0.013 & 0.006 & -0.013 & 0.022 & -0.002 & 0.009 & 0.000  \\
-$\phi$             & -0.008 & -0.828 & 1.000 & 0.045 & -0.002 & 0.002 & -0.061 & -0.018 & -0.008 & 0.019 & -0.030 & 0.002 & -0.012 & 0.000  \\
-$\omega_{cbo}$     & -0.003 & -0.032 & 0.045 & 1.000 & 0.007 & 0.025 & -0.868 & -0.054 & -0.217 & 0.079 & -0.053 & -0.008 & -0.045 & 0.000  \\
-$\tau_{cbo}$       & 0.022 & 0.002 & -0.002 & 0.007 & 1.000 & -0.876 & -0.049 & -0.229 & -0.063 & -0.098 & 0.043 & -0.074 & -0.009 & 0.000  \\
-$A_{cbo-N}$        & -0.029 & -0.001 & 0.002 & 0.025 & -0.876 & 1.000 & 0.018 & 0.208 & 0.049 & 0.049 & 0.025 & 0.070 & 0.004 & 0.000  \\
-$\phi_{cbo-N}$     & 0.005 & 0.044 & -0.061 & -0.868 & -0.049 & 0.018 & 1.000 & 0.057 & 0.194 & -0.135 & 0.004 & 0.006 & 0.036 & 0.000  \\
-$A_{2cbo-N}$       & -0.003 & 0.013 & -0.018 & -0.054 & -0.229 & 0.208 & 0.057 & 1.000 & 0.020 & 0.031 & 0.005 & -0.007 & -0.024 & 0.000  \\
-$\phi_{2cbo-N}$    & 0.003 & 0.006 & -0.008 & -0.217 & -0.063 & 0.049 & 0.194 & 0.020 & 1.000 & -0.021 & 0.026 & 0.026 & -0.005 & 0.000  \\
-$A_{cbo-A}$        & -0.031 & -0.013 & 0.019 & 0.079 & -0.098 & 0.049 & -0.135 & 0.031 & -0.021 & 1.000 & 0.004 & 0.002 & 0.019 & 0.000  \\
-$\phi_{cbo-A}$     & -0.011 & 0.022 & -0.030 & -0.053 & 0.043 & 0.025 & 0.004 & 0.005 & 0.026 & 0.004 & 1.000 & 0.005 & 0.004 & 0.000  \\
-$A_{cbo-\phi}$     & -0.021 & -0.002 & 0.002 & -0.008 & -0.074 & 0.070 & 0.006 & -0.007 & 0.026 & 0.002 & 0.005 & 1.000 & 0.010 & 0.000  \\
-$\phi_{cbo-\phi}$  & -0.015 & 0.009 & -0.012 & -0.045 & -0.009 & 0.004 & 0.036 & -0.024 & -0.005 & 0.019 & 0.004 & 0.010 & 1.000 & 0.000  \\
-$\kappa_{loss}$    & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000  \\
-  \bottomrule
-\end{tabular*}
-\caption[]{endgame Correlation matrix for the full ratio fit. The only significant correlation to R is the \gmtwo phase.}
-\label{Tab:CorrMat}
+\caption[60h ratio fit correlation matrix]{Correlation matrix for the ratio fit to the 60h dataset.}
+\label{Tab:CorrMat_60h}
 \end{table}
 \end{landscape}
 
 
 
+\tabref{tab:DatasetFitResults} gives the collated single seed fit results for the four Run~1 precession frequency analysis datasets. The final statistical errors on $R$ for the 60h, HighKick, 9d, and Endgame datasets are \SI{1.358}{}, \SI{1.411}{}, \SI{0.903}{}, and \SI{0.639}{ppm} respectively. The single seed $R$ results for the HighKick, 9d, and Endgame datasets, all of which used the same blinding string, are all well within $1\sigma$ of each other. The average $R$ value for fits to 50 different random seeds are provided in \secref{sub:randomSeedFits}.
+
+
+The CBO frequencies for the 60h and Endgame datasets with $n$ values of 0.108 were found to be \SI{2.338}{} and \SI{2.339}{rad/\mus{}} respectively, corresponding to approximately \SI{0.37}{MHz}. For the HighKick and 9d datasets with $n$ values of 0.120, the CBO frequencies were found to be \SI{2.559}{} and \SI{2.615}{rad/\mus{}} respectively, corresponding to approximately \SI{0.415}{MHz}. Slight differences in the final fitted CBO frequencies can be attributed to changing quad resistor degredation over the course of the run, and statistics. These frequencies correspond to the expected frequencies as described in \secref{sec:muonbeamdynamics}\footnote{The VW frequencies, though time-randomized out in this analysis, were found to be approximately \SI{2.30}{} and \SI{2.04}{MHz} for the datasets with $n=0.108$ and $n=0.120$ respectively.}.
+
+
+The CBO lifetimes between the different datasets are relatively consistent, barring the HighKick dataset for which a smaller CBO lifetime was measured. Ratio Method fits typically converge with lifetimes with large errors compared to T-Method fits, due to the reduction in sensitivity in the Ratio Method. In the HighKick dataset, the CBO lifetime which is smaller than the other datasets did not like to converge nicely in the ratio fits, and was therefore fixed to that from a T-Method fit. The main CBO amplitudes $A_{cbo-N}$ for the different datasets were on the order of 0.3--0.4\%, while the higher order CBO amplitudes were in general an order of magnitude less. The strength of the various higher order CBO amplitudes flucuated between each other for different datasets, with one parameter being large compared to another in one dataset and opposite for a different dataset. In some cases, the errors on the higher order CBO term amplitudes was of the order the amplitude itself. While this implies these terms can be dropped from the fit function, all terms were included for analysis uniformity among the different datasets. These relatively large errors, while making some of the fits more challenging to get to converge, were nonetheless handled appropriately with well converging fits.
+
+
+
+-talk about values of k loss briefly? the values themselves don't directly correspond to the amount of muons losses since there are implicit factors absorbed into the parameter, and also the L of t spectrum size isn't included in the results..
 
 
 
@@ -274,8 +183,8 @@ $\kappa_{loss}$    & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.0
     $\kappa_{loss}$                   &  $\SI{8.974}{}$ & $\SI{0}{}$ & $\SI{5.651}{}$ & $\SI{0}{}$ & $\SI{2.510}{}$ & $\SI{0}{}$ & $\SI{2.345}{}$ & $\SI{0}{}$ \\
   \hline
 \end{tabular*}
-\caption[Fit parameter values versus dataset]{Fit parameters from ...\textbf{update numbers and such when results are final, including whether blinded or not, probably make R row bold, include errors and make it all look nice, do T method and R method side by side, state which parameters are fixed}}
-\label{tab:DatasetFitParametersValue}
+\caption[Fit results for Run~1 precession frequency analysis datasets]{Fit parameters for the four Run~1 precession frequency analysis datasets. The bold row highlights the final fitted $R$ values and their respective errors. As a reminder the 60h dataset has a different blinding to the rest. The \K parameter is fixed in each dataset fit corresponding to the 0 value in the error column, and similarly for $\tau_{cbo}$ in the fit to the HighKick dataset.}
+\label{tab:DatasetFitResults}
 \end{table}
 \end{landscape}
 
@@ -283,8 +192,7 @@ $\kappa_{loss}$    & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.0
 
 
 
-
-In order to verify the integrity of the fit other checks are done ... 
+Beyond looking at residuals .. In order to verify the integrity of the fit other checks are done ... 
 
 
 \subsection{Individual calorimeter fits}
@@ -646,9 +554,13 @@ In order to verify the integrity of the fit other checks are done ...
 
 
 \subsection{Fits to many random seeds}
+\label{sub:randomSeedFits}
 
 -make a table of results with RMS and errors on the mean
 -point out how HighKick, 9d, and Endgame are all consistent, and remind that 60h has a different blinding
+
+
+-do I want to include plots of random seed fits to other parameters? 
 
 
 
