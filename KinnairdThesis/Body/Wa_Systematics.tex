@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupGapTime/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/auto-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/fixed-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupEnergyScale/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupTimeShift/}{Body/Figures/Wa/Datasets/9d/SingleIteration/PileupMultiplierScan/}}
+\graphicspath{{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupGapTime/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/auto-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/fixed-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupEnergyScale/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupTimeShift/}{Body/Figures/Wa/Datasets/9d/SingleIteration/PileupMultiplierScan/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/Ta/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/TauMu/}{Body/Figures/Wa/Datasets/9d/Binning/BinEdge/}{Body/Figures/Wa/Datasets/9d/Binning/BinWidth/}}
 
 
 
@@ -417,6 +417,19 @@ Of more interest is the choice of fixed value for the \K parameter in the ratio 
 -probably move losses fraction figure to here somewhere
 
 
+The fractional losses (the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter) for the Run~1 precession frequency analysis datasets are shown in \figref{fig:fractionallosses}.
+
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=.8\textwidth]{fractionalLosses_dataset_comparison}
+    \caption[Fractional muon losses in the analyzed Run~1 datasets]{Fractional losses for the Run~1 precession frequency analysis datasets. The curves begin at \mus{30.2} which is where the fit begins. A value of 1\% at a specific time $t$ indicates that there are 1\% fewer stored muons at that time than there would be if there were no losses at all. The Endgame and 60h datasets can be seen to have the most losses, while the 9d and HighKick have less. This is due to the higher kicks in the latter datasets which put the muon beam on a more central orbit. The upward tail at the end of the Endgame dataset corresponds to the remnant proton contamination.}
+    \label{fig:fractionallosses}
+\end{figure}
+
+
+
 
 
 
@@ -434,11 +447,103 @@ Of more interest is the choice of fixed value for the \K parameter in the ratio 
 \subsection{Ratio construction systematic errors}
 \label{sub:TimeShiftingParameters}
 
+-point out how slopes vary positively and negatively and then claim no real systematic error
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_gm2PeriodGuess_Canv_60h}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_weightingLifetime_Canv_60h}
+        \caption{}
+    \end{subfigure}
+\caption[]{}
+\label{fig:}
+\end{figure}
+
+
+\begin{table}[]
+\centering
+% \small
+\setlength\tabcolsep{20pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{0.7\linewidth}{@{\extracolsep{\fill}}lHH}
+% \begin{tabular}{@{\extracolsep{\fill}}lcccK}
+  \hline
+    \multicolumn{3}{c}{\textbf{Sensitivity to Ratio Construction Parameters}} \\
+  \hline\hline
+    Dataset & \multicolumn{1}{c}{$dR/d_{T_{a}}$} & \multicolumn{1}{c}{$dR/d_{\tau_{\mu}}$} \\
+  \hline
+    60h & 0.1 & 6.9 \\
+    HighKick & -0.1 & -4.1 \\
+    9d & <0.1 & -1.1 \\ 
+    Endgame & <0.1 & 0.6 \\
+  \hline
+\end{tabular*}
+\caption[]{units in ppb per... \textbf{fix spacing of table}}
+\label{tab:}
+\end{table}
+
+
 
 
 
 
 \subsection{Binning systematic errors}
+
+
+-for bin edge it was verified that a shift of one bin width returned the same fit results as a shift of 0, that with the negligible slope implies no systematic effect on R
+
+-for the bin width not only do the slopes very widely when scanning over the different datasets, but upon inspection of the points in the plot there is no clear trend, that combined with the results from blah analysis showing that the optimal bin width is 149.2 ns implies there is not systematic effect on R - if one wanted to be very conservative they could take the uncertainty in the bin width as X ns (probably something like 0.1), and the systematic errors would be absolutely negligible
+
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_binWidth_Canv_9d}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_binEdgeShift_Canv_9d}
+        \caption{}
+    \end{subfigure}
+\caption[]{}
+\label{fig:}
+\end{figure}
+
+
+\begin{table}[]
+\centering
+% \small
+\setlength\tabcolsep{20pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{0.7\linewidth}{@{\extracolsep{\fill}}lGG}
+% \begin{tabular}{@{\extracolsep{\fill}}lcccK}
+  \hline
+    \multicolumn{3}{c}{\textbf{Sensitivity to Binning Parameters}} \\
+  \hline\hline
+    Dataset & \multicolumn{1}{c}{$dR/d_{\text{bin width}}$} & \multicolumn{1}{c}{$dR/d_{\text{bin edge}}$} \\
+  \hline
+    60h & 24.5 & -0.1 \\
+    HighKick & 6.0 & -0.7 \\
+    9d & -22.8 & -0.3 \\ 
+    Endgame & -41.7 & -0.6 \\
+  \hline
+\end{tabular*}
+\caption[]{units in ppb/ns \textbf{fix spacing of table}}
+\label{tab:}
+\end{table}
+
+
 
 \subsection{Random seed systematic errors}
 

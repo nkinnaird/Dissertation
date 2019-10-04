@@ -720,19 +720,9 @@ The parameter $\tau$ is the same muon lifetime as in the T-Method fit function, 
     \begin{align} \label{eq:lambdalosses}
         \Lambda(t) = 1 - \boldsymbol{\kappa_{loss}} \int_{t_{0}}^{t} L(t')e^{(t'/\tau)} dt'
     \end{align}
-where $\boldsymbol{\kappa_{loss}} = 1/\epsilon N_{0}$ is taken as the fit parameter\footnote{By construction $\kappa_{loss}$ is a very small parameter, $\mathcal{O}(10^{-10})$. This factor is absorbed into the parameter in such that the fit parameter is $\mathcal{O}(1)$.}. The fractional losses (the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter) for the Run~1 precession frequency analysis datasets are shown in \figref{fig:fractionallosses}.
+where $\boldsymbol{\kappa_{loss}} = 1/\epsilon N_{0}$ is taken as the fit parameter\footnote{By construction $\kappa_{loss}$ is a very small parameter, $\mathcal{O}(10^{-10})$. This factor is absorbed into the parameter in such that the fit parameter is $\mathcal{O}(1)$.}.
 
-
-
-\begin{figure}[]
-    \centering
-    \includegraphics[width=.8\textwidth]{fractionalLosses_dataset_comparison}
-    \caption[Fractional muon losses in the analyzed Run~1 datasets]{Fractional losses for the Run~1 precession frequency analysis datasets. The curves begin at \mus{30.2} which is where the fit begins. A value of 1\% at a specific time $t$ indicates that there are 1\% fewer stored muons at that time than there would be if there were no losses at all. The Endgame and 60h datasets can be seen to have the most losses, while the 9d and HighKick have less. This is due to the higher kicks in the latter datasets which put the muon beam on a more central orbit. The upward tail at the end of the Endgame dataset corresponds to the remnant proton contamination. \textbf{should I move this to the systematics error section? yes}}
-    \label{fig:fractionallosses}
-\end{figure}
-
-
-It should be noted that the Ratio Method is largely insensitive to the slow lost muons effect which divides out. No rise appears in the FFT of the ratio fit residuals, \figref{fig:fft_threeParamRatio}, and letting $\boldsymbol{\kappa_{loss}}$ float in the fit does not produce fit nice convergence. Because however $\boldsymbol{R}$ changes on the order of tens of ppb when the lost muon term is included with $\boldsymbol{\kappa_{loss}}$ fixed to the value determined from a T-Method fit, by default it is included. See \secref{sub:lostmuonserror} for more discussion on this.
+It should be noted that the Ratio Method is largely insensitive to the slow lost muons effect which divides out. No rise appears in the FFT of the ratio fit residuals, \figref{fig:fft_threeParamRatio}, and letting $\boldsymbol{\kappa_{loss}}$ float in the fit does not produce fit nice convergence. It was found however that $\boldsymbol{R}$ changes on the order of tens of ppb when the lost muon term is included with $\boldsymbol{\kappa_{loss}}$ fixed to the value determined from a T-Method fit, so by default it is included. See \secref{sub:lostmuonserror} for more discussion on this.
 
 
 \subsection{Fit procedures and parameters}
