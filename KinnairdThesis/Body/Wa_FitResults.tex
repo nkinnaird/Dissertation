@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/Wa/Datasets/60h/BunchNum/}{Body/Figures/Wa/Datasets/HighKick/BunchNum/}{Body/Figures/Wa/Datasets/9d/BunchNum/}{Body/Figures/Wa/Datasets/Endgame/BunchNum/}{Body/Figures/Wa/Datasets/60h/SingleIteration/FitStartScans/}{Body/Figures/Wa/Datasets/HighKick/SingleIteration/FitStartScans/}{Body/Figures/Wa/Datasets/9d/SingleIteration/FitStartScans/}{Body/Figures/Wa/Datasets/Endgame/SingleIteration/FitStartScans/}{Body/Figures/Wa/Datasets/60h/SingleIteration/FitEndScans/}{Body/Figures/Wa/Datasets/HighKick/SingleIteration/FitEndScans/}{Body/Figures/Wa/Datasets/9d/SingleIteration/FitEndScans/}{Body/Figures/Wa/Datasets/Endgame/SingleIteration/FitEndScans/}{Body/Figures/Wa/Datasets/60h/EnergyThreshold/}{Body/Figures/Wa/Datasets/HighKick/EnergyThreshold/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}{Body/Figures/Wa/Datasets/Endgame/EnergyThreshold/}{Body/Figures/Wa/Datasets/60h/RandSeeds/}{Body/Figures/Wa/Datasets/HighKick/RandSeeds/}{Body/Figures/Wa/Datasets/9d/RandSeeds/}{Body/Figures/Wa/Datasets/Endgame/RandSeeds/}{Body/Figures/Wa/Datasets/60h/SingleIteration/CaloFits/}{Body/Figures/Wa/Datasets/HighKick/SingleIteration/CaloFits/}{Body/Figures/Wa/Datasets/9d/SingleIteration/CaloFits/}{Body/Figures/Wa/Datasets/Endgame/SingleIteration/CaloFits/}{Body/Figures/Wa/Datasets/60h/SingleIteration/SingleFits/}{Body/Figures/Wa/Datasets/HighKick/SingleIteration/SingleFits/}{Body/Figures/Wa/Datasets/9d/SingleIteration/SingleFits/}{Body/Figures/Wa/Datasets/Endgame/SingleIteration/SingleFits/}}
+\graphicspath{{Body/Figures/Wa/Datasets/60h/BunchNum/}{Body/Figures/Wa/Datasets/HighKick/BunchNum/}{Body/Figures/Wa/Datasets/9d/BunchNum/}{Body/Figures/Wa/Datasets/Endgame/BunchNum/}{Body/Figures/Wa/Datasets/60h/SingleIteration/FitStartScans/}{Body/Figures/Wa/Datasets/HighKick/SingleIteration/FitStartScans/}{Body/Figures/Wa/Datasets/9d/SingleIteration/FitStartScans/}{Body/Figures/Wa/Datasets/Endgame/SingleIteration/FitStartScans/}{Body/Figures/Wa/Datasets/60h/SingleIteration/FitEndScans/}{Body/Figures/Wa/Datasets/HighKick/SingleIteration/FitEndScans/}{Body/Figures/Wa/Datasets/9d/SingleIteration/FitEndScans/}{Body/Figures/Wa/Datasets/Endgame/SingleIteration/FitEndScans/}{Body/Figures/Wa/Datasets/60h/EnergyThreshold/}{Body/Figures/Wa/Datasets/HighKick/EnergyThreshold/}{Body/Figures/Wa/Datasets/9d/EnergyThreshold/}{Body/Figures/Wa/Datasets/Endgame/EnergyThreshold/}{Body/Figures/Wa/Datasets/60h/RandSeeds/}{Body/Figures/Wa/Datasets/HighKick/RandSeeds/}{Body/Figures/Wa/Datasets/9d/RandSeeds/}{Body/Figures/Wa/Datasets/Endgame/RandSeeds/}{Body/Figures/Wa/Datasets/60h/SingleIteration/CaloFits/}{Body/Figures/Wa/Datasets/HighKick/SingleIteration/CaloFits/}{Body/Figures/Wa/Datasets/9d/SingleIteration/CaloFits/}{Body/Figures/Wa/Datasets/Endgame/SingleIteration/CaloFits/}{Body/Figures/Wa/Datasets/60h/SingleIteration/SingleFits/}{Body/Figures/Wa/Datasets/HighKick/SingleIteration/SingleFits/}{Body/Figures/Wa/Datasets/9d/SingleIteration/SingleFits/}{Body/Figures/Wa/Datasets/Endgame/SingleIteration/SingleFits/}{Body/Figures/Wa/Datasets/ComparisonPlots/CaloFits/}}
 
 
 
@@ -162,137 +162,17 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
 
 Fits to all 24 individual calorimters for each of the Run~1 precession frequency datasets were performed with the same number of free fit parameters as used in the calorimeter sum fits. \figref{fig:caloFits_chi2} shows the \chisq/NDF's for the calorimeter fits which are nicely spread around 1. \figref{fig:caloFits_R} shows the fitted $R$ values as a function of calorimeter number. Straight line fits were performed to the $R$ values, and the fitted constant returned a value in each case that was consistent with the calorimeter sum fit $R$ values. Examining the $R$ values as a function of calorimeter between datasets more carefully, particular calorimter numbers do not tend to lie above or below the fitted line uniformly. The spread in $R$ values for each calorimeter then can be said to driven statistically, though it should be noted that with the larger error bars on the individual calorimeter fits it's hard to tell if there are any preferences one way or another.
 
-\begin{landscape}
-\begin{figure}[]
-% \centering
-\begin{minipage}[t]{0.48\linewidth}
-    \begin{subfigure}[]{0.5\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_60h}
-        \caption{60h dataset.}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.5\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_HighKick}
-        \caption{HighKick dataset.}
-    \end{subfigure}
-
-    \begin{subfigure}[]{0.5\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_9d}
-        \caption{9d dataset.}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.5\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_Endgame}
-        \caption{Endgame dataset.}
-    \end{subfigure}
-\captionsetup{width=0.9\linewidth}
-\caption[\chisq/NDF versus calorimeter number]{\chisq/NDF versus calorimter for the Run~1 precession frequency analysis datasets.}
-\label{fig:caloFits_chi2}
-% \end{figure}
-
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.48\linewidth}
-
-% \begin{figure}[]
-% \centering
-    \begin{subfigure}[]{0.5\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{FullRatioFit_R_Vs_Calo_Canv_60h}
-        \caption{60h dataset.}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.5\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{FullRatioFit_R_Vs_Calo_Canv_HighKick}
-        \caption{HighKick dataset.}
-    \end{subfigure}
-
-    \begin{subfigure}[]{0.5\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{FullRatioFit_R_Vs_Calo_Canv_9d}
-        \caption{9d dataset.}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.5\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{FullRatioFit_R_Vs_Calo_Canv_Endgame}
-        \caption{Endgame dataset.}
-    \end{subfigure}
-\captionsetup{width=0.9\linewidth}
-\caption[$R$ versus calorimeter number]{$R$ versus calorimter for the Run~1 precession frequency analysis datasets. A straight line fit was performed on the fitted values, with the fit result shown in the upper right box as parameter $p_{1}$ in units of ppm.}
-\label{fig:caloFits_R}
-\end{minipage}
-\end{figure}
-\end{landscape}
-
-\clearpage
 
 \begin{figure}[]
 \centering
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_60h}
-        % \caption{60h dataset.}
-    \vspace{-10mm}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_HighKick}
-        % \caption{HighKick dataset.}
-    \vspace{-10mm}
-    \end{subfigure}
-
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_9d}
-        % \caption{9d dataset.}
-    \vspace{-10mm}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_Endgame}
-        % \caption{Endgame dataset.}
-    \vspace{-10mm}
-    \end{subfigure}
-\caption[\chisq/NDF versus calorimeter number]{\chisq/NDF versus calorimter for the Run~1 precession frequency analysis datasets.}
-\label{fig:caloFits_chi2}
+\includegraphics[width=0.95\linewidth]{caloFits_chi2_fourDatsets}
+    \caption[\chisq/NDF versus calorimeter number]{\chisq/NDF versus calorimter for the Run~1 precession frequency analysis datasets.}
+    \label{fig:caloFits_chi2}
+\vspace{4mm}
+\includegraphics[width=0.95\linewidth]{caloFits_R_fourDatsets}
+    \caption[$R$ versus calorimeter number]{$R$ versus calorimter for the Run~1 precession frequency analysis datasets. A straight line fit was performed on the fitted values, with the fit result shown in the upper right box as parameter $p_{1}$ in units of ppm. The scale is the same on each of the plots, the higher precision Endgame dataset is reflected in the smaller error bars.}
+    \label{fig:caloFits_R}
 \end{figure}
-
-\begin{figure}[]
-\centering
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_60h}
-        % \caption{60h dataset.}
-    \vspace{-10mm}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_HighKick}
-        % \caption{HighKick dataset.}
-    \vspace{-10mm}
-    \end{subfigure}
-
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_9d}
-        % \caption{9d dataset.}
-    \vspace{-10mm}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_Endgame}
-        % \caption{Endgame dataset.}
-    \vspace{-10mm}
-    \end{subfigure}
-\caption[$R$ versus calorimeter number]{$R$ versus calorimter for the Run~1 precession frequency analysis datasets. A straight line fit was performed on the fitted values, with the fit result shown in the upper right box as parameter $p_{1}$ in units of ppm.}
-\label{fig:caloFits_R}
-\end{figure}
-
-\clearpage
-
-
 
 
 Figures~\ref{fig:caloFits_EndgamePars_1} and \ref{fig:fig:caloFits_EndgamePars_2} show calorimter fit results for the other free parameters in the fit for the Endgame dataset. The \gmtwo phases are relatively consistent among the different calorimeters, barring calorimeters 13 and 19 which lie lower on the plot. These two calorimeters sit behind the tracker stations, implying a different level of acceptance and therefore the different \gmtwo phase can be expected. Similarly the different calorimeters have different fit asymmetries, once again due to their different acceptances. The CBO parameters are in general consistent with some spread due to acceptance, with the phases running from 0--2$\pi$ around the ring as expected. As one might notice, the amplitudes of the CBO parameters are an order of magnitude higher than in the calorimeter sum fits. Because the phases vary around the ring, when adding up all the calorimeters, the CBO effect becomes reduced. In fact, while it is not always necessary to include the higher order CBO terms for good fits to the calorimeter sum data, there are many calorimeters which need the higher order terms for good fits.
