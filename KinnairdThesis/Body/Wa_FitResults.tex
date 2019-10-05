@@ -11,127 +11,37 @@
 \label{sec:fit_results}
 
 
-Fit results for the four Run~1 precession frequency analysis datasets are provided here. Figures~\ref{fig:moduloPlot_60h}--\ref{fig:moduloPlot_Endgame} show results for single random seed results to calorimeter sum data for the four datasets. In each dataset case the \chisq/NDF is acceptable as evidenced by the p value included in the plot results. The fit residuals and their FFT for the 60h dataset fit results are provided in Figures~\ref{fig:fitResiduals_60h} and \ref{fig:FFT_60h}. As shown all structure has been eliminated within the fit residuals implying that all effects in the data have properly been accounted for in the fit function. The same observations are made for the HighKick, 9d, and Endgame dataset fit residuals though those plots are not included here (\textbf{Should I include those plots? There's a lot. Toss them in the appendix as well?}). \figref{fig:CorrMat_60h} and \tabref{Tab:CorrMat_60h} give the fit result correlation matrix for the fit to the 60h dataset. As shown the only fit parameter that is significantly correlated with $R$ is the \gmtwo phase. This is very beneficial for the final fitted $R$ value as slight mis-fits or incorrectly modelled fit terms will only weakly correlate. The various different CBO parameters are self-correlated to different degrees depending on the parameter and the dataset that is being fit. \appref{app:CorrelationMatrices} provides the correlation matrices for the HighKick, 9d, and Endgame datasets.
-
-
-
-\begin{figure}[]
-    \centering
-    \includegraphics[width=.8\textwidth]{fullRatio_moduloPlot_60h}
-    \caption[60h dataset calorimter sum fit result]{Single random seed fit result to calorimeter sum of 60h dataset. The x axis is in units of \mus{} modulo \mus{100}, with successive portions of the data points and fit shifted downwards on the plot. The fit ranges from 30.2--\mus{650}.}
-    \label{fig:moduloPlot_60h}
-\end{figure}
+\figref{fig:moduloPlots} shows fits to the four Run~1 precession frequency analysis datasets. \tabref{tab:DatasetFitResults} gives all fit parameters and their errors. In each dataset case the \chisq/NDF is acceptable as evidenced by the p value included in the plot results. Fit pulls the FFT of the fit residuals for the 60h dataset are provided in Figure~\ref{fig:fitResiduals_60h}. As shown all structure has been eliminated within the fit residuals implying that all effects in the data have properly been accounted for in the fit function. The same checks were made for the HighKick, 9d, and Endgame dataset fit residuals and in all cases no residual structure remains. \figref{fig:CorrMat_60h} shows the correlation matrix for the fit to the 60h dataset. The only fit parameter that is significantly correlated with $R$ is the \gmtwo phase. This is a strength of the \wa extraction, as effects in the data which might potentially be mis-modelled will only weakly correlate with the final fitted $R$ value. The various different CBO parameters are self-correlated to different degrees depending on the parameter and the dataset that is being fit. Typically either the phases and frequencies are correlated, or the lifetimes and amplitudes. \appref{app:CorrelationMatrices} provides the correlation matrices for the HighKick, 9d, and Endgame datasets.
 
 
 \begin{figure}[]
-    \centering
-    \includegraphics[width=.8\textwidth]{fullRatio_moduloPlot_HighKick}
-    \caption[HighKick dataset calorimter sum fit result]{Single random seed fit result to calorimeter sum of HighKick dataset. The x axis is in units of \mus{} modulo \mus{100}, with successive portions of the data points and fit shifted downwards on the plot. The fit ranges from 30.2--\mus{650}.}
-    \label{fig:moduloPlot_HighKick}
-\end{figure}
-
-\begin{figure}[]
-    \centering
-    \includegraphics[width=.8\textwidth]{fullRatio_moduloPlot_9d}
-    \caption[9d dataset calorimter sum fit result]{Single random seed fit result to calorimeter sum of 9d dataset. The x axis is in units of \mus{} modulo \mus{100}, with successive portions of the data points and fit shifted downwards on the plot. The fit ranges from 30.2--\mus{650}.}
-    \label{fig:moduloPlot_9d}
-\end{figure}
-
-\begin{figure}[]
-    \centering
-    \includegraphics[width=.8\textwidth]{fullRatio_moduloPlot_Endgame}
-    \caption[Endgame dataset calorimter sum fit result]{Single random seed fit result to calorimeter sum of Endgame dataset. The x axis is in units of \mus{} modulo \mus{100}, with successive portions of the data points and fit shifted downwards on the plot. The fit ranges from 30.2--\mus{650}.}
-    \label{fig:moduloPlot_Endgame}
-\end{figure}
-
-
-
-
-\begin{figure}[h]
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{fitResidual_60h}
-        \caption{Fit residuals.}
-    \end{subfigure}
+        \includegraphics[width=\textwidth]{fullRatio_moduloPlot_60h}
+        \caption{60h dataset.}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{fitPull_60h}
-        \caption{Fit pulls.}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \vspace{4mm}
-    \begin{subfigure}[]{0.7\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fitPull_projected_60h}
-        \caption{Fit pulls projected onto the y axis. Note the Gaussian shape centered around 0 with unit width.}
+        \includegraphics[width=\textwidth]{fullRatio_moduloPlot_HighKick}
+        \caption{HighKick dataset.}
     \end{subfigure}
-\caption[Residuals and pulls for the ratio fit to the 60h dataset]{Residuals and pulls for the ratio fit to the 60h dataset. There is no obvious structure in any of the plots.}
-\label{fig:fitResiduals_60h}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fullRatio_moduloPlot_9d}
+        \caption{9d dataset.}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fullRatio_moduloPlot_Endgame}
+        \caption{Endgame dataset.}
+    \end{subfigure}
+\caption[Single random seed fits to calorimeter sums of Run~1 precession frequency analysis datasets]{Single random seed fits to calorimeter sums of Run~1 precession frequency analysis datasets. Data is in black and the fits are in red. The x axis is in units of \mus{} modulo \mus{100}, with successive portions of the data points and fit shifted downwards on the plot. The fit ranges from 30.2--\mus{650}.}
+\label{fig:moduloPlots}
 \end{figure}
 
-
-\begin{figure}[]
-    \centering
-    \includegraphics[width=0.8\textwidth]{FFTComparison_FullRatio_60h}
-    \caption[FFT of the 60h dataset fit residuals]{FFT of the 60h dataset fit residuals compared to the fit residuals from a 5 parameter fit to the data. All peaks have been eliminated above the noise.}
-    \label{fig:FFT_60h}
-\end{figure}
-
-
-
-\begin{figure}[]
-    \centering
-    \includegraphics[width=\textwidth]{CorrelationMatrixFullRatioFit_60h}
-    \caption[60h ratio fit correlation matrix]{Correlation matrix for the ratio fit to the 60h dataset. The only significant correlation with $R$ is the \gmtwo phase.}
-    \label{fig:CorrMat_60h}
-\end{figure}
-
-
-% \begin{landscape}
-% \begin{table}[]
-% \setlength\tabcolsep{5pt}
-% \footnotesize
-% \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lLBLLLLLLLLLLLL}
-%   \toprule
-%             & \thead{$A$} & \thead{$R$} & \thead{$\phi$} & \thead{$\omega_{cbo}$} & \thead{$\tau_{cbo}$} & \thead{$A_{cbo-N}$} & \thead{$\phi_{cbo-N}$} & \thead{$A_{2cbo-N}$} & \thead{$\phi_{2cbo-N}$} & \thead{$A_{cbo-A}$} & \thead{$\phi_{cbo-A}$} & \thead{$A_{cbo-\phi}$} & \thead{$\phi_{cbo-\phi}$} & \thead{$\kappa_{loss}$} \\
-%   \midrule
-% $A$                & 1.000 & 0.005 & -0.007 & -0.017 & 0.005 & -0.006 & 0.024 & -0.001 & -0.000 & -0.008 & -0.028 & 0.022 & 0.019 & 0.000  \\
-% $R$                & 0.005 & 1.000 & -0.828 & -0.011 & -0.025 & 0.035 & 0.016 & -0.000 & -0.009 & -0.023 & 0.005 & 0.008 & -0.005 & 0.000  \\
-% $\phi$             & -0.007 & -0.828 & 1.000 & 0.015 & 0.034 & -0.049 & -0.021 & 0.001 & 0.013 & 0.032 & -0.006 & -0.012 & 0.007 & 0.000  \\
-% $\omega_{cbo}$     & -0.017 & -0.011 & 0.015 & 1.000 & -0.106 & 0.134 & -0.864 & 0.108 & -0.171 & 0.001 & -0.157 & -0.054 & -0.209 & 0.000  \\
-% $\tau_{cbo}$       & 0.005 & -0.025 & 0.034 & -0.106 & 1.000 & -0.883 & 0.048 & -0.354 & 0.115 & -0.086 & 0.060 & -0.152 & -0.036 & 0.000  \\
-% $A_{cbo-N}$        & -0.006 & 0.035 & -0.049 & 0.134 & -0.883 & 1.000 & -0.078 & 0.315 & -0.114 & 0.041 & -0.119 & 0.133 & 0.026 & 0.000  \\
-% $\phi_{cbo-N}$     & 0.024 & 0.016 & -0.021 & -0.864 & 0.048 & -0.078 & 1.000 & -0.072 & 0.150 & 0.065 & 0.098 & 0.060 & 0.183 & 0.000  \\
-% $A_{2cbo-N}$       & -0.001 & -0.000 & 0.001 & 0.108 & -0.354 & 0.315 & -0.072 & 1.000 & -0.054 & 0.016 & -0.043 & 0.018 & -0.009 & 0.000  \\
-% $\phi_{2cbo-N}$    & -0.000 & -0.009 & 0.013 & -0.171 & 0.115 & -0.114 & 0.150 & -0.054 & 1.000 & 0.007 & 0.016 & -0.013 & -0.002 & 0.000  \\
-% $A_{cbo-A}$        & -0.008 & -0.023 & 0.032 & 0.001 & -0.086 & 0.041 & 0.065 & 0.016 & 0.007 & 1.000 & -0.008 & 0.019 & -0.005 & 0.000  \\
-% $\phi_{cbo-A}$     & -0.028 & 0.005 & -0.006 & -0.157 & 0.060 & -0.119 & 0.098 & -0.043 & 0.016 & -0.008 & 1.000 & 0.004 & 0.014 & 0.000  \\
-% $A_{cbo-\phi}$     & 0.022 & 0.008 & -0.012 & -0.054 & -0.152 & 0.133 & 0.060 & 0.018 & -0.013 & 0.019 & 0.004 & 1.000 & 0.028 & 0.000  \\
-% $\phi_{cbo-\phi}$  & 0.019 & -0.005 & 0.007 & -0.209 & -0.036 & 0.026 & 0.183 & -0.009 & -0.002 & -0.005 & 0.014 & 0.028 & 1.000 & 0.000  \\
-% $\kappa_{loss}$    & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000  \\
-%   \bottomrule
-% \end{tabular*}
-% \caption[60h ratio fit correlation matrix]{Correlation matrix for the ratio fit to the 60h dataset.}
-% \label{Tab:CorrMat_60h}
-% \end{table}
-% \end{landscape}
-
-
-
-\tabref{tab:DatasetFitResults} gives the collated single seed fit results for the four Run~1 precession frequency analysis datasets. The final statistical errors on $R$ for the 60h, HighKick, 9d, and Endgame datasets are \SI{1.358}{}, \SI{1.411}{}, \SI{0.903}{}, and \SI{0.639}{ppm} respectively. The single seed $R$ results for the HighKick, 9d, and Endgame datasets, all of which used the same blinding string, are all well within $1\sigma$ of each other. The average $R$ value for fits to 50 different random seeds are provided in \secref{sub:randomSeedFits}.
-
-
-The CBO frequencies for the 60h and Endgame datasets with $n$ values of 0.108 were found to be 2.338 and 2.339 rad/\mus{} respectively, corresponding to approximately \SI{0.37}{MHz}. For the HighKick and 9d datasets with $n$ values of 0.120, the CBO frequencies were found to be 2.559 and 2.615 rad/\mus{} respectively, corresponding to approximately \SI{0.415}{MHz}. Slight differences in the final fitted CBO frequencies can be attributed to changing quad resistor degredation over the course of the run, and statistics. These frequencies correspond to the expected frequencies as described in \secref{sec:muonbeamdynamics}\footnote{The VW frequencies, though time-randomized out in this analysis, were found to be approximately \SI{2.30}{} and \SI{2.04}{MHz} for the datasets with $n=0.108$ and $n=0.120$ respectively.}.
-
-
-The CBO lifetimes between the different datasets are relatively consistent, barring the HighKick dataset for which a smaller CBO lifetime was measured. Ratio Method fits typically converge with lifetimes with large errors compared to T-Method fits, due to the reduction in sensitivity in the Ratio Method. In the HighKick dataset, the CBO lifetime which is smaller than the other datasets did not like to converge nicely in the ratio fits, and was therefore fixed to that from a T-Method fit. The main CBO amplitudes $A_{cbo-N}$ for the different datasets were on the order of 0.3--0.4\%, while the higher order CBO amplitudes were in general an order of magnitude less. The strength of the various higher order CBO amplitudes flucuated between each other for different datasets, with one parameter being large compared to another in one dataset and opposite for a different dataset. In some cases, the errors on the higher order CBO term amplitudes was of the order the amplitude itself. While this implies these terms can be dropped from the fit function, all terms were included for analysis uniformity among the different datasets. These relatively large errors, while making some of the fits more challenging to get to converge, were nonetheless handled appropriately with well converging fits.
-
-
-
--talk about values of k loss briefly? the values themselves don't directly correspond to the amount of muons losses since there are implicit factors absorbed into the parameter, and also the L of t spectrum size isn't included in the results..
-
-
-
+% \afterpage{
 \clearrow
 \begin{landscape}
 \begin{table}[]
@@ -187,7 +97,59 @@ The CBO lifetimes between the different datasets are relatively consistent, barr
 \label{tab:DatasetFitResults}
 \end{table}
 \end{landscape}
+% }
 
+
+
+
+% \afterpage{
+\begin{landscape}
+\begin{figure}[]
+\centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fitPull_60h}
+    \vspace{4mm}
+        \includegraphics[width=\textwidth]{fitPull_projected_60h}
+        % \caption{}
+    \end{subfigure}
+    % \hspace{5mm}
+    \begin{subfigure}[b]{0.9\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FFTComparison_FullRatio_60h}
+        % \caption{}
+        \vspace{3mm}
+    \end{subfigure}
+\caption[Pulls and FFT of residuals for the ratio fit to the 60h dataset]{Fit pulls (top-left), their projection on to the y axis (bottom-left), and the FFT of the fit residuals (right) for the ratio fit to the 60h dataset. Note the pull projection has a Gaussian shape centered around zero with unit width. In the FFT the results from a five parameter fit to the data are overlayed, along with blue dashed lines to the main peaks which appear in the data. There is no obvious structure in the pulls and no remaining peaks above the noise.}
+\label{fig:fitResiduals_60h}
+\end{figure}
+\end{landscape}
+% }
+
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=\textwidth]{CorrelationMatrixFullRatioFit_60h}
+    \caption[60h ratio fit correlation matrix]{Correlation matrix for the single seed ratio fit to the 60h dataset. The only significant correlation with $R$ is the \gmtwo phase. \K is fixed, hence the corresponding empty row and column.}
+    \label{fig:CorrMat_60h}
+\end{figure}
+
+
+The CBO frequencies for the 60h and Endgame datasets with $n$ values of 0.108 were found to be 2.338 and 2.339 rad/\mus{} respectively, corresponding to approximately \SI{0.37}{MHz}. For the HighKick and 9d datasets with $n$ values of 0.120, the CBO frequencies were found to be 2.559 and 2.615 rad/\mus{} respectively, corresponding to approximately \SI{0.415}{MHz}. These frequencies correspond to the expected frequencies as described in \secref{sec:muonbeamdynamics}\footnote{The VW frequencies, though time-randomized out in this analysis, were found to be approximately \SI{2.30}{} and \SI{2.04}{MHz} for the datasets with $n=0.108$ and $n=0.120$ respectively.}.
+
+
+
+The CBO lifetimes between the different datasets are relatively consistent, barring the HighKick dataset for which a smaller CBO lifetime was measured. Ratio Method fits typically converge with lifetimes with large errors compared to T-Method fits, due to the reduction in sensitivity in the Ratio Method. In the HighKick dataset, the CBO lifetime which is smaller than the other datasets did not like to converge nicely in the ratio fits, and was therefore fixed to that from a T-Method fit. The main CBO amplitudes $A_{cbo-N}$ for the different datasets were on the order of 0.3--0.4\%, while the higher order CBO amplitudes were in general an order of magnitude less. The strength of the various higher order CBO amplitudes flucuated between each other for different datasets, with one parameter being large compared to another in one dataset and opposite for a different dataset. In some cases, the errors on the higher order CBO term amplitudes was of the order the amplitude itself. While this implies these terms can be dropped from the fit function, all terms were included for analysis uniformity among the different datasets. These relatively large errors, while making some of the fits more challenging to get to converge, were nonetheless handled appropriately with well converging fits.
+
+
+
+-talk about values of k loss briefly? the values themselves don't directly correspond to the amount of muons losses since there are implicit factors absorbed into the parameter, and also the L of t spectrum size isn't included in the results..
+
+
+
+
+
+The final statistical errors on $R$ for the 60h, HighKick, 9d, and Endgame datasets are \SI{1.358}{}, \SI{1.411}{}, \SI{0.903}{}, and \SI{0.639}{ppm} respectively. The single seed $R$ results for the HighKick, 9d, and Endgame datasets, all of which used the same blinding string, are all well within $1\sigma$ of each other. The average $R$ value for fits to 50 different random seeds are provided in \secref{sub:randomSeedFits}.
 
 
 
@@ -200,61 +162,72 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
 
 Fits to all 24 individual calorimters for each of the Run~1 precession frequency datasets were performed with the same number of free fit parameters as used in the calorimeter sum fits. \figref{fig:caloFits_chi2} shows the \chisq/NDF's for the calorimeter fits which are nicely spread around 1. \figref{fig:caloFits_R} shows the fitted $R$ values as a function of calorimeter number. Straight line fits were performed to the $R$ values, and the fitted constant returned a value in each case that was consistent with the calorimeter sum fit $R$ values. Examining the $R$ values as a function of calorimeter between datasets more carefully, particular calorimter numbers do not tend to lie above or below the fitted line uniformly. The spread in $R$ values for each calorimeter then can be said to driven statistically, though it should be noted that with the larger error bars on the individual calorimeter fits it's hard to tell if there are any preferences one way or another.
 
-
+\begin{landscape}
 \begin{figure}[]
-\centering
-    \begin{subfigure}[]{0.45\textwidth}
+% \centering
+\begin{minipage}[t]{0.48\linewidth}
+    \begin{subfigure}[]{0.5\linewidth}
         \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_60h}
+        \includegraphics[width=\linewidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_60h}
         \caption{60h dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[]{0.5\linewidth}
         \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_HighKick}
+        \includegraphics[width=\linewidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_HighKick}
         \caption{HighKick dataset.}
     \end{subfigure}
 
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[]{0.5\linewidth}
         \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_9d}
+        \includegraphics[width=\linewidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_9d}
         \caption{9d dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[]{0.5\linewidth}
         \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_Endgame}
+        \includegraphics[width=\linewidth]{FullRatioFit_Chi2NDF_Vs_Calo_Canv_Endgame}
         \caption{Endgame dataset.}
     \end{subfigure}
+\captionsetup{width=0.9\linewidth}
 \caption[\chisq/NDF versus calorimeter number]{\chisq/NDF versus calorimter for the Run~1 precession frequency analysis datasets.}
 \label{fig:caloFits_chi2}
-\end{figure}
+% \end{figure}
 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
 
-\begin{figure}[]
-\centering
-    \begin{subfigure}[]{0.45\textwidth}
+% \begin{figure}[]
+% \centering
+    \begin{subfigure}[]{0.5\linewidth}
         \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_60h}
+        \includegraphics[width=\linewidth]{FullRatioFit_R_Vs_Calo_Canv_60h}
         \caption{60h dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[]{0.5\linewidth}
         \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_HighKick}
+        \includegraphics[width=\linewidth]{FullRatioFit_R_Vs_Calo_Canv_HighKick}
         \caption{HighKick dataset.}
     \end{subfigure}
 
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[]{0.5\linewidth}
         \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_9d}
+        \includegraphics[width=\linewidth]{FullRatioFit_R_Vs_Calo_Canv_9d}
         \caption{9d dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.45\textwidth}
+    \begin{subfigure}[]{0.5\linewidth}
         \centering
-        \includegraphics[width=\textwidth]{FullRatioFit_R_Vs_Calo_Canv_Endgame}
+        \includegraphics[width=\linewidth]{FullRatioFit_R_Vs_Calo_Canv_Endgame}
         \caption{Endgame dataset.}
     \end{subfigure}
+\captionsetup{width=0.9\linewidth}
 \caption[$R$ versus calorimeter number]{$R$ versus calorimter for the Run~1 precession frequency analysis datasets. A straight line fit was performed on the fitted values, with the fit result shown in the upper right box as parameter $p_{1}$ in units of ppm.}
 \label{fig:caloFits_R}
+\end{minipage}
 \end{figure}
+\end{landscape}
+
+
+
 
 
 Figures~\ref{fig:caloFits_EndgamePars_1} and \ref{fig:fig:caloFits_EndgamePars_2} show calorimter fit results for the other free parameters in the fit for the Endgame dataset. The \gmtwo phases are relatively consistent among the different calorimeters, barring calorimeters 13 and 19 which lie lower on the plot. These two calorimeters sit behind the tracker stations, implying a different level of acceptance and therefore the different \gmtwo phase can be expected. Similarly the different calorimeters have different fit asymmetries, once again due to their different acceptances. The CBO parameters are in general consistent with some spread due to acceptance, with the phases running from 0--2$\pi$ around the ring as expected. As one might notice, the amplitudes of the CBO parameters are an order of magnitude higher than in the calorimeter sum fits. Because the phases vary around the ring, when adding up all the calorimeters, the CBO effect becomes reduced. In fact, while it is not always necessary to include the higher order CBO terms for good fits to the calorimeter sum data, there are many calorimeters which need the higher order terms for good fits.
@@ -337,7 +310,7 @@ Figures~\ref{fig:caloFits_EndgamePars_1} and \ref{fig:fig:caloFits_EndgamePars_2
 \end{figure}
 
 
-
+\clearpage
 
 \subsection{Fit start and end scans}
 
@@ -526,6 +499,7 @@ Similarly to fit start and end time scans, it is worthwhile to vary the energy t
 
 
 
+\clearpage
 
 
 \subsection{Fits to bunch number}
