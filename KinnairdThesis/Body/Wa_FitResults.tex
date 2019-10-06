@@ -11,35 +11,19 @@
 \label{sec:fit_results}
 
 
-\figref{fig:moduloPlots} shows fits to the four Run~1 precession frequency analysis datasets. \tabref{tab:DatasetFitResults} gives all fit parameters and their errors. In each dataset case the \chisq/NDF is acceptable as evidenced by the p value included in the plot results. Fit pulls the FFT of the fit residuals for the 60h dataset are provided in Figure~\ref{fig:fitResiduals_60h}. As shown all structure has been eliminated within the fit residuals implying that all effects in the data have properly been accounted for in the fit function. The same checks were made for the HighKick, 9d, and Endgame dataset fit residuals and in all cases no residual structure remains. \figref{fig:CorrMat_60h} shows the correlation matrix for the fit to the 60h dataset. The only fit parameter that is significantly correlated with $R$ is the \gmtwo phase. This is a strength of the \wa extraction, as effects in the data which might potentially be mis-modelled will only weakly correlate with the final fitted $R$ value. The various different CBO parameters are self-correlated to different degrees depending on the parameter and the dataset that is being fit. Typically either the phases and frequencies are correlated, or the lifetimes and amplitudes. \appref{app:CorrelationMatrices} provides the correlation matrices for the HighKick, 9d, and Endgame datasets.
+\figref{fig:moduloPlots} shows fits to the four Run~1 precession frequency analysis datasets. \tabref{tab:DatasetFitResults} gives all fit parameters and their errors. In each dataset case the \chisq/NDF is acceptable as evidenced by the p value included in the table results. Fit pulls and the FFT of the fit residuals for the 60h dataset are provided in Figure~\ref{fig:fitResiduals_60h}. As shown all structure has been eliminated within the fit residuals implying that all effects in the data have properly been accounted for in the fit function. The same checks were made for the HighKick, 9d, and Endgame datasets and in each case no residual structure remained. \figref{fig:CorrMat_60h} shows the correlation matrix for the fit to the 60h dataset. The only fit parameter that is significantly correlated with $R$ is the \gmtwo phase. This increases the confidence in the \wa extraction, as effects in the data which might potentially be mis-modelled will only weakly correlate with the final fitted $R$ value. The various different CBO parameters are self-correlated to different degrees depending on the parameter and the dataset that is being fit. Typically either the phases and frequencies are correlated, or the lifetimes and amplitudes. \appref{app:CorrelationMatrices} provides the correlation matrices for the HighKick, 9d, and Endgame datasets.
+
+The \gmtwo phases for the different datasets showed small differences, due primarily to upstream beam adjustments before injection into the storage ring. Similarly, slightly different asymmetries can be attributed to very small acceptance differences in the stored beams. As described in \secref{subsec:lostmuons}, the value for \K was determined and fixed from a T-Method fit to the data. The values themselves don't directly correspond to the level of losses, as each dataset has it's own loss function $L(t)$ which is left out of the picture here.
 
 
-\begin{figure}[]
-\centering
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fullRatio_moduloPlot_60h}
-        \caption{60h dataset.}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fullRatio_moduloPlot_HighKick}
-        \caption{HighKick dataset.}
-    \end{subfigure}
+The CBO frequencies for the 60h and Endgame datasets with $n$ values of 0.108 were found to be 2.338 and 2.339 rad/\mus{} respectively, corresponding to approximately \SI{0.37}{MHz}. For the HighKick and 9d datasets with $n$ values of 0.120, the CBO frequencies were found to be 2.559 and 2.615 rad/\mus{} respectively, corresponding to approximately \SI{0.415}{MHz}. These frequencies correspond to the expected frequencies as described in \secref{sec:muonbeamdynamics}, with some slight deviations due to statistics and the reduced sensitivity in the Ratio Method\footnote{The VW frequencies, though time-randomized out in the analysis presented here, were found to be approximately \SI{2.30}{} and \SI{2.04}{MHz} for the datasets with $n=0.108$ and $n=0.120$ respectively.}. The CBO lifetimes between the different datasets are relatively consistent, barring the HighKick dataset for which a smaller CBO lifetime was measured. Ratio Method fits typically converge with lifetimes with large errors compared to T-Method fits, due to the reduction in sensitivity in the Ratio Method. In the HighKick dataset, the CBO lifetime did not like to converge nicely in the ratio fits, and was therefore fixed to that from a T-Method fit. The main CBO amplitudes $A_{cbo-N}$ for the different datasets were on the order of 0.3--0.4\%, while the higher order CBO amplitudes were in general an order of magnitude less. The strength of the various higher order CBO amplitudes fluctuated for different datasets, with one parameter being large compared to another in one dataset and vice versa in a different dataset. In some cases, the errors on the higher order CBO term amplitudes were of the order the amplitude itself. While this implies these terms can be dropped from the fit function, all terms were included for analysis uniformity among the different datasets. These relatively large errors, while making some of the fits slightly more challenging to achieve fit convergence for, were nonetheless handled appropriately.
 
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fullRatio_moduloPlot_9d}
-        \caption{9d dataset.}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fullRatio_moduloPlot_Endgame}
-        \caption{Endgame dataset.}
-    \end{subfigure}
-\caption[Single random seed fits to calorimeter sums of Run~1 precession frequency analysis datasets]{Single random seed fits to calorimeter sums of Run~1 precession frequency analysis datasets. Data is in black and the fits are in red. The x axis is in units of \mus{} modulo \mus{100}, with successive portions of the data points and fit shifted downwards on the plot. The fit ranges from 30.2--\mus{650}.}
-\label{fig:moduloPlots}
-\end{figure}
+
+
+The final statistical errors on $R$ for the 60h, HighKick, 9d, and Endgame datasets are \SI{1.358}{}, \SI{1.411}{}, \SI{0.903}{}, and \SI{0.639}{ppm} respectively. The single seed $R$ results for the HighKick, 9d, and Endgame datasets, all of which used the same blinding string, are all well within $1\sigma$ of each other. The average $R$ value for fits to 50 different random seeds are provided in \secref{sub:randomSeedFits}.
+
+
+Beyond looking at single fit residuals to evaluate the integrity of the fits, other checks were made to verify consistency. In general this consisted of slicing up the data in different ways and fitting the subsets. These tests and scans included fitting individual calorimeters, modifying the fit start and end times, adjusting the applied energy thresholds, and fitting individual beam bunches.
 
 
 \begin{figure}[]
@@ -54,7 +38,7 @@
         \includegraphics[width=\textwidth]{fullRatio_moduloPlot_noStats_HighKick}
         % \caption{HighKick dataset.}
     \end{subfigure}
-
+    \vspace{4mm}
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{fullRatio_moduloPlot_noStats_9d}
@@ -65,7 +49,7 @@
         \includegraphics[width=\textwidth]{fullRatio_moduloPlot_noStats_Endgame}
         % \caption{Endgame dataset.}
     \end{subfigure}
-\caption[Single random seed fits to calorimeter sums of Run~1 precession frequency analysis datasets]{Single random seed fits to calorimeter sums of Run~1 precession frequency analysis datasets. Data is in black and the fits are in red. The x axis is in units of \mus{} modulo \mus{100}, with successive portions of the data points and fit shifted downwards on the plot. The fit ranges from 30.2--\mus{650}.}
+\caption[Single random seed fits to calorimeter summed data of Run~1 precession frequency analysis datasets]{Single random seed fits to calorimeter summed data of Run~1 precession frequency analysis datasets. Data is in black and the fits are in red. The x axis is in units of \mus{} modulo \mus{100}, with successive portions of the data points and fit shifted downwards on the plot. The fit ranges from 30.2--\mus{650}. Dataset names are given in the upper left corners of the figures, alongside the \chisq per degree of freedom and relative error on \wa or $R$.}
 \label{fig:moduloPlots}
 \end{figure}
 
@@ -150,7 +134,7 @@
         % \caption{}
         \vspace{3mm}
     \end{subfigure}
-\caption[Pulls and FFT of residuals for the ratio fit to the 60h dataset]{Fit pulls (top-left), their projection on to the y axis (bottom-left), and the FFT of the fit residuals (right) for the ratio fit to the 60h dataset. Note the pull projection has a Gaussian shape centered around zero with unit width. In the FFT the results from a five parameter fit to the data are overlayed, along with blue dashed lines to the main peaks which appear in the data. There is no obvious structure in the pulls and no remaining peaks above the noise.}
+\caption[Pulls and FFT of residuals for the ratio fit to the 60h dataset]{Fit pulls (top-left), their projection on to the y axis (bottom-left), and the FFT of the fit residuals (right) for the ratio fit to the 60h dataset. Note the pull projection has a Gaussian shape centered around zero with unit width. In the FFT the results from a five parameter fit to the data are overlayed, along with blue dashed lines for the main beam dynamics peaks which appear in the data. There is no obvious structure in the pulls and no remaining peaks above the noise in the ratio fit FFT.}
 \label{fig:fitResiduals_60h}
 \end{figure}
 \end{landscape}
@@ -165,26 +149,10 @@
 \end{figure}
 
 
-The CBO frequencies for the 60h and Endgame datasets with $n$ values of 0.108 were found to be 2.338 and 2.339 rad/\mus{} respectively, corresponding to approximately \SI{0.37}{MHz}. For the HighKick and 9d datasets with $n$ values of 0.120, the CBO frequencies were found to be 2.559 and 2.615 rad/\mus{} respectively, corresponding to approximately \SI{0.415}{MHz}. These frequencies correspond to the expected frequencies as described in \secref{sec:muonbeamdynamics}\footnote{The VW frequencies, though time-randomized out in this analysis, were found to be approximately \SI{2.30}{} and \SI{2.04}{MHz} for the datasets with $n=0.108$ and $n=0.120$ respectively.}.
 
 
 
-The CBO lifetimes between the different datasets are relatively consistent, barring the HighKick dataset for which a smaller CBO lifetime was measured. Ratio Method fits typically converge with lifetimes with large errors compared to T-Method fits, due to the reduction in sensitivity in the Ratio Method. In the HighKick dataset, the CBO lifetime which is smaller than the other datasets did not like to converge nicely in the ratio fits, and was therefore fixed to that from a T-Method fit. The main CBO amplitudes $A_{cbo-N}$ for the different datasets were on the order of 0.3--0.4\%, while the higher order CBO amplitudes were in general an order of magnitude less. The strength of the various higher order CBO amplitudes flucuated between each other for different datasets, with one parameter being large compared to another in one dataset and opposite for a different dataset. In some cases, the errors on the higher order CBO term amplitudes was of the order the amplitude itself. While this implies these terms can be dropped from the fit function, all terms were included for analysis uniformity among the different datasets. These relatively large errors, while making some of the fits more challenging to get to converge, were nonetheless handled appropriately with well converging fits.
-
-
-
--talk about values of k loss briefly? the values themselves don't directly correspond to the amount of muons losses since there are implicit factors absorbed into the parameter, and also the L of t spectrum size isn't included in the results..
-
-
-
-
-
-The final statistical errors on $R$ for the 60h, HighKick, 9d, and Endgame datasets are \SI{1.358}{}, \SI{1.411}{}, \SI{0.903}{}, and \SI{0.639}{ppm} respectively. The single seed $R$ results for the HighKick, 9d, and Endgame datasets, all of which used the same blinding string, are all well within $1\sigma$ of each other. The average $R$ value for fits to 50 different random seeds are provided in \secref{sub:randomSeedFits}.
-
-
-
-Beyond looking at single fit residuals to evaluate the integrity of the fits, other checks are made by slicing up the data in different ways and making sure they are consistent. These include fitting individual calorimeters, modifying the fit start and end times, modifying the applied energy thresholds, and fitting individual beam bunches.
-
+\clearpage
 
 \subsection{Individual calorimeter fits}
 \label{sub:per_calorimeter_fits}
