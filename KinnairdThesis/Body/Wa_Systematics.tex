@@ -449,7 +449,7 @@ The fractional losses (the integral in \equref{eq:lambdalosses} times the final 
 
 In the construction of the ratio data, when filling the four sub-datasets as in \equref{eqn:fourHistsInText}, the parameters $T_{a}$ and $\tau_{\mu}$ for the \gmtwo period and muon lifetime need to be known a priori. If these parameters are incorrectly chosen, then there will be a systematic shift on $R$. This is especially important when considering $T_{a}$, because the quantity which the E989 experiment is measuring must be used in the analysis, creating sort of a self-dependence. The question then naturally arises as to how well the $T_{a}$ parameter needs to be known. As described in \secref{sub:ratio_method}, the input value for $T_{a}$ is nominally taken as the result from the E821 experiment. 
 
-In order to determine systematic errors from these two fixed quantities, they were scanned over when forming the ratio data before fitting. See \figref{fig:ratioConstructionParsScan} for scan results for the 60h dataset. See \tabref{tab:ratioConstructionParsScan} for the sensitivities determined from the scans for all datasets. As shown the sensitivities vary both positively and negatively for the different datasets, and are extremely small. The positive and negative variations imply there is no real systematic effect at play, and that as long as a reasonable choice for these two parameters is made, then the ratio data is very insensitive to the exact values chosen. 
+In order to determine systematic errors from these two fixed quantities, they were scanned over when forming the ratio data before fitting. The input value for $T_{a}$ was varied from \SI{-30}{ppm} to \SI{+30}{ppm} around the default value in steps of \SI{3}{ppm}. The input value for $\tau_{\mu}$ was varied from \SI{64.04}{\micro s} to \SI{64.84}{\micro s} in steps of \SI{0.04}{\micro s}. See \figref{fig:ratioConstructionParsScan} for scan results for the 60h dataset. See \tabref{tab:ratioConstructionParsScan} for the sensitivities determined from the scans for all datasets. As shown the sensitivities vary both positively and negatively for the different datasets, and are extremely small. The positive and negative variations imply there is no real systematic effect at play, and that as long as a reasonable choice for these two parameters is made, then the ratio data is very insensitive to the exact values chosen. 
 
 In order to be conservative however, a scale for the changes in $R$ is given. Since the measured \gmtwo period in the data is already modified by the hardware blinding, it is technically the hardware shifted \gmtwo period that we want to use. The calorimeter digitizers use a ``40'' MHz clock which has been blinded to a value in the range of 39.997 to \SI{39.999}{MHz}\cite{ClockManual}. This corresponds to a 75 ppm range in the frequency, in a uniform distribution. Calculating the uncertainty from the uniform distribution and adding it in quadrature with a conservative \SI{10}{ppm} uncertainty in the guess on the true \gmtwo period from the E821 result, 
             \begin{align}
@@ -508,9 +508,10 @@ Similarly, the sensitivities of $R$ to the chosen muon lifetime are very small, 
 \subsection{Binning systematic errors}
 
 
--for bin edge it was verified that a shift of one bin width returned the same fit results as a shift of 0, that with the negligible slope implies no systematic effect on R
+When constructing the time spectra to be fit, bin widths and the starting edge of the bin are by default chosen to be \SI{149.2}{ns} and \SI{0}{ns} respectively. In order to verify that no systematics arise from the choice of these parameters, the values were scanned over. The bin width was scanned from \SI{148.7}{ns} to \SI{149.7}{ns} in steps of \SI{0.1}{ns}, while the bin edge was scanned from \SI{0}{ns} to \SI{149.2}{ns} in steps of \SI{14.92}{ns}. \figref{fig:binParametersScan} shows scan results for the 9d dataset. \tabref{tab:binParametersScan} gives the sensitivities of $R$ to both parameters. 
 
--for the bin width not only do the slopes very widely when scanning over the different datasets, but upon inspection of the points in the plot there is no clear trend, that combined with the results from blah analysis showing that the optimal bin width is 149.2 ns implies there is not systematic effect on R - if one wanted to be very conservative they could take the uncertainty in the bin width as X ns (probably something like 0.1), and the systematic errors would be absolutely negligible
+Upon general inspection of the fit points themselves, it was found that the trends weren't so convincing as the points varied relatively widely. Still a line was fit to the points to asses the scale of the changes. For the bin edge scan, it was verified that a shift of one bin width returned the same fit results as the default shift of \ns{0}. This combined with the negligible sensitivies and varying points implies no systematic effects on $R$ from the choice of bin edge. For the sensitivities to the choice of bin width, not only did the points vary, but the trends were both positive and negative depending on the dataset. In general the choice of bin width should be optimized to be equal to the peak of the cyclotron period distribution of the stored muons, which from the fast rotation analysis informed the choice of \SI{149.2}{ns} \cite{fastrotationsomething}. Therefore it is reasonable to quote no systematic error for the choice of bin width. If one wanted to be conservative and quote a systematic error however, the sensitivities could be multiplied against the uncertainty in the optimal bin width. This uncertainty from the fast rotation analysis is of order \SI{0.1}{ns}, which would correspond to uncertainties of \SI{2.5}{}, \SI{0.6}{}, \SI{2.3}{}, and \SI{4.2}{ppb} for the 60h, HighKick, 9d, and Endgame datasets respectively, all of which are practically negligible.
+
 
 
 \begin{figure}[]
@@ -526,8 +527,8 @@ Similarly, the sensitivities of $R$ to the chosen muon lifetime are very small, 
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_binEdgeShift_Canv_9d}
         \caption{}
     \end{subfigure}
-\caption[]{}
-\label{fig:}
+\caption[Scans over binning parameters]{Scans over binning parameters for the 9d dataset. In general the points are randomly spread around, indicating no real systematic effect.}
+\label{fig:binParametersScan}
 \end{figure}
 
 
@@ -549,8 +550,8 @@ Similarly, the sensitivities of $R$ to the chosen muon lifetime are very small, 
     Endgame & -41.7 & -0.6 \\
   \hline
 \end{tabular*}
-\caption[]{units in ppb/ns \textbf{fix spacing of table}}
-\label{tab:}
+\caption[Sensitivities of $R$ to binning parameters]{Sensitivities of $R$ to binning parameters. Units are in ppb/ns. While some of these values may appear significant, inspection of the actual plots reveals that the actual trends are not quite so convincing. \textbf{fix spacing of table}}
+\label{tab:binParametersScan}
 \end{table}
 
 
