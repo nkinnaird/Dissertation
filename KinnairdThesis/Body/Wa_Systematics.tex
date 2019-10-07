@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupGapTime/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/auto-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/fixed-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupEnergyScale/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupTimeShift/}{Body/Figures/Wa/Datasets/9d/SingleIteration/PileupMultiplierScan/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/Ta/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/TauMu/}{Body/Figures/Wa/Datasets/9d/Binning/BinEdge/}{Body/Figures/Wa/Datasets/9d/Binning/BinWidth/}}
+\graphicspath{{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupGapTime/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/auto-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/fixed-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupEnergyScale/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupTimeShift/}{Body/Figures/Wa/Datasets/9d/SingleIteration/PileupMultiplierScan/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/Ta/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/TauMu/}{Body/Figures/Wa/Datasets/9d/Binning/BinEdge/}{Body/Figures/Wa/Datasets/9d/Binning/BinWidth/}{Body/Figures/Wa/Datasets/60h/Gain/}}
 
 
 
@@ -324,7 +324,70 @@ Similarly to the pileup amplitude error, there is a clear minimum in the \chisq 
 \label{sub:gainerror}
 
 
+
+\begin{figure}[]
+\centering
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Chi2_Vs_IFG_Amp_crystals_compare_60h}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{4mm}
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{R_Vs_IFG_Amp_crystals_compare_60h}
+        \caption{}
+    \end{subfigure}
+\caption[]{Data from some dataset.}
+\label{fig:}
+\end{figure}
+
+
+\begin{table}[]
+\centering
+% \small
+% \setlength\tabcolsep{12pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lccGK}
+% \begin{tabular}{@{\extracolsep{\fill}}lcccK}
+  \hline
+    \multicolumn{5}{c}{\textbf{Systematic Error due to }} \\
+  \hline\hline
+            & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} \\
+    Dataset & \multicolumn{1}{c}{$dR/dC_{A}$} & \multicolumn{1}{c}{$C_{A_{\text{min}}}$} & \multicolumn{1}{c}{$dR/dC_{A}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
+  \hline
+    60h & 89.9 & 0.56 & 2.0 & \\
+    HighKick & 69.4 & 0.68 & -23.0 &  \\
+    9d & 63.7 & 0.26 & 0.8 & \\ 
+    Endgame & 95.1 & 0.18 & 21.3 \\
+  \hline
+\end{tabular*}
+\caption[Systematic error due to ]{units are in }
+\label{tab:systematicError_IFG}
+\end{table}
+
+
 -talk about the equations here - slight reference to either detector section or reconstruction section in this chapter - might want to put this after pileup if I introduce various equations and the like in that section
+
+-talk about relative sensitivities between t method an r method and how this is a major strength of the raito method
+
+
+-no real minimimum in the chi2 fit to the ratio points
+-endgame had a point at the 2x amplitude which had a noticeably smaller chi2 than the other points
+-the high ick trend was negative in R
+
+-mention how the T method minimum implies the gain is off? and that the ratio method is not as susceptible to the problem?
+-include T method minimum in plots?
+
+-since there is no minimum in the R method chi2 plot the uncertainties are conservatively taken as blank - cite personal communication with anna - check elba talk to see what I quoted for the errors
+
+
+-talk about how modifying the lifetime parameter for the gain error doesn't really add anything over modifying the amplitude
+
+
+
+
+for the sdtp...
 
 
 \subsection{CBO systematic errors}
