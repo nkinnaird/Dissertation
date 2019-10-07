@@ -447,7 +447,17 @@ The fractional losses (the integral in \equref{eq:lambdalosses} times the final 
 \subsection{Ratio construction systematic errors}
 \label{sub:TimeShiftingParameters}
 
--point out how slopes vary positively and negatively and then claim no real systematic error
+In the construction of the ratio data, when filling the four sub-datasets as in \equref{eqn:fourHistsInText}, the parameters $T_{a}$ and $\tau_{\mu}$ for the \gmtwo period and muon lifetime need to be known a priori. If these parameters are incorrectly chosen, then there will be a systematic shift on $R$. This is especially important when considering $T_{a}$, because the quantity which the E989 experiment is measuring must be used in the analysis, creating sort of a self-dependence. The question then naturally arises as to how well the $T_{a}$ parameter needs to be known. As described in \secref{sub:ratio_method}, the input value for $T_{a}$ is nominally taken as the result from the E821 experiment. 
+
+In order to determine systematic errors from these two fixed quantities, they were scanned over when forming the ratio data before fitting. See \figref{fig:ratioConstructionParsScan} for scan results for the 60h dataset. See \tabref{tab:ratioConstructionParsScan} for the sensitivities determined from the scans for all datasets. As shown the sensitivities vary both positively and negatively for the different datasets, and are extremely small. The positive and negative variations imply there is no real systematic effect at play, and that as long as a reasonable choice for these two parameters is made, then the ratio data is very insensitive to the exact values chosen. 
+
+In order to be conservative however, a scale for the changes in $R$ is given. Since the measured \gmtwo period in the data is already modified by the hardware blinding, it is technically the hardware shifted \gmtwo period that we want to use. The calorimeter digitizers use a ``40'' MHz clock which has been blinded to a value in the range of 39.997 to \SI{39.999}{MHz}\cite{ClockManual}. This corresponds to a 75 ppm range in the frequency, in a uniform distribution. Calculating the uncertainty from the uniform distribution and adding it in quadrature with a conservative \SI{10}{ppm} uncertainty in the guess on the true \gmtwo period from the E821 result, 
+            \begin{align}
+                \delta T_{a} = \sqrt{(75)^{2}/12 + 10^{2}} = \SI{23.8}{ppm}.
+            \end{align}
+This results in a change in $R$ on the order of \SI{2.4}{ppb} for the 60h and HighKick datasets, and less for the 9d and Endgame datasets. Because this is so small and because the sensitivities vary positively and negatively, any systematic error from this quantity can reasonable be said to not exist.
+
+Similarly, the sensitivities of $R$ to the chosen muon lifetime are very small, order \SI{}{ppb/ \micro s}. Since the uncertainties in the muon lifetime are of order \ns{}, any systematic errors from this parameter would be completely negligible even if the sensitivities all had the same sign.
 
 
 \begin{figure}[]
@@ -455,16 +465,16 @@ The fractional losses (the integral in \equref{eq:lambdalosses} times the final 
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_gm2PeriodGuess_Canv_60h}
-        \caption{}
+        \caption{$R$ versus input value for $T_{a}$, where the x axis is given in units of a ppm level shift of the default choice for $T_{a}$.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
-    \hspace{1cm}
+    \hspace{4mm}
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_weightingLifetime_Canv_60h}
-        \caption{}
+        \caption{$R$ versus the input value for $\tau_{\mu}$. Parameter $p_{1}$ gives the sensitivity in \SI{}{ppm/ \micro s}.}
     \end{subfigure}
-\caption[]{}
-\label{fig:}
+\caption[Scans over ratio construction parameters]{Scans over ratio construction parameters for the 60h dataset. Error bars have been removed from the plots. In general the points are randomly spread around, and sensitivities are very small.}
+\label{fig:ratioConstructionParsScan}
 \end{figure}
 
 
@@ -486,8 +496,8 @@ The fractional losses (the integral in \equref{eq:lambdalosses} times the final 
     Endgame & <0.1 & 0.6 \\
   \hline
 \end{tabular*}
-\caption[]{units in ppb per... \textbf{fix spacing of table}}
-\label{tab:}
+\caption[Sensitivities of $R$ to ratio construction parameters]{Sensitivities of $R$ to ratio construction parameters. $dR/d_{T_{a}}$ is in units of ppb/ppm, while $dR/d_{\tau_{\mu}}$ is in units of \SI{}{ppb/ \micro s}. In both cases the sensitivities are both extremely small, and vary negatively and positively for the different datasets. \textbf{fix spacing of table}}
+\label{tab:ratioConstructionParsScan}
 \end{table}
 
 
@@ -545,9 +555,9 @@ The fractional losses (the integral in \equref{eq:lambdalosses} times the final 
 
 
 
-\subsection{Random seed systematic errors}
+\subsection{Systematics errors in the E field and pitch corrections}
 
--not a systematic error per se but ... 
+
 
 \subsection{Systematic error summary}
 
