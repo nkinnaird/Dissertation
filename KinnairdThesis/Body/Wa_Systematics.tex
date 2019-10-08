@@ -472,22 +472,23 @@ As mentioned in \secref{subsec:lostmuons}, the triples spectrum is made with cut
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lcccc}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lHcHc}
   \hline
     \multicolumn{5}{c}{\textbf{$\Delta R$ with Various Lost Muon Cuts}} \\
   \hline\hline
     & \multicolumn{2}{c}{9d Dataset} & \multicolumn{2}{c}{Endgame Dataset} \\
   \hline
-    Type of fit or cut & $\Delta R$ (ppb) & \K & $\Delta R$ (ppb) & \K \\
+    Type of fit or cut & \multicolumn{1}{c}{$\Delta R$ (ppb)} & \K & \multicolumn{1}{c}{$\Delta R$ (ppb)} & \K \\
   \hline
+    Default cuts & 0 & 2.510 & 0 & 2.345 \\
     No quadruple subraction & 0.2 & 1.811 & -0.1 & 1.717 \\
-    No accidental subraction & 0.1 & 2.503 & $<0.1$ & 2.339 \\
+    No accidental subraction & 0.1 & 2.503 & <0.1 & 2.339 \\
     $\Delta t_{13} \leq \SI{12.5}{ns}$ & 0.1 & 4.469 & -0.3 & 4.248 \\
-    $\SI{5}{ns} \leq \Delta t_{12, 23} \leq \SI{8.5}{ns}$ & N/A & N/A & $<0.1$ & 1.709 \\
-    $\SI{100}{\MeV} \leq E_{1,2,3} \leq \SI{500}{\MeV}$ & N/A & N/A & $<0.1$ & 2.09 \\
+    $\SI{5}{ns} \leq \Delta t_{12, 23} \leq \SI{8.5}{ns}$ & 0.1 & 2.507 & <0.1 & 1.709 \\
+    $\SI{100}{\MeV} \leq E_{1,2,3} \leq \SI{500}{\MeV}$ & <0.1 & 2.253 & <0.1 & 2.090 \\
   \hline 
 \end{tabular*}
-\caption[Effect on fitted R value due to lost muon cuts in the 9d and Endgame datasets]{Effect on the fitted \R value in the 9d and Endgame datasets with various different cuts used or backgrounds subtracted. Ultimately how the muon loss spectrum $L(t)$ is created has little bearing on the final fitted \R value. Also included are the various corresponding \K values which compensate for the level of statistics contained within $L(t)$ due to the various cuts. \textbf{decide whether to fill out the N/A 9d fits or not}}
+\caption[Effect on fitted R value due to lost muon cuts in the 9d and Endgame datasets]{Effect on the fitted \R value in the 9d and Endgame datasets with various different cuts used or backgrounds subtracted. Ultimately how the muon loss spectrum $L(t)$ is created has little bearing on the final fitted \R value. Also included are the various corresponding \K values which compensate for the level of statistics contained within $L(t)$ due to the various cuts.}
 \label{tab:lostmuonsvariousfits}
 \end{table}
 
