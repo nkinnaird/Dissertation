@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupGapTime/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/auto-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/fixed-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupEnergyScale/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupTimeShift/}{Body/Figures/Wa/Datasets/9d/SingleIteration/PileupMultiplierScan/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/Ta/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/TauMu/}{Body/Figures/Wa/Datasets/9d/Binning/BinEdge/}{Body/Figures/Wa/Datasets/9d/Binning/BinWidth/}{Body/Figures/Wa/Datasets/60h/Gain/}}
+\graphicspath{{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupGapTime/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/auto-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/fixed-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupEnergyScale/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupTimeShift/}{Body/Figures/Wa/Datasets/9d/SingleIteration/PileupMultiplierScan/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/Ta/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/TauMu/}{Body/Figures/Wa/Datasets/9d/Binning/BinEdge/}{Body/Figures/Wa/Datasets/9d/Binning/BinWidth/}{Body/Figures/Wa/Datasets/60h/Gain/0p25-steps/}}
 
 
 
@@ -355,6 +355,8 @@ where $E_{0}$ is the `true' energy of the detected positron and $E$ is the as-me
 \tabref{tab:systematicError_IFG} gives the sensitivities of the T Method and R Method fits for all the datasets, along with the T Method minimum for $C_{A}$. There are some interesting things to observe when looking at all the values in the chart. The T Method values, while not the primary subject of this analysis, nevertheless vary between the datasets and especially for the minimums which are not consistent with one another. This implies there might be some very small gain correction imperfections which have not been fully accounted for. The confidence in the Ratio Method results is preserved from the fact that the Ratio Method fits are not as sensitive to the gain variations as the T Method. It should still be noticed however that there are some significantly varying sensitivities in the Ratio Method $R$ values to $C_{A}$, as evidence by the values for the HighKick and Endgame. For the Endgame dataset there was one fit point in particular at $C_{A} = 2$ which was noticeably different than the rest, which pulled the slope of $R/C_{A}$ up the value shown. For the HighKick dataset a negative slope was observed, with all points lying relatively consistent with one another with no outliers. The near-zero slopes of the 60h and 9d datasets give some implication that these slopes are all largely random which might save things. \textbf{I should do more fits to the gain just to double check values and make some more convincing curves - a lot of grid jobs and very annoying but I should just do it.} Though not included in the table \textbf{maybe I should include them?} the changes in $R$ with versus without the IFG function applied at all are less than \SI{10}{}, \SI{30}{}, \SI{5}{}, and \SI{10}{ppb} for the 60h, HighKick, 9d, and Endgame datasets respectively. \textbf{I should find these exact numbers and print them out - maybe after further gain fits} These values in general give an upper bound to any systematic effects that a mis-applied IFG function might cause. The uncertainties on the IFG amplitudes from fits to the laser data were in general of order 25\% \cite{AnnaPersonalComm}, which when multiplied against the Ratio Method $R$ sensitivities results in systematic errors of \SI{<6}{ppb} for the various dataset. The individual numbers are given in \tabref{tab:systematicError_IFG}.
 
 
+-update text based on latest fits which ultimately didn't change the trends or interesting things I'm seeing
+
 
 \begin{table}[]
 \centering
@@ -369,10 +371,10 @@ where $E_{0}$ is the `true' energy of the detected positron and $E$ is the as-me
             & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} \\
     Dataset & \multicolumn{1}{c}{$dR/dC_{A}$} & \multicolumn{1}{c}{$C_{A_{\text{min}}}$} & \multicolumn{1}{c}{$dR/dC_{A}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
   \hline
-    60h & 89.9 & 0.56 & 2.0 & 0.5 \\
-    HighKick & 69.4 & 0.68 & -23.0 & 5.8 \\
-    9d & 63.7 & 0.26 & 0.8 &  0.2 \\ 
-    Endgame & 95.1 & 0.18 & 21.3 & 5.3 \\
+    60h & 94.1 & 0.57 & 5.4 & 1.4 \\
+    HighKick & 69.5 & 0.70 & -23.6 & 5.9 \\
+    9d & 64.9 & 0.27 & 1.4 & 0.4 \\ 
+    Endgame & 96.2 & 0.19 & 22.7 & 5.7 \\
   \hline
 \end{tabular*}
 \caption[Systematic error due to IFG amplitude]{Sensitivities and systematic errors related to the IFG amplitude. Also included are some T Method numbers for comparison. Units are in ppb.}
@@ -381,7 +383,7 @@ where $E_{0}$ is the `true' energy of the detected positron and $E$ is the as-me
 
 
 
-For the stdp...
+For the stdp....
 
 \cite{STDP}
 
