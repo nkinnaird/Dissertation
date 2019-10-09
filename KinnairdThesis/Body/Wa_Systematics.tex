@@ -313,7 +313,7 @@ Similarly to the pileup amplitude error, there is a clear minimum in the \chisq 
     Quadrature sum &  & 34.3 & 27.1 & 20.1 & 17.9 \\
   \hline 
 \end{tabular*}
-\caption[Total pileup systematic errors]{Total pileup systematic errors for the Run~1 precession frequency analysis datasets.}
+\caption[Total pileup-related systematic errors]{Total pileup systematic errors for the Run~1 precession frequency analysis datasets.}
 \label{tab:PileupErrorsTotal}
 \end{table}
 
@@ -405,6 +405,32 @@ The STDP correction is in many ways the same as the IFG correction procedure \ci
 % I saw a change in R for the ratio method that was 12.6 ppb the other way, but the p values were very differnt and so I think it's just coincidence, because I expect the ratio method randomization to change the value by a lot
 
 
+\tabref{tab:GainErrorsTotal} gives the quadrature sum for the total gain systematic errors for the Run~1 precession frequency analysis datasets. As shown for each dataset the total error is below the target final error of \SI{20}{ppb}. It should be noted that there is evidence of the need for a correction for some type of residual gain effect \cite{AFThesis,SweigartEndgameOddities} which is somehow unmeasurable by the laser system. This combined with recently discovered small errors in the gain corrections applied to the Endgame and HighKick datasets \cite{GainOscEndgameHighKick} imply that these errors will change by some amount. Because the Ratio Method sensitivities are so much more reduced to the gain corrections than the T-Method however, the numbers given here are a reasonable estimation of where the final errors will lie. In future runs of E989 with more statistics it will be important to verify that hidden small effects do not balloon and negatively impact the \wa extraction.
+
+
+
+\begin{table}[]
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lGGGG}
+  \hline
+    \multicolumn{5}{c}{\textbf{Total Pileup Systematic Errors}} \\
+  \hline\hline
+    Type of Error & \multicolumn{1}{c}{60h} & \multicolumn{1}{c}{HighKick} & \multicolumn{1}{c}{9d} & \multicolumn{1}{c}{Endgame} \\
+  \hline
+    IFG   & 1.4 & 5.9 & 0.4 & 5.7 \\
+    STDP  & 11.0 & 11.0 & 11.0 & 11.0 \\
+  \hline
+    Quadrature sum & 11.1 & 12.5 & 11.0 & 12.4 \\
+  \hline 
+\end{tabular*}
+\caption[Total gain-related systematic errors]{Total gain-related systematic errors for the Run~1 precession frequency analysis datasets.}
+\label{tab:GainErrorsTotal}
+\end{table}
+
+
+
 
 
 \subsection{CBO systematic errors}
@@ -470,8 +496,30 @@ where $C$ is some constant CBO amplitude which lives over the course of each fil
 
 
 
--put here a paragraph on the end for the total cbo error just like I did with the pileup
+\tabref{tab:CBOErrorsTotal} gives the quadrature sum for the total CBO systematic errors for the Run~1 precession frequency analysis datasets. As shown for each dataset the total error is below the target final error of \SI{30}{ppb}. For future runs of E989 with more statistics it will be a question of whether these errors stay the same or change. The changing frequency of the CBO in Run~1 was repaired for Run~2, implying a reduction in any associated systematic errors. Similarly, the increased statistics combined with the tracking analysis should constrain measurements including the CBO decoherence envelope even further, similarly reducing any associated systematic errors. It will be a question of whether the increased statisitics brings out higher order CBO terms even further which then increase the errors in some way.
 
+% should I cite and talk about David's new cbo model here?
+
+
+\begin{table}[]
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lGGGG}
+  \hline
+    \multicolumn{5}{c}{\textbf{Total CBO Systematic Errors}} \\
+  \hline\hline
+    Type of Error & \multicolumn{1}{c}{60h} & \multicolumn{1}{c}{HighKick} & \multicolumn{1}{c}{9d} & \multicolumn{1}{c}{Endgame} \\
+  \hline
+    CBO Frequency Model   & 7.5 & 0.4 & 2.0 & 8.0 \\
+    CBO Decoherence Envelope  & 17.6 & 18.0 & 28.7 & 4.3 \\
+  \hline
+    Quadrature sum & 19.1 & 18.0 & 28.8 & 9.1 \\
+  \hline 
+\end{tabular*}
+\caption[Total CBO-related systematic errors]{Total CBO-related systematic errors for the Run~1 precession frequency analysis datasets.}
+\label{tab:CBOErrorsTotal}
+\end{table}
 
 
 
