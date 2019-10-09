@@ -355,8 +355,6 @@ where $E_{0}$ is the `true' energy of the detected positron and $E$ is the as-me
 \tabref{tab:systematicError_IFG} gives the sensitivities of the T Method and R Method fits for all the datasets, along with the T Method minimum for $C_{A}$. There are some interesting things to observe when looking at all the values in the chart. The T Method values, while not the primary subject of this analysis, nevertheless vary between the datasets and especially for the minimums which are not consistent with one another. This implies there might be some very small gain correction imperfections which have not been fully accounted for. The confidence in the Ratio Method results is preserved from the fact that the Ratio Method fits are not as sensitive to the gain variations as the T Method. It should still be noticed however that there are some significantly varying sensitivities in the Ratio Method $R$ values to $C_{A}$, as evidence by the values for the HighKick and Endgame. For the Endgame dataset there was one fit point in particular at $C_{A} = 2$ which was noticeably different than the rest, which pulled the slope of $R/C_{A}$ up the value shown. For the HighKick dataset a negative slope was observed, with all points lying relatively consistent with one another with no outliers. The near-zero slopes of the 60h and 9d datasets give some implication that these slopes are all largely random which might save things. \textbf{I should do more fits to the gain just to double check values and make some more convincing curves - a lot of grid jobs and very annoying but I should just do it.} Though not included in the table \textbf{maybe I should include them?} the changes in $R$ with versus without the IFG function applied at all are less than \SI{10}{}, \SI{30}{}, \SI{5}{}, and \SI{10}{ppb} for the 60h, HighKick, 9d, and Endgame datasets respectively. \textbf{I should find these exact numbers and print them out - maybe after further gain fits} These values in general give an upper bound to any systematic effects that a mis-applied IFG function might cause. The uncertainties on the IFG amplitudes from fits to the laser data were in general of order 25\% \cite{AnnaPersonalComm}, which when multiplied against the Ratio Method $R$ sensitivities results in systematic errors of \SI{<6}{ppb} for the various dataset. The individual numbers are given in \tabref{tab:systematicError_IFG}.
 
 
--update text based on latest fits which ultimately didn't change the trends or interesting things I'm seeing
-
 
 \begin{table}[]
 \centering
@@ -364,7 +362,6 @@ where $E_{0}$ is the `true' energy of the detected positron and $E$ is the as-me
 % \setlength\tabcolsep{12pt}
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lccGK}
-% \begin{tabular}{@{\extracolsep{\fill}}lcccK}
   \hline
     \multicolumn{5}{c}{\textbf{Systematic Error due to IFG Amplitude}} \\
   \hline\hline
@@ -382,11 +379,30 @@ where $E_{0}$ is the `true' energy of the detected positron and $E$ is the as-me
 \end{table}
 
 
+The STDP correction is in many ways the same as the IFG correction procedure \cite{STDP}. This correction is applied to pulses close in time, $\mathcal{O}(\text{ns})$, and is the first gain correction applied to the energies of the pulses before the out-of-fill and in-fill gain corrections. For the systematic error on $R$ due to the application of the STDP gain correction, a new production of the 60h dataset was processed without the STDP correction applied. Because of how the time-randomization is applied to the clusters, a new version of the same dataset by default uses a different time-randomization. As shown in \secref{sub:randomSeedFits}, the width in the fitted $R$ values is of order $\mathcal{O}(\SI{100}{ppb})$ making direct ratio fit comparisons between the two datasets un-informative. In order to avoid this difficulty, fits were done with the T-Method and cluster times were randomized per-fill rather than per-cluster. Since the per-fill randomization uses fill ID's as the seeds for the randomization, and because the T-Method does not split the data into sub-datasets as the Ratio Method does, the randomization between the 60h dataset with and without the STDP correction is identical. The change in $R$ for T-Method fits with and without this correction is then taken as the upper bound on the systematic error for the inclusion of the STDP in the Ratio Method fits. This is reasonable as the previous IFG systematic studies showed a reduction in sensitivity to gain effects which is probably extended to the STDP correction error. \tabref{tab:systematicError_STDP} gives the T-Method fit results with and without the STDP, along with the change in $R$ which came out to be \SI{11.0}{ppb}. This is taken as the systematic error for all datasets.
 
-For the stdp....
 
-\cite{STDP}
+\begin{table}[]
+\centering
+% \small
+% \setlength\tabcolsep{12pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lccK}
+% \begin{tabular}{@{\extracolsep{\fill}}lcccK}
+  \hline
+    \multicolumn{4}{c}{\textbf{Systematic Error due to STDP}} \\
+  \hline\hline
+    Fit Type & \multicolumn{1}{c}{$R$ with STDP (ppm)} & \multicolumn{1}{c}{$R$ without STDP (ppm)} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$ (ppb)} \\
+  \hline
+    T-Method & $-20.1619$ & $-20.1729$ & 11.0 \\
+    % R-Method & -20.2041 & -20.1915 & -12.6 \\
+  \hline
+\end{tabular*}
+\caption[Systematic error due to STDP]{T-Method fit results with and without the STDP gain correction on the 60h dataset. T-Method fits were done instead of Ratio Method fits in order to force the cluster-time randomization to be consistent between the two dataset productions. The change in $R$ in the bold column is taken as the upper bound on the systematic error in the Ratio Method due to the STDP gain correction.}
+\label{tab:systematicError_STDP}
+\end{table}
 
+% I saw a change in R for the ratio method that was 12.6 ppb the other way, but the p values were very differnt and so I think it's just coincidence, because I expect the ratio method randomization to change the value by a lot
 
 
 
