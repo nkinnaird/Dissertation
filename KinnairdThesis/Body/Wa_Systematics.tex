@@ -543,7 +543,7 @@ The fitted values for the $C$ constants and the changes in the final fitted $R$ 
 \label{sub:lostmuonserror}
 
 
-As mentioned in \secref{subsec:lostmuons}, the triples spectrum is made with cuts as defined in \tabref{tab:lostmuoncuts}. Various backgrounds are subtracted off the triples spectrum in order to generate a clean sample of lost muons. \tabref{tab:lostmuonsvariousfits} gives the change in \R for various sets of cuts and background subtractions for the 9d and Endgame datasets. As shown the various different backgrounds and cuts ultimately make very little difference in the final fitted \R value. Similarly, stable beam contaminants in the form of deuterons and protons contaminate the lost muon spectrum. The former are largely removed by straightforward \DT and $\Delta t_{13}$ cuts. The latter can be mostly removed by cutting on the negative side of the $\Delta t_{13}$ distribution which separates the populations more readily, \figref{fig:deltaT13}, with $\Delta t_{13} \leq \SI{12.5}{ns}$. While this does largely remove the protons at the cost of statistics, the fitted \K parameter simply grows larger to compensate. Ultimately the effect on \R is negligible, with $\Delta R = \SI{-0.3}{ppb}$. The sum of these separate types of errors is conservatively taken at \SI{1}{ppb} for all datasets\footnote{For the T-Method fits, though the changes in \R are noticeably larger with the various cuts, they are still the same order of magnitude and the error is conservatively below \SI{1}{ppb}.}.
+As mentioned in \secref{subsec:lostmuons}, the triples spectrum is made with cuts as defined in \tabref{tab:lostmuoncuts}. Various backgrounds are subtracted off the triples spectrum in order to generate a clean sample of lost muons. \tabref{tab:lostmuonsvariousfits} gives the change in \R for various sets of cuts and background subtractions for the 9d and Endgame datasets. As shown the various different backgrounds and cuts ultimately make very little difference in the final fitted \R value. Similarly, stable beam contaminants in the form of deuterons and protons contaminate the lost muon spectrum. The former are largely removed by straightforward \DT and $\Delta t_{13}$ cuts. The latter can be mostly removed by cutting on the negative side of the $\Delta t_{13}$ distribution which separates the populations more readily, \figref{fig:deltaT13}, with $\Delta t_{13} \leq \SI{12.5}{ns}$. While this does largely remove the protons at the cost of statistics, the fitted \K parameter simply grows larger to compensate. Ultimately the effect on \R is negligible, with $\Delta R = \SI{-0.3}{ppb}$. The sum of these separate types of errors is conservatively taken at \SI{0.5}{ppb} for all datasets\footnote{For the T-Method fits, though the changes in \R are noticeably larger with the various cuts, they are still the same order of magnitude and the error is conservatively below \SI{1}{ppb}.}.
 
 
 \begin{table}[]
@@ -776,7 +776,9 @@ Upon general inspection of the fit points themselves, it was found that the tren
 
 \subsection{Systematic error summary}
 
--include here a big table (with each of the individual errors making up say pileup and the like) of all systematic errors
+
+\tabref{tab:FinalSystematicErrors}
+
 -compare back to target table
 
 
@@ -785,34 +787,40 @@ Upon general inspection of the fit points themselves, it was found that the tren
 % \small
 % \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc}
-
-
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lGGGG}
   \hline
-    \multicolumn{5}{c}{\textbf{Systematic Errors}} \\
+    \multicolumn{5}{c}{\textbf{Run~1 Evaluated Systematic Errors}} \\
   \hline\hline
-    Error & 60h & HighKick & 9d & Endgame \\ 
+    Error & \multicolumn{1}{c}{60h} & \multicolumn{1}{c}{HighKick} & \multicolumn{1}{c}{9d} & \multicolumn{1}{c}{Endgame} \\ 
   \hline
-    Pileup amplitude & & & & \\
-    Pileup phase - time-shift & & & & \\
-    Pileup phase - energy-scale & & & & \\
-    In-fill gain amplitude & & & & \\
-    STDP On/Off & & & & \\
-    CBO frequency model & & & & \\
-    CBO envelope & & & & \\
-    Lost muon cuts & & & & \\
+    Pileup amplitude & 22.2 & 19.0 & 9.0 & 9.4 \\
+    Pileup phase - time-shift & 17.6 & 19.0 & 17.1 & 14.3 \\
+    Pileup phase - energy-scale & 19.4 & 3.7 & 5.5 & 5.3 \\
+    In-fill gain amplitude & 1.4 & 5.9 & 0.4 & 5.7 \\
+    STDP On/Off & 11.0 & 11.0 & 11.0 & 11.0 \\
+    CBO frequency model & 7.5 & 0.4 & 2.0 & 8.0 \\
+    CBO decoherence envelope & 17.6 & 18.0 & 28.7 & 4.3 \\
+    Lost muon cuts & < 0.5 & < 0.5 & < 0.5 & < 0.5 \\
+    Fixed \K & 1.2 & 4.9 & 3.1 & 0.1 \\
+    Ratio construction $T_{a}$ & - & - & - & - \\
+    Ratio construction $T_{\mu}$ & - & - & - & - \\
+    Bin width & - & - & - & - \\
+    Bin edge & - & - & - & - \\
+  \hline
+    Quadruature Sum & & & & \\  
+  \hline\hline
     Lost muon phase bias & & & & \\
-    Ratio construction $T_{a}$ & & & & \\
-    Ratio construction $T_{\mu}$ & & & & \\
-    Bin width & & & & \\
     E field correction & & & & \\
     Pitch correction & & & & \\
+    Bad resistors & & & & \\
   \hline
     Quadruature Sum & & & & \\
+  \hline\hline
+    Total Quadruature Sum & & & & \\
   \hline
 \end{tabular*}
-\caption[]{should I put all scan results here even if the conclusion was that there was no systematic error associated?}
-\label{tab:}
+\caption[Systematic errors evaluated in the Run~1 precession frequency datasets]{Final systematic errors evaluted in the Run~1 precession frequency analysis to the 60h, HighKick, 9d, and Endgame datasets. All units are in ppb. The table is split into two sections. The upper section consists of systematic errors directly evaluated by the author while the lower section consists of preliminary systematic estimates by other working groups.}
+\label{tab:FinalSystematicErrors}
 \end{table}
 
 
