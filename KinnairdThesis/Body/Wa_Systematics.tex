@@ -766,49 +766,46 @@ Upon general inspection of the fit points themselves, it was found that the tren
 \subsection{Systematic errors in the E-field and pitch corrections}
 
 
-Since corrections affect the final fitted wa value as in secref blah, any errors in the calculations themselves can be thought of as errors in the precession frequency mesaurment...
+The electric field and pitch corrections modify the final value extracted for \wa as described in \secref{sec:corrections}. Any errors in the estimation of these corrections is by extension an error in the precession frequency measurement. The evaluation of these errors is performed by separate working groups. Given here are preliminary estimates of the errors. 
 
 
--explain where these errors come from - point back to equations for the correction
-    - trackers for pitch correction which cares about vertical width
-        - cite James' elba talk for pitch
-    - fast rotation analysis for E field correction which cares about radial equilibrium
-        - cite antoines actual notes on the separate datasets
--explain how other working groups are on it
-    -mention how simulation efforts are under way as well for comparison
--quote preliminary estimations
--might want to talk a little bit about the bad resistors and how that is folded in to the above errors
-    -cite dave rubins elba talk and one of his more recent updates
--remind of old e821 numbers - values and errors (maybe values in the conclusions and just the errors here)
+The pitch correction is evaluated by the tracking analysis and is dependent on the vertical width of the muon beam. A preliminary analysis of the 60h dataset calculated an estimated correction and systematic error of \cite{PitchReview,PitchElba}
+    \begin{align} \label{eq:pitchError}
+        C_{P} \sim -160 \pm \SI{15}{ppb}.
+    \end{align}
+This error is split into track reconstruction errors of which there are many $(\mathcal{O}(\SI{10}{ppb}))$, a tracker-calorimeter acceptance correction with a small expected error, and uncertainty in simulation models used in various parts of the tracking. While the actual correction itself may differ between datasets, the error in the correction is expected to be relatively consistent. The pitch correction error given in \equref{eq:pitchError} is taken as the systematic error for all datasets. 
+
+% 16 ppb acceptance error
+
+
+The E-field correction is evaluated with the fast rotation analysis and is dependent on the equilibrium radius of the muon beam. Analyses to the 60h, 9d, and Endgame datasets by the Cornell fast rotation analysis group yielded the results shown in \tabref{tab:EfieldCorrections}. While not the final numbers for Run~1, the estimates and errors given will change only slightly from further DQC cuts. For the HighKick dataset which has not been evaluated at the time of writing, a systematic error on the E-field correction is taken as the largest error from the other datasets, that being \SI{36}{ppb} for the 9d dataset.
+
+
+\begin{table}[]
+\centering
+% \small
+% \setlength\tabcolsep{20pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccc}
+  \hline
+    \multicolumn{4}{c}{\textbf{Electric field corrections}} \\
+  \hline\hline
+    Dataset & Correction & Statistical error & Systematic error \\
+  \hline
+    60h & $-463$ & 1.0 & 27.0 \\
+    HighKick & N/A & N/A & N/A \\
+    9d & $-463$ & 1.0 & 36.0 \\
+    Endgame & $-467$ & 1.0 & 20.0 \\
+  \hline
+\end{tabular*}
+\caption[Electric field corrections estimated by the Cornell fast rotation analysis group]{Electric field corrections estimated by the Cornell fast rotation analysis group \cite{AntoineEField60h,AntoineEField9d,AntoineEFieldEndgame}. Units are in ppb.}
+\label{tab:EfieldCorrections}
+\end{table}
 
 
 
+The above corrections make certain assumptions with regards to the conditions which influence the stored beam dynamics. Further errors can be attributable to non-linearities in the electrostatic quadrupole field, misalignment of the quadrupole plates, the changing voltage on the quadrupole plates due to the bad resistors, and any residual radial magnetic field. Preliminary analyses using simulation have estimated additional systematic errors on the pitch and E-field corrections of \SI{\sim5}{ppb} and \SI{\sim20}{ppb} respectively \cite{DaveRubinElbaBadResistors,DaveRubinBadResistorsUpdate}. These errors are conservatively added in quadrature with their respective errors evaluated above. Simulation efforts are continuing in order to identify and nail down these errors even further. While the errors listed here are greater than the target quadrature sum of \SI{30}{ppb}, they are nonetheless small compared to the statistical error on $R$ and are deemed acceptable for Run~1.
 
-Pitch numbers:
-
-% 60h: expected: ~160 ± 15 ppb
-% That comes from 9.1 + 16 ppb from acceptance + 10 ppb from simulation/model uncertainty 
-
-
-\cite{PitchReview,PitchElba}
-
-
-
-Antoine numbers:
-
-% 60h: CE = −463 ± 1 (stat) ± 27 (syst) ppb.
-% 9d: CE = −463 ± 1 (stat) ± 36 (syst) ppb
-% Endgame: CE = −467 ± 1 (stat) ± 20 (syst) ppb
-
-\cite{AntoineEField60h,AntoineEField9d,AntoineEFieldEndgame}
-
-
-Dave numbers:
-
-Pitch: $\sim 5 ppb$
-E-field: $\sim 20 ppb$
-
-\cite{DaveRubinElbaBadResistors,DaveRubinBadResistorsUpdate}
 
 
 
@@ -818,6 +815,7 @@ E-field: $\sim 20 ppb$
 \tabref{tab:FinalSystematicErrors}
 
 -compare back to target table
+-all errors small compared to statistical errors on datasets..
 
 
 \begin{table}[]
@@ -848,15 +846,15 @@ E-field: $\sim 20 ppb$
     Quadruature Sum & & & & \\  
   \hline\hline
     Lost muon phase bias & & & & \\
-    E field correction & & & & \\
-    Pitch correction & & & & \\
+    Pitch correction & 15.8 & 15.8 & 15.8 & 15.8 \\
+    E-field correction & 33.6 & 41.2 & 41.2 & 28.3 \\
   \hline
     Quadruature Sum & & & & \\
   \hline\hline
     Total Quadruature Sum & & & & \\
   \hline
 \end{tabular*}
-\caption[Systematic errors evaluated in the Run~1 precession frequency datasets]{Final systematic errors evaluted in the Run~1 precession frequency analysis to the 60h, HighKick, 9d, and Endgame datasets. All units are in ppb. The table is split into two sections. The upper section consists of systematic errors directly evaluated by the author while the lower section consists of preliminary systematic estimates by other working groups.}
+\caption[Systematic errors evaluated in the Run~1 precession frequency datasets]{Final systematic errors evaluted in the Run~1 precession frequency analysis to the 60h, HighKick, 9d, and Endgame datasets. All units are in ppb. The table is split into two sections. The upper section consists of systematic errors directly evaluated by the author while the lower section consists of preliminary systematic estimates by other working groups. The E-field and pitch correction errors have been added in quadrature with the quadrupole errors. The publication errors for the Run~1 datasets will change from these as the final DQC cuts are made and analyses improved, however the scale of these errors will remain consistent.}
 \label{tab:FinalSystematicErrors}
 \end{table}
 
