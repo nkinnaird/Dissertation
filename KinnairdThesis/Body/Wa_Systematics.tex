@@ -8,8 +8,14 @@
 
 
 \section{Systematic errors}
-\label{sec:Systematic Errors}
+\label{sec:SystematicErrors}
 
+
+Evaluating the systematic errors which bias the \wa extraction is a major part of the precession frequency analysis. Systematic errors typically stem from sources which introduce time-dependent phases over the course of a fill,
+    \begin{align} \label{eq:timeDependentPhase}
+        \cos{(\omega_{a}t + \phi(t))} \rightarrow \cos{((\omega_{a}+\phi_{1})t + \phi_{0} + \phi_{2}t^{2} + ...)},
+    \end{align}
+where $\phi(t)$ can in general be expanded to higher orders. Because the phase is highly correlated to the extracted frequency, and because more decay positrons are detected at early times within a fill, a time-dependent phase pulls the extracted frequency away from it's real value. Sources of systematic uncertainty can be separated into several general categories. These include systematic errors in the pileup subtraction,  gain corrections, CBO fit model, muon losses, and E-field and pitch corrections, among others. In each case early-to-late shifts are a danger in the analysis and must be evaluated appropriately. \tabref{tab:wauncertainties} gives the target systematic uncertainties for the E989 experiment, which has the goal of a \SI{70}{ppb} systematic error on the precession frequency measurement. This represents a three to four-fold improvement over the E821 experiment systematic errors which were of order \SI{210}{} -- \SI{310}{ppb} depending on running period \cite{E821FinalReport}. \textbf{talk about reason for improvement at all here? seems kind of late to be doing so}
 
 
 \begin{table}[]
@@ -18,24 +24,26 @@
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}lc}
   \hline
-    \multicolumn{2}{c}{\textbf{\wa Measurement Uncertainties}} \\
+    \multicolumn{2}{c}{\textbf{Target \wa Measurement Uncertainties}} \\
   \hline\hline
-    Source of uncertainty & E989 Goal (ppb) \\
+    Sources of uncertainty & E989 Goal (ppb) \\
   \hline
-    Gain changes & 20 \\
     Pileup & 40 \\
-    Lost muons & 20 \\
+    Gain changes & 20 \\
     CBO & 30 \\
-    E field and pitch corrections & 30 \\
+    Lost muons & 20 \\
+    E-field and pitch corrections & 30 \\
+    Other & 30 \\
   \hline
-    Quadrature sum & 70 \\
+    Quadrature sum & $\sim70$ \\
   \hline 
 \end{tabular*}
-\caption[Uncertainties in the precession frequency measurement]{Systematic errors in the precession frequency measurement. \textbf{fill this table out more once I've gone through the various parts - mention that this is the final expected table}}
+\caption[Target systematic uncertainties in the precession frequency measurement]{Target systematic errors in the precession frequency measurement for the E989 experiment.}
 \label{tab:wauncertainties}
 \end{table}
 
 
+Properly evaluated systematic errors should in general be static with respect to the amount of statistics. Run~1 of E989 consisted of more than four separate datasets with distinct running conditions, necessitating the need for independent systematic uncertainty evaluations. Such uncertainty evaluations for four of the Run~1 datasets are presented here. Systematic errors for the lost muon phase error, the E-field and pitch corrections, and an error due to the bad resistors are dependent on analyses from other working groups. The numbers given here for them are preliminary estimations.
 
 
 
@@ -759,14 +767,17 @@ Upon general inspection of the fit points themselves, it was found that the tren
 \subsection{Systematics errors due to bad resistors}
 
 
-\subsection{Systematics errors in the E field and pitch corrections}
+\subsection{Systematics errors in the E-field and pitch corrections}
+
+
+
 
 
 
 \subsection{Systematic error summary}
 
 -include here a big table (with each of the individual errors making up say pileup and the like) of all systematic errors
-
+-compare back to target table
 
 
 \begin{table}[]
