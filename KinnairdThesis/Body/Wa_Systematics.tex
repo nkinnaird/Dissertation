@@ -43,7 +43,7 @@ where $\phi(t)$ can in general be expanded to higher orders. Because the phase i
 \end{table}
 
 
-Properly evaluated systematic errors should in general be static with respect to the amount of statistics. Run~1 of E989 consisted of more than four separate datasets with distinct running conditions, necessitating the need for independent systematic uncertainty evaluations. Such uncertainty evaluations for four of the Run~1 datasets are presented here. Systematic errors for the lost muon phase error, the E-field and pitch corrections, and an error due to the bad resistors are dependent on analyses from other working groups. The numbers given here for them are preliminary estimations.
+Properly evaluated systematic errors should in general be static with respect to the amount of statistics. Run~1 of E989 consisted of more than four separate datasets with distinct running conditions, necessitating the need for independent systematic uncertainty evaluations. Such uncertainty evaluations for four of the Run~1 datasets are presented here. Systematic errors for the lost muon phase error and the the E-field and pitch corrections are dependent on analyses from other working groups. The numbers given here for them are preliminary estimations.
 
 
 
@@ -763,14 +763,52 @@ Upon general inspection of the fit points themselves, it was found that the tren
 \end{table}
 
 
-
-\subsection{Systematics errors due to bad resistors}
-
-
-\subsection{Systematics errors in the E-field and pitch corrections}
+\subsection{Systematic errors in the E-field and pitch corrections}
 
 
+Since corrections affect the final fitted wa value as in secref blah, any errors in the calculations themselves can be thought of as errors in the precession frequency mesaurment...
 
+
+-explain where these errors come from - point back to equations for the correction
+    - trackers for pitch correction which cares about vertical width
+        - cite James' elba talk for pitch
+    - fast rotation analysis for E field correction which cares about radial equilibrium
+        - cite antoines actual notes on the separate datasets
+-explain how other working groups are on it
+    -mention how simulation efforts are under way as well for comparison
+-quote preliminary estimations
+-might want to talk a little bit about the bad resistors and how that is folded in to the above errors
+    -cite dave rubins elba talk and one of his more recent updates
+-remind of old e821 numbers - values and errors (maybe values in the conclusions and just the errors here)
+
+
+
+
+Pitch numbers:
+
+% 60h: expected: ~160 ± 15 ppb
+% That comes from 9.1 + 16 ppb from acceptance + 10 ppb from simulation/model uncertainty 
+
+
+\cite{PitchReview,PitchElba}
+
+
+
+Antoine numbers:
+
+% 60h: CE = −463 ± 1 (stat) ± 27 (syst) ppb.
+% 9d: CE = −463 ± 1 (stat) ± 36 (syst) ppb
+% Endgame: CE = −467 ± 1 (stat) ± 20 (syst) ppb
+
+\cite{AntoineEField60h,AntoineEField9d,AntoineEFieldEndgame}
+
+
+Dave numbers:
+
+Pitch: $\sim 5 ppb$
+E-field: $\sim 20 ppb$
+
+\cite{DaveRubinElbaBadResistors,DaveRubinBadResistorsUpdate}
 
 
 
@@ -812,7 +850,6 @@ Upon general inspection of the fit points themselves, it was found that the tren
     Lost muon phase bias & & & & \\
     E field correction & & & & \\
     Pitch correction & & & & \\
-    Bad resistors & & & & \\
   \hline
     Quadruature Sum & & & & \\
   \hline\hline
