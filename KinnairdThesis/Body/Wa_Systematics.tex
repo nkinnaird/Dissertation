@@ -630,7 +630,7 @@ where $d\langle\phi\rangle/dt$ is the change in average phase over the course of
     \begin{align} \label{eq:phaseChangeLostMuons}
         \frac{d\langle\phi\rangle}{dt} = f_{s} \cdot f_{l} \cdot \Delta\phi_{s-l},
     \end{align}
-where $f_{s}$ is the fraction of stored muons to all muons, $f_{l}$ is the fractional loss rate, and $\Delta\phi_{s-l}$ is the phase difference between the stored and lost muon populations. The simulation studies in the afore-referenced document gives estimates of $f_{s} \approx 0.9$ and $\Delta\phi_{s-l} \approx \SI{1}{mrad}$. The fractional losses (the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter, assuming no losses are included in $L(t)$ before the fit start time) for the Run~1 precession frequency analysis datasets as determined in this analysis are shown in \figref{fig:fractionallosses}. As shown the losses rise sharply at early times before leveling off to a constant rate around \mus{100} into the fill. Taking the first \mus{70} of the fit and assuming the loss rate is constant over the course of the fill, the approximate loss rates for the different datasets can be determined\footnote{While the loss rate levels off after \mus{100}, losses occur mostly at early times, so this is a fine approximation.}. These are given in \tabref{tab:systematicError_lostMuonBias}. Applying the approximate loss probabilities into \equref{eq:phaseChangeLostMuons}, the systematic shifts in the precession frequency are found. They are included in \tabref{tab:systematicError_lostMuonBias}.
+where $f_{s}$ is the fraction of stored muons to all muons, $f_{l}$ is the fractional loss rate, and $\Delta\phi_{s-l}$ is the phase difference between the stored and lost muon populations. The simulation studies in the afore-referenced document gives estimates of $f_{s} \approx 0.9$ and $\Delta\phi_{s-l} \approx \SI{1}{mrad}$. The fractional losses (the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter, assuming no losses are included in $L(t)$ before the fit start time) for the Run~1 precession frequency analysis datasets as determined in this analysis are shown in \figref{fig:fractionallosses}. As shown the losses rise sharply at early times before leveling off to a constant rate around \mus{100} into the fill. Taking the first \mus{70} of the fit and assuming the loss rate is constant over the course of the fill, the approximate loss rates for the different datasets can be determined\footnote{While the loss rate levels off after \mus{100}, losses occur mostly at early times, so this is a fine approximation.}. These are given in \tabref{tab:systematicError_lostMuonBias}. Applying the approximate loss probabilities into \equref{eq:phaseChangeLostMuons}, along with $\omega_{a} \approx \SI{1.44}{rad/\mus{}}$, the systematic shifts in the precession frequency are found. They are included in \tabref{tab:systematicError_lostMuonBias}.
 
 
 
@@ -666,6 +666,15 @@ where $f_{s}$ is the fraction of stored muons to all muons, $f_{l}$ is the fract
 
 
 Taking the shifts in \wa as the systematic errors, the approximations here are on the order of \SI{50}{} -- \SI{60}{ppb} for the 60h and Endgame datasets, and on the order of \SI{20}{ppb} for the HighKick and 9d datasets. These estimates are the same order of magnitude as determined in other evaluations with slightly different parameters \cite{SudeshnaElbaTalk}. Estimates on the absolute upper bound of the systematic error is of order \SI{125}{ppb} \cite{AFThesis,MikeLosses}. As simulations improve and more studies are undertaken, the uncertainties here may be replaced in favor of actual corrections, in which case the systematic errors would then be the uncertainties in the evaluation of those corrections. While not below the target goal of \SI{20}{ppb}, the systematic errors listed here are nevertheless small compared to the Run~1 statistical errors, expected to decrease going forward in future runs.
+
+
+\subsection{Systematic error from differential decay}
+
+
+Muons are injected into the storage ring with a range of momenta. Muons with larger momenta will in general live longer than muons with smaller momenta due to their time-dilated lifetimes. Muons at smaller radii therefore decay more often, leading to an increasing beam radial position and average momentum over the course of a fill. Decay positrons at greater radii with larger momenta in general take longer to reach calorimters than those at small radii with smaller momenta. In the precession frequency measurement, the hit times of the detected positrons naturally correspond to offset times from when the muons decayed equal to the drift times. Because the average drift time changes over the course of a fill due to the average momentum distribution increase, there is thus a changing phase over the course of a fill. To add to that, as discussed in \secref{sub:lostmuonserror}, there is a phase-momentum correlation for muons at injection. This only compounds upon the changing phase even further. The systematic error due to this effect is called ``differential decay.'' 
+
+Underway beamline simulations are needed to fully measure the phase-momentum correlation and fully estimate this systematic error. A calculation for the previous E821 experiment resulted in a shift on \wa of $\langle \omega_{a} \rangle / \omega_{a} \approx \SI{-36.8}{ppb}$ \cite{DiffDecayJason}. An estimation of the error neglecting the phase momentum correlation yielded a shift of \SI{-3.8}{ppb} \cite{DiffDecayMetodiev}. Finally, an estimation by a first principles approach gave a value of \SI{-12}{ppb} \cite{AFThesis}. The level of the fully evaluated systematic shift may not be small compared to the final target systematic error goal, but for Run~1 the scale of these estimates is deemed to be acceptable. For the purposes of this document, an upper bound of \SI{40}{ppb} is taken as the systematic error. Because the differential decay effect only increases the average stored momentum of the beam and can't decrease it, a correction can be applied if any final uncertainty is deemed to be too large. 
+
 
 
 
@@ -727,9 +736,6 @@ Similarly, the sensitivities of $R$ to the chosen muon lifetime are very small, 
 
 
 
-
-
-
 \subsection{Binning systematic errors}
 
 
@@ -779,11 +785,6 @@ Upon general inspection of the fit points themselves, it was found that the tren
 \label{tab:binParametersScan}
 \end{table}
 
-
-
-\subsection{Systematic error from differential decay}
-
--cite aaron
 
 
 \subsection{Systematic errors in the E-field and pitch corrections}
@@ -870,6 +871,7 @@ The above corrections make certain assumptions with regards to the conditions wh
     Quadruature Sum & & & & \\  
   \hline\hline
     Lost muon phase bias & 53.6 & 17.9 & 22.3 & 58.0 \\
+    Differential decay & < 40 & < 40 & < 40 & < 40 \\
     Pitch correction & 15.8 & 15.8 & 15.8 & 15.8 \\
     E-field correction & 33.6 & 41.2 & 41.2 & 28.3 \\
   \hline
