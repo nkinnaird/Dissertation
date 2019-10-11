@@ -614,41 +614,53 @@ Of more interest is the choice of fixed value for the \K parameter in the ratio 
 
 
 
-
-- a systematic error comes from the fact that muons are lost preferentially at earlier times (changing over the course of a fill)
--if lost muons originate from different points in the beam line, then they will have precessed a different amount leading to a different phase
+If muon losses come from a population of muons with a different average phase than the stored muons, then there will be a phase shift over the course of a fill. This combined with the fact that muons are preferentially lost at early times implies the extracted \wa frequency will be systematically pulled. Simulation and data have shown a correlation between phase and momentum at injection \cite{HannahLossStudy,SudeshnaElbaTalk}. If the losses are momentum dependent and the phase-momentum correlation is preserved after injection, then there will be a systematic error. The phase-momentum correlation originates from the fact that muons are born at different points within the accelerator beamline before injection. Muons born at earlier locations in the beamline will live longer within the magnetic field, during which their spins will precess and their \gmtwo phases change. Such muons could reasonably exist within a different injection parameter phase space, such that they exhibit larger betatron amplitudes once stored in the ring. Because losses most likely come from muons which oscillate to high betatron amplitudes, such a systematic effect is likely to exist, and thus an error needs to be estimated. Further simulation efforts are underway, along with data-driven studies, to understand and quantify the phase-momentum correlation and momentum-dependent loss probabilities \cite{MikeLosses}. Here is given an estimation of the muon loss phase bias systematic error using the author's own calculations for the losses for the different Run~1 datasets.
 
 
--this error dominates the uncertainty...
-
-
--probably move losses fraction figure to here somewhere
-
-
-The fractional losses (the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter) for the Run~1 precession frequency analysis datasets are shown in \figref{fig:fractionallosses}.
+The systematic shift in \wa can be written as
+    \begin{align}
+        \frac{\Delta\omega_{a}}{\omega_{a}} = \frac{1}{\omega_{a}}\frac{d\langle\phi\rangle}{dt},
+    \end{align}
+where $d\langle\phi\rangle/dt$ is the change in average phase over the course of a fill. With some assumpations made with regards to stored and lost muon populations this can be written as \cite{MikeLosses}
+    \begin{align} \label{eq:phaseChangeLostMuons}
+        \frac{d\langle\phi\rangle}{dt} = f_{s} \cdot f_{l} \cdot \Delta\phi_{s-l},
+    \end{align}
+where $f_{s}$ is the fraction of stored muons to all injected muons, $f_{l}$ is the fractional loss rate, and $\Delta\phi_{s-l}$ is the phase difference between the stored and lost muon populations. The simulation studies in the afore-referenced document gives estimates of $f_{s} \approx 0.9$ and $\Delta\phi_{s-l} \approx \SI{1}{mrad}$, which are reasonable approximations of the scales of the real numbers. The fractional losses (the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter) for the Run~1 precession frequency analysis datasets as determined in this analysis are shown in \figref{fig:fractionallosses}. As shown the losses rise sharply at early times before leveling off to a constant rate around \mus{100} into the fill. Taking the first \mus{70} of the fit and assuming the loss rate is constant over the course of the fill, the approximate loss rates for the different datasets are given in \tabref{tab:systematicError_lostMuonBias}\footnote{While the loss rate levels off after \mus{100}, most losses occur mostly at early times, so this is a fine approximation.}. Applying the approximate loss probabilities into \equref{eq:phaseChangeLostMuons}, the systematic shifts in the precession frequency are found. They are included in \tabref{tab:systematicError_lostMuonBias}.
 
 
 
 \begin{figure}[]
     \centering
     \includegraphics[width=.8\textwidth]{fractionalLosses_dataset_comparison}
-    \caption[Fractional muon losses in the analyzed Run~1 datasets]{Fractional losses for the Run~1 precession frequency analysis datasets. The curves begin at \mus{30.2} which is where the fit begins. A value of 1\% at a specific time $t$ indicates that there are 1\% fewer stored muons at that time than there would be if there were no losses at all. The Endgame and 60h datasets can be seen to have the most losses, while the 9d and HighKick have less. This is due to the higher kicks in the latter datasets which put the muon beam on a more central orbit. The upward tail at the end of the Endgame dataset corresponds to the remnant proton contamination.}
+    \caption[Fractional muon losses in the analyzed Run~1 datasets]{Fractional losses for the Run~1 precession frequency analysis datasets. The curves begin at \mus{30.2} which is where the fit begins. A value of 1\% at a specific time $t$ indicates that there are 1\% fewer stored muons at that time than there would be if there were no losses at all. The Endgame and 60h datasets can be seen to have the most losses, while the 9d and HighKick have less. This is due to the higher kicks in the latter datasets which put the stored muon beam on a more central orbit. The upward tail at the end of the Endgame dataset corresponds to the remnant proton contamination.}
     \label{fig:fractionallosses}
 \end{figure}
 
 
 
+\begin{table}[]
+\centering
+% \small
+% \setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{0.75\linewidth}{@{\extracolsep{\fill}}lcG}
+  \hline
+    \multicolumn{3}{c}{\textbf{Systematic Error due to Lost Muon Phase Bias}} \\
+  \hline\hline
+    Dataset & $f_{l}$ (\%/\mus{70}) & \multicolumn{1}{c}{$\Delta\omega_{a}/\omega_{a}$ (ppb)} \\ 
+  \hline
+    60h & 0.60 & -53.6 \\ 
+    HighKick & 0.20 & -17.9 \\
+    9d & 0.25 & -22.3 \\
+    Endgame & 0.65 & -58.0 \\
+  \hline
+\end{tabular*}
+\caption[Systematic error due to lost muon phase bias]{Loss rates and associated change in \wa for the Run~1 precession frequency analysis datasets. Loss rates are determined by inspection of the respective curves for the different datasets, and are approximate. The systematic shifts are negative, due to the fact that the average phase of the stored muons is greater than that of lost muons, as determined in simulation.}
+\label{tab:systematicError_lostMuonBias}
+\end{table}
 
 
-
--also Sudeshna's talk in the Elba collaboration meeting - this probably just for the systematic error
-
-
-
-
-
-
--put in a chart at the end summarizing the total lost muons systematic error - unless I want to keep the pieces separate, and have one giant chart at the end which might be too much
+Taking the shifts in \wa as the systematic errors, the approximations here are on the order of \SI{50}{} -- \SI{60}{ppb} for the 60h and Endgame datasets, and on the order of \SI{20}{ppb} for the HighKick and 9d datasets. These estimates are the same order of magnitude as determined in other evaluations with slightly different parameters \cite{SudeshnaElbaTalk}. Estimates into the absolute upper bound of the systematic error is of order \SI{125}{ppb} \cite{AFThesis,MikeLosses}. As simulations improve and more studies are undertaken, the uncertainties here may be replaced in favor of actual corrections, in which case the systematic errors would then be the uncertainties in the evaluation of those corrections. While not below the target goal of \SI{20}{ppb}, the systematic errors listed here are nevertheless small compared to the Run~1 statistical errors.
 
 
 
@@ -763,6 +775,12 @@ Upon general inspection of the fit points themselves, it was found that the tren
 \end{table}
 
 
+
+\subsection{Systematic error from differential decay}
+
+-cite aaron
+
+
 \subsection{Systematic errors in the E-field and pitch corrections}
 
 
@@ -816,6 +834,7 @@ The above corrections make certain assumptions with regards to the conditions wh
 
 -compare back to target table
 -all errors small compared to statistical errors on datasets..
+-while not the final run 1 errors, the numbers here should be a close approximation
 
 
 \begin{table}[]
@@ -845,7 +864,7 @@ The above corrections make certain assumptions with regards to the conditions wh
   \hline
     Quadruature Sum & & & & \\  
   \hline\hline
-    Lost muon phase bias & & & & \\
+    Lost muon phase bias & 53.6 & 17.9 & 22.3 & 58.0 \\
     Pitch correction & 15.8 & 15.8 & 15.8 & 15.8 \\
     E-field correction & 33.6 & 41.2 & 41.2 & 28.3 \\
   \hline
@@ -857,6 +876,4 @@ The above corrections make certain assumptions with regards to the conditions wh
 \caption[Systematic errors evaluated in the Run~1 precession frequency datasets]{Final systematic errors evaluted in the Run~1 precession frequency analysis to the 60h, HighKick, 9d, and Endgame datasets. All units are in ppb. The table is split into two sections. The upper section consists of systematic errors directly evaluated by the author while the lower section consists of preliminary systematic estimates by other working groups. The E-field and pitch correction errors have been added in quadrature with the quadrupole errors. The publication errors for the Run~1 datasets will change from these as the final DQC cuts are made and analyses improved, however the scale of these errors will remain consistent.}
 \label{tab:FinalSystematicErrors}
 \end{table}
-
-
 
