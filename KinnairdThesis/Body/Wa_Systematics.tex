@@ -360,34 +360,68 @@ where $E_{0}$ is the `true' energy of the detected positron and $E$ is the as-me
 \end{figure}
 
 
-\tabref{tab:systematicError_IFG} gives the sensitivities of the T-Method and Ratio Method fits for all the datasets, along with the T-Method minimum for $C_{A}$, and the systematic errors for the Ratio Method. The T-Method results, while not the primary subject of this analysis, nevertheless vary between the datasets. The various minima are not consistent with one another, implying there might be some small gain correction imperfections which have not been fully accounted for. Indeed recent investigations into the applied gain corrections show that for the HighKick and Endgame datasets the out-of-fill corrections were neglected, and in general the order of the out-of-fill and STDP corrections may be switched \cite{GainOscEndgameHighKick,WhosOnFirst}. The former should produce no systematic error as described before, and the latter was shown to have a near-negligible effect on the final fitted $R$ value, of order \SI{20}{ppb}.
+\tabref{tab:systematicError_IFG} gives the results for the IFG amplitude scans for the different datasets. Sensitivities for both the T-Method and Ratio Method fits along with the T-Method minimum for $C_{A}$ are included. The uncertainties on the IFG amplitudes from fits to the laser data were in general of order 25\% \cite{AnnaPersonalComm}. This uncertainty multiplied against the as-measured Ratio Method sensitivities results in systematic errors of \SI{<6}{ppb} for the various datasets. The individual numbers are given in column 5 of \tabref{tab:systematicError_IFG}.
 
 
+Examining the table in more detail however, some interesting features can be seen. The T-Method results, while not the primary subject of this analysis, nevertheless vary between the datasets, in that the scan minima are not consistent with one another. For the Ratio Method results, the HighKick and Endgame datasets exhibit greater sensitivities to the IFG amplitude than the 60h and 9d datasets. The HighKick dataset can be seen to have a negative sensitivity compared to the positive sensitivities of the other datasets, and the T-Method sensitivities for all datasets. The Endgame dataset has a greater sensitivity stemming from the fact that fits to the multiplicative factors of $C_{A} = 1.75$ and $C_{A} = 2$ produced noticeably better \chisq's and higher $R$ values, $\mathcal{O}(\SI{40}{ppb})$. These fits pulled the slope up from what is otherwise a very flat fit to the rest of the points, and imply that the default IFG multiplier should be greater than 1.
+
+
+These various peculiarities imply there are imperfections in the gain corrections which have not been fully accounted for. Indeed recent investigations into the applied gain corrections show that for the HighKick and Endgame datasets the out-of-fill corrections were neglected \cite{GainOscEndgameHighKick}. While this does not introduce a systematic uncertainty as a function of time in-fill as described before, it does shift the scale of the correction and by extension the extracted $R$ value. In order to determine more conservative bounds on the systematic errors in order to account for these deficiencies, the absolute changes in $R$ for the 0x and 2x multiplier fits were examined. These values are included in \tabref{tab:systematicError_IFG}. The maximum of the two values was then taken as the systematic error on $R$ due to the IFG amplitude. In general the systematic errors as calculated from the maximum of the 0x or 2x fits are an order of magnitude larger than those errors calculated directly from the sensitivities. Because the scale of these numbers is still small compared to the Run~1 statistical errors however, they have been deemed acceptable for this analysis. The confidence in the scale of the Ratio Method results is ultimately preserved from the fact that the Ratio Method fits are not as sensitive to the gain variations as the T-Method fits, as the gain effects divide out. Going forward towards the end of the Run~1 analysis, once the outstanding gain issues have been resolved the systematic errors will be calculated directly from the sensitivities.
+
+
+% \begin{table}[]
+% \centering
+% % \small
+% % \setlength\tabcolsep{12pt}
+% \renewcommand{\arraystretch}{1.2}
+% \begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lccGK}
+%   \hline
+%     \multicolumn{5}{c}{\textbf{Systematic Error due to IFG Amplitude}} \\
+%   \hline\hline
+%             & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} \\
+%     Dataset & \multicolumn{1}{c}{$dR/dC_{A}$} & \multicolumn{1}{c}{$C_{A_{\text{min}}}$} & \multicolumn{1}{c}{$dR/dC_{A}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
+%   \hline
+%     60h & 94.1 & 0.57 & 5.4 & 1.4 \\
+%     HighKick & 69.5 & 0.70 & -23.6 & 5.9 \\
+%     9d & 64.9 & 0.27 & 1.4 & 0.4 \\ 
+%     Endgame & 96.2 & 0.19 & 22.7 & 5.7 \\
+%   \hline
+% \end{tabular*}
+% \caption[Systematic error due to IFG amplitude]{Sensitivities and systematic errors for the IFG amplitude. T-Method sensitivities are included for comparison, along with the \chisq minima. Units for errors and sensitivities are in ppb.}
+% \label{tab:systematicError_IFG}
+% \end{table}
+
+
+\begin{landscape}
 \begin{table}[]
 \centering
 % \small
 % \setlength\tabcolsep{12pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lccGK}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lccGKGGK}
   \hline
-    \multicolumn{5}{c}{\textbf{Systematic Error due to IFG Amplitude}} \\
+    \multicolumn{8}{c}{\textbf{Systematic Error due to IFG Amplitude}} \\
   \hline\hline
-            & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} \\
-    Dataset & \multicolumn{1}{c}{$dR/dC_{A}$} & \multicolumn{1}{c}{$C_{A_{\text{min}}}$} & \multicolumn{1}{c}{$dR/dC_{A}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
+            & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} \\
+    Dataset & \multicolumn{1}{c}{$dR/dC_{A}$} & \multicolumn{1}{c}{$C_{A_{\text{min}}}$} & \multicolumn{1}{c}{$dR/dC_{A}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}_{\sigma = 0.25}$} & \multicolumn{1}{c}{$\Delta R_{0x}$} & \multicolumn{1}{c}{$\Delta R_{2x}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}_{\text{max - 0x/2x}}$} \\
   \hline
-    60h & 94.1 & 0.57 & 5.4 & 1.4 \\
-    HighKick & 69.5 & 0.70 & -23.6 & 5.9 \\
-    9d & 64.9 & 0.27 & 1.4 & 0.4 \\ 
-    Endgame & 96.2 & 0.19 & 22.7 & 5.7 \\
+    60h & 94.1 & 0.57 & 5.4 & 1.4 & 8.2 & 12.4 & - \\
+    HighKick & 69.5 & 0.70 & -23.6 & 5.9 & 28.6 & -16.0 & 28.6 \\
+    9d & 64.9 & 0.27 & 1.4 & 0.4 & -2.5 & -3.9 & - \\
+    Endgame & 96.2 & 0.19 & 22.7 & 5.7 & -6.9 & 43.6 & 43.6 \\
   \hline
 \end{tabular*}
-\caption[Systematic error due to IFG amplitude]{Sensitivities and systematic errors for the IFG amplitude. T-Method sensitivities are included for comparison, along with the \chisq minima. Units for errors and sensitivities are in ppb.}
+\caption[Systematic error due to IFG amplitude]{Sensitivities and systematic errors for the IFG amplitude. T-Method sensitivities are included for comparison, along with the \chisq minima. Also included are changes in $R$ for fits with IFG amplitude multipliers of 0x and 2x. Systematic error columns are in bold, where the one on the left corresponds to the Ratio Method sensitivity multiplied by a 25\% uncertainty in the amplitude, and the one on the right corresponds to the absolute value of the maximum change in $R$ with the 0x and 2x multipliers applied. Only the HighKick and Endgame values are used from the column on the far right. Units for errors and sensitivities are in ppb.}
 \label{tab:systematicError_IFG}
 \end{table}
+\end{landscape}
+
+
+% , and in general the order of the out-of-fill and STDP corrections may be switched \cite{WhosOnFirst}. 
+% the latter was shown to have a near-negligible effect on the final fitted $R$ value, of order \SI{20}{ppb}.
 
 
 
-The confidence in the Ratio Method results is preserved from the fact that the Ratio Method fits are not as sensitive to the gain variations as the T-Method fits, as the gain effects divide out. It should still be noticed however that there are some significantly varying sensitivities in the Ratio Method to $C_{A}$, as evidenced by the values for the HighKick and Endgame datasets. For the Endgame dataset the fits to the multiplicative factors of $C_{A} = 1.75$ and $C_{A} = 2$ produced noticeably better \chisq's and higher $R$ values, $\mathcal{O}(\SI{40}{ppb})$. These fits pulled the slope up from what is otherwise a very flat fit to the rest of the points. For the HighKick dataset a negative sensitivity was observed, with all points lying consistently along the trend with one another with no outliers. This sign is opposite to that of the other datasets and to the T-Method sensitivities. This combined with the near-zero slopes of the 60h and 9d datasets gives some implication that these sensitivities are all largely subject to statistical fluctuations in the included positrons which inputs a degree of randomness into the final measured sensitivities. The changes in $R$ with the IFG function applied versus without are \SI{8.2}{}, \SI{28.6}{}, \SI{-2.5}{}, and \SI{-6.9}{ppb} for the 60h, HighKick, 9d, and Endgame datasets respectively. These values in general don't have a preferred sign, and give an upper bound to any systematic effects that a mis-applied IFG function might cause. \textbf{Should I include this information at all?} The uncertainties on the IFG amplitudes from fits to the laser data were in general of order 25\% \cite{AnnaPersonalComm}. This uncertainty multiplied against the as-measured Ratio Method sensitivities results in systematic errors of \SI{<6}{ppb} for the various dataset. The individual numbers are given in \tabref{tab:systematicError_IFG}.
 
 
 
@@ -417,7 +451,8 @@ The STDP correction is in many ways the same as the IFG correction \cite{STDP}. 
 % I saw a change in R for the ratio method that was 12.6 ppb the other way, but the p values were very differnt and so I think it's just coincidence, because I expect the ratio method randomization to change the value by a lot
 
 
-\tabref{tab:GainErrorsTotal} gives the quadrature sum for the total gain systematic errors for the Run~1 precession frequency analysis datasets. As shown for each dataset the total error is below the target final error of \SI{20}{ppb}. It should be noted that there is evidence of the need for a correction for some type of residual gain effect \cite{AFThesis,SweigartEndgameOddities} which is somehow unmeasurable by the laser system\footnote{This implies the effect is very small.}. This combined with the previously mentioned issues in the Endgame and HighKick datasets warrant re-evaluations of these errors once the final datasets are available. Because these issues are not directly observable in the Ratio Method results due to the reduction in sensitivity compared to the T-Method however, the systematic errors calcualted here are a reasonable estimation of where the final errors will end up.
+\tabref{tab:GainErrorsTotal} gives the quadrature sum for the total gain systematic errors for the Run~1 precession frequency analysis datasets. As shown for the 60h and 9d datasets the total error is below the target final error of \SI{20}{ppb}. For the HighKick and Endgame datasets, the errors are larger than \SI{20}{ppb} but are nevertheless at the same scale, and should reduce once their known issues have been resolved. It should be noted that there is further evidence of the need for a correction for some type of residual gain effect which is somehow unmeasurable by the laser system \cite{AFThesis,SweigartEndgameOddities}\footnote{This implies the effect is very small.}. This combined with the previously mentioned issues in the Endgame and HighKick datasets warrant re-evaluations of the gain systematic errors once the final datasets are available. It is expected that the errors given here are nevertheless reasonable approximations of what the final errors will end up, especially due to the Ratio Method's insensitivity to the gain relative to the T-Method. As a reminder, the errors given here even with the crude approximations are small compared to the statistical errors of the various datasets.
+
 
 
 \begin{table}[]
@@ -430,10 +465,10 @@ The STDP correction is in many ways the same as the IFG correction \cite{STDP}. 
   \hline\hline
     Type of Error & \multicolumn{1}{c}{60h} & \multicolumn{1}{c}{HighKick} & \multicolumn{1}{c}{9d} & \multicolumn{1}{c}{Endgame} \\
   \hline
-    IFG   & 1.4 & 5.9 & 0.4 & 5.7 \\
+    IFG   & 1.4 & 28.6 & 0.4 & 43.6 \\
     STDP  & 11.0 & 11.0 & 11.0 & 11.0 \\
   \hline
-    Quadrature sum & 11.1 & 12.5 & 11.0 & 12.4 \\
+    Quadrature sum & 11.1 & 30.6 & 11.0 & 45.0 \\
   \hline 
 \end{tabular*}
 \caption[Total gain-related systematic errors]{Total gain-related systematic errors for the Run~1 precession frequency analysis datasets.}
@@ -509,7 +544,7 @@ The fitted values for the $C$ constants and the changes in the final fitted $R$ 
 
 
 
-\tabref{tab:CBOErrorsTotal} gives the quadrature sum for the total CBO systematic errors for the Run~1 precession frequency analysis datasets. As shown for each dataset the total error is below the target final error of \SI{30}{ppb}. For future runs of E989 with more statistics it will be a question of whether the scale of these errors remains consistent or not. The changing frequency of the CBO in Run~1 was eliminated in Run~2, implying a reduction in any associated systematic errors. The increased statistics combined with the tracking analysis should constrain measurements of the CBO decoherence envelope even further, similarly reducing any associated systematic errors. On the other side of the coin, increased statistics might bring out higher order CBO effects which require improved modelling.
+\tabref{tab:CBOErrorsTotal} gives the quadrature sum for the total CBO systematic errors for the Run~1 precession frequency analysis datasets. As shown for each dataset the total error is below the target final error of \SI{30}{ppb}. For future runs of E989 with more statistics it will be a question of whether the scale of these errors remains consistent or not. The changing frequency of the CBO in Run~1 was eliminated in Run~2, implying a reduction in any associated systematic errors. The increased statistics combined with the tracking analysis should constrain measurements of the CBO decoherence envelope even further, similarly reducing any associated systematic errors. On the other side of the coin, increased statistics might bring out higher order CBO effects which require improved modeling.
 
 
 % should I cite and talk about David's new cbo model here?
@@ -584,8 +619,8 @@ As mentioned in \secref{subsec:lostmuons}, the triples spectrum is made with cut
 
 
 
-Because \K is fixed in the Ratio Method fits from corresponding T-Method fits, the statistical correlation to $R$ is neglected and a systematic error must be estimated. The systematic error can be determined by simply scanning over the value of \K as in \figref{fig:kappaLossScan}. The error on \K is simply taken as the statistical error determined in the T-Method fit to the same data. \tabref{tab:systematicError_kappaLoss} gives the systematic errors on \R for the Run~1 precession frequency analysis datasets. As shown the errors are all small, $\delta R < \SI{5}{ppb}$.
-
+Because \K is fixed in the Ratio Method fits from corresponding T-Method fits, the statistical correlation to $R$ is neglected and a systematic error must be estimated. The systematic error can be determined by scanning over the value of \K as in \figref{fig:kappaLossScan}. The error on \K is taken as the statistical error determined in the T-Method fit to the same data. \tabref{tab:systematicError_kappaLoss} gives the systematic errors on \R for the Run~1 precession frequency analysis datasets. As shown the systematic errors as calculated from the sensitivities are all small, $\delta R < \SI{5}{ppb}$. However, as mentioned in \secref{sub:gainerror}, there were recently discovered issues in the applied gain corrections for the HighKick and Endgame datasets. Because the \K parameter is correlated to the gain, this implies the fitted \K values are wrong by a some amount for those datasets. In order to determine conservative errors due to the fixed \K parameter in those two cases, the \K values for the fits with 2x the IFG multiplier were used and compared to the default fits with 1x the IFG multiplier. The \K values for the HighKick and Endgame datasets with the 2x multiplier were 9.510 and 2.766 respectively. Compared to the default fit results of 5.651 and 2.345, these \K values are $11.1\sigma$ and $5.5\sigma$ away in terms of the T-Method statistical error. Multiplying the Ratio Method sensitivities by these larger errors gives the systematic errors in the far right column of \tabref{tab:systematicError_kappaLoss}. These alternative errors are an order of magnitude or so greater than the errors determined from the sensitivities, but are nevertheless still small compared to the Run~1 statistical errors. Once the final datasets have been created with the fixed gain parameters, the systematic errors will be re-evaluated. 
+ 
 %Interestingly enough, though the Endgame dataset has the most lost muons, it is seen that the change in \R versus \K is larger in the other datasets. This is potentially due to the fact that \textbf{try to come up with something for this unless I can explain it away as an oddity.}
 
 
@@ -597,36 +632,61 @@ Because \K is fixed in the Ratio Method fits from corresponding T-Method fits, t
 \end{figure}
 
 
+% \begin{table}[]
+% \centering
+% % \small
+% % \setlength\tabcolsep{10pt}
+% \renewcommand{\arraystretch}{1.2}
+% \begin{tabular*}{0.75\linewidth}{@{\extracolsep{\fill}}lGcJG}
+%   \hline
+%     \multicolumn{5}{c}{\textbf{Systematic Error due to Fixed $\kappa_{loss}$}} \\
+%   \hline\hline
+%     Dataset & \multicolumn{1}{c}{$dR/d\kappa_{loss}$} & $\sigma_{\kappa_{loss}}$ & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} & \multicolumn{1}{c}{$\Delta R$ (with - without)} \\
+%   \hline
+%     60h & -3.5 & 0.338 & 1.2 & -31.4 \\
+%     HighKick & -7.1 & 0.697 & 4.9 & -40.1 \\
+%     9d & -18.3 & 0.170 & 3.1 & -45.7 \\
+%     Endgame & -2.6 & 0.038 & 0.1 & -6.1 \\
+%   \hline
+% \end{tabular*}
+% \caption[Systematic error due to fixed $\kappa_{loss}$]{Systematic error due to the fixed $\kappa_{loss}$ parameter in the Ratio Method fits for the Run~1 precession frequency analysis datasets. The bold column gives the systematic error on \R. The last column on the right gives the change in \R with the lost muons term included versus without, providing an absolute upper bound on the systematic error. All units are in ppb except for the $\sigma_{\kappa_{loss}}$ parameter which is unit-less. $\sigma_{\kappa_{loss}}$ comes from the T-Method fit results and scales with the number of statistics.}
+% \label{tab:systematicError_kappaLoss}
+% \end{table}
+
+
 \begin{table}[]
 \centering
 % \small
 % \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{0.75\linewidth}{@{\extracolsep{\fill}}lGcJG}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lGcJGK}
   \hline
-    \multicolumn{5}{c}{\textbf{Systematic Error due to Fixed $\kappa_{loss}$}} \\
+    \multicolumn{6}{c}{\textbf{Systematic Error due to Fixed $\kappa_{loss}$}} \\
   \hline\hline
-    Dataset & \multicolumn{1}{c}{$dR/d\kappa_{loss}$} & $\sigma_{\kappa_{loss}}$ & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} & \multicolumn{1}{c}{$\Delta R$ (with - without)} \\
+    Dataset & \multicolumn{1}{c}{$dR/d\kappa_{loss}$} & $\sigma_{\kappa_{loss}}$ & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} & \multicolumn{1}{c}{$\Delta R_{\text{(w/ - w/o)}}$} &\multicolumn{1}{c}{$\boldsymbol{\delta R}_{2x-IFG}$} \\
   \hline
-    60h & -3.5 & 0.338 & 1.2 & -31.4 \\
-    HighKick & -7.1 & 0.697 & 4.9 & -40.1 \\
-    9d & -18.3 & 0.170 & 3.1 & -45.7 \\
-    Endgame & -2.6 & 0.038 & 0.1 & -6.1 \\
+    60h & -3.5 & 0.338 & 1.2 & -31.4 & - \\
+    HighKick & -7.1 & 0.697 & 4.9 & -40.1 & 39.1 \\
+    9d & -18.3 & 0.170 & 3.1 & -45.7 & - \\
+    Endgame & -2.6 & 0.038 & 0.1 & -6.1 & 28.9 \\
   \hline
 \end{tabular*}
-\caption[Systematic error due to fixed $\kappa_{loss}$]{Systematic error due to the fixed $\kappa_{loss}$ parameter in the Ratio Method fits for the Run~1 precession frequency analysis datasets. The bold column gives the systematic error on \R. The last column on the right gives the change in \R with the lost muons term included versus without, providing an absolute upper bound on the systematic error. All units are in ppb except for the $\sigma_{\kappa_{loss}}$ parameter which is unit-less. $\sigma_{\kappa_{loss}}$ comes from the T-Method fit results and scales with the number of statistics.}
+\caption[Systematic error due to fixed $\kappa_{loss}$]{Systematic error due to the fixed $\kappa_{loss}$ parameter in the Ratio Method fits for the Run~1 precession frequency analysis datasets. All units are in ppb except for the $\sigma_{\kappa_{loss}}$ parameter which is unit-less. $\sigma_{\kappa_{loss}}$ comes from the T-Method fit results and scales with the number of statistics. The bold columns gives the systematic errors on \R, where the one on the left corresponds to the systematic error as calculated from the sensitivity, and the one on the right corresponds to the systematic error for the HighKick and Endgame datasets using the \K value determined from fits with 2x the IFG multiplier.}
 \label{tab:systematicError_kappaLoss}
 \end{table}
 
+% 21.1 for 60h using same procedure
+% 134.2 for 9d using same procedure
 
-The most dangerous potential systematic error has to due with the phases of the lost muons. If muon losses come from a population of muons with a different average phase than the stored muons, then there will be a phase shift over the course of a fill. This combined with the fact that muons are preferentially lost at early times implies the extracted \wa frequency will be systematically pulled. Simulation and data have shown a correlation between phase and momentum at injection \cite{HannahLossStudy,SudeshnaElbaTalk}. If the losses are momentum dependent and the phase-momentum correlation is preserved after injection, then there will be a systematic error. From simulation losses are momentum dependent \cite{MikeLosses}, the general idea being that the low kick applied in Run~1 resulting in an off-center stored muon beam results in more muons at greater radii with larger momentum near the edge of the storage aperture, compared to those muons on the inside of the storage region. The phase-momentum correlation originates from the fact that muons are born at different points within the accelerator beamline before injection. Muons born at earlier locations in the beamline will live longer within the magnetic field, during which their spins will precess and their \gmtwo phases change. Such muons could reasonably exist within a different injection parameter phase space, such that they exhibit larger betatron amplitudes once stored in the ring. Because losses most likely come from muons which oscillate to high betatron amplitudes, and for those muons at greater radii with larger momenta, such a systematic effect certainly exists, and thus an error needs to be estimated. Further simulation efforts are underway, along with data-driven studies, to understand and quantify the phase-momentum correlation and momentum-dependent loss probabilities \cite{MikeLosses,HannahLossStudy2}. Here is given an estimation of the muon loss phase bias systematic error using the author's own calculations for the losses for the different Run~1 datasets.
+
+The most dangerous potential systematic error has to due with the phases of the lost muons. If muon losses come from a population of muons with a different average phase than the stored muons, then there will be a phase shift over the course of a fill. This combined with the fact that muons are preferentially lost at early times implies the extracted \wa frequency will be systematically pulled. Simulation and data have shown a correlation between phase and momentum at injection \cite{HannahLossStudy,SudeshnaElbaTalk}. If the losses are momentum dependent and the phase-momentum correlation is preserved after injection, then there will be a systematic error. From simulation losses are momentum dependent \cite{MikeLosses}, the general idea being that the low kick applied in Run~1 resulting in an off-center stored muon beam results in more muons at greater radii with larger momentum near the edge of the storage aperture, compared to those muons on the inside of the storage region. The phase-momentum correlation originates from the fact that muons are born at different points within the accelerator beam-line before injection. Muons born at earlier locations in the beam-line will live longer within the magnetic field, during which their spins will precess and their \gmtwo phases change. Such muons could reasonably exist within a different injection parameter phase space, such that they exhibit larger betatron amplitudes once stored in the ring. Because losses most likely come from muons which oscillate to high betatron amplitudes, and for those muons at greater radii with larger momenta, such a systematic effect certainly exists, and thus an error needs to be estimated. Further simulation efforts are underway, along with data-driven studies, to understand and quantify the phase-momentum correlation and momentum-dependent loss probabilities \cite{MikeLosses,HannahLossStudy2}. Here is given an estimation of the muon loss phase bias systematic error using the author's own calculations for the losses for the different Run~1 datasets.
 
 
 The systematic shift in \wa can be written as
     \begin{align}
         \frac{\Delta\omega_{a}}{\omega_{a}} = \frac{1}{\omega_{a}}\frac{d\langle\phi\rangle}{dt},
     \end{align}
-where $d\langle\phi\rangle/dt$ is the change in average phase over the course of a fill. With some assumpations made with regards to stored and lost muon populations this can be written as \cite{MikeLosses}
+where $d\langle\phi\rangle/dt$ is the change in average phase over the course of a fill. With some assumptions made with regards to stored and lost muon populations this can be written as \cite{MikeLosses}
     \begin{align} \label{eq:phaseChangeLostMuons}
         \frac{d\langle\phi\rangle}{dt} = f_{s} \cdot f_{l} \cdot \Delta\phi_{s-l},
     \end{align}
@@ -671,9 +731,9 @@ Taking the shifts in \wa as the systematic errors, the approximations here are o
 \subsection{Systematic error from differential decay}
 
 
-Muons are injected into the storage ring with a range of momenta. Muons with larger momenta will in general live longer than muons with smaller momenta due to their time-dilated lifetimes. Muons at smaller radii therefore decay more often, leading to an increasing beam radial position and average momentum over the course of a fill. Decay positrons at greater radii with larger momenta in general take longer to reach calorimters than those at small radii with smaller momenta. In the precession frequency measurement, the hit times of the detected positrons naturally correspond to offset times from when the muons decayed equal to the drift times. Because the average drift time changes over the course of a fill due to the average momentum distribution increase, there is thus a changing phase over the course of a fill. To add to that, as discussed in \secref{sub:lostmuonserror}, there is a phase-momentum correlation for muons at injection. This only compounds upon the changing phase even further. The systematic error due to this effect is called ``differential decay.'' 
+Muons are injected into the storage ring with a range of momenta. Muons with larger momenta will in general live longer than muons with smaller momenta due to their time-dilated lifetimes. Muons at smaller radii therefore decay more often, leading to an increasing beam radial position and average momentum over the course of a fill. Decay positrons at greater radii with larger momenta in general take longer to reach calorimeters than those at small radii with smaller momenta. In the precession frequency measurement, the hit times of the detected positrons naturally correspond to offset times from when the muons decayed equal to the drift times. Because the average drift time changes over the course of a fill due to the average momentum distribution increase, there is thus a changing phase over the course of a fill. To add to that, as discussed in \secref{sub:lostmuonserror}, there is a phase-momentum correlation for muons at injection. This only compounds upon the changing phase even further. The systematic error due to this effect is called ``differential decay.'' 
 
-Underway beamline simulations are needed to fully measure the phase-momentum correlation and fully estimate this systematic error. A calculation for the previous E821 experiment resulted in a shift on \wa of $\langle \omega_{a} \rangle / \omega_{a} \approx \SI{-36.8}{ppb}$ \cite{DiffDecayJason}. An estimation of the error neglecting the phase momentum correlation yielded a shift of \SI{-3.8}{ppb} \cite{DiffDecayMetodiev}. Finally, an estimation by a first principles approach gave a value of \SI{-12}{ppb} \cite{AFThesis}. The level of the fully evaluated systematic shift may not be small compared to the final target systematic error goal, but for Run~1 the scale of these estimates is deemed to be acceptable. For the purposes of this document, an upper bound of \SI{40}{ppb} is taken as the systematic error. Because the differential decay effect only increases the average stored momentum of the beam and can't decrease it, a correction can be applied if any final uncertainty is deemed to be too large. 
+Underway beam-line simulations are needed to fully measure the phase-momentum correlation and fully estimate this systematic error. A calculation for the previous E821 experiment resulted in a shift on \wa of $\langle \omega_{a} \rangle / \omega_{a} \approx \SI{-36.8}{ppb}$ \cite{DiffDecayJason}. An estimation of the error neglecting the phase momentum correlation yielded a shift of \SI{-3.8}{ppb} \cite{DiffDecayMetodiev}. Finally, an estimation by a first principles approach gave a value of \SI{-12}{ppb} \cite{AFThesis}. The level of the fully evaluated systematic shift may not be small compared to the final target systematic error goal, but for Run~1 the scale of these estimates is deemed to be acceptable. For the purposes of this document, an upper bound of \SI{40}{ppb} is taken as the systematic error. Because the differential decay effect only increases the average stored momentum of the beam and can't decrease it, a correction can be applied if any final uncertainty is deemed to be too large. 
 
 
 
@@ -857,27 +917,27 @@ The above corrections make certain assumptions with regards to the conditions wh
     Pileup amplitude & 22.2 & 19.0 & 9.0 & 9.4 \\
     Pileup phase - time-shift & 17.6 & 19.0 & 17.1 & 14.3 \\
     Pileup phase - energy-scale & 19.4 & 3.7 & 5.5 & 5.3 \\
-    In-fill gain amplitude & 1.4 & 5.9 & 0.4 & 5.7 \\
+    In-fill gain amplitude & 1.4 & 28.6 & 0.4 & 43.6 \\
     STDP On/Off & 11.0 & 11.0 & 11.0 & 11.0 \\
     CBO frequency model & 7.5 & 0.4 & 2.0 & 8.0 \\
     CBO decoherence envelope & 17.6 & 18.0 & 28.7 & 4.3 \\
     Lost muon cuts & < 0.5 & < 0.5 & < 0.5 & < 0.5 \\
-    Fixed \K & 1.2 & 4.9 & 3.1 & 0.1 \\
+    Fixed \K & 1.2 & 39.1 & 3.1 & 28.9 \\
     Ratio construction $T_{a}$ & - & - & - & - \\
     Ratio construction $T_{\mu}$ & - & - & - & - \\
     Bin width & - & - & - & - \\
     Bin edge & - & - & - & - \\
   \hline
-    Quadruature Sum & & & & \\  
+    Quadrature Sum & & & & \\  
   \hline\hline
     Lost muon phase bias & 53.6 & 17.9 & 22.3 & 58.0 \\
     Differential decay & < 40 & < 40 & < 40 & < 40 \\
     Pitch correction & 15.8 & 15.8 & 15.8 & 15.8 \\
     E-field correction & 33.6 & 41.2 & 41.2 & 28.3 \\
   \hline
-    Quadruature Sum & & & & \\
+    Quadrature Sum & & & & \\
   \hline\hline
-    Total Quadruature Sum & & & & \\
+    Total Quadrature Sum & & & & \\
   \hline
 \end{tabular*}
 \caption[Systematic errors evaluated in the Run~1 precession frequency datasets]{Final systematic errors evaluted in the Run~1 precession frequency analysis to the 60h, HighKick, 9d, and Endgame datasets. All units are in ppb. The table is split into two sections. The upper section consists of systematic errors directly evaluated by the author while the lower section consists of preliminary systematic estimates by other working groups. The E-field and pitch correction errors have been added in quadrature with the quadrupole errors. The publication errors for the Run~1 datasets will change from these as the final DQC cuts are made and analyses improved, however the scale of these errors will remain consistent.}
