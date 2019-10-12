@@ -741,7 +741,7 @@ Underway beam-line simulations are needed to fully measure the phase-momentum co
 \subsection{Ratio construction systematic errors}
 \label{sub:TimeShiftingParameters}
 
-In the construction of the ratio data, when filling the four sub-datasets as in \equref{eqn:fourHistsInText}, the parameters $T_{a}$ and $\tau_{\mu}$ for the \gmtwo period and muon lifetime need to be known a priori. If these parameters are incorrectly chosen, then there will be a systematic shift on $R$. This is especially important when considering $T_{a}$, because the quantity which the E989 experiment is measuring must be used in the analysis, creating sort of a self-dependence. The question then naturally arises as to how well the $T_{a}$ parameter needs to be known. As described in \secref{sub:ratio_method}, the input value for $T_{a}$ is nominally taken as the result from the E821 experiment. 
+In the construction of the ratio data, when filling the four sub-datasets as in \equref{eqn:fourHistsInText}, the parameters $T_{a}$ and $\tau_{\mu}$ for the \gmtwo period and muon lifetime need to be known a priori. If these parameters are incorrectly chosen, then it is possible there will be a systematic shift on $R$. This is especially important when considering $T_{a}$, because the quantity which the E989 experiment is measuring must be used in the analysis, creating a sort of self-dependence. The question then naturally arises as to how well the $T_{a}$ parameter needs to be known. As described in \secref{sub:ratio_method}, the input value for $T_{a}$ is nominally taken as the result from the E821 experiment. 
 
 In order to determine systematic errors from these two fixed quantities, they were scanned over when forming the ratio data before fitting. The input value for $T_{a}$ was varied from \SI{-30}{ppm} to \SI{+30}{ppm} around the default value in steps of \SI{3}{ppm}. The input value for $\tau_{\mu}$ was varied from \SI{64.04}{\micro s} to \SI{64.84}{\micro s} in steps of \SI{0.04}{\micro s}. See \figref{fig:ratioConstructionParsScan} for scan results for the 60h dataset. See \tabref{tab:ratioConstructionParsScan} for the sensitivities determined from the scans for all datasets. As shown the sensitivities vary both positively and negatively for the different datasets, and are extremely small. The positive and negative variations imply there is no real systematic effect at play, and that as long as a reasonable choice for these two parameters is made, then the ratio data is very insensitive to the exact values chosen. 
 
@@ -749,9 +749,11 @@ In order to be conservative however, a scale for the changes in $R$ is given. Si
             \begin{align}
                 \delta T_{a} = \sqrt{(75)^{2}/12 + 10^{2}} = \SI{23.8}{ppm}.
             \end{align}
-This results in a change in $R$ on the order of \SI{2.4}{ppb} for the 60h and HighKick datasets, and less for the 9d and Endgame datasets. Because this is so small and because the sensitivities vary positively and negatively, any systematic error from this quantity can reasonable be said to not exist.
+This results in a change in $R$ on the order of \SI{2.4}{ppb} for the 60h and HighKick datasets, and less for the 9d and Endgame datasets. 
 
-Similarly, the sensitivities of $R$ to the chosen muon lifetime are very small, order \SI{}{ppb/ \micro s}. Since the uncertainties in the muon lifetime are of order \ns{}, any systematic errors from this parameter would be completely negligible even if the sensitivities all had the same sign.
+%Because this is so small and because the sensitivities vary positively and negatively, any systematic error from this quantity can reasonable be said to not exist.
+
+Similarly, the sensitivities of $R$ to the chosen muon lifetime are very small, order \SI{}{ppb/ \micro s}. Since the uncertainties in the muon lifetime are of order \ns{} from fits to the data, any systematic errors from this parameter would be completely negligible even if the sensitivities all had the same sign.
 
 
 \begin{figure}[]
@@ -896,11 +898,8 @@ The above corrections make certain assumptions with regards to the conditions wh
 \subsection{Systematic error summary}
 
 
-\tabref{tab:FinalSystematicErrors}
+\tabref{tab:FinalSystematicErrors} gives all evaluated systematic errors in this analysis as described in the preceding sections. The final total quadrature sums of the systematic errors including the various preliminary and conservative estimates for certain errors lie within the range \SI{70}{} -- \SI{100}{ppb}. These are in comparison to the final target goal of \SI{70}{ppb} for the precession frequency measurement. Once the gain issues are resolved and the other working groups improve their systematic uncertainty evaluations, the systematic errors for Run~1 and future runs of E989 will almost certainly reach the target goal. As the systematic errors stand currently in this analysis, they are all small compared to the Run~1 statistical errors of each respective dataset, making the presented analysis statistics-limited.
 
--compare back to target table
--all errors small compared to statistical errors on datasets..
--while not the final run 1 errors, the numbers here should be a close approximation
 
 
 \begin{table}[]
@@ -910,7 +909,7 @@ The above corrections make certain assumptions with regards to the conditions wh
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lGGGG}
   \hline
-    \multicolumn{5}{c}{\textbf{Run~1 Evaluated Systematic Errors}} \\
+    \multicolumn{5}{c}{\textbf{Run~1 Systematic Errors}} \\
   \hline\hline
     Error & \multicolumn{1}{c}{60h} & \multicolumn{1}{c}{HighKick} & \multicolumn{1}{c}{9d} & \multicolumn{1}{c}{Endgame} \\ 
   \hline
@@ -923,21 +922,21 @@ The above corrections make certain assumptions with regards to the conditions wh
     CBO decoherence envelope & 17.6 & 18.0 & 28.7 & 4.3 \\
     Lost muon cuts & < 0.5 & < 0.5 & < 0.5 & < 0.5 \\
     Fixed \K & 1.2 & 39.1 & 3.1 & 28.9 \\
-    Ratio construction $T_{a}$ & - & - & - & - \\
-    Ratio construction $T_{\mu}$ & - & - & - & - \\
-    Bin width & - & - & - & - \\
-    Bin edge & - & - & - & - \\
+    Ratio construction $T_{a}$ & 2.4 & 2.4 & < 2.4 & < 2.4 \\
+    Ratio construction $T_{\mu}$ & < 0.1 & < 0.1 & < 0.1 & < 0.1 \\
+    Bin width & 2.5 & 0.6 & 2.3 & 4.2 \\
+    % Bin edge & - & - & - & - \\
   \hline
-    Quadrature Sum & & & & \\  
+    Quadrature Sum & 41.0 & 59.4 & 37.1 & 57.3 \\  
   \hline\hline
     Lost muon phase bias & 53.6 & 17.9 & 22.3 & 58.0 \\
     Differential decay & < 40 & < 40 & < 40 & < 40 \\
     Pitch correction & 15.8 & 15.8 & 15.8 & 15.8 \\
     E-field correction & 33.6 & 41.2 & 41.2 & 28.3 \\
   \hline
-    Quadrature Sum & & & & \\
+    Quadrature Sum & 76.5 & 62.2 & 63.6 & 77.6 \\
   \hline\hline
-    Total Quadrature Sum & & & & \\
+    Total Quadrature Sum & 86.8 & 86.0 & 73.6 & 96.4 \\
   \hline
 \end{tabular*}
 \caption[Systematic errors evaluated in the Run~1 precession frequency datasets]{Final systematic errors evaluted in the Run~1 precession frequency analysis to the 60h, HighKick, 9d, and Endgame datasets. All units are in ppb. The table is split into two sections. The upper section consists of systematic errors directly evaluated by the author while the lower section consists of preliminary systematic estimates by other working groups. The E-field and pitch correction errors have been added in quadrature with the quadrupole errors. The publication errors for the Run~1 datasets will change from these as the final DQC cuts are made and analyses improved, however the scale of these errors will remain consistent.}
