@@ -468,13 +468,7 @@ As described in \secref{sec:Accelerator}, eight distinct and separate bunches of
 \label{sub:randomSeedFits}
 
 
-While the single seed fit results presented earlier indicate good fits and well understood parameters, it is always a good idea to fit other random seeds in case the single seed results ended up on an outlier. Doing so not only improves the confidence of the result, but also gives a more central $R$ value to quote as being closer to the `true' $R$ of the dataset. Figures~\ref{fig:randomSeedFits_chi2} and \ref{fig:randomSeedFits_R} give the \chisq and $R$ distributions for fits to 50 different random seeds for the four datasets. As shown the \chisq distributions are nicely centered around 1 as they should be for fits to the properly distributed data. \tabref{tab:RandomSeedFitResults} compares the random seed fit results between the different datasets.
-
-The means for the $R$ distributions of the datasets which shared the same blinding string \{HighKick, 9d, Endgame\} are close but not quite consistent when accounting for the error on the mean, calculated as
-  \begin{align}
-    \sigma_{\mu} = \text{RMS}/\sqrt{N},
-  \end{align}
-where $N$ is the number of random seeds. This inconsistency is on the order of couple hundres of ppb or up to $10-20\sigma$ in the mean error. This is very likely attributable to different field conditions over the course of Run~1.
+While the single seed fit results presented earlier indicate good fits and well understood parameters, it is always a good idea to fit other random seeds in case the single seed results ended up on an outlier. Doing so not only improves the confidence of the result, but also gives a more central $R$ value to quote as being closer to the `true' $R$ of the dataset. Figures~\ref{fig:randomSeedFits_chi2} and \ref{fig:randomSeedFits_R} give the \chisq and $R$ distributions for fits to 50 different random seeds for the four datasets. As shown the \chisq distributions are nicely centered around 1 as they should be for fits to the properly distributed data. \tabref{tab:RandomSeedFitResults} compares the random seed fit results between the different datasets. The means for the $R$ distributions of the datasets which shared the same blinding string \{HighKick, 9d, Endgame\} are statistically consistent with one another, with differences on the order of several hundreds of ppb, well within the statistical errors of \SI{600}{ppb} or greater\footnote{The errors on the mean are calculated as $\sigma_{\mu} = \text{RMS}/\sqrt{N},$ where $N$ is the number of random seeds. These errors come from the randomization of cluster times before fitting, and have no bearing on statistical consistency when comparing different datasets.}.
 
 
 
@@ -555,9 +549,6 @@ where $N$ is the number of random seeds. This inconsistency is on the order of c
 \caption[Random seed fit results]{Random seed fit results to the four Run~1 precession frequency analysis datasets. The \chisq means are consistent with 1. As a reminder the 60h dataset used a different blinding than the other three, hence the significantly different $R$ mean. \textbf{I have ppm and ppb here in this table, should I make them all ppm?}}
 \label{tab:RandomSeedFitResults}
 \end{table}
-
-
-\clearpage
 
 
 
