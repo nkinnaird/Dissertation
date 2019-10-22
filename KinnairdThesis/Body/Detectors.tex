@@ -19,7 +19,7 @@ There is a variety of different detector systems used in E989. The primary detec
 During data taking, a reference time must be chosen so as to align all different detector systems in time. When taking data from fill to fill, decay positron spectra must be aligned in phase. Without this functionality, analyzing the data from different systems and comparing them would be impossible. To do this a ``T0'' counter is placed just on the outside of the ring before the inflector. It is made up of a scintillating paddle connected to two photo-multiplier tubes (PMTs) \cite{t0Hannah,t0Aaron}. See \figref{fig:T0counter}. One PMT, PMT A, has a 1\% neutral density filter resulting in low photo-electron statistics, and acts primarily as a timing measurement. The other, PMT B, has a 10\% neutral density filter resulting in higher statistics, and acts as a shape counter and proxy for fill intensity. (In general the signals are very similar.) Together they provide a measure of the injected beam profile in time, from which the timing alignments can be made. Some measured T0 pulses are shown in \figref{fig:T0pulses}. The shape of the incoming pulses has a somewhat trident-like shape, with a very large spike in the middle of the time width, and two spikes on the outside edges. This shape owes itself to the accelerator complex, and varies from bunch to bunch.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -45,14 +45,14 @@ During data taking, a reference time must be chosen so as to align all different
 While the T0 provides timing and intensity measurements, the inflector beam monitoring system (IBMS) provides measurements of the beam position properties as it passes through the inflector. This is useful because the injection aperture is so tight, and incoming beam parameters are tightly constrained. The IBMS system serves to provide a direct diagnostic handle on the phase space matching between the last accelerator components and the \gmtwo storage ring, helping to optimize the number of stored muons per fill \cite{ibms1}. The IBMS is made up of two scintillating fiber detectors, as shown in \figref{fig:IBMS1and2}. These devices are placed at the outside of the magnet yoke before injection into the back hole of the magnet, and at the entrance to the inflector \cite{ibms2}. A third device is planned to be at or near the downstream end of the inflector. See \figref{fig:IBMSPlacement}. 
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{IBMS1and2}
     \caption[IBMS Models]{Models of the IBMS 1 and 2 detectors. Scintillating fibers form an array which detect particles as they pass through them.}   
     \label{fig:IBMS1and2}
 \end{figure}
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{IBMSPlacement}
     \caption[IBMS Positions]{The positions of IBMS 1, 2, and the planned 3rd device are shown with respect to the vacuum chamber and inflector.}   
@@ -71,7 +71,7 @@ The last auxiliary detector is the so called ``fiber harp'' system. It is made u
 % It consists of a pair of two scintillating fiber planes measuring the radial and vertical components of the beam located at 180\textdegree{} and 270\textdegree{} in azimuth clockwise from the inflector \cite{fiberharp}. They can be inserted into the storage region during special diagnostic or systematic runs on order to measure the beam profile and temporal structure of the beam.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
@@ -123,7 +123,7 @@ There are 24 calorimeters located symmetrically around the inside of the ring pl
 Each calorimeter consists of 54 channels of PbF\textsubscript{2} crystals arrayed in a 6 high by 9 wide array, for a total of 1296 channels. Each crystal is $2.5 \times 2.5 \times 14$~cm\textsuperscript{3} and is wrapped in black Tedlar\textregistered\ foil. The PbF\textsubscript{2} material has an index of refraction of 1.8, and emits Cerenkov light as incident positrons with energy greater than $\SI{100}{\keV}$ pass through the crystals \cite{Fienberg:2014kka}. Cerenkov light is naturally fast which improves the timing resolution of the incoming hits. The high density of the PbF\textsubscript{2} $(\SI{7.77}{g/cm^{3}})$ gives it a short radiation length $(\SI{9.3}{mm})$, such that the energy deposition from the incident positrons is nearly 100\% over the length of the crystal. The black foil is used to eliminate light transmission between crystals to improve position reconstruction, as well as reduce internal reflection to reduce pulse width and improve timing resolution \cite{Kaspar:2016ofv}. The energy deposition from the incident positrons is typically restricted to only one or two crystals. The segmentation of the calorimeter combined with the black wrapping helps the spatial and temporal resolution of the detected pulses. See \figref{fig:CalorimeterCrystals} for a picture of the calorimeter crystals.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.43\textwidth}
         \centering
@@ -146,7 +146,7 @@ Each calorimeter consists of 54 channels of PbF\textsubscript{2} crystals arraye
 
 Each crystal is paired with a large area silicon photo-multiplier (SiPM) sensor which detects the emitted Cerenkov light. SiPMs are compact, operable in high magnetic field regions, have very linear responses for operation at MHz rates, are suited to measuring Cerenkov light due to their high photo-detection efficiency in the wavelengths of interest, and have a high degree of gain stability \cite{Kaspar:2016ofv}. The SiPMs used are designed by Hamamatsu and detailed in \refref{Kaspar:2016ofv}. They sit on printed circuitry boards (PCBs) devoid of magnetic materials, which are designed to preserve the fast SiPM pulse shape. The combined properties of the chosen SiPMs, their electronic boards, and the PbF\textsubscript{2} crystals results in an energy resolution of $(4.6 \pm 0.3) \% / \sqrt{E/\GeV}$, a timing resolution of $\SI{20}{ps}$, and a pulse width of $\SI{5}{ns}$, satisfying the stated requirements earlier \cite{Fienberg:2014kka,Kaspar:2016ofv}. Details of the pulse fitting algorithms are shared in \secref{sec:ReconWest}. The SiPMs can be seen in \figref{fig:CalorimeterCrystals}. Finally, 12-bit waveform digitizers (WFD) sample each SiPM channel at a rate of 800 mega-samples per second with a 1 Gb memory buffer and the data are transferred to a bank of GPU processors for on-line data processing \cite{Sweigart:2016jty}. The timing resolution of these WFDs is $<\SI{50}{ps}$ for most pulse amplitudes. A typical pulse from an incident positron is shown in \figref{fig:calopulse}.
 
-\begin{figure}[]
+\begin{figure}
 \centering
         \includegraphics[width=0.6\textwidth]{hitPulse}
 \caption[SiPM pulse]{Output pulse from a SiPM in black dots, overlayed with a fit template.}
@@ -176,7 +176,7 @@ As described in \secref{sec:muonbeamdynamics}, the muon beam moves as a whole wi
 
 In general, straw tracking detectors work by measuring hits in gas filled straws \cite{Blum}. Each straw is made up of a cylindrical piece of thin material, typically Mylar with a conductive aluminum coating, and contains a wire at the center of the straw held at high voltage, $\mathcal{O}(\SI{1000}{V})$. The minimal amount of material in straw trackers serves to reduce multiple scattering of incident particles, and was the reason a straw tracker system was chosen over other tracker types. Fast moving particles ionize the gas as they pass through it, and the resulting ions are drawn to the wire and straw surface (positive and negative charges respectively). As the ions move to the wire, they enter a high electric field region that causes them to speed up, hit other gas molecules, and create more ions. This produces an avalanche gain effect which amplifies the original signal. Once the ions reach the wire and straw surface, an electrical signal is read out telling what the drift time of the ions was, which can be related to the radius or distance of closest approach (DCA) the particle passed relative to the wire. The straws therefore measure drift circles in a plane perpendicular to their physical orientation. The calculations of these DCA's and their errors is done using a simulation program for gaseous detectors called Garfield \cite{garfield1,garfield2}. By combining several such measurements in time and space, we are able to reconstruct tracks of incident particles. See \figref{fig:driftcircles}.
 
-\begin{figure}[]
+\begin{figure}
 \centering
         \includegraphics[width=0.6\textwidth]{StrawDriftTime}
     \hspace{1cm}
@@ -191,7 +191,7 @@ In general, straw tracking detectors work by measuring hits in gas filled straws
 Our straws are $\SI{5}{mm}$ in diameter and contain a 50:50 mixture of argon-ethane gas \cite{WTThesis}. The argon component serves as the gas to be ionized. The fast moving ions near the wire in addition to producing more ions, will incite excited states of the gas, which emit photons when de-excited. These photons can restart the whole ionization and avalanche process over again as they can escape the avalanche region, leading to a break-down of the system. The ethane therefore serves to absorb the photons with its large number of molecular degrees of freedom and photo-absorption characteristics \cite{WTThesis}. The wire has a radius of \mum{25} and is made up of gold-plated tungsten. The Mylar walls have a width of \mum{15} and are wound in a double spiral shape in order to improve the electrostatic shielding of the wire and reduce the gas leak rate of the straws \cite{WTThesis}. The DCA resolution of hits within the straws is approximately \SIrange{120}{150}{\micro m}.
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{Tracker}
     \caption[Tracker module]{A straw tracker module. The first layer of silver Mylar straws with a stereo angle of 7.5\textdegree{} can be seen, with the other three straw layers hiding behind it. In black on the left is the carbon fiber post which holds the end of the module in a fixed position. Electronics live in the top and bottom manifolds above and below the straws, and cables connect from those electronics through small apertures to external electronics which plug in on the right.}
@@ -204,7 +204,7 @@ A single tracker module is shown in \figref{fig:tracker}. Each tracker module co
 
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
         \includegraphics[width=0.6\textwidth]{straworientation_with_strawlabel}
     \hspace{1cm}
@@ -221,14 +221,14 @@ There are two tracker stations, each consisting of eight tracker modules. The tw
 %Finally, even though the tracker stations are located at only two places in the ring, they measure the average beam distribution due to the CBO motion of the beam and the long extrapolation distance of the measured trajectories.
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{TrackerCaloWithLines}
     \caption[Model view of tracker station]{Birds eye view of a model of a vacuum chamber containing a tracker station, and the associated calorimeter. Each tracking station consists of eight tracker modules.}
     \label{fig:TrackerCaloWithLines}
 \end{figure}
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{TrackerMuonView}
     \caption[Muon perspective view of tracker station]{View of the tracker modules from within the storage ring. Muons move forward into the page, some of which decay to positrons which then pass through the trackers arrayed on the right. The carbon fiber post for each module can also be seen.}
@@ -237,7 +237,7 @@ There are two tracker stations, each consisting of eight tracker modules. The tw
 
 
 
-% \begin{figure}[]
+% \begin{figure}
 %     \centering
 %     \includegraphics[width=0.9\textwidth]{trackerStation}
 %     \caption[Tracker module arrangement]{Tracker modules are arranged in the shown staircase pattern. In green and dark blue is the edge of the vacuum chamber (where the dark blue identifies the modification that was made to the old vacuum chambers), and it can be seen that vacuum chamber walls lie at the ends of the outside tracking modules. The position of a calorimeter can be seen in cyan at the right. The dark red spots are the locations of the outside magnet pole tips. From the shown geometry one can see that many positrons will hit either the tracker or the calorimeter but not both due to the acceptance differences.}
@@ -251,7 +251,7 @@ There are two tracker stations, each consisting of eight tracker modules. The tw
 The readout electronics for the system are split into two groups, the front-end and back-end. The front-end electronics were built and tested in the Boston University Electronic Design Facility. They start with ASDQ (Amplifier Shaper Discriminator with charge (Q)) chips on boards that plug down directly onto the straws and provide the main signal, \figref{fig:ASDQs}. Each ASDQ plugs onto sixteen straws. These ASDQ boards are application specific integrated circuits (ASICs) which read out the signal from one end of the straws and shape and discriminate that signal, as well as provide some baseline restoration and tail cancellation. The ASDQs and their associated components are contained within thin aluminum manifolds above and below the straws. The physical footprint of these boards and components was minimized in order to increase the straw measurement area. The signals from the ASDQs are passed through Flexi Cables to Time to Digital Converter (TDC) boards which time stamp the signals with $\SI{625}{ps}$ precision \cite{WTThesis}, \figref{fig:flexis}. The Flexi Cables are flexible and thin such that the cables can be passed through the thin aperture shown on the right of \figref{fig:tracker}. High voltage is provided to the sense wires with high voltage boards, which pass the voltage through the ASDQs. A feedthrough board provides the interface between the TDCs and Flexi Cables, as well as the high voltage signal, \figref{fig:Feedthrough}. They serve a dual purpose of providing the gas seal. Finally, there are logic boards that serve as the interface between the TDCs and the back-end electronics. They manage the clock and controls for the TDCs and store data onto FPGAs, which are piped out through a high throughput optical fiber connection. The logic boards, high voltage boards, and TDCs are all housed within an aluminum box which provides RF shielding, \figref{fig:FrontEndElectronics}. In each module there are eight ASDQs, four TDCs, two feedthrough boards, two high voltage boards, and two logic boards. An overview diagram of the front-end readout chain is shown in \figref{fig:TrackerReadoutChain}. The back-end electronics consist of FC7s, one per tracker station, and a single AMC13 for all tracker stations. These modules provide clock and DAQ services to the whole tracker system, and ultimately pipe out the data to where it can be saved on disk.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{1\textwidth}
     \centering
@@ -282,7 +282,7 @@ The readout electronics for the system are split into two groups, the front-end 
 
 % previous layout of images
 
-% \begin{figure}[]
+% \begin{figure}
 %     \centering
 %         \includegraphics[width=0.5\textwidth]{FeedthroughBoard}
 %     \hspace{1mm}
@@ -291,7 +291,7 @@ The readout electronics for the system are split into two groups, the front-end 
 %     \label{fig:FeedthroughAndHousing}
 % \end{figure}
 
-% \begin{figure}[]
+% \begin{figure}
 %     \centering
 %         \includegraphics[width=0.46\textwidth,angle=180]{Logic}
 %     \hspace{1mm}
@@ -306,7 +306,7 @@ The readout electronics for the system are split into two groups, the front-end 
 
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
         \includegraphics[width=0.47\textwidth]{FeedthroughBoard}
     \hspace{1mm}
@@ -315,7 +315,7 @@ The readout electronics for the system are split into two groups, the front-end 
     \label{fig:Feedthrough}
 \end{figure}
 
-\begin{figure}[]
+\begin{figure}
     \centering
         \begin{subfigure}[b]{0.45\textwidth}
             \centering
@@ -338,7 +338,7 @@ The readout electronics for the system are split into two groups, the front-end 
 
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{TrackerReadoutChain}
     \caption[Front-end tracker electronics readout chain]{Front-end tracker electronics readout chain. Courtesy of James Mott.}   
@@ -346,5 +346,4 @@ The readout electronics for the system are split into two groups, the front-end 
 \end{figure}
 
 
-\cleardoublepage
 

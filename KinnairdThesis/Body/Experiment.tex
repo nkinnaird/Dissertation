@@ -54,7 +54,7 @@ where the $p$, $e$, and $\mu$ subscripts stand for the relevant quantities for t
 
 How can \wa for muons be measured? The answer lies with two key points in the dynamics of muon decay. Positive muons decay to a positron and two neutrinos, as shown in \figref{fig:mudecay}. The first point is that because of the parity violating nature of the weak interaction, the decay positron will be preferentially emitted right-handed, with its spin directed in the same direction as its momentum \cite{Bucksbaum}. The second key point is that angular momentum must be conserved. Consider the most extreme examples of maximum and minimum energy positrons as shown in \figref{fig:MuonDecayImproved}. In the muon rest frame, decay positrons with maximum energy will be emitted opposite to the two neutrinos, both emitted in the same direction. Since neutrinos and anti-neutrinos must be left and right-handed respectively, thus having their spins anti-parallel and parallel to their momentum, by the law of conservation of angular momentum the positron must have its spin be parallel to the spin of the muon at the time of the decay. By the opposite argument, decay positrons emitted with minimum energy such that the neutrinos are ejected opposite to one another must have their spins be anti-parallel to that of the muon at the time of decay. Together, these two points mean that higher energy decay positrons will preferentially be emitted in directions parallel to the muon spin at the time of decay, while lower energy decay positrons will preferentially be emitted in directions anti-parallel to the muon spin at the time of the decay. 
 
-\begin{figure}[]
+\begin{figure}
 \centering
         \begin{tikzpicture}[baseline=(o.base)]
         \begin{feynhand}
@@ -102,7 +102,7 @@ How can \wa for muons be measured? The answer lies with two key points in the dy
     % }
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{MuonDecayImproved}
     \caption[Muon decay for maximum and minimum energy decay positrons]{Muon decay in the rest frame for maximum (top) and minimum (bottom) energy decay positrons. Due to the conservation of angular momentum and the single possible helicity states of the decay neutrinos, the spin of the decay positron is exactly parallel to the spin of the muon at the time of the decay for maximum energy decay positrons, or anti-parallel for minimum energy decay positrons.}
@@ -124,7 +124,7 @@ where $y=E/E_{max}$ is the energy fraction of the positron and $\theta$ is the a
         \end{align}
 and are shown in \figref{fig:NA2mrf}. 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
@@ -164,7 +164,7 @@ where the number and asymmetry of the detected positrons is now calculated by si
 where $y_{th}=E_{th}/E_{max}$. By counting decay positrons above some energy threshold and fitting the resulting time spectrum with \equref{eq:5parfunc}, \wa can be extracted. A sample of data adhering to such a time spectrum is shown in \figref{fig:gm2wiggle}.
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{gm2wiggle}
     \caption[\gmtwo time spectrum example]{The number of detected positrons above some energy threshold ($y \sim 0.55$) as a function of time, where the data plotted come from Run 1 and correspond to nearly $\SI{1e9}{}$ counts. The time axis is wrapped around every \mus{100}. See \chapref{chapter:wa} for the fitting of such a histogram.}
@@ -186,7 +186,7 @@ where $N_{\text{total}}$ is the total number of counts included in the above-thr
 
 In order to measure the magnetic moment of the muon to 140 ppb, the field needs to be both highly uniform, and measured to extreme precision. The E989 goal for the field measurement is 70 ppb. As shown in \equref{eq:amuratios}, the measurement of the magnetic field has equal weight to that of the precession frequency. A cross-section of the magnetic storage ring used in E989 is shown in \figref{fig:MagnetCrossSection}. It is an approximately $\SI{14}{m}$ diameter C magnet, where the muons are stored within a $\SI{4.5}{cm}$ radius cylindrical storage region at the center of a $\SI{1.451}{T}$ magnetic field. This corresponds to an approximately $\SI{0.28}{m^{3}}$ or $\SI{10}{ft^{3}}$ total volume around the inside of the ring. The magnetic field is made uniform by manipulating many magnetic `knobs' built into the \gmtwo storage ring, including the main magnet current, pole pieces, wedges, top hats, and thousands of small magnetic shims placed around the storage region, as shown in \figref{fig:MagnetCrossSection}. There is also an active feedback system which stabilizes the average magnetic field over time using current carrying coils near the storage region. After a several month shimming campaign by many members of the field team, a precision on the magnetic field of approximately $\SI{25}{ppm}$ RMS (root mean square) was achieved.
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{MagnetCrossSection}
     \caption[Magnet cross section]{Cross-section of the \gmtwo magnet. The muons live in the $\SI{4.5}{cm}$ radius circular storage region shown in red. The main magnetic field is excited by superconducting coils shown in yellow. Pole pieces, wedges, edge shims, top hats, and other magnetic knobs allow for sub-ppm level tuning of the magnetic field.}
@@ -197,7 +197,7 @@ In order to measure the magnetic moment of the muon to 140 ppb, the field needs 
 The magnetic field is measured using a nuclear magnetic resonance (NMR) technique, hence the measurement on $\omega_{p}$ as shown in \equref{eq:wp}. NMR was chosen as it provides a field measurement precision on the order of \SI{10}{ppb} with negligible statistical uncertainty \cite{TDR}. NMR probes consist of pickup coils located around a sample of protons in some fluid, typically water or petroleum jelly. The pickup coils deliver a ``$\pi/2$ pulse'' which rotates the proton sample magnetization 90\textdegree{} out of phase from equilibrium. The proton spins will begin precessing at the Larmor frequency $(\approx \SI{61.79}{MHz})$. As the spins interact with local magnetic field gradients and inhomogeneities, the magnetization of the proton sample will relax back to equilibrium with the external field, typically on the order of several milliseconds. This so-called free-induction decay signal (FID), an example of which is shown in \figref{fig:FID}, is measured using the same pickup coils that delivered the intial $\pi/2$ pulse
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{Nmr_fid_good_shim_EN}
     \caption[FID signal]{An example FID signal. The current picked up in the coils around the proton sample will oscillate as the spins precess around the main magnetic field, and decay as the spins return to alignment with the external field.}
@@ -206,7 +206,7 @@ The magnetic field is measured using a nuclear magnetic resonance (NMR) techniqu
 
 It is not solely $\omega_{p}$ that needs to be measured. What really matters is the average magnetic field that the muons see, namely the time-averaged spatially-weighted magnetic field. The scheme devised to measure this is two-fold. First, the magnetic field in the muon storage region is measured by a trolley which travels around the inside of the ring. This trolley holds 17 NMR probes which measure the field at approximately 6000 locations around the inside of the ring. However, because the trolley cannot be in the storage region when the muons are present in the ring, during data taking it is retracted and the field is instead monitored by 378 fixed NMR probes located in the high magnetic field region, just outside the storage region on the outside of the vacuum chambers. The prescription is that the storage ring field is measured every few days by the trolley probes, and the field between trolley runs is interpolated using measurements from the continually-sampling fixed probes. In this way the magnetic field can be mapped over time and over the space in which the muons are stored. A sample of the azimuthally-averaged magnetic field measured with trolley and fixed probes is shown in \figref{fig:AverageMagneticField}.
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{MagneticFieldMapClean}
     \caption[Azimuthally averaged magnetic field sample]{A sample of the azimuthally-averaged magnetic field within the storage region \cite{fieldmap}. The contours are normalized to the field value at the center of the storage region. The scale of the field differences is approximately $\pm 1.5$~ppm. The black dots in the picture correspond to the location of the trolley probes.}
@@ -224,7 +224,7 @@ where $\sigma(\text{H\textsubscript{2}O, T})$ is the temperature-dependent diama
 Other pieces of the systematic uncertainty include the calibrations of the probes, errors in the trolley measurements, the interpolation with the fixed probes, the uncertainty of the magnetic field relative to the muon distribution, and others such as time dependent external magnetic fields, \tabref{tab:magneticfielduncertainties}.
 
 
-\begin{table}[]
+\begin{table}
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
@@ -261,7 +261,7 @@ As explained in \secref{section:WaIntro}, in order to measure \wa the muons inje
 Polarized muon beams are constructed using the physics of pion decay. Using the same parity-violation and spin momentum conservation logic as explained in the discussion of muon decay, it is determined that pion decay produces muons that are 100\% polarized in the pion rest frame, due to the pion having zero spin. It is also important to note that pions decay to muons with a $\sim 99.98\%$ branching ratio due to the parity violating nature of the weak interaction \cite{PDG}. Thus by producing a large number of polarized pions a large number of polarized muons can be acquired.
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{accel_layout}
     \caption[Fermilab accelerator layout for muon delivery to E989]{The layout of accelerator beam-line components Fermilab uses to provide polarized muons to E989. Protons start in the Linac, traverse around the Booster and then Recycler, and are converted to pions at AP0. The pions are gathered and then decay to muons in the Delivery Ring before being sent to the \gmtwo storage ring. \cite{TDR}.}
@@ -270,7 +270,7 @@ Polarized muon beams are constructed using the physics of pion decay. Using the 
 
 The production of polarized muons for E989 at the Fermilab accelerator complex involves a number of stages. A map of the various relevant accelerator beam-line components is shown in \figref{fig:accelerator}. Details of the full accelerator production of polarized muons can be found in \refref{Stratakis:2017uci}, and here a summary of the process will be given. First, H\textsuperscript{-} ions are produced and accelerated in a linear accelerator. They are stripped down to protons and then transported to a $\SI{75}{m}$ radius circular storage ring called the ``booster,'' which accelerates them up to $\SI{8}{\GeV/c}$ and batches them together. A single booster batch contains on the order of $\SI{4e12}{protons}$. The protons are then injected into a ring called ``recycler,'' which separates them into four separate bunches of $\SI{1e12}{protons}$, each with a time width of approximately $\SI{120}{ns}$. (This is less than the cyclotron period of the storage ring of \SI{149}{ns}.) This re-bunching process is done in order to reduce the instantaneous rates observed by the detectors, and thus reduce the level of pileup in the E989 detectors; see \secref{sub:calosystematics}. For a single accelerator supercycle of $\SI{1.4}{s}$, E989 receives four booster batches corresponding to sixteen recycler bunches at an average rate of $\SI{11.4}{Hz}$, with the time separation between bunches greater than $\SI{10}{ms}$. The timing structure is shown in \figref{fig:pulsetrain}, where trains of eight bunches are sent to E989 with some time separation between them\footnote{These eight bunches are sometimes referred to as pulses, and the gathered data is tagged by which bunch or pulse it originates from.}. Although it remains relatively constant, this timing structure may be modified in response to the requirements of other experiments.
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{accel_pulsetrain}
     \caption[Fermilab accelerator pulse train]{General timing structure of beam pulses sent to E989.}   
@@ -295,14 +295,14 @@ The injection of the muon beam into the E989 storage ring is a specialized proce
 A specialized magnet called the ``Superconducting Inflector'' magnet, or just inflector, is used to solve these design constraints. This inflector is placed just after a bored out tunnel in the storage ring magnet yoke, on the inside of the C shape. See \figref{fig:injectionpoint} for a view of the injection point. The inflector has an $\SI{18}{mm}$ wide by $\SI{56}{mm}$ high aperture through which the muons must pass down its $\SI{1.7}{m}$ length. The inflector is made up of superconducting coils wrapped in a truncated double cosine theta design around an aluminum mandrel \cite{inflector}. See \figref{fig:inflector}. This design serves to contain the majority of the inflector magnet field, while eliminating the the storage ring field for the muons passing down its length. The inflector is contained within a superconducting shield which traps the fringe field of the inflector such that the storage ring magnet field is unaffected. As shown in \figref{fig:inflector}, windings cover both ends of the inflector such that an appreciable fraction of muons are lost due before being injected into the ring. In order to increase the muon flux for future runs of E989, a new inflector magnet is being designed with open ends \cite{TDR}.
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.7\textwidth]{injectionpoint}
     \caption[Muon injection point through inflector]{A plan view of the inflector and injection point into the storage ring \cite{inflector}.}   
     \label{fig:injectionpoint}
 \end{figure}
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -324,7 +324,7 @@ A specialized magnet called the ``Superconducting Inflector'' magnet, or just in
 \section{Storage of muons}
 \label{sec:Storage}
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{ring}
     \caption[The E989 experiment]{The E989 experiment. The blue storage ring can be seen to surround a variety of detectors and electronics. Muons from the accelerator enter at the top of the picture, and are transported to the storage ring through a series of magnetic quadrupoles. Muons are injected through the inflector into the ring, where they orbit in a clockwise direction. The ring is approximately $\SI{16}{m}$ in diameter to the outside edge of the ring, and about $\SI{3}{m}$ high. People in the center of the ring give a sense of scale to the picture.}
@@ -343,7 +343,7 @@ The kicker is made up of three separate pulsed magnets located 90\textdegree{} f
 
 %A picture of one of the kickers installed into the vacuum chamber is shown in 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=\textwidth]{VacuumChamberMap}
     \caption[Vacuum chamber map]{A map of the vacuum chambers in E989. K1-K3 show the locations of the kicker magnets, while Q1-Q4 show the locations of the electrostatic quadrupoles. Also shown is the location of the inflector, the two fiber monitors, and one of the tracker stations.}   
@@ -355,14 +355,14 @@ The kicker is made up of three separate pulsed magnets located 90\textdegree{} f
 
 There are four electrostatic quadrupoles located around the ring as shown in \figref{fig:vacmap}, which provide vertical focusing for the beam. Although the quadrupoles are defocusing in the horizontal plane, the main dipole magnetic field provides net horizontal focusing. Just as with the kickers, the quadrupoles must be operated in vacuum. E989 uses electrostatic focusing elements instead of magnetic ones in order to avoid magnetic field gradients which would limit the precision of the magnetic field measurement. The quadrupoles occupy 43\% of the ring circumference, with four quads having been chosen in order to maximize the symmetry of the beam motion, reduce its amplitude, and leave space for other experimental elements around the ring \cite{TDR}. Each quad is made up of two segments, a short segment of 13\textdegree{} and a long segment of 26\textdegree{} corresponding to $\SI{1.61}{m}$ and $\SI{2.62}{m}$ respectively, with each segment consisting of four plates. To minimize multiple scattering of incident decay positrons, the quadrupoles are made as thin as possible. A picture of the quadrupoles installed into one of the vacuum chambers is shown in \figref{fig:Quads}. A calculation of the equipotential lines of the quadrupoles is shown in \figref{fig:QuadPotential}. The original design of the quadrupoles is detailed in \refref{QuadsE821}.
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.7\textwidth]{Quads}
     \caption[Electrostatic quadrupoles installed in a vacuum chamber]{Electrostatic quadrupoles installed into a vacuum chamber \cite{QuadsE821}. There are four plates mounted to the chamber through insulator standoffs, with the distance between opposing quad plates equal to $\SI{10}{cm}$. Also shown are the rails on which the magnetic field trolley rides. Note that as the trolley makes its way through the storage volume, it must pass between both the various sets of quadrupole and kicker electrodes.}
     \label{fig:Quads}
 \end{figure}
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.6\textwidth]{QuadPotential}
     \caption[Electrostatic quadrupole potentials]{An OPERA model of the quadrupoles and their equipotential contours \cite{TDR}. The top and bottom plates sit at positive voltage while the left and right plates are at negative voltage. The muon storage region is shown by the blue circle.}   
@@ -403,7 +403,7 @@ where $\kappa$ is the electric quadrupole gradient, $B_{0}$ is the magnetic fiel
 where $x_{max}$ and $y_{max}$ are both equal to the radius of the storage region aperture at $\SI{45}{mm}$.
 
 
-\begin{table}[]
+\begin{table}
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
@@ -442,7 +442,7 @@ which constrains the available $n$ values that can be chosen. \figref{fig:tunepl
 % For Run 1 data taking, $n$ values of 0.108 and 0.120 were chosen corresponding to quad voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{tuneplane}
     \caption[Tune plane]{The tune plane, with the $\nu_{x}^{2} + \nu_{y}^{2} = 1$ constraint in red. The chosen value of $n$ lies on this circle. The original design goals for E989 were the $n$ values as shown by the red points, but due to hardware issues smaller $n$ values of 0.108 and 0.120 were chosen as described in \secref{sec:Run1}.}
@@ -467,7 +467,7 @@ There is also a vertical CBO effect, but the non-aliased rate of oscillation is 
 where the term \textit{waist} refers to the minimum vertical width. Both of these frequencies are included in \tabref{tab:frequencies}. The phase of the CBO signal varies systematically by detector, from 0 \SIrange{0}{2\pi}{} around the ring. When adding all of the detector signals together, the CBO oscillations tend to cancel out. However, due to acceptance differences between the different detectors, the CBO oscillations are still observable in the data. When fitting the data to extract \wa, these effects must be accounted for in the fit function, as will be discussed in \secref{sub:cboterms}.
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.6\textwidth]{cbo}
     \caption[Coherent betatron oscillation]{Marked by the black vertical lines are integer steps in the circumference of the ring, corresponding to the cyclotron wavelength $\lambda_{c}$. The blue line shows the motion of the beam due to the betatron oscillations $\lambda_{x}$. Since $\lambda_{x} > \lambda_{c}/2$, there is an aliasing effect in the observed signal, which is identified by the red line. To a single detector the beam appears to move slowly back and forth with $f_{CBO}$.}
@@ -480,7 +480,7 @@ where the term \textit{waist} refers to the minimum vertical width. Both of thes
 
 As described in Sections~\ref{sec:Accelerator} and \ref{sec:injection}, the muon beam is injected into the ring with a time spread of $\SI{120}{ns}$ and a range of momenta. At early times the beam will occupy a portion of the ring less than the whole since the cyclotron period is $\sim\SI{149}{ns}$. Therefore early in the fill the detectors located at discrete points around the ring will measure counts from the beam where there will be a fast oscillation in the signal due to this cyclotron period. As time increases throughout the fill, the momentum distribution of the muons will cause the beam to spread out within the storage ring until the entire azimuth is filled. Since almost all muons are at the same momentum, it turns out that the lower momentum muons at smaller radii catch up to the tail of the higher momentum muons at the outer radii after many turns around the ring. By $\SI{30}{\micro s}$ the muon beam has gone around the ring two hundred times. As the beam fills the storage ring, the cyclotron frequency in the data decreases and the beam debunches. This phenomena is referred to as the ``fast rotation.'' This debunching signal is seen in the data as shown in \figref{fig:fastrotation}. When dealing with the data and attempting to extract \wa, the typical procedure is to both bin out the fast rotation in periods of the cyclotron frequency, and to randomize each hit time by $\pm T_{C}/2$ where $T_{c}$ is the cyclotron period. In this way the fast rotation is removed entirely and the five parameter function described in \equref{eq:5parfunc} remains satisfactory, barring other effects.
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.8\textwidth]{fastrotation}
     \caption[Beam debunching fast rotation]{In the data, the fast rotation signal is a fast ($\SI{149.2}{ns}$) modulation on top of the slower ($\mus{4.365}$) \wa frequency. The plots here are from a subset of data from Run 1. In individual calorimeters at early times the fast rotation signal is seen to be very large, as shown on the top left. As time passes and the beam debunches, the amplitude of the fast rotation signal diminishes as shown on the top right. When adding all calorimeters together, the signal is reduced as shown in the bottom two plots, due to the fast rotation signal being unaligned in phase for the different detectors.}
@@ -544,7 +544,7 @@ Particles injected into the \gmtwo storage ring will have a vertical component o
         \end{align}
 where now there is an extra term dependent on the vertical betatron motion of the beam. Similar to the electric field case, this term can be neglected to first order as the muon momentum is nearly all perpendicular to the field, but a correction again needs to be applied to \wa to account for this effect.
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.3\textwidth]{PitchAxes}
     \caption[Pitching beam motion]{Beam motion $\beta$ relative to the vertical and azimuthal axes Y and Z respectively. $\psi$ is the pitch angle of the beam, and the dashed lines represent the parallel and perpendicular motions of the beam.}   
@@ -593,7 +593,7 @@ Run 1 for E989 was conducted in the first half of 2018. Production data were gat
 
 Due to the lower kicker voltages, the muon beam was stored on a central radius $\sim\SI{6}{mm}$ offset from the central orbit of the storage ring, as shown in \figref{fig:BeamCrossSection}. The chosen quad $n$ values were 0.108 and 0.120\footnote{The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.}, corresponding to quad voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. During Run 1 it was discovered that some of the quad resistors were damaged, leading to longer RC time constants such that the quad voltages had not reached storage nominal at the beginning of the designated analysis portion of the data at \mus{30}, and were still changing over the course of a fill. See \figref{fig:QuadTraces}. The muon beam was therefore seen to move as a function of time in-fill. See \secref{sec:MuonBeamMeasurements} for a summary of the muon beam characteristics for Run 1. As described in various sections in this chapter and in \secref{sec:MuonBeamMeasurements}, these muon beam characteristics fold into the measurement of \gmtwo in a variety of ways, for which work is still on-going. The associated number of stored muons per fill for Run 1 as a result of these effects combined with injection was $\mathcal{O}(4,000)$, down from the $\mathcal{O}(10,000)$ design goal. 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.8\textwidth]{QuadTraces}
     \caption[Electrostatic quadrupole high voltage traces]{Traces for the high voltages as a function of time on some of the quad plates. The different plates are identified in the legend, where for instance Q1LT stands for the top long plate of quad 1. The beam is injected at the green line and the scraping procedure occurs until the quad voltages reach their design values, in this case $\SI{20.4}{kV}$. As shown some of the high voltage traces do not behave in a smooth and fast exponential manner, due to damaged quad resistors. The traces in orange and brown are for good quad resistors, while the traces in red and blue show the results from damaged quad resistors.}
@@ -608,7 +608,7 @@ All data listed in \tabref{tab:Run1Datasets} was quality checked. If run conditi
 
 
 \begin{landscape}
-\begin{table}[]
+\begin{table}
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}

@@ -24,7 +24,7 @@ The raw data are digitized waveforms, which are voltage versus time traces outpu
 The traces are then fit with templates in order to extract the the area and peak times of any present pulses. Each SiPM has its own templates, one for positrons and one for laser pulses. These templates are extracted from data, where each template is determined by collecting many single pulse traces from a SiPM, normalizing by pulse area, aligning in time, and averaging them. These templates were checked against many systematic effects in order to make sure that the constructed templates did not bias the energy or time measurements, such as hit angle, energy (pulse size), position, and rate, as well as aging effects \cite{Kaspar:2016ofv,AFThesis}. Each trace is fit using a \chisq minimization algorithm with the corresponding SiPM templates in order to determine the time and energy of the hit. In order to fit for multiple pulses in a single time island, the fitting procedure first fits with a single template, and then checks the residuals for any remaining peaks. If peaks exist above some threshold, then the fitting is repeated until all pulses have been fit. The time measurement performance in the pulse finding was found to be unaffected by the number of pulses in a time island, and there is 100\% pileup separation at \ns{5} \cite{AFThesis}. See \figref{fig:TemplateFit} for a typical single template fit to a SiPM trace.
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{TemplateFit}
     \caption[Template fit to SiPM trace]{A template fit in purple to a SiPM trace delineated by the black points which is in units of ADC counts. Plot courtesy of Aaron Fienberg.}
@@ -32,7 +32,7 @@ The traces are then fit with templates in order to extract the the area and peak
 \end{figure}
 
 
-Once a pulse has been fit with a template, the pulse area needs to be converted to real energy units using an energy calibration procedure. A couple of different techniques exist that can be used, including a method that counts photo-statistics seen in the SiPMs \cite{AFThesis}. The default method used is a comparison of lost muon energy signatures in the calorimeters. As described in \refref{lostmuons}, muons lost from the storage ring can spiral inward and hit consecutive calorimeters with a specific time separation between calorimeter hits. These lost muons are minimum-ionizing particles, and thus leave a very distinct energy signature in the crystals, see \secref{sec:lostmuons}. Selecting on the time signature allows hits corresponding to lost muons to be isolated, and the energy signature can be used to determine the appropriate conversions from area to energy\footnote{Different channels can also be equalized based on the energy signatures.}. 
+Once a pulse has been fit with a template, the pulse area needs to be converted to real energy units using an energy calibration procedure. A couple of different techniques exist that can be used, including a method that counts photo-statistics seen in the SiPMs \cite{AFThesis}. The default method used is a comparison of lost muon energy signatures in the calorimeters. As described in \refref{lostmuonspaper}, muons lost from the storage ring can spiral inward and hit consecutive calorimeters with a specific time separation between calorimeter hits. These lost muons are minimum-ionizing particles, and thus leave a very distinct energy signature in the crystals, see \secref{sec:lostmuons}. Selecting on the time signature allows hits corresponding to lost muons to be isolated, and the energy signature can be used to determine the appropriate conversions from area to energy\footnote{Different channels can also be equalized based on the energy signatures.}. 
 
 
 The energy calibration for positron hits as compared to lost muon hits then needs to be determined. Again there are a couple of different techniques, including a comparison of endpoint energies for high energy positrons which tail off at the magic momentum of $\SI{3.094}{\GeV}$, and comparison with simulation. The default technique is to calibrate the energies such that the optimal energy threshold for the \wa analysis is near $\SI{1.7}{\GeV}$ \cite{AFThesis}. Ultimately the energy calibration doesn't matter too much because it is not the energy units that really matter. What really matters is the number of positrons above some energy threshold, where that threshold can be optimized empirically. In fact, the entire \wa analysis could be done without even considering the energy of the incident positrons, and only considering the area of the SiPM pulses\footnote{This statement ignores the effects of pileup which must be accounted for, and applies for a threshold style analysis, and not for other analysis methods which depend on the energy of the pulses.}.
@@ -40,7 +40,7 @@ The energy calibration for positron hits as compared to lost muon hits then need
 
 Each pulse fit now has an associated energy and time. Because the measurement of \wa depends heavily on the time reconstruction since the analysis is a frequency extraction, pulse times need to be corrected for various effects in order to reach the precision goal. The fitted times for each pulse need to be aligned on a fill-by-fill basis relative to the injection time of the beam, corrected for any channel differences due to differing pulse shapes or fiber lengths, and corrected for any calorimeter time misalignments due to the use of different laser system components. The fill-by-fill alignment is corrected for using the T0 detector as described in \secref{sec:T0}. The channel differences are corrected by aligning calorimeter channels in time using signals from islands with large simultaneous pulses in neighboring crystals. Calorimeters are time aligned using lost muon coincident events as described before. Once the times of the pulse fits or crystal hits have been determined, the energies can be corrected appropriately for gain effects measured by the laser system. As described in \secref{sub:LaserCalibrationSystem}, the laser calibration system corrects for out-of fill, STDP, and in-fill gain effects, in that order. \figref{fig:IFGFunction} shows an in-fill gain function fit to data for a single calorimeter. Systematic effects for corrected gain effects are studied in \secref{sub:gainerror}.
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{IFGFunction}
     \caption[In-fill gain function fit for a single calorimeter crystal]{In-fill gain function fit for a single calorimeter crystal (top) and fit residuals (bottom). Each crystal has its own in-fill and STDP gain function parameters. Plot courtesy of Matthias Smith.}
@@ -51,7 +51,7 @@ Each pulse fit now has an associated energy and time. Because the measurement of
 The last part of the calorimeter reconstruction is the clustering. Clustering is the stage which takes the individual template fit results from separate crystals, and turns them into the times, energies, and positions of decay positron impacts. For a time island with a single positron impact, the procedure is straightforward. The energy for the positron hit cluster is the sum of the individual hit crystal energies. The time for the cluster is taken as the time of the maximum energy hit in the island. This works because most of the deposited energy from a hit is localized to a single crystal. The position of the cluster is determined with a logarithmic weighting function between crystal hits, which for a $\SI{2}{\GeV}$ positron in the E989 calorimeters results in a resolution of $\SI{2}{mm}$ \cite{AFThesis}. See \figref{fig:CaloCluster} for a single calorimeter cluster from a positron hit in the calorimeter. For a time island with multiple positron impacts, the individual crystal hits are separated in time, where the time partitioning separates hits that are $\SI{2.5}{ns}$ apart, and the clustering proceeds as before. For hits which are within this time window, a pileup event has occurred. If the pileup event happens within the same crystal, then the multiple hits are measured as a single hit, and this needs to be corrected for using a pileup subtraction technique, as described in \secref{sub:pileupsubtraction}. For hits that occur in separate crystals, the pileup can be resolved using the spatial separation of the calorimeters. This is an ongoing area of work, and one technique is described in \refref{AFThesis}. For this analysis the spatial separation was turned off, which simplifies the analysis somewhat. This increases the amount of pileup seen in the data, which then needs to be handled by the pileup subtraction technique. For the precision of the Run 1 analysis result, this was found to be acceptable. 
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{CaloCluster}
     \caption[Calorimeter cluster from SiPM traces fit with templates]{A single positron hit in the calorimeter, which resulted in a reconstructed calorimeter cluster. Each box is a crystal in the calorimeter, where the contained trace is the SiPM output fit with a template. The positron hit the crystal three from the left and three from the bottom, where it deposited most of its energy. Some of the energy was deposited in the neighboring crystals. Plot courtesy of Aaron Fienberg.}
@@ -70,7 +70,7 @@ Once the reconstruction has processed all calorimeter hits into clusters, the en
 It should be noted that some of the parameter choices for the constructed histograms were informed by analysis results. All analysis parameters were chosen to be identical between the distinct analyzed datasets, in order to simplify both the comparison and combination of different dataset results. This section describes the justification for the different histogram parameters chosen. A table of the histogram parameters is shown in \tabref{tab:histogramparameters}.
 
 
-\begin{table}[]
+\begin{table}
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
@@ -97,7 +97,7 @@ It should be noted that some of the parameter choices for the constructed histog
 
 Energy and time histograms are made for each individual calorimeter. These are summed together to form histograms of all hit times and energies. \figref{fig:energyHist} shows a sample energy spectrum for the Endgame dataset. An energy threshold is applied to the clusters before filling the time histograms. As described at the end of \secref{section:WaIntro}, the optimal energy threshold is where the quantity $NA^{2}$ reaches the maximum, at least in the case of a five parameter fit\footnote{Using the final fit function and looking at the error directly on the fitted \wa frequency, a slightly better estimate can be found.}. By scanning over the choice of energy threshold and fitting the resulting time spectra with \equref{eq:5parfunc}, the optimal energy threshold can be determined as seen in \figref{fig:OptimalEnergyThreshold}. The optimal choice of energy threshold was determined to be $\SI{1700}{\MeV}$, in accordance with the cluster reconstruction energy calibration. 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{basicEnergyHist}
     \caption[Sample energy spectrum]{Energy spectrum for hits in all calorimeters for the Endgame dataset on a linear scale. The peak at about 170 \MeV corresponds to lost muons.}
@@ -105,7 +105,7 @@ Energy and time histograms are made for each individual calorimeter. These are s
 \end{figure}
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -155,7 +155,7 @@ If pileup was a constant effect, then the phase of the time histogram would be s
 % -need to mention the \% level effect of pileup - ~1\% but where do you get that number...
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{PileupExample}
     \caption[Pileup example]{Pileup example, where two low energy positrons are registered as a single high energy positron. The black arrows indicate the (exaggerated) direction of the muon spins at the time of decay. Because of acceptance effects the lower energy decay positrons typically come from muons which have traveled further around the ring, and thus the muon spins have precessed more in the magnetic field, leading to a different measured \gmtwo phase for pileup events.}
@@ -186,7 +186,7 @@ The value of the SGT is simply set to twice the SDT, in order to push the shadow
 
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=\textwidth]{ShadowPileupMethod}
     \caption[Shadow pileup method]{The shadow pileup method looks for shadow clusters within a time window SDT, a small time away (SGT) from trigger clusters. If a shadow cluster is found, an artificial doublet is formed and included in the pileup spectra if it exceeds the chosen energy threshold.}
@@ -197,7 +197,7 @@ The value of the SGT is simply set to twice the SDT, in order to push the shadow
 The pileup energy spectra as compared to the cluster energy spectra is shown in \figref{fig:ClusterEnergiesVsPileupEnergies}. In general, the two lobes starting at approximately $\SI{3}{\GeV}$ and $\SI{6}{\GeV}$ consist of double and triple pileup events respectively\footnote{All orders of pileup fill out the whole energy range, but certain areas consist of mostly one or the other.}. It can be seen that the shadow method of pileup construction produces a pileup energy spectra which is a decent approximation of the cluster energies above the maximum energy that a single decay positron would have at $(\SI{3.094}{\GeV}) + \text{detector resolution}$, for cases of double and even triple pileup. The shape difference arises from two factors: First, the shadow method is only written to construct doublets, and does not consider cases of triple or higher orders of pileup. Second, the real pileup in the data contaminates the construction of the shadow pileup spectra, such that a shadow doublet can be constructed from real pileup pulses. While this alleviates the triplet problem slightly, it means that the doublet pileup spectrum is slightly wrong. The corrected energy spectra (cluster energies minus pileup energies), can be seen in \figref{fig:AddedEnergies}. The shape mismatch is even more apparent as the corrected energy spectrum is high for energies above the expected tail of the true energy distribution, and then goes negative before tailing off to zero. 
 
 
-    \begin{figure}[]
+    \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{ClusterEnergiesVsPileupEnergies}
         \caption[Cluster energies vs pileup energies]{Cluster energies in black are plotted vs pileup energies in red, for all calorimeters added together, plotted on a log scale. At energies below about 2.4 GeV the pileup energy spectrum goes negative. In this plot the absolute value of the pileup energies is plotted, and a spike at about 2.4 GeV can be seen as a consequence of this. The shapes do not match perfectly for the constructed pileup spectra, which can be seen at high energies. It should be noted that for energies above $\SI{3.094}{\GeV}$ there is still a shape mis-match even though the red and black curves overlap due to the plotting scale. Data from the 60h dataset.}    
@@ -205,7 +205,7 @@ The pileup energy spectra as compared to the cluster energy spectra is shown in 
     \end{figure}
 
 
-    \begin{figure}[]
+    \begin{figure}
     \centering
         \begin{subfigure}[]{0.45\textwidth}
             \centering
@@ -227,7 +227,7 @@ The pileup energy spectra as compared to the cluster energy spectra is shown in 
 In order to produce a slightly better estimate of the pileup, a multiplier can be applied to the pileup energy and time spectra. By taking the ratio of cluster energies over pileup energies and fitting the region where the energies are dominated by real pileup doublets, a correction factor of approximately 3-4\% is found, as shown in \figref{fig:EnergyRatio}. The default multipliers for the Run~1 datasets are 1.03210, 1.03413, 1.03387, and 1.03819 for the 60h, HighKick, 9d, and Endgame datasets respectively. Similarly, the cluster times can be examined for cluster energies over \SI{3500}{\MeV}, where the clusters consist purely of pileup pulses, \figref{fig:PileupTimesRatio}. By taking the ratio of the pileup corrected times over all times, the level of residual pileup can be determined. Just as in the ratio of the energies, an approximately 3-4\% factor is found. When applying this multiplier, the cluster times above \SI{3.5}{\GeV} can be seen to be eliminated as in \figref{fig:PileupTimesRatio}. As will be shown in \secref{sub:pileuperror}, the scale of this multiplier is well within $1\sigma$ of the pileup multiplier error. The final pileup time spectrum for those pileup pulses above energy threshold is shown in \figref{fig:PileupTimeSpectrum}. 
 
 
-    \begin{figure}[]
+    \begin{figure}
         \centering
         \includegraphics[width=.5\textwidth]{EnergyRatio}
         \caption[Cluster energies divided by pileup energies]{Cluster energies over pileup energies. A region from \SI{3500}{}--\SI{4500}{\MeV} is fit to a straight line, where the doublets dominate the energy distribution. Data from the 9d dataset.}    
@@ -235,7 +235,7 @@ In order to produce a slightly better estimate of the pileup, a multiplier can b
     \end{figure}
 
 
-    \begin{figure}[]
+    \begin{figure}
     \centering
         \begin{subfigure}[]{0.45\textwidth}
             \centering
@@ -267,7 +267,7 @@ In order to produce a slightly better estimate of the pileup, a multiplier can b
 
 
 
-    \begin{figure}[]
+    \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{PileupTimeSpectrum}
         \caption[Pileup time spectrum above threshold]{Plotted is constructed pileup time spectrum on a linear (left) and log (right) scale. The histogram on the right is fit to a simple two parameter exponential to get an idea of the lifetime of the pileup, calculated here as $\SI{31.99}{\micro s}$, which is close to half of the muon lifetime at about $\SI{64.44}{\micro s}$. Data from the 60h dataset.}
@@ -339,7 +339,7 @@ where
 and these functions have been determined from the time-shifted five parameter function plugged into the $U(t)$ and $V(t)$ variables. In addition to the exponential being eliminated, any slow terms in the data get time-shifted and divided as well, such that the amplitude of said slow effects are reduced. For faster effects, the degree of cancellation of the effect is dependent on the frequency. Effects at frequencies which are an odd multiple of \wa are preserved while effects at an even multiple of \wa are completely cancelled out. An example is shown in \figref{fig:CancellationInRatioMethod}. While this makes fitting the data easier in some cases, in others it is a downside that effects which still need to be included in the fit function now have their amplitudes reduced, making them harder to fit.
 
 
-    \begin{figure}[]
+    \begin{figure}
     \centering
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
@@ -381,7 +381,7 @@ and these functions have been determined from the time-shifted five parameter fu
     \end{figure}
 
 
-    \begin{figure}[]
+    \begin{figure}
         \centering
         \includegraphics[width=.6\textwidth]{Fitted_Avw_Vs_Wvw_1x-10x}
         \caption[Cancellation of effect in Ratio Method versus frequency]{Fitted amplitude for a VW effect as a function of frequency in units of \wa in a Toy MC simulation, with a five parameter function in red and a three parameter ratio function in black. The input amplitude was 0.05. The fall off of red points is due to the high frequencies relative to the bin widths leading to an underestimate of the amplitude; performing an integral fit removes this trend. As shown the amplitude of the effect goes to zero for frequencies which are an even multiple of \wa.}
@@ -425,7 +425,7 @@ where the fit parameter for \wa is recast in terms of a ppm level shift \textbf{
     \end{align}
 This reference frequency of $\SI{0.2291}{MHz}$ was the same reference frequency used in E821, and \textbf{R} is blinded at the hardware and software levels \cite{ClockManual,SoftwareBlinding}. Fitting the data with \equref{eq:fiveparfuncagain} however is insufficient to properly describe the data. \figref{fig:FFT_fiveParameter} shows there are peaks in the FFT due to beam dynamics frequencies corresponding to the CBO, VW, and some beat frequencies with \wa. In order to properly account for these effects, additional terms need to be added to the fit function. 
 
-    \begin{figure}[]
+    \begin{figure}
         \centering
         \includegraphics[width=.8\textwidth]{FFT_fiveParameter}
         \caption[FFT of five parameter fit residuals]{FFT of five parameter fit residuals. Peaks corresponding to beam dynamics frequencies of the CBO and VW and some beat frequencies with \wa are readily apparent. A rise at low frequencies corresponds to the effects of the lost muons in the data. The VW peak disappears with the additional level of time randomization at that frequency. From the 60h dataset.}
@@ -452,7 +452,7 @@ The $f(t)$ given here differs from that in \equref{eq:TmethodFunction} in that t
 Because the Ratio Method reduces the sensitivity of the \wa extraction to various effects in the data, peaks that appear in the FFT of the five parameter fit residuals don't appear in the FFT of the three parameter ratio fit residuals, \figref{fig:fft_threeParamRatio}. Indeed except for bad fits, unless one looks at the FFT over the early part of the fit (first \mus{30}) or at the shape of the Ratio Method denominator, one might not know the effects even exist in the data at all. However those effects typically still need to be included in the fit function for a proper estimatation of \wa, and because of the reduction in sensitivity, there are some parameters which the ratio has trouble fitting by itself. Using the T-Method fit function is then a useful tool for constraining these specific parameters.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.7\textwidth}
         \centering
@@ -491,7 +491,7 @@ where $\boldsymbol{\omega_{cbo}}$ is the free fit parameter, and the model param
 
 
 % \begin{landscape}
-\begin{table}[]
+\begin{table}
 \centering
 \small
 \setlength\tabcolsep{10pt}
@@ -546,7 +546,7 @@ Systematic studies relating to the choice of envelope and choice of fixed parame
 
 As mentioned briefly at the end of \secref{sec:Histogramming}, the VW effect is time-randomized out of the data, such that $V(t) = 1$. This is done due to complications with the Ratio Method. In the 60h and Endgame datasets, the VW frequency was found to be nearly 10 $\cdot$ \wa, on a potential resonance. While to first order this even multiple frequency implies the VW effect should completely cancel out in the Ratio Method, \figref{fig:CancellationInRatioMethod}, the FR effect in combination with the VW leads to a modified envelope for the VW effect in the Ratio Method fits and inflated VW amplitudes \cite{VWinRatio}. See Figures~\ref{fig:VWresonance} and \ref{fig:JamesMC_VW_FR}.
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.7\textwidth]{AvwResonance_60h}
     \caption[VW amplitude resonance in the 60h dataset]{Fitted VW amplitude as a function of the choice of  offset from $T_{a}$ in units of thousands of ppm for the 60h dataset. The default time-shift lies at 0 on this plot, right on the resonance where the VW amplitude blows up. Only by time-shifting by a drastically different amount (which negatively affects R), can the resonance be avoided.}
@@ -554,7 +554,7 @@ As mentioned briefly at the end of \secref{sec:Histogramming}, the VW effect is 
 \end{figure}
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.6\textwidth}
         \centering
@@ -574,7 +574,7 @@ As mentioned briefly at the end of \secref{sec:Histogramming}, the VW effect is 
 
 For the 9d dataset which has a VW frequency that's nearly 9 $\cdot$ \wa and avoids said resonance (and by extension the HighKick), it was found that the Ratio Method flattened out the VW amplitudes as a function of calorimeter number leading to a systematically smaller VW amplitude in the calorimeter sum fit. The simplest solution to remove both of these problems was to randomize out the VW effect entirely. \tabref{tab:A_change} gives the change in asymmetry and corresponding change in the statistical error on R due to this added time randomization for three of the Run~1 datasets. It was found that the added randomization increased the statistical error on R by a negligible amount for the Run~1 analysis. It was also found that the added level of time-randomization changed the mean value of R for many random seed fits to the data by a small amount, statistically consistent without the extra randomization \cite{VWinRatio}. Going forward for the future runs, it may be necessary to include the proper VW envelope in the fits using a functional form of the FR instead of randomizing out the effect.
 
-\begin{table}[]
+\begin{table}
 \centering
 \small
 \setlength\tabcolsep{10pt}
@@ -624,7 +624,7 @@ where now the VW frequency fit parameter is $\boldsymbol{\kappa_{VW}}$. The orig
 
 Muons lost from the storage ring during the frequency analyis portion of each fill will distort the observed decay positron spectrum. These hits show up as a rise at low frequencies in the FFT of the fit residuals due to the slow nature of the effect, \figref{fig:FFT_fiveParameter}. These muon losses typically originate from those muons with large betatron amplitudes which hit material near the edge of the storage ring, or those muons which experience local field perturbations one too many times. In both cases the muons will lose energy and spiral inward out of the ring, a fraction of which will then pass through multiple calorimeters. Because lost muons are minimum-ionizing particles (MIPs), they are relatively easily identified by their small energy deposition signature in hit calorimeters, around 170 \MeV as shown in the left peak in \figref{fig:energyHist}. These lost muons typically have a flight time between adjacent calorimeters of $\Delta t_{12} = \SI{6.5}{ns}$ \cite{lostmuonspaper,lostmuonsDenverTalk}. The $\Delta t$ and energy deposition distributions are shown in \figref{fig:lostmuondistributions}. By looking for coincidences between three adjacent calorimeters, or triples, and then applying cuts and subtracting backgrounds, a pure sample of lost muons can be constructed. This lost muon spectrum $L(t)$ can then be implemented into the fit function in order to account for the positrons that would have been observed in the absence of losses.
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[]{0.48\textwidth}
         \centering
@@ -641,7 +641,7 @@ Muons lost from the storage ring during the frequency analyis portion of each fi
 \end{figure}
 
 
-\begin{table}[]
+\begin{table}
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
@@ -667,7 +667,7 @@ Muons lost from the storage ring during the frequency analyis portion of each fi
 The cuts used for the lost muon selection are given in \tabref{tab:lostmuoncuts}. Triple coincidences are only included where every cluster consists of three or less crystals hit, with 80\% of the energy deposited in one crystal. $\Delta t$ and energy deposition ranges are taken as $\SI{5}{ns} \leq \Delta t_{12, 23} \leq \SI{7.5}{ns}$ and $\SI{100}{\MeV} \leq E_{1,2,3} \leq \SI{250}{\MeV}$, where these ranges come from inspection of \figref{fig:lostmuondistributions}. The \DT distribution as a function of time in-fill is shown in \figref{fig:deltaT12_AccSub}. By examining this distribution in the range $\SI{2}{ns} \leq \Delta t_{12} \leq \SI{4}{ns}$, and averaging the contained counts, an approximation for the accidental background can be determined and subtracted off the triples spectrum. The accidental background typically comes from either double coincidences and a real positron hit, or a particle shower induced by an incident positron which hits an adjacent calorimeter. 
 
 
-% \begin{figure}[]
+% \begin{figure}
 % \centering
 %         \includegraphics[width=0.9\textwidth]{deltaT12_beforeAccSubtraction_Endgame}
 %         \includegraphics[width=0.9\textwidth]{deltaT12_afterAccSubtraction_Endgame}
@@ -675,7 +675,7 @@ The cuts used for the lost muon selection are given in \tabref{tab:lostmuoncuts}
 % \label{fig:deltaT12_AccSub}
 % \end{figure}
 
-\begin{figure}[]
+\begin{figure}
 \centering
         \includegraphics[width=1\textwidth]{deltaT12_beforeAccSubtraction_Endgame}
 \caption[Lost muon \DT distribution as a function of time in-fill]{\DT distribution as a function of time in-fill before any cuts. Note the log scale. Lost muons have a \DT distribution centered at \ns{6.5}. The accidental background can be seen as counts out at $\Delta t$'s far from the center of the distribution. Color striations in the core of the distribution correspond to CBO periods. There are two bands of hits that do not fall off as severely with time as the lost muons do. The band contained mostly between 7 and \ns{8} corresponds to deuterons, while the band contained mostly between 6 and \ns{7} corresponds to protons. Data from the Endgame dataset.}
@@ -686,7 +686,7 @@ The cuts used for the lost muon selection are given in \tabref{tab:lostmuoncuts}
 Also shown in \figref{fig:deltaT12_AccSub} are two bands of stable beam contaminants corresponding to stored deuterons and protons. These particles have different times of flights between calorimeters due to their larger masses. By looking at the $\Delta t_{13}$ distribution for times greater than \mus{300}, the deuteron population is easily isolated, \figref{fig:deuteronPop}. While the deuteron population is mostly removed by the \DT cut, an additional cut of $\Delta t_{13} \leq \SI{14.4}{ns}$ helps remove any remaining deuteron contamination. The proton population, due to it's nearness to the real lost muon population, is harder to remove. The simplest solution is to simply cut on the negative side of the \DT or $\Delta t_{13}$ distributions. See \secref{sub:lostmuonserror} for the results using this additional cut. It was found that the proton contamination makes almost no difference to the fitted value of R. The default choice then is to use the previously specified cut ranges in order to increase the amount of statistics in the lost muons distribution with which to fit. A study into the exact rate of these beam contaminants is included in \refref{lostmuonsKevin}.
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.7\textwidth]{deuteron_Population_Endgame}
     \caption[Deuteron population at late times]{$\Delta t_{13}$ distribution as a function of energy for times greater than \mus{300}. The lost muons can be seen as a blob centered at 170 \MeV and $\Delta t_{13} \approx \SI{12.5}{ns}$, while the deuterons can be seen as the oblong blob at $\Delta t_{13} \geq \SI{14.4}{ns}$. While the deuterons have a preferentially larger energy deposition, they can be seen to extend to low energies, making cutting on energy unrealistic. Though not easily separated by eye, the stored protons are contained within the upper right portion of the lost muons blob. Data from the Endgame dataset.}
@@ -697,14 +697,14 @@ Also shown in \figref{fig:deltaT12_AccSub} are two bands of stable beam contamin
 The last background is the quadruples spectrum. Due to how the triple coincidences are constructed, real quadruples will be counted as two separate triples. While the quadruples spectrum can be used instead of the triples spectrum for a purer sample of lost muons, the amount of statistics is much reduced, and similarly for higher order coincidences. The quadruples spectrum is constructed in the same was as the triples with the same cut ranges. The quadruple background is removed by subtracting off those triples which originated from quadruple coincidences.
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.8\textwidth]{deltaT12_timeInFill_finalCuts_Endgame}
     \caption[Final \DT distribution for selected lost muons]{Final \DT distribution for selected lost muons as a function of time in-fill. Data from the Endgame dataset.}
     \label{fig:finalDT12Dist}
 \end{figure}
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{Triples_vs_all_Endgame}
     \caption[Lost muon triples spectrum compared to quadruples and accidental background]{Lost muon triples spectrum $L(t)$ as a function of time in-fill, after all cuts and background subtractions. Also shown are the quadruples and accidental background distributions, which can be seen to be much smaller than the triples. The shape of the triple and quadruple spectra can be seen to be nearly the same. The shape of the triples spectrum comes from beam dynamics (CBO) and lost muon acceptance effects. Data from the Endgame dataset.}
@@ -738,7 +738,7 @@ Fits to calorimeter sum spectra are done from 30.2--\mus{650}, corresponding to 
 As a reminder $R$ is blinded at the hardware and software levels \cite{ClockManual,SoftwareBlinding}. The software blinding string used for the 60h dataset was different than that used when fitting the HighKick, 9d, and Endgame datasets, each of which used the same blinding string. This was done in order to perform a software-level relative unblinding exercise between different analyzers with the 60h dataset in order to determine if there were any obvious problems in the analyses \cite{BU60hReport}. \textbf{Cite a summary talk somewhere? Can't find any.} Therefore in the following results, $R$ values between different datasets are comparable between the datasets except for the 60h, barring any differences due to field conditions which are not discussed in this dissertation.
 
 
-\begin{table}[]
+\begin{table}
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}{}

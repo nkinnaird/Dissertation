@@ -18,7 +18,7 @@ Evaluating the systematic errors which bias the \wa extraction is a major part o
 where $\phi(t)$ can in general be expanded to higher orders. Because the phase is highly correlated to the extracted frequency, and because more decay positrons are detected at early times within a fill, a time-dependent phase pulls the extracted frequency away from it's real value. Sources of systematic uncertainty can be separated into several general categories. These include systematic errors in the pileup subtraction,  gain corrections, CBO fit model, muon losses, and E-field and pitch corrections, among others. In each case early-to-late shifts are a danger in the analysis and must be evaluated appropriately. \tabref{tab:wauncertainties} gives the target systematic uncertainties for the E989 experiment, which has the goal of a \SI{70}{ppb} systematic error on the precession frequency measurement. This represents a three to four-fold improvement over the E821 experiment systematic errors which were of order \SI{210}{} -- \SI{310}{ppb} depending on running period \cite{E821FinalReport}. \textbf{talk about reason for improvement at all here? seems kind of late to be doing so}
 
 
-\begin{table}[]
+\begin{table}
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
@@ -56,7 +56,7 @@ As described in \secref{sub:pileupsubtraction}, the pileup background oscillates
 As a reminder the default values used for the ADT and SDT were \ns{5} each, and a default automatic pileup amplitude multiplier of $\sim1.03$ was applied to the pileup spectra. In order to calculate the systematic dependence on the choice of ADT or SDT, the SDT parameter was scanned over from \ns{5} to \ns{10} in steps of \ns{1}. This was done with and without the same automatic pileup amplitude scaling procedure as described in \secref{sub:pileupsubtraction}. The results of the study for the 9d dataset are shown in Figures~\ref{fig:SDTscan_noScaling} and \ref{fig:SDTscan_autoScaling}. In the case where there was no automatic scaling applied there is a clear minimum in the \chisq results and a steep slope in $R$ corresponding to a large sensitivity of $R$ to the choice of SDT. In the case where the automatic scaling was applied however, the minimum in the \chisq results has disappeared, while the sensitivity of $R$ has become much reduced to the point of no longer being a clear trend\footnote{This slope in $R$ varies between positive and negative values based on dataset, so there is no real clear trend in $R$.}. The fact that applying the automatic pileup amplitude scaling produces nearly identical pileup spectra with no clear trend in $R$ regardless of the choice of SDT (and by extension ADT), any systematic error due to the choice of these two parameters can be subsumed into the direct pileup amplitude error itself, discussed down below. It should be noted in fact that the choices of ADT and SDT are largely irrelevant barring statistics, as the automatic amplitude scaling procedure can always account for any differences between the two. 
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -86,7 +86,7 @@ As a reminder the default values used for the ADT and SDT were \ns{5} each, and 
 \end{figure}
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -119,7 +119,7 @@ As a reminder the default values used for the ADT and SDT were \ns{5} each, and 
 In order to calculate the systematic dependence on the choice of SGT (default value of \ns{10}), the SGT parameter was scanned over from \ns{10} to \ns{20} in steps of \ns{1}. The results of the study with the automatic pileup amplitude scaling applied is shown in \figref{fig:SGTscan}. Just as in the SDT scan with the automatic pileup amplitude scaling, there is no minimum in the \chisq results, the sensitivity of $R$ to the value of SGT not so clear, and the pileup spectra for the various choices of SGT are nearly identical. Therefore again any systematic error due to the choice of SGT is subsumed into the pileup amplitude error.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -160,7 +160,7 @@ where $P_{m}$ is the value of the pileup multiplier. The error $\sigma_{P_{m}}$ 
 where $p_{2}$ is the fit parameter as given in the top right of the \chisq plot. The sensitivities of $R$ to the pileup multiplier, uncertainties in the pileup amplitude, and final corresponding systematic errors for the Run~1 precession frequency analysis datasets are given in \tabref{tab:systematicError_pileupMultplier}. As shown in the table, the uncertainties on the pileup amplitude are of order 2 to 5\%, while the systematic errors on $R$ are on the order of \SI{10}{} to \SI{20}{ppb} depending on dataset.  It should be noted that the default automatic pileup multiplier of $\sim1.03$ does not necessarily correspond to the minimum in the \chisq plot, but is within $1\sigma$ of 1 or the minimum (except the Endgame which is closer to $2\sigma$)\footnote{Monte-Carlo tests with various random seeds showed this minimum fluctuating above and below 1. The distance from 1 therefore is not a good measure for the uncertainty in the pileup amplitude compared to the width of the \chisq parabola fit.}.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -178,7 +178,7 @@ where $p_{2}$ is the fit parameter as given in the top right of the \chisq plot.
 \end{figure}
 
 
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 \setlength\tabcolsep{10pt}
@@ -208,7 +208,7 @@ The pileup phase error is the error on $R$ assuming the phase of the pileup was 
 where $P_{t}$ is the value of the pileup time-shift. The sensitivities of $R$ to the pileup time-shift and corresponding systematic errors for the Run~1 precession frequency analysis datasets are given in \tabref{tab:systematicError_pileupTimeShift}.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -226,7 +226,7 @@ where $P_{t}$ is the value of the pileup time-shift. The sensitivities of $R$ to
 \end{figure}
 
 
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 \setlength\tabcolsep{20pt}
@@ -260,7 +260,7 @@ The second part of the pileup phase error comes from the choice of constant $C$ 
 Similarly to the pileup amplitude error, there is a clear minimum in the \chisq results which can be used to estimate the uncertainty in the pileup energy scale\footnote{The trend isn't as clean as in the scan over the pileup amplitude multiplier, but that is acceptable.}. \tabref{tab:systematicError_pileupC} gives the sensitivities of $R$ to the pileup energy scale, uncertainties in the pileup energy scale, and the corresponding final systematic errors for the Run~1 precession frequency analysis datasets. As shown the uncertainties on the pileup energy scale are of order 1 to 2\%, and the value for $C$ which produces the minimum in the \chisq results is consistent with 1\footnote{Because the spatial separation is turned off in the clustering portion of the reconstruction, a value of $C = 1$ is to be expected.}. Interestingly, the sensitivity of $R$ to $C$ in the 60h dataset is noticeably larger than in the rest of the datasets, though the origin of this is currently unknown. \textbf{what to do about this?}
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -278,7 +278,7 @@ Similarly to the pileup amplitude error, there is a clear minimum in the \chisq 
 \end{figure}
 
 
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 \setlength\tabcolsep{12pt}
@@ -304,7 +304,7 @@ Similarly to the pileup amplitude error, there is a clear minimum in the \chisq 
 \tabref{tab:PileupErrorsTotal} gives the quadrature sum for the total pileup systematic errors for the Run~1 precession frequency analysis datasets. As shown for each dataset the total error is below the target final error of \SI{40}{ppb} in spite of the contamination in the pileup shadow method. For future runs of the experiment with increased rate and therefore increased pileup, these errors may grow. In that case either the pileup shadow method might need to be improved to account for the contamination and pileup triplets, or discarded in favor of a different method.
 
 
-\begin{table}[]
+\begin{table}
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
@@ -342,7 +342,7 @@ The IFG function as measured by the laser calibration system, \secref{sub:LaserC
 where $E_{0}$ is the `true' energy of the detected positron and $E$ is the as-measured energy. Constants $C_{A}$ and $\tau_{g}$ are measured with the laser calibration system, and then the function given in \equref{eq:IFG} is used to convert the measured energies back to their real energies. In order to determine a systematic error from the applied IFG function, the IFG function was un-applied and then re-applied to the crystal hits with modified parameters. Specifically, the amplitude of the IFG function $C_{A}$ was scanned over in multiplicative steps, such that all crystal energies included in a cluster hit were adjusted by a multiplicative factor before re-summing\footnote{It was decided that scanning over the parameter $\tau_{g}$ was unnecessary as it in general shifts the energies of the positrons in the same way as $C_{A}$.}. The multipliers applied to the IFG amplitude were from 0 to 2 in steps of 0.25. The results of the scan for the 60h dataset is shown in \figref{fig:IFG_amplitude}, with a comparison to the results from fits with the T-Method. It is immediately apparent that the sensitivity of the T-Method to the IFG multiplier is significantly greater than that of the Ratio Method. The Ratio Method's insensitivity to slowly varying effects which it divide out is one of it's primary strengths. In fact, while there is an observable minimum in the T-Method \chisq results, no such minimum exists for the Ratio Method results.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
@@ -369,7 +369,7 @@ Examining the table in more detail however, some interesting features can be see
 These various peculiarities imply there are imperfections in the gain corrections which have not been fully accounted for. Indeed recent investigations into the applied gain corrections show that for the HighKick and Endgame datasets the out-of-fill corrections were neglected \cite{GainOscEndgameHighKick}. While this does not introduce a systematic uncertainty as a function of time in-fill as described before, it does shift the scale of the correction and by extension the extracted $R$ value. In order to determine more conservative bounds on the systematic errors in order to account for these deficiencies, the absolute changes in $R$ for the 0x and 2x multiplier fits were examined. These values are included in \tabref{tab:systematicError_IFG}. The maximum of the two values was then taken as the systematic error on $R$ due to the IFG amplitude. In general the systematic errors as calculated from the maximum of the 0x or 2x fits are an order of magnitude larger than those errors calculated directly from the sensitivities. Because the scale of these numbers is still small compared to the Run~1 statistical errors however, they have been deemed acceptable for this analysis. The confidence in the scale of the Ratio Method results is ultimately preserved from the fact that the Ratio Method fits are not as sensitive to the gain variations as the T-Method fits, as the gain effects divide out. Going forward towards the end of the Run~1 analysis, once the outstanding gain issues have been resolved the systematic errors will be calculated directly from the sensitivities.
 
 
-% \begin{table}[]
+% \begin{table}
 % \centering
 % % \small
 % % \setlength\tabcolsep{12pt}
@@ -393,7 +393,7 @@ These various peculiarities imply there are imperfections in the gain correction
 
 
 \begin{landscape}
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 % \setlength\tabcolsep{12pt}
@@ -428,7 +428,7 @@ These various peculiarities imply there are imperfections in the gain correction
 The STDP correction is in many ways the same as the IFG correction \cite{STDP}. This correction is applied to pulses close in time, $\mathcal{O}(\text{ns})$, and is applied to the energies of the pulses before the in-fill gain correction. For the systematic error on $R$ due to the application of the STDP gain correction, a new production of the 60h dataset was processed without the STDP correction applied. Because of how the time-randomization is applied to the clusters in the author's analysis, a new version of the same dataset by default uses a different default randomization to the cluster times and the ratio histogram filling. As shown in \secref{sub:randomSeedFits}, the width in the fitted $R$ values for many random seeds is of order $\mathcal{O}(\SI{100}{ppb})$ making direct ratio fit comparisons between the two datasets un-informative. In order to avoid this difficulty, fits were done with the T-Method, and cluster times were randomized per-fill rather than per-cluster. Since the per-fill randomization uses fill ID's as the seeds for the randomization, and because the T-Method does not split the data into sub-datasets as the Ratio Method does, the randomization between the 60h dataset with and without the STDP correction is identical. The change in $R$ for T-Method fits with and without this correction is then taken as the upper bound on the systematic error for the inclusion of the STDP in the Ratio Method fits. This is reasonable as the previous IFG systematic studies showed a reduction in sensitivity to gain effects which is reasonably extended to the STDP correction error. \tabref{tab:systematicError_STDP} gives the T-Method fit results with and without the STDP, along with the change in $R$. This difference was found to be \SI{11.0}{ppb}, which is then taken as the systematic error for all datasets.
 
 
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 % \setlength\tabcolsep{12pt}
@@ -455,7 +455,7 @@ The STDP correction is in many ways the same as the IFG correction \cite{STDP}. 
 
 
 
-\begin{table}[]
+\begin{table}
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
@@ -489,7 +489,7 @@ If the CBO is mis-modeled then there will be a systematic error on $R$ since the
 
 
 
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 % \setlength\tabcolsep{10pt}
@@ -521,7 +521,7 @@ The fitted values for the $C$ constants and the changes in the final fitted $R$ 
 
 
 
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 % \setlength\tabcolsep{10pt}
@@ -550,7 +550,7 @@ The fitted values for the $C$ constants and the changes in the final fitted $R$ 
 % should I cite and talk about David's new cbo model here?
 
 
-\begin{table}[]
+\begin{table}
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
@@ -584,7 +584,7 @@ Systematic errors from lost muons arise due to the fact that muons are preferent
 As mentioned in \secref{subsec:lostmuons}, the triples spectrum is made with cuts as defined in \tabref{tab:lostmuoncuts}. Various backgrounds are subtracted off the triples spectrum in order to generate a clean sample of lost muons. \tabref{tab:lostmuonsvariousfits} gives the change in \R for various sets of cuts and background subtractions for the 9d and Endgame datasets. As shown the various different backgrounds and cuts ultimately make very little difference in the final fitted \R value. Similarly, stable beam contaminants in the form of deuterons and protons contaminate the lost muon spectrum. The former are largely removed by straightforward \DT and $\Delta t_{13}$ cuts. The latter can be mostly removed by cutting on the negative side of the $\Delta t_{13}$ distribution with $\Delta t_{13} \leq \SI{12.5}{ns}$ which separates the populations more readily, \figref{fig:deltaT13}. While this does largely remove the protons at the cost of statistics, the fitted \K parameter simply grows larger to compensate. Ultimately the effect on \R is negligible, with $\Delta R = \SI{-0.3}{ppb}$. The sum of these separate types of errors is conservatively taken at \SI{0.5}{ppb} for all datasets\footnote{For the T-Method fits, though the changes in \R are noticeably larger with the various cuts, they are still the same order of magnitude and the error is conservatively below \SI{1}{ppb}.}.
 
 
-\begin{table}[]
+\begin{table}
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
@@ -609,7 +609,7 @@ As mentioned in \secref{subsec:lostmuons}, the triples spectrum is made with cut
 \end{table}
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.8\textwidth]{deltaT13_timeInFill_noCuts_Endgame}
     \caption[Lost muon $\Delta t_{13}$ distribution as a function of time in-fill]{Lost muon $\Delta t_{13}$ distribution as a function of time in-fill. The band of hits centered above \ns{15} corresponds to the deuteron contamination, while the band of hits centered above \ns{13} corresponds to the proton contamination.}
@@ -624,7 +624,7 @@ Because \K is fixed in the Ratio Method fits from corresponding T-Method fits, t
 %Interestingly enough, though the Endgame dataset has the most lost muons, it is seen that the change in \R versus \K is larger in the other datasets. This is potentially due to the fact that \textbf{try to come up with something for this unless I can explain it away as an oddity.}
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.7\textwidth]{FullRatio_R_Vs_kappa_loss_Canv_9d}
     \caption[Scan over fixed \K]{The sensitivity of \R to the fixed \K parameter. Error bars have been removed from the plot. Units are in ppm, data from the 9d dataset.}
@@ -632,7 +632,7 @@ Because \K is fixed in the Ratio Method fits from corresponding T-Method fits, t
 \end{figure}
 
 
-% \begin{table}[]
+% \begin{table}
 % \centering
 % % \small
 % % \setlength\tabcolsep{10pt}
@@ -654,7 +654,7 @@ Because \K is fixed in the Ratio Method fits from corresponding T-Method fits, t
 % \end{table}
 
 
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 % \setlength\tabcolsep{10pt}
@@ -694,7 +694,7 @@ where $f_{s}$ is the fraction of stored muons to all muons, $f_{l}$ is the fract
 
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=.8\textwidth]{fractionalLosses_dataset_comparison}
     \caption[Fractional muon losses in the analyzed Run~1 datasets]{Fractional losses for the Run~1 precession frequency analysis datasets. The curves begin at \mus{30.2} which is where the fit begins. A value of 1\% at a specific time $t$ indicates that there are 1\% fewer stored muons at that time than there would be if there were no losses at all. The Endgame and 60h datasets can be seen to have the most losses, while the 9d and HighKick have less. This is due to the higher kicks in the latter datasets which put the stored muon beam on a more central orbit. The upward tail at the end of the Endgame dataset corresponds to the remnant proton contamination.}
@@ -703,7 +703,7 @@ where $f_{s}$ is the fraction of stored muons to all muons, $f_{l}$ is the fract
 
 
 
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 % \setlength\tabcolsep{10pt}
@@ -756,7 +756,7 @@ This results in a change in $R$ on the order of \SI{2.4}{ppb} for the 60h and Hi
 Similarly, the sensitivities of $R$ to the chosen muon lifetime are very small, order \SI{}{ppb/ \micro s}. Since the uncertainties in the muon lifetime are of order \ns{} from fits to the data, any systematic errors from this parameter would be completely negligible even if the sensitivities all had the same sign.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -774,7 +774,7 @@ Similarly, the sensitivities of $R$ to the chosen muon lifetime are very small, 
 \end{figure}
 
 
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 \setlength\tabcolsep{20pt}
@@ -807,7 +807,7 @@ Upon general inspection of the fit points themselves, it was found that the tren
 
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -825,7 +825,7 @@ Upon general inspection of the fit points themselves, it was found that the tren
 \end{figure}
 
 
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 \setlength\tabcolsep{20pt}
@@ -868,7 +868,7 @@ This error is split into track reconstruction errors of which there are many $(\
 The E-field correction is evaluated with the fast rotation analysis and is dependent on the equilibrium radius of the muon beam. Analyses to the 60h, 9d, and Endgame datasets by the Cornell fast rotation analysis group yielded the results shown in \tabref{tab:EfieldCorrections}. While not the final numbers for Run~1, the estimates and errors given will change only slightly from further DQC cuts. For the HighKick dataset which has not been evaluated at the time of writing, a systematic error on the E-field correction is taken as the largest error from the other datasets, that being \SI{36}{ppb} for the 9d dataset.
 
 
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 % \setlength\tabcolsep{20pt}
@@ -909,7 +909,7 @@ As described in \secref{sec:MuonBeamMeasurements}, the vertical position of the 
 
 
 
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 % \setlength\tabcolsep{10pt}

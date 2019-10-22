@@ -26,7 +26,7 @@ The final statistical errors on $R$ for the 60h, HighKick, 9d, and Endgame datas
 Beyond looking at single fit residuals to evaluate the integrity of the fits, other checks were made to verify consistency. In general this consisted of slicing up the data in different ways and fitting the subsets. These tests and scans included fitting individual calorimeters, modifying the fit start and end times, adjusting the applied energy thresholds, and fitting individual beam bunches.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
@@ -58,7 +58,7 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
 % \afterpage{
 \clearrow
 \begin{landscape}
-\begin{table}[]
+\begin{table}
 \centering
 \small
 % \setlength\tabcolsep{10pt}
@@ -118,7 +118,7 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
 
 % \afterpage{
 \begin{landscape}
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
@@ -141,7 +141,7 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
 % }
 
 
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=\textwidth]{CorrelationMatrixFullRatioFit_60h}
     \caption[60h ratio fit correlation matrix]{Correlation matrix for the single seed ratio fit to the 60h dataset. The only significant correlation with $R$ is the \gmtwo phase. \K is fixed, hence the corresponding empty row and column.}
@@ -161,7 +161,7 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
 Fits to all 24 individual calorimters for each of the datasets were performed with the same number of free fit parameters as used in the calorimeter summed fits. \figref{fig:caloFits_chi2} shows the \chisq/NDF's for the calorimeter fits which are nicely spread around 1. \figref{fig:caloFits_R} shows the fitted $R$ values as a function of calorimeter number. Straight line fits were performed to the $R$ values, and the fitted constant returned a value in each case that was consistent with the calorimeter sum fit $R$ values. Examining the $R$ values as a function of calorimeter between datasets, particular calorimter numbers do not tend to lie above or below the fitted line uniformly. The spread in $R$ values for each calorimeter then can be said to be driven statistically, though it should be noted that with the larger error bars on the individual calorimeter fits it's hard to tell if there are any preferences one way or another.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
 \includegraphics[width=0.85\linewidth]{caloFits_chi2_fourDatsets}
     \caption[\chisq/NDF versus calorimeter number]{\chisq/NDF versus calorimter for the Run~1 precession frequency analysis datasets. Red dashed lines are placed at $\chi^{2}/\text{NDF} = 1$ to aid the eye. No individual calorimeter fits are preferentially low or high when comparing across datasets.}
@@ -176,7 +176,7 @@ Fits to all 24 individual calorimters for each of the datasets were performed wi
 Figures~\ref{fig:caloFits_EndgamePars_1} and \ref{fig:fig:caloFits_EndgamePars_2} show calorimter fit results for the other free parameters in the fit for the Endgame dataset. The \gmtwo phases are relatively consistent among the different calorimeters, barring calorimeters 13 and 19 which lie lower on the plot. These two calorimeters sit behind the tracker stations, implying a different acceptance and therefore a slightly different \gmtwo phase. Any correlated effects on $R$ are not immediately observed, and might potentially be hidden behind the large errors of the fit. Similarly, the different calorimeters have different fit asymmetries, once again due to their different acceptances. The CBO parameters are in general consistent with some spread due to acceptance, with the phases running from 0--2$\pi$ around the ring as expected. As one might notice, the amplitudes of the CBO parameters are an order of magnitude higher than in the calorimeter summed fits. Because the phases vary around the ring, when adding up all the calorimeters the CBO effect becomes reduced. In fact, while it is not always necessary to include the higher order CBO terms for good fits to the calorimeter summed data, there are many calorimeters which need the higher order terms for good fits.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
@@ -214,7 +214,7 @@ Figures~\ref{fig:caloFits_EndgamePars_1} and \ref{fig:fig:caloFits_EndgamePars_2
 \label{fig:caloFits_EndgamePars_1}
 \end{figure}
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
@@ -261,7 +261,7 @@ Figures~\ref{fig:caloFits_EndgamePars_1} and \ref{fig:fig:caloFits_EndgamePars_2
 In order to determine if there are any deficiencies as a function of time, for instance if the CBO was modelled incorrectly, fits are performed with varying fit start and end times. If a parameter is incorrectly modelled, it will wander away from the statistically allowed deviation as the mismodelled effect grows stronger or weaker. Two examples of this are given in \figref{fig:badStartScans}. In general, doing a fit start scan is a very useful tool in the precession frequency analysis beyond just verifying consistency of a fit parameter as a function of time, as it also provides hints as to what might be wrong with how the data is being handled.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -308,7 +308,7 @@ $R$ is similarly consistent as a function of fit start time. The only dataset fo
 
 
 \begin{landscape}
-\begin{figure}[]
+\begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{fitStartScan_R_fourDatasets}
     \caption[\chisq/NDF and $R$ versus fit start time]{\chisq/NDF (top) and $R$ (bottom) versus fit start time for the Run~1 precession frequency analysis datasets. Plots in the top and bottom rows are on the same scale respectively. The black parabolic bands represent the $1\sigma$ statistically allowed deviation. The \chisq's are all consistent with 1, for which a dashed red line has been overlayed. In all cases the fit points lie in and around the $1\sigma$ statistical bands.}
@@ -317,7 +317,7 @@ $R$ is similarly consistent as a function of fit start time. The only dataset fo
 \end{landscape}
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
@@ -359,7 +359,7 @@ $R$ is similarly consistent as a function of fit start time. The only dataset fo
 For fit end scans, all of the same methods and conclusions apply. In general fit end scans are both less dangerous and more stable than fit start scans, as the amount of data being removed from the fit is relatively small. While these fit end scans in a T-Method fit might be able to be completely ignored in favor of the fit start scans, it's nice to check that they satisfy the statistical deviations in the Ratio Method as the ratio data errors grow larger with less data \cite{BU60hReport}. Fit end time scans were performed from \mus{650} to \mus{400} in steps of \mus{10}, corresponding to 26 separate fits. As in the fit start time scan, fit results from the end of one fit were passed on as the starting parameters to the next. $R$ values for fit end scans for the Run~1 precession frequency analysis datasets are shown in \figref{fig:fitEndTime_R}. As shown the $R$ values are comfortably within and near the bands. The only dataset where $R$ wanders a little more than the others is in the 60h dataset, however it veers back towards the bands at the end of the scan and is thus deemed acceptable.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
@@ -394,7 +394,7 @@ For fit end scans, all of the same methods and conclusions apply. In general fit
 Similarly to fit start and end time scans, it is worthwhile to verify that $R$ is consistent regardless of the energy threshold applied to the decay positron time spectrum. The energy threshold was varied from \SI{1.2}{\GeV} to \SI{2.2}{\GeV} in steps of \SI{50}{\MeV} corresponding to 21 separate fits. The fitted $R$ values for the four Run~1 precession frequency analysis datasets are shown in \figref{fig:energyThresholdScan_R}. The statistical bands are the same as those defined in \equref{eq:sigmaDiffFull}, where now the analyzing power part of the equation plays a larger role as the asymmetries and phases of the different fit points are significantly different. As shown there are no major deviations in the fitted $R$ values.
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
@@ -433,7 +433,7 @@ As described in \secref{sec:Accelerator}, eight distinct and separate bunches of
 
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
@@ -472,7 +472,7 @@ While the single seed fit results presented earlier indicate good fits and well 
 
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
@@ -500,7 +500,7 @@ While the single seed fit results presented earlier indicate good fits and well 
 \end{figure}
 
 
-\begin{figure}[]
+\begin{figure}
 \centering
     \begin{subfigure}[]{0.45\textwidth}
         \centering
@@ -529,7 +529,7 @@ While the single seed fit results presented earlier indicate good fits and well 
 
 
 
-\begin{table}[]
+\begin{table}
 \centering
 % \small
 % \setlength\tabcolsep{10pt}
@@ -553,14 +553,14 @@ While the single seed fit results presented earlier indicate good fits and well 
 
 
 
-% \begin{figure}[]
+% \begin{figure}
 %     \centering
 %     \includegraphics[width=.8\textwidth]{}
 %     \caption[]{Data from some dataset.}
 %     \label{fig:}
 % \end{figure}
 
-% \begin{figure}[]
+% \begin{figure}
 % \centering
 %     \begin{subfigure}[]{0.8\textwidth}
 %         \centering
@@ -577,7 +577,7 @@ While the single seed fit results presented earlier indicate good fits and well 
 % \label{fig:}
 % \end{figure}
 
-% \begin{figure}[]
+% \begin{figure}
 % \centering
 %     \begin{subfigure}[]{0.45\textwidth}
 %         \centering
