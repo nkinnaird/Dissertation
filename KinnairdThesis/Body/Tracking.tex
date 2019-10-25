@@ -156,7 +156,7 @@ Finally, while the tracker reference frame is nominally defined in the local XYZ
         \end{align}
 where this $Z$ variable is the tracker reference frame $Z$, and the U and V coordinates here are non-orthogonal and different to those in \equref{eq:UVW}. The transformation between the $XYZ$ and $UVZ$ systems is given by
     \begin{align}
-        p^{UV} &= J_{5} p^{XY} \\
+        p^{UV} &= J_{5} p^{XY}
     \end{align}
 where $J_{5}$ is a $5 \times 5$ matrix defined by
         \begin{align}
@@ -572,13 +572,20 @@ with the measured parameters set to the different left-right combinations, \equr
 \subsection{Fits to tracks from data and comparison with Monte-Carlo}
 
 
-Fits to data are done with \texttt{mainFit}. Due to imperfect left-right assignments and the use of real DCA and DCA error measurements, the tracks from data are naturally more messy. See \figref{fig:pValueData} for a plot of the goodness-of-fit for the tracks. While not all tracks are fit perfectly, enough of them are fit well in order to pass on the results to the extrapolation stage. Fitted tracks to Run 1 data are compared to results from Monte-Carlo. Track times and fitted total momenta are shown in \figref{fig:TracksDataMCFirst}. Fitted track radial and vertical momentum and position distributions are shown in \figref{fig:TracksDataMCSecond}. In general the results are very similar between the two. There are mismatches in the distributions because the idealized simulation did not reflect the real run conditions at the time of this track fitting analysis. As described in \secref{sec:Run1} and explored later in \secref{sec:MuonBeamMeasurements}, the muon beam was imperfectly stored in the ring leading to the measured distributions here.
+Fits to data are done with \texttt{mainFit}. A sample fitted track is shown in \figref{fig:SampleTrack}. Due to imperfect left-right assignments and the use of real DCA and DCA error measurements, the tracks from data are naturally more messy. See \figref{fig:pValueData} for a plot of the goodness-of-fit for the tracks. While not all tracks are fit perfectly, enough of them are fit well in order to pass on the results to the extrapolation stage. Fitted tracks to Run 1 data are compared to results from Monte-Carlo. Track times and fitted total momenta are shown in \figref{fig:TracksDataMCFirst}. Fitted track radial and vertical momentum and position distributions are shown in \figref{fig:TracksDataMCSecond}. In general the results are very similar between the two. There are mismatches in the distributions because the idealized simulation did not reflect the real run conditions at the time of this track fitting analysis. As described in \secref{sec:Run1} and explored later in \secref{sec:MuonBeamMeasurements}, the muon beam was imperfectly stored in the ring leading to the measured distributions here.
 
 
     \begin{figure}
         \centering
+        \includegraphics[width=.8\textwidth]{SampleTrack}
+        \caption[Sample fitted track]{Sample fitted track for a high momentum incident particle. The blue line does not intersect each red point corresponding to a hit straw because this is a 2D projection for a track fitted in 3D.}
+        \label{fig:SampleTrack}
+    \end{figure}
+
+    \begin{figure}
+        \centering
         \includegraphics[width=.6\textwidth]{LatestData_Pvalue_lessCut}
-        \caption[P value distribution for fitted tracks in data]{P value distribution for fitted tracks in data. A cut has been made at 1\% to remove tracks which have entirely failed the fitting. The distribution can be seen to rise towards zero where tracks have been fit but imperfectly.}
+        \caption[p value distribution for fitted tracks in data]{p value distribution for fitted tracks in data. A cut has been made at 1\% to remove tracks which have entirely failed the fitting. The distribution can be seen to rise towards zero where tracks have been fit but imperfectly.}
         \label{fig:pValueData}
     \end{figure}
 
@@ -632,9 +639,6 @@ Fits to data are done with \texttt{mainFit}. Due to imperfect left-right assignm
 
 
 
-\clearpage % stopper for where I'm at 
-
-
 % \subsection{In the code}
 
 % \begin{figure}
@@ -644,17 +648,19 @@ Fits to data are done with \texttt{mainFit}. Due to imperfect left-right assignm
 %     \label{fig:NewGeaneFlow}
 % \end{figure}
 
+\clearpage % maybe remove this once content is sorted and I can format picture size and placement accordingly
 
 
 \section{Track extrapolation}
 \label{sec:TrackExtrapolation}
 
-The last stage of the track reconstruction is the track extrapolation. The extrapolation takes the fitted track results and either extrapolates them back to the storage region to the approximate position of the muon decay point, or forwards to the face of the calorimeter sitting right behind the tracker. The extrapolation stage utilizes a fourth order Runge-Kutta Nystr\"{o}m algorithm \cite{SCThesis} which discretely steps a trajectory through the magnetic field in the full \gmtwo Geant4 simulation, similar in some respects to the error propagation. At each step of the extrapolation, the updated track position and covariance matrix are compared to physical volumes in the simulation to flag tracks which have been reconstructed as likely originating from outside the storage region \cite{SCThesis,extrapolationerrors}. Because there is no fixed interaction point in the storage region, tracks are extrapolated backwards to the point of tangency where the radial momentum is equal to zero. Studies were done to verify that this approximation for the muon decay point was sufficient using Monte-Carlo, and it was found that a simple $\SI{1.1}{mm}$ correction to the radial decay position could be applied regardless of the momentum of the track \cite{SCThesis}. The vertical extrapolated distribution was found to have no biases. (What about the azimuthal point? Mentioned a little bit in DocDB 8564 but do I really want to go into it?) A birds eye view for tracks extrapolated back into the storage ring is shown in \figref{fig:VertexPlanView}.
+The last stage of the track reconstruction is the track extrapolation. The extrapolation takes the fitted track results and either extrapolates them back to the storage region to the approximate position of the muon decay point, or forwards to the face of the calorimeter sitting right behind the tracker. The extrapolation stage utilizes a fourth order Runge-Kutta Nystr\"{o}m algorithm \cite{SCThesis} which discretely steps a trajectory through the magnetic field in the full \gmtwo Geant4 simulation, similar in some respects to the error propagation. At each step of the extrapolation, the updated track position and covariance matrix are compared to physical volumes in the simulation to flag tracks which have been reconstructed as likely originating from outside the storage region \cite{SCThesis,extrapolationerrors}. Because there is no fixed interaction point in the storage region, tracks are extrapolated backwards to the point of tangency where the radial momentum is equal to zero. Studies were done to verify that this approximation for the muon decay point was sufficient using Monte-Carlo, and it was found that a simple $\SI{1.1}{mm}$ correction to the radial decay position could be applied regardless of the momentum of the track \cite{SCThesis}. The vertical extrapolated distribution was found to have no biases. A birds eye view for tracks extrapolated back into the storage ring is shown in \figref{fig:VertexPlanView}.
 
+% (What about the azimuthal point? Mentioned a little bit in DocDB 8564 but do I really want to go into it?) 
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{VertexPlanView}
+    \includegraphics[width=0.5\textwidth]{VertexPlanView}
     \caption[Birds eye view of extrapolation in ring]{A birds eye view of the extrapolation results in the storage ring. The two distributions of extrapolated tracks can be seen at the left and bottom of the figure, where the tracker sits at the heads of the distributions. It can be seen that some tracks are extrapolated multiple meters back through the storage region. Plot courtesy of James Mott.}    
     \label{fig:VertexPlanView}
 \end{figure}
@@ -664,7 +670,7 @@ The last stage of the track reconstruction is the track extrapolation. The extra
 \section{Muon beam measurements}
 \label{sec:MuonBeamMeasurements}
 
-All stages of the track reconstruction have ultimately lead to the goal of determining the characteristics of the muon beam. As described in \secref{sec:muonbeamdynamics}, the muon beam is not a fixed entity. Where the muons live and how they move in the storage region ultimately affect the calculation of the E-field and pitch corrections, the weighting of the muon distribution with respect to the measured field, and the calorimeter precession frequency analysis. Here are presented plots for the 60H dataset which describe the muon beam in the storage region, for those muons which decayed to positrons which then passed through the tracking detectors. There is still on-going work in regards to analyzing the acceptance differences between the tracker and calorimeter, in order to make sure that the correct muon beam dynamics are described in regards to those positrons which hit the calorimeters and are responsible for the measurement of \wa. Tracker-calorimeter matching studies will not be detailed here. A preliminary analysis is given in \refref{WTThesis}.
+All stages of the track reconstruction have ultimately lead to the goal of determining the characteristics of the muon beam. As described in \secref{sec:muonbeamdynamics}, the muon beam is not a fixed entity. Where the muons live and how they move in the storage region ultimately affect the calculation of the E-field and pitch corrections, the weighting of the muon distribution with respect to the measured field, and the calorimeter precession frequency analysis. Here are presented plots for the 60h dataset which describe the muon beam in the storage region, for those muons which decayed to positrons which then passed through the tracking detectors. There is still on-going work in regards to analyzing the acceptance differences between the tracker and calorimeter, in order to make sure that the correct muon beam dynamics are described in regards to those positrons which hit the calorimeters and are responsible for the measurement of \wa. Tracker-calorimeter matching studies will not be detailed here. A preliminary analysis is given in \refref{WTThesis}.
 
 
 The following cuts are applied to the track reconstruction \cite{trackcuts1,trackcuts2}:
@@ -685,7 +691,8 @@ The following cuts are applied to the track reconstruction \cite{trackcuts1,trac
 These cuts remove failed or poorly fitted tracks, and cut out those tracks which end up in the tails of various quality checking distributions. By applying these cuts a clean sample of the extrapolated muon decay positions is extracted without biasing the results.
 
 
-First, a radial slice of the extrapolated beam distribution is shown in \figref{fig:BeamCrossSection}. As shown the beam is off-center due to kicker effects. The radial and vertical projections of this cross-section are shown in \figref{fig:RadialVerticalProjections}. The vertical distribution is very similar to that from the track fitting results, while the radial distribution of the stored muons has a non-Gaussian shape due to the storage procedure of the muons. These two distributions in general appear wider than they actually are at a single point in time, because tracks of all times are included in these plots and the beam is moving in time. \figref{fig:RadialVerticalVsTime} shows the radial and vertical distributions of the muon beam as a function of time in-fill, with the means plotted in \figref{fig:RadialVerticalMeans}. \tabref{tab:MuonBeamParameters} gives the measured values of the beam parameters corresponding to the various datasets. Because of the bad quad resistors, the beam was actually seen to start at a greater vertical position than the center of the storage ring, and slowly move downwards over the course of a fill. Similarly, the vertical width of the beam decreases slowly over the course of a fill. \textbf{Include plots for this or reference another document?}
+First, a radial slice of the extrapolated beam distribution is shown in \figref{fig:BeamCrossSection}. As shown the beam is off-center due to the lower than nominal kicker voltage used in Run~1. The radial and vertical projections of this cross-section are shown in \figref{fig:RadialVerticalProjections}. The vertical distribution is very similar to that from the track fitting results, while the radial distribution of the stored muons has a non-Gaussian shape due to the storage procedure of the muons. Because the beam is moving in time and these distributions include tracks of all times, these two distributions in general are wider than they actually are at a single point in time. \tabref{tab:MuonBeamParameters} gives the measured values of the beam parameters corresponding to the various datasets for all times. \figref{fig:RadialVerticalVsTime} shows the radial and vertical distributions of the muon beam as a function of time in-fill, with the means plotted in \figref{fig:RadialVerticalMeans}. Because of the bad quadrupole resistors as described in \secref{sec:Run1}, the beam was stored at a greater vertical position than the center of the storage ring, and slowly moved downwards over the course of a fill. Similarly, the vertical width of the beam was seen to decrease slowly over the course of a fill. These trends are shown in \figref{fig:BeamVerticalInfo}.
+
 
 
 \begin{figure}
@@ -707,11 +714,12 @@ First, a radial slice of the extrapolated beam distribution is shown in \figref{
     \begin{subfigure}[t]{0.47\textwidth}
         \centering
         \includegraphics[width=\textwidth]{VerticalPosition}
-        \caption{The vertical distribution looks closely centered in the storage region, which as a reminder has a width of $\SI{9}{cm}$.}
+        \caption{The vertical distribution looks closely centered in the storage region, which has a width of $\SI{9}{cm}$.}
     \end{subfigure}
 \caption[Muon beam radial and vertical distributions]{Shown are the muon beam radial (left) and vertical (right) distributions for all track times. Plots courtesy of James Mott.}
 \label{fig:RadialVerticalProjections}
 \end{figure}
+
 
 
 \begin{figure}
@@ -732,6 +740,8 @@ First, a radial slice of the extrapolated beam distribution is shown in \figref{
 \end{figure}
 
 
+
+
 \begin{figure}
 \centering
     \begin{subfigure}[t]{0.47\textwidth}
@@ -743,7 +753,7 @@ First, a radial slice of the extrapolated beam distribution is shown in \figref{
     \begin{subfigure}[t]{0.47\textwidth}
         \centering
         \includegraphics[width=\textwidth]{AvgVertPosVsTime_S12}
-        \caption{The vertical distribution mean oscillates at the vertical waist frequency, as described in \tabref{tab:frequencies}. As shown for these early track times the beam is actually stored slightly higher than the center of the storage region.}
+        \caption{The vertical distribution mean oscillates at the vertical betatron frequency, as described in \tabref{tab:frequencies}. As shown for these early track times the beam is actually stored slightly higher than the center of the storage region.}
     \end{subfigure}
 \caption[Muon beam radial and vertical distribution means as a function of time in-fill]{Shown are the muon beam radial (left) and vertical (right) distribution means as a function of time in-fill for tracks in Station 12. In general the distributions for Station 18 are very similar. Plots courtesy of James Mott.}
 \label{fig:RadialVerticalMeans}
@@ -769,7 +779,7 @@ First, a radial slice of the extrapolated beam distribution is shown in \figref{
     Endgame &  &  &  &  &  \\
   \hline
 \end{tabular*}
-\caption[Run 1 dataset muon beam parameters]{Table of muon beam widths and means. Both radial and vertical values are defined with respect to the center of the storage region. All values are in units of mm. The values listed here are from the distributions including tracks in both tracker stations. The radial mode values were determined by fitting Gaussians around the peaks of the respective radial distributions.}
+\caption[Run 1 dataset muon beam parameters]{Muon beam widths and means for the Run~1 precession frequency analysis datasets. Both radial and vertical values are defined with respect to the center of the storage region. All values are in units of mm. The values listed here are from the distributions including tracks in both tracker stations. The radial mode values were determined by fitting Gaussians around the peaks of the respective radial distributions.}
 \label{tab:MuonBeamParameters}
 \end{table}
 \end{landscape}
@@ -782,21 +792,45 @@ First, a radial slice of the extrapolated beam distribution is shown in \figref{
 
 
 
-The observed oscillation is the CBO as described before in \secref{sub:CBO}. It can be seen that over a course of a fill, the CBO decays away, and there is a corresponding beam motion as a consequence. As described in \secref{sec:Run1}, the CBO characteristics of the beam were found to be changing over the course of a fill. Using the tracking results shown here, the CBO frequency and amplitude can be characterized \cite{cbofrequency}. The CBO frequency as a function of time in fill is shown in \figref{fig:CBOFrequency}. The CBO amplitude as a function of time in fill is shown in \figref{fig:CBOAmplitude}. Both of these characteristics will be folded into the precession frequency analysis as will be described later.
+\begin{figure}
+\centering
+    \begin{subfigure}[t]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{AverageVerticalPosition_60h}
+        \caption{Average vertical position.}
+    \end{subfigure}
+    % \vspace{5mm}
+    \begin{subfigure}[t]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{AverageVerticalWidth_60h}
+        \caption{Average vertical width.}
+    \end{subfigure}
+\caption[Beam average vertical position and width over the course of a fill]{Average vertical position (top) and width (bottom) as a function of time in-fill. The data points are binned in the \gmtwo period such that the higher frequency betatron motion is binned out. Stations 12 and 18 are shown in the cooler and hotter colors respectively. The two sets of points correspond to the means and widths either directly from histograms at specific time points or from Gaussian fits to those histograms. Gradients are calculated by fitting the points to a straight line from 50 to \mus{350}. The vertical position of the beam drops over the course of the fill on the order of \SI{1}{mm/ms}, depending on dataset, while the vertical width decreases on the order of \SI{0.5}{mm/ms}. The differences between the two stations are due to the closed orbit. Plots courtesy of Joe Price \cite{BeamVerticalInfoTrackingElog}.}
+\label{fig:BeamVerticalInfo}
+\end{figure}
+
+
+
+
+
+
+
+The observed oscillation in the radial mean is the CBO as described in \secref{sub:CBO}. Using the tracking results shown here, the CBO frequency and amplitude can be characterized \cite{cbofrequency}.  Because of the bad quadrupole resistors, not only does the average beam vertical position change over the course of a fill, but the CBO frequency changes as well. The CBO frequency as a function of time in-fill is shown in \figref{fig:CBOFrequency}. The CBO amplitude as a function of time in-fill is shown in \figref{fig:CBOAmplitude}. It can be seen that over a course of a fill, the CBO amplitude and frequency decay away exponentially (where the frequency asymptotes to its static value). Both of these characteristics of the beam motion are folded into the precession frequency analysis as will be described in \chapref{chapter:wa}.
+
 
 
 
 % \begin{figure}
 %     \centering
 %     \includegraphics[width=0.6\textwidth]{CBOFrequency}
-%     \caption[CBO frequency as a function of time]{The CBO frequency as a function of time in fill. It can be seen to rise at early times and rise slowly at later times. This frequency change is due to the slowly changing quad voltages over each fill. The CBO frequency is fit to a function which includes a linear term and two exponentials. Plot courtesy of James Mott.}
+%     \caption[CBO frequency as a function of time]{The CBO frequency as a function of time in-fill. It can be seen to rise at early times and rise slowly at later times. This frequency change is due to the slowly changing quad voltages over each fill. The CBO frequency is fit to a function which includes a linear term and two exponentials. Plot courtesy of James Mott.}
 %     \label{fig:CBOFrequency}
 % \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{Run1_9d_CBOFreqPhaseDevFit_S12}
-    \caption[CBO frequency as a function of time]{The CBO frequency as a function of time in fill for the 9d dataset, tracker station 12. This frequency change is due to the slowly changing quad voltages over each fill. Plotted is the difference between the cosine argument for the changing frequency and the value it asymptotes to at late times. The frequency fit model includes two exponentials, one with a longer time constant and one with a shorter time constant. Courtesy of James Mott.}
+    \includegraphics[width=0.6\textwidth]{Run1_60h_CBOFreqPhaseDevFit_S12}
+    \caption[CBO frequency as a function of time]{The CBO frequency as a function of time in-fill, tracker station 12. This frequency change is due to the slowly changing quad voltages over each fill. Plotted is the difference between the cosine argument for the changing frequency and the value it asymptotes to at late times. The frequency fit model includes two exponentials, one with a longer time constant and one with a shorter time constant. Courtesy of James Mott.}
     \label{fig:CBOFrequency}
 \end{figure}
 
@@ -805,7 +839,7 @@ The observed oscillation is the CBO as described before in \secref{sub:CBO}. It 
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{CBOAmplitude}
-    \caption[CBO amplitude as a function of time]{The CBO amplitude as a function of time in fill. The beginning of the data is not well understood, but after around \mus{50} the CBO amplitude falls away. Different envelopes for the amplitude are fit to the data with various degrees of success. Since most of the muons decay away early in the fill, it's the early fitted times that are most important, for which even the simple exponential in red is sufficient. The value for $T/2\pi$ in the blue curve is approximately \mus{114.5}. Courtesy of James Mott. \textbf{update this figure!}}
+    \caption[CBO amplitude as a function of time]{The CBO amplitude as a function of time in-fill. The beginning of the data is not well understood, but after around \mus{50} the CBO amplitude falls away. Different envelopes for the amplitude are fit to the data with various degrees of success. Since most of the muons decay away early in the fill, it's the early fitted times that are most important, for which even the simple exponential in red is sufficient. The value for $T/2\pi$ in the blue curve is approximately \mus{114.5}. Courtesy of James Mott. \textbf{update this figure!}}
     \label{fig:CBOAmplitude}
 \end{figure}
 % phi is around 0.482, not sure about B and C, and each of these are allowed to float
