@@ -17,7 +17,7 @@ As a brief aside, every stage of the track reconstruction is performed in the ev
 
 The track finding stage consists of pattern recognition routines in order to group individual hits into separate sets corresponding to individual incident tracks. The general implementation of these pattern recognition routines is relatively straightforward \cite{trackfinding,trackfinding2}. Hits across all modules are grouped in time windows called time islands, with an average width of $\SI{40}{ns}$ and a max width of $\SI{100}{ns}$\footnote{This time scale is set by the characteristic drift time.}. Within those time islands hits are then grouped into clusters. Clusters consist of one or two hits for each U or V view per module. As a reminder the U and V views of a module consist of the two U or V layers in that module, \secref{sec:StrawTrackers}. Hits are only clustered if they lie in close proximity in time and space to one another. The spatial constraint is defined as the difference in hit straw numbers, from 0 to 31 for the 32 straws per layer, which by default is limited to $\leq 4$. Neighboring hit clusters in the same module are then grouped to form seeds, one per module. Finally, seeds are grouped together module by module from one end of the tracker to the other to form what are called track candidates. The seeds are formed and grouped into track candidates again only if they lie close in time and space to one another. The entire track candidate formation process occurs for all hits in a time island to find as many real tracks as possible. See \figref{fig:TrackCandidateSelection}.
 
-After a track candidate has been formed a number of checks are made before passing it on to the fitting stage. If hits, clusters, or seeds are found to be shared among multiple track candidates, the candidates are dropped. Likewise, a track candidate is dropped if it is made from seeds consisting of only one type of view, or if the track candidate has less than six hits. There are also various small geometry and timing algorithms to improve the track candidates, such as removing hits from secondaries \cite{trackfinding3}. The $t_{0}$ time for the track candidate is calculated as the mean time of all hits, with some fixed offset at the end. The track candidate is supplied with an original momentum and position guess at the start of the track by fitting a circle to the hit straw wires in the horizontal plane. The final track candidates are passed on to the fitting stage. 
+After a track candidate has been formed a number of checks are made before passing it on to the fitting stage. If hits, clusters, or seeds are found to be shared among multiple track candidates, the candidates are dropped. Likewise, a track candidate is dropped if it is made from seeds consisting of only one type of view, or if the track candidate has less than six hits. There are also various small geometry and timing algorithms to improve the track candidates, such as removing hits from secondaries \cite{trackfinding3}. The $t_{0}$ time for the track candidate is calculated as the mean time of all hits, with some fixed offset. The track candidate is supplied with an original momentum and position guess at the start of the track by fitting a circle to the hit straw wires in the horizontal plane. The final track candidates are then passed on to the fitting stage. 
 
 % This $t_{0}$ is helpfully constrained by geometry effects, where for a straight track passing through two layers in the same view, the sum of the drift times adds up to a constant. <- Don't use this yet actually
 
@@ -50,7 +50,7 @@ After a track candidate has been formed a number of checks are made before passi
 \label{sec:TrackFitting}
 
 
-The track fitting stage takes the track candidates from the track finding stage, and outputs a best fit trajectory to those candidates. This includes optimal state vectors and error matrices for the track at each measurement plane and at a ficticious starting plane at the entrance to the straw tracking detector. The track fitting routines can roughly be split into two parts, error propagation and the actual fitting and improvement of the track. The implementation of these parts go hand in hand, and will be described in turn. Details of the track fitting code itself is described in \refref{trackfittingdoc}. 
+The track fitting stage takes the track candidates from the track finding stage, and outputs a best fit trajectory to those candidates. This includes optimal state vectors and error matrices for the track at each measurement plane and at a fictitious starting plane at the entrance to the straw tracking detector. The track fitting routines can roughly be split into two parts, error propagation and the actual fitting and improvement of the track. The implementation of these parts go hand in hand, and will be described in turn. Details of the track fitting code itself is described in \refref{trackfittingdoc}. 
 
 
 \subsection{Error propagation and coordinate systems}
@@ -188,7 +188,7 @@ and $J_{2}$ is a $2 \times 2$ matrix given by
                 y \\
             \end{pmatrix}.
         \end{align}
-$J_{2}$ is easily determined from \figref{fig:GeaneCoordSys}. In order to transform the transport or error matrices from the tracker reference frame to the tracker measurement frame, the same relations as in Equations~\ref{eq:Ttransform} and \ref{eq:Sigtransform} apply,
+$J_{2}$ is readily determined by inspection of \figref{fig:GeaneCoordSys}. In order to transform the transport or error matrices from the tracker reference frame to the tracker measurement frame, the same relations as in Equations~\ref{eq:Ttransform} and \ref{eq:Sigtransform} apply,
     \begin{align}
         T_{N,N-1}^{UV} &= J_{5} T_{N,N-1}^{XY} J_{5}^{-1} \\
         \sigma_{N}^{UV} &= J_{5} \sigma_{N}^{XY} J_{5}^{T}
@@ -252,13 +252,13 @@ where
 $\sigma_{p_{0}}$ is a $5 \times 5$ covariance matrix of the starting fit parameters, where the diagonals describe the fit errors in the 5 track parameters at that point. 
 % \footnote{It should be noted that this minimization procedure does not supply the fit errors on each of the measurement planes, and only does so at the starting plane of the track.}
 
-To summarize, an initial set of starting parameters $p_{0}$ are propagated forwards in Geane to produce predicted track parameters, transport matrices, and error matrices. These objects along with the measured parameters are plugged into the \chisq minimization algorithm detailed here to provide a \chisq describing the goodness of the fit corresponding to those original starting parameters, an improvement $\Delta p_{0}$ to those starting track parameters, and the errors $\sigma_{p_{0}}$ on those starting parameters. This consists of a single iteration of the track fitting. In order to determine the predicted parameters of the track corresponding to the improved starting parameters, the procedure needs to be repeated, or at least the error propagation part. The track fitting is iterated until the \chisq no longer improves, at which point the track fitting is said to have converged. Typically three or four iterations are enough to get a best fit track. As a reminder the initial set of starting parameters is given by a circle fit to the hit straws as described at the end of \secref{sec:TrackFinding}. The starting parameters for a track are defined on a virtual $0$ plane parallel to the measurement planes, where the placement of the $0$ plane is defined based on a track by track basis and is placed at a point $\SI{1}{cm}$ in front of the first straw tracker module that was hit. Note that there is remarkable robustness with respect to the initial starting parameters in fitting the track. Of course if the initial starting parameters are too poor, then the fit will not converge. 
+To summarize, an initial set of starting parameters $p_{0}$ are propagated forwards in Geane to produce predicted track parameters, transport matrices, and error matrices. These objects along with the measured parameters are plugged into the \chisq minimization algorithm detailed here to provide a \chisq describing the goodness of the fit corresponding to those original starting parameters, an improvement $\Delta p_{0}$ to those starting track parameters, and the errors $\sigma_{p_{0}}$ on those starting parameters. This consists of a single iteration of the track fitting. In order to determine the predicted parameters of the track corresponding to the improved starting parameters, the error propagation part of the procedure needs to be repeated. The track fitting is iterated until the \chisq no longer improves, at which point the track fitting is said to have converged. Typically three or four iterations are enough to get a best fit track. As a reminder the initial set of starting parameters is given by a circle fit to the hit straws as described at the end of \secref{sec:TrackFinding}. The starting parameters for a track are defined on a virtual $0$ plane parallel to the measurement planes, where the placement of the $0$ plane is defined based on a track by track basis and is placed at a point $\SI{1}{cm}$ in front of the first straw tracker module that was hit. Note that there is remarkable robustness with respect to the initial starting parameters in fitting the track. Of course if the initial starting parameters are too poor, then the fit will not converge. 
 
 
 \subsection{Fits to idealized tracks in vacuum}
 
 
-The tracking algorithm was built and tested in full E989 Geant4 simulation in \textit{art}. Hits were generated from decay positrons from muons in the storage region. In the initial tests of the track fitting material was turned off and the measured hits were defined as the truth hits with some known Gaussian smearing. (The truth hits are accessible within the Geant4 simulation by defined ``dummy plane'' detectors which record hits at the straw measurement planes.) Plots showing the goodness-of-fit for the fitted tracks are shown in \figref{fig:VacuumGoodnessOfFit}. Beyond the goodness-of-fit plots, the other measure of how good the track fitting is performing is to plot the truth pulls of the fit parameters. The truth pulls are defined as the residual between the fitted parameter and the truth parameter, divided by the fit error on that parameter:
+The tracking algorithm was built and tested in the full E989 Geant4 simulation in \textit{art}. Hits were generated from decay positrons from muons in the storage region. In the initial tests of the track fitting material was turned off and the measured hits were defined as the truth hits with some known Gaussian smearing. (The truth hits are accessible within the Geant4 simulation by defined ``dummy plane'' detectors which record hits at the straw measurement planes.) Plots showing the goodness-of-fit for the fitted tracks are shown in \figref{fig:VacuumGoodnessOfFit}. Beyond the goodness-of-fit plots, the other measure of how good the track fitting is performing is to plot the truth pulls of the fit parameters. The truth pulls are defined as the residual between the fitted parameter and the truth parameter, divided by the fit error on that parameter:
     \begin{align}
         \frac{\Delta p^{i}_{0}}{\sigma_{p_{0}}^{ii}} = \frac{p^{i}_{0, \text{fit}} - p^{i}_{0, \text{true}}}{\sigma_{p_{0}}^{ii}}
     \end{align}
@@ -272,14 +272,14 @@ Since the \chisq minimization returns fit parameters and errors on the starting 
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{Vacuum_Pvalue}
-            \caption{P value distribution for all tracks.}
+            \caption{p-value distribution for all tracks.}
         \end{subfigure}
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{Vacuum_Chi2}
             \caption{\chisq distribution for tracks which hit 24 planes.}
         \end{subfigure}
-    \caption[p value and \chisq distribution for fitted tracks in vacuum]{Goodness-of-fit distributions for fitted tracks in vacuum, with Gaussian measurement errors and no material effects. The p value distribution is flat, and the \chisq distribution matches a normalized \chisq pdf for 19 degrees of freedom which is overlayed in red. (\chisq distributions for tracks which hit other numbers of planes are very similar.)}
+    \caption[p-value and \chisq distribution for fitted tracks in vacuum]{Goodness-of-fit distributions for fitted tracks in vacuum, with Gaussian measurement errors and no material effects. The p-value distribution is flat, and the \chisq distribution matches a normalized \chisq pdf for 19 degrees of freedom which is overlayed in red. (\chisq distributions for tracks which hit other numbers of planes are very similar.)}
     \label{fig:VacuumGoodnessOfFit}
     \end{figure}
 
@@ -321,12 +321,11 @@ Since the \chisq minimization returns fit parameters and errors on the starting 
 
 \subsection{Material correlations}
 
-
-Random processes due to material contribute to the error matrix in \equref{eq:errormatrix} as described in \secref{sub:Geane}. The random scattering of a particle trajectory at one plane means that there is an extra correlated error in all further planes, see \figref{fig:MaterialScatteringErrorDistance}. \equref{eq:chi2sum} does not take into account these material correlations between measurement planes when fitting the track. While it provides a decent approximation of the best fit track in the low material tracker, the \chisq distribution is noticeably off as shown in \figref{fig:Chi2MaterialNoCorrelations}. To calculate a better estimate of the trajectory, a more general version of the \chisq equation is used:
+While the trackers consist of relatively little material, it is desirable to include the full effects of material for improved tracking results. Random processes due to material contribute to the error matrix in \equref{eq:errormatrix} as described in \secref{sub:Geane}. The random scattering of a particle trajectory at one plane means that there is an extra correlated error in all further planes, see \figref{fig:MaterialScatteringErrorDistance}. \equref{eq:chi2sum} does not take into account these material correlations between measurement planes when fitting the track. While it provides a decent approximation of the best fit track in the low material tracker, the \chisq distribution is noticeably off as shown in \figref{fig:Chi2MaterialNoCorrelations}. To calculate a better estimate of the trajectory, a more general version of the \chisq equation is used:
         \begin{align} \label{eq:chi2full}
             \chi^2 = (\vec{p}-\vec{x})^{T} (\sigma^{-1}) (\vec{p}-\vec{x})
         \end{align}
-Here $\vec{x}$ and $\vec{p}$ are a $5N \times 1$ vectors of the measured and predicted track parameters respectively, where $N$ is the number of planes hit, and these objects are the combined vectors of the $5 \times 1$ counterparts. Similarly, $\sigma$ is a $5N \times 5N$ matrix, where the $5 \times 5$ diagonal block matrices are the individual plane error matrices described before, calculated between plane 0 and $N$. Calculating the \chisq is now recasted from a sum over measurement planes into a single large linear algebra equation. At this point both calculations of the \chisq's are equivalent.
+Here $\vec{x}$ and $\vec{p}$ are a $5N \times 1$ vectors of the measured and predicted track parameters respectively, where $N$ is the number of planes hit, and these objects are the combined vectors of the $5 \times 1$ counterparts. Similarly, $\sigma$ is a $5N \times 5N$ matrix, where the $5 \times 5$ diagonal block matrices are the individual plane error matrices described before, calculated between plane 0 and $N$. Calculating the \chisq is now re-casted from a sum over measurement planes into a single large linear algebra equation. At this point both calculations of the \chisq's are equivalent.
 
 
 \begin{figure}
@@ -339,7 +338,7 @@ Here $\vec{x}$ and $\vec{p}$ are a $5N \times 1$ vectors of the measured and pre
 \begin{figure}
   \centering
   \includegraphics[width=0.6\textwidth]{Chi2MaterialNoCorrelations}
-    \caption[\chisq for fitted tracks including material effects but no correlations]{The \chisq distribution for fitted tracks including material effects in the error matrices but excluding correlations in the calculation. The \chisq distribution is noticably different from the correct curve in red.}
+    \caption[\chisq for fitted tracks including material effects but no correlations]{The \chisq distribution for fitted tracks including material effects in the error matrices but excluding correlations in the calculation. The \chisq distribution is noticeably different from the correct curve in red.}
     \label{fig:Chi2MaterialNoCorrelations}
 \end{figure}
 
@@ -368,7 +367,7 @@ Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \S
 
 \subsection{Fits to simulated tracks including material effects}
 
-Once the material correlations are properly included, the \chisq distribution is repaired, as shown in \figref{fig:MaterialGoodnessOfFit}. The plots in this section show the results of the track fitting in the full \gmtwo Geant4 simulation with material effects turned on. Truth measurements with \mum{150} Gaussian smearing are once again used as the measured hits, and a cut of $\SI{3}{\MeV}$ on the true simulated energy loss is made to remove kinked tracks which would result in poor fits from hard energy loss physics processes. The comparison between the simulated and reconstructed energy loss for fitted tracks is shown in \figref{fig:EnergyLossComparison}. While there is a noticable difference, the energy loss in general is small so it is acceptable. Truth pulls for the tracks are shown in \figref{fig:MaterialTruthPulls}. It can be seen that there is a slight spread in results due to the material effects. This is to be expected given the non-Gaussian nature of the processes, and the vast majority of tracks still fit well. The number of iterations it takes to fit a track is shown in \figref{fig:Iterations}. The number of planes a track hits and the corresponding momentum dependence is shown in \figref{fig:NumberOfPlanesHit}. The total momentum distribution and residuals to truth are shown in \figref{fig:MaterialTotalMomentum}. The track fitting has a momentum resolution of approximately 2\% with just a slight dependence on the momentum of the track.
+Once the material correlations are properly included, the \chisq distribution is repaired, as shown in \figref{fig:MaterialGoodnessOfFit}. The plots in this section show the results of the track fitting in the full \gmtwo Geant4 simulation with material effects turned on. Truth measurements with \mum{150} Gaussian smearing are once again used as the measured hits, and a cut of $\SI{3}{\MeV}$ on the true simulated energy loss is made to remove kinked tracks which would result in poor fits from hard energy loss physics processes. The comparison between the simulated and reconstructed energy loss for fitted tracks is shown in \figref{fig:EnergyLossComparison}. While there is a noticeable difference, the energy loss in general is small so it is acceptable. Truth pulls for the tracks are shown in \figref{fig:MaterialTruthPulls}. It can be seen that there is a slight spread in results due to the material effects. This is to be expected given the non-Gaussian nature of the processes, and the vast majority of tracks still fit well. The number of iterations it takes to fit a track is shown in \figref{fig:Iterations}. The number of planes a track hits and the corresponding momentum dependence is shown in \figref{fig:NumberOfPlanesHit}. The total momentum distribution and residuals to truth are shown in \figref{fig:MaterialTotalMomentum}. The track fitting has a momentum resolution of approximately 2\% with just a slight dependence on the momentum of the track.
 
 After the track fitting has determined the best fit parameters in the $UV$ space, the returned parameters can be turned back into the tracker reference frame coordinates. Plots for the fitted vertical and horizontal momenta, positions, and corresponding residuals are shown in Figures~\ref{fig:MaterialFittedMomentaComponents} and \ref{fig:MaterialFittedPositionComponents}. The forward momenta plots are omitted since the majority of the total momenta is in the forward direction. More extensive plots than what is shown here can be found in \refref{trackfittingdoc}.
 
@@ -378,14 +377,14 @@ After the track fitting has determined the best fit parameters in the $UV$ space
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Pvalue}
-            \caption{P value distribution for all tracks.}
+            \caption{p-value distribution for all tracks.}
         \end{subfigure}
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Chi2}
             \caption{\chisq distribution for tracks which hit 10 planes.}
         \end{subfigure}
-    \caption[P value and \chisq distribution for fitted tracks in the \gmtwo Geant4 simulation with material effects included]{Goodness-of-fit distributions for fitted tracks in the full \gmtwo Geant4 simulation with material effects included. The P value distribution is flat, and the \chisq distribution matches a normalized \chisq pdf for 5 degrees of freedom which is overlayed in red.}
+    \caption[p-value and \chisq distribution for fitted tracks in the \gmtwo Geant4 simulation with material effects included]{Goodness-of-fit distributions for fitted tracks in the full \gmtwo Geant4 simulation with material effects included. The p-value distribution is flat, and the \chisq distribution matches a normalized \chisq pdf for 5 degrees of freedom which is overlayed in red.}
     \label{fig:MaterialGoodnessOfFit}
     \end{figure}
 
@@ -492,7 +491,7 @@ After the track fitting has determined the best fit parameters in the $UV$ space
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Px}
-            \caption{Horizontal momentum distribution. This distribution has an interesting shape due to the acceptance of the tracker. It is perhaps more informative to look at the radial momentum distribution, which is shown in \figref{fig:TracksDataMCSecond}.}
+            \caption{Horizontal momentum distribution. The shape of the distribution is due to the acceptance of the tracker. It is perhaps more informative to look at the radial momentum distribution, which is shown in \figref{fig:TracksDataMCSecond}.}
         \end{subfigure}
         \vspace{2mm}
         \begin{subfigure}[t]{0.45\textwidth}
@@ -521,13 +520,13 @@ After the track fitting has determined the best fit parameters in the $UV$ space
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_X}
-            \caption{Horizontal position distribution. This distribution has an interesting shape due to the acceptance of the tracker. It is perhaps more informative to look at the radial position distribution, which is shown later in \figref{fig:TracksDataMCSecond}.}
+            \caption{Horizontal position distribution. The shape of the distribution is due to the acceptance of the tracker. It is perhaps more informative to look at the radial position distribution, which is shown later in \figref{fig:TracksDataMCSecond}.}
         \end{subfigure}
         \vspace{2mm}
         \begin{subfigure}[t]{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{MaterialTruthLR_Fitted_Y_AbsResidual}
-            \caption{The vertical position residual, which has a width of \mum{736} at the entrance of the tracker. This is expected to be larger than the horizontal position resiudal from geometry arguments with the angles of the straws which measure mostly horizontally.}
+            \caption{The vertical position residual, which has a width of \mum{736} at the entrance of the tracker. This is larger than the horizontal position residual since the straws measure mostly in the horizontal plane.}
         \end{subfigure}%
         \hspace{5mm}
         \begin{subfigure}[t]{0.45\textwidth}
@@ -560,7 +559,7 @@ The primary fit mode for analyzing data is called \texttt{mainFit}. After the wi
 
 \subsection*{\texttt{fullSeqFit}}
 
-The secondary fit mode is called \texttt{fullSeqFit}. This fit mode does a better job of determining the left-right choices for the hits in a track, but is much slower than \texttt{mainFit}. Here is given a short summary, see \refref{trackfittingdoc} for more technical details on all parts of this fitting mode.
+The secondary fit mode is called \texttt{fullSeqFit}. This fit mode does a better job of determining the left-right choices for the hits in a track, but is much slower than \texttt{mainFit}. Here is given a short summary, see \refref{trackfittingdoc} for more technical details.
 
 After a wire fit, the geometry of the straw layers is used to resolve some of the left-right choices for a hit on a track. The left-right ambiguity is partially resolved through the shift in layers for each view as detailed in \secref{sec:StrawTrackers}, where if a particle passes straight through both layers in a view it can be seen to go to the left of one wire and the right of the other. This implies that for curved tracks with certain angles through tracker modules, the left-right choices for some hits are known precisely \cite{JoeLR}. For these hit planes the left-right choices are locked in and taken as known for the rest of the fitting.
 
@@ -578,15 +577,15 @@ Fits to data are done with \texttt{mainFit}. A sample fitted track is shown in \
 
     \begin{figure}
         \centering
-        \includegraphics[width=.8\textwidth]{SampleTrack}
-        \caption[Sample fitted track]{Sample fitted track for a high momentum incident particle. The blue line does not intersect each red point corresponding to a hit straw because this is a 2D projection for a track fitted in 3D.}
+        \includegraphics[width=\textwidth]{SampleTrack}
+        \caption[Sample fitted track]{Sample fitted track for a high momentum incident particle.}
         \label{fig:SampleTrack}
     \end{figure}
 
     \begin{figure}
         \centering
         \includegraphics[width=.6\textwidth]{LatestData_Pvalue_lessCut}
-        \caption[p value distribution for fitted tracks in data]{p value distribution for fitted tracks in data. A cut has been made at 1\% to remove tracks which have entirely failed the fitting. The distribution can be seen to rise towards zero where tracks have been fit but imperfectly.}
+        \caption[p-value distribution for fitted tracks in data]{p-value distribution for fitted tracks in data. A cut has been made at 1\% to remove tracks which have entirely failed the fitting. The distribution can be seen to rise towards zero where tracks have been fit but imperfectly.}
         \label{fig:pValueData}
     \end{figure}
 
@@ -683,7 +682,7 @@ All stages of the track reconstruction have ultimately lead to the goal of deter
     \item{Non-failed track or vertex}
     \item{No material hit during extrapolation back to vertex}
     \item{Number of tracking planes hit $\geq 12$}
-    \item{p value $> 5\%$}
+    \item{p-value $> 5\%$}
     \item{Vertical extrapolation uncertainty: $0.5 < \sigma_{y} < \SI{3.5}{mm}$}
     \item{Radial extrapolation uncertainty: $0.5 < \sigma_{r} < \SI{5}{mm}$}
     \item{Horizontal entrance into tracker: $60 < X < \SI{150}{mm}$}
@@ -738,9 +737,9 @@ First, a radial slice of the extrapolated beam distribution is shown in \figref{
     \begin{subfigure}[t]{0.47\textwidth}
         \centering
         \includegraphics[width=\textwidth]{VerticalPositionVsTime_S12}
-        \caption{The vertical distribution of the muons is relatively stable as a function of time, but there is an oscillation that can just barely be seen.}
+        \caption{The vertical distribution of the muons is relatively stable as a function of time, but there is an oscillation that can be seen.}
     \end{subfigure}
-\caption[Muon beam radial and vertical distributions as a function of time in-fill]{Shown are the muon beam radial (left) and vertical (right) distributions as a function of time in-fill for tracks in Station 12. In general the distributions for Station 18 are very similar.}
+\caption[Muon beam radial and vertical distributions as a function of time in-fill]{Shown are the muon beam radial (left) and vertical (right) distributions as a function of time in-fill for tracks in station 12. In general the distributions for station 18 are very similar.}
 \label{fig:RadialVerticalVsTime}
 \end{figure}
 
@@ -752,7 +751,7 @@ First, a radial slice of the extrapolated beam distribution is shown in \figref{
     \begin{subfigure}[t]{0.47\textwidth}
         \centering
         \includegraphics[width=\textwidth]{AvgRadPosVsTime_S12}
-        \caption{The radial distribution mean oscillates at the CBO frequency. It can be seen to rise at early times in Station 12 due to the scraping procedure, and then slowly relax away once the scraping is turned off and the muons decay away.}
+        \caption{The radial distribution mean oscillates at the CBO frequency. It can be seen to rise at early times in station 12 due to the scraping procedure, and then slowly relax away once the scraping is turned off and the muons decay away.}
     \end{subfigure}
     \hspace{5mm}
     \begin{subfigure}[t]{0.47\textwidth}
@@ -760,21 +759,24 @@ First, a radial slice of the extrapolated beam distribution is shown in \figref{
         \includegraphics[width=\textwidth]{AvgVertPosVsTime_S12}
         \caption{The vertical distribution mean oscillates at the vertical betatron frequency, as described in \tabref{tab:frequencies}. As shown for these early track times the beam is actually stored slightly higher than the center of the storage region.}
     \end{subfigure}
-\caption[Muon beam radial and vertical distribution means as a function of time in-fill]{Shown are the muon beam radial (left) and vertical (right) distribution means as a function of time in-fill for tracks in Station 12. In general the distributions for Station 18 are very similar.}
+\caption[Muon beam radial and vertical distribution means as a function of time in-fill]{Shown are the muon beam radial (left) and vertical (right) distribution means as a function of time in-fill for tracks in station 12. In general the distributions for station 18 are very similar.}
 \label{fig:RadialVerticalMeans}
 \end{figure}
 
 
-\begin{landscape}
+
+% \begin{landscape}
 \begin{table}
 \centering
-\setlength\tabcolsep{10pt}
+% \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lccccc}
   \hline
     \multicolumn{6}{c}{\textbf{Run 1 Dataset Muon Beam Parameters}} \\
   \hline\hline
-    Dataset & Radial Mean & Radial Mode & Radial Width & Vertical Mean & Vertical Width \\
+    & \multicolumn{3}{c}{Radial} & \multicolumn{2}{c}{Vertical} \\
+  \hline
+    Dataset & Mean & Peak & Width & Mean & Width \\
   \hline
     60h & 7.61 & 18.41 & 18.43 & 0.15 & 12.88 \\
     HighKick & 6.89 & 15.95 & 17.74 & 0.11 & 12.92 \\
@@ -784,16 +786,20 @@ First, a radial slice of the extrapolated beam distribution is shown in \figref{
     Endgame & 7.40 & 18.11 & 18.01 & 0.95 & 12.68 \\
   \hline
 \end{tabular*}
-\caption[Run 1 dataset muon beam parameters]{Muon beam widths and means for the Run~1 precession frequency analysis datasets. Both radial and vertical values are defined with respect to the center of the storage region. All values are in units of mm. The values listed here are from the distributions including tracks in both tracker stations. The radial mode values were determined by fitting Gaussians around the peaks of the respective radial distributions.}
+\caption[Run 1 dataset muon beam parameters]{Muon beam widths and means for the Run~1 precession frequency analysis datasets. Both radial and vertical values are defined with respect to the center of the storage region. The values listed here are from the distributions including tracks in both tracker stations. The radial peak values were determined by fitting Gaussians around the peaks of the respective radial distributions. All values are in units of mm.}
 \label{tab:MuonBeamParameters}
 \end{table}
-\end{landscape}
+% \end{landscape}
+
 
 % 60h numbers come from root plots copied to: KinnairdThesis/Body/Figures/TrackingFigures/Feb19DataPlots/trackRecoPlots_15921_15991.root or /gm2/data/g2be/Production/Plots/v9_17_01/goldList/trackRecoPlots_15921_15991.root
     % had a value of 19.14 for the 60 radial mode which I don't know where it came from
 % HighKick numbers come from: /gm2/data/g2be/Production/Plots/v9_21_03/goldList/trackRecoPlots_16145_16234.root
 % 9d numbers come from: /gm2/data/g2be/Production/Plots/v9_21_03/goldList/trackRecoPlots_16355_16529.root
 % Endgame numbers come from: /gm2/app/users/jmott/analysis/GridSubmit/DefaultTrackPlotsManualDQC/HaddOutput/gm2pro_daq_full_run1_EndGame_5039A_goldList/trackRecoPlots_16935_17527.root
+
+
+
 
 
 
@@ -818,55 +824,43 @@ First, a radial slice of the extrapolated beam distribution is shown in \figref{
 
 
 
+The observed oscillation in the radial mean is the CBO as described in \secref{sub:CBO}. Using the tracking results shown here, the CBO frequency and amplitude can be characterized \cite{cbofrequency}.  Because of the bad quadrupole resistors, not only does the average beam vertical position change over the course of a fill, but the CBO frequency changes as well. The CBO frequency and amplitude as a function of time in-fill are shown in \figref{fig:CBOFreqAmp}. It can be seen that over a course of a fill, the CBO amplitude and frequency decay away exponentially (where the frequency asymptotes to its static value). Both of these characteristics of the beam motion are folded into the precession frequency analysis as will be described in \chapref{chapter:wa}.
 
 
 
-The observed oscillation in the radial mean is the CBO as described in \secref{sub:CBO}. Using the tracking results shown here, the CBO frequency and amplitude can be characterized \cite{cbofrequency}.  Because of the bad quadrupole resistors, not only does the average beam vertical position change over the course of a fill, but the CBO frequency changes as well. The CBO frequency as a function of time in-fill is shown in \figref{fig:CBOFrequency}. The CBO amplitude as a function of time in-fill is shown in \figref{fig:CBOAmplitude}. It can be seen that over a course of a fill, the CBO amplitude and frequency decay away exponentially (where the frequency asymptotes to its static value). Both of these characteristics of the beam motion are folded into the precession frequency analysis as will be described in \chapref{chapter:wa}.
+\begin{figure}
+\centering
+    \begin{subfigure}[t]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Run1_60h_CBOFreqPhaseDevFit_S12}
+        \caption{The CBO frequency change is due to the slowly changing quad voltages over each fill. Plotted is the difference between the cosine argument for the changing frequency and the value it asymptotes to at late times. The frequency fit model includes two exponentials, one with a longer time constant and one with a shorter time constant.}
+    \end{subfigure}
+    \hspace{1mm}
+    \begin{subfigure}[t]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Run1_60h_CBOAmpl_S18}
+        \caption{The CBO effect decays away exponentially with a lifetime on the order of \SI{200}{} -- \mus{300}. Reasonable CBO envelopes include a pure exponential or an exponential plus a constant.}
+    \end{subfigure}
+\caption[CBO frequency and amplitude as a function of time in-fill]{CBO frequency (left) and amplitude (right) as a function of time in-fill.}
+\label{fig:CBOFreqAmp}
+\end{figure}
 
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.55\textwidth]{Run1_60h_CBOFreqPhaseDevFit_S12}
+%     \caption[CBO frequency as a function of time in-fill]{The CBO frequency as a function of time in-fill, tracker station 12. This frequency change is due to the slowly changing quad voltages over each fill. Plotted is the difference between the cosine argument for the changing frequency and the value it asymptotes to at late times. The frequency fit model includes two exponentials, one with a longer time constant and one with a shorter time constant.}
+%     \label{fig:CBOFrequency}
+% \end{figure}
 
 
 
 % \begin{figure}
 %     \centering
-%     \includegraphics[width=0.6\textwidth]{CBOFrequency}
-%     \caption[CBO frequency as a function of time]{The CBO frequency as a function of time in-fill. It can be seen to rise at early times and rise slowly at later times. This frequency change is due to the slowly changing quad voltages over each fill. The CBO frequency is fit to a function which includes a linear term and two exponentials. Plot courtesy of James Mott.}
-%     \label{fig:CBOFrequency}
+%     \includegraphics[width=0.55\textwidth]{Run1_60h_CBOAmpl_S18}
+%     \caption[CBO amplitude as a function of time in-fill]{The CBO amplitude as a function of time in-fill, tracker station 18. The CBO decays away exponentially with a lifetime on the order of \SI{200}{} -- \mus{300}. Reasonable CBO envelopes include a pure exponential or an exponential plus a constant.}
+%     \label{fig:CBOAmplitude}
 % \end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.6\textwidth]{Run1_60h_CBOFreqPhaseDevFit_S12}
-    \caption[CBO frequency as a function of time]{The CBO frequency as a function of time in-fill, tracker station 12. This frequency change is due to the slowly changing quad voltages over each fill. Plotted is the difference between the cosine argument for the changing frequency and the value it asymptotes to at late times. The frequency fit model includes two exponentials, one with a longer time constant and one with a shorter time constant.}
-    \label{fig:CBOFrequency}
-\end{figure}
-
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.6\textwidth]{Run1_60h_CBOAmpl_S18}
-    \caption[CBO amplitude as a function of time]{The CBO amplitude as a function of time in-fill, tracker station 18. The CBO decays away exponentially with a lifetime on the order of \SI{200}{} -- \mus{300}. Reasonable CBO envelopes include a pure exponential or an exponential plus a constant.}
-    \label{fig:CBOAmplitude}
-\end{figure}
-
-
-% \begin{figure}
-% \centering
-%     \begin{subfigure}[t]{0.47\textwidth}
-%         \centering
-%         \includegraphics[width=\textwidth]{CBOFrequency}
-%         \caption{}
-%     \end{subfigure}
-%     \hspace{5mm}
-%     \begin{subfigure}[t]{0.47\textwidth}
-%         \centering
-%         \includegraphics[width=\textwidth]{CBOAmplitude}
-%         \caption{}
-%     \end{subfigure}
-% \caption[]{}
-% \label{fig:}
-% \end{figure}
-
 
 
 
