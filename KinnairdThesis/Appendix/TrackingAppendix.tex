@@ -4,7 +4,9 @@
 
 \graphicspath{{Body/Figures/TrackingFigures/CoordSys/}}
 
-\chapter{Straw measurement angular correction}
+\chapter{Tracking Derivations}
+
+\section{Straw measurement angular correction}
 \label{app:angularcorrection}
 
 
@@ -15,7 +17,7 @@ In order to improve the results, angular corrections were made to the DCAs to gi
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{angularCorrection}
-	\caption[Angular correction for measured DCAs]{A positron passing through a straw will produce a hit of radius $d$. The desired value is the U or V position along the straw measurement axis. The positron trajectory can be approximated as a circle in a constant magnetic field over the length of the path across the straw. The curvature for the high energy positrons is small such that $r \gg d$ and the angle between the trajectory and the center of the circle can be approximated as 90\textdegree{}. Sizes and angles are exaggerated. A similar diagram can be drawn for positrons passing to the left of the wire. \textbf{Might want to clean up this picture at some point.}}
+	\caption[Angular correction for measured DCAs]{A positron passing through a straw will produce a hit of radius $d$. The desired value is the U or V position along the straw measurement axis. The positron trajectory can be approximated as a circle in a constant magnetic field over the length of the path across the straw. The curvature for the high energy positrons is small such that $r \gg d$ and the angle between the trajectory and the center of the circle can be approximated as 90\textdegree{}. Sizes and angles are exaggerated. A similar diagram can be drawn for positrons passing to the left of the wire.}
 	\label{fig:angularCorrection}
 \end{figure}
 
@@ -40,3 +42,35 @@ for the left side correction. The radius $r$ can be calculated from the momentum
 		\sigma_{uv}' = \frac{\sigma_{uv}}{\sqrt{1-\big(\frac{p_{\parallel}}{p}\big)^{2}}},
 	\end{align}
 where $\sigma_{uv}'$ is the improved error from original U or V error $\sigma_{uv}$ on the DCA.
+
+
+
+\section{Track fitting correlation matrices}
+\label{app:trackingCorrMatrices}
+
+
+Define $\epsilon_{MN}$ as the deviation in average predicted track parameters from the true ones on plane $M$ from track parameters propagated from plane $N$,
+	\begin{align}
+		\epsilon_{MN} = \widetilde{p}_{M}(p_{N}) - p_{M}, 
+	\end{align}
+where $N < M$ can be any plane numbers. From the definition of transport matrices in \equref{eq:transportmatrix},
+	\begin{align}
+		\epsilon_{M0} = T_{MN} \epsilon_{N0} + \epsilon_{MN},
+	\end{align}
+where $\epsilon_{MN}$ is any additional deviation between planes $N$ and $M$ due to material effects. By definition, the correlation between error matrices on planes $M$ and $N$ is given by 
+	\begin{align} \label{eq:corrTrackMatDefinition}
+		\sigma_{MN} = \langle \epsilon_{M0} \epsilon_{N0} \rangle = \langle \epsilon_{M0} \cdot \epsilon_{N0} \rangle - \langle \epsilon_{M0} \rangle \cdot \langle \epsilon_{N0} \rangle.
+	\end{align}
+The last term in \equref{eq:corrTrackMatDefinition} is zero since $\langle \epsilon_{M0} \rangle$ and $\langle \epsilon_{N0} \rangle$ are zero. Therefore 
+	\begin{align}
+		\sigma_{MN} = \langle ( T_{MN} \epsilon_{N0} + \epsilon_{MN}) \cdot \epsilon_{N0} \rangle,
+	\end{align}
+and since $\epsilon_{MN}$ and $\epsilon_{N0}$ are independent such that their product is zero,
+	\begin{align}
+		\sigma_{MN} = T_{MN} \sigma_{N},
+	\end{align}
+with $\sigma_{N} = \langle \epsilon_{N0} \cdot \epsilon_{N0} \rangle$.
+
+
+
+

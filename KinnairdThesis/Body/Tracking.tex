@@ -79,11 +79,11 @@ The process of error propagation involves taking track parameters and error matr
 \end{figure}
 
 
-Predicted track parameters in Geane are a function of path length 
+Predicted average track parameters in Geane are a function of path length 
         \begin{align} \label{eq:pp}
-            p_{l} = F_{l,l_{0}}(p_{0}),
+            \widetilde{p}_{l} = F_{l,l_{0}}(p_{0}),
         \end{align}
-where $p_{0}$ are some original tracker parameters and $p_{l}$ are the updated ones. The path length $l$ can be defined or limited how one wishes, and typically corresponds to a single step in the Geant4 simulation. The track parameter vectors $p$ are defined in some coordinate system. In the Geane routines these track parameters are $5 \times 1$ vectors either defined in the ``free'' (curvilinear) system
+where $p_{0}$ are some original tracking parameters and $\widetilde{p}_{l}$ are the updated average ones. The path length $l$ can be defined or limited how one wishes, and typically corresponds to a single step in the Geant4 simulation. The track parameter vectors $p$ are defined in some coordinate system. In the Geane routines these track parameters are $5 \times 1$ vectors either defined in the ``free'' (curvilinear) system
         \begin{align}
             \frac{1}{p}, \lambda, \phi, y_{\perp}, z_{\perp},
         \end{align}
@@ -114,15 +114,16 @@ In both free and surface systems the track is represented by one momentum parame
 
 The $5 \times 5$ error matrix on a plane calculated in Geane describing the expected distribution in true parameters about the average ones is defined as
     \begin{align} \label{eq:errormatrix}
-        \sigma_{N}^{ij} = <p_{N}^{i}p_{N}^{j}> - <p_{N}^{i}> \cdot <p_{N}^{j}>,
+        % \sigma_{N}^{ij} = \langle \overline{p}_{N}^{i}\overline{p}_{N}^{j}\rangle - \langle \overline{p}_{N}^{i}\rangle \cdot \langle \overline{p}_{N}^{j}\rangle,
+        \sigma_{N}^{ij} = \langle p_{N}^{i}p_{N}^{j}\rangle - \langle p_{N}^{i}\rangle \cdot \langle p_{N}^{j}\rangle,
     \end{align} 
-where i and j are track parameter indices and $N$ is some plane number. This error matrix will include effects from multiple scattering, delta ray production, ionization, and bremsstrahlung \cite{geanemanual,Lavezzi,energyloss}. These matrices are transported from plane to plane by what are called transport matrices, where the $5 \times 5$ transport matrix elements between two planes are defined as 
+where i and j are track parameter indices, $N$ is some plane number, and $p_{N}$ are `true' track parameters on plane $N$. This error matrix will include effects from multiple scattering, delta ray production, ionization, and bremsstrahlung \cite{geanemanual,Lavezzi,energyloss}. These matrices are transported from plane to plane by what are called transport matrices, where the $5 \times 5$ transport matrix elements between two planes are defined as 
     \begin{align} \label{eq:transportmatrix}
-        T_{N,N-1}^{i,j} = \frac{\partial p^{i}_{N}}{\partial p^{j}_{N-1}}.
+        T_{N,N-1}^{i,j} = \frac{\partial \widetilde{p}^{i}_{N}}{\partial p^{j}_{N-1}}.
     \end{align}
 The transport matrix $T$ is a Jacobian between planes which expresses the infinitesimal changes in parameters at some plane (or path length) with respect to the parameters at some previous plane (or previous path length):
     \begin{align} \label{eq:parametertransport}
-        \delta p_{N} &= T_{N,N-1} \delta p_{N-1}
+        \delta \widetilde{p}_{N} &= T_{N,N-1} \delta p_{N-1}
     \end{align}
 Note that the transport matrix does not propagate the track parameters themselves as does an equation of motion. The error matrix is propagated forward from one plane to another by
     \begin{align} \label{eq:errortransport}
@@ -214,36 +215,36 @@ The method for fitting and improving the track is a global \chisq minimization a
 
 The $\chi^{2}$ for a track is defined as the residuals between predicted and measured parameters on a measurement plane, divided by their errors, summed over all hit planes:
     \begin{align} \label{eq:chi2sum}
-        \chi^2 = \sum_{i=1}^{N} [(p_{i}(p_{s})-x_{i})^{T} (\sigma_{i}^{-1}) (p_{i}(p_{s})-x_{i})]
+        \chi^2 = \sum_{i=1}^{N} [(\widetilde{p}_{i}(p_{s})-x_{i})^{T} (\sigma_{i}^{-1}) (\widetilde{p}_{i}(p_{s})-x_{i})]
     \end{align}
-$x_{i}$ are vectors of the measured track parameters on plane $i$, $p_{i}$ are vectors of the average predicted track parameters which stem from some general starting parameters $p_{s}$, and $\sigma_{i}$ are the $5 \times 5$ error matrices on the planes. To first order the error matrices consist only of the measurement errors on the U and V parameters and exclude the effects of random material processes. These errors are located in the U and V diagonal elements $(3,3)$ and $(4,4)$ respectively, with corresponding resolutions of approximately \mum{150} as described in \secref{sec:StrawTrackers}. At second order the material error matrices as calculated by Geane are added to the measurement errors. Because the measured parameters consist of solely U or V measurements, the $x_{i}$ vectors are $5 \times 1$ objects where only the $(3)$ or $(4)$ elements have any meaning respectively\footnote{A straw tracker module as a whole can be approximated as measuring in 2D space, but this leads to correlations between measured parameters which must be taken into account, as compared to the natural tracker measurement frame in 1D space of U or V for which there are no measurement correlations \cite{UVcorrelations}.}. The errors on the non-measured parameters in the diagonals of the error matrix are taken as infinite, such that when the error matrix is inverted all corresponding rows and columns of the final matrix calculation on each plane reduce to zero and contribute nothing to the $\chi^{2}$.
+$x_{i}$ are vectors of the measured track parameters on plane $i$, $\widetilde{p}_{i}$ are vectors of the average predicted track parameters which stem from some general starting parameters $p_{s}$, and $\sigma_{i}$ are the $5 \times 5$ error matrices on the planes. To first order the error matrices consist only of the measurement errors on the U and V parameters and exclude the effects of random material processes. These errors are located in the U and V diagonal elements $(3,3)$ and $(4,4)$ respectively, with corresponding resolutions of approximately \mum{150} as described in \secref{sec:StrawTrackers}. At second order the material error matrices as calculated by Geane are added to the measurement errors. Because the measured parameters consist of solely U or V measurements, the $x_{i}$ vectors are $5 \times 1$ objects where only the $(3)$ or $(4)$ elements have any meaning respectively\footnote{A straw tracker module as a whole can be approximated as measuring in 2D space, but this leads to correlations between measured parameters which must be taken into account, as compared to the natural tracker measurement frame in 1D space of U or V for which there are no measurement correlations \cite{UVcorrelations}.}. The errors on the non-measured parameters in the diagonals of the error matrix are taken as infinite, such that when the error matrix is inverted all corresponding rows and columns of the final matrix calculation on each plane reduce to zero and contribute nothing to the $\chi^{2}$.
 
 
 By minimizing this \chisq with respect to the starting parameters $p_{s}$, and evaluating it at the target best starting guesses $p'_{0}$, which are the parameters of interest, the track can be fit:
     \begin{equation}
     \begin{aligned}
         \frac{\partial \chi^{2}}{\partial p_{s}}\Big|_{p_{s}=p'_{0}} = 0 
-            &= \sum_{i=1}^{N}\Big[ \Big(\frac{\partial p_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}}\Big)^{T} (\sigma_{i}^{-1}) (p_{i}(p'_{0})-x_{i}) \\ 
-            &+ (p_{i}(p'_{0})-x_{i})^{T} \Big(\frac{\partial(\sigma_{i}^{-1})}{\partial p_{s}}\Big|_{p=p'_{0}}\Big) (p_{i}(p'_{0})-x_{i}) \\ 
-            &+  (p_{i}(p'_{0})-x_{i})^{T} (\sigma_{i}^{-1}) \Big(\frac{\partial p_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}}\Big)\Big]
+            &= \sum_{i=1}^{N}\Big[ \Big(\frac{\partial \widetilde{p}_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}}\Big)^{T} (\sigma_{i}^{-1}) (\widetilde{p}_{i}(p'_{0})-x_{i}) \\ 
+            &+ (\widetilde{p}_{i}(p'_{0})-x_{i})^{T} \Big(\frac{\partial(\sigma_{i}^{-1})}{\partial p_{s}}\Big|_{p=p'_{0}}\Big) (\widetilde{p}_{i}(p'_{0})-x_{i}) \\ 
+            &+  (\widetilde{p}_{i}(p'_{0})-x_{i})^{T} (\sigma_{i}^{-1}) \Big(\frac{\partial \widetilde{p}_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}}\Big)\Big]
     \label{eq:chi2summinimize}
     \end{aligned}
     \end{equation}
 The middle term is small and can be neglected assuming that that the error matrix doesn't change much with respect to the choice of starting parameters. This is true as the part of the error matrix that depends on the starting parameters is already small due to the low amount of material in the tracker. In tandem the error matrix doesn't change much from one fitting iteration to the next as long as the path length through the material remains about the same. The first and third terms are identical in value, and so must therefore both separately be equal to zero. \equref{eq:chi2summinimize} is therefore reduced to 
     \begin{align} \label{eq:chi2sumreduced}
-        0 = \sum_{i=1}^{N} T^{T}_{i0} \sigma_{i}^{-1} (p_{i}(p'_{0})-x_{i}),
+        0 = \sum_{i=1}^{N} T^{T}_{i0} \sigma_{i}^{-1} (\widetilde{p}_{i}(p'_{0})-x_{i}),
     \end{align}
 where $T_{i0}$ is the transport matrix between the point at which the starting parameters are defined and plane $i$ given by \equref{eq:transportmatrix}:
     \begin{align} \label{eq:transportfrom0}
-         T_{i0} = \frac{\partial p_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}}
+         T_{i0} = \frac{\partial \widetilde{p}_{i}(p_{s})}{\partial p_{s}}\Big|_{p_{s}=p'_{0}}
     \end{align}
 In minimizing the \chisq the desire is to update some original set of starting track parameters $p_{0}$ to the new best ones $p'_{0}$. This difference, $\Delta p_{0}$, can be determined by substituting the following into \equref{eq:chi2sumreduced},
     \begin{align} \label{eq:psub}
-        p_{i}(p'_{0}) = p_{i}(p_{0}) + T_{i0} \Delta p_{0},
+        \widetilde{p}_{i}(p'_{0}) = \widetilde{p}_{i}(p_{0}) + T_{i0} \Delta p_{0},
     \end{align}
 which follows from \equref{eq:parametertransport}. After simplifying one arrives at 
     \begin{align} \label{eq:deltap}
-        \Delta p_{0} = \sigma_{p_{0}} \sum_{i=1}^{N} T^{T}_{i0}(\sigma_{i}^{-1})(x_{i} - p_{i}(p_{0})),
+        \Delta p_{0} = \sigma_{p_{0}} \sum_{i=1}^{N} T^{T}_{i0}(\sigma_{i}^{-1})(x_{i} - \widetilde{p}_{i}(p_{0})),
     \end{align}
 where
     \begin{align} \label{eq:cov}
@@ -344,11 +345,11 @@ Here $\vec{x}$ and $\vec{p}$ are a $5N \times 1$ vectors of the measured and pre
 
 
 
-The new format however allows for the material correlations between planes to be included, where these correlations are added as $5 \times 5$ matrices in the off-diagonal blocks of the new large error matrix. The upper diagonals are given by \cite{trajfit}
+The new format however allows for the material correlations between planes to be included, where these correlations are added as $5 \times 5$ matrices in the off-diagonal blocks of the new large error matrix. The upper diagonals are given by\footnote{The lower diagonals are just the transpose.} 
     \begin{align} \label{eq:corr}
         \sigma_{MN} = T_{MN} \sigma_{N}, 
     \end{align}
-where $\sigma_{MN}$ is the material correlation matrix between plane $M$ and plane $N$, $T_{MN}$ is the transport matrix between the two planes, and $\sigma_{N}$ is the ordinary material error matrix as calculated from the 0 starting plane. The lower diagonals are just the transpose of \equref{eq:corr}. The \chisq is minimized in the same way as was done in the previous section such that the improvement to the starting track parameters $\Delta p_{0}$ remains a $5 \times 1$ vector and is given by
+where $\sigma_{MN}$ is the material correlation matrix between plane $M$ and plane $N$, $T_{MN}$ is the transport matrix between the two planes, and $\sigma_{N}$ is the ordinary material error matrix as calculated from the 0 starting plane. See \appref{app:trackingCorrMatrices} for the derivation of \equref{eq:corr}. The \chisq is minimized in the same way as was done in the previous section such that the improvement to the starting track parameters $\Delta p_{0}$ remains a $5 \times 1$ vector and is given by
     \begin{align} \label{eq:deltafull}
         \Delta p_{0} &= \sigma_{p_{0}} \tau^{T}\sigma^{-1}(\vec{x}-\vec{p}), \\
         \sigma_{p_{0}} &= [\tau^{T} \sigma^{-1} \tau ]^{-1},
