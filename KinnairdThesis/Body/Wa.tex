@@ -763,6 +763,31 @@ As a reminder $R$ is blinded at the hardware and software levels \cite{ClockManu
 \end{table}
 
 
+The names of the specific SAM (Sequential Access via Metadata) datasets that were analyzed for this dissertation are given in \tabref{tab:SAMNames}. SAM is a data handling system used at Fermilab to store and retrieve files along with associated metadata. The specific DQC cuts, included gain corrections, processed runs, production software versions, etc. can all be recovered by examining the associated SAM metadata.
+
+
+
+\begin{table}
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}{}
+\begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}lc}
+  \hline
+    \multicolumn{2}{c}{\textbf{SAM Dataset Names}} \\
+  \hline\hline
+    Dataset & Name \\
+  \hline
+    60h & gm2pro\underline{{ }}daq\underline{{ }}full\underline{{ }}run1\underline{{ }}60h\underline{{ }}5039A\underline{{ }}goldList \\ 
+    HighKick & gm2pro\underline{{ }}daq\underline{{ }}full\underline{{ }}run1\underline{{ }}HighKick\underline{{ }}5040A\underline{{ }}goldList \\
+    9d & gm2pro\underline{{ }}daq\underline{{ }}full\underline{{ }}run1\underline{{ }}9d\underline{{ }}5039A\underline{{ }}goldList \\
+    Endgame & gm2pro\underline{{ }}daq\underline{{ }}full\underline{{ }}run1\underline{{ }}EndGame\underline{{ }}5040A\underline{{ }}goldList \\
+  \hline 
+\end{tabular*}
+\caption[SAM dataset names]{The SAM dataset names of the Run~1 precession frequency analysis datasets.}
+\label{tab:SAMNames}
+\end{table}
+
+
 
 
 \input{Body/Wa_FitResults}

@@ -11,7 +11,7 @@
 \label{sec:fit_results}
 
 
-\figref{fig:moduloPlots} shows fits to the four Run~1 precession frequency analysis datasets. \tabref{tab:DatasetFitResults} gives all fit parameters and their errors. In each dataset case the \chisq/NDF is acceptable as evidenced by the p value included in the table results. Fit pulls and the FFT of the fit residuals for the 60h dataset are provided in Figure~\ref{fig:fitResiduals_60h}. As shown all structure has been eliminated within the fit residuals implying that all effects in the data have properly been accounted for in the fit function. The same checks were made for the HighKick, 9d, and Endgame datasets and in each case no residual structure remained. \figref{fig:CorrMat_60h} shows the correlation matrix for the fit to the 60h dataset. The only fit parameter that is significantly correlated with $R$ is the \gmtwo phase. This increases the confidence in the \wa extraction, as effects in the data which might potentially be mis-modelled will only weakly correlate with the final fitted $R$ value. The various different CBO parameters are self-correlated to different degrees depending on the parameter and the dataset that is being fit. Typically either the phases and frequencies are correlated, or the lifetimes and amplitudes. \appref{app:CorrelationMatrices} provides the correlation matrices for the HighKick, 9d, and Endgame datasets.
+\figref{fig:moduloPlots} shows fits to the four Run~1 precession frequency analysis datasets. \tabref{tab:DatasetFitResults} gives all fit parameters and their errors. In each dataset case the \chisq/NDF is acceptable as evidenced by the p-value included in the table results. Fit pulls and the FFT of the fit residuals for the 60h dataset are provided in Figure~\ref{fig:fitResiduals_60h}. As shown all structure has been eliminated within the fit residuals implying that all effects in the data have properly been accounted for in the fit function. The same checks were made for the HighKick, 9d, and Endgame datasets and in each case no residual structure remained. \figref{fig:CorrMat_60h} shows the correlation matrix for the fit to the 60h dataset. The only fit parameter that is significantly correlated with $R$ is the \gmtwo phase. This increases the confidence in the \wa extraction, as effects in the data which might potentially be mis-modelled will only weakly correlate with the final fitted $R$ value. The various different CBO parameters are self-correlated to different degrees depending on the parameter and the dataset that is being fit. Typically either the phases and frequencies are correlated, or the lifetimes and amplitudes. \appref{app:CorrelationMatrices} provides the correlation matrices for the HighKick, 9d, and Endgame datasets.
 
 The \gmtwo phases for the different datasets showed small differences, due primarily to upstream beam adjustments before injection into the storage ring. Similarly, slightly different asymmetries can be attributed to very small acceptance differences in the stored beams. As described in \secref{subsec:lostmuons}, the value for \K was determined and fixed from a T-Method fit to the data. The values themselves don't directly correspond to the level of losses, as each dataset has it's own loss function $L(t)$ which is left out of the picture here.
 
@@ -73,7 +73,7 @@ Beyond looking at single fit residuals to evaluate the integrity of the fits, ot
  & \multicolumn{2}{c|}{60h} & \multicolumn{2}{c|}{HighKick} & \multicolumn{2}{c|}{9d} & \multicolumn{2}{c}{Endgame} \\
   \hline\hline
     $\chi^{2}$/NDF & \multicolumn{2}{c|}{$4242/4142$} & \multicolumn{2}{c|}{$4190/4143$} & \multicolumn{2}{c|}{$4162/4142$} & \multicolumn{2}{c}{$4116/4142$} \\
-    p value        & \multicolumn{2}{c|}{$0.1356$} & \multicolumn{2}{c|}{$0.3018$} & \multicolumn{2}{c|}{$0.4104$} & \multicolumn{2}{c}{$0.6079$}  \\
+    p-value        & \multicolumn{2}{c|}{$0.1356$} & \multicolumn{2}{c|}{$0.3018$} & \multicolumn{2}{c|}{$0.4104$} & \multicolumn{2}{c}{$0.6079$}  \\
   \hline\hline
     Parameter & Value & Error & Value & Error & Value & Error & Value & Error \\
   \hline
@@ -266,7 +266,7 @@ In order to determine if there are any deficiencies as a function of time, for i
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_omega_cbo_FS_Canv_Endgame_fixedCBOModel}
-        \caption{The fit start scan for the fitted CBO frequency when a constant frequency model is included. The p value of the first ratio fit in this case is 0.191, indicating a good fit. Only by performing a fit start scan or examining the fit residuals closely is the deficiency in the fit observed.}
+        \caption{The fit start scan for the fitted CBO frequency when a constant frequency model is included. The p-value of the first ratio fit in this case is 0.191, indicating a good fit. Only by performing a fit start scan or examining the fit residuals closely is the deficiency in the fit observed.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{4mm}
     \begin{subfigure}[t]{0.45\textwidth}
