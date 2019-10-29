@@ -106,7 +106,7 @@ Electromagnetic calorimeters are the primary detector in the E989 experiment, re
 \subsection{Requirements and systematic effects}
 \label{sub:calosystematics}
 
-In order to determine \wa to the precision goal, there are specific requirements on the performance of the calorimeters. First, they must have a relative energy resolution of better than 5\% at $\SI{2}{\GeV}$, in order for proper event selection above threshold \cite{TDR}. The energy resolution requirement is modest but not strict because the important observable is the number of detected positrons above some energy threshold, where the optimal energy threshold can be determined emperically.
+In order to determine \wa to the precision goal, there are specific requirements on the performance of the calorimeters. First, they must have a relative energy resolution of better than 5\% at $\SI{2}{\GeV}$, in order for proper event selection above threshold \cite{TDR}. The energy resolution requirement is modest but not strict because the important observable is the number of detected positrons above some energy threshold, where the optimal energy threshold can be determined empirically.
 
 Second, they must have a timing resolution of better than $\SI{100}{ps}$ for positrons with energy greater than $\SI{100}{\MeV}$ \cite{TDR}. The calorimeters must be able to resolve multiple incoming hits through temporal or spatial separation at 100\% efficiency for time separations of greater than $\SI{5}{ns}$, or 66\% of hits for time separations less than $\SI{5}{ns}$, in order to reduce the pileup systematic effect. Pileup is the term used for when multiple particles impact the detector within the deadtime of the detector such that they are registered as a single hit. Unresolved pileup means that the number of detected positrons above threshold is mis-measured. Since pileup is a time-dependent effect, where pileup decays with a lifetime approximately equal to half the muon lifetime, this leads to a mis-measurement of \wa, see \secref{sub:pileupsubtraction}. The requirements stated here assist in reducing the pileup systematic error below a target goal of $\SI{40}{ppb}$.
 
@@ -114,7 +114,7 @@ Third, the energy response of calorimeters for measured hits must be stable to $
 
 
 
-\subsection{Harware}
+\subsection{Hardware}
 
 
 There are 24 calorimeters located symmetrically around the inside of the ring placed flush to the vacuum chamber wall, as shown in \figref{fig:CalorimeterPositions}. (Indeed the shape of the vacuum chambers were designed so as to reduce multiple scattering of the decay positrons before entering the calorimeters.) Each calorimeter sits on a board extending out from a cart which contains the electronics that power the calorimeters and read out the data. The carts help to relocate magnetic materials away from the field region to avoid perturbing the magnetic field, and provide easy access to the electronics while removing them from the positron decay path region.
@@ -158,7 +158,7 @@ Each crystal is paired with a large area silicon photo-multiplier (SiPM) sensor 
 \label{sub:LaserCalibrationSystem}
 
 
-In order to satisfy the gain requirements of the calorimeter detectors, a laser calibration system is used. This system monitors the SiPM responses over short and long time scales to $< 0.04\%$ \cite{Anastasi:2017sos}. The system consists of six different lasers and a suite of optical devices. The light from the six lasers is piped to a board mounted on the front face of each calorimeter through optical fibers. This board contains right-angle prisms which deflect the laser pulses directly into each calorimeter crystal, for all 1296 channels. The lasers can be pulsed at various intensities, both in-fill to monitor the STDP or IFG effects, and out-of-fill to monitor for long term drifts due to changing temperatures or detector degradation. The SiPM measured response is compared to local known source monitors in order to calibrate the SiPM energy response. Corrections to the gain of the calorimeters can thus be determined and applied to the hit energies. Simultaneously the laser system allows for measuring the timing resolution of the SiPMs, and in general performing diagnostic tests with the calorimeter. Lastly, the laser system is used to time align the different calorimeter channels by outputing a sync pulse to each channel at the beginning of every muon fill.
+In order to satisfy the gain requirements of the calorimeter detectors, a laser calibration system is used. This system monitors the SiPM responses over short and long time scales to $< 0.04\%$ \cite{Anastasi:2017sos}. The system consists of six different lasers and a suite of optical devices. The light from the six lasers is piped to a board mounted on the front face of each calorimeter through optical fibers. This board contains right-angle prisms which deflect the laser pulses directly into each calorimeter crystal, for all 1296 channels. The lasers can be pulsed at various intensities, both in-fill to monitor the STDP or IFG effects, and out-of-fill to monitor for long term drifts due to changing temperatures or detector degradation. The SiPM measured response is compared to local known source monitors in order to calibrate the SiPM energy response. Corrections to the gain of the calorimeters can thus be determined and applied to the hit energies. Simultaneously the laser system allows for measuring the timing resolution of the SiPMs, and in general performing diagnostic tests with the calorimeter. Lastly, the laser system is used to time align the different calorimeter channels by outputting a sync pulse to each channel at the beginning of every muon fill.
 
 
 % older publications on tests of the laser system which I'm not sure I need to cite
@@ -181,7 +181,7 @@ In general, straw tracking detectors work by measuring hits in gas filled straws
         \includegraphics[width=0.6\textwidth]{StrawDriftTime}
     \hspace{1cm}
         \includegraphics[width=0.25\textwidth]{TrackDriftCircles}
-\caption[Straw tracker drift circles]{Diagrams showing the determination of a drift time $t_{d}$ and hit time $t_{h}$ from an incident ionizing particle (left) and the combination of several such hits to produce a track (right). Diagram on left courtesty of Saskia Charity.}
+\caption[Straw tracker drift circles]{Diagrams showing the determination of a drift time $t_{d}$ and hit time $t_{h}$ from an incident ionizing particle (left) and the combination of several such hits to produce a track (right). Diagram on left courtesy of Saskia Charity.}
 \label{fig:driftcircles}
 \end{figure}
 

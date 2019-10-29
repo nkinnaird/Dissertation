@@ -7,7 +7,7 @@
 
 In the pileup subtraction method detailed in \secref{sub:pileupsubtraction}, pileup events are statistically constructed and then subtracted from the data. Because of this, the errors on the bins need to be adjusted appropriately. \refref{E821PileupErrors} describes the modified errors, but is not quite correct. Here is provided an improved calculation that is easier to understand. While we are mainly interested in the errors on the histogram bins after pileup subtraction, it first helps to examine the errors of the pileup histogram itself. Here we only consider doublets.
 
-In the aysmmetric shadow window pileup method, shadow doublets are constructed from two singlets. The pileup histogram is then filled as the sum of the doublets minus the singlets,
+In the asymmetric shadow window pileup method, shadow doublets are constructed from two singlets. The pileup histogram is then filled as the sum of the doublets minus the singlets,
  	\begin{align}
  		P = D - S,
 	\end{align}
@@ -73,7 +73,7 @@ we can remove the dependence of the corrected histogram errors on the unknown qu
  	\label{eq:pileupModErrors}
 	\end{aligned}
 	\end{equation}
-(This argument might seem circular at the end, but it works because of the squaring that occurs when calculating the error.) In the end we have a form for the bin errors of the pileup corrected histogram which only depend on $N_{1}$ and $N_{4}$ in addition to the number of counts in the corrected histogram. As shown it can be refactored into a form equal to the naive errors (just the bin content) times some correction factor. Since $N_{1}$ and $N_{4}$ are much smaller than $N_{\text{corrected}}$ at all times, and because they decay away at about twice the rate as the pileup diminishes, the change to the errors is small, of the order 1 or 2\% at $\SI{30}{\micro s}$.
+(This argument might seem circular at the end, but it works because of the squaring that occurs when calculating the error.) In the end we have a form for the bin errors of the pileup corrected histogram which only depend on $N_{1}$ and $N_{4}$ in addition to the number of counts in the corrected histogram. As shown it can be re-factored into a form equal to the naive errors (just the bin content) times some correction factor. Since $N_{1}$ and $N_{4}$ are much smaller than $N_{\text{corrected}}$ at all times, and because they decay away at about twice the rate as the pileup diminishes, the change to the errors is small, of the order 1 or 2\% at $\SI{30}{\micro s}$.
 
 
 
