@@ -413,17 +413,17 @@ in the absence of other effects in the data.
 \label{sec:Fitting}
 
 
-The basic five parameter function used to the fit the data as described before is given as\footnote{In all cases here and onwards the actual fit parameters are in bold.}
+The basic five parameter function used to the fit the data as described before is given as\footnote{In the current section the actual fit parameters are in bold.}
     \begin{align}
         f(t) = \boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\tau}} \cdot (1 + \boldsymbol{A} \cdot \cos(\omega_{a}t + \boldsymbol{\phi})),
     \label{eq:fiveparfuncagain}
     \end{align}
-where the fit parameter for \wa is recast in terms of a ppm level shift \textbf{R} on a reference frequency,
+where the fit parameter for \wa is recast in terms of a ppm level shift $\boldsymbol{R}$ on a reference frequency,
     \begin{align}
-        \omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + \textbf{R} \times 10^{-6}).
+        \omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + \boldsymbol{R} \times 10^{-6}).
     \label{eq:wablind}
     \end{align}
-This reference frequency of $\SI{0.2291}{MHz}$ was the same reference frequency used in E821, and \textbf{R} is blinded at the hardware and software levels \cite{ClockManual,SoftwareBlinding}. Fitting the data with \equref{eq:fiveparfuncagain} however is insufficient to properly describe the data. \figref{fig:FFT_fiveParameter} shows there are peaks in the FFT due to beam dynamics frequencies corresponding to the CBO, VW, and some beat frequencies with \wa. In order to properly account for these effects, additional terms need to be added to the fit function. 
+This reference frequency of $\SI{0.2291}{MHz}$ was the same reference frequency used in E821, and $\boldsymbol{R}$ is blinded at the hardware and software levels \cite{ClockManual,SoftwareBlinding}. Fitting the data with \equref{eq:fiveparfuncagain} however is insufficient to properly describe the data. \figref{fig:FFT_fiveParameter} shows there are peaks in the FFT due to beam dynamics frequencies corresponding to the CBO, VW, and some beat frequencies with \wa. In order to properly account for these effects, additional terms need to be added to the fit function. 
 
     \begin{figure}
         \centering
@@ -482,7 +482,7 @@ As described in \secref{sub:CBO}, the CBO modulates the \wa oscillation. This sh
         A_{cbo}(t) &= \boldsymbol{A} \cdot (1 + \boldsymbol{A_{cbo-A}} \cdot e^{-t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{cbo-A}})) \label{eq:Acbo} \\ 
         \phi_{cbo}(t) &= \boldsymbol{\phi_{0}} + \boldsymbol{A_{cbo-\phi}} \cdot e^{-t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{cbo-\phi}}) \label{eq:Phicbo}
     \end{align}
-In \equref{eq:Ncbo} the $N_{0}$ term is left out since the ratio fit includes the $N_{cbo}(t)$ term but not $N_{0}$, and in \equref{eq:Phicbo}, $\phi_{cbo}(t)$ has an additive phase instead of a multiplicative one since $\phi_{0}$ is not an amplitude and can be equal to zero. Each of the terms then includes additional fit parameters in an extra amplitude and phase, as well as one shared CBO lifetime and frequency. As described in \secref{sec:MuonBeamMeasurements}, the default model for the CBO modulation is assumed as an exponenetially decaying envelope. The CBO frequency, $\omega_{cbo}(t)$, was time-dependent for Run~1 as found in \secref{sec:MuonBeamMeasurements}. The function for the CBO frequency shown in \figref{fig:CBOFrequency} is given in the fit function as
+In \equref{eq:Ncbo} the $\boldsymbol{N_{0}}$ term is left out since the ratio fit includes the $N_{cbo}(t)$ term but not $\boldsymbol{N_{0}}$, and in \equref{eq:Phicbo}, $\phi_{cbo}(t)$ has an additive phase instead of a multiplicative one since $\boldsymbol{\phi_{0}}$ is not an amplitude and can be equal to zero. Each of the terms then includes additional fit parameters in an extra amplitude and phase, as well as one shared CBO lifetime and frequency. As described in \secref{sec:MuonBeamMeasurements}, the default model for the CBO modulation is assumed as an exponenetially decaying envelope. The CBO frequency, $\omega_{cbo}(t)$, was time-dependent for Run~1 as found in \secref{sec:MuonBeamMeasurements}. The function for the CBO frequency shown in \figref{fig:CBOFreqAmp} is given in the fit function as
     \begin{align} \label{eq:CBOfreqForm}
         \omega_{cbo}(t) = \boldsymbol{\omega_{cbo}} \cdot \Big(1 + \frac{Ae^{(-t/\tau_{A})}}{\omega_{0}t} + \frac{Be^{(-t/\tau_{B})}}{\omega_{0}t}\Big),
     \end{align}
@@ -534,10 +534,10 @@ When considering higher order CBO modifications to the fit function, the only te
     \begin{align}
         N_{2cbo}(t) &= (1 + \boldsymbol{A_{2cbo-N}} \cdot e^{-2t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{2cbo-N}})). \label{eq:N2cbo}
     \end{align}
-This stands to reason as the $N_{cbo}(t)$ is the largest CBO effect. The form is assumed to be the same as the first order CBO terms, except the lifetime of the effect is half the CBO lifetime, $\tau_{cbo}/2$. This is due to the fact that the $N_{2cbo}(t)$ is reasoned to come from the width of the oscillating beam, as opposed to the oscillating mean. Indeed as will be shown in \secref{sub:per_calorimeter_fits}, the inclusion of this term is necessary to get good fits to the per calorimeter data, where the CBO effect is stronger compared to in the sum of the calorimeter data. For this reason, and again because the $N_{2cbo}(t)$ term is fittable in the calorimeter sum data, this term is included in fits to each of the datasets.
+This stands to reason as the $N_{cbo}(t)$ is the largest CBO effect. The form is assumed to be the same as the first order CBO terms, except the lifetime of the effect is half the CBO lifetime, $\boldsymbol{\tau_{cbo}}/2$. This is due to the fact that the $N_{2cbo}(t)$ is reasoned to come from the width of the oscillating beam, as opposed to the oscillating mean. Indeed as will be shown in \secref{sub:per_calorimeter_fits}, the inclusion of this term is necessary to get good fits to the per calorimeter data, where the CBO effect is stronger compared to in the sum of the calorimeter data. For this reason, and again because the $N_{2cbo}(t)$ term is fittable in the calorimeter sum data, this term is included in fits to each of the datasets.
 
 
-Systematic studies relating to the choice of envelope and choice of fixed parameters in the frequency model are explored in \secref{sub:cboerror}. For future runs beyond Run~1, it may be necessary to include the higher order modifications to the $\boldsymbol{A}$ and $\boldsymbol{\phi}$ terms.
+Systematic studies relating to the choice of envelope and choice of fixed parameters in the frequency model are explored in \secref{sub:cboerror}. For future runs beyond Run~1, it may be necessary to include the higher order modifications to the $A_{cbo}(t)$ and $\phi_{cbo}(t)$ terms.
 
 
 
@@ -733,7 +733,9 @@ It should be noted that the Ratio Method is largely insensitive to the slow lost
 
 \chisq fits are done to the pileup corrected positron time spectra and ratio data in \texttt{ROOT} using the standard \texttt{TH1F} and \texttt{TGraph} fit methods with a strategy level of two. Fits are performed in stages where groups of associated parameters are freed, fit, and then fixed before fitting the next set of parameters. In the final fit all parameters are freed and fit at once. Each of the four Run~1 precession frequency analysis datasets are fit with 14 parameters. 13 parameters are free in fits to the 60h, 9d, and Endgame datasets, with the \K parameter determined and fixed from a T-Method fit. In the HighKick dataset $\tau_{cbo}$ is also fixed from a T-Method fit as the lifetime is relatively small and the Ratio Method can't successfully fit it, resulting in 12 free fit parameters. In the T-Method fits there are two extra free fit parameters, those being the $N_{0}$ and $\tau$ terms which are left out of the Ratio Method fits.
 
-Fits to calorimeter sum spectra are done from 30.2--\mus{650}, corresponding to 4155 bins. The choice of fit start time was made to lie directly on a \gmtwo zero crossing, which from E821 was shown to reduce some systematic errors \textbf{cite this?}. It was also made at a late enough time to allow for storage of the muon beam after the scraping procedure. The choice of fit end time was made to be just before the quad storage field turned off, in order for the fill time to fit within the timing structure of the experimental beam. Individual calorimeter fits were performed out to \mus{400}, in order to stay within the region of Poisson statistics such that \chisq fits are satisfied. \tabref{tab:fitprocedureparameters} gives the various fit procedure parameters.
+Fits to calorimeter sum spectra are done over the range 30.2--\mus{650}, corresponding to 4155 bins. The choice of fit start time was made to allow for the muon beam to stabilize in the storage region after the scraping procedure. In addition the start time was chosen to lie directly on a \gmtwo zero crossing, which from E821 experience was shown to reduce some systematic errors. The choice of fit end time was made to be well before the limit at which the bin variance become non-Gaussian. Individual calorimeter fits were performed out to \mus{400} considering this fact. \tabref{tab:fitprocedureparameters} gives the various fit procedure parameters.
+
+% The choice of fit end time was made to be just before the quadrupole storage field turned off, in order for the fill time to fit within the timing structure of the experimental beam. 
 
 As a reminder $R$ is blinded at the hardware and software levels \cite{ClockManual,SoftwareBlinding}. The software blinding string used for the 60h dataset was different than that used when fitting the HighKick, 9d, and Endgame datasets, each of which used the same blinding string. This was done in order to perform a software-level relative unblinding exercise between different analyzers with the 60h dataset in order to determine if there were any obvious problems in the analyses \cite{BU60hReport,60hUnblinding}. Therefore in the following results, $R$ values between different datasets are comparable between the datasets except for the 60h, barring any differences due to field conditions which are not discussed in this dissertation.
 
@@ -751,7 +753,7 @@ As a reminder $R$ is blinded at the hardware and software levels \cite{ClockManu
     Fit strategy level & 2 \\
     Fit start time & \mus{30.2} \\
     Fit end time (calorimeter sum) & \mus{650} \\
-    Fit end time (calorimeters) & \mus{400} \\
+    Fit end time (single calorimeters) & \mus{400} \\
     Bins in fit (calorimeter sum) & 4155 \\
     Number of fit parameters & 14 \\
     Number of free fit parameters (60h, 9d, Endgame) & 13 \\
