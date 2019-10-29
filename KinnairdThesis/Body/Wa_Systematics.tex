@@ -15,18 +15,17 @@ Evaluating the systematic errors which bias the \wa extraction is a major part o
     \begin{align} \label{eq:timeDependentPhase}
         \cos{(\omega_{a}t + \phi(t))} \rightarrow \cos{((\omega_{a}+\phi_{1})t + \phi_{0} + \phi_{2}t^{2} + ...)},
     \end{align}
-where $\phi(t)$ can in general be expanded to higher orders. Because the phase is highly correlated to the extracted frequency, and because more decay positrons are detected at early times within a fill, a time-dependent phase pulls the extracted frequency away from it's real value. Sources of systematic uncertainty can be separated into several general categories. These include systematic errors in the pileup subtraction,  gain corrections, CBO fit model, muon losses, and E-field and pitch corrections, among others. In each case early-to-late shifts are a danger in the analysis and must be evaluated appropriately. \tabref{tab:wauncertainties} gives the target systematic uncertainties for the E989 experiment, which has the goal of a \SI{70}{ppb} systematic error on the precession frequency measurement. This represents a three to four-fold improvement over the E821 experiment systematic errors which were of order \SI{210}{} -- \SI{310}{ppb} depending on running period \cite{E821FinalReport}. \textbf{talk about reason for improvement at all here? seems kind of late to be doing so}
-
+where $\phi(t)$ can in general be expanded to higher orders. Because the phase is highly correlated to the extracted frequency, and because more decay positrons are detected at early times within a fill, a time-dependent phase pulls the extracted frequency away from it's real value. Sources of systematic uncertainty can be separated into several general categories. These include systematic errors in the pileup subtraction,  gain corrections, CBO fit model, muon losses, and E-field and pitch corrections, among others. In each case early-to-late shifts are a danger in the analysis and must be evaluated appropriately. \tabref{tab:wauncertainties} gives the target systematic uncertainties for the E989 experiment, which has the goal of a \SI{70}{ppb} systematic error on the precession frequency measurement. This represents a three to four-fold improvement over the E821 experiment systematic errors which were of order \SI{210}{} -- \SI{310}{ppb} depending on running period \cite{E821FinalReport}.
 
 \begin{table}
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}lc}
+\begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}lG}
   \hline
-    \multicolumn{2}{c}{\textbf{Target \wa Measurement Uncertainties}} \\
+    \multicolumn{2}{c}{\textbf{Target \wa Systematic Uncertainties}} \\
   \hline\hline
-    Sources of uncertainty & E989 Goal (ppb) \\
+    Sources of uncertainty & \multicolumn{1}{c}{E989 Goal (ppb)} \\
   \hline
     Pileup & 40 \\
     Gain changes & 20 \\
@@ -35,7 +34,7 @@ where $\phi(t)$ can in general be expanded to higher orders. Because the phase i
     E-field and pitch corrections & 30 \\
     Other & 30 \\
   \hline
-    Quadrature sum & $\sim70$ \\
+    Quadrature sum & \sim70 \\
   \hline 
 \end{tabular*}
 \caption[Target systematic uncertainties in the precession frequency measurement]{Target systematic errors in the precession frequency measurement for the E989 experiment.}
@@ -231,20 +230,20 @@ where $P_{t}$ is the value of the pileup time-shift. The sensitivities of $R$ to
 % \small
 \setlength\tabcolsep{20pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{0.7\linewidth}{@{\extracolsep{\fill}}lcK}
+\begin{tabular*}{0.7\linewidth}{@{\extracolsep{\fill}}lccK}
 % \begin{tabular}{@{\extracolsep{\fill}}lcccK}
   \hline
-    \multicolumn{3}{c}{\textbf{Systematic Error due to Pileup Time Shift}} \\
+    \multicolumn{4}{c}{\textbf{Systematic Error due to Pileup Time Shift}} \\
   \hline\hline
-    Dataset & \multicolumn{1}{c}{$dR/dP_{t}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
+    Dataset & & \multicolumn{1}{c}{$dR/dP_{t}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
   \hline
-    60h & 7.0 & 17.6 \\
-    HighKick & 7.6 & 19.0 \\
-    9d & 6.8 & 17.1 \\ 
-    Endgame & 5.7 & 14.3 \\
+    60h & & 7.0 & 17.6 \\
+    HighKick & & 7.6 & 19.0 \\
+    9d & & 6.8 & 17.1 \\ 
+    Endgame & & 5.7 & 14.3 \\
   \hline
 \end{tabular*}
-\caption[Systematic error due to pilep time shift]{Systematic error due to the pileup time-shift parameter $P_{t}$ in the Ratio Method fits for the Run~1 precession frequency analysis datasets. The bold column gives the systematic error on \R. Units for $dR/dP_{t}$ and $\delta R$ are in ppb/ns and ppb respectively. The error on the $P_{t}$ is by default taken to be \ns{2.5} as described in the text. \textbf{fix spacing of table}}
+\caption[Systematic error due to pilep time shift]{Systematic error due to the pileup time-shift parameter $P_{t}$ in the Ratio Method fits for the Run~1 precession frequency analysis datasets. The bold column gives the systematic error on \R. Units for $dR/dP_{t}$ and $\delta R$ are in ppb/ns and ppb respectively. The error on the $P_{t}$ is by default taken to be \ns{2.5} as described in the text.}
 \label{tab:systematicError_pileupTimeShift}
 \end{table}
 
@@ -257,7 +256,7 @@ The second part of the pileup phase error comes from the choice of constant $C$ 
     \begin{align}
         \delta R = \sigma_{C} \times \frac{dR}{dC}.
     \end{align}
-Similarly to the pileup amplitude error, there is a clear minimum in the \chisq results which can be used to estimate the uncertainty in the pileup energy scale\footnote{The trend isn't as clean as in the scan over the pileup amplitude multiplier, but that is acceptable.}. \tabref{tab:systematicError_pileupC} gives the sensitivities of $R$ to the pileup energy scale, uncertainties in the pileup energy scale, and the corresponding final systematic errors for the Run~1 precession frequency analysis datasets. As shown the uncertainties on the pileup energy scale are of order 1 to 2\%, and the value for $C$ which produces the minimum in the \chisq results is consistent with 1\footnote{Because the spatial separation is turned off in the clustering portion of the reconstruction, a value of $C = 1$ is to be expected.}. Interestingly, the sensitivity of $R$ to $C$ in the 60h dataset is noticeably larger than in the rest of the datasets, though the origin of this is currently unknown. \textbf{what to do about this?}
+Similarly to the pileup amplitude error, there is a clear minimum in the \chisq results which can be used to estimate the uncertainty in the pileup energy scale\footnote{The trend isn't as clean as in the scan over the pileup amplitude multiplier, but that is acceptable.}. \tabref{tab:systematicError_pileupC} gives the sensitivities of $R$ to the pileup energy scale, uncertainties in the pileup energy scale, and the corresponding final systematic errors for the Run~1 precession frequency analysis datasets. As shown the uncertainties on the pileup energy scale are of order 1 to 2\%, and the value for $C$ which produces the minimum in the \chisq results is consistent with 1\footnote{Because the spatial separation is turned off in the clustering portion of the reconstruction, a value of $C = 1$ is to be expected.}. Interestingly, the sensitivity of $R$ to $C$ in the 60h dataset is noticeably larger than in the rest of the datasets; the origin of this is currently under investigation.
 
 
 \begin{figure}
@@ -511,7 +510,7 @@ If the CBO is mis-modeled then there will be a systematic error on $R$ since the
 \end{table}
 
 
-The shape of the CBO, or the decoherence envelope, is also similarly constrained by the tracking analysis. The envelope by default is taken to be an exponential as given in \equref{eq:Ncbo} and shown in \figref{fig:CBOAmplitude}. The other envelope which could reasonably exist in the data upon inspection in the tracking analysis is an exponential plus a constant
+The shape of the CBO, or the decoherence envelope, is also similarly constrained by the tracking analysis. The envelope by default is taken to be an exponential as given in \equref{eq:Ncbo} and shown in \figref{fig:CBOFreqAmp}. The other envelope which could reasonably exist in the data upon inspection in the tracking analysis is an exponential plus a constant
     \begin{align}
         e^{-t/\boldsymbol{\tau_{cbo}}} \rightarrow e^{-t/\boldsymbol{\tau_{cbo}}} + C,
     \end{align}
@@ -708,16 +707,16 @@ where $f_{s}$ is the fraction of stored muons to all muons, $f_{l}$ is the fract
 % \small
 % \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{0.75\linewidth}{@{\extracolsep{\fill}}lcG}
+\begin{tabular*}{0.75\linewidth}{@{\extracolsep{\fill}}lccG}
   \hline
-    \multicolumn{3}{c}{\textbf{Systematic Error due to Lost Muon Phase Bias}} \\
+    \multicolumn{4}{c}{\textbf{Systematic Error due to Lost Muon Phase Bias}} \\
   \hline\hline
-    Dataset & $f_{l}$ (\%/\mus{70}) & \multicolumn{1}{c}{$\Delta\omega_{a}/\omega_{a}$ (ppb)} \\ 
+    Dataset & & $f_{l}$ (\%/\mus{70}) & \multicolumn{1}{c}{$\Delta\omega_{a}/\omega_{a}$ (ppb)} \\ 
   \hline
-    60h & 0.60 & -53.6 \\ 
-    HighKick & 0.20 & -17.9 \\
-    9d & 0.25 & -22.3 \\
-    Endgame & 0.65 & -58.0 \\
+    60h & & 0.60 & -53.6 \\ 
+    HighKick & & 0.20 & -17.9 \\
+    9d & & 0.25 & -22.3 \\
+    Endgame & & 0.65 & -58.0 \\
   \hline
 \end{tabular*}
 \caption[Systematic error due to lost muon phase bias]{Loss rates and associated shift in \wa for the Run~1 precession frequency analysis datasets. Loss rates are determined by inspection of the respective curves for the different datasets, and are approximate. The systematic shifts here are negative, due to the fact that the average phase of the stored muons is greater than that of lost muons, as determined in simulation.}
@@ -779,20 +778,20 @@ Similarly, the sensitivities of $R$ to the chosen muon lifetime are very small, 
 % \small
 \setlength\tabcolsep{20pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{0.7\linewidth}{@{\extracolsep{\fill}}lHH}
+\begin{tabular*}{0.7\linewidth}{@{\extracolsep{\fill}}lcHH}
 % \begin{tabular}{@{\extracolsep{\fill}}lcccK}
   \hline
-    \multicolumn{3}{c}{\textbf{Sensitivity to Ratio Construction Parameters}} \\
+    \multicolumn{4}{c}{\textbf{Sensitivity to Ratio Construction Parameters}} \\
   \hline\hline
-    Dataset & \multicolumn{1}{c}{$dR/d_{T_{a}}$} & \multicolumn{1}{c}{$dR/d_{\tau_{\mu}}$} \\
+    Dataset & & \multicolumn{1}{c}{$dR/d_{T_{a}}$} & \multicolumn{1}{c}{$dR/d_{\tau_{\mu}}$} \\
   \hline
-    60h & 0.1 & 6.9 \\
-    HighKick & -0.1 & -4.1 \\
-    9d & <0.1 & -1.1 \\ 
-    Endgame & <0.1 & 0.6 \\
+    60h & & 0.1 & 6.9 \\
+    HighKick & & -0.1 & -4.1 \\
+    9d & & <0.1 & -1.1 \\ 
+    Endgame & & <0.1 & 0.6 \\
   \hline
 \end{tabular*}
-\caption[Sensitivities of $R$ to ratio construction parameters]{Sensitivities of $R$ to ratio construction parameters. $dR/d_{T_{a}}$ is in units of ppb/ppm, while $dR/d_{\tau_{\mu}}$ is in units of \SI{}{ppb/ \micro s}. In both cases the sensitivities are both extremely small, and vary negatively and positively for the different datasets. \textbf{fix spacing of table}}
+\caption[Sensitivities of $R$ to ratio construction parameters]{Sensitivities of $R$ to ratio construction parameters. $dR/d_{T_{a}}$ is in units of ppb/ppm, while $dR/d_{\tau_{\mu}}$ is in units of \SI{}{ppb/ \micro s}. In both cases the sensitivities are both extremely small, and vary negatively and positively for the different datasets.}
 \label{tab:ratioConstructionParsScan}
 \end{table}
 
@@ -844,7 +843,7 @@ Upon general inspection of the fit points themselves, it was found that the tren
     Endgame & -41.7 & -0.6 \\
   \hline
 \end{tabular*}
-\caption[Sensitivities of $R$ to binning parameters]{Sensitivities of $R$ to binning parameters. Units are in ppb/ns. While some of these values may appear significant, inspection of the actual plots reveals that the actual trends are not quite so convincing. \textbf{fix spacing of table}}
+\caption[Sensitivities of $R$ to binning parameters]{Sensitivities of $R$ to binning parameters. Units are in ppb/ns. While some of these values may appear significant, inspection of the actual plots reveals that the actual trends are not quite so convincing.}
 \label{tab:binParametersScan}
 \end{table}
 
@@ -898,7 +897,7 @@ The above corrections make certain assumptions with regards to the conditions wh
 \subsection{Systematic error due to beam motion}
 
 
-As described in \secref{sec:MuonBeamMeasurements}, the vertical position of the stored muon beam changes over the course of a fill. Because the \gmtwo phase is position dependent, this leads to a changing average phase and thus a systematic error. Preliminary studies fitting the average \gmtwo phase with the tracker data have calculated systematic shifts in \wa for the 60h and Endgame datasets of \SI{115}{} and \SI{180}{ppb} respectively \cite{BadResistorsVolodya}. Since these are one-directional shifts in \wa, similar to the differential decay effect, they can be applied as corrections to the final extracted precession frequency. As systematic studies mature and the shifts are better quantified, this is the intended action. For now these numbers are taken as limits on the systematic errors for their respective datasets, with the larger number from the Endgame dataset being applied to the HighKick and 9d datasets as well. 
+As described in \secref{sec:MuonBeamMeasurements}, the vertical position of the stored muon beam changes over the course of a fill. Because the \gmtwo phase is position dependent, this leads to a changing average phase and thus a systematic error. Preliminary studies fitting the average \gmtwo phase with the tracker data have calculated systematic shifts in \wa for the 60h and Endgame datasets of \SI{115}{} and \SI{180}{ppb} respectively \cite{BadResistorsVolodya}. Since these are one-directional shifts in \wa, similar to the differential decay effect, they can be applied as corrections to the final extracted precession frequency. As systematic studies mature and the shifts are better quantified, this is the intended action. For now these numbers are taken as limits on the systematic errors for their respective datasets, with the smaller number from the 60h dataset being applied to the HighKick and 9d datasets as well. The 60h result was chosen instead of the Endgame result because the Endgame dataset saw noticeably larger drift due to further degradation of the quadrupole resistors.
 
 
 
@@ -917,7 +916,7 @@ As described in \secref{sec:MuonBeamMeasurements}, the vertical position of the 
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lGGGG}
   \hline
-    \multicolumn{5}{c}{\textbf{Run~1 Systematic Errors}} \\
+    \multicolumn{5}{c}{\textbf{Run~1 Precession Frequency Systematic Errors}} \\
   \hline\hline
     Error & \multicolumn{1}{c}{60h} & \multicolumn{1}{c}{HighKick} & \multicolumn{1}{c}{9d} & \multicolumn{1}{c}{Endgame} \\ 
   \hline
@@ -941,11 +940,11 @@ As described in \secref{sec:MuonBeamMeasurements}, the vertical position of the 
     Differential decay & < 40 & < 40 & < 40 & < 40 \\
     Pitch correction & 15.8 & \sim 15.8 & \sim 15.8 & \sim 15.8 \\
     E-field correction & 33.6 & \sim 41.2 & 41.2 & 28.3 \\
-    Stored beam motion & \sim 115 & \sim 180 & \sim 180 & \sim 180 \\
+    Stored beam motion & \sim 115 & \sim 115 & \sim 115 & \sim 180 \\
   \hline
-    Quadrature Sum & 138.1 & 190.4 & 190.9 & 196.0 \\
+    Quadrature Sum & 138.1 & 130.7 & 131.4 & 196.0 \\
   \hline\hline
-    Total Quadrature Sum & 144.1 & 199.5 & 194.5 & 204.2 \\
+    Total Quadrature Sum & 144.1 & 143.6 & 136.5 & 204.2 \\
   \hline
 \end{tabular*}
 \caption[Systematic errors evaluated in the Run~1 precession frequency datasets]{Final systematic errors evaluted in the Run~1 precession frequency analysis to the 60h, HighKick, 9d, and Endgame datasets. All units are in ppb. The table is split into two sections. The upper section consists of systematic errors directly evaluated by the author while the lower section consists of preliminary systematic estimates by other working groups. The E-field and pitch correction errors have been added in quadrature with the quadrupole errors. The publication errors for the Run~1 datasets will change from these as the final DQC cuts are made and analyses improved, however the scale of these errors will remain consistent.}

@@ -6,7 +6,7 @@
 \label{chapter:Conclusion}
 
 
-Four datasets from Run~1 of E989 have been analyzed for this dissertation, those being the 60h, HighKick, 9d, and Endgame respectively. In each case the datasets are the not-quite-final datasets for Run~1. Precession frequency analysis was done using the Ratio Method, an analysis technique for fitting the decay positron time spectra which divides out the exponential decay and slow terms in the data. The final results for the blinded frequency \R values for the different datasets along with their total statistical and systematic errors are given in \tabref{tab:FinalResults}. The sum total error for the four datasets analyzed in this report is \SI{475.7}{ppb} assuming completely uncorrelated systematic errors, a reasonable approximation considering the different run conditions between datasets. The analysis is statistics limited, even with the conservative prelminary estimates for certain systematic errors as given in \tabref{tab:FinalSystematicErrors}. The \R values given here can be converted back into the precession frequency \wa using \equref{eq:wablind}, once the datasets have been unblinded at the hardware and software levels. Lastly the E-field and pitch corrections can be applied, where preliminary estimates have been given in \secref{sub:EfieldPitchErrors} for some of the datasets. 
+Four datasets from Run~1 of E989 have been analyzed for this dissertation, those being the 60h, HighKick, 9d, and Endgame respectively. In each case the datasets are the not-quite-final datasets for Run~1. Precession frequency analysis was done using the Ratio Method, an analysis technique for fitting the decay positron time spectra which divides out the exponential decay and slow terms in the data. The final results for the blinded frequency \R values for the different datasets along with their total statistical and systematic errors are given in \tabref{tab:FinalResults}. The sum total error for the four datasets analyzed in this report is \SI{474.0}{ppb} assuming completely uncorrelated systematic errors, a reasonable approximation considering the different run conditions between datasets. The analysis is statistics limited, even with the conservative prelminary estimates for certain systematic errors as given in \tabref{tab:FinalSystematicErrors}. The \R values given here can be converted back into the precession frequency \wa using \equref{eq:wablind}, once the datasets have been unblinded at the hardware and software levels. Lastly the E-field and pitch corrections can be applied, where preliminary estimates have been given in \secref{sub:EfieldPitchErrors} for some of the datasets. 
 
 
 The expected error in the magnetic field measurement for Run~1 is $\mathcal{O}(\SI{140}{ppb})$. That combined with the total error determined in this analysis would result in an error on \amu of $\mathcal{O}(\SI{500}{ppb})$, improving upon the uncertainty in the E821 measurement of \SI{540}{ppb}. For the final Run~1 production datasets with the last DQC cuts and gain improvements, the final errors are expected to be improved upon slightly. An independent measurement of \amu that is statistically consistent with the E821 result would go a long way towards increasing the confidence in the discrepency between theory and experiment of nearly four standard deviations. The Run~1 publication is expected to be complete in the spring of 2020. Data has already been gathered for Run~2 of E989 and Run~3 will begin in the late fall of 2019, with Run~4 planned for 2021. With the rate improvements seen in Run~2 and the expected increases for Run~3 and Run~4, the target uncertainty goal of \SI{140}{ppb} is a likely reality.
@@ -22,16 +22,16 @@ The expected error in the magnetic field measurement for Run~1 is $\mathcal{O}(\
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc}
   \hline
-    \multicolumn{5}{c}{\textbf{Run~1 Final Results}} \\
+    \multicolumn{5}{c}{\textbf{Run~1 Precession Frequency Results}} \\
   \hline\hline
     Dataset & \multicolumn{1}{c}{\R} & \multicolumn{1}{c}{$\sigma_{\text{stat.}}$} & \multicolumn{1}{c}{$\sigma_{\text{sys.}}$} & \multicolumn{1}{c}{$\sigma_{\text{tot.}}$} \\ 
   \hline
   	60h & -20.5562 & 1.3581 & 0.1441 & 1.3657 \\
-  	HighKick & -17.4755 & 1.4112 & 0.1995 & 1.4252 \\
-  	9d & -17.7182 & 0.9033 & 0.1945 & 0.9240 \\
+  	HighKick & -17.4755 & 1.4112 & 0.1436 & 1.4185 \\
+  	9d & -17.7182 & 0.9033 & 0.1365 & 0.9136 \\
   	Endgame & -17.3406 & 0.6393 & 0.2042 & 0.6711 \\
   \hline
-  Total & & 0.4605 & & 0.4757 \\
+  Total & & 0.4605 & & 0.4740 \\
   \hline
 \end{tabular*}
 \caption[Run~1 final results]{Run~1 final results for the precession frequency analysis datasets. The \R values given here are mean values of fits to 50 different random seeds. The 60h dataset has a different software blinding than the rest, shown by the different mean \R value. Statistical and systematic errors are included alongside the total error for each dataset. In each dataset case the error is statistics dominated. In the bottom row the total combined errors for the different datasets are shown, where the systematic errors are assumed to be completely uncorrelated. Units are in ppm.}
