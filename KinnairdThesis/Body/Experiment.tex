@@ -353,12 +353,12 @@ The kicker is made up of three separate pulsed magnets located 90\textdegree{} f
 \subsection{Electrostatic quadrupoles}
 \label{sub:quads}
 
-There are four electrostatic quadrupoles located around the ring as shown in \figref{fig:vacmap}, which provide vertical focusing for the beam. Although the quadrupoles are defocusing in the horizontal plane, the main dipole magnetic field provides net horizontal focusing. Just as with the kickers, the quadrupoles must be operated in vacuum. E989 uses electrostatic focusing elements instead of magnetic ones in order to avoid magnetic field gradients which would limit the precision of the magnetic field measurement. The quadrupoles occupy 43\% of the ring circumference, with four quads having been chosen in order to maximize the symmetry of the beam motion, reduce its amplitude, and leave space for other experimental elements around the ring \cite{TDR}. Each quad is made up of two segments, a short segment of 13\textdegree{} and a long segment of 26\textdegree{} corresponding to $\SI{1.61}{m}$ and $\SI{2.62}{m}$ respectively, with each segment consisting of four plates. To minimize multiple scattering of incident decay positrons, the quadrupoles are made as thin as possible. A picture of the quadrupoles installed into one of the vacuum chambers is shown in \figref{fig:Quads}. A calculation of the equipotential lines of the quadrupoles is shown in \figref{fig:QuadPotential}. The original design of the quadrupoles is detailed in \refref{QuadsE821}.
+There are four electrostatic quadrupoles located around the ring as shown in \figref{fig:vacmap}, which provide vertical focusing for the beam. Although the quadrupoles are defocusing in the horizontal plane, the main dipole magnetic field provides net horizontal focusing. Just as with the kickers, the quadrupoles must be operated in vacuum. E989 uses electrostatic focusing elements instead of magnetic ones in order to avoid magnetic field gradients which would limit the precision of the magnetic field measurement. The quadrupoles occupy 43\% of the ring circumference, with four quads having been chosen in order to maximize the symmetry of the beam motion, reduce its amplitude, and leave space for other experimental elements around the ring \cite{TDR}. Each quadrupole is made up of two segments, a short segment of 13\textdegree{} and a long segment of 26\textdegree{} corresponding to $\SI{1.61}{m}$ and $\SI{2.62}{m}$ respectively, with each segment consisting of four plates. To minimize multiple scattering of incident decay positrons, the quadrupoles are made as thin as possible. A picture of the quadrupoles installed into one of the vacuum chambers is shown in \figref{fig:Quads}. A calculation of the equipotential lines of the quadrupoles is shown in \figref{fig:QuadPotential}. The original design of the quadrupoles is detailed in \refref{QuadsE821}.
 
 \begin{figure}
     \centering
     \includegraphics[width=.7\textwidth]{Quads}
-    \caption[Electrostatic quadrupoles installed in a vacuum chamber]{Electrostatic quadrupoles installed into a vacuum chamber \cite{QuadsE821}. There are four plates mounted to the chamber through insulator standoffs, with the distance between opposing quad plates equal to $\SI{10}{cm}$. Also shown are the rails on which the magnetic field trolley rides. Note that as the trolley makes its way through the storage volume, it must pass between both the various sets of quadrupole and kicker electrodes.}
+    \caption[Electrostatic quadrupoles installed in a vacuum chamber]{Electrostatic quadrupoles installed into a vacuum chamber \cite{QuadsE821}. There are four plates mounted to the chamber through insulator standoffs, with the distance between opposing quadrupole plates equal to $\SI{10}{cm}$. Also shown are the rails on which the magnetic field trolley rides. Note that as the trolley makes its way through the storage volume, it must pass between both the various sets of quadrupole and kicker electrodes.}
     \label{fig:Quads}
 \end{figure}
 
@@ -370,7 +370,7 @@ There are four electrostatic quadrupoles located around the ring as shown in \fi
 \end{figure}
 
 
-Some of the stored muons will be lost during data taking that can adversely affect the measurement of the spin difference frequency \wa. See \secref{subsec:lostmuons}. In order to reduce the number of lost muons, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that are more likely to be lost at later times. This scraping procedure involves powering the quad voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. These collimators have a radius of $\SI{45}{mm}$ and define the storage region aperture. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \mus{8}, such that by \mus{30} the beam is stable and centered due to the characteristic RC time constant of the system. The operational performance of the quadrupoles in Run 1 is described in \secref{sec:Run1}, where it was found that the quads had a longer RC time constant than the design.
+Some of the stored muons will be lost during data taking that can adversely affect the measurement of the spin difference frequency \wa. See \secref{subsec:lostmuons}. In order to reduce the number of lost muons, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that are more likely to be lost at later times. This scraping procedure involves powering the quadrupole voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. These collimators have a radius of $\SI{45}{mm}$ and define the storage region aperture. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \mus{8}, such that by \mus{30} the beam is stable and centered due to the characteristic RC time constant of the system. The operational performance of the quadrupoles in Run 1 is described in \secref{sec:Run1}, where it was found that the quads had a longer RC time constant than the design.
 
 
 
@@ -421,7 +421,7 @@ where $x_{max}$ and $y_{max}$ are both equal to the radius of the storage region
     vertical waist & $f_{VW}$ & $f_{c}-2f_{y_{BO}}$ & 2.31 & $\SI{433}{ns}$ \\
   \hline
 \end{tabular*}
-\caption[Muon beam frequencies in the E989 experiment]{Frequencies seen in the \gmtwo experiment due to beam motion. Parameter values are from a subset of Run 1 corresponding to an $n$ value of 0.108 or a quad voltage of 18.3 kV.}
+\caption[Muon beam frequencies in the E989 experiment]{Frequencies seen in the \gmtwo experiment due to beam motion. Parameter values are from a subset of Run 1 corresponding to an $n$ value of 0.108 or a quadrupole voltage of 18.3 kV.}
 \label{tab:frequencies}
 \end{table}
 
@@ -436,10 +436,10 @@ where $a$, $b$, and $c$ are integers. We know from \equref{eq:tunes} that
             \nu_{x}^{2} + \nu_{y}^{2} = 1,
         \label{eq:tuneone}
         \end{align}
-which constrains the available $n$ values that can be chosen. \figref{fig:tuneplane} shows the intersections of the resonant lines of \equref{eq:tunecondition} along with the circular arc of \equref{eq:tuneone} in the tune plane, for which a chosen value of $n$ will lie on a resonance. The operational $n$ values and corresponding quad voltages in Run 1 are described in \secref{sec:Run1}.
+which constrains the available $n$ values that can be chosen. \figref{fig:tuneplane} shows the intersections of the resonant lines of \equref{eq:tunecondition} along with the circular arc of \equref{eq:tuneone} in the tune plane, for which a chosen value of $n$ will lie on a resonance. The operational $n$ values and corresponding quadrupole voltages in Run 1 are described in \secref{sec:Run1}.
 
 % Moved to Run1 section
-% For Run 1 data taking, $n$ values of 0.108 and 0.120 were chosen corresponding to quad voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.
+% For Run 1 data taking, $n$ values of 0.108 and 0.120 were chosen corresponding to quadrupole voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.
 
 
 \begin{figure}
@@ -529,7 +529,7 @@ Taking the time average of the beam motion, where $x$ is simply equal to $x_{e}$
         \begin{align}
             C_{\text{E}} = -2n (1-n) \beta^{2} \frac{\langle x_{e}^{2} \rangle}{R_{0}^{2}}.
         \end{align}
-Since the equilibrium radius of the beam is set by the momentum distribution of the muons, this electric field correction can be determined by a measurement of the momentum spread of the beam which comes from an analysis of the fast rotation \cite{fastrotation1,fastrotation2}. For the precision goal of E989, the assumptions made in this derivation are acceptable \cite{TDR} and results will be cross-checked with spin-tracking simulations as was done in E821 \cite{E821FinalReport}. In E821 the electric field correction was approximately $\SI{500}{ppb}$ on \wa \cite{E821FinalReport}. In E989 the scale of the correction will be the same considering the experimental principles are identical.
+Since the equilibrium radius of the beam is set by the momentum distribution of the muons, this electric field correction can be determined by a measurement of the momentum spread of the beam which comes from an analysis of the fast rotation \cite{fastrotation1,fastrotation2}. For the precision goal of E989, the assumptions made in this derivation are acceptable \cite{TDR} and results will be cross-checked with spin-tracking simulations as was done in E821 \cite{E821FinalReport}. In E821 the electric field correction was approximately $\SI{500}{ppb}$ on \wa \cite{E821FinalReport}. In E989 the scale of the correction will be the same considering the experimental principles are identical, \secref{sub:EfieldPitchErrors}.
 
 
 % Small corrections to the electric field correction due to the non-linearity and non-uniformity of the quadrupoles, as well as the assumptions made in this derivation, are discussed in \refref{}.
@@ -581,7 +581,7 @@ The pitch angle of the beam cannot be measured directly, however we know from \e
         \begin{align}
             C_{\text{P}} = - \frac{n}{2} \frac{\langle y^{2} \rangle}{R_{0}^{2}},
         \end{align}
-where once again $n$ is the field index, $R_{0}$ is the radius of the ring at the center of the storage region, and $\langle y^{2} \rangle$ is the vertical width of the beam. The first two are known and the last can be measured experimentally by the straw tracking detectors. Just as in the case of the electric field correction, the assumptions made in this derivation are acceptable for the precision goal of E989, and results will be cross-checked with spin-tracking simulations. In E821 the pitch correction was approximately $\SI{300}{ppb}$ on \wa \cite{E821FinalReport}, and the scale for the E989 correction will be the same.
+where once again $n$ is the field index, $R_{0}$ is the radius of the ring at the center of the storage region, and $\langle y^{2} \rangle$ is the vertical width of the beam. The first two are known and the last can be measured experimentally by the straw tracking detectors. Just as in the case of the electric field correction, the assumptions made in this derivation are acceptable for the precision goal of E989, and results will be cross-checked with spin-tracking simulations. In E821 the pitch correction was approximately $\SI{300}{ppb}$ on \wa \cite{E821FinalReport}, and the scale for the E989 correction will be approximately the same, \secref{sub:EfieldPitchErrors}.
 
 
 
@@ -590,22 +590,7 @@ where once again $n$ is the field index, $R_{0}$ is the radius of the ring at th
 \label{sec:Run1}
 
 
-Run 1 for E989 was conducted in the first half of 2018. Production data were gathered from March 22nd through June 29th. Because of accelerator, experimental, and practical concerns production data taking was interrupted at various dates. Due to hardware issues both kicker and quad voltages were originally lowered from their technical design values. Various voltage set points for both systems were identified and used in separate periods of the data taking, depending on the stabilities of the systems. The distinct designated precession frequency analysis datasets gathered by E989 and their associated parameters are shown in \tabref{tab:Run1Datasets}. 
-
-Due to the lower kicker voltages, the muon beam was stored on a central radius $\sim\SI{6}{mm}$ offset from the central orbit of the storage ring, as shown in \figref{fig:BeamCrossSection}. The chosen quad $n$ values were 0.108 and 0.120\footnote{The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.}, corresponding to quad voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. During Run 1 it was discovered that some of the quad resistors were damaged, leading to longer RC time constants such that the quad voltages had not reached storage nominal at the beginning of the designated analysis portion of the data at \mus{30}, and were still changing over the course of a fill. See \figref{fig:QuadTraces}. The muon beam was therefore seen to move as a function of time in-fill. See \secref{sec:MuonBeamMeasurements} for a summary of the muon beam characteristics for Run 1. As described in various sections in this chapter and in \secref{sec:MuonBeamMeasurements}, these muon beam characteristics fold into the measurement of \gmtwo in a variety of ways, for which work is still on-going. The associated number of stored muons per fill for Run 1 as a result of these effects combined with injection was $\mathcal{O}(4,000)$, down from the $\mathcal{O}(10,000)$ design goal. 
-
-\begin{figure}
-    \centering
-    \includegraphics[width=.8\textwidth]{QuadTraces}
-    \caption[Electrostatic quadrupole high voltage traces]{Traces for the high voltages as a function of time on some of the quad plates. The different plates are identified in the legend, where for instance Q1LT stands for the top long plate of quad 1. The beam is injected at the green line and the scraping procedure occurs until the quad voltages reach their design values, in this case $\SI{20.4}{kV}$. As shown some of the high voltage traces do not behave in a smooth and fast exponential manner, due to damaged quad resistors. The traces in orange and brown are for good quad resistors, while the traces in red and blue show the results from damaged quad resistors.}
-    \label{fig:QuadTraces}
-\end{figure}
-
-
-All data listed in \tabref{tab:Run1Datasets} was quality checked. If run conditions were found to be unstable or wrong in some way, the associated data was flagged and ignored in the analysis. A summary of the data quality control procedure is given in \refref{DQCSummary}, and the exact data quality parameters for the 60H dataset is detailed in \refref{DQC60H}. The total number of detected positrons above threshold that passed the data quality control was approximately $\SI{1e10}{}$, corresponding to a statistical error on \wa of $\sim\SI{400}{ppb}$, as calculated with \equref{eq:waprecision}. See \chapref{chapter:Conclusion} for the final value for \wa.
-
-
-\textbf{-mention that there are other datasets that are not included in the precession frequency analysis}
+Run 1 for E989 was conducted in the first half of 2018. Production data were gathered from March 22nd through June 29th. Because of accelerator, experimental, and practical concerns production data taking was interrupted at various dates. Due to hardware issues both kicker and quadrupole voltages were originally lowered from their technical design values. Various voltage set points for both systems were identified and used in separate periods of the data taking, depending on the stabilities of the systems. The primary precession frequency analysis datasets gathered by E989 and their associated parameters are shown in \tabref{tab:Run1Datasets}. Other datasets were gathered but they were not used to calculate the precession frequency in this analysis. Specifically it is expected to include the LowKick dataset in future analyses, which has approximately 80\% of the statistics of the 60h dataset. 
 
 
 \begin{landscape}
@@ -617,7 +602,7 @@ All data listed in \tabref{tab:Run1Datasets} was quality checked. If run conditi
   \hline
     \multicolumn{6}{c}{\textbf{Run 1 Precession Frequency Analysis Datasets}} \\
   \hline\hline
-    Name & Date Acquired & Number $e^{+} > E_{\text{Th}}$ & $n$ Value & Quad Voltage (kV) & Kicker Voltage (kV) \\
+    Name & Date Acquired & Number $e^{+} > E_{\text{Th}}$ & $n$ Value & Quadrupole Voltage (kV) & Kicker Voltage (kV) \\
   \hline
     60h & 4/22/18--4/25/18 & $\SI{9.34e8}{}$ & 0.108 & 18.3 & 128--132 \\
     HighKick & 4/26/18--5/02/18 & $\SI{8.70e8}{}$ & 0.120 & 20.4 & 136--138 \\
@@ -629,13 +614,24 @@ All data listed in \tabref{tab:Run1Datasets} was quality checked. If run conditi
     \multicolumn{2}{l}{Total Positrons Above Threshold} & \multicolumn{1}{c}{$\SI{8.03e9}{}$} & & &  \\
   \hline
 \end{tabular*}
-\caption[Run 1 datasets]{The primary datasets acquired during Run 1 of E989 in 2018 and their associated parameters \cite{Run1Datasets}. Other datasets were gathered but they are not used in the calculation of the precession frequency.}
+\caption[Run 1 datasets]{The primary datasets acquired during Run 1 of E989 in 2018 and their associated parameters \cite{Run1Datasets}. Other datasets were gathered but they were not used in the calculation of the precession frequency in this analysis. It is expected to include the LowKick dataset in future analyses.}
 \label{tab:Run1Datasets}
 \end{table}
 \end{landscape}
 
 
+Due to the lower kicker voltages, the muon beam was stored on a central radius $\sim\SI{7}{mm}$ offset from the central orbit of the storage ring, as shown in \figref{fig:BeamCrossSection}. The chosen quadrupole $n$ values were 0.108 and 0.120\footnote{The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.}, corresponding to quadrupole voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. During Run 1 it was discovered that some of the quadrupole resistors were damaged. They had longer RC time constants such that the quadrupole voltages had not reached nominal at the beginning of the designated analysis portion of the data at \mus{30}, and were still changing over the course of a fill. See \figref{fig:QuadTraces}. The muon beam was therefore seen to move as a function of time in-fill. See \secref{sec:MuonBeamMeasurements} for a summary of the muon beam characteristics for Run 1. As described in various sections in this chapter and in \secref{sec:MuonBeamMeasurements}, these muon beam characteristics fold into the measurement of \gmtwo in a variety of ways, for which work is still on-going. The associated number of stored muons per fill for Run 1 as a result of these effects combined with injection was $\mathcal{O}(4,000)$, down from the $\mathcal{O}(10,000)$ design goal. 
 
-\cleardoublepage
+\begin{figure}
+    \centering
+    \includegraphics[width=.8\textwidth]{QuadTraces}
+    \caption[Electrostatic quadrupole high voltage traces]{Traces for the high voltages as a function of time on some of the quadrupole plates. The different plates are identified in the legend, where for instance Q1LT stands for the top long plate of quadrupole 1. The beam is injected at the green line and the scraping procedure occurs until the quadrupole voltages reach their design values, in this case $\SI{20.4}{kV}$. As shown some of the high voltage traces do not behave in a smooth and fast exponential manner, due to damaged quadrupole resistors. The traces in orange and brown are for good quadrupole resistors, while the traces in red and blue show the results from damaged quadrupole resistors.}
+    \label{fig:QuadTraces}
+\end{figure}
+
+
+All data listed in \tabref{tab:Run1Datasets} was quality checked. If run conditions were found to be unstable or wrong in some way, the associated data was flagged and ignored in the analysis. A summary of the data quality control procedure is given in \refref{DQCSummary}, and the exact data quality parameters for the 60h dataset is detailed in \refref{DQC60H}. The total number of detected positrons above threshold that passed the data quality control was approximately $\SI{1e10}{}$, corresponding to a statistical error on \wa of $\sim\SI{400}{ppb}$, as calculated with \equref{eq:waprecision}.
+
+
 
 
