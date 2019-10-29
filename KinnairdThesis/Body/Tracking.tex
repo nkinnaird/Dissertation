@@ -573,22 +573,43 @@ with the measured parameters set to the different left-right combinations, \equr
 \subsection{Fits to tracks from data and comparison with Monte-Carlo}
 
 
-Fits to data are done with \texttt{mainFit}. A sample fitted track is shown in \figref{fig:SampleTrack}. Due to imperfect left-right assignments and the use of real DCA and DCA error measurements, the tracks from data are naturally more messy. See \figref{fig:pValueData} for a plot of the goodness-of-fit for the tracks. While not all tracks are fit perfectly, enough of them are fit well in order to pass on the results to the extrapolation stage. Fitted tracks to Run 1 data are compared to results from Monte-Carlo. Track times and fitted total momenta are shown in \figref{fig:TracksDataMCFirst}. Fitted track radial and vertical momentum and position distributions are shown in \figref{fig:TracksDataMCSecond}. In general the results are very similar between the two. There are mismatches in the distributions because the idealized simulation did not reflect the real run conditions at the time of this track fitting analysis. As described in \secref{sec:Run1} and explored later in \secref{sec:MuonBeamMeasurements}, the muon beam was imperfectly stored in the ring leading to the measured distributions here.
+Fits to data are done with \texttt{mainFit}. Due to imperfect left-right assignments and the use of real DCA and DCA error measurements, the tracks from data are naturally more messy. See \figref{fig:SampleTrackPValue} for a sample fitted track and a plot of the goodness-of-fit for the tracks.  While not all tracks are fit perfectly, enough of them are fit well in order to pass on the results to the extrapolation stage. Fitted tracks to Run 1 data are compared to results from Monte-Carlo. Track times and fitted total momenta are shown in \figref{fig:TracksDataMCFirst}. Fitted track radial and vertical momentum and position distributions are shown in \figref{fig:TracksDataMCSecond}. In general the results are very similar between the two. There are mismatches in the distributions because the idealized simulation did not reflect the real run conditions at the time of this track fitting analysis. As described in \secref{sec:Run1} and explored later in \secref{sec:MuonBeamMeasurements}, the muon beam was imperfectly stored in the ring leading to the measured distributions here.
+
+
+    % \begin{figure}
+    %     \centering
+    %     \includegraphics[width=.6\textwidth]{LatestData_Pvalue_lessCut}
+    %     \caption[p-value distribution for fitted tracks in data]{p-value distribution for fitted tracks in data. A cut has been made at 1\% to remove tracks which have entirely failed the fitting. The distribution can be seen to rise towards zero where tracks have been fit but imperfectly.}
+    %     \label{fig:pValueData}
+    % \end{figure}
+
+
+    % \begin{figure}
+    %     \centering
+    %     \includegraphics[width=0.8\textwidth]{SampleTrack}
+    %     \caption[Sample fitted track]{Sample fitted track for a high momentum incident particle.}
+    %     \label{fig:SampleTrack}
+    % \end{figure}
+
 
 
     \begin{figure}
-        \centering
-        \includegraphics[width=\textwidth]{SampleTrack}
-        \caption[Sample fitted track]{Sample fitted track for a high momentum incident particle.}
-        \label{fig:SampleTrack}
+    \centering
+        \begin{subfigure}[t]{0.54\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{SampleTrack}
+            % \caption{Sample fitted track for a high momentum incident particle.}
+        \end{subfigure}
+        \hspace{0mm}
+        \begin{subfigure}[t]{0.44\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{LatestData_Pvalue_lessCut}
+            % \caption{p-value distribution.}
+        \end{subfigure}
+    \caption[Sample fitted track and p-value distribution for fitted tracks in data]{Sample fitted track (left) and p-value distribution (right) in data. A cut has been made in the p-value distribution at 1\% to remove tracks which have entirely failed the fitting. The distribution can be seen to rise towards zero where tracks have been fit but imperfectly.}
+    \label{fig:SampleTrackPValue}
     \end{figure}
 
-    \begin{figure}
-        \centering
-        \includegraphics[width=.6\textwidth]{LatestData_Pvalue_lessCut}
-        \caption[p-value distribution for fitted tracks in data]{p-value distribution for fitted tracks in data. A cut has been made at 1\% to remove tracks which have entirely failed the fitting. The distribution can be seen to rise towards zero where tracks have been fit but imperfectly.}
-        \label{fig:pValueData}
-    \end{figure}
 
 
     \begin{figure}
