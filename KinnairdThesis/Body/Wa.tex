@@ -185,7 +185,7 @@ Thus pileup energy and time spectra are constructed for each calorimeter, which 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{ShadowPileupMethod}
-    \caption[Shadow pileup method]{The shadow pileup method looks for shadow clusters within a time window SDT, a small time away (SGT) from trigger clusters. If a shadow cluster is found, an artificial doublet is formed and included in the pileup spectra if it exceeds the chosen energy threshold.}
+    \caption[Shadow pileup method]{The shadow pileup method looks for shadow clusters within a time window SDT, a small time away (SGT) from trigger clusters. If a shadow cluster is found, an artificial doublet is formed and included in the pileup spectra if it exceeds the chosen energy threshold. \textbf{potentially long way from text reference}}
     \label{fig:ShadowPileupMethod}
 \end{figure}
 
@@ -271,7 +271,7 @@ In order to produce a slightly better estimate of the pileup, a multiplier can b
     \begin{figure}
         \centering
         \includegraphics[width=0.6\textwidth]{PileupTimeSpectrum}
-        \caption[Pileup time spectrum above threshold]{Plotted is the constructed pileup time spectrum on a log scale. Oscillations at \wa can be seen by eye. The histogram is fit to a simple two parameter exponential to get an idea of the lifetime of the pileup, calculated here as $\SI{31.95}{\micro s}$, which as expected is close to half of the muon lifetime at about $\SI{64.44}{\micro s}$. Data from the 60h dataset.}
+        \caption[Pileup time spectrum above threshold]{Plotted is the constructed pileup time spectrum on a log scale. Oscillations at \wa can be seen by eye. The histogram is fit to a simple two parameter exponential to get an idea of the lifetime of the pileup, calculated here as $\SI{31.95}{\micro s}$, which as expected is close to half of the muon lifetime at about $\SI{64.44}{\micro s}$. Data from the 60h dataset. \textbf{potentially long way from text reference}}
         \label{fig:PileupTimeSpectrum}
     \end{figure}
 
@@ -307,12 +307,12 @@ and that the data is equally split into four subsets, then the new four datasets
         v_{2}(t) &= \frac{1}{4} N_{5}(t)
     \end{aligned}
     \end{equation}
-In order to time shift the data as such, \Ta needs to be known a priori to high precision. The value used is taken from the E821 result, and its value is taken as $1/f_{a}$, where $f_{a}$ is \SI{0.2290735}{MHz}:
+In order to time shift the data as such, \Ta needs to be known a priori to reasonable precision. The value used is taken from the E821 result, and its value is taken as $1/f_{a}$, where $f_{a}$ is \SI{0.2290735}{MHz}:
         \begin{align}
             T_{a} \approx \SI{4.365411}{\micro s}
         \label{eq:Ta}
         \end{align}
-This value for $f_{a}$ was determined by averaging column 2 of Table XV of the E821 Final Report \cite{E821FinalReport}, which consists of the $f_{a}$ results for the different run periods in that experiment. A systematic error on the choice of this parameter is calculated in \secref{sub:TimeShiftingParameters}.
+This value for $f_{a}$ was determined by averaging column 2 of Table XV of the E821 Final Report \cite{E821FinalReport}, which consists of the $f_{a}$ results for the different run periods in that experiment. A systematic error on the choice of this parameter is calculated in \secref{sub:TimeShiftingParameters} and is negligible for the precision known.
 
 
 The datasets are then combined as 
@@ -377,7 +377,7 @@ and these functions have been determined from the time-shifted five parameter fu
             \caption{The ratio function, which describes the data after it has been handled according to the text. To first order it is a simple cosine.}
         \label{fig:ratiofunc}
         \end{subfigure}% 
-    \caption[Ratio formation functions]{Functions describing the formation of the ratio data.}
+    \caption[Ratio formation functions]{Functions describing the formation of the ratio data. \textbf{potentially long way from text reference}}
     \label{fig:RatioFormationFunctions}
     \end{figure}
 
@@ -385,13 +385,13 @@ and these functions have been determined from the time-shifted five parameter fu
     \begin{figure}
         \centering
         \includegraphics[width=.6\textwidth]{Fitted_Avw_Vs_Wvw_1x-10x}
-        \caption[Cancellation of effect in Ratio Method versus frequency]{Fitted amplitude for a VW effect as a function of frequency in units of \wa in a Toy MC simulation, with a five parameter function in red and a three parameter ratio function in black. The input amplitude was 0.05. The fall off of red points is due to the high frequencies relative to the bin widths leading to an underestimate of the amplitude; performing an integral fit removes this trend. As shown the amplitude of the effect goes to zero for frequencies which are an even multiple of \wa.}
+        \caption[Cancellation of effect in Ratio Method versus frequency]{Fitted amplitude for a VW effect as a function of frequency in units of \wa in a Toy MC simulation, with a five parameter function in red and a three parameter ratio function in black. The input amplitude is 0.05. The fall off of red points is due to the high frequencies relative to the bin widths leading to an underestimate of the amplitude; performing an integral fit removes this trend. As shown the amplitude of the effect goes to zero for frequencies which are an even multiple of \wa.}
         \label{fig:CancellationInRatioMethod}
     \end{figure}
 
 
 
- In order to eliminate the constant $C$ at the end of \equref{eq:ratiowithC}, a different weighting scheme can be used as described in \refref{statisticspaper}:
+ In order to eliminate the constant $C$ at the end of \equref{eq:ratiowithC}, a different weighting scheme is used in this analysis as described in \refref{statisticspaper}:
     \begin{equation}
     \begin{aligned}
         u_{+}(t) &= \frac{e^{T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t+T/2) \\
@@ -401,7 +401,7 @@ and these functions have been determined from the time-shifted five parameter fu
     \label{eqn:fourHistsInText}
     \end{aligned}
     \end{equation}
-Here $\tau = \gamma\tau_{\mu}$, and the factors out front are each close to $1/4$ and account for the degree of muon decay over a time period of \Tatwo. Similar to \Ta, the muon lifetime must be known a priori. It's value is taken as \mus{64.44}, determined from fits to the data. A systematic study regarding this parameter is described in \secref{sub:TimeShiftingParameters}. The ratio spectrum is then almost exactly described by just the cosine term,
+Here $\tau = \tau_{\mu}$ where $\tau_{\mu}$ is the time-dilated muon lifetime, and the factors out front are each close to $1/4$ and account for the degree of muon decay over a time period of \Tatwo. Similar to \Ta, the muon lifetime must be known a priori. Its value is taken as \mus{64.44}, determined from fits to the data. A systematic study regarding this parameter is described in \secref{sub:TimeShiftingParameters}. The ratio spectrum is then almost exactly described by just the cosine term,
     \begin{align} \label{eq:threeparamratio}
         R(t) \approx A \cos(\omega_{a}t),
     \end{align}
@@ -424,14 +424,16 @@ where the fit parameter for \wa is recast in terms of a ppm level shift $\boldsy
         \omega_{a} = 2 \pi \cdot \SI{0.2291}{MHz} \cdot (1 + \boldsymbol{R} \times 10^{-6}).
     \label{eq:wablind}
     \end{align}
-This reference frequency of $\SI{0.2291}{MHz}$ was the same reference frequency used in E821, and $\boldsymbol{R}$ is blinded at the hardware and software levels \cite{ClockManual,SoftwareBlinding}. Fitting the data with \equref{eq:fiveparfuncagain} however is insufficient to properly describe the data. \figref{fig:FFT_fiveParameter} shows there are peaks in the FFT due to beam dynamics frequencies corresponding to the CBO, VW, and some beat frequencies with \wa. In order to properly account for these effects, additional terms need to be added to the fit function. 
+This reference frequency of $\SI{0.2291}{MHz}$ was the same reference frequency used in E821, and $\boldsymbol{R}$ is blinded at the hardware and software levels \cite{ClockManual,SoftwareBlinding}. Fitting the data with \equref{eq:fiveparfuncagain} however is insufficient to properly describe the data. An FFT of the residuals between fit and data is shown in \figref{fig:FFT_fiveParameter}. There are peaks due to beam dynamics frequencies corresponding to the CBO, VW, and some beat frequencies with \wa. In order to properly account for these effects, additional terms need to be added to the fit function. 
 
-    \begin{figure}
-        \centering
-        \includegraphics[width=.8\textwidth]{FFT_fiveParameter}
-        \caption[FFT of five parameter fit residuals]{FFT of five parameter fit residuals. Peaks corresponding to beam dynamics frequencies of the CBO and VW and some beat frequencies with \wa are readily apparent. A rise at low frequencies corresponds to the effects of the lost muons in the data. The VW peak disappears with the additional level of time randomization at that frequency. From the 60h dataset.}
-        \label{fig:FFT_fiveParameter}
-    \end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.8\textwidth]{FFT_fiveParameter}
+    \caption[FFT of five parameter fit residuals]{FFT of five parameter fit residuals. Peaks corresponding to beam dynamics frequencies of the CBO and VW and some beat frequencies with \wa are readily apparent. A rise at low frequencies corresponds to the effects of the lost muons in the data. The VW peak disappears with the additional level of time randomization at that frequency. From the 60h dataset.}
+    \label{fig:FFT_fiveParameter}
+\end{figure}
+
 
 \equref{eq:fiveparfuncagain} can be expanded to 
     \begin{align}
@@ -522,7 +524,7 @@ where $\boldsymbol{\omega_{cbo}}$ is the free fit parameter, and the model param
                              & 18 & 2.3379 & 7.44 & 95.2 & 4.90 & 9.2 \\                                                        
   \hline
 \end{tabular*}
-\caption[Dataset CBO frequency model parameters]{Fixed parameters in the CBO frequency model \cite{CBOFreqTrackingElog,JamesPersonalComm}.}
+\caption[Dataset CBO frequency model parameters]{Fixed parameters in the CBO frequency model \cite{CBOFreqTrackingElog,JamesPersonalComm}. The larger values of the $A$ and $\tau_{A}$ parameters for the Endgame dataset are a consequence of the degradation of the quadrupole resistors over the course of Run~1.}
 \label{tab:CBOFrequencyParameters}
 \end{table}
 % \end{landscape}
@@ -531,21 +533,21 @@ where $\boldsymbol{\omega_{cbo}}$ is the free fit parameter, and the model param
 It should be noted that Equations~\ref{eq:Acbo} and \ref{eq:Phicbo} are not necessarily needed in order to get good fits to the data (whereas \equref{eq:Ncbo} always is). This is typically dataset or random seed dependent. While some datasets had certain parameters with large errors relative to their amplitudes, for this analysis all terms were successfully included in all dataset fits with appropriate tuning of the starting parameters with well converging fits. 
 
 
-When considering higher order CBO modifications to the fit function, the only term that was found to be fittable was the second order CBO modulation on the $\boldsymbol{N_{0}}$ term, 
+When considering higher order CBO modifications to the fit function, the only term that was found to be necessary was the second order CBO modulation on the $\boldsymbol{N_{0}}$ term, $N_{0} \cdot N_{cbo}(t) \rightarrow N_{0} \cdot N_{cbo}(t) \cdot  N_{2cbo}(t)$, where
     \begin{align}
         N_{2cbo}(t) &= (1 + \boldsymbol{A_{2cbo-N}} \cdot e^{-2t/\boldsymbol{\tau_{cbo}}} \cdot \cos(\omega_{cbo}(t) \cdot t + \boldsymbol{\phi_{2cbo-N}})). \label{eq:N2cbo}
     \end{align}
-This stands to reason as the $N_{cbo}(t)$ is the largest CBO effect. The form is assumed to be the same as the first order CBO terms, except the lifetime of the effect is half the CBO lifetime, $\boldsymbol{\tau_{cbo}}/2$. This is due to the fact that the $N_{2cbo}(t)$ is reasoned to come from the width of the oscillating beam, as opposed to the oscillating mean. Indeed as will be shown in \secref{sub:per_calorimeter_fits}, the inclusion of this term is necessary to get good fits to the per calorimeter data, where the CBO effect is stronger compared to in the sum of the calorimeter data. For this reason, and again because the $N_{2cbo}(t)$ term is fittable in the calorimeter sum data, this term is included in fits to each of the datasets.
+This stands to reason as the $N_{cbo}(t)$ is the largest CBO effect. The form is assumed to be the same as the first order CBO terms, except the lifetime of the effect is half the CBO lifetime, $\boldsymbol{\tau_{cbo}}/2$. This is due to the fact that $N_{2cbo}(t)$ comes from the width of the oscillating beam, as opposed to the oscillating mean. Indeed as will be shown in \secref{sub:per_calorimeter_fits}, the inclusion of this term is necessary to get good fits to the per calorimeter data, where the CBO effect is stronger compared to the sum of the data from all calorimeters. For this reason, and again because the $N_{2cbo}(t)$ term is fittable in the calorimeter sum data, this term is included in fits to each of the datasets.
 
 
-Systematic studies relating to the choice of envelope and choice of fixed parameters in the frequency model are explored in \secref{sub:cboerror}. For future runs beyond Run~1, it may be necessary to include the higher order modifications to the $A_{cbo}(t)$ and $\phi_{cbo}(t)$ terms.
+Systematic studies relating to the choice of CBO envelope and choice of fixed parameters in the CBO frequency model are explored in \secref{sub:cboerror}. For future runs beyond Run~1, it may be necessary to include the higher order modifications to the $A_{cbo}(t)$ and $\phi_{cbo}(t)$ terms.
 
 
 
 \subsection{VW term}
 \label{sub:vw_term}
 
-As mentioned briefly at the end of \secref{sec:Histogramming}, the VW effect is time-randomized out of the data, such that $V(t) = 1$. This is done due to complications with the Ratio Method. In the 60h and Endgame datasets, the VW frequency was found to be nearly 10 $\cdot$ \wa, on a potential resonance. While to first order this even multiple frequency implies the VW effect should completely cancel out in the Ratio Method, \figref{fig:CancellationInRatioMethod}, the FR effect in combination with the VW leads to a modified envelope for the VW effect in the Ratio Method fits and inflated VW amplitudes \cite{VWinRatio}. See Figures~\ref{fig:VWresonance} and \ref{fig:JamesMC_VW_FR}.
+As mentioned at the end of \secref{sec:Histogramming}, the VW effect is time-randomized out of the data, such that $V(t) = 1$. This is done due to complications with the Ratio Method. In the 60h and Endgame datasets, the VW frequency was found to be nearly 10 $\cdot$ \wa, on a potential resonance. While to first order this even multiple frequency implies the VW effect should completely cancel out in the Ratio Method, \figref{fig:CancellationInRatioMethod}, the FR effect in combination with the VW leads to a modified envelope for the VW effect in the Ratio Method fits and inflated VW amplitudes \cite{VWinRatio}. See Figures~\ref{fig:VWresonance} and \ref{fig:JamesMC_VW_FR}.
 
 \begin{figure}
     \centering
@@ -573,7 +575,7 @@ As mentioned briefly at the end of \secref{sec:Histogramming}, the VW effect is 
 \end{figure}
 
 
-For the 9d dataset which has a VW frequency that's nearly 9 $\cdot$ \wa and avoids said resonance (and by extension the HighKick), it was found that the Ratio Method flattened out the VW amplitudes as a function of calorimeter number leading to a systematically smaller VW amplitude in the calorimeter sum fit. The simplest solution to remove both of these problems was to randomize out the VW effect entirely. \tabref{tab:A_change} gives the change in asymmetry and corresponding change in the statistical error on R due to this added time randomization for three of the Run~1 datasets. It was found that the added randomization increased the statistical error on R by a negligible amount for the Run~1 analysis. It was also found that the added level of time-randomization changed the mean value of R for many random seed fits to the data by a small amount, statistically consistent without the extra randomization \cite{VWinRatio}. Going forward for the future runs, it may be necessary to include the proper VW envelope in the fits using a functional form of the FR instead of randomizing out the effect.
+For the 9d dataset which has a VW frequency that's nearly 9 $\cdot$ \wa and avoids said resonance (and by extension the HighKick), it was found that the Ratio Method flattened out the VW amplitudes as a function of calorimeter number leading to a systematically smaller VW amplitude in the calorimeter sum fit compared to in a T-Method fit. The simplest solution to remove both of these problems was to randomize out the VW effect entirely. \tabref{tab:A_change} gives the change in asymmetry and corresponding change in the statistical error on R due to this added time randomization for three of the Run~1 datasets. It was found that the added randomization increased the statistical error on R by a negligible amount for the Run~1 analysis. It was also found that the added level of time-randomization changed the mean value of R for many random seed fits to the data by a small amount, statistically consistent without the extra randomization \cite{VWinRatio}. Going forward for the future runs, it may be necessary to include the proper VW envelope in the fits using a functional form of the FR instead of randomizing out the effect.
 
 \begin{table}
 \centering
@@ -587,21 +589,22 @@ For the 9d dataset which has a VW frequency that's nearly 9 $\cdot$ \wa and avoi
     Dataset & $A$ no randomization & $A$ with randomization & $\Delta A$ & $\Delta \sigma_{R}$ (ppb) \\
   \hline
     60h & $0.3697$ & $0.3637$ & $-0.0060$ & $22.7$ \\
+    HighKick & $$ & $$ & $$ & $$ \\
     9d & $0.3714$ & $0.3639$ & $-0.0075$ & $18.1$ \\
     Endgame & $0.3747$ & $0.3686$ & $-0.0061$ & $10.7$ \\
   \hline
 \end{tabular*}
-\caption[Asymmetry values in Run~1 datasets with VW time randomization]{Asymmetry values in three of the Run~1 datasets with and without the VW randomization, and the corresponding change in the statistical error on R. An energy cut of 1700 MeV was applied to the data. The HighKick dataset has the lowest asymmetry and the least statistics, so the increase in the statistical error would be negligible as it is for the other datasets.}
+\caption[Asymmetry values in Run~1 datasets with VW time randomization]{Asymmetry values in the the Run~1 datasets with and without the VW randomization, and the corresponding change in the statistical error on R. An energy cut of 1700 MeV was applied to the data.}
 \label{tab:A_change}
 \end{table}
 
 
 
-Barring the envelope changes in the Ratio Method, here is still given the form for the VW as it is used in the T-Method fits. The form for the VW term is taken identically to the CBO terms, 
+The form for the VW as it is used in the T-Method fits is taken identically to the CBO terms, 
     \begin{align} \label{eq:VWterm}
         V(t) = 1 + \boldsymbol{A_{VW}} \cdot e^{-t/\boldsymbol{\tau_{VW}}} \cos(\omega_{VW}(t) \cdot t + \boldsymbol{\phi_{VW}}), 
     \end{align}
-with an exponentially decaying envelope, and an additional amplitude and phase parameter. The VW frequency $\omega_{VW}$ is given in \equref{eq:VWfreq}, where it is seen to be dependent on the cyclotron frequency and vertical betatron frequency. Using Equations~\ref{eq:tunes} and \ref{eq:CBOfreq}, the dependence on the CBO frequency is seen as
+with an exponentially decaying envelope, and additional amplitude and phase parameters. The VW frequency $\omega_{VW}$ is given in \equref{eq:VWfreq}, where it is seen to be dependent on the cyclotron frequency and vertical betatron frequency. Using Equations~\ref{eq:tunes} and \ref{eq:CBOfreq}, the dependence on the CBO frequency is seen as
     \begin{equation}
     \begin{aligned}
         \omega_{VW}(t) &= 2\pi (f_{c} - 2f_{y_{BO}}), \\
@@ -610,11 +613,11 @@ with an exponentially decaying envelope, and an additional amplitude and phase p
     \label{eq:VWfreqOne}
     \end{aligned}
     \end{equation}
-where $f_{cbo}(t) = \omega_{cbo}(t)/2\pi$ is determined in the tracking analysis as described in \secref{sub:cboterms} and given by \equref{eq:CBOfreqForm}. While \equref{eq:VWfreqOne} is the theoretical frequency for the VW effect, it was found in the tracking analysis that including an adjustment factor on the CBO frequency $f_{cbo} \rightarrow \kappa f_{cbo}$ on the order of about a percent resulted in better agreement with the directly measured VW frequency \cite{cbofrequency,verticalbetatron}. In the fitting function itself, the VW frequency is then taken as
+where $f_{cbo}(t) = \omega_{cbo}(t)/2\pi$ is determined in the tracking analysis as described in \secref{sub:cboterms} and given by \equref{eq:CBOfreqForm}. While \equref{eq:VWfreqOne} is the theoretical frequency for the VW effect in the continuous quadrupole approximation, it was found in the tracking analysis that including an adjustment factor on the CBO frequency $f_{cbo} \rightarrow \kappa f_{cbo}$ resulted in better agreement with the directly measured VW frequency \cite{cbofrequency,verticalbetatron}. In the fitting function itself, the VW frequency is then taken as
     \begin{align} \label{eq:VWfreqKappa}
         \omega_{VW}(t) = 2\pi \Big(f_{c} - 2 \cdot \boldsymbol{\kappa_{VW}} \cdot f_{cbo}(t)\sqrt{2f_{c}/(\boldsymbol{\kappa_{VW}} \cdot f_{cbo}(t))-1}\Big),
     \end{align}
-where now the VW frequency fit parameter is $\boldsymbol{\kappa_{VW}}$. The origin of this extra factor is unclear, whether it is a tracker measurement issue, something to do with the frequency function approximation, or if it has something to do with the electrostatic quadrupoles. The inclusion of the extra factor however provides better fits and so it is kept in.
+where now the VW frequency fit parameter is $\boldsymbol{\kappa_{VW}}$. This adjustment factor ends up being on the order of about a percent in the fits to the data.
 
 
 
