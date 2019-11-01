@@ -590,7 +590,7 @@ where once again $n$ is the field index, $R_{0}$ is the radius of the ring at th
 \label{sec:Run1}
 
 
-Run 1 for E989 was conducted in the first half of 2018. Production data were gathered from March 22nd through June 29th. Because of accelerator, experimental, and practical concerns production data taking was interrupted at various dates. Due to hardware issues both kicker and quadrupole voltages were originally lowered from their technical design values. Various voltage set points for both systems were identified and used in separate periods of the data taking, depending on the stabilities of the systems. The primary precession frequency analysis datasets gathered by E989 and their associated parameters are shown in \tabref{tab:Run1Datasets}. Other datasets were gathered but they were not used to calculate the precession frequency in this analysis. Specifically it is expected to include the LowKick dataset in future analyses, which has approximately 80\% of the statistics of the 60h dataset. 
+Run 1 for E989 was conducted in the first half of 2018. Production data were gathered from March 22nd through June 29th. Because of accelerator, experimental, and practical concerns common to the early stages of production running, production data taking was interrupted at various dates. Due to hardware issues both kicker and quadrupole voltages were originally lowered from their design values. Various voltage set points for both systems were identified and used in separate periods of the data taking, depending on the stabilities of the systems. The primary precession frequency analysis datasets gathered by E989 and their associated running parameters are shown in \tabref{tab:Run1Datasets}. Other datasets were gathered but they were not used to calculate the precession frequency in this analysis\footnote{Specifically it is expected to include the LowKick dataset in future analyses, which has approximately 80\% of the statistics of the 60h dataset.}. 
 
 
 \begin{landscape}
@@ -602,35 +602,35 @@ Run 1 for E989 was conducted in the first half of 2018. Production data were gat
   \hline
     \multicolumn{6}{c}{\textbf{Run 1 Precession Frequency Analysis Datasets}} \\
   \hline\hline
-    Name & Date Acquired & Number $e^{+} > E_{\text{Th}}$ & $n$ Value & Quadrupole Voltage (kV) & Kicker Voltage (kV) \\
+    Name & Date Acquired & Number $e^{+} > E_{\text{Th}}$ & Quad Voltage (kV) & $n$ Value & Kicker Voltage (kV) \\
   \hline
-    60h & 4/22/18--4/25/18 & $\SI{9.34e8}{}$ & 0.108 & 18.3 & 128--132 \\
-    HighKick & 4/26/18--5/02/18 & $\SI{8.70e8}{}$ & 0.120 & 20.4 & 136--138 \\
-    9d & 5/04/18--5/12/18 & $\SI{2.13e9}{}$ & 0.120 & 20.4 & 128--132 \\
-    % LowKick &  & 0.120 & 20.4 & $123-127$ \\
-    % SuperLowKick & & 0.108 & 18.3 & $117-119$ \\
-    Endgame & 6/06/18--6/29/18 & $\SI{4.10e9}{}$ & 0.108 & 18.3 & 122--127 \\
+    60h & 4/22/18--4/25/18 & $\SI{9.34e8}{}$ & 18.3 & 0.108 & 128--132 \\
+    HighKick & 4/26/18--5/02/18 & $\SI{8.70e8}{}$ & 20.4 & 0.120 & 136--138 \\
+    9d & 5/04/18--5/12/18 & $\SI{2.13e9}{}$ & 20.4 & 0.120 & 128--132 \\
+    % LowKick &  & 20.4 & 0.120 & $123-127$ \\
+    % SuperLowKick & & 18.3 & 0.108 & $117-119$ \\
+    Endgame & 6/06/18--6/29/18 & $\SI{4.10e9}{}$ & 18.3 & 0.108 & 122--127 \\
   \hline
     \multicolumn{2}{l}{Total Positrons Above Threshold} & \multicolumn{1}{c}{$\SI{8.03e9}{}$} & & &  \\
   \hline
 \end{tabular*}
-\caption[Run 1 datasets]{The primary datasets acquired during Run 1 of E989 in 2018 and their associated parameters \cite{Run1Datasets}. Other datasets were gathered but they were not used in the calculation of the precession frequency in this analysis.}
+\caption[Run 1 datasets]{The primary datasets acquired during Run 1 of E989 in 2018 and their associated parameters \cite{Run1Datasets}. Other datasets were gathered but they were not used in the calculation of the precession frequency in this analysis. $E_{\text{Th}} = \SI{1.7}{\GeV}$.}
 \label{tab:Run1Datasets}
 \end{table}
 \end{landscape}
 
 
-Due to the lower kicker voltages, the muon beam was stored on a central radius $\sim\SI{7}{mm}$ offset from the central orbit of the storage ring, as shown in \figref{fig:BeamCrossSection}. The chosen quadrupole $n$ values were 0.108 and 0.120\footnote{The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.}, corresponding to quadrupole voltages of 18.3 and $\SI{20.4}{kV}$ respectively \cite{tunetable}. During Run 1 it was discovered that some of the quadrupole resistors were damaged. They had longer RC time constants such that the quadrupole voltages had not reached nominal at the beginning of the designated analysis portion of the data at \mus{30}, and were still changing over the course of a fill. See \figref{fig:QuadTraces}. The muon beam was therefore seen to move as a function of time in-fill. See \secref{sec:MuonBeamMeasurements} for a summary of the muon beam characteristics for Run 1. As described in various sections in this chapter and in \secref{sec:MuonBeamMeasurements}, these muon beam characteristics fold into the measurement of \gmtwo in a variety of ways, for which work is still on-going. The associated number of stored muons per fill for Run 1 as a result of these effects was $\mathcal{O}(4,000)$, down from the $\mathcal{O}(10,000)$ design goal. 
+Due to the lower kicker voltages, the muon beam was stored on a central radius $\sim\SI{7}{mm}$ offset from the central orbit of the storage ring. The associated number of stored muons per fill for Run 1 as a result of the lower kicker voltage was $\mathcal{O}(4,000)$, down from the $\mathcal{O}(10,000)$ design goal. The chosen quadrupole voltages were 18.3 and $\SI{20.4}{kV}$, corresponding to $n$ values of 0.108 and 0.120 respectively \cite{tunetable}\footnote{The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.}. During Run 1 it was discovered that some of the quadrupole resistors were damaged. They had longer RC time constants such that the quadrupole voltages had not reached nominal values at the beginning of the designated analysis portion of the data at \mus{30}, and were still changing over the course of a fill, see \figref{fig:QuadTraces}. The muon beam was seen to move as a function of time in-fill as a consequence of this. See \secref{sec:MuonBeamMeasurements} for a summary of the muon beam characteristics for Run 1. As described in various sections in this chapter and in \secref{sec:MuonBeamMeasurements}, these muon beam characteristics fold into the measurement of \gmtwo in a variety of ways.
 
 \begin{figure}
     \centering
     \includegraphics[width=.8\textwidth]{QuadTraces}
-    \caption[Electrostatic quadrupole high voltage traces]{Traces for some quadrupole plate high voltages as a function of time. The different plates are identified in the legend, where for instance Q1LT stands for the top long plate of quadrupole 1. The muon beam is injected into the ring at the black line and the scraping procedure occurs until the quadrupole voltages reach their design values, in this case $\SI{20.4}{kV}$. As shown some of the high voltage traces do not behave in a smooth and fast exponential manner, due to damaged quadrupole resistors. The traces in orange and brown are for good quadrupole resistors, while the traces in red and blue show the results from damaged quadrupole resistors.}
+    \caption[Electrostatic quadrupole high voltage traces]{Traces for some quadrupole plate potentials as a function of time. The different plates are identified in the legend, where for instance Q1LT stands for the top long plate of quadrupole 1. The muon beam is injected into the ring at the black line and the scraping procedure occurs until the quadrupole voltages reach their design values, in this case $\SI{20.4}{kV}$. As shown some of the high voltage traces do not behave in a smooth and fast exponential manner, due to damaged quadrupole resistors. The traces in orange and brown are for good quadrupole resistors, while the traces in red and blue show the results from damaged quadrupole resistors. The kink in blue is the switch from the scraping procedure to storage.}
     \label{fig:QuadTraces}
 \end{figure}
 
 
-All data listed in \tabref{tab:Run1Datasets} was quality checked. If run conditions were found to be unstable or wrong in some way, the associated data was flagged and ignored in the analysis. A summary of the data quality control procedure is given in \refref{DQCSummary}, and the exact data quality parameters for the 60h dataset is detailed in \refref{DQC60H}. The total number of detected positrons above threshold that passed the data quality control was approximately $\SI{1e10}{}$, corresponding to a statistical error on \wa of $\sim\SI{400}{ppb}$, as calculated with \equref{eq:waprecision}.
+All data listed in \tabref{tab:Run1Datasets} were quality checked. If run conditions were found to be unsatisfactory, the associated data was flagged and ignored in the analysis. A summary of the data quality control procedure is given in \refref{DQCSummary}, and the exact data quality parameters for the 60h dataset are detailed in \refref{DQC60H}. The total number of detected positrons above threshold that passed the data quality control was approximately $\SI{1e10}{}$, corresponding to a statistical error on \wa of $\sim\SI{400}{ppb}$, as calculated with \equref{eq:waprecision}.
 
 
 
