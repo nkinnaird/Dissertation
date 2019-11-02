@@ -340,8 +340,6 @@ The IFG function as measured by the laser calibration system, \secref{sub:LaserC
     \end{align}
 where $E_{0}$ is the `true' energy of the detected positron and $E$ is the as-measured energy. Constants $C_{A}$ and $\tau_{g}$ are measured with the laser calibration system, and then the function given in \equref{eq:IFG} is used to convert the measured energies back to their real energies. In order to determine a systematic error from the applied IFG function, the IFG function was un-applied and then re-applied to the crystal hits with modified parameters. Specifically, the amplitude of the IFG function $C_{A}$ was scanned over in multiplicative steps, such that all crystal energies included in a cluster hit were adjusted by a multiplicative factor before re-summing. The multipliers applied to the IFG amplitude were from 0 to 2 in steps of 0.25. The results of the scan for the 60h dataset is shown in \figref{fig:IFG_amplitude}, with a comparison to the results from fits with the T-Method. It is immediately apparent that the sensitivity of the T-Method to the IFG multiplier is significantly greater than that of the Ratio Method. The Ratio Method's insensitivity to slowly varying effects which it divide out is one of it's primary strengths. In fact, while there is an observable minimum in the T-Method \chisq results, no such minimum exists for the Ratio Method results.
 
-\textbf{Working on IFG lifetime parameter scan now - going to add that error in.}
-
 
 \begin{figure}
 \centering
@@ -421,6 +419,45 @@ These various peculiarities imply there are imperfections in the gain correction
 % , and in general the order of the out-of-fill and STDP corrections may be switched \cite{WhosOnFirst}. 
 % the latter was shown to have a near-negligible effect on the final fitted $R$ value, of order \SI{20}{ppb}.
 
+
+\begin{landscape}
+\begin{table}
+\centering
+% \small
+% \setlength\tabcolsep{12pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lccGKGGK}
+  \hline
+    \multicolumn{8}{c}{\textbf{Systematic Error due to IFG Lifetime}} \\
+  \hline\hline
+            & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} \\
+    Dataset & \multicolumn{1}{c}{$dR/dC_{\tau}$} & \multicolumn{1}{c}{$C_{\tau_{\text{min}}}$} & \multicolumn{1}{c}{$dR/dC_{\tau}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}_{\sigma = 0.25}$} & \multicolumn{1}{c}{$\Delta R_{0x}$} & \multicolumn{1}{c}{$\Delta R_{2x}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}_{\text{max - 0x/2x}}$} \\
+  \hline
+    60h & 208.7 & 0.57 & 20.1 & 5.0 & 8.2 & 50.4 & - \\
+    HighKick & 114.7 & 0.58 & -44.8 & 11.2 & 28.6 & -32.7 & 32.7 \\
+    9d & 81.7 & 0.53 & -46.4 & 11.6 & -2.5 & -101.6 & - \\
+    Endgame & 207.3 & 0.53 & 66.1 & 16.5 & -6.9 & 108.4 & 108.4 \\
+  \hline
+\end{tabular*}
+\caption[Systematic error due to IFG lifetime]{Sensitivities and systematic errors for the IFG lifetime. T-Method sensitivities are included for comparison, along with the \chisq minima. Also included are changes in $R$ for fits with IFG amplitude multipliers of 0x and 2x. Systematic error columns are in bold, where the one on the left corresponds to the Ratio Method sensitivity multiplied by a 25\% uncertainty in the amplitude, and the one on the right corresponds to the absolute value of the maximum change in $R$ with the 0x and 2x multipliers applied. Only the HighKick and Endgame values are used from the column on the far right. Units for errors and sensitivities are in ppb.}
+\label{tab:systematicError_IFG}
+\end{table}
+\end{landscape}
+
+
+-R plots and chi2 plots tail off in a flatter way for small lifetimes compared to large lifetimes
+-put in same pictures probably for 60h dataset
+-no real minimum - probably take it out of table
+-I think probably don't include 0x and 2x numbers - argue away somehow why I do it differently for the lifetime - I think I probably can 
+-can reduce table and make it no longer landscape
+-maybe a mention how the k loss parameters and such might compensate
+-not sure what to do or say about negative slope in the 9d...
+-lifetime and amplitude will be correlated by some amount
+-make the conservative choice and add errors quadratically
+-include error in local summary table and update any relevant text
+-include error in final summary table and update any relevant text (including abstract)
+
+\textbf{Working on IFG lifetime parameter scan now - going to add that error in.}
 
 
 
