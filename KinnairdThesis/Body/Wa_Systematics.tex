@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupGapTime/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/auto-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/fixed-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupEnergyScale/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupTimeShift/}{Body/Figures/Wa/Datasets/9d/SingleIteration/PileupMultiplierScan/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/Ta/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/TauMu/}{Body/Figures/Wa/Datasets/9d/Binning/BinEdge/}{Body/Figures/Wa/Datasets/9d/Binning/BinWidth/}{Body/Figures/Wa/Datasets/60h/Gain/0p25-steps/}}
+\graphicspath{{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupGapTime/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/auto-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/fixed-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupEnergyScale/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupTimeShift/}{Body/Figures/Wa/Datasets/9d/SingleIteration/PileupMultiplierScan/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/Ta/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/TauMu/}{Body/Figures/Wa/Datasets/9d/Binning/BinEdge/}{Body/Figures/Wa/Datasets/9d/Binning/BinWidth/}{Body/Figures/Wa/Datasets/60h/Gain/0p25-steps/}{Body/Figures/Wa/Datasets/60h/Gain/Lifetime/}}
 
 
 
@@ -338,7 +338,25 @@ The IFG function as measured by the laser calibration system, \secref{sub:LaserC
     \begin{align} \label{eq:IFG}
         E = E_{0}(1 - C_{A} e^{-t/\tau_{g}}),
     \end{align}
-where $E_{0}$ is the `true' energy of the detected positron and $E$ is the as-measured energy. Constants $C_{A}$ and $\tau_{g}$ are measured with the laser calibration system, and then the function given in \equref{eq:IFG} is used to convert the measured energies back to their real energies. In order to determine a systematic error from the applied IFG function, the IFG function was un-applied and then re-applied to the crystal hits with modified parameters. Specifically, the amplitude of the IFG function $C_{A}$ was scanned over in multiplicative steps, such that all crystal energies included in a cluster hit were adjusted by a multiplicative factor before re-summing. The multipliers applied to the IFG amplitude were from 0 to 2 in steps of 0.25. The results of the scan for the 60h dataset is shown in \figref{fig:IFG_amplitude}, with a comparison to the results from fits with the T-Method. It is immediately apparent that the sensitivity of the T-Method to the IFG multiplier is significantly greater than that of the Ratio Method. The Ratio Method's insensitivity to slowly varying effects which it divide out is one of it's primary strengths. In fact, while there is an observable minimum in the T-Method \chisq results, no such minimum exists for the Ratio Method results.
+where $E_{0}$ is the `true' energy of the detected positron and $E$ is the as-measured energy. Constants $C_{A}$ and $\tau_{g}$ are measured with the laser calibration system, and then the function given in \equref{eq:IFG} is used to convert the measured energies back to their real energies. In order to determine a systematic error from the applied IFG function, the IFG function was un-applied and then re-applied to the crystal hits with modified parameters. Specifically, the amplitude of the IFG function $C_{A}$ and the lifetime $\tau_{g}$  were scanned over in multiplicative steps, separately, such that all crystal energies included in a cluster hit were adjusted by a multiplicative factor before re-summing. The multipliers applied to the IFG parameters were scanned over from 0 to 2 in steps of 0.25. The results of the scans for the 60h dataset are shown in \figref{fig:IFG_parameters}, with a comparison to the results from fits with the T-Method. It is immediately apparent that the sensitivities of the T-Method to the IFG parameters are significantly greater than that of the Ratio Method. The Ratio Method's insensitivity to slowly varying effects which it divides out is one of it's primary strengths. In fact, while there is an observable minimum in the T-Method \chisq results for the amplitude multiplier scan, no such minimum exists for the Ratio Method results.
+
+
+% \begin{figure}
+% \centering
+%     \begin{subfigure}[]{0.45\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{Chi2_Vs_IFG_Amp_crystals_compare_60h}
+%         \caption{Normalized \chisq vs IFG amplitude multiplier. The T-Method points fit nicely to a parabolic curve while the Ratio Method points do not.}
+%     \end{subfigure}% %you need this % here to add spacing between subfigures
+%     \hspace{4mm}
+%     \begin{subfigure}[]{0.45\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{R_Vs_IFG_Amp_crystals_compare_60h}
+%         \caption{$R$ values vs IFG amplitude multiplier. Both points are fit to straight lines, and the slopes are included in the text box in units of ppm.}
+%     \end{subfigure}
+% \caption[IFG amplitude multiplier scan]{Fitted \chisq's and $R$ values for the 60h dataset as a function of IFG amplitude multiplier. Results with ratio fits (red) are compared to T-Method fits (black). Values are normalized to their $C_{A} = 1$ results in order to put the curves on the same scale. As shown the sensitivity in the T-Method to the IFG amplitude is significantly larger than that of the Ratio Method. This is one of the primary strengths of the Ratio Method.}
+% \label{fig:IFG_amplitude}
+% \end{figure}
 
 
 \begin{figure}
@@ -346,49 +364,32 @@ where $E_{0}$ is the `true' energy of the detected positron and $E$ is the as-me
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{Chi2_Vs_IFG_Amp_crystals_compare_60h}
-        \caption{Normalized \chisq vs IFG multiplier. The T-Method points fit nicely to a parabolic curve while the Ratio Method points do not.}
+        \caption{Normalized \chisq vs IFG amplitude multiplier. The T-Method points fit nicely to a parabolic curve while the Ratio Method points do not.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{4mm}
     \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{R_Vs_IFG_Amp_crystals_compare_60h}
-        \caption{$R$ values vs IFG multiplier. Both points are fit to straight lines, and the slopes are included in the text box in units of ppm.}
+        \caption{$R$ values vs IFG amplitude multiplier. Both points are fit to straight lines, and the slopes are included in the text box in units of ppm.}
     \end{subfigure}
-\caption[]{Fitted \chisq's and $R$ values for the 60h dataset as a function of IFG amplitude multiplier. Results with ratio fits (red) are compared to T-Method fits (black). Values are normalized to their $C_{A} = 1$ results in order to put the curves on the same scale. As shown the sensitivity in the T-Method to the IFG amplitude is significantly larger than that of the Ratio Method. This is one of the primary strengths of the Ratio Method.}
-\label{fig:IFG_amplitude}
+
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Chi2_Vs_IFG_Tau_crystals_compare_60h}
+        \caption{Normalized \chisq vs IFG lifetime multiplier. Both T-Method and R-Method points flatten out at low multipliers, however the rise at high multipliers is larger for the T-Method.}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{4mm}
+    \begin{subfigure}[]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{R_Vs_IFG_Tau_crystals_compare_60h}
+        \caption{$R$ values vs IFG lifetime multiplier. Both points are fit to straight lines, and the slopes are included in the text box in units of ppm.}
+    \end{subfigure}
+\caption[IFG parameter systematic scan]{Fitted \chisq's and $R$ values for the 60h dataset as a function of IFG amplitude multiplier (top) and IFG lifetime multiplier (bottom). Results with ratio fits (red) are compared to T-Method fits (black). Values are normalized to their $C_{A} = 1$ and $C_{\tau} = 1$ results respectively in order to put the curves on the same scale. As shown the sensitivities in the T-Method to the IFG parameters are significantly larger than that in the Ratio Method. This is one of the primary strengths of the Ratio Method.}
+\label{fig:IFG_parameters}
 \end{figure}
 
 
-\tabref{tab:systematicError_IFG} gives the results for the IFG amplitude scans for the different datasets. Sensitivities for both the T-Method and Ratio Method fits along with the T-Method minimum for $C_{A}$ are included. The uncertainties on the IFG amplitudes from fits to the laser data were in general of order 25\% \cite{AnnaPersonalComm}. This uncertainty multiplied against the as-measured Ratio Method sensitivities results in systematic errors of \SI{<6}{ppb} for the various datasets. The individual numbers are given in column 5 of \tabref{tab:systematicError_IFG}.
-
-
-Examining the table in more detail however, some interesting features can be seen. The T-Method results, while not the primary subject of this analysis, nevertheless vary between the datasets, in that the scan minima are not consistent with one another. For the Ratio Method results, the HighKick and Endgame datasets exhibit greater sensitivities to the IFG amplitude than the 60h and 9d datasets. The HighKick dataset can be seen to have a negative sensitivity compared to the positive sensitivities of the other datasets, and the T-Method sensitivities for all datasets. The Endgame dataset has a greater sensitivity stemming from the fact that fits to the multiplicative factors of $C_{A} = 1.75$ and $C_{A} = 2$ produced noticeably better \chisq's and higher $R$ values, $\mathcal{O}(\SI{40}{ppb})$. These fits pulled the slope up from what is otherwise a very flat fit to the rest of the points, and imply that the default IFG multiplier should be greater than 1.
-
-
-These various peculiarities imply there are imperfections in the gain corrections which have not been fully accounted for. Indeed recent investigations into the applied gain corrections show that for the HighKick and Endgame datasets the out-of-fill corrections were neglected \cite{GainOscEndgameHighKick}. While this does not introduce a systematic uncertainty as a function of time in-fill as described before, it does shift the scale of the correction and by extension the extracted $R$ value. In order to determine more conservative bounds on the systematic errors in order to account for these deficiencies, the absolute changes in $R$ for the 0x and 2x multiplier fits were examined. These values are included in \tabref{tab:systematicError_IFG}. The maximum of the two values was then taken as the systematic error on $R$ due to the IFG amplitude. In general the systematic errors as calculated from the maximum of the 0x or 2x fits are an order of magnitude larger than those errors calculated directly from the sensitivities. Because the scale of these numbers is still small compared to the Run~1 statistical errors however, they have been deemed acceptable for this analysis. The confidence in the scale of the Ratio Method results is ultimately preserved from the fact that the Ratio Method fits are not as sensitive to the gain variations as the T-Method fits, as the gain effects divide out. Going forward towards the end of the Run~1 analysis, once the outstanding gain issues have been resolved the systematic errors will be calculated directly from the sensitivities.
-
-
-% \begin{table}
-% \centering
-% % \small
-% % \setlength\tabcolsep{12pt}
-% \renewcommand{\arraystretch}{1.2}
-% \begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lccGK}
-%   \hline
-%     \multicolumn{5}{c}{\textbf{Systematic Error due to IFG Amplitude}} \\
-%   \hline\hline
-%             & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} \\
-%     Dataset & \multicolumn{1}{c}{$dR/dC_{A}$} & \multicolumn{1}{c}{$C_{A_{\text{min}}}$} & \multicolumn{1}{c}{$dR/dC_{A}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
-%   \hline
-%     60h & 94.1 & 0.57 & 5.4 & 1.4 \\
-%     HighKick & 69.5 & 0.70 & -23.6 & 5.9 \\
-%     9d & 64.9 & 0.27 & 1.4 & 0.4 \\ 
-%     Endgame & 96.2 & 0.19 & 22.7 & 5.7 \\
-%   \hline
-% \end{tabular*}
-% \caption[Systematic error due to IFG amplitude]{Sensitivities and systematic errors for the IFG amplitude. T-Method sensitivities are included for comparison, along with the \chisq minima. Units for errors and sensitivities are in ppb.}
-% \label{tab:systematicError_IFG}
-% \end{table}
+Tables~\ref{tab:systematicError_IFG_amp} and \ref{tab:systematicError_IFG_tau} give the results for the IFG amplitude multiplier and lifetime multiplier scans respectively for the different datasets. Sensitivities for both the T-Method and Ratio Method fits are included. The uncertainties on the IFG parameters from fits to the laser data were in general of order 25\% \cite{AnnaPersonalComm}. This uncertainty multiplied against the as-measured Ratio Method sensitivities results in systematic errors of \SI{<6}{ppb} on the amplitude multiplier and \SI{<17}{ppb} for the lifetime multiplier for the various datasets. The individual numbers are given in column 5 of \tabref{tab:systematicError_IFG_amp} and column3 of \tabref{tab:systematicError_IFG_tau} respectively.
 
 
 \begin{landscape}
@@ -411,53 +412,71 @@ These various peculiarities imply there are imperfections in the gain correction
   \hline
 \end{tabular*}
 \caption[Systematic error due to IFG amplitude]{Sensitivities and systematic errors for the IFG amplitude. T-Method sensitivities are included for comparison, along with the \chisq minima. Also included are changes in $R$ for fits with IFG amplitude multipliers of 0x and 2x. Systematic error columns are in bold, where the one on the left corresponds to the Ratio Method sensitivity multiplied by a 25\% uncertainty in the amplitude, and the one on the right corresponds to the absolute value of the maximum change in $R$ with the 0x and 2x multipliers applied. Only the HighKick and Endgame values are used from the column on the far right. Units for errors and sensitivities are in ppb.}
-\label{tab:systematicError_IFG}
+\label{tab:systematicError_IFG_amp}
 \end{table}
 \end{landscape}
+
+
+\begin{table}
+\centering
+% \small
+% \setlength\tabcolsep{12pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lcGKG}
+  \hline
+    \multicolumn{5}{c}{\textbf{Systematic Error due to IFG Lifetime}} \\
+  \hline\hline
+            & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} \\
+    Dataset & \multicolumn{1}{c}{$dR/dC_{\tau}$} & \multicolumn{1}{c}{$dR/dC_{\tau}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}_{\sigma = 0.25}$} & \multicolumn{1}{c}{$\Delta R_{0x}$} \\
+  \hline
+    60h & 208.7 & 20.1 & 5.0 & 8.2 \\
+    HighKick & 114.7 & -44.8 & 11.2 & 28.6 \\
+    9d & 81.7 & -46.4 & 11.6 & -2.5 \\
+    Endgame & 207.3 & 66.1 & 16.5 & -6.9 \\
+  \hline
+\end{tabular*}
+\caption[Systematic error due to IFG lifetime]{Sensitivities and systematic errors for the IFG lifetime. T-Method sensitivities are included for comparison. The systematic error columns is in bold, where the error corresponds to the Ratio Method sensitivity multiplied by a 25\% uncertainty in the lifetime. Units for errors and sensitivities are in ppb. The negative slope seen in the 9d dataset is somewhat of a mystery, for which no known issues might be responsible at the time of writing.}
+\label{tab:systematicError_IFG_tau}
+\end{table}
+
+
+Examining \tabref{tab:systematicError_IFG_amp} in more detail however, some interesting features can be seen. The T-Method results, while not the primary subject of this analysis, nevertheless vary between the datasets, in that the scan minima are not consistent with one another. For the Ratio Method results, the HighKick and Endgame datasets exhibit greater sensitivities to the IFG amplitude than the 60h and 9d datasets. The HighKick dataset can be seen to have a negative sensitivity compared to the positive sensitivities of the other datasets, and the T-Method sensitivities for all datasets. The Endgame dataset has a greater sensitivity stemming from the fact that fits to the multiplicative factors of $C_{A} = 1.75$ and $C_{A} = 2$ produced noticeably better \chisq's and higher $R$ values, $\mathcal{O}(\SI{40}{ppb})$. These fits pulled the slope up from what is otherwise a very flat fit to the rest of the points, and imply that the default IFG multiplier should be greater than 1.
+
+
+These various peculiarities imply there are imperfections in the gain corrections which have not been fully accounted for. Indeed recent investigations into the applied gain corrections show that for the HighKick and Endgame datasets the out-of-fill corrections were neglected \cite{GainOscEndgameHighKick}. While this does not introduce a systematic uncertainty as a function of time in-fill as described before, it does shift the scale of the correction and by extension the extracted $R$ value. In order to determine more conservative bounds on the systematic errors in order to account for these deficiencies, the absolute changes in $R$ for the 0x and 2x multiplier fits were examined. These values are included in \tabref{tab:systematicError_IFG_amp}. The maximum of the two values was then taken as the systematic error on $R$ due to the IFG amplitude. In general the systematic errors as calculated from the maximum of the 0x or 2x fits are an order of magnitude larger than those errors calculated directly from the sensitivities. Because the scale of these numbers is still small compared to the Run~1 statistical errors however, they have been deemed acceptable for this analysis. 
+
+As for the lifetime multiplier scan results, it was observed that the \R and \chisq plots flattened out for small lifetimes as compared to large lifetimes, with no identifiable minima in the scan results. \R was seen to change by very little when the lifetime was small, as shown in the far right column of \tabref{tab:systematicError_IFG_tau}. Because of the larger changes in \R with the larger lifetimes, the sensitivities in the table were pulled to greater values than they otherwise might be. The choice was made to keep these large sensitivities in and use them in the calculation of the systematic error for a conservative approach, again justified by the gain issues mentioned previously.
+
+In the calculation of the combined systematic error due to the IFG function parameters, the amplitude and lifetime parameter errors are added in quadrature, conservativley ignoring correlations between the two parameters in the fits to the laser data. Because the two parameters are correlated to a large degree, the 0x and 2x lifetime numbers were not used in the calculation of the HighKick and Endgame lifetime systematic errors as they have already been conservatively treated in the amplitude part of the error. The confidence in the scale of the Ratio Method results is ultimately preserved from the fact that the Ratio Method fits are not as sensitive to the gain variations as the T-Method fits, as the gain effects divide out. Going forward towards the end of the Run~1 analysis, once the outstanding gain issues have been resolved the systematic errors will be calculated directly from the sensitivities in all cases.
 
 
 % , and in general the order of the out-of-fill and STDP corrections may be switched \cite{WhosOnFirst}. 
 % the latter was shown to have a near-negligible effect on the final fitted $R$ value, of order \SI{20}{ppb}.
 
 
-\begin{landscape}
-\begin{table}
-\centering
-% \small
-% \setlength\tabcolsep{12pt}
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lccGKGGK}
-  \hline
-    \multicolumn{8}{c}{\textbf{Systematic Error due to IFG Lifetime}} \\
-  \hline\hline
-            & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} \\
-    Dataset & \multicolumn{1}{c}{$dR/dC_{\tau}$} & \multicolumn{1}{c}{$C_{\tau_{\text{min}}}$} & \multicolumn{1}{c}{$dR/dC_{\tau}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}_{\sigma = 0.25}$} & \multicolumn{1}{c}{$\Delta R_{0x}$} & \multicolumn{1}{c}{$\Delta R_{2x}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}_{\text{max - 0x/2x}}$} \\
-  \hline
-    60h & 208.7 & 0.57 & 20.1 & 5.0 & 8.2 & 50.4 & - \\
-    HighKick & 114.7 & 0.58 & -44.8 & 11.2 & 28.6 & -32.7 & 32.7 \\
-    9d & 81.7 & 0.53 & -46.4 & 11.6 & -2.5 & -101.6 & - \\
-    Endgame & 207.3 & 0.53 & 66.1 & 16.5 & -6.9 & 108.4 & 108.4 \\
-  \hline
-\end{tabular*}
-\caption[Systematic error due to IFG lifetime]{Sensitivities and systematic errors for the IFG lifetime. T-Method sensitivities are included for comparison, along with the \chisq minima. Also included are changes in $R$ for fits with IFG amplitude multipliers of 0x and 2x. Systematic error columns are in bold, where the one on the left corresponds to the Ratio Method sensitivity multiplied by a 25\% uncertainty in the amplitude, and the one on the right corresponds to the absolute value of the maximum change in $R$ with the 0x and 2x multipliers applied. Only the HighKick and Endgame values are used from the column on the far right. Units for errors and sensitivities are in ppb.}
-\label{tab:systematicError_IFG}
-\end{table}
-\end{landscape}
-
-
--R plots and chi2 plots tail off in a flatter way for small lifetimes compared to large lifetimes
--put in same pictures probably for 60h dataset
--no real minimum - probably take it out of table
--I think probably don't include 0x and 2x numbers - argue away somehow why I do it differently for the lifetime - I think I probably can 
--can reduce table and make it no longer landscape
--maybe a mention how the k loss parameters and such might compensate
--not sure what to do or say about negative slope in the 9d...
--lifetime and amplitude will be correlated by some amount
--make the conservative choice and add errors quadratically
--include error in local summary table and update any relevant text
--include error in final summary table and update any relevant text (including abstract)
-
-\textbf{Working on IFG lifetime parameter scan now - going to add that error in.}
+% \begin{landscape}
+% \begin{table}
+% \centering
+% % \small
+% % \setlength\tabcolsep{12pt}
+% \renewcommand{\arraystretch}{1.2}
+% \begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lccGKGGK}
+%   \hline
+%     \multicolumn{8}{c}{\textbf{Systematic Error due to IFG Lifetime}} \\
+%   \hline\hline
+%             & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{T-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} & \multicolumn{1}{c}{R-Method} \\
+%     Dataset & \multicolumn{1}{c}{$dR/dC_{\tau}$} & \multicolumn{1}{c}{$C_{\tau_{\text{min}}}$} & \multicolumn{1}{c}{$dR/dC_{\tau}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}_{\sigma = 0.25}$} & \multicolumn{1}{c}{$\Delta R_{0x}$} & \multicolumn{1}{c}{$\Delta R_{2x}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}_{\text{max - 0x/2x}}$} \\
+%   \hline
+%     60h & 208.7 & 0.57 & 20.1 & 5.0 & 8.2 & 50.4 & - \\
+%     HighKick & 114.7 & 0.58 & -44.8 & 11.2 & 28.6 & -32.7 & 32.7 \\
+%     9d & 81.7 & 0.53 & -46.4 & 11.6 & -2.5 & -101.6 & - \\
+%     Endgame & 207.3 & 0.53 & 66.1 & 16.5 & -6.9 & 108.4 & 108.4 \\
+%   \hline
+% \end{tabular*}
+% \caption[Systematic error due to IFG lifetime]{Sensitivities and systematic errors for the IFG lifetime. T-Method sensitivities are included for comparison, along with the \chisq minima. Also included are changes in $R$ for fits with IFG amplitude multipliers of 0x and 2x. Systematic error columns are in bold, where the one on the left corresponds to the Ratio Method sensitivity multiplied by a 25\% uncertainty in the amplitude, and the one on the right corresponds to the absolute value of the maximum change in $R$ with the 0x and 2x multipliers applied. Only the HighKick and Endgame values are used from the column on the far right. Units for errors and sensitivities are in ppb.}
+% \label{tab:systematicError_IFG}
+% \end{table}
+% \end{landscape}
 
 
 
@@ -503,13 +522,14 @@ The STDP correction is in many ways the same as the IFG correction \cite{STDP}. 
   \hline\hline
     Type of Error & \multicolumn{1}{c}{60h} & \multicolumn{1}{c}{HighKick} & \multicolumn{1}{c}{9d} & \multicolumn{1}{c}{Endgame} \\
   \hline
-    IFG   & 1.4 & 28.6 & 0.4 & 43.6 \\
+    IFG amplitude  & 1.4 & 28.6 & 0.4 & 43.6 \\
+    IFG lifetime  & 5.0 & 11.2 & 11.6 & 16.5 \\
     STDP  & 11.0 & 11.0 & 11.0 & 11.0 \\
   \hline
-    Quadrature sum & 11.1 & 30.6 & 11.0 & 45.0 \\
+    Quadrature sum & 12.2 & 32.6 & 16.0 & 47.9 \\
   \hline 
 \end{tabular*}
-\caption[Total gain-related systematic errors]{Total gain-related systematic errors for the Run~1 precession frequency analysis datasets.}
+\caption[Total gain-related systematic errors]{Total gain-related systematic errors for the Run~1 precession frequency analysis datasets. Units are in ppb.}
 \label{tab:GainErrorsTotal}
 \end{table}
 
@@ -977,6 +997,7 @@ As described in \secref{sec:MuonBeamMeasurements}, the vertical position of the 
     Pileup phase - time-shift & 17.6 & 19.0 & 17.1 & 14.3 \\
     Pileup phase - energy-scale & 19.4 & 3.7 & 5.5 & 5.3 \\
     In-fill gain amplitude & 1.4 & 28.6 & 0.4 & 43.6 \\
+    In-fill gain lifetime & 5.0 & 11.2 & 11.6 & 16.5 \\
     STDP On/Off & \sim 11.0 & \sim 11.0 & \sim 11.0 & \sim 11.0 \\
     CBO frequency model & 7.5 & 0.4 & 2.0 & 8.0 \\
     CBO decoherence envelope & 17.6 & 18.0 & 9.3 & 4.3 \\
@@ -987,7 +1008,7 @@ As described in \secref{sec:MuonBeamMeasurements}, the vertical position of the 
     Bin width & 2.5 & 0.6 & 2.3 & 4.2 \\
     % Bin edge & - & - & - & - \\
   \hline
-    Quadrature Sum & 41.0 & 45.0 & 25.2 & 49.5 \\
+    Quadrature Sum & 41.3 & 46.4 & 27.8 & 52.2 \\
   \hline\hline
     Lost muon phase bias & 53.6 & 17.9 & 22.3 & 58.0 \\
     Differential decay & < 40 & < 40 & < 40 & < 40 \\
@@ -998,8 +1019,8 @@ As described in \secref{sec:MuonBeamMeasurements}, the vertical position of the 
     Quadrature Sum & 138.0 & 130.6 & 131.3 & 195.9 \\
     Quadrature Sum * & 76.3 & 62.0 & 63.4 & 77.4 \\
   \hline\hline
-    Total Quadrature Sum & 144.0 & 138.2 & 133.7 & 202.1 \\
-    Total Quadrature Sum * & 86.7 & 76.6 & 68.2 & 91.9 \\
+    Total Quadrature Sum & 144.1 & 138.6 & 134.2 & 202.8 \\
+    Total Quadrature Sum * & 86.8 & 77.4 & 69.2 & 93.3 \\
   \hline
 \end{tabular*}
 \caption[Systematic errors evaluated in the Run~1 precession frequency datasets]{Final systematic errors evaluated in the Run~1 precession frequency analysis to the 60h, HighKick, 9d, and Endgame datasets. All units are in ppb. The table is split into two sections. The upper section consists of systematic errors directly evaluated by the author while the lower section consists of preliminary systematic estimates by other working groups. The E-field and pitch correction errors have been added in quadrature with the quadrupole errors. The publication errors for the Run~1 datasets will change from these as the final DQC cuts are made and analyses improved, however the scale of these errors will remain consistent. * Quadrature sum errors calculated excluding the stored beam motion error for comparison.}
@@ -1033,8 +1054,8 @@ Four datasets from Run~1 of E989 have been analyzed for this dissertation, those
   \hline
     60h & -20.5562 & 1.3581 & 0.1440 & 1.3657 \\
     HighKick & -17.4755 & 1.4112 & 0.1382 & 1.4180 \\
-    9d & -17.7182 & 0.9033 & 0.1337 & 0.9131 \\
-    Endgame & -17.3406 & 0.6393 & 0.2021 & 0.6705 \\
+    9d & -17.7182 & 0.9033 & 0.1337 & 0.9132 \\
+    Endgame & -17.3406 & 0.6393 & 0.2021 & 0.6707 \\
   \hline
   Total & & 0.4605 & & 0.4737 \\
   \hline
