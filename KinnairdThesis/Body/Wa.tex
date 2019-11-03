@@ -138,7 +138,7 @@ The optimal bin width for the time histograms was determined to be $\SI{149.2}{n
     \begin{align}
         T_{VW} = \frac{1}{f_{VW}} = \frac{1}{(1-2\sqrt{n}) \cdot f_{c}}.
     \end{align}
-This randomization is done in order to remove the effects of the VW in the data\footnote{Even though the VW frequency was found to be changing over the course of the fill, the change is small enough such that this constant time randomization was found to remove all residual traces of the VW in the data.}. The default random seed for each histogram \ROOT file is the hash of the unique input file name using C++'s standard hash class. Histograms are defined with a time range of 0--\mus{699.8972} (the closest integer multiple of the bin width to \mus{700}), corresponding to 4691 bins. 
+This randomization is done in order to remove the effects of the VW in the data\footnote{Even though the VW frequency was found to be changing over the course of the fill, the change is small enough such that this constant time randomization was found to remove all residual traces of the VW in the data.}. The default random seed for each histogram \ROOT file is the hash of the unique input file name using C++'s standard hash class. Other random seeds can be chosen in order to verify the consistency of fit results. Histograms are defined with a time range of 0--\mus{699.8972} (the closest integer multiple of the bin width to \mus{700}), corresponding to 4691 bins. 
 
 % Clusters with times less than \mus{25} or greater than \mus{660} are dropped, corresponding to 4256 bins containing data.
 
@@ -798,5 +798,6 @@ The names of the specific SAM (Sequential Access via Metadata) datasets that wer
 
 
 \input{Body/Wa_FitResults}
+\clearpage
 \input{Body/Wa_Systematics}
 
