@@ -2,7 +2,7 @@
 
 \thispagestyle{myheadings}
 
-\graphicspath{{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupGapTime/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/auto-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/fixed-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupEnergyScale/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupTimeShift/}{Body/Figures/Wa/Datasets/9d/SingleIteration/PileupMultiplierScan/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/Ta/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/TauMu/}{Body/Figures/Wa/Datasets/9d/Binning/BinEdge/}{Body/Figures/Wa/Datasets/9d/Binning/BinWidth/}{Body/Figures/Wa/Datasets/60h/Gain/0p25-steps/}{Body/Figures/Wa/Datasets/60h/Gain/Lifetime/}}
+\graphicspath{{Body/Figures/Wa/Datasets/Endgame/LostMuonFiles/MainCuts/}{Body/Figures/Wa/Datasets/ComparisonPlots/LostMuons/}{Body/Figures/Wa/Datasets/9d/SingleIteration/LostMuonFits/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupGapTime/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/auto-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupDeadTime/fixed-scaling/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupEnergyScale/}{Body/Figures/Wa/Datasets/9d/PileupJobs/PileupTimeShift/}{Body/Figures/Wa/Datasets/9d/SingleIteration/PileupMultiplierScan/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/Ta/}{Body/Figures/Wa/Datasets/60h/RatioConstruction/TauMu/}{Body/Figures/Wa/Datasets/9d/Binning/BinEdge/}{Body/Figures/Wa/Datasets/9d/Binning/BinWidth/}{Body/Figures/Wa/Datasets/60h/Gain/0p25-steps/}{Body/Figures/Wa/Datasets/60h/Gain/Lifetime/}{Body/Figures/Wa/Datasets/ComparisonPlots/}}
 
 
 
@@ -1030,17 +1030,12 @@ As described in \secref{sec:MuonBeamMeasurements}, due to the damaged resistors 
 \end{table}
 
 
+\clearpage
+
+\section{Final precession frequency results}
 
 
-\subsection{Final precession frequency results}
-
-
-\textbf{This was originally in my conclusions chapter but I've moved it to here. Going to talk about the plans for combination going forward. Also going to calculate the total error assuming 100\% correlated systematic errors. Include plot with 3 data points comparing dataset mean R values and errors.}
-
-
-
-Four datasets from Run~1 of E989 have been analyzed for this dissertation, those being the 60h, HighKick, 9d, and Endgame respectively. In each case the datasets are the not-quite-final datasets for Run~1. Precession frequency analysis was done using the Ratio Method, an analysis technique for fitting the decay positron time spectra which divides out the exponential decay and slow terms in the data. The final results for the blinded frequency \R values for the different datasets along with their total statistical and systematic errors are given in \tabref{tab:FinalResults}. The sum total error for the four datasets analyzed in this report is \SI{491.2}{ppb} assuming completely uncorrelated systematic errors, a reasonable approximation considering the different run conditions between datasets. The analysis is statistics limited, even with the conservative preliminary estimates for certain systematic errors as given in \tabref{tab:FinalSystematicErrors}. The \R values given here can be converted back into the precession frequency \wa using \equref{eq:wablind}, once the datasets have been unblinded at the hardware and software levels. Lastly the E-field and pitch corrections can be applied, where preliminary estimates have been given in \secref{sub:EfieldPitchErrors} for some of the datasets. 
-
+Four datasets from Run~1 of E989 have been analyzed for this dissertation, those being the 60h, HighKick, 9d, and Endgame. In each case the datasets are the near-final datasets for Run~1. The precession frequency analysis was done using the Ratio Method, an analysis technique for fitting the decay positron time spectra which divides out the exponential decay and slow terms in the data. The final results for the blinded frequency \R values for the different datasets along with their total statistical and systematic errors are given in \tabref{tab:FinalResults}. \figref{fig:RComparison} compares the means. The total error for the four datasets is \SI{491.2}{ppb} conservatively assuming completely correlated systematic errors. The analysis is statistics limited, even with the conservative preliminary estimates for certain systematic errors as given in \tabref{tab:FinalSystematicErrors}. Before combining the results, the \R values given here will have their individual E-field and pitch corrections applied, and their blinding normalized. Since the magnetic field changes by a fair amount between datasets, the \R values will be converted back into the precession frequency \wa using \equref{eq:wablind} before combination with the magnetic field measurements to give per-dataset values of \amu. The dataset \amu values will then be combined in a weighted average.
 
 
 \begin{table}
@@ -1066,6 +1061,16 @@ Four datasets from Run~1 of E989 have been analyzed for this dissertation, those
 \caption[Run~1 final results]{Run~1 final results for the precession frequency analysis datasets. The \R values given here are mean values of fits to 50 different random seeds. The 60h dataset has a different software blinding than the rest, shown by the different mean \R value. Statistical and systematic errors are included alongside the total error for each dataset. In each dataset case the error is statistics dominated. Total combined errors for the different datasets are shown for cases where the systematic errors are assumed to be 0\% and 100\% correlated. Units are in ppm.}
 \label{tab:FinalResults}
 \end{table}
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.7\textwidth]{R_dataset_comparison}
+    \caption[Comparison between dataset mean \R values]{Comparison between dataset mean \R values from fits to 50 different random seeds. The 60h dataset has a different software blinding than the rest.}
+    \label{fig:RComparison}
+\end{figure}
+
 
 
 
