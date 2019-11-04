@@ -389,7 +389,7 @@ where $E_{0}$ is the `true' energy of the detected positron and $E$ is the measu
 \end{figure}
 
 
-Tables~\ref{tab:systematicError_IFG_amp} and \ref{tab:systematicError_IFG_tau} give the results for the IFG amplitude multiplier and lifetime multiplier scans respectively for the different datasets. Sensitivities for both the T-Method and Ratio Method fits are included. The uncertainties on the IFG parameters from fits to the laser data were in general of order 25\% \cite{AnnaPersonalComm}. This uncertainty multiplied against the as-measured Ratio Method sensitivities results in systematic errors of \SI{<6}{ppb} on the amplitude multiplier and \SI{<17}{ppb} for the lifetime multiplier for the various datasets. The individual numbers are given in column 5 of \tabref{tab:systematicError_IFG_amp} and column3 of \tabref{tab:systematicError_IFG_tau} respectively.
+Tables~\ref{tab:systematicError_IFG_amp} and \ref{tab:systematicError_IFG_tau} give the results for the IFG amplitude multiplier and lifetime multiplier scans respectively for the different datasets. Sensitivities for both the T-Method and Ratio Method fits are included. The uncertainties on the IFG parameters from fits to the laser data were in general of order 25\% \cite{AnnaPersonalComm}. This uncertainty multiplied against the as-measured Ratio Method sensitivities results in systematic errors of \SI{<6}{ppb} on the amplitude multiplier and \SI{<17}{ppb} for the lifetime multiplier for the various datasets. The individual numbers are given in column 5 of \tabref{tab:systematicError_IFG_amp} and column 3 of \tabref{tab:systematicError_IFG_tau} respectively.
 
 
 \begin{landscape}
@@ -435,7 +435,7 @@ Tables~\ref{tab:systematicError_IFG_amp} and \ref{tab:systematicError_IFG_tau} g
     Endgame & 207.3 & 66.1 & 16.5 & -6.9 \\
   \hline
 \end{tabular*}
-\caption[Systematic error due to IFG lifetime]{Sensitivities and systematic errors for the IFG lifetime. T-Method sensitivities are included for comparison. The systematic error columns is in bold, where the error corresponds to the Ratio Method sensitivity multiplied by a 25\% uncertainty in the lifetime. Units for errors and sensitivities are in ppb. The negative slope seen in the 9d dataset is somewhat of a mystery, for which no known issues might be responsible at the time of writing.}
+\caption[Systematic error due to IFG lifetime]{Sensitivities and systematic errors for the IFG lifetime. T-Method sensitivities are included for comparison. The systematic error columns is in bold, where the error corresponds to the Ratio Method sensitivity multiplied by a 25\% uncertainty in the lifetime. Units for errors and sensitivities are in ppb.}
 \label{tab:systematicError_IFG_tau}
 \end{table}
 
@@ -447,7 +447,7 @@ These various peculiarities imply there are imperfections in the gain correction
 
 As for the lifetime multiplier scan results, it was observed that the \R and \chisq plots flattened out for small lifetimes as compared to large lifetimes, with no identifiable minima in the scan results. \R was seen to change by very little when the lifetime was small, as shown in the far right column of \tabref{tab:systematicError_IFG_tau}. Because of the larger changes in \R with the larger lifetimes, the sensitivities in the table were pulled to greater values than they otherwise might be. The choice was made to keep these large sensitivities in and use them in the calculation of the systematic error for a conservative approach, again justified by the gain issues mentioned previously.
 
-In the calculation of the combined systematic error due to the IFG function parameters, the amplitude and lifetime parameter errors are added in quadrature, conservativley ignoring correlations between the two parameters in the fits to the laser data. Because the two parameters are correlated to a large degree, the 0x and 2x lifetime numbers were not used in the calculation of the HighKick and Endgame lifetime systematic errors as they have already been conservatively treated in the amplitude part of the error. The confidence in the scale of the Ratio Method results is ultimately preserved from the fact that the Ratio Method fits are not as sensitive to the gain variations as the T-Method fits, as the gain effects divide out. Going forward towards the end of the Run~1 analysis, once the outstanding gain issues have been resolved the systematic errors will be calculated directly from the sensitivities in all cases.
+In the calculation of the combined systematic error due to the IFG function parameters, the amplitude and lifetime parameter errors are added in quadrature, conservativley ignoring correlations between the two parameters in the fits to the laser data. Because the two parameters are correlated to a large degree, the 0x and 2x lifetime numbers were not used in the calculation of the HighKick and Endgame lifetime systematic errors as they have already been conservatively treated in the amplitude part of the error\footnote{If the amplitude is zero then the lifetime is meaningless, and vice versa.}. The confidence in the scale of the Ratio Method results is ultimately preserved from the fact that the Ratio Method fits are not as sensitive to the gain variations as the T-Method fits, as the gain effects divide out. Going forward towards the end of the Run~1 analysis, once the outstanding gain issues have been resolved the systematic errors will be calculated directly from the sensitivities in all cases.
 
 
 % , and in general the order of the out-of-fill and STDP corrections may be switched \cite{WhosOnFirst}. 
@@ -505,11 +505,12 @@ The STDP correction is similay in many to the IFG correction \cite{STDP}. This c
 \label{tab:systematicError_STDP}
 \end{table}
 
-% I saw a change in R for the ratio method that was 12.6 ppb the other way, but the p values were very differnt and so I think it's just coincidence, because I expect the ratio method randomization to change the value by a lot
+% I saw a change in R for the ratio method that was 12.6 ppb the other way, but the p values were very different and so I think it's just coincidence, because I expect the ratio method randomization to change the value by a lot
 
 
-\tabref{tab:GainErrorsTotal} gives the quadrature sum for the total gain systematic errors for the Run~1 precession frequency analysis datasets. As shown for the 60h and 9d datasets the total error is below the target final error of \SI{20}{ppb}. For the HighKick and Endgame datasets, the errors are slightly larger than \SI{20}{ppb}, and should reduce once their known issues have been resolved. It should be noted that there is further evidence of the need for a correction for some type of residual gain effect which is somehow unmeasurable by the laser system \cite{AFThesis,SweigartEndgameOddities}\footnote{This implies the effect is very small.}. This combined with the previously mentioned issues in the Endgame and HighKick datasets warrant re-evaluations of the gain systematic errors once the final datasets are available. It is expected that the errors given here are reasonable approximations of the final errors, especially due to the Ratio Method's insensitivity to the gain relative to the T-Method. As a reminder, the errors given here, even with the crude approximations, are small compared to the statistical errors of the various datasets.
+\tabref{tab:GainErrorsTotal} gives the quadrature sum for the total gain systematic errors for the Run~1 precession frequency analysis datasets. As shown for the 60h and 9d datasets the total error is below the target final error of \SI{20}{ppb}. For the HighKick and Endgame datasets, the errors are slightly larger than \SI{20}{ppb}, and should reduce once their known issues have been resolved. All gain errors will be re-evaluated once the final datasets are available. It is expected that the errors given here are reasonable approximations of the final errors, especially due to the Ratio Method's insensitivity to the gain relative to the T-Method. As a reminder, the errors given here, even with the crude approximations, are small compared to the statistical errors of the various datasets.
 
+% It should be noted that there is further evidence of the need for a correction for some type of residual gain effect which is somehow unmeasurable by the laser system \cite{AFThesis,SweigartEndgameOddities}\footnote{This implies the effect is very small.}. This combined with the previously mentioned issues in the Endgame and HighKick datasets warrant re-evaluations of the gain systematic errors once the final datasets are available. 
 
 
 \begin{table}
@@ -755,11 +756,11 @@ From \equref{eq:timeDependentPhase}, the systematic shift in \wa can be written 
     \begin{align}
         \frac{\Delta\omega_{a}}{\omega_{a}} = \frac{1}{\omega_{a}}\frac{d\langle\phi\rangle}{dt},
     \end{align}
-where $d\langle\phi\rangle/dt$ is the change in average phase over time. With some assumptions made with regards to stored and lost muon populations this can be written as \cite{MikeLosses}
+where $d\langle\phi\rangle/dt$ is the change in average phase over time. With some assumptions made with regards to `core' and `edge' muon populations, where lost muons can only originate from the latter, this can be written as \cite{MikeLosses}
     \begin{align} \label{eq:phaseChangeLostMuons}
-        \frac{d\langle\phi\rangle}{dt} = f_{s} \cdot f_{l} \cdot \Delta\phi_{s-l},
+        \frac{d\langle\phi\rangle}{dt} = f_{c} \cdot f_{l} \cdot \Delta\phi_{c-e},
     \end{align}
-where $f_{s}$ is the fraction of stored muons to all muons, $f_{l}$ is the fractional loss rate, and $\Delta\phi_{s-l}$ is the phase difference between the stored and lost muon populations. The simulation studies in the afore-referenced document gives estimates of $f_{s} \approx 0.9$ and $\Delta\phi_{s-l} \approx \SI{1}{mrad}$. The fractional losses (the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter, assuming no losses are included in $L(t)$ before the fit start time) for the Run~1 precession frequency analysis datasets as determined in this analysis are shown in \figref{fig:fractionallosses}. As shown the losses rise sharply at early times before leveling off to a constant rate around \mus{100} into the fill. Taking the first \mus{70} of the fit and assuming that this loss rate is constant over the course of the fill, the approximate loss rates for the different datasets can be determined\footnote{While the loss rate reduces after \mus{100}, losses occur mostly at early times, so this is a fine approximation.}. These are given in \tabref{tab:systematicError_lostMuonBias}. Applying the approximate loss probabilities into \equref{eq:phaseChangeLostMuons}, along with $\omega_{a} \approx \SI{1.44}{rad}/\mus{}$, the systematic shifts in the precession frequency are found. They are included in \tabref{tab:systematicError_lostMuonBias}.
+where $f_{c}$ is the fraction of muons in the core population to all muons, $f_{l}$ is the fractional loss rate, and $\Delta\phi_{c-e}$ is the phase difference between the core and edge muon populations. The simulation studies in the afore-referenced document gives estimates of $f_{c} \approx 0.9$ and $\Delta\phi_{c-e} \approx \SI{1}{mrad}$. The fractional losses (the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter, assuming no losses are included in $L(t)$ before the fit start time) for the Run~1 precession frequency analysis datasets as determined in this analysis are shown in \figref{fig:fractionallosses}. As shown the losses rise sharply at early times before leveling off to a constant rate around \mus{100} into the fill. Taking the first \mus{70} of the fit and assuming that this loss rate is constant over the course of the fill, the approximate loss rates for the different datasets can be determined\footnote{While the loss rate reduces after \mus{100}, losses occur mostly at early times, so this is a fine approximation.}. These are given in \tabref{tab:systematicError_lostMuonBias}. Applying the various quantities into \equref{eq:phaseChangeLostMuons}, along with $\omega_{a} \approx \SI{1.44}{rad}/\mus{}$, the systematic shifts in the precession frequency are found. They are included in \tabref{tab:systematicError_lostMuonBias}.
 
 
 
@@ -794,7 +795,7 @@ where $f_{s}$ is the fraction of stored muons to all muons, $f_{l}$ is the fract
 \end{table}
 
 
-Taking the shifts in \wa as the systematic errors, the approximations here are on the order of \SI{50}{} -- \SI{60}{ppb} for the 60h and Endgame datasets, and on the order of \SI{20}{ppb} for the HighKick and 9d datasets. These estimates are the same order of magnitude as determined in other evaluations with slightly different parameters \cite{SudeshnaElbaTalk}. As simulations improve and more studies are undertaken, the uncertainties here may be replaced in favor of actual corrections, in which case the systematic errors would then be the uncertainties in the evaluation of those corrections. While not below the target goal of \SI{20}{ppb}, the systematic errors listed here are nevertheless small compared to the Run~1 statistical errors, expected to decrease going forward in future runs.
+Taking the shifts in \wa as the systematic errors, the approximations here are on the order of \SI{50}{} -- \SI{60}{ppb} for the 60h and Endgame datasets, and on the order of \SI{20}{ppb} for the HighKick and 9d datasets. These estimates are the same order of magnitude as determined in other evaluations with slightly different parameters \cite{SudeshnaElbaTalk}. As simulations improve and more studies are undertaken, the uncertainties here may be replaced in favor of actual corrections, in which case the systematic errors would then be the uncertainties in the evaluation of those corrections. While greater than the target goal of \SI{20}{ppb}, the systematic errors listed here are nevertheless small compared to the Run~1 statistical errors, and expected to decrease in future runs.
 
 
 \subsection{Ratio construction systematic errors}
@@ -979,8 +980,6 @@ As described in \secref{sec:MuonBeamMeasurements}, due to the damaged resistors 
 
 \subsection{Systematic error summary}
 
-\textbf{make sure table is filled with all correct updated errors}
-
 \tabref{tab:FinalSystematicErrors} gives all evaluated systematic errors in this analysis as described in the preceding sections. The final total quadrature sums of the systematic errors including the various preliminary and conservative estimates for some errors lie within the range \SI{140}{} -- \SI{200}{ppb}. These are in comparison to the final target goal of \SI{70}{ppb} for the precession frequency measurement. Once the gain issues are resolved and the other working groups improve their systematic uncertainty evaluations, the systematic errors for Run~1 and future runs of E989 will almost certainly reach the target goal. Indeed just removing the stored muon beam systematic error results in systematic errors in the range of \SI{70}{} -- \SI{100}{ppb}, much closer to the target of \SI{70}{ppb}. As the systematic errors stand currently in this analysis, they are all small compared to the Run~1 statistical errors of each respective dataset, making the presented analysis statistics-limited. 
 
 
@@ -1040,7 +1039,7 @@ As described in \secref{sec:MuonBeamMeasurements}, due to the damaged resistors 
 
 
 
-Four datasets from Run~1 of E989 have been analyzed for this dissertation, those being the 60h, HighKick, 9d, and Endgame respectively. In each case the datasets are the not-quite-final datasets for Run~1. Precession frequency analysis was done using the Ratio Method, an analysis technique for fitting the decay positron time spectra which divides out the exponential decay and slow terms in the data. The final results for the blinded frequency \R values for the different datasets along with their total statistical and systematic errors are given in \tabref{tab:FinalResults}. The sum total error for the four datasets analyzed in this report is \SI{474.0}{ppb} assuming completely uncorrelated systematic errors, a reasonable approximation considering the different run conditions between datasets. The analysis is statistics limited, even with the conservative preliminary estimates for certain systematic errors as given in \tabref{tab:FinalSystematicErrors}. The \R values given here can be converted back into the precession frequency \wa using \equref{eq:wablind}, once the datasets have been unblinded at the hardware and software levels. Lastly the E-field and pitch corrections can be applied, where preliminary estimates have been given in \secref{sub:EfieldPitchErrors} for some of the datasets. 
+Four datasets from Run~1 of E989 have been analyzed for this dissertation, those being the 60h, HighKick, 9d, and Endgame respectively. In each case the datasets are the not-quite-final datasets for Run~1. Precession frequency analysis was done using the Ratio Method, an analysis technique for fitting the decay positron time spectra which divides out the exponential decay and slow terms in the data. The final results for the blinded frequency \R values for the different datasets along with their total statistical and systematic errors are given in \tabref{tab:FinalResults}. The sum total error for the four datasets analyzed in this report is \SI{491.2}{ppb} assuming completely uncorrelated systematic errors, a reasonable approximation considering the different run conditions between datasets. The analysis is statistics limited, even with the conservative preliminary estimates for certain systematic errors as given in \tabref{tab:FinalSystematicErrors}. The \R values given here can be converted back into the precession frequency \wa using \equref{eq:wablind}, once the datasets have been unblinded at the hardware and software levels. Lastly the E-field and pitch corrections can be applied, where preliminary estimates have been given in \secref{sub:EfieldPitchErrors} for some of the datasets. 
 
 
 
@@ -1055,15 +1054,16 @@ Four datasets from Run~1 of E989 have been analyzed for this dissertation, those
   \hline\hline
     Dataset & \multicolumn{1}{c}{\R} & \multicolumn{1}{c}{$\sigma_{\text{stat.}}$} & \multicolumn{1}{c}{$\sigma_{\text{sys.}}$} & \multicolumn{1}{c}{$\sigma_{\text{tot.}}$} \\ 
   \hline
-    60h & -20.5562 & 1.3581 & 0.1440 & 1.3657 \\
-    HighKick & -17.4755 & 1.4112 & 0.1382 & 1.4180 \\
-    9d & -17.7182 & 0.9033 & 0.1337 & 0.9132 \\
-    Endgame & -17.3406 & 0.6393 & 0.2021 & 0.6707 \\
+    60h & $-20.5562$ & 1.3581 & 0.1440 & 1.3657 \\
+    HighKick & $-17.4755$ & 1.4112 & 0.1382 & 1.4180 \\
+    9d & $-17.7182$ & 0.9033 & 0.1337 & 0.9132 \\
+    Endgame & $-17.3406$ & 0.6393 & 0.2021 & 0.6707 \\
   \hline
-  Total & & 0.4605 & & 0.4737 \\
+  \multicolumn{2}{l}{Total (systematics 0\% correlated)} & 0.4605 & & 0.4737 \\
+  \multicolumn{2}{l}{Total (systematics 100\% correlated)} & 0.4605 & & 0.4912 \\
   \hline
 \end{tabular*}
-\caption[Run~1 final results]{Run~1 final results for the precession frequency analysis datasets. The \R values given here are mean values of fits to 50 different random seeds. The 60h dataset has a different software blinding than the rest, shown by the different mean \R value. Statistical and systematic errors are included alongside the total error for each dataset. In each dataset case the error is statistics dominated. In the bottom row the total combined errors for the different datasets are shown, where the systematic errors are assumed to be completely uncorrelated. Units are in ppm.}
+\caption[Run~1 final results]{Run~1 final results for the precession frequency analysis datasets. The \R values given here are mean values of fits to 50 different random seeds. The 60h dataset has a different software blinding than the rest, shown by the different mean \R value. Statistical and systematic errors are included alongside the total error for each dataset. In each dataset case the error is statistics dominated. Total combined errors for the different datasets are shown for cases where the systematic errors are assumed to be 0\% and 100\% correlated. Units are in ppm.}
 \label{tab:FinalResults}
 \end{table}
 
