@@ -17,16 +17,18 @@ As a brief aside, every stage of the track reconstruction is performed in the ev
 
 The track finding stage consists of pattern recognition routines in order to group individual hits into separate sets corresponding to individual incident tracks. The general implementation of these pattern recognition routines is relatively straightforward \cite{trackfinding,trackfinding2}. Hits across all modules are grouped in time windows called time islands, with an average width of $\SI{40}{ns}$ and a max width of $\SI{100}{ns}$\footnote{This time scale is set by the characteristic drift time.}. Within those time islands hits are then grouped into clusters. Clusters consist of one or two hits for each U or V view per module. As a reminder the U and V views of a module consist of the two U or V layers in that module, \secref{sec:StrawTrackers}. Hits are only clustered if they lie in close proximity in time and space to one another. The spatial constraint is defined as the difference in hit straw numbers, from 0 to 31 for the 32 straws per layer, which by default is limited to $\leq 4$. Neighboring hit clusters in the same module are then grouped to form seeds, one per module. Finally, seeds are grouped together module by module from one end of the tracker to the other to form what are called track candidates. The seeds are formed and grouped into track candidates again only if they lie close in time and space to one another. The entire track candidate formation process occurs for all hits in a time island to find as many real tracks as possible. See \figref{fig:TrackCandidateSelection}.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{TrackCandidateSelection}
+    \caption[Track candidate selection]{Hits in a tracker station in a single time island. The black dots indicate the position of the straw wires, while the blue and red points indicate hits. In blue is the first formed track candidate in the island, formed from separate seeds in different modules. The track finding algorithms will move onto the remaining hits in the time island to attempt to form other track candidates, one of which is easily observable by eye.}    
+    \label{fig:TrackCandidateSelection}
+\end{figure}
+
 After a track candidate has been formed a number of checks are made before passing it on to the fitting stage. If hits, clusters, or seeds are found to be shared among multiple track candidates, the candidates are dropped. Likewise, a track candidate is dropped if it is made from seeds consisting of only one type of view, or if the track candidate has less than six hits. There are also various small geometry and timing algorithms to improve the track candidates, such as removing hits from secondaries \cite{trackfinding3}. The $t_{0}$ time for the track candidate is calculated as the mean time of all hits, with some fixed offset. The track candidate is supplied with an original momentum and position guess at the start of the track by fitting a circle to the hit straw wires in the horizontal plane. The final track candidates are then passed on to the fitting stage. 
 
 % This $t_{0}$ is helpfully constrained by geometry effects, where for a straight track passing through two layers in the same view, the sum of the drift times adds up to a constant. <- Don't use this yet actually
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\textwidth]{TrackCandidateSelection}
-    \caption[Track candidate selection]{Hits in a tracker station in a single time island. The black dots indicate the position of the straw wires, while the blue and red points indicate hits. In blue is the first formed track candidate in the island, formed from separate seeds in different modules. The track finding algorithms will move onto the remaining hits in the time island to attempt to form other track candidates, one of which is easily observable by eye.}    
-    \label{fig:TrackCandidateSelection}
-\end{figure}
+
 
 % event display tracks
 
@@ -104,10 +106,10 @@ In both free and surface systems the track is represented by one momentum parame
     \label{fig:FreeSurfaceSystems}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.7\textwidth]{trackerReferenceFrame}
-    \caption[Tracker reference frame]{Shown is a model view of a tracker station in relation to the magnetic ring. Tracker modules are shown in white. Around the tracker measurement area is defined a coordinate system called the tracker reference frame. In that frame, the X coordinate is directed outward along the straws nearly radially, the Y coordinate is directed vertically up, and the Z coordinate is directed along the direction that the tracker modules are staggered.}
+  \includegraphics[width=0.55\textwidth]{trackerReferenceFrame}
+    \caption[Tracker reference frame]{Model view of a tracker station in relation to the magnetic ring. Tracker modules are shown in white. Around the tracker measurement area is defined a coordinate system called the tracker reference frame. In this frame, the X coordinate is directed outward along the straws nearly radially, the Y coordinate is directed vertically up, and the Z coordinate is directed along the direction that the tracker modules are staggered.}
     \label{fig:trackerReferenceFrame}
 \end{figure}
 
@@ -368,9 +370,11 @@ Because $\sigma$ is such a large matrix, $5N \times 5N$ where $N$ ranges from \S
 
 \subsection{Fits to simulated tracks including material effects}
 
-Once the material correlations are properly included, the \chisq distribution is repaired, as shown in \figref{fig:MaterialGoodnessOfFit}. The plots in this section show the results of the track fitting in the full \gmtwo Geant4 simulation with material effects turned on. Truth measurements with \mum{150} Gaussian smearing are once again used as the measured hits, and a cut of $\SI{3}{\MeV}$ on the true simulated energy loss is made to remove kinked tracks which would result in poor fits from hard energy loss physics processes. The comparison between the simulated and reconstructed energy loss for fitted tracks is shown in \figref{fig:EnergyLossComparison}. While there is a noticeable difference, the energy loss in general is small so it is acceptable. Truth pulls for the tracks are shown in \figref{fig:MaterialTruthPulls}. It can be seen that there is a slight spread in results due to the material effects. This is to be expected given the non-Gaussian nature of the processes, and the vast majority of tracks still fit well. The number of iterations it takes to fit a track is shown in \figref{fig:Iterations}. The number of planes a track hits and the corresponding momentum dependence is shown in \figref{fig:NumberOfPlanesHit}. The total momentum distribution and residuals to truth are shown in \figref{fig:MaterialTotalMomentum}. The track fitting has a momentum resolution of approximately 2\% with just a slight dependence on the momentum of the track.
+Once the material correlations are properly included, the \chisq distribution is repaired as shown in \figref{fig:MaterialGoodnessOfFit}. The plots in this section show the results of the track fitting in the full \gmtwo Geant4 simulation with material effects turned on. Truth measurements with \mum{150} Gaussian smearing are once again used as the measured hits, and a cut of $\SI{3}{\MeV}$ on the true simulated energy loss is made to remove kinked tracks which would result in poor fits from hard energy loss physics processes. The comparison between the simulated and reconstructed energy loss for fitted tracks is shown in \figref{fig:EnergyLossComparison}. Truth pulls for the tracks are shown in \figref{fig:MaterialTruthPulls}. It can be seen that there is a slight spread in results due to the material effects. This is to be expected given the non-Gaussian nature of the processes, and the vast majority of tracks still fit well. The number of iterations it takes to fit a track is shown in \figref{fig:Iterations}. The number of planes a track hits and the corresponding momentum dependence is shown in \figref{fig:NumberOfPlanesHit}. The total momentum distribution and residuals to truth are shown in \figref{fig:MaterialTotalMomentum}. The track fitting has a momentum resolution of approximately 2\%.
 
-After the track fitting has determined the best fit parameters in the $UV$ space, the returned parameters can be turned back into the tracker reference frame coordinates. Plots for the fitted vertical and horizontal momenta, positions, and corresponding residuals are shown in Figures~\ref{fig:MaterialFittedMomentaComponents} and \ref{fig:MaterialFittedPositionComponents}. The forward momenta plots are omitted since the majority of the total momenta is in the forward direction. More extensive plots than what is shown here can be found in \refref{trackfittingdoc}.
+ % The number of iterations it takes to fit a track is shown in \figref{fig:Iterations}.
+
+After the track fitting has determined the best fit parameters in the $UV$ space, the returned parameters can be turned back into the tracker reference frame coordinates. Plots for the fitted vertical and horizontal momenta, positions, and corresponding residuals are shown in Figures~\ref{fig:MaterialFittedMomentaComponents} and \ref{fig:MaterialFittedPositionComponents}. More extensive plots than what is shown here can be found in \refref{trackfittingdoc}.
 
 
     \begin{figure}
@@ -389,12 +393,14 @@ After the track fitting has determined the best fit parameters in the $UV$ space
     \label{fig:MaterialGoodnessOfFit}
     \end{figure}
 
-    \begin{figure}
+    \begin{figure}[H]
       \centering
-      \includegraphics[width=.6\textwidth]{MaterialTruthLR_EnergyLost}
-        \caption[Simulated true energy loss vs Geane predicted energy loss for tracks]{Simulated true energy loss (black) vs Geane predicted energy loss (red) for fitted tracks. As shown there is a mismatch between the two. This is acceptable as the energy loss is in general very small compared to the total momentum of each track, $200\keV \ll 2 \GeV$. Sources of energy loss come from ionization and bremsstrahlung processes, which account for the long Landau tail running off to infinity. Originally the Geane physics calculations were taking too much energy away due to bremsstrahlung processes in our low material tracker, so the energy loss calculations were modified slightly \cite{trackfittingdoc}.}
+      \includegraphics[width=.7\textwidth]{MaterialTruthLR_EnergyLost}
+        \caption[Simulated true energy loss vs Geane predicted energy loss for tracks]{Simulated true energy loss (black) vs Geane predicted energy loss (red) for fitted tracks. The mismatch between the two is acceptable as the energy loss is in general very small compared to the total momentum of each track, $200\keV \ll 2 \GeV$. Sources of energy loss come from ionization and bremsstrahlung processes. Originally the Geane physics calculations were taking too much energy away due to bremsstrahlung processes in our low material tracker, so the energy loss calculations were modified slightly \cite{trackfittingdoc}.}
         \label{fig:EnergyLossComparison}
     \end{figure}
+
+% which account for the long Landau tail running off to infinity
 
     \begin{figure}
     \centering
@@ -717,7 +723,7 @@ All stages of the track reconstruction have ultimately facilitated the goal of d
 
 
 
-First, a radial slice of the extrapolated beam distribution is shown in \figref{fig:BeamCrossSection}. As shown the beam is off-center due to the lower than nominal kicker voltage used in Run~1 as described in \secref{sec:Run1}. The radial and vertical projections of this cross-section are shown in \figref{fig:RadialVerticalProjections}. The vertical distribution is very similar to that from the track fitting results, while the radial distribution of the stored muons has a non-Gaussian shape due to the storage procedure of the muons. Because the beam is moving in time and these distributions include tracks of all times, these two distributions in general are wider than they actually are at a single point in time. \tabref{tab:MuonBeamParameters} gives the measured values of the beam parameters corresponding to the various datasets for all times. \figref{fig:RadialVerticalVsTime} shows the radial and vertical distributions of the muon beam as a function of time in-fill, with the means plotted in \figref{fig:RadialVerticalMeans}. Because of the bad quadrupole resistors as described in \secref{sec:Run1}, the beam was stored at a greater vertical position than the center of the storage ring, and slowly moved downwards over the course of a fill. Similarly, the vertical width of the beam was seen to decrease slowly over the course of a fill. These trends are shown in \figref{fig:BeamVerticalInfo}.
+First, a radial slice of the extrapolated beam distribution is shown in \figref{fig:BeamCrossSection}. As shown the beam is off-center due to the lower than nominal kicker voltage used in Run~1 as described in \secref{sec:Run1}. The radial and vertical projections of this cross-section are shown in \figref{fig:RadialVerticalProjections}. The vertical distribution is very similar to that from the track fitting results, while the radial distribution of the stored muons has a non-Gaussian shape due to the storage procedure of the muons. Because the beam is moving in time and these distributions include tracks of all times, these two distributions in general are wider than they actually are at a single point in time. \tabref{tab:MuonBeamParameters} gives the measured values of the beam parameters corresponding to the various datasets for all times. \figref{fig:RadialVerticalVsTime} shows the radial and vertical distributions of the muon beam as a function of time in-fill, with the means plotted in \figref{fig:RadialVerticalMeans}. Because of the bad quadrupole resistors as described in \secref{sec:Run1}, the beam was stored at a greater vertical position than the center of the storage ring, and slowly moved downwards over the course of a fill. Similarly, the vertical width of the beam was seen to decrease slowly over the course of a fill; \figref{fig:BeamVerticalInfo}.
 
 
 
