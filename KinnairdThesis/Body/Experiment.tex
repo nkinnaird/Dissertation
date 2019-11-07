@@ -332,13 +332,13 @@ A specialized magnet called the ``Superconducting Inflector'' magnet, or just in
 \end{figure}
 
 
-Once the muons have been injected into the ring, they will begin orbiting clockwise around the ring, decaying with a lifetime of $\SI{64.4}{\micro s}$.  The E989 experiment and storage ring are shown in \figref{fig:ring}. By necessity, the inflector must be out of the stored muon beam path, otherwise a large fraction of the muons would be lost upon the return to the injection point as the muons would strike the inflector. Therefore the muon beam must be kicked to move the beam path from the injection orbit onto the central orbit of the storage ring. The muon beam must also be contained vertically. To perform the former, a magnetic ``kicker'' is used to shift the orbits of the muons. To perform the latter, a series of electrostatic quadrupoles focus the beam vertically. Approximately 2\% of the injected muons are stored with $\Delta p / p = 0.1\%$ centered around $\SI{3.094}{\GeV/c}$, corresponding to a design goal of $\mathcal{O}(10,000)$ stored muons per fill.
+Once the muons have been injected into the ring, they will begin orbiting clockwise around the ring, decaying with a lifetime of approximately $\SI{64.44}{\micro s}$.  The E989 experiment and storage ring are shown in \figref{fig:ring}. By necessity, the inflector must be out of the stored muon beam path, otherwise a large fraction of the muons would be lost upon the return to the injection point as the muons would strike the inflector. Therefore the muon beam must be kicked to move the beam path from the injection orbit onto the central orbit of the storage ring. The muon beam must also be contained vertically. To perform the former, a magnetic ``kicker'' is used to shift the orbits of the muons. To perform the latter, a series of electrostatic quadrupoles focus the beam vertically. Approximately 2\% of the injected muons are stored with $\Delta p / p = 0.1\%$ centered around $\SI{3.094}{\GeV/c}$, corresponding to a design goal of $\mathcal{O}(10,000)$ stored muons per fill.
 
 
 \subsection{Kicker}
 \label{sub:kicker}
 
-The kicker is made up of three separate pulsed magnets located 90\textdegree{} from the exit of the inflector, where the injection orbit crosses the central orbit. The placement of the kickers is shown in \figref{fig:vacmap}. The kicker must be located within the precision magnetic field of the ring, and must therefore contain no magnetic elements in the hardware itself. For this reason each kicker magnet is made up of two thin $\SI{1.27}{m}$ long aluminum plates, separated by $\SI{10}{cm}$, which carry the current used to create the kicking magnetic field. Due to the bunched nature of the muon beam and the short cyclotron period of $\SI{149}{ns}$, ideally the kicker moves all injected muons onto the central orbit and then turns off quickly such that by the time the muons orbit back around to the kicker there is no residual kick to the beam. Any residual eddy currents must die away quickly enough such that the magnetic field seen by the stored muons is unperturbed. The design deflection of the beam is approximately $\SI{10}{mrad}$ using a vertical pulsed field of around $\SI{300}{Gauss}$ (corresponding to kicker plate voltages of $\mathcal{O(\SI{155}{kV})}$) with a pulse length of about $\SI{120}{ns}$ \cite{TDR}. The operational kicker performance in Run 1 was less, as described in \secref{sec:Run1}.
+The kicker is made up of three separate pulsed magnets located 90\textdegree{} from the exit of the inflector, where the injection orbit crosses the central orbit. The placement of the kickers is shown in \figref{fig:vacmap}. The kicker must be located within the precision magnetic field of the ring, and must therefore contain no magnetic elements in the hardware itself. For this reason each kicker magnet is made up of two thin $\SI{1.27}{m}$ long aluminum plates, separated by $\SI{10}{cm}$, which carry the current used to create the kicking magnetic field. Due to the bunched nature of the muon beam and the short cyclotron period of $\SI{149}{ns}$, ideally the kicker moves all injected muons onto the central orbit and then turns off quickly such that by the time the muons orbit back around to the kicker there is no residual kick to the beam. Any residual eddy currents must die away quickly enough such that the magnetic field seen by the stored muons is unperturbed. The design deflection of the beam is approximately $\SI{10}{mrad}$ using a vertical pulsed field of around $\SI{300}{Gauss}$ (corresponding to kicker plate voltages of $\mathcal{O(\SI{155}{kV})}$) with a pulse length of about $\SI{120}{ns}$ \cite{TDR}. The operational kicker performance in Run 1 was less, and is described in \secref{sec:Run1}.
 
 
 %A picture of one of the kickers installed into the vacuum chamber is shown in 
@@ -370,7 +370,7 @@ There are four electrostatic quadrupoles located around the ring as shown in \fi
 \end{figure}
 
 
-Some of the stored muons will be lost during data taking that can adversely affect the measurement of the spin difference frequency \wa. See \secref{subsec:lostmuons}. In order to reduce the number of lost muons, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that are more likely to be lost at later times. This scraping procedure involves powering the quadrupole voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. These collimators have a radius of $\SI{45}{mm}$ and define the storage region aperture. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \mus{8}, such that by \mus{30} the beam is stable and centered due to the characteristic RC time constant of the system. The operational performance of the quadrupoles in Run 1 is described in \secref{sec:Run1}, where it was found that the quads had a longer RC time constant than the design.
+Some of the stored muons will be lost during data taking that can adversely affect the measurement of the spin difference frequency \wa. See \secref{subsec:lostmuons}. In order to reduce the number of lost muons, a procedure called ``scraping'' is used to remove those muons sitting at the edge of the storage region that are more likely to be lost at later times. This scraping procedure involves powering the quadrupole voltages in an asymmetric way such that the beam is pushed to the outside of the storage region, where the edges of the beam will intersect copper collimators. These collimators have a radius of $\SI{45}{mm}$ and define the storage region aperture. Muons which hit the collimators will lose energy and be lost as they spiral out of the ring. The scraping procedure is performed early in the fill and ends at \mus{8}, such that by \mus{30} the beam is stable and centered due to the characteristic RC time constant of the system. The operational performance of the quadrupoles in Run 1 is described in \secref{sec:Run1}, where it was found that some of the quadrupoles had longer RC time constants than the design.
 
 
 
@@ -426,7 +426,7 @@ where $x_{max}$ and $y_{max}$ are both equal to the radius of the storage region
 \end{table}
 
 
-As the muon beam goes around the ring, the muons will experience local field gradients and inhomogeneities. The muons will inevitably pass through the perturbations many times. However, if they don't pass through the perturbations at the same phases of their betatron motion, the amplitude of the would-be resonant oscillation won't continue to grow. The tunes are chosen to avoid these resonances by having the muons sample the entire azimuth of the ring equally, thus keeping the beam stored. The general resonance condition is \cite{Wiedermann}
+As the muon beam goes around the ring, the muons will experience local field gradients and inhomogeneities. The muons will inevitably pass through the present perturbations many times. As long as the muons do not pass through the perturbations at the same phases of their respective betatron motions, the amplitudes of any would-be resonant oscillations will not grow. The tunes are chosen to avoid these resonances by having the muons sample the entire azimuth of the ring equally, thus keeping the beam stored. The general resonance condition is \cite{Wiedermann}
         \begin{align}
             a \nu_{x} + b \nu_{y} = c,
         \label{eq:tunecondition}
@@ -445,7 +445,7 @@ which constrains the available $n$ values that can be chosen. \figref{fig:tunepl
 \begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{tuneplane}
-    \caption[Tune plane]{The tune plane, with the $\nu_{x}^{2} + \nu_{y}^{2} = 1$ constraint in red. The chosen value of $n$ lies on this circle. The original design goals for E989 were the $n$ values as shown by the red points, but due to hardware issues smaller $n$ values of 0.108 and 0.120 were chosen as described in \secref{sec:Run1}.}
+    \caption[Tune plane]{The tune plane, with the $\nu_{x}^{2} + \nu_{y}^{2} = 1$ constraint in red. The value of $n$ lies on this circle. Intersections with the black lines correspond to potential resonances. The original design points for the E989 $n$ values are shown by the red points, but due to hardware issues smaller $n$ values of 0.108 and 0.120 were used.}
     \label{fig:tuneplane}
 \end{figure}
 
@@ -464,13 +464,13 @@ There is also a vertical CBO effect, but the non-aliased rate of oscillation is 
         \begin{align} \label{eq:VWfreq}
             f_{VW} = f_{c}-2f_{y_{BO}},
         \end{align}
-where the term \textit{waist} refers to the minimum vertical width. Both of these frequencies are included in \tabref{tab:frequencies}. The phase of the CBO signal varies systematically by detector, from 0 \SIrange{0}{2\pi}{} around the ring. When adding all of the detector signals together, the CBO oscillations tend to cancel out. However, due to acceptance differences between the different detectors, the CBO oscillations are still observable in the data. When fitting the data to extract \wa, these effects must be accounted for in the fit function, as will be discussed in \secref{sub:cboterms}.
+where the term \textit{waist} refers to the minimum vertical width. Both of these frequencies are included in \tabref{tab:frequencies}. The phase of the CBO signal varies systematically by detector, from 0--$2\pi$ around the ring. When adding all of the detector signals together, the CBO oscillations tend to cancel out. However, due to acceptance differences between the different detectors, the CBO oscillations are still observable in the data. When fitting the data to extract \wa, these effects must be accounted for in the fit function, as will be discussed in \secref{sub:cboterms}.
 
 
 \begin{figure}
     \centering
     \includegraphics[width=.6\textwidth]{cbo}
-    \caption[Coherent betatron oscillation]{Marked by the black vertical lines are integer steps in the circumference of the ring, corresponding to the cyclotron wavelength $\lambda_{c}$. The blue line shows the motion of the beam due to the betatron oscillations $\lambda_{x}$. Since $\lambda_{x} > \lambda_{c}/2$, there is an aliasing effect in the observed signal, which is identified by the red line. To a single detector the beam appears to move slowly back and forth with $f_{CBO}$.}
+    \caption[Coherent betatron oscillation]{Diagram describing the coherent betatron motion of the beam. Marked by the black vertical lines are integer steps in the circumference of the ring, corresponding to the cyclotron wavelength $\lambda_{c}$. The blue line shows the motion of the beam due to the betatron oscillations with wavelength $\lambda_{x}$. Since $\lambda_{x} > \lambda_{c}/2$, there is an aliasing effect in the observed signal, which is identified by the red line. To a single detector the beam appears to move slowly back and forth with $f_{CBO}$.}
     \label{fig:cbo}
 \end{figure}
 
@@ -478,7 +478,7 @@ where the term \textit{waist} refers to the minimum vertical width. Both of thes
 \subsection{Beam debunching}
 \label{sub:beam_debunching}
 
-As described in Sections~\ref{sec:Accelerator} and \ref{sec:injection}, the muon beam is injected into the ring with a time spread of $\SI{120}{ns}$ and a range of momenta. At early times the beam will occupy a portion of the ring less than the whole since the cyclotron period is $\SI{\sim149}{ns}$. At initial injection, detectors located at discrete points around the ring see a high intensity as the beam passes by and low intensity when it is on the other side of the ring. The cyclotron period of each muon is determined by its particular momentum which gives its radius of orbit. Higher momentum muons have a larger radius and therefore larger distance to travel, thus taking longer to circulate the ring than lower momentum muons. This leads to the low momentum muons in the head of the bunch catching up with the high momentum muons in the tail, such that the gaps in between each passing of the beam bunch are reduced. By \mus{30} the muon beam has gone around the ring two hundred times and the gaps with no beam have reduced so much that the intensity is near-uniform. The varying intensity from the beam bunching is referred to as the ``fast rotation'' signal. This debunching signal is seen in the data as shown in \figref{fig:fastrotation}. When dealing with the data and attempting to extract \wa, the typical procedure is to both bin out the fast rotation in periods of the cyclotron frequency, and to randomize each hit time by $\pm T_{c}/2$ where $T_{c}$ is the cyclotron period. In this way the fast rotation is removed entirely and the effect can be ignored in the fitting procedure for \wa.
+The muon beam is injected into the ring with a time spread of $\SI{120}{ns}$ and a range of momenta. At early times the beam will occupy a portion of the ring less than the whole since the cyclotron period is $\SI{\sim149}{ns}$. At initial injection, detectors located at discrete points around the ring see a high intensity as the beam passes by and low intensity when it is on the other side of the ring. The cyclotron period of each muon is determined by its particular momentum which gives its radius of orbit. Higher momentum muons have a larger radius and therefore larger distance to travel, thus taking longer to circulate the ring than lower momentum muons. This leads to the low momentum muons in the head of the bunch catching up with the high momentum muons in the tail, such that the gaps in between each passing of the beam bunch are reduced. By \mus{30} the muon beam has gone around the ring two hundred times and the gaps with no beam have reduced so much that the intensity is near-uniform. The varying intensity from the beam bunching is referred to as the ``fast rotation'' signal. This debunching signal is seen in the data as shown in \figref{fig:fastrotation}. When dealing with the data and attempting to extract \wa, the typical procedure is to both bin out the fast rotation in periods of the cyclotron frequency, and to randomize each hit time by $\pm T_{c}/2$ where $T_{c}$ is the cyclotron period. In this way the fast rotation is removed entirely and the effect can be ignored in the fitting procedure for \wa.
 
 
 \begin{figure}
@@ -503,9 +503,9 @@ In the presence of an electric field, the spin difference frequency is altered t
         \begin{align} \label{eq:waelectric}
             \vec{\omega}_{a} = -\frac{q}{m} [a\vec{B} - \Big(a - \frac{1}{\gamma^{2}-1}\Big)(\vec{\beta} \times \vec{E}) ],
         \end{align}
-where now there is an extra term dependent on the electric field strength and the momentum of the particles. This extra term originates from the motional magnetic field $\vec{\beta} \times \vec{E}$ that relativistic particles experience in an electric field. This is necessary to include since we use electrostatic quadrupoles for vertical focusing as described above.  The second term cancels to first order for a specific momentum or value of $\gamma$. This ``magic momentum'' can be understood as the momentum at which a relativistic particle moving through an electric field has its spin exactly follow its momentum. This magic momentum is $\SI{3.094}{\GeV}$ for muons, hence the momentum value of the injected muons. This value sets the energy and time scales of the experiment and has driven many of the design constraints, including the size of the storage ring, choice of the magnetic field magnitude, etc.
+where now there is an extra term dependent on the electric field strength and the momentum of the particles. This extra term originates from the motional magnetic field $\vec{\beta} \times \vec{E}$ that relativistic particles experience in an electric field. This is necessary to include since we use electrostatic quadrupoles for vertical focusing as described above.  The second term cancels to first order for a specific momentum. This ``magic momentum'' can be understood as the momentum at which a relativistic particle moving through an electric field has its spin exactly follow its momentum. This magic momentum is $\SI{3.094}{\GeV}$ for muon, with $\gamma \approx 29.3$. This value sets the energy and time scales of the experiment and has driven many of the design constraints, including the size of the storage ring, choice of the magnetic field magnitude, etc.
 
-Not all muons will have the magic momentum however as described in the \secref{sub:beam_debunching}, and therefore a correction to the measured \wa frequency needs to be applied. Approximating the storage ring as having an electric field applied over the whole azimuth of the ring, the spin difference frequency for muons with momentum $p \neq p_{m}$ (where $p_{m}$ is the magic momentum) becomes  
+Not all muons will have the magic momentum however as described in the \secref{sub:beam_debunching}, and therefore a correction to the measured \wa frequency needs to be applied. Approximating the storage ring as having an electric field applied over the whole azimuth of the ring, the spin difference frequency for muons with momentum $p \neq p_{m}$, where $p_{m}$ is the magic momentum, becomes  
         \begin{align} \label{eq:waEfield}
             \omega_{a}' = \omega_{a} \Big[ 1 - \beta \frac{E_{r}}{c B_{y}} \Big( 1 - \frac{1}{a \beta^{2} \gamma^{2}} \Big) \Big].
         \end{align}
@@ -517,7 +517,7 @@ The last fraction can be related to the field index described in \equref{eq:fiel
         \begin{align}
             \frac{\Delta p}{p_{m}} = (1-n) \frac{\Delta R}{R_{0}} = (1-n) \frac{x_{e}}{R_{0}}, 
         \end{align}
-since we know that the magic momentum muons are at the central radius $R_{0}$ of the storage ring. In this equation $x_{e} = \Delta R$ is the equilibrium radius of the muon relative to the central storage radius. Noting that the radial electric field strength for a quadrupole is 
+since we know that the magic momentum muons orbit at the central radius $R_{0}$ of the storage ring. In this equation $x_{e} = \Delta R$ is the equilibrium radius of the muon beam relative to the central storage radius. Noting that the radial electric field strength for a quadrupole is 
         \begin{align}
             E = \kappa x = \frac{n \beta c B_{y}}{R_{0}} x,
         \end{align}
@@ -529,7 +529,7 @@ Taking the time average of the beam motion, where $x$ is simply equal to $x_{e}$
         \begin{align}
             C_{\text{E}} = -2n (1-n) \beta^{2} \frac{\langle x_{e}^{2} \rangle}{R_{0}^{2}}.
         \end{align}
-Since the equilibrium radius of the beam is set by the momentum distribution of the muons, this electric field correction can be determined by a measurement of the momentum spread of the beam which comes from an analysis of the fast rotation \cite{fastrotation1,fastrotation2}. For the precision goal of E989, the assumptions made in this derivation are acceptable \cite{TDR} and results will be cross-checked with spin-tracking simulations as was done in E821 \cite{E821FinalReport}. In E821 the electric field correction was approximately $\SI{500}{ppb}$ on \wa \cite{E821FinalReport}. In E989 the scale of the correction will be the same considering the experimental principles are identical, \secref{sub:EfieldPitchErrors}.
+Since the equilibrium radius of the beam is set by the momentum distribution of the muons, this electric field correction can be determined by a measurement of the momentum spread of the beam which comes from an analysis of the fast rotation \cite{fastrotation1,fastrotation2}. For the precision goal of E989, the assumptions made in this derivation are acceptable \cite{TDR} and results will be cross-checked with spin-tracking simulations as was done in E821 \cite{E821FinalReport}. In E821 the electric field correction was approximately $\SI{500}{ppb}$ on \wa \cite{E821FinalReport}. In E989 the scale of the correction is the same considering the experimental principles are identical, \secref{sub:EfieldPitchErrors}.
 
 
 % Small corrections to the electric field correction due to the non-linearity and non-uniformity of the quadrupoles, as well as the assumptions made in this derivation, are discussed in \refref{}.
@@ -539,18 +539,18 @@ Since the equilibrium radius of the beam is set by the momentum distribution of 
 \subsection{Pitch correction}
 \label{sub:pitch_correction}
 
-Particles injected into the \gmtwo storage ring will have a vertical component of momentum which is parallel to the magnetic field vector (hence the need for vertically focusing electrostatic quadrupoles). This will slightly reduce the magnetic field seen by the muons in their rest frame. Including this motion into the spin difference frequency, \wa becomes
+Particles injected into the \gmtwo storage ring will have a vertical component of momentum which is parallel to the magnetic field vector (hence the need for vertically focusing electrostatic quadrupoles). This will slightly reduce the magnetic field seen by the muons in their rest frames. Including this motion into the spin difference frequency, \wa becomes
         \begin{align} \label{eq:wapitch}
             \vec{\omega}_{a} = -\frac{q}{m} [a\vec{B} - a \Big(\frac{\gamma}{\gamma+1}\Big)(\vec{\beta} \cdot \vec{B})\vec{\beta}],
         \end{align}
 where now there is an extra term dependent on the vertical betatron motion of the beam. Similar to the electric field case, this term can be neglected to first order as the muon momentum is nearly all perpendicular to the field, but a correction again needs to be applied to \wa to account for this effect.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=.3\textwidth]{PitchAxes}
-    \caption[Pitching beam motion]{Beam motion $\beta$ relative to the vertical and azimuthal axes Y and Z respectively. $\psi$ is the pitch angle of the beam, and the dashed lines represent the parallel and perpendicular motions of the beam.}   
-    \label{fig:PitchAxes}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=.3\textwidth]{PitchAxes}
+%     \caption[Pitching beam motion]{Beam motion $\beta$ relative to the vertical and azimuthal axes Y and Z respectively. $\psi$ is the pitch angle of the beam, and the dashed lines represent the parallel and perpendicular motions of the beam.}   
+%     \label{fig:PitchAxes}
+% \end{figure}
 
 Since the muons in the storage ring will be oscillating vertically as they are focused by the quadrupoles, their momentum vectors will be pitching up and down relative to the azimuthal motion. This pitch angle will oscillate as
         \begin{align} \label{eq:psi}
@@ -569,7 +569,15 @@ Using the small angle approximation such that $\cos(\psi) \approx 1$ and $\sin(\
             \omega_{ay} &= \omega_{a}\Big[ 1 - \Big(\frac{\gamma-1}{\gamma}\Big) \psi^{2} \Big], \\     
             \omega_{az} &= -\omega_{a} \Big(\frac{\gamma-1}{\gamma}\Big) \psi.
         \end{align}
-Looking at \figref{fig:PitchAxes} again, it can be seen that the spin difference frequency can be resolved into its parallel and perpendicular components $\omega_{\parallel}$ and $\omega_{\perp}$ respectively. As the pitch angle of the beam motion oscillates about the azimuthal axes at a frequency much greater than the \gmtwo frequency, it can be seen that the parallel component averages to 0 over time. We then only care about the perpendicular oscillation of the beam, which can be determined with a simple rotation matrix such that
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.3\textwidth]{PitchAxes}
+    \caption[Pitching beam motion]{Beam motion $\beta$ relative to the vertical and azimuthal axes Y and Z respectively. $\psi$ is the pitch angle of the beam, and the dashed lines represent the parallel and perpendicular motions of the beam.}   
+    \label{fig:PitchAxes}
+\end{figure}
+
+Looking at \figref{fig:PitchAxes} again, it can be seen that the spin difference frequency can be resolved into its parallel and perpendicular components $\omega_{\parallel}$ and $\omega_{\perp}$ respectively. As the pitch angle of the beam motion oscillates about the azimuthal axes at a frequency much greater than the \gmtwo frequency, it can be assumed that the parallel component averages to 0 over time. The perpendicular oscillation of the beam then becomes the important quantity, which can be determined with a simple rotation matrix such that
         \begin{align}
             \omega_{a} \approx \omega_{\perp} = \omega_{ay} \cos(\psi) - \omega_{az}\sin(\psi) \approx \omega_{a} \Big[ 1 - \frac{\psi^{2}}{2} \Big],
         \end{align}
@@ -577,7 +585,7 @@ where in the last approximation the small angle approximation was used once agai
         \begin{align}
             C_{\text{P}} = \frac{\Delta\omega_{a}}{\omega_{a}} = - \frac{\langle \psi^{2} \rangle}{2}.
         \end{align}
-The pitch angle of the beam cannot be measured directly, however we know from \equref{eq:maxangles} that the angle of the beam can be related to the vertical distribution of the beam, such that 
+The pitch angle of the beam cannot be measured directly, however the angle of the beam can be related to the vertical distribution of the beam with \equref{eq:maxangles} that, such that 
         \begin{align}
             C_{\text{P}} = - \frac{n}{2} \frac{\langle y^{2} \rangle}{R_{0}^{2}},
         \end{align}
@@ -591,6 +599,12 @@ where once again $n$ is the field index, $R_{0}$ is the radius of the ring at th
 
 
 Run 1 for E989 was conducted in the first half of 2018. Production data were gathered from March 22nd through June 29th. Because of accelerator, experimental, and practical concerns common to the early stages of production running, production data taking was interrupted at various dates. Due to hardware issues both kicker and quadrupole voltages were originally lowered from their design values. Various voltage set points for both systems were identified and used in separate periods of the data taking, depending on the stabilities of the systems. The primary precession frequency analysis datasets gathered by E989 and their associated running parameters are shown in \tabref{tab:Run1Datasets}. Other datasets were gathered but they were not used to calculate the precession frequency in this analysis\footnote{Specifically it is expected to include the LowKick dataset in future analyses, which has approximately 80\% of the statistics of the 60h dataset.}. 
+
+
+Due to the lower kicker voltages, the muon beam was stored on a central radius $\sim\SI{7}{mm}$ offset from the central orbit of the storage ring. The associated number of stored muons per fill for Run 1 as a result of the lower kicker voltage was $\mathcal{O}(4,000)$, down from the $\mathcal{O}(10,000)$ design goal. The chosen quadrupole voltages were 18.3 and $\SI{20.4}{kV}$, corresponding to $n$ values of 0.108 and 0.120 respectively \cite{tunetable}\footnote{The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.}. During Run 1 it was discovered that some of the quadrupole resistors were damaged. They had longer RC time constants such that the quadrupole voltages had not reached nominal values at the beginning of the designated analysis portion of the data at \mus{30}, and were still changing over the course of a fill, see \figref{fig:QuadTraces}. The muon beam was seen to move as a function of time in-fill as a consequence of this, beyond the ordinary CBO motion of the beam. See \secref{sec:MuonBeamMeasurements} for a summary of the muon beam characteristics for Run 1.
+
+
+All data listed in \tabref{tab:Run1Datasets} were quality checked. If run conditions were found to be unsatisfactory, the associated data was flagged and ignored in the analysis. A summary of the data quality control procedure is given in \refref{DQCSummary}, and the exact data quality parameters for the 60h dataset are detailed in \refref{DQC60H}. The total number of detected positrons above threshold that passed the data quality control was approximately $\SI{1e10}{}$, corresponding to a statistical error on \wa of $\sim\SI{400}{ppb}$, as calculated with \equref{eq:waprecision}.
 
 
 \begin{landscape}
@@ -620,8 +634,6 @@ Run 1 for E989 was conducted in the first half of 2018. Production data were gat
 \end{landscape}
 
 
-Due to the lower kicker voltages, the muon beam was stored on a central radius $\sim\SI{7}{mm}$ offset from the central orbit of the storage ring. The associated number of stored muons per fill for Run 1 as a result of the lower kicker voltage was $\mathcal{O}(4,000)$, down from the $\mathcal{O}(10,000)$ design goal. The chosen quadrupole voltages were 18.3 and $\SI{20.4}{kV}$, corresponding to $n$ values of 0.108 and 0.120 respectively \cite{tunetable}\footnote{The associated betatron wavelengths are 1.06 and 3.04 times the circumference of the storage ring respectively.}. During Run 1 it was discovered that some of the quadrupole resistors were damaged. They had longer RC time constants such that the quadrupole voltages had not reached nominal values at the beginning of the designated analysis portion of the data at \mus{30}, and were still changing over the course of a fill, see \figref{fig:QuadTraces}. The muon beam was seen to move as a function of time in-fill as a consequence of this. See \secref{sec:MuonBeamMeasurements} for a summary of the muon beam characteristics for Run 1. As described in various sections in this chapter and in \secref{sec:MuonBeamMeasurements}, these muon beam characteristics fold into the measurement of \gmtwo in a variety of ways.
-
 \begin{figure}
     \centering
     \includegraphics[width=.8\textwidth]{QuadTraces}
@@ -630,7 +642,6 @@ Due to the lower kicker voltages, the muon beam was stored on a central radius $
 \end{figure}
 
 
-All data listed in \tabref{tab:Run1Datasets} were quality checked. If run conditions were found to be unsatisfactory, the associated data was flagged and ignored in the analysis. A summary of the data quality control procedure is given in \refref{DQCSummary}, and the exact data quality parameters for the 60h dataset are detailed in \refref{DQC60H}. The total number of detected positrons above threshold that passed the data quality control was approximately $\SI{1e10}{}$, corresponding to a statistical error on \wa of $\sim\SI{400}{ppb}$, as calculated with \equref{eq:waprecision}.
 
 
 
