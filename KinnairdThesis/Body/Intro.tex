@@ -469,32 +469,42 @@ corresponding to a discrepancy of nearly four standard deviations from zero.
 \label{sec:BSM}
 
 
-While the discrepancy between experiment and theory might be attributed to miscalculations in the theory or systematic errors in the E821 experiment, no such errors have been found despite repeated attempts to resolve the two. Indeed the discrepancy has only grown over time as the theoretical calculations have matured. The most intriguing and exciting source of the discrepancy would be physics beyond the standard model (BSM), \figref{fig:BSM}. Since the value of \amu receives contributions from all particles that couple to the muon through virtual loops, unknown particles might be the source of this discrepancy. Specifically, since the contribution to the magnetic moment from heavy virtual particles goes as 
+While the discrepancy between experiment and theory might be attributed to miscalculations in the theory or systematic errors in the E821 experiment (or a very rare statistical fluctuation), no such errors have been found despite repeated attempts to resolve the two. Indeed the discrepancy has only grown over time as the theoretical calculations have matured. The most intriguing and exciting source of the discrepancy would be physics beyond the standard model (BSM). 
+
+
+% put in here along with the paragraph below possible explanations with new physics - they don't need to be comprehensive, just a couple of paragraphs and summary sentences - if my committee wants improvements they can give me updates
+
+
+Since the value of \amu receives contributions from all particles that couple to the muon through virtual loops, unknown particles might be the source of this discrepancy. Specifically, since the contribution to the magnetic moment from heavy virtual particles goes as 
 		\begin{align}
             a \sim \frac{m^{2}}{\Lambda^{2}},
 		\end{align}
 where $\Lambda$ is the mass scale of the new physics and $m$ the mass of the lepton in question, the sensitivity of the muon as compared to the electron to large mass scales is $ m_{\mu}^{2} / m_{e}^{2} \approx 43,000$ times greater. For this reason, it is possible that even though the g-factor of the electron has been measured extraordinarily precisely, to .26 parts per trillion (ppt) corresponding to a .23 ppb relative uncertainty in $a_{e}$ \cite{ElectronMDM,CODATA}, it has not yielded a definitive difference between theory and experiment, whereas the magnetic moment of the muon might do so\footnote{A recent measurement of the fine structure constant $\alpha$ to the highest precision yet \cite{finestructureBerkeley} has yielded a new value of $a_{e}$ for which the difference between theory and experiment is 2.5 standard deviations, but with the opposite sign as compared to \amu.}.
 
+
+
+
+
 Because the discrepancy from the previous experiment was not at the five standard deviation level necessary to classify it as a discovery, the E989 experiment was undertaken. Indeed with the lack of new physics results coming out of most other experiments, E989 is especially positioned to uncover something new at a time when there are so few hints of new physics. Because of this, the interest in the E821 experiment and it's successor E989 has grown over time. The number of citations for the E821 results has been consistently high for 20 years as shown in \figref{fig:E821Citations}.
 
-\begin{figure}
-\centering
-	\begin{tikzpicture}[baseline=(o.base)]
-	\begin{feynhand}
-	\large
-	\setlength{\feynhandlinesize}{1pt}
-	\vertex [ringblob] (o) at (0,0) {BSM};
-	\vertex (a) at (-2,-2) {$l$}; 
-	\vertex (b) at (2,-2) {$l$}; 
-	\vertex (c) at (0,2) {B};
-	\propag [fermion] (a) to (o);
-	\propag [anti fermion] (b) to (o);
-	\propag [photon] (c) to [edge label = $\gamma$] (o);
-	\end{feynhand}
-	\end{tikzpicture}
-\caption[General diagram for new physics]{A general Feynman diagram, where the leptons couple to an external magnetic field B through some BSM physics. Feynman diagrams made with References \cite{tikz-feynman,tikz-feynhand}.}	
-\label{fig:BSM}
-\end{figure}
+% \begin{figure}
+% \centering
+% 	\begin{tikzpicture}[baseline=(o.base)]
+% 	\begin{feynhand}
+% 	\large
+% 	\setlength{\feynhandlinesize}{1pt}
+% 	\vertex [ringblob] (o) at (0,0) {BSM};
+% 	\vertex (a) at (-2,-2) {$l$}; 
+% 	\vertex (b) at (2,-2) {$l$}; 
+% 	\vertex (c) at (0,2) {B};
+% 	\propag [fermion] (a) to (o);
+% 	\propag [anti fermion] (b) to (o);
+% 	\propag [photon] (c) to [edge label = $\gamma$] (o);
+% 	\end{feynhand}
+% 	\end{tikzpicture}
+% \caption[General diagram for new physics]{A general Feynman diagram, where the leptons couple to an external magnetic field B through some BSM physics. Feynman diagrams made with References \cite{tikz-feynman,tikz-feynhand}.}	
+% \label{fig:BSM}
+% \end{figure}
 
 \begin{figure}
 	\centering
@@ -504,6 +514,6 @@ Because the discrepancy from the previous experiment was not at the five standar
 \end{figure}
 
 
-The E989 experiment has the goal of measuring \amu to 140 ppb over the course of several years. This would be a factor of four improvement over the E821 result stemming from a twenty times increase in statistics, which was dominate error in the previous experiment. Assuming the same central value for \amu is obtained, this would push the statistical significance of the discrepancy over to approximately seven standard deviations, as shown in \figref{fig:AlexKPaperComparison}. The data comprising Run 1, gathered between April and July of 2018, is the subject of this thesis, and corresponds to a statistical uncertainty comparable to the E821 result. The possibility is that we will measure something new and exciting, either in Run 1 or the following runs. However, even if we do not, it is valuable in itself to resolve this theoretical and experimental conflict.
+The E989 experiment has the goal of measuring \amu to 140 ppb over the course of several years. This would be a factor of four improvement over the E821 result stemming from a twenty times increase in statistics, which was dominate error in the previous experiment. Assuming the same central value for \amu is obtained, this would push the statistical significance of the discrepancy over to approximately seven standard deviations, as shown in \figref{fig:AlexKPaperComparison}. The data comprising Run~1, gathered between April and July of 2018, is the subject of this thesis, and corresponds to a statistical uncertainty comparable to the E821 result. The possibility is that we will measure something new and exciting, either in Run 1 or the following runs. However, even if we do not, it is valuable in itself to resolve this theoretical and experimental conflict.
 
 
