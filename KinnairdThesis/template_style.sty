@@ -262,8 +262,8 @@ Approved by\\[2em]
 \begin{center}
 \begin{doublespace}
 {\large
-\MakeUppercase{{\bf \@title}}\\[1em]
- (Order No. \hspace{1.0in})\\[1em]
+\MakeUppercase{{\bf \@title}}\\[\baselineskip]
+ % (Order No. \hspace{1.0in})\\[1em]
 \MakeUppercase{{\bf \@author}}\\[1em]
 \Bu,\ \Gsa, \@degreeyear
 \par
@@ -356,6 +356,7 @@ minus
 \@ifundefined{thechapter}{}{\def\thefigure{\thechapter$\cdot$\arabic{figure}}}
 
 
+% don't actually use the command below with how I've set up my bibliography using biblatex
 %       BIBLIOGRAPHY
 % Scientific-style bibliography: no number, first line indented backwards
 % Note that for proper citations apalike.bst BiBTeX style file and apalike.sty
