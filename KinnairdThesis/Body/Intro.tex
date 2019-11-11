@@ -9,7 +9,7 @@
 The prevailing theory of particle physics, the Standard Model (SM), has had tremendous success in describing our universe. It has been used to predict and explain a wide variety of phenomena, particle properties, and interactions to great precision. However, in spite of its success in explaining nearly all experimental results, there remain unanswered questions about our universe. Some of these include the matter-antimatter asymmetry, the source of mass for the neutrinos, the existence of dark matter, and reconciling general relativity and quantum mechanics. Many particle physics experiments around the world are being devised and conducted in order to shed light on these questions and improve our understanding of reality. One such experiment is the Fermilab Muon \gmtwo Experiment (E989), underway at the Fermi National Accelerator Laboratory (FNAL) located in Batavia, Illinois.
 
 
-This dissertation will describe the E989 experiment and the author's contributions in detail. Chapter 1 will provide experimental and theoretical background to the experiment, as well its motivation. Chapter 2 will describe the experimental principle and specifics of muon production and storage. Chapter 3 will describe the various detector systems. Chapter 4 will describe the straw tracking reconstruction including the track fitting algorithm, as well as some analysis results. Chapter 5 will describe the precession frequency measurement portion of the experiment, and detail analysis results from data taken in the experiment's first run in 2018. Chapter 6 will conclude the dissertation and the results contained within.
+This dissertation will describe the E989 experiment and the author's contributions in detail. Chapter 1 will provide experimental and theoretical background to the experiment, as well its motivation. Chapter 2 will describe the experimental principle and specifics of muon production and storage. Chapter 3 will describe the various detector systems. Chapter 4 will describe the straw tracking reconstruction including the track fitting algorithm, as well as some analysis results. Chapter 5 will describe the precession frequency measurement portion of the experiment, and detail analysis results from data taken in the first run of the experiment in 2018. Chapter 6 will conclude the dissertation and the results contained within.
 
 % I have been a part of the E989 experiment since I began my graduate degree six years ago. This dissertation will describe the E989 experiment and the work which I have done for it in detail. Chapter 1 will provide experimental and theoretical background to the experiment, as well its motivation. Chapter 2 will describe the experimental principle and specifics of muon production and storage. Chapter 3 will describe the various detector systems. Chapter 4 will describe the straw tracking reconstruction, including the track fitting algorithm that I developed, as well as some analysis results. Chapter 5 will describe the precession frequency measurement portion of the experiment, and detail my analysis results from data taken in the experiment's first run in 2018. Chapter 6 will conclude the dissertation and the results contained within.
 
@@ -17,7 +17,7 @@ This dissertation will describe the E989 experiment and the author's contributio
 \section{Magnetic moments of particles}
 \label{sec:MDMs}
 
-In order to understand the purpose of the Fermilab Muon \gmtwo Experiment, first we need to understand the meaning of the $g$ in \gmtwo, which is what the experiment is measuring. All particles have intrinsic properties. One property of charged particles is the magnetic dipole moment.\footnote{\textit{Magnetic dipole moment} and \textit{magnetic moment} are equivalent when talking about particles.} This property of a particle is related to its spin through the equation
+In order to understand the purpose of the Fermilab Muon \gmtwo Experiment, first the $g$ in \gmtwo needs to be understood as that is what the experiment is measuring. All particles have intrinsic properties. One property of charged particles is the magnetic dipole moment.\footnote{\textit{Magnetic dipole moment} and \textit{magnetic moment} are equivalent when talking about particles.} This property of a particle is related to its spin through the equation
 		\begin{align}
             \vec{\mu} = g \frac{q}{2m} \vec{s},
         \label{eq:magneticmoment}
@@ -130,24 +130,24 @@ Any complete theory must agree with experimental observations. The latest theore
 \subsection{QED}
 \label{subsec:QED}
 
-The QED contributions to \amu stem solely from loops with virtual leptons and photons. They are very well understood and have been calculated to very high order, having been calculated up to five-loop level from over 12,000 Feynman diagrams. This has been done with both analytical and numerical methods. The first couple of diagrams, including the Dirac $g = 2$ and Schwinger diagrams, are shown in \figref{fig:QEDDiagrams}. The value is \cite{Kinoshita1,Kinoshita2}
+The QED contributions to \amu stem solely from loops with virtual leptons and photons. They are well understood and have been calculated to high order, having been calculated up to five-loop level from over 12,000 Feynman diagrams. This has been done with both analytical and numerical methods. The first couple of diagrams, including the Dirac $g = 2$ and Schwinger diagrams, are shown in \figref{fig:QEDDiagrams}. The sum of QED contributions to five-loop level is \cite{Kinoshita1,Kinoshita2}
 		\begin{equation}
 		\begin{aligned}
             a_{\mu}^{\text{QED}} &= \sum_{n=1}^{\infty} C_{n} \Big( \frac{\alpha}{\pi} \Big)^{n}, \\
             					 &= (\QEDamu \pm \QEDamuErr) \times 10^{-10},
 		\end{aligned}
 		\end{equation}
-where in the first line $a_{\mu}^{\text{QED}}$ is expressed as a perturbative expansion in the fine structure constant, and the value comes from the expansion up to $n=5$. $C_{1} = 1/2$ is the Schwinger result mentioned previously, stemming from the diagram shown in \figref{fig:Schwinger}. While over 99\% of the value of \amu comes from the QED sector, the error is much smaller than the EW and hadronic contributions.
+where in the first line $a_{\mu}^{\text{QED}}$ is expressed as a perturbative expansion in the fine structure constant, and $n$ is the loop level. $C_{1} = 1/2$ is the Schwinger result mentioned previously, stemming from the diagram shown in \figref{fig:Schwinger}. While over 99\% of the value of \amu comes from the QED sector, the error is much smaller than in the EW and hadronic contributions.
 
 
 \subsection{Electroweak}
 \label{subsec:Electroweak}
 
-The electroweak contributions to \amu are known to two-loop level, with some three-loop parts estimated. The different one loop diagrams are shown in \figref{fig:EWDiagrams}. In even the simplest EW diagram propagators from both the leptons and EW gauge bosons will be included. Per usual Feynman rules, the propagators will contain the masses of the interacting leptons and bosons. The heavy masses of the gauge bosons will produce contributions with characteristic scales of of $\sim(m_{l}/m_{Z^{0},H,W^{\pm}})^{2}$. Because the mass of the gauge bosons are so much larger than the muon, these processes are necessarily suppressed and the electroweak contributions to \amu are small. For this reason knowing these contributions only up to two loop level is sufficient, since higher order diagrams will be suppressed even further. To this degree of accuracy, the value of the electroweak contributions is \cite{EW1,EW2}
+The electroweak contributions to \amu are known to two-loop level, with some three-loop parts estimated. The different one loop diagrams are shown in \figref{fig:EWDiagrams}. In the EW diagrams propagators from both the leptons and EW gauge bosons will be included. Per usual Feynman rules, the propagators will contain the masses of the interacting leptons and bosons. The heavy masses of the gauge bosons will produce contributions with characteristic scales of of $\sim(m_{l}/m_{Z^{0},H,W^{\pm}})^{2}$. Because the mass of the gauge bosons are so much larger than the muon, these processes are necessarily suppressed and the electroweak contributions to \amu are small. For this reason knowing these contributions only up to two loop level is sufficient, since higher order diagrams will be suppressed even further. To this degree of accuracy, the value of the electroweak contributions is \cite{EW1,EW2}
 		\begin{align}
             a_{\mu}^{\text{EW}} = (\EWamu \pm \EWamuErr) \times 10^{-10},
 		\end{align}
-with improvements having been made recently. Again the error on these contributions is small compared to the that on the hadronic contributions discussed next.
+with improvements having been made recently. Again the error on these contributions is small compared to those of the hadronic contributions discussed next.
 
 
 \begin{figure}
@@ -284,7 +284,7 @@ The cross-section data for this relation has been measured in different energy r
             a_{\mu}^{\text{HVP;NLO}} &= (\HVPNLOamu \pm \HVPNLOamuErr) \times 10^{-10}, 
 		\end{aligned}
 		\end{equation}
-where $a_{\mu}^{\text{HVP;NLO}}$ is the next-to-leading order calculation. This evaluation is consistent with Davier et al. \cite{HVP2}.
+where $a_{\mu}^{\text{HVP;NLO}}$ is the next-to-leading order calculation. This evaluation is consistent with another analysis by Davier et al. \cite{HVP2}.
 
 \begin{figure}
 \centering
@@ -393,7 +393,7 @@ The second of these hadronic contribution parts is a higher-order four-photon in
 		\propag [photon] (f) to (o);
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{The first HLbL diagram, where three photons are exchanged with some virtual hadrons bubble.}
+	\caption{The first HLbL diagram, where three photons are exchanged with a virtual hadrons bubble.}
 	\end{subfigure}
 	\hspace{3mm}
 	\begin{subfigure}[t]{0.4\textwidth}
@@ -443,7 +443,7 @@ The relative uncertainty of this result is 307 parts per billion (ppb). Other an
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{AlexKPaperComparison}
+	\includegraphics[width=0.8\textwidth]{AlexKPaperComparison}
 	\caption[Comparison between theoretical and experimental values for \amu]{Various theoretical values for \amu on the left, as compared to the most recent and extrapolated experimental result on the right \cite{Keshavarzi:2018mgv}.}
 	\label{fig:AlexKPaperComparison}
 \end{figure}
@@ -461,7 +461,7 @@ which corresponds to a 540 ppb relative uncertainty. Note that the uncertainty o
 		\begin{align}
             a_{\mu}^{\text{Exp}} - a_{\mu}^{\text{SM}} = (\Diffamu \pm \DiffamuErr) \times 10^{-10},
 		\end{align}
-corresponding to a discrepancy of nearly four standard deviations from zero.
+corresponding to a discrepancy of nearly four standard deviations.
 
 
 
