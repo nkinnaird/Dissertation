@@ -277,14 +277,19 @@ where $K(s)$ is some calculable kinematic factor, and $R(s)$ is a ratio of cross
 		\begin{align}
             R(s) = \frac{\sigma(e^{+}e^{-} \rightarrow \text{hadrons})}{\sigma(e^{+}e^{-} \rightarrow \mu^{+}\mu^{-})}.
 		\end{align}
-The cross-section data for this relation has been measured in different energy ranges by various experiments, including KLOE, CLEO, BaBar, and BESIII \cite{KLOE,CLEO,BaBar,BESIII}. The analysis by Keshavarzi et al. \cite{Keshavarzi:2018mgv} gives results as 
+The cross-section data for this relation has been measured in different energy ranges by various experiments, including KLOE, CLEO, BaBar, and BESIII \cite{KLOE,CLEO,BaBar,BESIII}. The analysis by Keshavarzi et al. \cite{Keshavarzi:2018mgv,Keshavarzi:2019abf} gives results as 
 		\begin{equation}
 		\begin{aligned}
             a_{\mu}^{\text{HVP;LO}} &= (\HVPLOamu \pm \HVPLOamuErr) \times 10^{-10}, \\
             a_{\mu}^{\text{HVP;NLO}} &= (\HVPNLOamu \pm \HVPNLOamuErr) \times 10^{-10}, 
 		\end{aligned}
 		\end{equation}
-where $a_{\mu}^{\text{HVP;NLO}}$ is the next-to-leading order calculation. This evaluation is consistent with another analysis by Davier et al. \cite{HVP2}.
+where $a_{\mu}^{\text{HVP;NLO}}$ is the next-to-leading order calculation. This evaluation is consistent with another analysis by Davier et al. \cite{HVP2,Davier:2019can}. A calculation for the next-to-next-to-leading order HVP contribution is given by A. Kurz et al. \cite{Kurz:2014wya}
+		\begin{equation}
+		\begin{aligned}
+            a_{\mu}^{\text{HVP;NLO}} &= (\HVPNNLOamu \pm \HVPNNLOamuErr) \times 10^{-10}. 
+		\end{aligned}
+		\end{equation}
 
 \begin{figure}
 \centering
@@ -362,10 +367,20 @@ The second prescription for estimating the HVP contributions is a first principl
 \subsection*{Hadronic Light-by-Light}
 \label{subsec:HLbL}
 
-The second of these hadronic contribution parts is a higher-order four-photon interaction, termed hadronic light-by-light (HLbL). Diagrams are shown in \figref{fig:HLbL}. Again perturbation theory is unable to assist in the calculation of these contributions. The calculation of these diagrams has historically been model dependent, and has therefore been the most contentious part of the SM calculation. In more recent years, there have been efforts to produce results using dispersive \cite{Colangelo:2014dfa,Colangelo:2015ama,Colangelo:2017qdm} and lattice approaches \cite{Blum:2015gfa,Blum:2016lnc,Blum:2017cer}. A cumulative report on recent progress is given by N. Asmussen et al. \cite{HLbL1}. The error on this contribution is large in each of these various approaches\footnote{A range of credible models produces a range of results.}, comparable to that of the $a_{\mu}^{\text{HVP;LO}}$ term, even though the size of this contribution is small. The value of the HLbL contributions to \amu given by Nyffeler \cite{Nyffeler:2016gnb} comes from model estimates and is 
+The second of these hadronic contribution parts is a higher-order four-photon interaction, termed hadronic light-by-light (HLbL). Diagrams are shown in \figref{fig:HLbL}. Perturbation theory is once again unable to assist in the calculation of these contributions. The calculation of these diagrams has historically been model dependent, and has therefore been the most contentious part of the SM calculation. The value of the HLbL contributions to \amu from model estimates by the so-called `Glasgow consensus' and adjusted due to axial exchanges is given by Nyffeler as $a_{\mu}^{\text{HLbL}} = (9.8 \pm 2.6) \times 10^{-10}$ \cite{Prades:2009tw,Nyffeler:2016gnb}.
+
+
+In more recent years, there have been efforts to produce results using dispersive \cite{PhysRevLett.121.112002,PhysRevD.95.054026,Hoferichter:2018kwz,Colangelo:2015ama,Colangelo:2017fiz,Colangelo:2017another,Colangelo:2019uex,Colangelo:2019lpu} and lattice approaches \cite{Blum:2015gfa,Blum:2016lnc,Blum:2017cer}. A calculation of the HLbL contribution using the sum of the dispersive results with linearly added errors given by A. Keshavarzi et al. from the references listed above is \cite{Keshavarzi:2019abf}\footnote{Some pieces are still from the Glasgow consensus which are a work in progress.}
 		\begin{align}
             a_{\mu}^{\text{HLbL}} = (\HLbLamu \pm \HLbLamuErr) \times 10^{-10}.
 		\end{align}
+This calculation, while consistent with the Glasgow consensus estimate provided above, has the advantage that it is model-independent. The error on this contribution is relatively large in each of these various approaches, comparable to that of the $a_{\mu}^{\text{HVP;LO}}$ term, even though the size of this contribution is small. A calculation of the higher order HLbL contributions by Colangelo et al. is \cite{Colangelo:2014qya}
+		\begin{align}
+            a_{\mu}^{\text{HLbL;NLO}} = (\HLbLNLOamu \pm \HLbLNLOamuErr) \times 10^{-10},
+		\end{align}
+showing that higher order HLbL contributions are practically negligible.
+
+% A cumulative report on recent progress is given by N. Asmussen et al. \cite{HLbL1}. 
 
 
 \begin{figure}
@@ -432,19 +447,19 @@ The second of these hadronic contribution parts is a higher-order four-photon in
 
 \subsection{Combined Standard Model value}
 
-The sum of the \amu contributions listed here is \cite{Kinoshita1,Kinoshita2,Ishikawa:2018rlv,Keshavarzi:2018mgv,Nyffeler:2016gnb}
+The sum of the \amu contributions listed here is \cite{Kinoshita1,Kinoshita2,Ishikawa:2018rlv,Keshavarzi:2019abf,Kurz:2014wya,Nyffeler:2016gnb,Colangelo:2014qya}
 		\begin{equation}
 		\begin{aligned}
             a_{\mu}^{\text{SM}} &= a_{\mu}^{\text{QED}} + a_{\mu}^{\text{EW}} + a_{\mu}^{\text{Had}}, \\
 			&= (\SMamu \pm \SMamuErr) \times 10^{-10}.
 		\end{aligned}
 		\end{equation}
-The relative uncertainty of this result is 307 parts per billion (ppb). Other analyses with different values for the various contributions typically agree well, as shown on the left side of \figref{fig:AlexKPaperComparison}. In general the consistency of the theory has been stable for almost ten years now. Depending on which calculations are used, the discrepancy between theory and experiment ranges between \SIrange{3}{4}{} standard deviations. The latest experimental result is described in the following section.
+The relative uncertainty of this result is 326 parts per billion (ppb). Other analyses with different values for the various contributions typically agree well, as shown on the left side of \figref{fig:AlexKPaperComparison}. In general the consistency of the theory has been stable for almost ten years now. Depending on which calculations are used, the discrepancy between theory and experiment ranges between \SIrange{3}{4}{} standard deviations. The latest experimental result is described in the following section.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{AlexKPaperComparison}
-	\caption[Comparison between theoretical and experimental values for \amu]{Various theoretical values for \amu on the left, as compared to the most recent and extrapolated experimental result on the right \cite{Keshavarzi:2018mgv}.}
+	\includegraphics[width=0.8\textwidth]{amuSMcompare_KNT2019}
+	\caption[Comparison between theoretical and experimental values for \amu]{Various theoretical values for \amu on the left, as compared to the most recent and extrapolated experimental result on the right \cite{Keshavarzi:2019abf}.}
 	\label{fig:AlexKPaperComparison}
 \end{figure}
 
@@ -461,7 +476,7 @@ which corresponds to a 540 ppb relative uncertainty. Note that the uncertainty o
 		\begin{align}
             a_{\mu}^{\text{Exp}} - a_{\mu}^{\text{SM}} = (\Diffamu \pm \DiffamuErr) \times 10^{-10},
 		\end{align}
-corresponding to a discrepancy of nearly four standard deviations.
+corresponding to a discrepancy of 3.79 standard deviations.
 
 
 
