@@ -758,9 +758,9 @@ From \equref{eq:timeDependentPhase}, the systematic shift in \wa can be written 
     \end{align}
 where $d\langle\phi\rangle/dt$ is the change in average phase over time. With some assumptions made with regards to `core' and `edge' muon populations, where lost muons can only originate from the latter, this can be written as \cite{MikeLosses}
     \begin{align} \label{eq:phaseChangeLostMuons}
-        \frac{d\langle\phi\rangle}{dt} = f_{c} \cdot f_{l} \cdot \Delta\phi_{c-e},
+        \frac{d\langle\phi\rangle}{dt} = f_{c} \cdot df_{l} \cdot \Delta\phi_{c-e},
     \end{align}
-where $f_{c}$ is the fraction of muons in the core population to all muons, $f_{l}$ is the fractional loss rate, and $\Delta\phi_{c-e}$ is the phase difference between the core and edge muon populations. The simulation studies in the afore-referenced document gives estimates of $f_{c} \approx 0.9$ and $\Delta\phi_{c-e} \approx \SI{1}{mrad}$. The fractional losses (the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter, assuming no losses are included in $L(t)$ before the fit start time) for the Run~1 precession frequency analysis datasets as determined in this analysis are shown in \figref{fig:fractionallosses}. As shown the losses rise sharply at early times before leveling off to a constant rate around \mus{100} into the fill. Taking the first \mus{70} of the fit and assuming that this loss rate is constant over the course of the fill, the approximate loss rates for the different datasets can be determined\footnote{While the loss rate reduces after \mus{100}, losses occur mostly at early times, so this is a fine approximation.}. These are given in \tabref{tab:systematicError_lostMuonBias}. Applying the various quantities into \equref{eq:phaseChangeLostMuons}, along with $\omega_{a} \approx \SI{1.44}{rad}/\mus{}$, the systematic shifts in the precession frequency are found. They are included in \tabref{tab:systematicError_lostMuonBias}.
+where $f_{c}$ is the fraction of muons in the core population to all muons, $df_{l}$ is the fractional loss rate, and $\Delta\phi_{c-e}$ is the phase difference between the core and edge muon populations. The simulation studies in the afore-referenced document gives estimates of $f_{c} \approx 0.9$ and $\Delta\phi_{c-e} \approx \SI{1}{mrad}$. The fractional losses (the integral in \equref{eq:lambdalosses} times the final fitted $\kappa_{loss}$ parameter, assuming no losses are included in $L(t)$ before the fit start time) for the Run~1 precession frequency analysis datasets as determined in this analysis are shown in \figref{fig:fractionallosses}. As shown the losses rise sharply at early times before leveling off to a constant rate around \mus{100} into the fill. Taking the first \mus{70} of the fit and assuming that this loss rate is constant over the course of the fill, the approximate loss rates for the different datasets can be determined\footnote{While the loss rate reduces after \mus{100}, losses occur mostly at early times, so this is a fine approximation.}. These are given in \tabref{tab:systematicError_lostMuonBias}. Applying the various quantities into \equref{eq:phaseChangeLostMuons}, along with $\omega_{a} \approx \SI{1.44}{rad}/\mus{}$, the systematic shifts in the precession frequency are found. They are included in \tabref{tab:systematicError_lostMuonBias}.
 
 
 
@@ -1006,7 +1006,7 @@ As described in \secref{sec:MuonBeamMeasurements}, due to the damaged resistors 
     Lost muon cuts & < 0.5 & < 0.5 & < 0.5 & < 0.5 \\
     Fixed \K & 1.2 & 4.9 & 3.1 & 0.1 \\
     Ratio construction $T_{a}$ & 2.2 & 2.2 & < 2.2 & < 2.2 \\
-    Ratio construction $T_{\mu}$ & < 0.1 & < 0.1 & < 0.1 & < 0.1 \\
+    Ratio construction $\tau_{\mu}$ & < 0.1 & < 0.1 & < 0.1 & < 0.1 \\
     Bin width & 2.5 & 0.6 & 2.3 & 4.2 \\
     % Bin edge & - & - & - & - \\
   \hline
