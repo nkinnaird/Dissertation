@@ -259,7 +259,7 @@ This value is consistent with the oft-quoted PDG value of $15.36 \pm 0.10 \times
 \subsection{Hadronic}
 \label{subsec:Hadronic}
 
-The hadronic contributions to \amu arise from loop diagrams with virtual hadrons. Because QCD couplings are large at low energies, the amplitudes for these processes cannot be calculated perturbatively and their errors dominate the theoretical uncertainty in the SM calculation. This makes their error estimation extra important when comparing to experiment. Most active work on \amu in the theoretical community is in this sector. These contributions can be separated into two parts:
+The hadronic contributions to \amu arise from loop diagrams with virtual hadrons. Because QCD couplings are large at low energies, the amplitudes for these processes cannot be calculated perturbatively. Methods for calculating the contributions by extension have errors that dominate the theoretical uncertainty in the SM calculation. Most active work on \amu in the theoretical community is in this sector. The Muon \gmtwo Theory Initiative is comprised of many working groups from various institutions which seeks to make improvements in the hadronic calculations, and produce consensus values going forward in 2020 and beyond \cite{TheoryInitiative}. The hadronic contributions can be separated into two parts:
 		\begin{align}
             a_{\mu}^{\text{Had}} = a_{\mu}^{\text{HVP}} + a_{\mu}^{\text{HLbL}}
         \label{eq:HadSplit}
@@ -273,23 +273,11 @@ The first term in \equref{eq:HadSplit} refers to contributions from hadronic vac
 		\begin{align}
             a_{\mu}^{\text{HVP;LO}} = \Big(\frac{\alpha m_{\mu}}{3\pi}\Big)^{2} \int_{m_{\pi}^{2}}^{\infty} \frac{ds}{s^{2}} K(s) R(s)
 		\end{align}
-where $K(s)$ is some calculable kinematic factor, and $R(s)$ is a ratio of cross-sections
-		\begin{align}
+where $K(s)$ is some calculable kinematic factor, and $R(s)$ is a ratio of cross-sections,
+		\begin{align} \label{eq:Rcrosssection}
             R(s) = \frac{\sigma(e^{+}e^{-} \rightarrow \text{hadrons})}{\sigma(e^{+}e^{-} \rightarrow \mu^{+}\mu^{-})}.
 		\end{align}
-The cross-section data for this relation has been measured in different energy ranges by various experiments, including KLOE, CLEO, BaBar, and BESIII \cite{KLOE,CLEO,BaBar,SND,BESIII}. Further cross-section data is currently being acquired and analyzed from those experiments as well as the SND and CMD-3 detectors at the VEPP-2000 collider in Novosibirsk, Russia \cite{SND,CMD3}. As further data is acquired and compared between the different experiments, the error in the HVP contributions to \amu will decrease. The analysis by Keshavarzi et al. with cross-section data as of November 1st, 2019 gives results as \cite{Keshavarzi:2018mgv,Keshavarzi:2019abf}
-		\begin{equation}
-		\begin{aligned}
-            a_{\mu}^{\text{HVP;LO}} &= (\HVPLOamu \pm \HVPLOamuErr) \times 10^{-10}, \\
-            a_{\mu}^{\text{HVP;NLO}} &= (\HVPNLOamu \pm \HVPNLOamuErr) \times 10^{-10}, 
-		\end{aligned}
-		\end{equation}
-where $a_{\mu}^{\text{HVP;NLO}}$ is the next-to-leading order calculation. This evaluation is consistent with another more conservative analysis by Davier et al. \cite{HVP2,Davier:2019can}. A calculation for the next-to-next-to-leading order HVP contribution is given by A. Kurz et al. \cite{Kurz:2014wya}
-		\begin{equation}
-		\begin{aligned}
-            a_{\mu}^{\text{HVP;NLO}} &= (\HVPNNLOamu \pm \HVPNNLOamuErr) \times 10^{-10}. 
-		\end{aligned}
-		\end{equation}
+
 
 \begin{figure}
 \centering
@@ -317,7 +305,7 @@ where $a_{\mu}^{\text{HVP;NLO}}$ is the next-to-leading order calculation. This 
 		\node at (0, -2) {cut};
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{The first order HVP diagram. The bubble H in the middle indicates any combination of hadrons which satisfy the Feynman rules.} 
+	\caption{The first order HVP Feynamn diagram.} 
 	\label{fig:HVP1}
 	\end{subfigure}
 	\hspace{3mm}
@@ -348,9 +336,24 @@ where $a_{\mu}^{\text{HVP;NLO}}$ is the next-to-leading order calculation. This 
 	\caption{The Feynman diagram for electron positron annihilation to hadrons.}
 	\label{fig:HVP2}
 	\end{subfigure}
-\caption[First order hadronic vacuum polarization diagram contributing to the magnetic moment]{The first order HVP diagram on the left, which can be related to the diagram on the right by making a `cut' across the virtual hadrons bubble. B is an external magnetic field. Feynman diagrams made with References \cite{tikz-feynman,tikz-feynhand}.}	
+\caption[First order hadronic vacuum polarization diagram contributing to the magnetic moment]{The first order HVP diagram on the left, which can be related to the diagram on the right by making a `cut' across the virtual hadrons bubble. The H bubble in both diagrams indicates any combination of hadrons which satisfy the Feynman rules. B is an external magnetic field. Feynman diagrams made with References \cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:HVP}
 \end{figure}
+
+
+The cross-section data for \equref{eq:Rcrosssection} has been measured in different energy ranges by various experiments, including KLOE, CLEO, BaBar, and BESIII \cite{KLOE,CLEO,BaBar,BESIII}. Further cross-section data is currently being acquired and analyzed from those experiments as well as the SND and CMD-3 detectors at the VEPP-2000 collider in Novosibirsk, Russia \cite{SND,CMD3}. As further data is acquired and compared between the different experiments, the error in the HVP contributions to \amu will decrease. The analysis by Keshavarzi et al. with cross-section data as of November 1st, 2019 gives results as \cite{Keshavarzi:2018mgv,Keshavarzi:2019abf}
+		\begin{equation}
+		\begin{aligned}
+            a_{\mu}^{\text{HVP;LO}} &= (\HVPLOamu \pm \HVPLOamuErr) \times 10^{-10}, \\
+            a_{\mu}^{\text{HVP;NLO}} &= (\HVPNLOamu \pm \HVPNLOamuErr) \times 10^{-10}, 
+		\end{aligned}
+		\end{equation}
+where $a_{\mu}^{\text{HVP;NLO}}$ is the next-to-leading order calculation. This evaluation is consistent with another more conservative analysis by Davier et al. \cite{HVP2,Davier:2019can}. A calculation for the next-to-next-to-leading order HVP contribution is given by A. Kurz et al. \cite{Kurz:2014wya}
+		\begin{equation}
+		\begin{aligned}
+            a_{\mu}^{\text{HVP;NLO}} &= (\HVPNNLOamu \pm \HVPNNLOamuErr) \times 10^{-10}. 
+		\end{aligned}
+		\end{equation}
 
 
 
@@ -368,19 +371,6 @@ The second prescription for estimating the HVP contributions is a first principl
 \label{subsec:HLbL}
 
 The second of these hadronic contribution parts is a higher-order four-photon interaction, termed hadronic light-by-light (HLbL). Diagrams are shown in \figref{fig:HLbL}. Perturbation theory is once again unable to assist in the calculation of these contributions. The calculation of these diagrams has historically been model dependent, and has therefore been the most contentious part of the SM calculation. The value of the HLbL contributions to \amu from model estimates by the so-called `Glasgow consensus' and adjusted due to axial exchanges is given by Nyffeler as $a_{\mu}^{\text{HLbL}} = (9.8 \pm 2.6) \times 10^{-10}$ \cite{Prades:2009tw,Nyffeler:2016gnb}.
-
-
-In more recent years, there have been efforts to produce results using dispersive \cite{PhysRevLett.121.112002,PhysRevD.95.054026,Hoferichter:2018kwz,Colangelo:2015ama,Colangelo:2017fiz,Colangelo:2017another,Colangelo:2019uex,Colangelo:2019lpu} and lattice approaches \cite{Blum:2019ugy,Asmussen:2019act}. A calculation of the HLbL contribution using the sum of the dispersive results with linearly added errors given by A. Keshavarzi et al. from the references listed above is \cite{Keshavarzi:2019abf}\footnote{Some pieces are still from the Glasgow consensus which are a work in progress.}
-		\begin{align}
-            a_{\mu}^{\text{HLbL}} = (\HLbLamu \pm \HLbLamuErr) \times 10^{-10}.
-		\end{align}
-This calculation, while consistent with the Glasgow consensus estimate provided above, has the advantage that it is model-independent. The error on this contribution is relatively large in each of these various approaches, comparable to that of the $a_{\mu}^{\text{HVP;LO}}$ term, even though the size of this contribution is small. A calculation of the higher order HLbL contributions by Colangelo et al. is \cite{Colangelo:2014qya}
-		\begin{align}
-            a_{\mu}^{\text{HLbL;NLO}} = (\HLbLNLOamu \pm \HLbLNLOamuErr) \times 10^{-10},
-		\end{align}
-showing that higher order HLbL contributions are practically negligible.
-
-% A cumulative report on recent progress is given by N. Asmussen et al. \cite{HLbL1}. 
 
 
 \begin{figure}
@@ -444,6 +434,20 @@ showing that higher order HLbL contributions are practically negligible.
 \end{figure}
 
 
+In more recent years, there have been efforts to produce results using dispersive \cite{PhysRevLett.121.112002,PhysRevD.95.054026,Hoferichter:2018kwz,Colangelo:2015ama,Colangelo:2017fiz,Colangelo:2017another,Colangelo:2019uex,Colangelo:2019lpu} and lattice approaches \cite{Blum:2019ugy,Asmussen:2019act}. A calculation of the HLbL contribution using the sum of the dispersive results with linearly added errors given by A. Keshavarzi et al. from the references listed above is \cite{Keshavarzi:2019abf}\footnote{Some pieces are still from the Glasgow consensus which are a work in progress. These dominate the error in the HLbL contribution.}
+		\begin{align}
+            a_{\mu}^{\text{HLbL}} = (\HLbLamu \pm \HLbLamuErr) \times 10^{-10}.
+		\end{align}
+This calculation, while consistent with the Glasgow consensus estimate provided above, has the advantage that it is model-independent. The error on this contribution is relatively large in each of these various approaches, comparable to that of the $a_{\mu}^{\text{HVP;LO}}$ term, even though the size of this contribution is small. A calculation of the higher order HLbL contributions by Colangelo et al. is \cite{Colangelo:2014qya}
+		\begin{align}
+            a_{\mu}^{\text{HLbL;NLO}} = (\HLbLNLOamu \pm \HLbLNLOamuErr) \times 10^{-10},
+		\end{align}
+showing that higher order HLbL contributions are practically negligible.
+
+% A cumulative report on recent progress is given by N. Asmussen et al. \cite{HLbL1}. 
+
+
+
 
 \subsection{Combined Standard Model value}
 
@@ -454,7 +458,10 @@ The sum of the \amu contributions listed here is \cite{Kinoshita1,Kinoshita2,Ish
 			&= (\SMamu \pm \SMamuErr) \times 10^{-10}.
 		\end{aligned}
 		\end{equation}
-The relative uncertainty of this result is 326 parts per billion (ppb). Other analyses with different values for the various contributions typically agree well, as shown on the left side of \figref{fig:AlexKPaperComparison}. In general the consistency of the theory has been stable for almost ten years now. Depending on which calculations are used, the discrepancy between theory and experiment ranges between \SIrange{3}{4}{} standard deviations. There is extensive on-going work in both the dispersive and lattice approaches for the hadronic contributions by the Muon \gmtwo Theory Initiative, comprised of many working groups from various institutions, with future consensus values expected sometime in the first half of 2019, and extensive plans for improvements going forward \cite{TheoryInitiative}.
+The relative uncertainty of this result is 326 parts per billion (ppb). Other analyses with different values for the various contributions typically agree well, as shown on the left side of \figref{fig:AlexKPaperComparison}. In general the consistency of the theory has been stable for almost ten years now. Depending on which calculations are used, the discrepancy between theory and experiment ranges between \SIrange{3}{4}{} standard deviations. 
+
+
+% There is extensive on-going work in both the dispersive and lattice approaches for the hadronic contributions by the Muon \gmtwo Theory Initiative, comprised of many working groups from various institutions, with future consensus values expected sometime in the first half of 2019, and extensive plans for improvements going forward \cite{TheoryInitiative}.
 
 \begin{figure}
 	\centering
@@ -500,7 +507,7 @@ The sensitivity of the muon as compared to the electron to large mass scales is 
 
 
 
-BSM models at the low energy regime which can explain the discrepancy also exist. These include a light scalar `dark' Higgs which may be capable of producing the discrepancy, regardless of the fact that the dark photon model has been ruled out at the 99\% confidence level \cite{Chen:2015vqy,Ablikim:2017aab}, and low mass pseudo-scalar axion-like particles \cite{Marciano_2016}, among others.
+BSM models at the low energy regime can also explain the discrepancy. These include a light scalar `dark' Higgs which may be capable of producing the discrepancy, regardless of the fact that the dark photon model has been ruled out at the 99\% confidence level \cite{Chen:2015vqy,Ablikim:2017aab}, and low mass pseudo-scalar axion-like particles \cite{Marciano_2016}, among others.
 
 % while scalar axion-like particles have mostly been ruled out
 
@@ -517,7 +524,7 @@ Future data taken from the LHC and other experiments will further constrain the 
 \end{figure}
 
 
-The E989 experiment has the goal of measuring \amu to \SI{140}{ppb} by 2021. This would be a factor of four improvement over the E821 result stemming from a twenty times increase in statistics, which was dominant error in the previous experiment. Assuming the same central value for \amu is obtained, this would push the statistical significance of the discrepancy to approximately seven standard deviations, as shown in \figref{fig:AlexKPaperComparison}. The data comprising Run~1, gathered between April and July of 2018, is the subject of this thesis, and corresponds to a statistical uncertainty comparable to the E821 result. The Run~1 result by itself may give strong evidence for new physics, depending on where \amu falls.
+The E989 experiment has the goal of measuring \amu to \SI{140}{ppb} by 2021. This would be a factor of four improvement over the E821 result stemming from a twenty times increase in statistics, which was the dominant error in the previous experiment. Assuming the same central value for \amu is obtained, this would push the statistical significance of the discrepancy to approximately seven standard deviations, as shown in \figref{fig:AlexKPaperComparison}. The data comprising Run~1, gathered between April and July of 2018, is the subject of this thesis, and corresponds to a statistical uncertainty comparable to the E821 result. The Run~1 result by itself may give strong evidence for new physics, depending on the new measured value for \amu.
 
 
 % The possibility is that we will measure something new and exciting, either in Run 1 or the following runs. However, even if we do not, it is valuable in itself to resolve this theoretical and experimental conflict.
