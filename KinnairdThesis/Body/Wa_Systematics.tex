@@ -915,13 +915,10 @@ When constructing the time spectra, bin widths and the starting edge of the bin 
 \subsection{Systematic error from differential decay}
 
 
-Muons are injected into the storage ring with a range of momenta. Muons with larger momenta will in general live longer than muons with smaller momenta due to their time-dilated lifetimes. Muons at smaller radii therefore decay more often, leading to an increasing beam radial position and average momentum over the course of a fill. Decay positrons at greater radii with larger momenta in general take longer to reach calorimeters than those at small radii with smaller momenta. In the precession frequency measurement, the hit times of the detected positrons naturally correspond to offset times from when the muons decayed equal to the drift times. Because the average drift time changes over the course of a fill due to the average momentum distribution increase, there is thus a changing phase over the course of a fill. To add to that, as discussed in \secref{sub:lostmuonserror}, there is a phase-momentum correlation for muons at injection. This only compounds upon the changing phase even further. The systematic error due to this effect is called ``differential decay.'' 
-
-Underway beam-line simulations are needed to fully measure the phase-momentum correlation and fully estimate this systematic error. A calculation for the previous E821 experiment resulted in a shift on \wa of $\langle \omega_{a} \rangle / \omega_{a} \approx \SI{-36.8}{ppb}$ \cite{DiffDecayJason}, which should be comparable to any calculation for E989. The level of the fully evaluated systematic shift may not be small compared to the final target systematic error goal, but for Run~1 the scale of this estimate is deemed to be acceptable. For the purposes of this analysis, an estimate of \SI{40}{ppb} is taken as the systematic error. Because the differential decay effect only increases the average stored momentum of the beam and can't decrease it, a correction can be applied if any final uncertainty is too large. 
+Muons are injected into the storage ring with a range of momenta. Muons with larger momenta will in general live longer than muons with smaller momenta due to their time-dilated lifetimes. Muons with smaller momenta at smaller radii therefore decay more often, leading to an increasing beam radial position and average momentum over the course of a fill. Decay positrons at greater radii with larger momenta in general take longer to reach calorimeters than those at small radii with smaller momenta. In the precession frequency measurement, the hit times of the detected positrons correspond to the decay times of muons plus their drift times. Because the average drift time changes over the course of a fill due to the average momentum distribution increase, there is thus a changing phase over the course of a fill. This effect is called ``differential decay.'' Because the differential decay effect can only increase the average stored momentum of the beam, a correction can be applied to the final measured \wa value. It should be remembered that there is a phase-momentum correlation for muons at injection as discussed in \secref{sub:lostmuonserror}, which affects the changing phase even further. Underway beam-line simulations are needed to fully measure the phase-momentum correlation and fully estimate this systematic shift. A calculation for the previous E821 experiment resulted in a shift on \wa of $\langle \omega_{a} \rangle / \omega_{a} \approx \SI{-36.8}{ppb}$ \cite{DiffDecayJason}, which should be comparable to any calculation for E989. The systematic error applied to the precession frequency measurement is then a combination of the errors in the calculation of this shift. For the purposes of this analysis, an estimate of 25\% of \SI{40}{ppb} at \SI{10}{ppb} is taken as the systematic error.
 
 
 % An estimation of the error neglecting the phase momentum correlation yielded a shift of \SI{-3.8}{ppb} \cite{DiffDecayMetodiev}. Finally, an estimation by a first principles approach gave a value of \SI{-12}{ppb} \cite{AFThesis}. 
-
 
 
 
@@ -973,15 +970,18 @@ The above corrections make certain assumptions with regards to the conditions wh
 \subsection{Systematic error due to vertical beam motion}
 
 
-As described in \secref{sec:MuonBeamMeasurements}, due to the damaged resistors present in Run~1 the vertical distribution of the stored muon beam changed over the course of a fill. Because the \gmtwo phase is different for each vertical position due to drift length, this leads to a changing average phase and thus a systematic error. Preliminary studies fitting the average \gmtwo phase with the tracker data have calculated systematic shifts in \wa for the 60h and Endgame datasets of \SI{115}{} and \SI{180}{ppb} respectively \cite{BadResistorsVolodya}. Since these are one-directional shifts in \wa, similar to the differential decay effect, they can be applied as corrections to the final extracted precession frequency. As systematic studies mature and the shifts are better quantified, this is the intended action. For now these numbers are taken as limits on the systematic errors for their respective datasets, with the smaller number from the 60h dataset being applied to the HighKick and 9d datasets as well. The 60h result was chosen instead of the Endgame result because the Endgame dataset saw noticeably larger drift due to further degradation of the quadrupole resistors.
+As described in \secref{sec:MuonBeamMeasurements}, due to the damaged resistors present in Run~1 the vertical distribution of the stored muon beam changed over the course of a fill. Because the \gmtwo phase is different for each vertical position due to drift length, this leads to a changing average phase and thus a systematic error\footnote{The acceptance also changes across the storage region which ties into the error.}. Preliminary studies fitting the average \gmtwo phase with the tracker station 18 data have calculated systematic shifts in \wa for the 60h and Endgame datasets of \SI{420}{ppb} and \SI{540}{ppb} respectively \cite{BadResistorsVolodyaNewer}. Since the tracker data samples the ring in one azimuthal section, these systematic shifts need to be averaged around the ring accounting for the oscillating beam width. This averaging factor has been calculated from simulation to be near 0.43 \cite{MorseDavidBetaFunctions}. Multiplying these numbers together results in average systematic shifts of approximately \SI{181}{} and \SI{232}{ppb} for the 60h and Endgame datasets respectively.
 
+
+Since this effect is a one-directional shift in \wa, similar to the differential decay effect, the shifts can be applied as corrections to the final extracted precession frequencies. As systematic studies mature and the shifts for the various datasets are better quantified, this is the intended action. For now the systematic error applied from this procedure is conservatively taken as 25\% of the systematic shifts themselves for the respective datasets, with the smaller number from the 60h dataset being applied to the HighKick and 9d datasets as well. The 60h result was chosen instead of the Endgame result because the Endgame dataset saw noticeably larger drift due to further degradation of the quadrupole resistors over the course of the run. This leads to systematic errors of \SI{45}{ppb} for the 60h, HighKick, and 9d datasets and \SI{58}{ppb} for the Endgame dataset.
 
 
 
 \subsection{Systematic error summary}
 
-\tabref{tab:FinalSystematicErrors} gives all evaluated systematic errors in this analysis as described in the preceding sections. The final total quadrature sums of the systematic errors including the various preliminary and conservative estimates for some errors lie within the range \SI{140}{} -- \SI{200}{ppb}. These are in comparison to the final target goal of \SI{70}{ppb} for the precession frequency measurement. Once the gain issues are resolved and the other working groups improve their systematic uncertainty evaluations, the systematic errors for Run~1 and future runs of E989 will almost certainly reach the target goal. Indeed just removing the stored muon beam systematic error results in systematic errors in the range of \SI{70}{} -- \SI{100}{ppb}, much closer to the target of \SI{70}{ppb}. As the systematic errors stand currently in this analysis, they are all small compared to the Run~1 statistical errors of each respective dataset, making the presented analysis statistics-limited. 
+\tabref{tab:FinalSystematicErrors} gives all evaluated systematic errors in this analysis as described in the preceding sections. The final total quadrature sums of the systematic errors including the various preliminary and conservative estimates for some errors lie within the range \SI{70}{} -- \SI{100}{ppb}. These are in comparison to the final target goal of \SI{70}{ppb} for the precession frequency measurement. Once the gain issues are resolved and the other working groups improve their systematic uncertainty evaluations, the systematic errors for Run~1 and future runs of E989 will very likely reach the target goal. As the systematic errors stand currently in this analysis, they are all small compared to the Run~1 statistical errors of each respective dataset, making the presented analysis statistics-limited. 
 
+% Indeed just removing the stored muon beam systematic error results in systematic errors in the range of \SI{70}{} -- \SI{100}{ppb}, much closer to the target of \SI{70}{ppb}.
 
 
 \begin{table}
@@ -1013,29 +1013,30 @@ As described in \secref{sec:MuonBeamMeasurements}, due to the damaged resistors 
     Quadrature Sum & 41.3 & 46.4 & 27.8 & 52.2 \\
   \hline\hline
     Lost muon phase bias & 53.6 & 17.9 & 22.3 & 58.0 \\
-    Differential decay & \sim 40 & \sim 40 & \sim 40 & \sim 40 \\
+    Differential decay & \sim 10 & \sim 10 & \sim 10 & \sim 10 \\
     Pitch correction & 15 & \sim 15 & \sim 15 & \sim 15 \\
     E-field correction & 33.6 & \sim 41.2 & 41.2 & 28.3 \\
-    Stored beam motion & \sim 115 & \sim 115 & \sim 115 & \sim 180 \\
+    Stored beam motion & \sim 45 & \sim 45 & \sim 45 & \sim 58 \\
   \hline
-    Quadrature Sum & 138.0 & 130.6 & 131.3 & 195.9 \\
-    Quadrature Sum * & 76.3 & 62.0 & 63.4 & 77.4 \\
+    Quadrature Sum & 79.7 & 66.1 & 67.4 & 88.6 \\
+    % Quadrature Sum * & 76.3 & 62.0 & 63.4 & 77.4 \\
   \hline\hline
-    Total Quadrature Sum & 144.1 & 138.6 & 134.2 & 202.8 \\
-    Total Quadrature Sum * & 86.8 & 77.4 & 69.2 & 93.3 \\
+    Total Quadrature Sum & 89.8 & 80.8 & 72.9 & 102.8 \\
+    % Total Quadrature Sum * & 86.8 & 77.4 & 69.2 & 93.3 \\
   \hline
 \end{tabular*}
-\caption[Systematic errors evaluated in the Run~1 precession frequency datasets]{Final systematic errors evaluated in the Run~1 precession frequency analysis to the 60h, HighKick, 9d, and Endgame datasets. All units are in ppb. The table is split into two sections. The upper section consists of systematic errors directly evaluated by the author while the lower section consists of preliminary systematic estimates by other working groups. The E-field and pitch correction errors have been added in quadrature with the quadrupole errors. The publication errors for the Run~1 datasets will change from these as the final DQC cuts are made and analyses improved, however the scale of these errors will remain consistent. * Quadrature sum errors calculated excluding the stored beam motion error for comparison.}
+\caption[Systematic errors evaluated in the Run~1 precession frequency datasets]{Final systematic errors evaluated in the Run~1 precession frequency analysis to the 60h, HighKick, 9d, and Endgame datasets. All units are in ppb. The table is split into two sections. The upper section consists of systematic errors directly evaluated by the author while the lower section consists of preliminary systematic estimates by other working groups. The E-field and pitch correction errors have been added in quadrature with the quadrupole errors. The publication errors for the Run~1 datasets will change from these as the final DQC cuts are made and analyses improved, however the scale of these errors will remain consistent.}
 \label{tab:FinalSystematicErrors}
 \end{table}
 
+% * Quadrature sum errors calculated excluding the stored beam motion error for comparison.
 
-\clearpage
+% \clearpage
 
 \section{Final precession frequency results}
 
 
-Four datasets from Run~1 of E989 have been analyzed for this dissertation, those being the 60h, HighKick, 9d, and Endgame. In each case the datasets are the near-final datasets for Run~1. The precession frequency analysis was done using the Ratio Method, an analysis technique for fitting the decay positron time spectra which divides out the exponential decay and slow terms in the data. The final results for the blinded frequency \R values for the different datasets along with their total statistical and systematic errors are given in \tabref{tab:FinalResults}. \figref{fig:RComparison} compares the means. The total error for the four datasets is \SI{491.2}{ppb} conservatively assuming completely correlated systematic errors. The analysis is statistics limited, even with the conservative preliminary estimates for certain systematic errors as given in \tabref{tab:FinalSystematicErrors}. Before combining the results, the \R values given here will have their individual E-field and pitch corrections applied, and their blindings normalized. Since the magnetic field changes between datasets, the \R values will be converted back into the precession frequency \wa using \equref{eq:wablind} before combination with the magnetic field measurements to give per-dataset values of \amu. The dataset \amu values will then be combined in a weighted average.
+Four datasets from Run~1 of E989 have been analyzed for this dissertation, those being the 60h, HighKick, 9d, and Endgame. In each case the datasets are the near-final datasets for Run~1. The precession frequency analysis was done using the Ratio Method, an analysis technique for fitting the decay positron time spectra which divides out the exponential decay and slow terms in the data. The final results for the blinded frequency \R values for the different datasets along with their total statistical and systematic errors are given in \tabref{tab:FinalResults}. \figref{fig:RComparison} compares the means. The total error for the four datasets is \SI{\TotalCorrErr}{ppb} conservatively assuming completely correlated systematic errors. The analysis is statistics limited, even with the conservative preliminary estimates for certain systematic errors as given in \tabref{tab:FinalSystematicErrors}. Before combining the results, the \R values given here will have their individual E-field and pitch corrections applied, and their blindings normalized. Since the magnetic field changes between datasets, the \R values will be converted back into the precession frequency \wa using \equref{eq:wablind} before combination with the magnetic field measurements to give per-dataset values of \amu. The dataset \amu values will then be combined in a weighted average.
 
 
 \begin{table}
@@ -1049,13 +1050,13 @@ Four datasets from Run~1 of E989 have been analyzed for this dissertation, those
   \hline\hline
     Dataset & \multicolumn{1}{c}{\R} & \multicolumn{1}{c}{$\sigma_{\text{stat.}}$} & \multicolumn{1}{c}{$\sigma_{\text{sys.}}$} & \multicolumn{1}{c}{$\sigma_{\text{tot.}}$} \\ 
   \hline
-    60h & $-20.5562$ & 1.3581 & 0.1440 & 1.3657 \\
-    HighKick & $-17.4755$ & 1.4112 & 0.1382 & 1.4180 \\
-    9d & $-17.7182$ & 0.9033 & 0.1337 & 0.9132 \\
-    Endgame & $-17.3406$ & 0.6393 & 0.2021 & 0.6707 \\
+    60h & $-20.5562$ & 1.3581 & 0.0898 & 1.3611 \\
+    HighKick & $-17.4755$ & 1.4112 & 0.0808 & 1.4135 \\
+    9d & $-17.7182$ & 0.9033 & 0.0729 & 0.9062 \\
+    Endgame & $-17.3406$ & 0.6393 & 0.1028 & 0.6475 \\
   \hline
-  \multicolumn{2}{l}{Total (systematics 0\% correlated)} & 0.4605 & & 0.4737 \\
-  \multicolumn{2}{l}{Total (systematics 100\% correlated)} & 0.4605 & & 0.4912 \\
+  \multicolumn{2}{l}{Total (systematics 0\% correlated)} & 0.4605 & & 0.4641 \\
+  \multicolumn{2}{l}{Total (systematics 100\% correlated)} & 0.4605 & & \TotalCorrErrPPM \\
   \hline
 \end{tabular*}
 \caption[Run~1 precession frequency final results]{Run~1 final results for the precession frequency analysis datasets. The \R values given here are mean values of fits to 50 different random seeds. The 60h dataset has a different software blinding than the rest, shown by the different mean \R value. Statistical and systematic errors are included alongside the total error for each dataset. In each dataset case the error is statistics dominated. Total combined errors for the different datasets are shown for cases where the systematic errors are assumed to be 0\% and 100\% correlated. Units are in ppm.}
