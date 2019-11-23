@@ -440,18 +440,22 @@ This reference frequency of $\SI{0.2291}{MHz}$ was the same reference frequency 
 
 
 \equref{eq:fiveparfuncagain} can be expanded to 
-    \begin{align}
-        f(t) = \Lambda(t) \cdot V(t) \cdot N_{cbo}(t) \cdot \boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\tau}} \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))),
+    \begin{equation}
+    \begin{aligned}
+        f(t) = \Lambda(t)& \cdot V(t) \cdot N_{cbo}(t) \cdot N_{2cbo}(t) \cdot \boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\tau}}  \\
+         & \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))),
     \label{eq:TmethodFunction}
-    \end{align}
-where many additional terms have been added in order to account for effects in the data. The various additional terms $\{N_{cbo}(t), A_{cbo}(t), \phi_{cbo}(t), V(t), \Lambda(t)\}$ are described in the following sections. Fitting the data with this function, referred to as the ``Threshold Method'' or just ``T-Method,'' while not the subject of this dissertation, was done in this analysis as a diagnostic and informative tool for the Ratio Method analysis. 
+    \end{aligned}
+    \end{equation}
+where various additional terms have been added in order to account for effects in the data. These terms are described in the following sections. Fitting the data with this function, referred to as the ``Threshold Method'' or just ``T-Method,'' while not the subject of this dissertation, was done in this analysis as a diagnostic and informative tool for the Ratio Method analysis. 
 
+% $\{N_{cbo}(t), A_{cbo}(t), \phi_{cbo}(t), V(t), \Lambda(t)\}$
 
 In order to fit the ratio time spectra as constructed in \secref{sub:ratio_method}, a different function is used. While the immediate inclination would be to use an expansion of \equref{eq:threeparamratio} with additional effects included similar to the T-Method fit function, instead the fit function used is a return to the explicit definition of the construction of the ratio time spectra in Equations~\ref{eq:UandV} and \ref{eq:ratioUV}. Including the additional effects previously mentioned, the fit function becomes
     \begin{gather}
         R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)}, \\
         f_{\pm}(t) = f(t \pm T_{a}/2), \\
-        f(t) = \Lambda(t) \cdot V(t) \cdot N_{cbo}(t) \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))).
+        f(t) = \Lambda(t) \cdot V(t) \cdot N_{cbo}(t) \cdot N_{2cbo}(t) \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t))).
     \label{eq:fullratiofunction}
     \end{gather}
 The $f(t)$ given here differs from that in \equref{eq:TmethodFunction} in that the $\boldsymbol{N_{0}} \cdot e^{-t/\boldsymbol{\tau}}$ terms have divided out, thus reducing the number of fit parameters necessary to model the data. Using this function as opposed to an expansion of the three parameter ratio function eliminates any approximations made in that three parameter function derivation, and any fit parameters should be consistent in value between the T-Method and Ratio Method results, barring adjustments due to the application of the Ratio Method. 
@@ -551,7 +555,11 @@ Systematic studies relating to the choice of CBO envelope and choice of fixed pa
 \subsection{VW term}
 \label{sub:vw_term}
 
-As mentioned at the end of \secref{sec:Histogramming}, the VW effect is time-randomized out of the data, such that $V(t) = 1$. This is done due to complications with the Ratio Method. In the 60h and Endgame datasets, the VW frequency was found to be nearly 10\wa, on a potential resonance. While to first order this even multiple frequency implies the VW effect should completely cancel out in the Ratio Method, \figref{fig:CancellationInRatioMethod}, the FR effect in combination with the VW leads to a modified envelope for the VW effect in the Ratio Method fits and inflated VW amplitudes \cite{VWinRatio}. See Figures~\ref{fig:VWresonance} and \ref{fig:JamesMC_VW_FR}.
+As mentioned at the end of \secref{sec:Histogramming}, the VW effect is time-randomized out of the data, such that 
+    \begin{align}
+        V(t) = 1. 
+    \end{align}
+This is done due to complications observed in the application of the Ratio Method. In the 60h and Endgame datasets, the VW frequency was found to be nearly $10 \cdot \omega_{a}$, on a potential resonance. While to first order this even multiple frequency implies the VW effect should completely cancel out in the Ratio Method, \figref{fig:CancellationInRatioMethod}, the FR effect in combination with the VW leads to a modified envelope for the VW effect in the Ratio Method fits and inflated VW amplitudes \cite{VWinRatio}. See Figures~\ref{fig:VWresonance} and \ref{fig:JamesMC_VW_FR}.
 
 \begin{figure}
     \centering
@@ -574,12 +582,12 @@ As mentioned at the end of \secref{sec:Histogramming}, the VW effect is time-ran
         \includegraphics[width=\textwidth]{JamesMC_withFR}
         \caption{With the FR effect included.}
     \end{subfigure}
-\caption[VW envelope in Ratio Method Toy MC data with and without FR effect]{Ratio data with and without the FR effect from a Toy MC simulation, with a VW effect with a frequency $\omega_{VW} = 10 \omega_{a}$. The \wa wiggle itself has been removed, and the lifetime of the VW was set to a large number. The top plot shows ratio data which is consistent with 0 after all effects have been removed and the VW has divided out. The bottom plot shows ratio data inconsistent with 0, with oscillations at the VW frequency, and an interesting beating structure. Note the different scales.}
+\caption[VW envelope in Ratio Method Toy MC data with and without FR effect]{Ratio data with and without the FR effect from a Toy MC simulation, with a VW effect with a frequency $\omega_{VW} = 10 \cdot \omega_{a}$. The \wa wiggle itself has been removed, and the lifetime of the VW was set to a large number. The top plot shows ratio data which is consistent with 0 after all effects have been removed and the VW has divided out. The bottom plot shows ratio data inconsistent with 0, with oscillations at the VW frequency, and an interesting beating structure. Note the different scales.}
 \label{fig:JamesMC_VW_FR}
 \end{figure}
 
 
-For the 9d dataset which has a VW frequency that's nearly 9\wa and avoids said resonance (and by extension the HighKick), it was found that the Ratio Method flattened out the VW amplitudes as a function of calorimeter number leading to a systematically smaller VW amplitude in the calorimeter sum fit compared to in a T-Method fit. The simplest solution to remove both of these problems was to randomize out the VW effect entirely. \tabref{tab:A_change} gives the change in asymmetry and corresponding change in the statistical error on R due to this added time randomization for three of the Run~1 datasets. It was found that the added randomization increased the statistical error on R by a negligible amount for the Run~1 analysis. It was also found that the added level of time-randomization changed the mean value of R for many random seed fits to the data by a small amount, statistically consistent without the extra randomization \cite{VWinRatio}. Going forward for the future runs, it may be necessary to include the proper VW envelope in the fits using a functional form of the FR instead of randomizing out the effect.
+For the 9d dataset which has a VW frequency that's nearly $9 \cdot \omega_{a}$ and avoids said resonance (and by extension the HighKick), it was found that the Ratio Method flattened out the VW amplitudes as a function of calorimeter number leading to a systematically smaller VW amplitude in the calorimeter sum fit compared to in a T-Method fit. The simplest solution to remove both of these problems was to randomize out the VW effect entirely. \tabref{tab:A_change} gives the change in asymmetry and corresponding change in the statistical error on R due to this added time randomization for three of the Run~1 datasets. It was found that the added randomization increased the statistical error on R by a negligible amount for the Run~1 analysis. It was also found that the added level of time-randomization changed the mean value of R for many random seed fits to the data by a small amount, statistically consistent without the extra randomization \cite{VWinRatio}. Going forward for the future runs, it may be necessary to include the proper VW envelope in the fits using a functional form of the FR instead of randomizing out the effect.
 
 \begin{table}
 \centering
@@ -738,17 +746,6 @@ It should be noted that the Ratio Method is largely insensitive to the slow lost
 
 
 \subsection{Fit procedures and parameters}
-
-Put in final fit equation used here
-
-
-    \begin{gather}
-        R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)}, \\
-        f_{\pm}(t) = f(t \pm T_{a}/2), \\
-        f(t) = \Lambda(t) \cdot N_{cbo}(t) \cdot N_{2cbo}(t) \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t)))
-    % \label{eq:fullratiofunction}
-    \end{gather}
-
 
 
 \chisq fits are done to the pileup corrected positron time spectra and ratio data in \texttt{ROOT} using the standard \texttt{TH1F} and \texttt{TGraph} fit methods with a strategy level of two. Fits are performed in stages where groups of associated parameters are freed, fit, and then fixed before fitting the next set of parameters. In the final fit all parameters are free. Each of the four Run~1 precession frequency analysis datasets are fit with 14 parameters. 13 parameters are free in fits to the 60h, 9d, and Endgame datasets, with the \K parameter determined and fixed from a T-Method fit. In the HighKick dataset $\tau_{cbo}$ is also fixed from a T-Method fit as the lifetime is relatively short and the Ratio Method can't successfully fit it, resulting in 12 free fit parameters. In the T-Method fits there are two extra free fit parameters, those being the $N_{0}$ and $\tau$ terms which are divided out of the Ratio Method fits.
