@@ -739,6 +739,18 @@ It should be noted that the Ratio Method is largely insensitive to the slow lost
 
 \subsection{Fit procedures and parameters}
 
+Put in final fit equation used here
+
+
+    \begin{gather}
+        R(t) = \frac{2f(t) - f_{+}(t) - f_{-}(t)}{2f(t) + f_{+}(t) + f_{-}(t)}, \\
+        f_{\pm}(t) = f(t \pm T_{a}/2), \\
+        f(t) = \Lambda(t) \cdot N_{cbo}(t) \cdot N_{2cbo}(t) \cdot (1 + A_{cbo}(t) \cdot \cos(\omega_{a}t + \phi_{cbo}(t)))
+    % \label{eq:fullratiofunction}
+    \end{gather}
+
+
+
 \chisq fits are done to the pileup corrected positron time spectra and ratio data in \texttt{ROOT} using the standard \texttt{TH1F} and \texttt{TGraph} fit methods with a strategy level of two. Fits are performed in stages where groups of associated parameters are freed, fit, and then fixed before fitting the next set of parameters. In the final fit all parameters are free. Each of the four Run~1 precession frequency analysis datasets are fit with 14 parameters. 13 parameters are free in fits to the 60h, 9d, and Endgame datasets, with the \K parameter determined and fixed from a T-Method fit. In the HighKick dataset $\tau_{cbo}$ is also fixed from a T-Method fit as the lifetime is relatively short and the Ratio Method can't successfully fit it, resulting in 12 free fit parameters. In the T-Method fits there are two extra free fit parameters, those being the $N_{0}$ and $\tau$ terms which are divided out of the Ratio Method fits.
 
 Fits to calorimeter sum spectra are done over the range 30.2--\mus{650}, corresponding to 4155 bins\footnote{The fit range is not defined on exact bin edges, and those bins where the fit begins and ends are included in the fit.}. The choice of fit start time was made to allow for the muon beam to stabilize in the storage region after the scraping procedure. In addition the start time was chosen to lie directly on a \gmtwo zero crossing, which from E821 experience was shown to reduce some systematic errors. The choice of fit end time was made to be well before the limit at which the bin variance become non-Gaussian. Individual calorimeter fits were performed out to \mus{400} considering this fact. \tabref{tab:fitprocedureparameters} gives the various fit procedure parameters.
