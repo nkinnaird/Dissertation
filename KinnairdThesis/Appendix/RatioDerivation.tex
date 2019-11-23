@@ -31,8 +31,12 @@ where the $1/4$ out front reflects randomly splitting the whole dataset into 4 e
 	\end{equation}
 Plugging in and dividing the common terms $(N_{0}e^{-t/\tau}/4)$,
 	\begin{align}
-		R(t) = \frac{2(1 + A \cos(\omega_{a}t)) - e^{-T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2)) - e^{T/ 2\tau} (1 + A \cos(\omega_{a}t - \omega_{a}T/2))} {2(1 + A \cos(\omega_{a}t)) + e^{-T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2)) + e^{T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2))}.
+		R(t) = \frac{\splitfrac{2(1 + A \cos(\omega_{a}t)) - e^{-T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2))}{ - e^{T/ 2\tau} (1 + A \cos(\omega_{a}t - \omega_{a}T/2))}} {\splitfrac{2(1 + A \cos(\omega_{a}t)) + e^{-T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2))}{ + e^{T/ 2\tau} (1 + A \cos(\omega_{a}t - \omega_{a}T/2))}}.
 	\end{align}
+	
+	% \begin{align}
+	% 	R(t) = \frac{2(1 + A \cos(\omega_{a}t)) - e^{-T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2)) - e^{T/ 2\tau} (1 + A \cos(\omega_{a}t - \omega_{a}T/2))} {2(1 + A \cos(\omega_{a}t)) + e^{-T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2)) + e^{T/ 2\tau} (1 + A \cos(\omega_{a}t - \omega_{a}T/2))}.
+	% \end{align}
 
 Now set $\omega_{a}T/2 = \delta$, and note that T is really
 	\begin{equation}
@@ -116,7 +120,7 @@ so that
 	\end{equation}
 (These factors out front aren't so far off from 1/4 since $e^{\pm T/ 2\tau} \approx e^{\pm 4.35/ 2*64.4} \approx 1.034, .967$.) Then instead $R(t)$ becomes 
 	\begin{align}
-		R(t) = \frac{2(1 + A \cos(\omega_{a}t)) - (1 - A \cos(\omega_{a}t + \delta)) - (1 - A \cos(\omega_{a}t - \delta))} {2(1 + A \cos(\omega_{a}t)) + (1 - A \cos(\omega_{a}t + \delta)) + (1 - A \cos(\omega_{a}t + \delta))},
+		R(t) = \frac{2(1 + A \cos(\omega_{a}t)) - (1 - A \cos(\omega_{a}t + \delta)) - (1 - A \cos(\omega_{a}t - \delta))} {2(1 + A \cos(\omega_{a}t)) + (1 - A \cos(\omega_{a}t + \delta)) + (1 - A \cos(\omega_{a}t - \delta))},
 	\end{align}
 where the $e^{\pm T/ 2\tau}$ terms out front now cancel. Using Equation \ref{eqn:trig} again and this time avoiding approximations in $\delta$,
 	\begin{align}
