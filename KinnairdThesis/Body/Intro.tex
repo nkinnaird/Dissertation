@@ -17,12 +17,12 @@ This dissertation will describe the E989 experiment and the author's contributio
 \section{Magnetic moments of particles}
 \label{sec:MDMs}
 
-In order to understand the purpose of the Fermilab Muon \gmtwo Experiment, first the $g$ in \gmtwo needs to be understood as that is what the experiment is measuring. All particles have intrinsic properties. One property of charged particles is the magnetic dipole moment.\footnote{\textit{Magnetic dipole moment} and \textit{magnetic moment} are equivalent when talking about particles.} This property of a particle is related to its spin through the equation
+All particles have intrinsic properties. One property of charged particles is the magnetic dipole moment.\footnote{\textit{Magnetic dipole moment} and \textit{magnetic moment} are equivalent when talking about particles.} This property of a particle is related to its spin through the equation
 		\begin{align}
             \vec{\mu} = g \frac{q}{2m} \vec{s},
         \label{eq:magneticmoment}
 		\end{align}
-where $\vec{\mu}$ is the magnetic dipole moment of a particle, $\vec{s}$ is its spin vector, $m$ is its mass, $q = \pm e$ where $e$ is the elementary charge, and \g is the so called ``Land\'{e} g-factor''. \g is a measurable and predictable constant. Since the torque on a particle in a magnetic field is 
+where $\vec{\mu}$ is the magnetic dipole moment of a particle, $\vec{s}$ is its spin vector, $m$ is its mass, $q = \pm e$ where $e$ is the elementary charge, and \g is the so called ``Land\'{e} g-factor''. \g is a measurable and predictable observable. Since the torque on a particle in a magnetic field $\vec{B}$ is 
 		\begin{align}
             \vec{N} = \vec{\mu} \times \vec{B},
         \label{eq:torque}
@@ -30,7 +30,7 @@ where $\vec{\mu}$ is the magnetic dipole moment of a particle, $\vec{s}$ is its 
 the rate at which a particle's spin precesses in a magnetic field will depend on \g. This is one of the key physics principles in the E989 experiment as will be discussed later.
 
 %See Appendix~\ref{gDirac} for a derivation of this result.
-In a Dirac theory, \g is equal to 2 for spin-\textonehalf\xspace particles with no internal structure \cite{Dirac}. A simple derivation of this result is given in \refref{Schwartz}. However, even for these types of particles, \g is not quite equal to 2. Motivated by early experimental measurement discrepancies such as the measurements of the hyperfine structure in hydrogen \cite{EarlyHyperfine1}, in 1948 Schwinger calculated the first ``radiative correction'' to the electron magnetic moment \cite{Schwinger}. In a quantum field theory, interactions of the particle with virtual particles in loops will contribute to the value of \g. In this context, for charged leptons, it is convenient to recast the magnetic dipole moment formula as 
+In a Dirac theory, \g is equal to 2 for spin-\textonehalf\xspace particles with no internal structure~\cite{Dirac}. A simple derivation of this result is given in \refref{Schwartz}. However, even for these types of particles, \g is not quite equal to 2. Motivated by early experimental measurement discrepancies such as the measurements of the hyperfine structure in hydrogen~\cite{EarlyHyperfine1}, in 1948 Schwinger calculated the first ``radiative correction'' to the electron magnetic moment~\cite{Schwinger}. In a quantum field theory, interactions of the particle with virtual particles in loops will contribute to the value of \g. In this context, for charged leptons, it is convenient to recast the magnetic dipole moment formula as 
 		\begin{equation}
 		\begin{aligned}
             \vec{\mu} &= 2(1+a) \frac{q}{2m} \vec{s}, \\
@@ -122,7 +122,7 @@ Any complete theory must agree with experimental observations. The latest theore
 		\end{tikzpicture}
 	\caption{A two loop diagram.}
 	\end{subfigure}
-\caption[QED diagrams contributing to the magnetic moment]{The first of many QED diagrams contributing to $a$. B is an external magnetic field. Feynman diagrams made with References \cite{tikz-feynman,tikz-feynhand}.}	
+\caption[QED diagrams contributing to the magnetic moment]{The first of many QED diagrams contributing to $a$. B is an external magnetic field. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:QEDDiagrams}
 \end{figure}
 
@@ -130,7 +130,7 @@ Any complete theory must agree with experimental observations. The latest theore
 \subsection{QED}
 \label{subsec:QED}
 
-The QED contributions to \amu stem solely from loops with virtual leptons and photons. They are well understood and have been calculated to high order, having been calculated up to five-loop level from over 12,000 Feynman diagrams. This has been done with both analytical and numerical methods. The first couple of diagrams, including the Dirac $g = 2$ and Schwinger diagrams, are shown in \figref{fig:QEDDiagrams}. The sum of QED contributions to five-loop level calculated by T. Aoyama et al. is \cite{Kinoshita1,Kinoshita2}
+The QED contributions to \amu stem solely from loops with virtual leptons and photons. They are well understood and have been calculated to high order, having been calculated up to five-loop level from over 12,000 Feynman diagrams. This has been done with both analytical and numerical methods. The first couple of diagrams, including the Dirac $g = 2$ and Schwinger diagrams, are shown in \figref{fig:QEDDiagrams}. The sum of QED contributions to five-loop level calculated by T. Aoyama et al. is~\cite{Kinoshita1,Kinoshita2}
 		\begin{equation}
 		\begin{aligned}
             a_{\mu}^{\text{QED}} &= \sum_{n=1}^{\infty} C_{n} \Big( \frac{\alpha}{\pi} \Big)^{n}, \\
@@ -143,11 +143,11 @@ where in the first line $a_{\mu}^{\text{QED}}$ is expressed as a perturbative ex
 \subsection{Electroweak}
 \label{subsec:Electroweak}
 
-The electroweak contributions to \amu are known to two-loop level, with some three-loop parts estimated. The different one loop diagrams are shown in \figref{fig:EWDiagrams}. In the EW diagrams propagators from both the leptons and EW gauge bosons will be included. Per usual Feynman rules, the propagators will contain the masses of the interacting leptons and bosons. The heavy masses of the gauge bosons will produce contributions with characteristic scales of of $\sim(m_{l}/m_{Z^{0},H,W^{\pm}})^{2}$. Because the mass of the gauge bosons are so much larger than the muon, these processes are necessarily suppressed and the electroweak contributions to \amu are small. For this reason knowing these contributions only up to two loop level is sufficient, since higher order diagrams will be suppressed even further. To this degree of accuracy, the value of the electroweak contributions as given by T. Ishikawa et al. is \cite{Ishikawa:2018rlv}
+The electroweak contributions to \amu are known to two-loop level, with some three-loop parts estimated. The different one loop diagrams are shown in \figref{fig:EWDiagrams}. In the EW diagrams propagators from both the leptons and EW gauge bosons will be included. Per usual Feynman rules, the propagators will contain the masses of the interacting leptons and bosons. The heavy masses of the gauge bosons will produce contributions with characteristic scales of of $\sim(m_{l}/m_{Z^{0},H,W^{\pm}})^{2}$. Because the mass of the gauge bosons are so much larger than the muon, these processes are necessarily suppressed and the electroweak contributions to \amu are small. For this reason knowing these contributions only up to two loop level is sufficient, since higher order diagrams will be suppressed even further. To this degree of accuracy, the value of the electroweak contributions as given by T. Ishikawa et al. is~\cite{Ishikawa:2018rlv}
 		\begin{align}
             a_{\mu}^{\text{EW}} = (\EWamu \pm \EWamuErr) \times 10^{-10}.
 		\end{align}
-This value is consistent with the oft-quoted PDG value of $15.36 \pm 0.10 \times 10^{-10}$ \cite{EW1}. Once again the error on these contributions is small compared to those of the hadronic contributions discussed next.
+This value is consistent with the oft-quoted PDG value of $15.36 \pm 0.10 \times 10^{-10}$~\cite{EW1}. Once again the error on these contributions is small compared to those of the hadronic contributions discussed next.
 
 
 \begin{figure}
@@ -251,7 +251,7 @@ This value is consistent with the oft-quoted PDG value of $15.36 \pm 0.10 \times
 	% 	\end{tikzpicture}
 	% \caption{Second order electroweak diagram.}
 	% \end{subfigure}
-\caption[Electroweak diagrams contributing to the magnetic moment]{First order weak diagrams contributing to $a$. B is an external magnetic field. Feynman diagrams made with References \cite{tikz-feynman,tikz-feynhand}.}	
+\caption[Electroweak diagrams contributing to the magnetic moment]{First order weak diagrams contributing to $a$. B is an external magnetic field. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:EWDiagrams}
 \end{figure}
 
@@ -259,7 +259,7 @@ This value is consistent with the oft-quoted PDG value of $15.36 \pm 0.10 \times
 \subsection{Hadronic}
 \label{subsec:Hadronic}
 
-The hadronic contributions to \amu arise from loop diagrams with virtual hadrons. Because QCD couplings are large at low energies, the amplitudes for these processes cannot be calculated perturbatively. Methods for calculating the contributions by extension have errors that dominate the theoretical uncertainty in the SM calculation. Most active work on \amu in the theoretical community is in this sector. The Muon \gmtwo Theory Initiative is comprised of many working groups from various institutions which seeks to make improvements in the hadronic calculations, and produce consensus values going forward in 2020 and beyond \cite{TheoryInitiative}. The hadronic contributions can be separated into two parts:
+The hadronic contributions to \amu arise from loop diagrams with virtual hadrons. Because QCD couplings are large at low energies, the amplitudes for these processes cannot be calculated perturbatively. Methods for calculating the contributions by extension have errors that dominate the theoretical uncertainty in the SM calculation. Most active work on \amu in the theoretical community is in this sector. The Muon \gmtwo Theory Initiative is comprised of many working groups from various institutions which seeks to make improvements in the hadronic calculations, and produce consensus values going forward in 2020 and beyond~\cite{TheoryInitiative}. The hadronic contributions can be separated into two parts:
 		\begin{align}
             a_{\mu}^{\text{Had}} = a_{\mu}^{\text{HVP}} + a_{\mu}^{\text{HLbL}}
         \label{eq:HadSplit}
@@ -269,7 +269,7 @@ The hadronic contributions to \amu arise from loop diagrams with virtual hadrons
 \subsection*{Hadronic Vacuum Polarization}
 \label{subsec:HVP}
 
-The first term in \equref{eq:HadSplit} refers to contributions from hadronic vacuum polarization (HVP), the first order diagram of which is shown in \figref{fig:HVP1}. There are two main prescriptions for calculating these contributions. The first is to use a dispersive approach to introduce a virtual hadron bubble into the integral calculation for the photon propagator\footnote{The details of dispersion theory will not be described here but a pedagogical introduction is given in \refref{dispersion}.}, and then utilize the optical theorem to relate the imaginary part of that propagator to the total cross-section of electron-positron annihilation to hadrons \cite{Jeger}. While this could be solved perturbatively for a lepton bubble in place of the hadron bubble, this is instead a data driven approach when considering non-perturbative QCD. The leading order contribution can be written as 
+The first term in \equref{eq:HadSplit} refers to contributions from hadronic vacuum polarization (HVP), the first order diagram of which is shown in \figref{fig:HVP1}. There are two main prescriptions for calculating these contributions. The first is to use a dispersive approach to introduce a virtual hadron bubble into the integral calculation for the photon propagator\footnote{The details of dispersion theory will not be described here but a pedagogical introduction is given in \refref{dispersion}.}, and then utilize the optical theorem to relate the imaginary part of that propagator to the total cross-section of electron-positron annihilation to hadrons~\cite{Jeger}. While this could be solved perturbatively for a lepton bubble in place of the hadron bubble, this is instead a data driven approach when considering non-perturbative QCD. The leading order contribution can be written as 
 		\begin{align}
             a_{\mu}^{\text{HVP;LO}} = \Big(\frac{\alpha m_{\mu}}{3\pi}\Big)^{2} \int_{m_{\pi}^{2}}^{\infty} \frac{ds}{s^{2}} K(s) R(s)
 		\end{align}
@@ -336,19 +336,19 @@ where $K(s)$ is some calculable kinematic factor, and $R(s)$ is a ratio of cross
 	\caption{The Feynman diagram for electron positron annihilation to hadrons.}
 	\label{fig:HVP2}
 	\end{subfigure}
-\caption[First order hadronic vacuum polarization diagram contributing to the magnetic moment]{The first order HVP diagram on the left, which can be related to the diagram on the right by making a `cut' across the virtual hadrons bubble. The H bubble in both diagrams indicates any combination of hadrons which satisfy the Feynman rules. B is an external magnetic field. Feynman diagrams made with References \cite{tikz-feynman,tikz-feynhand}.}	
+\caption[First order hadronic vacuum polarization diagram contributing to the magnetic moment]{The first order HVP diagram on the left, which can be related to the diagram on the right by making a `cut' across the virtual hadrons bubble. The H bubble in both diagrams indicates any combination of hadrons which satisfy the Feynman rules. B is an external magnetic field. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:HVP}
 \end{figure}
 
 
-The cross-section data for \equref{eq:Rcrosssection} has been measured in different energy ranges by various experiments, including KLOE, CLEO, BaBar, and BESIII \cite{KLOE,CLEO,BaBar,BESIII}. Further cross-section data is currently being acquired and analyzed from those experiments as well as the SND and CMD-3 detectors at the VEPP-2000 collider in Novosibirsk, Russia \cite{SND,CMD3}. As further data is acquired and compared between the different experiments, the error in the HVP contributions to \amu will decrease. The analysis by Keshavarzi et al. with cross-section data as of November 1st, 2019 gives results as \cite{Keshavarzi:2018mgv,Keshavarzi:2019abf}
+The cross-section data for \equref{eq:Rcrosssection} has been measured in different energy ranges by various experiments, including KLOE, CLEO, BaBar, and BESIII~\cite{KLOE,CLEO,BaBar,BESIII}. Further cross-section data is currently being acquired and analyzed from those experiments as well as the SND and CMD-3 detectors at the VEPP-2000 collider in Novosibirsk, Russia~\cite{SND,CMD3}. As further data is acquired and compared between the different experiments, the error in the HVP contributions to \amu will decrease. The analysis by Keshavarzi et al. with cross-section data as of November 1st, 2019 gives results as~\cite{Keshavarzi:2018mgv,Keshavarzi:2019abf}
 		\begin{equation}
 		\begin{aligned}
             a_{\mu}^{\text{HVP;LO}} &= (\HVPLOamu \pm \HVPLOamuErr) \times 10^{-10}, \\
             a_{\mu}^{\text{HVP;NLO}} &= (\HVPNLOamu \pm \HVPNLOamuErr) \times 10^{-10}, 
 		\end{aligned}
 		\end{equation}
-where $a_{\mu}^{\text{HVP;NLO}}$ is the next-to-leading order calculation. This evaluation is consistent with another more conservative analysis by Davier et al. \cite{HVP2,Davier:2019can}. A calculation for the next-to-next-to-leading order HVP contribution is given by A. Kurz et al. \cite{Kurz:2014wya}
+where $a_{\mu}^{\text{HVP;NLO}}$ is the next-to-leading order calculation. This evaluation is consistent with another more conservative analysis by Davier et al.~\cite{HVP2,Davier:2019can}. A calculation for the next-to-next-to-leading order HVP contribution is given by A. Kurz et al.~\cite{Kurz:2014wya}
 		\begin{equation}
 		\begin{aligned}
             a_{\mu}^{\text{HVP;NLO}} &= (\HVPNNLOamu \pm \HVPNNLOamuErr) \times 10^{-10}. 
@@ -357,12 +357,12 @@ where $a_{\mu}^{\text{HVP;NLO}}$ is the next-to-leading order calculation. This 
 
 
 
-The second prescription for estimating the HVP contributions is a first principles approach, using lattice QCD and QED. Lattice QFT is a gauge theory defined on a matrix of points in time and space. In the limit that the matrix is taken infinitely large with the spacing between the points infinitely small, the behavior from a continuous theory is recovered. The lattice-based estimates of $a_{\mu}^{\text{HVP;LO}}$ are consistent with those provided above, though the error is larger \cite{Lattice}. If the calculation is supplemented with the cross-section data described above, then this method provides the most precise determination of $a_{\mu}^{\text{HVP;LO}}$ as shown in \figref{fig:HVPComparison}. 
+The second prescription for estimating the HVP contributions is a first principles approach, using lattice QCD and QED. Lattice QFT is a gauge theory defined on a matrix of points in time and space. In the limit that the matrix is taken infinitely large with the spacing between the points infinitely small, the behavior from a continuous theory is recovered. The lattice-based estimates of $a_{\mu}^{\text{HVP;LO}}$ are consistent with those provided above, though the error is larger~\cite{Lattice}. If the calculation is supplemented with the cross-section data described above, then this method provides the most precise determination of $a_{\mu}^{\text{HVP;LO}}$ as shown in \figref{fig:HVPComparison}. 
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{HVPComparison}
-    \caption[HVP calculations for \amu from various groups]{HVP calculations for \amu from various groups. The green points are lattice calculations, the purple points are dispersive results, and the orange point is a combination approach \cite{Lattice}.}
+    \caption[HVP calculations for \amu from various groups]{HVP calculations for \amu from various groups. The green points are lattice calculations, the purple points are dispersive results, and the orange point is a combination approach~\cite{Lattice}.}
     \label{fig:HVPComparison}
 \end{figure}
 
@@ -370,7 +370,7 @@ The second prescription for estimating the HVP contributions is a first principl
 \subsection*{Hadronic Light-by-Light}
 \label{subsec:HLbL}
 
-The second of these hadronic contribution parts is a higher-order four-photon interaction, termed hadronic light-by-light (HLbL). Diagrams are shown in \figref{fig:HLbL}. Perturbation theory is once again unable to assist in the calculation of these contributions. The calculation of these diagrams has historically been model dependent, and has therefore been the most contentious part of the SM calculation. The value of the HLbL contributions to \amu from model estimates by the so-called `Glasgow consensus' and adjusted due to axial exchanges is given by Nyffeler as $a_{\mu}^{\text{HLbL}} = (9.8 \pm 2.6) \times 10^{-10}$ \cite{Prades:2009tw,Nyffeler:2016gnb}.
+The second of these hadronic contribution parts is a higher-order four-photon interaction, termed hadronic light-by-light (HLbL). Diagrams are shown in \figref{fig:HLbL}. Perturbation theory is once again unable to assist in the calculation of these contributions. The calculation of these diagrams has historically been model dependent, and has therefore been the most contentious part of the SM calculation. The value of the HLbL contributions to \amu from model estimates by the so-called `Glasgow consensus' and adjusted due to axial exchanges is given by Nyffeler as $a_{\mu}^{\text{HLbL}} = (9.8 \pm 2.6) \times 10^{-10}$~\cite{Prades:2009tw,Nyffeler:2016gnb}.
 
 
 \begin{figure}
@@ -429,29 +429,29 @@ The second of these hadronic contribution parts is a higher-order four-photon in
 		\end{tikzpicture}
 	\caption{A second HLbL diagram, where three photons are exchanged with two virtual hadrons bubbles, that are connected with some virtual charge-less propagator.}
 	\end{subfigure}
-\caption[Hadronic light-by-light diagrams contributing to the magnetic moment]{HLbL diagrams contributing to \amu. B is an external magnetic field. Feynman diagrams made with References \cite{tikz-feynman,tikz-feynhand}.}	
+\caption[Hadronic light-by-light diagrams contributing to the magnetic moment]{HLbL diagrams contributing to \amu. B is an external magnetic field. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:HLbL}
 \end{figure}
 
 
-In more recent years, there have been efforts to produce results using dispersive \cite{PhysRevLett.121.112002,PhysRevD.95.054026,Hoferichter:2018kwz,Colangelo:2015ama,Colangelo:2017fiz,Colangelo:2017another,Colangelo:2019uex,Colangelo:2019lpu} and lattice approaches \cite{Blum:2019ugy,Asmussen:2019act}. A calculation of the HLbL contribution using the sum of the dispersive results with linearly added errors given by A. Keshavarzi et al. from the references listed above is \cite{Keshavarzi:2019abf}\footnote{Some pieces are still from the Glasgow consensus which are a work in progress. These dominate the error in the HLbL contribution.}
+In more recent years, there have been efforts to produce results using dispersive~\cite{PhysRevLett.121.112002,PhysRevD.95.054026,Hoferichter:2018kwz,Colangelo:2015ama,Colangelo:2017fiz,Colangelo:2017another,Colangelo:2019uex,Colangelo:2019lpu} and lattice approaches~\cite{Blum:2019ugy,Asmussen:2019act}. A calculation of the HLbL contribution using the sum of the dispersive results with linearly added errors given by A. Keshavarzi et al. from the references listed above is~\cite{Keshavarzi:2019abf}\footnote{Some pieces are still from the Glasgow consensus which are a work in progress. These dominate the error in the HLbL contribution.}
 		\begin{align}
             a_{\mu}^{\text{HLbL}} = (\HLbLamu \pm \HLbLamuErr) \times 10^{-10}.
 		\end{align}
-This calculation, while consistent with the Glasgow consensus estimate provided above, has the advantage that it is model-independent. The error on this contribution is relatively large in each of these various approaches, comparable to that of the $a_{\mu}^{\text{HVP;LO}}$ term, even though the size of this contribution is small. A calculation of the higher order HLbL contributions by Colangelo et al. is \cite{Colangelo:2014qya}
+This calculation, while consistent with the Glasgow consensus estimate provided above, has the advantage that it is model-independent. The error on this contribution is relatively large in each of these various approaches, comparable to that of the $a_{\mu}^{\text{HVP;LO}}$ term, even though the size of this contribution is small. A calculation of the higher order HLbL contributions by Colangelo et al. is~\cite{Colangelo:2014qya}
 		\begin{align}
             a_{\mu}^{\text{HLbL;NLO}} = (\HLbLNLOamu \pm \HLbLNLOamuErr) \times 10^{-10},
 		\end{align}
 showing that higher order HLbL contributions are practically negligible.
 
-% A cumulative report on recent progress is given by N. Asmussen et al. \cite{HLbL1}. 
+% A cumulative report on recent progress is given by N. Asmussen et al.~\cite{HLbL1}. 
 
 
 
 
 \subsection{Combined Standard Model value}
 
-The sum of the \amu contributions listed here is \cite{Kinoshita1,Kinoshita2,Ishikawa:2018rlv,Keshavarzi:2019abf,Kurz:2014wya,Nyffeler:2016gnb,Colangelo:2014qya}
+The sum of the \amu contributions listed here is~\cite{Kinoshita1,Kinoshita2,Ishikawa:2018rlv,Keshavarzi:2019abf,Kurz:2014wya,Nyffeler:2016gnb,Colangelo:2014qya}
 		\begin{equation}
 		\begin{aligned}
             a_{\mu}^{\text{SM}} &= a_{\mu}^{\text{QED}} + a_{\mu}^{\text{EW}} + a_{\mu}^{\text{Had}}, \\
@@ -461,12 +461,12 @@ The sum of the \amu contributions listed here is \cite{Kinoshita1,Kinoshita2,Ish
 The relative uncertainty of this result is 326 parts per billion (ppb). Other analyses with different values for the various contributions typically agree well, as shown on the left side of \figref{fig:AlexKPaperComparison}. In general the consistency of the theory has been stable for almost ten years now. Depending on which calculations are used, the discrepancy between theory and experiment ranges between \SIrange{3}{4}{} standard deviations. 
 
 
-% There is extensive on-going work in both the dispersive and lattice approaches for the hadronic contributions by the Muon \gmtwo Theory Initiative, comprised of many working groups from various institutions, with future consensus values expected sometime in the first half of 2019, and extensive plans for improvements going forward \cite{TheoryInitiative}.
+% There is extensive on-going work in both the dispersive and lattice approaches for the hadronic contributions by the Muon \gmtwo Theory Initiative, comprised of many working groups from various institutions, with future consensus values expected sometime in the first half of 2019, and extensive plans for improvements going forward~\cite{TheoryInitiative}.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{amuSMcompare_KNT2019}
-	\caption[Comparison between theoretical and experimental values for \amu]{Various theoretical values for \amu on the left, as compared to the most recent and extrapolated experimental result on the right \cite{Keshavarzi:2019abf}.}
+	\caption[Comparison between theoretical and experimental values for \amu]{Various theoretical values for \amu on the left, as compared to the most recent and extrapolated experimental result on the right~\cite{Keshavarzi:2019abf}.}
 	\label{fig:AlexKPaperComparison}
 \end{figure}
 
@@ -475,7 +475,7 @@ The relative uncertainty of this result is 326 parts per billion (ppb). Other an
 \label{sec:Background}
 
 
-The theoretical contributions to \amu listed in the previous sections have improved over time as methods have matured and more experimental data has been gathered. Similarly, work on the direct experimental measurement of \amu has been going on for decades, with more precise results being determined over time \cite{PastExperiments}. The most recent experiment to measure \gmtwo was the Brookhaven Muon \gmtwo Experiment (E821) held at Brookhaven National Laboratory (BNL), which collected data from 1997 to 2001. That experiment measured a value for \amu of \cite{E821FinalReport,CODATA}
+The theoretical contributions to \amu listed in the previous sections have improved over time as methods have matured and more experimental data has been gathered. Similarly, work on the direct experimental measurement of \amu has been going on for decades, with more precise results being determined over time~\cite{PastExperiments}. The most recent experiment to measure \gmtwo was the Brookhaven Muon \gmtwo Experiment (E821) held at Brookhaven National Laboratory (BNL), which collected data from 1997 to 2001. That experiment measured a value for \amu of~\cite{E821FinalReport,CODATA}
 		\begin{align}
             a_{\mu}^{\text{Exp}} = (\Expamu \pm \ExpamuErr) \times 10^{-10},
 		\end{align}
@@ -498,16 +498,16 @@ The value of \amu receives contributions from all particles that couple to the m
 		\begin{align}
             a \sim C \frac{m^{2}}{\Lambda^{2}},
 		\end{align}
-where $C$ is a constant of $\mathcal{O}(1)$, $\Lambda$ is the mass scale of the new physics, and $m$ the mass of the lepton in question. The postulation of such new heavy particles has long been explored in supersymmetry models \cite{Czarnecki_2001}. However with the lack of positive results coming out of the LHC experiments, such models are mostly excluded barring some parameter spaces \cite{Hagiwara_2018}. Radiative mass mechanisms in the range of 1 -- \SI{2}{\TeV} could be the source of the discrepancy while also accounting for the small muon mass relative to the electroweak gauge bosons \cite{Czarnecki_2001}. Heavy scalar leptoquarks, two-Higgs-doublet, or more general scalar doublet models can also be constructed which account for the discrepancy \cite{Leskow_2017,crivellin2019bto,Abe_2019}.
+where $C$ is a constant of $\mathcal{O}(1)$, $\Lambda$ is the mass scale of the new physics, and $m$ the mass of the lepton in question. The postulation of such new heavy particles has long been explored in supersymmetry models~\cite{Czarnecki_2001}. However with the lack of positive results coming out of the LHC experiments, such models are mostly excluded barring some parameter spaces~\cite{Hagiwara_2018}. Radiative mass mechanisms in the range of 1 -- \SI{2}{\TeV} could be the source of the discrepancy while also accounting for the small muon mass relative to the electroweak gauge bosons~\cite{Czarnecki_2001}. Heavy scalar leptoquarks, two-Higgs-doublet, or more general scalar doublet models can also be constructed which account for the discrepancy~\cite{Leskow_2017,crivellin2019bto,Abe_2019}.
 
-% Heavy scalar leptoquarks which interact through a top quark can provide the necessary chirality flip for the muon while accounting for the discrepancy \cite{Leskow_2017}.
-
-
-The sensitivity of the muon as compared to the electron to large mass scales is $ m_{\mu}^{2} / m_{e}^{2} \approx 43,000$ times greater. For this reason, it is possible that even though the g-factor of the electron has been measured extraordinarily precisely, to 0.26 parts per trillion (ppt) corresponding to a 0.23 ppb relative uncertainty in $a_{e}$ \cite{CODATA,ElectronMDM}, it has not yielded a definitive difference between theory and experiment, whereas the magnetic moment of the muon might do so. With that being said a recent measurement of the fine structure constant $\alpha$ to the highest precision yet \cite{finestructureBerkeley} has yielded a new value of $a_{e}$ for which the difference between theory and experiment is 2.5 standard deviations, but with the opposite sign as compared to \amu. This implies that the electron and muon sectors need to be decoupled from one another in light of the constraints from $\mu \rightarrow e\gamma$. Models with vector-like fermions which can account for both discrepancies can be formulated whereas other models have trouble \cite{PhysRevD.98.113002}.
+% Heavy scalar leptoquarks which interact through a top quark can provide the necessary chirality flip for the muon while accounting for the discrepancy~\cite{Leskow_2017}.
 
 
+The sensitivity of the muon as compared to the electron to large mass scales is $ m_{\mu}^{2} / m_{e}^{2} \approx 43,000$ times greater. For this reason, it is possible that even though the g-factor of the electron has been measured extraordinarily precisely, to 0.26 parts per trillion (ppt) corresponding to a 0.23 ppb relative uncertainty in $a_{e}$~\cite{CODATA,ElectronMDM}, it has not yielded a definitive difference between theory and experiment, whereas the magnetic moment of the muon might do so. With that being said a recent measurement of the fine structure constant $\alpha$ to the highest precision yet~\cite{finestructureBerkeley} has yielded a new value of $a_{e}$ for which the difference between theory and experiment is 2.5 standard deviations, but with the opposite sign as compared to \amu. This implies that the electron and muon sectors need to be decoupled from one another in light of the constraints from $\mu \rightarrow e\gamma$. Models with vector-like fermions which can account for both discrepancies can be formulated whereas other models have trouble~\cite{PhysRevD.98.113002}.
 
-BSM models at the low energy regime can also explain the discrepancy. These include a light scalar `dark' Higgs which may be capable of producing the discrepancy, regardless of the fact that the dark photon model has been ruled out at the 99\% confidence level \cite{Chen:2015vqy,Ablikim:2017aab}, and low mass pseudo-scalar axion-like particles \cite{Marciano_2016}, among others.
+
+
+BSM models at the low energy regime can also explain the discrepancy. These include a light scalar `dark' Higgs which may be capable of producing the discrepancy, regardless of the fact that the dark photon model has been ruled out at the 99\% confidence level~\cite{Chen:2015vqy,Ablikim:2017aab}, and low mass pseudo-scalar axion-like particles~\cite{Marciano_2016}, among others.
 
 % while scalar axion-like particles have mostly been ruled out
 
@@ -519,7 +519,7 @@ Future data taken from the LHC and other experiments will further constrain the 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{citations}
-	\caption[Citations for E821 publications vs year]{The number of citations for the BNL experiment E821 publications as a function of year, as of 10/30/2019 \cite{MarkComm}.}
+	\caption[Citations for E821 publications vs year]{The number of citations for the BNL experiment E821 publications as a function of year, as of 10/30/2019~\cite{MarkComm}.}
 	\label{fig:E821Citations}
 \end{figure}
 
@@ -532,19 +532,19 @@ The E989 experiment has the goal of measuring \amu to \SI{140}{ppb} by 2021. Thi
 
 
 % from Aaron's thesis:
-% \cite{Czarnecki_2001} % Aaron's citation for 2001 possible explanations of g-2 - mostly supersymmetry which has been ruled out, but I should probably skim through the document - radiative mass mechanisms which I haven't talked about
-% \cite{Hagiwara_2018} % MSSM parameter spaces not fully excluded
-% \cite{Chen:2015vqy} % light dark higgs scalar
-% \cite{Ablikim:2017aab}% dark photon - simplest model excluded as far as I can tell
-% \cite{Marciano_2016} % axion-like particles
+%~\cite{Czarnecki_2001} % Aaron's citation for 2001 possible explanations of g-2 - mostly supersymmetry which has been ruled out, but I should probably skim through the document - radiative mass mechanisms which I haven't talked about
+%~\cite{Hagiwara_2018} % MSSM parameter spaces not fully excluded
+%~\cite{Chen:2015vqy} % light dark higgs scalar
+%~\cite{Ablikim:2017aab}% dark photon - simplest model excluded as far as I can tell
+%~\cite{Marciano_2016} % axion-like particles
 
 % from BSM presentation:
 % % skipping first citation on MSSM, since it's from 2006
-% \cite{Leskow_2017} % leptoquarks, skipping the second leptoquark citation since it doesn't make any direct mention of g-2
-% \cite{crivellin2019bto} % 2 Higgs doublet models
-% \cite{Abe_2019} % scalar doublets extensions (not Higgs)
+%~\cite{Leskow_2017} % leptoquarks, skipping the second leptoquark citation since it doesn't make any direct mention of g-2
+%~\cite{crivellin2019bto} % 2 Higgs doublet models
+%~\cite{Abe_2019} % scalar doublets extensions (not Higgs)
 
-% \cite{PhysRevD.98.113002} % other article which is a summary of others, also source for vectorlike fermions
+%~\cite{PhysRevD.98.113002} % other article which is a summary of others, also source for vectorlike fermions
 
 
 
@@ -563,7 +563,7 @@ The E989 experiment has the goal of measuring \amu to \SI{140}{ppb} by 2021. Thi
 % 	\propag [photon] (c) to [edge label = $\gamma$] (o);
 % 	\end{feynhand}
 % 	\end{tikzpicture}
-% \caption[General diagram for new physics]{A general Feynman diagram, where the leptons couple to an external magnetic field B through some BSM physics. Feynman diagrams made with References \cite{tikz-feynman,tikz-feynhand}.}	
+% \caption[General diagram for new physics]{A general Feynman diagram, where the leptons couple to an external magnetic field B through some BSM physics. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
 % \label{fig:BSM}
 % \end{figure}
 
