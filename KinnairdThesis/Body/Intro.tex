@@ -6,7 +6,7 @@
 \chapter{Introduction}
 \label{chapter:Introduction}
 
-The prevailing theory of particle physics, the Standard Model (SM), has had tremendous success in describing our universe. It has been used to predict and explain a wide variety of phenomena, particle properties, and interactions to great precision. However, in spite of its success in explaining nearly all experimental results, there remain unanswered questions about our universe. Some of these include the matter-antimatter asymmetry, the source of mass for the neutrinos, the existence of dark matter, and reconciling general relativity and quantum mechanics. Many particle physics experiments around the world are being devised and conducted in order to shed light on these questions and improve our understanding of reality. One such experiment is the Fermilab Muon \gmtwo Experiment (E989), underway at the Fermi National Accelerator Laboratory (FNAL) located in Batavia, Illinois.
+The prevailing theory of particle physics, the Standard Model (SM), has had tremendous success in describing our universe. It has been used to predict and explain a wide variety of phenomena, particle properties, and interactions to great precision. However, in spite of its success in explaining nearly all experimental results, there remain unanswered questions about our universe. Some of these include the matter-antimatter asymmetry, the source of mass for the neutrinos, the existence of dark matter, and reconciling general relativity and quantum mechanics. Many particle physics experiments around the world are being devised and conducted in order to shed light on these questions and improve our understanding of reality. One such experiment is the Fermilab Muon \gmtwo Experiment (E989), underway at the Fermi National Accelerator Laboratory located in Batavia, Illinois.
 
 
 This dissertation will describe the E989 experiment and the author's contributions in detail. Chapter 1 will provide experimental and theoretical background to the experiment, as well its motivation. Chapter 2 will describe the experimental principle and specifics of muon production and storage. Chapter 3 will describe the various detector systems. Chapter 4 will describe the straw tracking reconstruction including the track fitting algorithm, as well as some analysis results. Chapter 5 will describe the precession frequency measurement portion of the experiment, and detail analysis results from data taken in the first run of the experiment in 2018. Chapter 6 will conclude the dissertation and the results contained within.
@@ -30,7 +30,7 @@ where $\vec{\mu}$ is the magnetic dipole moment of a particle, $\vec{s}$ is its 
 the rate at which a particle's spin precesses in a magnetic field will depend on \g. This is one of the key physics principles in the E989 experiment as will be discussed later.
 
 %See Appendix~\ref{gDirac} for a derivation of this result.
-In a Dirac theory, \g is equal to 2 for spin-\textonehalf\xspace particles with no internal structure~\cite{Dirac}. A simple derivation of this result is given in \refref{Schwartz}. However, even for these types of particles, \g is not quite equal to 2. Motivated by early experimental measurement discrepancies such as the measurements of the hyperfine structure in hydrogen~\cite{EarlyHyperfine1}, in 1948 Schwinger calculated the first ``radiative correction'' to the electron magnetic moment~\cite{Schwinger}. In a quantum field theory, interactions of the particle with virtual particles in loops will contribute to the value of \g. In this context, for charged leptons, it is convenient to recast the magnetic dipole moment formula as 
+In a Dirac theory, \g is equal to 2 for spin-\textonehalf\xspace particles with no internal structure~\cite{Dirac}. A simple derivation of this result is given in \refref{Schwartz}. However, even for these types of particles, \g is not quite equal to 2. Motivated by early experimental measurement discrepancies such as the measurements of the hyperfine structure in hydrogen~\cite{EarlyHyperfine1}, in 1948 Schwinger calculated the first ``radiative correction'' to the electron magnetic moment~\cite{Schwinger}. In the same year Kusch and Foley measured the \g factor of the electron to be $g_{e} = 2.00238 \pm 0.00010$~\cite{KuschFoley1,KuschFoley2}, proving that such radiative corrections are needed in order to properly describe particle magnetic moments. In a quantum field theory, interactions of the particle with virtual particles in loops will contribute to the value of \g. In this context, for charged leptons, it is convenient to recast the magnetic dipole moment formula as 
 		\begin{equation}
 		\begin{aligned}
             \vec{\mu} &= 2(1+a) \frac{q}{2m} \vec{s}, \\
@@ -38,15 +38,15 @@ In a Dirac theory, \g is equal to 2 for spin-\textonehalf\xspace particles with 
         \label{eq:anamoly}
 		\end{aligned}
 		\end{equation}
-where $a$ is called the ``magnetic anomaly,'' and contains all higher order corrections to \g. The first correction to $a$, calculated by Schwinger, was $a = \alpha/2\pi \approx 0.00116$, where $\alpha$ is the fine structure constant. By measuring $a$, the SM theory can be tested and extensions to it constrained. A precise measurement of the magnetic anomaly, or the anomalous magnetic moment of the muon, is the main goal of the Fermilab Muon \gmtwo Experiment.
+where $a$ is called the ``magnetic anomaly,'' and contains all higher order corrections to \g. The first correction to $a$, calculated by Schwinger, was $a = \alpha/2\pi \approx 0.00116$, where $\alpha$ is the fine structure constant, consistent with the measured value. By measuring $a$, the SM theory can be tested and extensions to it constrained. A precise measurement of the muon magnetic anomaly, or the anomalous magnetic moment of the muon, is the main goal of the Fermilab Muon \gmtwo Experiment.
 
 
 \section{Standard Model contributions to \amu}
 \label{sec:Theory}
 
-Any complete theory must agree with experimental observations. The latest theoretical predictions for the muon magnetic moment will be presented here. The contributions to \amu can be divided into three SM classes. These include the quantum-electrodynamics (QED) corrections purely from other leptons and photons, the electroweak (EW) corrections from interactions involving the weak force bosons $W^{\pm}$ and $Z^{0}$, and the hadronic corrections from interactions with strongly-interacting hadrons: 
+The latest theoretical predictions for the muon magnetic moment will be presented here. The contributions to \amu can be divided into three sectors of the SM. These include the quantum-electrodynamics (QED) contributions purely from leptons and photons, the electroweak (EW) contributions from interactions involving the weak force bosons $W^{\pm}$, $Z^{0}$, and $H$, and the hadronic (Had) contributions from interactions with strongly-interacting hadrons:
 		\begin{align}
-            a_{\mu}^{\text{SM}} = a_{\mu}^{\text{QED}} + a_{\mu}^{\text{EW}} + a_{\mu}^{\text{Had}}
+            a_{\mu}^{\text{SM}} = a_{\mu}^{\text{QED}} + a_{\mu}^{\text{EW}} + a_{\mu}^{\text{Had}}.
 		\end{align}
 
 
@@ -61,7 +61,7 @@ Any complete theory must agree with experimental observations. The latest theore
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
 		\vertex (b) at (2,-2) {$l$}; 
-		\vertex (c) at (0,2) {B};
+		\vertex (c) at (0,2) {};
 		\propag [fermion] (a) to (o);
 		\propag [anti fermion] (b) to (o);
 		\propag [photon] (c) to [edge label = $\gamma$] (o);
@@ -79,7 +79,7 @@ Any complete theory must agree with experimental observations. The latest theore
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
 		\vertex (b) at (2,-2) {$l$}; 
-		\vertex (c) at (0,2) {B};
+		\vertex (c) at (0,2) {};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
 		\propag [fermion] (a) to (d);
@@ -103,7 +103,7 @@ Any complete theory must agree with experimental observations. The latest theore
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
 		\vertex (b) at (2,-2) {$l$}; 
-		\vertex (c) at (0,2) {B};
+		\vertex (c) at (0,2) {};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
 		\vertex (f) at (-.5,-1);
@@ -122,7 +122,7 @@ Any complete theory must agree with experimental observations. The latest theore
 		\end{tikzpicture}
 	\caption{A two loop diagram.}
 	\end{subfigure}
-\caption[QED diagrams contributing to the magnetic moment]{The first of many QED diagrams contributing to $a$. B is an external magnetic field. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
+\caption[QED diagrams contributing to the magnetic moment]{The first of many QED diagrams contributing to $a$. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:QEDDiagrams}
 \end{figure}
 
@@ -161,7 +161,7 @@ This value is consistent with the oft-quoted PDG value of $15.36 \pm 0.10 \times
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
 		\vertex (b) at (2,-2) {$l$}; 
-		\vertex (c) at (0,2) {B};
+		\vertex (c) at (0,2) {};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
 		\propag [fermion] (a) to (d);
@@ -185,7 +185,7 @@ This value is consistent with the oft-quoted PDG value of $15.36 \pm 0.10 \times
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
 		\vertex (b) at (2,-2) {$l$}; 
-		\vertex (c) at (0,2) {B};
+		\vertex (c) at (0,2) {};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
 		\propag [fermion] (a) to (d);
@@ -209,7 +209,7 @@ This value is consistent with the oft-quoted PDG value of $15.36 \pm 0.10 \times
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
 		\vertex (b) at (2,-2) {$l$}; 
-		\vertex (c) at (0,2) {B};
+		\vertex (c) at (0,2) {};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
 		\propag [fermion] (a) to (d);
@@ -232,7 +232,7 @@ This value is consistent with the oft-quoted PDG value of $15.36 \pm 0.10 \times
 	% 	\vertex [dot] (o) at (0,0);
 	% 	\vertex (a) at (-2,-2) {$l$}; 
 	% 	\vertex (b) at (2,-2) {$l$}; 
-	% 	\vertex (c) at (0,2) {B};
+	% 	\vertex (c) at (0,2) {};
 	% 	\vertex (d) at (-1,-1);
 	% 	\vertex (e) at (1,-1);
 	% 	\vertex (f) at (-.5,-1);
@@ -251,7 +251,7 @@ This value is consistent with the oft-quoted PDG value of $15.36 \pm 0.10 \times
 	% 	\end{tikzpicture}
 	% \caption{Second order electroweak diagram.}
 	% \end{subfigure}
-\caption[Electroweak diagrams contributing to the magnetic moment]{First order weak diagrams contributing to $a$. B is an external magnetic field. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
+\caption[Electroweak diagrams contributing to the magnetic moment]{First order weak diagrams contributing to $a$. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:EWDiagrams}
 \end{figure}
 
@@ -290,7 +290,7 @@ where $K(s)$ is some calculable kinematic factor, and $R(s)$ is a ratio of cross
 		\vertex [dot] (o) at (0,0);
 		\vertex (a) at (-2,-2) {$l$}; 
 		\vertex (b) at (2,-2) {$l$}; 
-		\vertex (c) at (0,2) {B};
+		\vertex (c) at (0,2) {};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
 		\vertex [NWblob] (f) at (0,-1) {H};
@@ -336,7 +336,7 @@ where $K(s)$ is some calculable kinematic factor, and $R(s)$ is a ratio of cross
 	\caption{The Feynman diagram for electron positron annihilation to hadrons.}
 	\label{fig:HVP2}
 	\end{subfigure}
-\caption[First order hadronic vacuum polarization diagram contributing to the magnetic moment]{The first order HVP diagram on the left, which can be related to the diagram on the right by making a `cut' across the virtual hadrons bubble. The H bubble in both diagrams indicates any combination of hadrons which satisfy the Feynman rules. B is an external magnetic field. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
+\caption[First order hadronic vacuum polarization diagram contributing to the magnetic moment]{The first order HVP diagram on the left, which can be related to the diagram on the right by making a `cut' across the virtual hadrons bubble. The H bubble in both diagrams indicates any combination of hadrons which satisfy the Feynman rules. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:HVP}
 \end{figure}
 
@@ -384,7 +384,7 @@ The second of these hadronic contribution parts is a higher-order four-photon in
 		\vertex [NWblob] (o) at (0,0) {H};
 		\vertex (a) at (-2,-2) {$l$}; 
 		\vertex (b) at (2,-2) {$l$}; 
-		\vertex (c) at (0,2) {B};
+		\vertex (c) at (0,2) {};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
 		\vertex (f) at (0,-1);
@@ -410,7 +410,7 @@ The second of these hadronic contribution parts is a higher-order four-photon in
 		\vertex [NWblob] (o) at (-1,0) {H};
 		\vertex (a) at (-2,-2) {$l$}; 
 		\vertex (b) at (2,-2) {$l$}; 
-		\vertex (c) at (0,2) {B};
+		\vertex (c) at (0,2) {};
 		\vertex (d) at (-1,-1);
 		\vertex (e) at (1,-1);
 		\vertex (f) at (0,-1);
@@ -429,7 +429,7 @@ The second of these hadronic contribution parts is a higher-order four-photon in
 		\end{tikzpicture}
 	\caption{A second HLbL diagram, where three photons are exchanged with two virtual hadrons bubbles, that are connected with some virtual charge-less propagator.}
 	\end{subfigure}
-\caption[Hadronic light-by-light diagrams contributing to the magnetic moment]{HLbL diagrams contributing to \amu. B is an external magnetic field. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
+\caption[Hadronic light-by-light diagrams contributing to the magnetic moment]{HLbL diagrams contributing to \amu. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:HLbL}
 \end{figure}
 
@@ -557,7 +557,7 @@ The E989 experiment has the goal of measuring \amu to \SI{140}{ppb} by 2021. Thi
 % 	\vertex [ringblob] (o) at (0,0) {BSM};
 % 	\vertex (a) at (-2,-2) {$l$}; 
 % 	\vertex (b) at (2,-2) {$l$}; 
-% 	\vertex (c) at (0,2) {B};
+% 	\vertex (c) at (0,2) {};
 % 	\propag [fermion] (a) to (o);
 % 	\propag [anti fermion] (b) to (o);
 % 	\propag [photon] (c) to [edge label = $\gamma$] (o);
