@@ -30,7 +30,7 @@ where $\vec{\mu}$ is the magnetic dipole moment of a particle, $\vec{s}$ is its 
 the rate at which a particle's spin precesses in a magnetic field will depend on \g. This is one of the key physics principles in the E989 experiment as will be discussed later.
 
 %See Appendix~\ref{gDirac} for a derivation of this result.
-In a Dirac theory, \g is equal to 2 for spin-\textonehalf\xspace particles with no internal structure~\cite{Dirac}. A simple derivation of this result is given in \refref{Schwartz}. However, even for these types of particles, \g is not quite equal to 2. Motivated by early experimental measurement discrepancies such as the measurements of the hyperfine structure in hydrogen~\cite{EarlyHyperfine1}, in 1948 Schwinger calculated the first ``radiative correction'' to the electron magnetic moment~\cite{Schwinger}. In the same year Kusch and Foley measured the \g factor of the electron to be $g_{e} = 2.00238 \pm 0.00010$~\cite{KuschFoley1,KuschFoley2}, proving that such radiative corrections are needed in order to properly describe particle magnetic moments. In a quantum field theory, interactions of the particle with virtual particles in loops will contribute to the value of \g. In this context, for charged leptons, it is convenient to recast the magnetic dipole moment formula as 
+In a Dirac theory, \g is equal to 2 for spin-\textonehalf\xspace particles with no internal structure~\cite{Dirac}. A simple derivation of this result is given in \refref{Schwartz}. However, even for these types of particles, \g is not quite equal to 2. Motivated by early experimental measurement discrepancies such as the measurements of the hyperfine structure in hydrogen~\cite{EarlyHyperfine1}, in 1948 Schwinger calculated the first ``radiative correction'' to the electron magnetic moment~\cite{Schwinger}. In the same year Kusch and Foley measured the \g factor of the electron to be $g_{e} = 2.00238 \pm 0.00010$~\cite{KuschFoley1,KuschFoley2}, proving that such radiative corrections were needed in a properly descriptive theory. In a quantum field theory, interactions of the particle with virtual particles in loops will contribute to the value of \g. In this context, for charged leptons, it is convenient to recast the magnetic dipole moment formula as 
 		\begin{equation}
 		\begin{aligned}
             \vec{\mu} &= 2(1+a) \frac{q}{2m} \vec{s}, \\
@@ -145,7 +145,7 @@ where in the first line $a_{\mu}^{\text{QED}}$ is expressed as a perturbative ex
 \subsection{Electroweak}
 \label{subsec:Electroweak}
 
-The electroweak contributions to \amu are known to two-loop level~\cite{Ishikawa:2018rlv}. Estimations of three-loop level contributions and above are small~\cite{EW1}. The different one-loop diagrams are shown in \figref{fig:EWDiagrams}. In the EW diagrams the heavy masses of the gauge bosons will produce contributions with characteristic scales of of $\sim(m_{l}/m_{Z^{0},H,W^{\pm}})^{2}$. Because the masses of the gauge bosons are so much larger than the muon, these processes are suppressed and the electroweak contributions to \amu are small relative to the QED contribution. The value of the electroweak contributions as given by T. Ishikawa et al. is~\cite{Ishikawa:2018rlv}
+The electroweak contributions to \amu are known to two-loop level~\cite{Ishikawa:2018rlv}. Estimations of three-loop level contributions and above are small~\cite{EW1}. The different one-loop diagrams are shown in \figref{fig:EWDiagrams}. In the EW diagrams the heavy masses of the gauge bosons will produce contributions with characteristic scales of of $\sim(m_{l}/m_{Z^{0},H,W^{\pm}})^{2}$. Because the masses of the gauge bosons are much larger than the muon, these processes are suppressed and the electroweak contributions to \amu are small relative to the QED contributions. The value of the electroweak contributions as given by T. Ishikawa et al. is~\cite{Ishikawa:2018rlv}
 		\begin{align}
             a_{\mu}^{\text{EW}} = (\EWamu \pm \EWamuErr) \times 10^{-10}.
 		\end{align}
@@ -305,11 +305,11 @@ where $K(s)$ is some calculable kinematic factor, and $R(s)$ is a ratio of cross
 		\propag [photon] (c) to [edge label = $\gamma$] (o);
 		\propag [photon] (d) to (f);
 		\propag [photon] (f) to (e);
-		\draw [dashed] (0,-.25) to (0,-1.75);
-		\node at (0, -2) {cut};
+		% \draw [dashed] (0,-.25) to (0,-1.75);
+		% \node at (0, -2) {cut};
 		\end{feynhand}
 		\end{tikzpicture}
-	\caption{The first order HVP Feynamn diagram.} 
+	\caption{The first order HVP Feynman diagram.} 
 	\label{fig:HVP1}
 	\end{subfigure}
 	\hspace{3mm}
@@ -340,9 +340,11 @@ where $K(s)$ is some calculable kinematic factor, and $R(s)$ is a ratio of cross
 	\caption{The Feynman diagram for electron positron annihilation to hadrons.}
 	\label{fig:HVP2}
 	\end{subfigure}
-\caption[First order hadronic vacuum polarization diagram contributing to the magnetic moment]{The first order HVP diagram on the left, which can be related to the diagram on the right by making a `cut' across the virtual hadrons bubble. The H bubble in both diagrams indicates any combination of hadrons which satisfy the Feynman rules. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
+\caption[First order hadronic vacuum polarization diagram contributing to the magnetic moment]{The first order HVP diagram on the left, which can be related to the diagram on the right via the optical theorem. The H bubble in both diagrams indicates all hadrons. Feynman diagrams made with References~\cite{tikz-feynman,tikz-feynhand}.}	
 \label{fig:HVP}
 \end{figure}
+
+% by making a `cut' across the virtual hadrons bubble
 
 
 The cross-section data for \equref{eq:Rcrosssection} has been measured in different energy ranges by various experiments; a brief overview is given by A. Keshavarzi~\cite{HadronDataOverview}. There are two approaches to measuring this cross-section data. The first operates at fixed center of mass energies in the standard collider theme, and the second tags initial state radiation in order to evaluate the differential cross-section over a wider energy range. As further data is acquired and compared between the different experiments, the error in the HVP contributions to \amu will decrease. The analysis by Keshavarzi et al. with cross-section data as of November 1st, 2019 gives results as~\cite{Keshavarzi:2018mgv,Keshavarzi:2019abf}
@@ -377,12 +379,12 @@ The second prescription for estimating the HVP contributions is a first principl
 \subsection*{Hadronic Light-by-Light}
 \label{subsec:HLbL}
 
-The second of these hadronic contribution parts is a higher-order, four-photon interaction, termed hadronic light-by-light (HLbL). Diagrams are shown in \figref{fig:HLbL}. Perturbation theory is once again unable to assist in the calculation of these contributions. The calculation of these diagrams has historically been model dependent, and has therefore been the most contentious part of the SM calculation. The value of the HLbL contributions to \amu from model estimates by the so-called `Glasgow consensus' is $a_{\mu}^{\text{HLbL}} = (10.5 \pm 2.6) \times 10^{-10}$~\cite{Prades:2009tw}.
+The second of these hadronic contribution parts is a higher-order, four-photon interaction, termed hadronic light-by-light (HLbL). Diagrams are shown in \figref{fig:HLbL}. The calculation of these diagrams has historically been model dependent, and has therefore been the most contentious part of the SM calculation. The value of the HLbL contributions to \amu from model estimates by the so-called `Glasgow consensus' is $a_{\mu}^{\text{HLbL}} = (10.5 \pm 2.6) \times 10^{-10}$~\cite{Prades:2009tw}.
 
 % and adjusted due to axial exchanges is given by Nyffeler as $a_{\mu}^{\text{HLbL}} = (9.8 \pm 2.6) \times 10^{-10}$~\cite{Prades:2009tw,Nyffeler:2016gnb}.
 
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 	\begin{subfigure}[t]{0.4\textwidth}
 	\centering
@@ -460,7 +462,7 @@ showing that higher order HLbL contributions are practically negligible.
 
 \subsection{Combined Standard Model value}
 
-The sum of the \amu contributions listed here is~\cite{Kinoshita1,Kinoshita2,Ishikawa:2018rlv,Keshavarzi:2019abf,Kurz:2014wya,Nyffeler:2016gnb,Colangelo:2014qya}
+The sum of the \amu contributions listed here is~\cite{Kinoshita1,Kinoshita2,Ishikawa:2018rlv,Keshavarzi:2019abf,Kurz:2014wya,Prades:2009tw,Colangelo:2014qya}
 		\begin{equation}
 		\begin{aligned}
             a_{\mu}^{\text{SM}} &= a_{\mu}^{\text{QED}} + a_{\mu}^{\text{EW}} + a_{\mu}^{\text{Had}}, \\
@@ -475,7 +477,7 @@ The relative uncertainty of this result is 326 parts per billion (ppb). Other an
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{amuSMcompare_KNT2019}
-	\caption[Comparison between theoretical and experimental values for \amu]{Various theoretical values for \amu on the left, as compared to the most recent and extrapolated experimental result on the right~\cite{Keshavarzi:2019abf}.}
+	\caption[Comparison between theoretical and experimental values for \amu]{Various theoretical values for \amu on the left, as compared to the most recent and future extrapolated experimental results on the right~\cite{Keshavarzi:2019abf}.}
 	\label{fig:AlexKPaperComparison}
 \end{figure}
 
@@ -516,7 +518,7 @@ The sensitivity of the muon as compared to the electron to large mass scales is 
 
 
 
-BSM models at the low energy regime can also explain the discrepancy. These include a light scalar `dark' Higgs which may be capable of producing the discrepancy\cite{Chen:2015vqy}, (regardless of the fact that the dark photon model has been ruled out at the 99\% confidence level~\cite{Ablikim:2017aab}), and low mass pseudo-scalar axion-like particles~\cite{Marciano_2016}, among others.
+BSM models at the low energy regime can also explain the discrepancy. These include a light scalar `dark' Higgs which may be capable of producing the discrepancy~\cite{Chen:2015vqy}, (regardless of the fact that the dark photon model has been ruled out at the 99\% confidence level~\cite{Ablikim:2017aab}), and low mass pseudo-scalar axion-like particles~\cite{Marciano_2016}, among others.
 
 % while scalar axion-like particles have mostly been ruled out
 
