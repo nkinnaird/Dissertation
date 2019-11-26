@@ -290,7 +290,7 @@ It has been determined that regardless of any residual shape mismatch in the clu
 % https://gm2-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=13963&filename=PileupScaleShadowTesting.pdf&version=1
 % https://gm2-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=14394&filename=PileupFormEtc.pdf&version=2
 
-\clearpage
+% \clearpage
 
 \subsection{Ratio Method}
 \label{sub:ratio_method}
@@ -318,32 +318,6 @@ In order to time shift the data as such, \Ta needs to be known a priori to reaso
         \label{eq:Ta}
         \end{align}
 This value for $f_{a}$ was determined by averaging column 2 of Table XV of the E821 Final Report~\cite{E821FinalReport}, which consists of the $f_{a}$ results for the different run periods in that experiment. A systematic error on the choice of this parameter is calculated in \secref{sub:TimeShiftingParameters} and is negligible for the precision known.
-
-
-The datasets are then combined as 
-    \begin{equation}
-    \begin{aligned}
-        U(t) &= u_{+}(t) + u_{-}(t), \\
-        V(t) &= v_{1}(t) + v_{2}(t),
-    \label{eq:UandV}
-    \end{aligned}
-    \end{equation}
-both of which are shown in \figref{fig:UVfuncs}. It is immediately apparent that the $U(t)$ data are shifted 180\textdegree{} out of phase from the $V(t)$ data. The ratio is then defined as\footnote{The ratio can also be defined with $U(t) - V(t)$ in the numerator, however then the phase of the ratio spectrum is shifted 180\textdegree{} from the original $N_{5}(t)$ spectrum.}
-    \begin{align}
-        R(t) &= \frac{V(t) - U(t)}{V(t) + U(t)}
-    \label{eq:ratioUV}
-    \end{align}
-where the numerator and denominator are plotted in Figures~\ref{fig:rationumfunc} and \ref{fig:ratiodenomfunc} respectively. The numerator is an exponentially decaying cosine, while the denominator is a simple exponential, both of which can be seen as originating from the difference and sum of the $U(t)$ and $V(t)$ data respectively. The resulting ratio spectrum can be seen in \figref{fig:ratiofunc}, where the exponential has been eliminated. The fit function is then reduced from five parameters down to three:
-    \begin{align}
-        R(t) \approx A \cos(\omega_{a}t) - C,
-    \label{eq:ratiowithC}
-    \end{align}
-where  
-    \begin{align}
-        C = \frac{1}{16} \Big(\frac{T}{\tau}\Big)^{2} \approx 2.87 * 10^{-4},
-    \end{align}
-and these functions have been determined from the time-shifted five parameter function plugged into the $U(t)$ and $V(t)$ variables. In addition to the exponential being eliminated, any slow terms in the data get time-shifted and divided as well, such that the amplitude of said slow effects are reduced. For faster effects, the degree of cancellation of the effect is dependent on the frequency. Effects at frequencies which are an odd multiple of \wa are preserved while effects at an even multiple of \wa are completely canceled out. An example is shown in \figref{fig:CancellationInRatioMethod}. While this makes fitting the data easier in some cases, in others it is a downside that effects which still need to be included in the fit function now have their amplitudes reduced, making them harder to fit.
-
 
     \begin{figure}
     \centering
@@ -382,12 +356,38 @@ and these functions have been determined from the time-shifted five parameter fu
             \caption{The ratio function, which describes the data after it has been handled according to the text. To first order it is a simple cosine.}
         \label{fig:ratiofunc}
         \end{subfigure}% 
-    \caption[Ratio formation functions]{Functions describing the formation of the ratio data. \textbf{potentially long way from text reference}}
+    \caption[Ratio formation functions]{Functions describing the formation of the ratio data.}
     \label{fig:RatioFormationFunctions}
     \end{figure}
 
 
-    \begin{figure}
+The datasets are then combined as 
+    \begin{equation}
+    \begin{aligned}
+        U(t) &= u_{+}(t) + u_{-}(t), \\
+        V(t) &= v_{1}(t) + v_{2}(t),
+    \label{eq:UandV}
+    \end{aligned}
+    \end{equation}
+both of which are shown in \figref{fig:UVfuncs}. It is immediately apparent that the $U(t)$ data are shifted 180\textdegree{} out of phase from the $V(t)$ data. The ratio is then defined as\footnote{The ratio can also be defined with $U(t) - V(t)$ in the numerator, however then the phase of the ratio spectrum is shifted 180\textdegree{} from the original $N_{5}(t)$ spectrum.}
+    \begin{align}
+        R(t) &= \frac{V(t) - U(t)}{V(t) + U(t)}
+    \label{eq:ratioUV}
+    \end{align}
+where the numerator and denominator are plotted in Figures~\ref{fig:rationumfunc} and \ref{fig:ratiodenomfunc} respectively. The numerator is an exponentially decaying cosine, while the denominator is a simple exponential, both of which can be seen as originating from the difference and sum of the $U(t)$ and $V(t)$ data respectively. The resulting ratio spectrum can be seen in \figref{fig:ratiofunc}, where the exponential has been eliminated. The fit function is then reduced from five parameters down to three:
+    \begin{align}
+        R(t) \approx A \cos(\omega_{a}t) - C,
+    \label{eq:ratiowithC}
+    \end{align}
+where  
+    \begin{align}
+        C = \frac{1}{16} \Big(\frac{T}{\tau}\Big)^{2} \approx 2.87 * 10^{-4},
+    \end{align}
+and these functions have been determined from the time-shifted five parameter function plugged into the $U(t)$ and $V(t)$ variables. In addition to the exponential being eliminated, any slow terms in the data get time-shifted and divided as well, such that the amplitude of said slow effects are reduced. For faster effects, the degree of cancellation of the effect is dependent on the frequency. Effects at frequencies which are an odd multiple of \wa are preserved while effects at an even multiple of \wa are completely canceled out. An example is shown in \figref{fig:CancellationInRatioMethod}. While this makes fitting the data easier in some cases, in others it is a downside that effects which still need to be included in the fit function now have their amplitudes reduced, making them harder to fit.
+
+
+
+    \begin{figure}[ht]
         \centering
         \includegraphics[width=.6\textwidth]{Fitted_Avw_Vs_Wvw_1x-10x}
         \caption[Cancellation of effect in Ratio Method versus frequency]{Fitted amplitude for a VW effect as a function of frequency in units of \wa in a Toy MC simulation, with a five parameter function in red and a three parameter ratio function in black. The input amplitude is 0.05. The fall off of red points is due to the high frequencies relative to the bin widths leading to an underestimate of the amplitude; performing an integral fit removes this trend. As shown, the amplitude of the effect goes to zero for frequencies which are an even multiple of \wa.}
@@ -432,10 +432,10 @@ where the fit parameter for \wa is recast in terms of a ppm level shift $\boldsy
 This reference frequency of $\SI{0.2291}{MHz}$ was the same reference frequency used in E821, and $\boldsymbol{R}$ is blinded at the hardware and software levels~\cite{ClockManual,SoftwareBlinding}. Fitting the data with \equref{eq:fiveparfuncagain} however is insufficient to properly describe the data. An FFT of the residuals between fit and data is shown in \figref{fig:FFT_fiveParameter}. There are peaks due to beam dynamics frequencies corresponding to the CBO, VW, and some beat frequencies with \wa. In order to properly account for these effects, additional terms need to be added to the fit function. 
 
 
-\begin{figure}
+\begin{figure}[ht]
     \centering
     \includegraphics[width=.8\textwidth]{FFT_fiveParameter_60h_noTimeRand}
-    \caption[FFT of five parameter fit residuals]{FFT of five parameter fit residuals from the 60h dataset. Peaks corresponding to beam dynamics frequencies of the CBO and VW and some beat frequencies with \wa are readily apparent. A rise at low frequencies corresponds to the effects of the lost muons in the data. The VW peak diminishes with application of the cyclotron period time randomization and disappears entirely with the VW period time randomization.}
+    \caption[FFT of five parameter fit residuals]{FFT of five parameter fit residuals from the 60h dataset with no time randomization applied. Peaks corresponding to beam dynamics frequencies of the CBO and VW and some beat frequencies with \wa are readily apparent. A rise at low frequencies corresponds to the effects of the lost muons in the data. The VW peak diminishes with application of the cyclotron period time randomization and disappears entirely with the VW period time randomization.}
     \label{fig:FFT_fiveParameter}
 \end{figure}
 
@@ -646,19 +646,21 @@ Muons lost from the storage ring during the frequency analysis portion of each f
     \begin{subfigure}[]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{triples_deltaT_Endgame}
-        \caption{}
+        % \caption{}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \begin{subfigure}[]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{triples_Edep_Endgame}
-        \caption{}
+        % \caption{}
     \end{subfigure}
-\caption[Lost muon $\Delta t$ and energy deposition distributions]{$\Delta t$ and energy deposition distributions for lost muons passing through adjacent calorimeters, where counts have been included from hits in both calos. A typical flight time is \ns{6.5} and energy deposition is 170 \MeV. Data are from the Endgame dataset.}
+\caption[Lost muon $\Delta t$ and energy deposition distributions]{$\Delta t$ (left) and energy deposition (right) distributions for lost muons passing through adjacent calorimeters, where counts have been included from hits in both calos. Typical flight times and energy depositions are \ns{6.5} and 170~\MeV respectively. Data are from the Endgame dataset.}
 \label{fig:lostmuondistributions}
 \end{figure}
 
 
-\begin{table}
+The cuts used for the lost muon selection are given in \tabref{tab:lostmuoncuts}. Triple coincidences are only included where every cluster consists of three or less crystals hit, with 80\% of the energy deposited in one crystal. $\Delta t$ and energy deposition ranges are taken as $\SI{5}{ns} \leq \Delta t_{12, 23} \leq \SI{7.5}{ns}$ and $\SI{100}{\MeV} \leq E_{1,2,3} \leq \SI{250}{\MeV}$, where these ranges come from inspection of \figref{fig:lostmuondistributions}. The \DT distribution as a function of time in-fill is shown in \figref{fig:deltaT12_AccSub}. By examining this distribution in the range $\SI{2}{ns} \leq \Delta t_{12} \leq \SI{4}{ns}$, and averaging the contained counts, an approximation for the accidental background can be determined and subtracted off the triples spectrum. The accidental background typically comes from either double coincidences and a real positron hit, or a particle shower induced by an incident positron which hits an adjacent calorimeter. 
+
+\begin{table}[h]
 \centering
 \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
@@ -680,10 +682,6 @@ Muons lost from the storage ring during the frequency analysis portion of each f
 \end{table}
 
 
-
-The cuts used for the lost muon selection are given in \tabref{tab:lostmuoncuts}. Triple coincidences are only included where every cluster consists of three or less crystals hit, with 80\% of the energy deposited in one crystal. $\Delta t$ and energy deposition ranges are taken as $\SI{5}{ns} \leq \Delta t_{12, 23} \leq \SI{7.5}{ns}$ and $\SI{100}{\MeV} \leq E_{1,2,3} \leq \SI{250}{\MeV}$, where these ranges come from inspection of \figref{fig:lostmuondistributions}. The \DT distribution as a function of time in-fill is shown in \figref{fig:deltaT12_AccSub}. By examining this distribution in the range $\SI{2}{ns} \leq \Delta t_{12} \leq \SI{4}{ns}$, and averaging the contained counts, an approximation for the accidental background can be determined and subtracted off the triples spectrum. The accidental background typically comes from either double coincidences and a real positron hit, or a particle shower induced by an incident positron which hits an adjacent calorimeter. 
-
-
 % \begin{figure}
 % \centering
 %         \includegraphics[width=0.9\textwidth]{deltaT12_beforeAccSubtraction_Endgame}
@@ -692,9 +690,9 @@ The cuts used for the lost muon selection are given in \tabref{tab:lostmuoncuts}
 % \label{fig:deltaT12_AccSub}
 % \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
-        \includegraphics[width=1\textwidth]{deltaT12_beforeAccSubtraction_Endgame}
+\includegraphics[width=0.8\textwidth]{deltaT12_beforeAccSubtraction_Endgame}
 \caption[Lost muon \DT distribution as a function of time in-fill]{\DT distribution as a function of time in-fill before any cuts. Note the log color scale. Lost muons have a \DT distribution centered at \ns{6.5}. The accidental background can be seen as counts out at $\Delta t$'s far from the center of the distribution. Color striations in the core of the distribution correspond to CBO periods. There are two bands of hits that do not fall off as severely with time as the lost muons do. The band contained mostly between 7 and \ns{8} corresponds to deuterons, while the band contained mostly between 6 and \ns{7} corresponds to protons. Data are from the Endgame dataset.}
 \label{fig:deltaT12_AccSub}
 \end{figure}
@@ -703,7 +701,7 @@ The cuts used for the lost muon selection are given in \tabref{tab:lostmuoncuts}
 Also shown in \figref{fig:deltaT12_AccSub} are two bands of stable beam contaminants corresponding to stored deuterons and protons. These particles have different times of flights between calorimeters due to their larger masses. By looking at the $\Delta t_{13}$ distribution for times greater than \mus{300} so that most muons have already decayed, the deuteron population is easily isolated, \figref{fig:deuteronPop}. While the deuteron population is mostly removed by the \DT cut, an additional cut of $\Delta t_{13} \leq \SI{14.4}{ns}$ helps remove any remaining deuteron contamination. The proton population, due to its similarity to the real lost muon population, is harder to remove. The simplest solution is to simply cut on the negative side of the \DT or $\Delta t_{13}$ distributions. See \secref{sub:lostmuonserror} for the results using this additional cut. It was found that the proton contamination makes almost no difference to the fitted value of R. The default choice then is to use the previously specified cut ranges in order to increase the amount of statistics in the lost muons distribution with which to fit. A study into the exact rate of these beam contaminants is included in \refref{lostmuonsKevin}.
 
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=.7\textwidth]{deuteron_Population_Endgame}
     \caption[Deuteron population at late times]{$\Delta t_{13}$ distribution as a function of energy for times greater than \mus{300}. The lost muons can be seen centered at 170 \MeV and $\Delta t_{13} \approx \SI{12.5}{ns}$, while the deuterons can be seen at $\Delta t_{13} \geq \SI{14.4}{ns}$. While the deuterons have a preferentially larger energy deposition, they can be seen to extend to low energies, making cutting on energy unrealistic. Though not easily separated by eye, the stored protons are contained within the upper right portion of the lost muons. Data are from the Endgame dataset.}
