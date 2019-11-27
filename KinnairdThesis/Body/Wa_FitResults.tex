@@ -154,11 +154,11 @@ Fits to all 24 individual calorimeters for each of the datasets were performed w
 
 \begin{figure}
 \centering
-\includegraphics[width=0.84\linewidth]{caloFits_chi2_fourDatsets}
+\includegraphics[width=0.8\linewidth]{caloFits_chi2_fourDatsets}
     \caption[\chisq/NDF versus calorimeter number]{\chisq/NDF versus calorimeter for the Run~1 precession frequency analysis datasets. Red dashed lines are placed at $\chi^{2}/\text{NDF} = 1$ to aid the eye. No individual calorimeter fits are preferentially low or high when comparing across datasets.}
     \label{fig:caloFits_chi2}
 \vspace{4mm}
-\includegraphics[width=0.84\linewidth]{caloFits_R_fourDatsets}
+\includegraphics[width=0.8\linewidth]{caloFits_R_fourDatsets}
     \caption[$R$ versus calorimeter number]{$R$ versus calorimeter for the Run~1 precession frequency analysis datasets. The scale is the same on each of the plots.  A straight line fit was performed on the fitted values, with the fit result shown in the upper right box as parameter $p_{1}$ in units of ppm.The different blinding in the 60h dataset is readily observed, along with the higher precision fits in the 9d and Endgame datasets with their correspondingly smaller error bars.}
     \label{fig:caloFits_R}
 \end{figure}
@@ -374,30 +374,26 @@ $R$ is similarly consistent as a function of fit start time. The only dataset fo
 For fit end scans, all of the same methods and conclusions apply. In general fit end scans are both less dangerous and more stable than fit start scans, as the amount of data being removed from the fit is relatively small. While these fit end scans in a T-Method fit might be able to be completely ignored in favor of the fit start scans, it's important to check that they satisfy the statistical deviations in the Ratio Method as the ratio data errors grow larger with less data~\cite{BU60hReport}. Fit end time scans were performed from \mus{650} to \mus{400} in steps of \mus{10}, corresponding to 26 separate fits. As in the fit start time scan, fit results from the end of one fit were passed on as the starting parameters to the next. $R$ values for fit end scans for the Run~1 precession frequency analysis datasets are shown in \figref{fig:fitEndTime_R}. As shown the $R$ values are comfortably within and near the bands.
 
 
-Similarly to fit start and end time scans, it is worthwhile to verify that $R$ is consistent regardless of the energy threshold applied to the decay positron time spectrum. The energy threshold was varied from \SI{1.2}{\GeV} to \SI{2.2}{\GeV} in steps of \SI{50}{\MeV} corresponding to 21 separate fits. The fitted $R$ values for the four Run~1 precession frequency analysis datasets are shown in \figref{fig:energyThresholdScan_R}. The statistical bands are the same as those defined in \equref{eq:sigmaDiffFull}, where now the analyzing power part of the equation plays a larger role as the asymmetries and phases of the different fit points are significantly different. As shown there are no major deviations in the fitted $R$ values.
-
-
-
-\begin{figure}[H]
+\begin{figure}
 \centering
-    \vspace{-4mm}
-    \begin{subfigure}[]{0.35\textwidth}
+    % \vspace{-4mm}
+    \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_FE_Canv_60h}
         \caption{60h dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.35\textwidth}
+    \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_FE_Canv_HighKick}
         \caption{HighKick dataset.}
     \end{subfigure}
 
-    \begin{subfigure}[]{0.35\textwidth}
+    \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_FE_Canv_9d}
         \caption{9d dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.35\textwidth}
+    \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_FE_Canv_Endgame}
         \caption{Endgame dataset.}
@@ -407,26 +403,30 @@ Similarly to fit start and end time scans, it is worthwhile to verify that $R$ i
 \end{figure}
 
 
-\begin{figure}[H]
+Similarly to fit start and end time scans, it is worthwhile to verify that $R$ is consistent regardless of the energy threshold applied to the decay positron time spectrum. The energy threshold was varied from \SI{1.2}{\GeV} to \SI{2.2}{\GeV} in steps of \SI{50}{\MeV} corresponding to 21 separate fits. The fitted $R$ values for the four Run~1 precession frequency analysis datasets are shown in \figref{fig:energyThresholdScan_R}. The statistical bands are the same as those defined in \equref{eq:sigmaDiffFull}, where now the analyzing power part of the equation plays a larger role as the asymmetries and phases of the different fit points are significantly different. As shown there are no major deviations in the fitted $R$ values.
+
+
+
+\begin{figure}
 \centering
-    \vspace{-4mm}
-    \begin{subfigure}[]{0.35\textwidth}
+    % \vspace{-4mm}
+    \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ETh_60h}
         \caption{60h dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.35\textwidth}
+    \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ETh_HighKick}
         \caption{HighKick dataset.}
     \end{subfigure}
 
-    \begin{subfigure}[]{0.35\textwidth}
+    \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ETh_9d}
         \caption{9d dataset.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
-    \begin{subfigure}[]{0.35\textwidth}
+    \begin{subfigure}[]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_ETh_Endgame}
         \caption{Endgame dataset.}
