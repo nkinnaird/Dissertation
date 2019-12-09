@@ -10,9 +10,9 @@
 \label{app:angularcorrection}
 
 
-The tracker straws don't measure U and V coordinates directly, but instead measure the DCA radii deriving from measured hit times. In order to utilize the minimization procedure described in \secref{sec:TrackFittingAlgorithm} on measured track parameters these radii must first be converted to U and V parameters, and similarly for the U and V errors. To first order the measured DCAs can be used identically as the U and V positions, but it was found that there were slight biases in the truth pulls due to this.
+The tracker straws do not measure U and V coordinates directly, but instead measure the DCA radii derived from measured hit times. In order to utilize the minimization procedure on measured track parameters described in \secref{sec:TrackFittingAlgorithm}, these radii must first be converted to U and V parameters, and similarly for the U and V errors. While to first order the measured DCAs can be used identically as the U and V positions, it was found that there were slight biases in the truth pulls.
 
-In order to improve the results, angular corrections were made to the DCAs to give more accurate estimates of the ``measured'' positions. It was found that for the error correction, assuming a straight particle path was sufficient for ideal results. For the position correction, it was found that assuming a circular particle path (constant field) correction for the curved tracks was sufficient. These corrections are dependent on the angle of the track, so it's important to note that during each successive iteration of the track fitting, the ``measured'' parameters are adjusted by the latest ``predicted'' momenta which change the angle of the track. The correction depends on whether the track went to the left or right side of the wire. Note that the momentum perpendicular to the straw measurement axis can be ignored since it doesn't affect the U or V value. A summary of the calculation of the right side correction follows, with the left side correction being calculated in a similar manner. See Figure~\ref{fig:angularCorrection}. 
+In order to improve the results, angular corrections were made to the DCAs to give more accurate estimates of the ``measured'' positions. It was found that for the error correction, assuming a straight particle path was sufficient for ideal results. For the position correction, it was found that assuming a circular particle path (constant field) correction for the curved tracks was sufficient. These corrections are dependent on the angle of the track, so it's important to note that during each successive iteration of the track fitting, the ``measured'' parameters are adjusted by the latest ``predicted'' momenta, which change the angle of the track. The correction depends on whether the track went to the left or right side of the wire. Note that the momentum perpendicular to the straw measurement axis can be ignored since it does not affect the U or V value. A summary of the calculation of the right side correction follows, with the left side correction being calculated in a similar manner. Figure~\ref{fig:angularCorrection} provides a diagram showing the parameters in the calculation.
 
 \begin{figure}
 	\centering
@@ -23,25 +23,25 @@ In order to improve the results, angular corrections were made to the DCAs to gi
 
 To solve for the measured U (or V) value, first use the following trigonometric identity:
 	\begin{align}
-		(r+d)^{2} = r^{2}+u^{2}-2ru\cos(90+\theta),
+		(r+d)^{2} = r^{2}+U^{2}-2rU\cos(90+\theta),
 	\end{align}
-where $u$ is the parameter of interest. The angle $\theta$ can be determined from 
+where $U$ is the parameter of interest. The angle $\theta$ can be determined from 
 	\begin{align}
 		\hat{z_{\parallel}} \cdot \hat{p_{\parallel}} = \cos{\theta}, \hspace{.1cm} \theta = \cos^{-1}{\frac{p_{\parallel}}{p}}, 
 	\end{align}
-where $p_{\parallel}$ is the positron momentum anti-parallel to the U measurement axis at the wire plane. Using some further trigonometric identities and solving for u gives
+where $p_{\parallel}$ is the positron momentum anti-parallel to the U measurement axis at the wire plane, and $p$ is the total momentum. Using other trigonometric identities and solving for $U$ gives
 	\begin{align}
-		u = -r\sqrt{1-\Big(\frac{p_{\parallel}}{p}\Big)^{2}} + \sqrt{d^{2} + 2dr + r^{2}\Big(1-\Big(\frac{p_{\parallel}}{p}\Big)^{2}\Big)},
+		U = -r\sqrt{1-\Big(\frac{p_{\parallel}}{p}\Big)^{2}} + \sqrt{d^{2} + 2dr + r^{2}\Big(1-\Big(\frac{p_{\parallel}}{p}\Big)^{2}\Big)},
 	\end{align}
 for the right side correction. Similarly,  
 	\begin{align}
-		u = +r\sqrt{1-\Big(\frac{p_{\parallel}}{p}\Big)^{2}} - \sqrt{d^{2} + 2dr + r^{2}\Big(1-\Big(\frac{p_{\parallel}}{p}\Big)^{2}\Big)},
+		U = +r\sqrt{1-\Big(\frac{p_{\parallel}}{p}\Big)^{2}} - \sqrt{d^{2} + 2dr + r^{2}\Big(1-\Big(\frac{p_{\parallel}}{p}\Big)^{2}\Big)},
 	\end{align}
-for the left side correction. The radius $r$ can be calculated from the momentum and magnetic field at the predicted hit position, and the momentum components can be determined within the Geant4 simulation. The straight line correction to the errors is done simpler manner using the Pythagorean theorem, 
+for the left side correction. The radius $r$ can be calculated from the momentum and magnetic field at the predicted hit position, and the momentum components can be determined within the Geant4 simulation. The straight line correction to the errors is done in a simpler manner using the Pythagorean theorem, such that
 	\begin{align}
-		\sigma_{uv}' = \frac{\sigma_{uv}}{\sqrt{1-\big(\frac{p_{\parallel}}{p}\big)^{2}}},
+		\sigma_{UV}' = \frac{\sigma_{UV}}{\sqrt{1-\big(\frac{p_{\parallel}}{p}\big)^{2}}},
 	\end{align}
-where $\sigma_{uv}'$ is the improved error from original U or V error $\sigma_{uv}$ on the DCA.
+where $\sigma_{UV}'$ is the improved error from the original error $\sigma_{UV}$ on the DCA.
 
 
 
@@ -49,7 +49,7 @@ where $\sigma_{uv}'$ is the improved error from original U or V error $\sigma_{u
 \label{app:trackingCorrMatrices}
 
 
-Define $\epsilon_{MN}$ as the deviation in average predicted track parameters from the true ones on plane $M$ from track parameters propagated from plane $N$,
+Define $\epsilon_{MN}$ as the deviation in average predicted track parameters from the true ones on plane $M$, from track parameters propagated from plane $N$, as
 	\begin{align}
 		\epsilon_{MN} = \widetilde{p}_{M}(p_{N}) - p_{M}, 
 	\end{align}
@@ -61,15 +61,15 @@ where $\epsilon_{MN}$ is any additional deviation between planes $N$ and $M$ due
 	\begin{align} \label{eq:corrTrackMatDefinition}
 		\sigma_{MN} = \langle \epsilon_{M0} \epsilon_{N0} \rangle = \langle \epsilon_{M0} \cdot \epsilon_{N0} \rangle - \langle \epsilon_{M0} \rangle \cdot \langle \epsilon_{N0} \rangle.
 	\end{align}
-The last term in \equref{eq:corrTrackMatDefinition} is zero since $\langle \epsilon_{M0} \rangle$ and $\langle \epsilon_{N0} \rangle$ are zero. Therefore 
+The last term in \equref{eq:corrTrackMatDefinition} is zero since $\langle \epsilon_{M0} \rangle$ and $\langle \epsilon_{N0} \rangle$ are both individually zero. Therefore 
 	\begin{align}
 		\sigma_{MN} = \langle ( T_{MN} \epsilon_{N0} + \epsilon_{MN}) \cdot \epsilon_{N0} \rangle,
 	\end{align}
-and since $\epsilon_{MN}$ and $\epsilon_{N0}$ are independent such that their product is zero,
+and since $\epsilon_{MN}$ and $\epsilon_{N0}$ are independent, such that their product is zero,
 	\begin{align}
 		\sigma_{MN} = T_{MN} \sigma_{N},
 	\end{align}
-with $\sigma_{N} = \langle \epsilon_{N0} \cdot \epsilon_{N0} \rangle$.
+since $\sigma_{N} = \langle \epsilon_{N0} \cdot \epsilon_{N0} \rangle$.
 
 
 

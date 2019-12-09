@@ -14,17 +14,17 @@ Consider the 5 parameter function:
 which describes some ideal dataset in histogram format. Here $\phi$ will be set to zero for simplicity. Now define the variables $u_{+}(t)$, $u_{-}(t)$, $v_{1}(t)$, and $v_{2}(t)$ as
 	\begin{equation}
 	\begin{aligned}
-		u_{+}(t) &= \frac{1}{4} N_{5}(t+T/2) \\
-		u_{-}(t) &= \frac{1}{4} N_{5}(t-T/2) \\
-		v_{1}(t) &= \frac{1}{4} N_{5}(t) \\
+		u_{+}(t) &= \frac{1}{4} N_{5}(t+T/2), \\
+		u_{-}(t) &= \frac{1}{4} N_{5}(t-T/2), \\
+		v_{1}(t) &= \frac{1}{4} N_{5}(t), \\
 		v_{2}(t) &= \frac{1}{4} N_{5}(t),
 	\end{aligned}
 	\end{equation}
-where the $1/4$ out front reflects randomly splitting the whole dataset into 4 equally weighted sub-datasets, and T is the g-2 period known to high precision, $\mathcal{O}(10^{-6})$. This corresponds to a weighting of 1:1:1:1 between the datasets. To be explicit here regarding the signs, the counts that are filled into the histogram described by $u_{+}$ have their times shifted as $t \rightarrow t - T/2$, which is what the function $N_{5}(t+T/2)$ describes, and vice versa for $u_{-}$. To form the ratio define the variables:
+where the $1/4$ out front reflects randomly splitting the whole dataset into 4 equally weighted sub-datasets, and $T$ is the \gmtwo period known a priori to high precision, $\mathcal{O}(10^{-6})$. This corresponds to a weighting of 1:1:1:1 between the datasets. To be explicit here regarding the signs, the counts that are filled into the histogram described by $u_{+}$ have their times shifted as $t \rightarrow t - T/2$, which is what the function $N_{5}(t+T/2)$ describes, and vice versa for $u_{-}$. To form the ratio define the variables:
 	\begin{equation}
 	\begin{aligned}
-		U(t) &= u_{+}(t) + u_{-}(t) \\
-		V(t) &= v_{1}(t) + v_{2}(t) \\
+		U(t) &= u_{+}(t) + u_{-}(t), \\
+		V(t) &= v_{1}(t) + v_{2}(t), \\
 		R(t) &= \frac{V(t) - U(t)}{V(t) + U(t)}.
 	\label{eq:ratio}
 	\end{aligned}
@@ -38,7 +38,7 @@ Plugging in and dividing the common terms $(N_{0}e^{-t/\tau}/4)$,
 	% 	R(t) = \frac{2(1 + A \cos(\omega_{a}t)) - e^{-T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2)) - e^{T/ 2\tau} (1 + A \cos(\omega_{a}t - \omega_{a}T/2))} {2(1 + A \cos(\omega_{a}t)) + e^{-T/ 2\tau} (1 + A \cos(\omega_{a}t + \omega_{a}T/2)) + e^{T/ 2\tau} (1 + A \cos(\omega_{a}t - \omega_{a}T/2))}.
 	% \end{align}
 
-Now set $\omega_{a}T/2 = \delta$, and note that T is really
+Now set $\omega_{a}T/2 = \delta$, and note that $T$ is really
 	\begin{equation}
 	\begin{aligned}
  		T = T_{guess} = \frac{2\pi}{\omega_{a}} + \Delta T, \\
@@ -57,7 +57,7 @@ by flipping the sign of any cosine terms that contain $\delta$.
 
 Then, using the trig identity 
 	\begin{align}
-		\cos(a \pm b) = \cos(a)\cos(b) \mp \sin(a)\sin(b)
+		\cos(a \pm b) = \cos(a)\cos(b) \mp \sin(a)\sin(b),
 	\end{align}
 so that 
 	\begin{equation}
@@ -82,7 +82,7 @@ replacing and simplifying,
 	\end{align}
 where
 	\begin{align}
-		C = \frac{1}{16} \Big(\frac{T}{\tau}\Big)^{2} \approx 2.87 * 10^{-4}.
+		C = \frac{1}{16} \Big(\frac{T}{\tau}\Big)^{2} \approx 2.87 \times 10^{-4}.
 	\end{align}
 
 Using the expansion 
@@ -92,7 +92,7 @@ Using the expansion
 and since $C$ is small, the denominator can be manipulated such that
 	\begin{equation}
 	\begin{aligned}
-		R(t) &\approx (A \cos(\omega_{a}t)) - C (1 - A \cos(\omega_{a}t)))(1 - C (1 - A \cos(\omega_{a}t))) \\
+		R(t) &\approx A \cos(\omega_{a}t) - C (1 - A \cos(\omega_{a}t))(1 - C (1 - A \cos(\omega_{a}t))) \\
 		     &\approx A \cos(\omega_{a}t) - C + C A^{2} \cos^2(\omega_{a}t),
 	\end{aligned}
 	\end{equation}
@@ -111,14 +111,14 @@ In order to avoid approximations one can instead weight the counts in the histog
 so that
 	\begin{equation}
 	\begin{aligned}
-		u_{+}(t) &= \frac{e^{T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t+T/2) \\
-		u_{-}(t) &= \frac{e^{-T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t-T/2) \\
-		v_{1}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t) \\
+		u_{+}(t) &= \frac{e^{T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t+T/2), \\
+		u_{-}(t) &= \frac{e^{-T/2\tau}}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t-T/2), \\
+		v_{1}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t), \\
 		v_{2}(t) &= \frac{1}{2 + e^{T/2\tau} + e^{-T/2\tau}} N_{5}(t).
 	\label{eqn:fourHists}
 	\end{aligned}
 	\end{equation}
-(These factors out front aren't so far off from 1/4 since $e^{\pm T/ 2\tau} \approx e^{\pm 4.35/ 2*64.4} \approx 1.034, .967$.) Then instead $R(t)$ becomes 
+(These factors out front are close to 1/4 since $e^{\pm T/ 2\tau} \approx e^{\pm 4.35/ 2*64.4} \approx 1.034, .967$.) Then instead $R(t)$ becomes 
 	\begin{align}
 		R(t) = \frac{2(1 + A \cos(\omega_{a}t)) - (1 - A \cos(\omega_{a}t + \delta)) - (1 - A \cos(\omega_{a}t - \delta))} {2(1 + A \cos(\omega_{a}t)) + (1 - A \cos(\omega_{a}t + \delta)) + (1 - A \cos(\omega_{a}t - \delta))},
 	\end{align}
@@ -159,7 +159,7 @@ Additionally, any other fit parameters such as $A$ or $\phi$ can be made a funct
 
 \section{Ratio errors}
 
- In order to determine the errors on the points in the formed ratio, Equation \ref{eq:ratio}, we use standard error propagation:
+ In order to determine the errors on the points in the formed ratio, Equation \ref{eq:ratio}, standard error propagation is used:
  	\begin{align}
  		\sigma_{R}(t)^{2} = \Big(\frac{\partial R(t)}{\partial V(t)}\Big)^{2} \delta V(t)^{2} + \Big(\frac{\partial R(t)}{\partial U(t)}\Big)^{2} \delta U(t)^{2}
 	\end{align}
@@ -170,14 +170,14 @@ This works because $V(t)$ and $U(t)$ are statistically independent datasets. Usi
   		\delta U(t)^{2} &= \delta u_{+}(t)^{2} + \delta u_{-}(t)^{2} = u_{+}(t) + u_{-}(t) = U(t).
 	\end{aligned}
 	\end{equation}
-Calculating out and simplifying the partial derivatives, (and this time dropping the $t$'s),
+Calculating out and simplifying the partial derivatives, (dropping the time-dependencies),
 	\begin{equation}	
 	\begin{aligned}
   		\frac{\partial R}{\partial V} &= \frac{2U}{(V + U)^{2}}, \\ 
   		\frac{\partial R}{\partial U} &= \frac{-2V}{(V + U)^{2}}.
 	\end{aligned}
 	\end{equation}
-Combining and simplifying, we arrive at the error formula:
+Combining and simplifying, the error formula is given as:
  	\begin{align}
  		\sigma_{R}^{2} = \frac{4UV}{(V + U)^{3}} = \frac{1-R^{2}}{(V + U)} 
 	\end{align}
