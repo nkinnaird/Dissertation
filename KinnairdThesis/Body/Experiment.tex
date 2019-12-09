@@ -1,3 +1,4 @@
+
 %!TEX root = ../thesis.tex
 
 \thispagestyle{myheadings}
@@ -208,8 +209,9 @@ Technically, it is not solely $\omega_{p}$ that needs to be measured. What reall
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{MagneticFieldMapClean}
-    \caption[Azimuthally averaged magnetic field sample]{A sample of the azimuthally-averaged magnetic field within the storage region courtesy of R. Osofsky~\cite{fieldmap}. The contours are normalized to the field value at the center of the storage region. The scale of the field differences is approximately $\pm 1.5$~ppm. The black dots in the picture correspond to the location of the 17 trolley probes.}
+    % \includegraphics[width=0.7\textwidth]{MagneticFieldMapClean}
+    \includegraphics[width=0.7\textwidth]{Run3956AzAvg}
+    \caption[Azimuthally averaged magnetic field sample]{A sample of the azimuthally-averaged magnetic field within the storage region, taken at the start of the 60h dataset, courtesy of R. Osofsky~\cite{fieldmap}. The main dipole field measured at the center of the storage region has been subtracted from the plot. The scale of the field differences is approximately $\pm 1.5$~ppm. The black dots in the picture correspond to the location of the 17 trolley probes.}
     \label{fig:AverageMagneticField}
 \end{figure}
 
@@ -577,7 +579,7 @@ Using the small angle approximation such that $\cos(\psi) \approx 1$ and $\sin(\
     \label{fig:PitchAxes}
 \end{figure}
 
-Looking at \figref{fig:PitchAxes} again, it can be seen that the spin difference frequency can be resolved into its parallel and perpendicular components $\omega_{\parallel}$ and $\omega_{\perp}$ respectively. As the pitch angle of the beam motion oscillates about the azimuthal axes at a frequency much greater than the \gmtwo frequency, it can be assumed that the parallel component averages to 0 over time. The perpendicular oscillation of the beam then becomes the important quantity, which can be determined with a simple rotation matrix such that
+Looking at \figref{fig:PitchAxes} again, it can be seen that the spin difference frequency can be resolved into its parallel and perpendicular components $\omega_{\parallel}$ and $\omega_{\perp}$ respectively. As the pitch angle of the beam motion oscillates about the azimuthal axis at a frequency much greater than the \gmtwo frequency, it can be assumed that the parallel component averages to 0 over time. The perpendicular oscillation of the beam then becomes the important quantity, which can be determined with a simple rotation matrix such that
         \begin{align}
             \omega_{a} \approx \omega_{\perp} = \omega_{ay} \cos(\psi) - \omega_{az}\sin(\psi) \approx \omega_{a} \Big[ 1 - \frac{\psi^{2}}{2} \Big],
         \end{align}
@@ -585,7 +587,7 @@ where in the last approximation the small angle approximation was used once agai
         \begin{align}
             C_{\text{P}} = \frac{\Delta\omega_{a}}{\omega_{a}} = - \frac{\langle \psi^{2} \rangle}{2}.
         \end{align}
-The pitch angle of the beam cannot be measured directly, however the angle of the beam can be related to the vertical distribution of the beam with \equref{eq:maxangles} that, such that 
+The pitch angle of the beam cannot be measured directly, however the angle of the beam can be related to the vertical distribution of the beam with \equref{eq:maxangles}, such that 
         \begin{align}
             C_{\text{P}} = - \frac{n}{2} \frac{\langle y^{2} \rangle}{R_{0}^{2}},
         \end{align}
