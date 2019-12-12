@@ -98,7 +98,7 @@ It should be noted that some of the parameter choices for the constructed histog
 
 Energy and time histograms are made for each individual calorimeter. These are summed together to form histograms of all hit times and energies. \figref{fig:energyHist} shows a sample energy spectrum for the Endgame dataset. An energy threshold is applied to the clusters before filling the time histograms. As described at the end of \secref{section:WaIntro}, the optimal energy threshold is where the quantity $NA^{2}$ reaches the maximum, at least in the case of a five parameter fit\footnote{Using the final fit function and looking at the error directly on the fitted \wa frequency, a slightly better estimate can be found.}. By scanning over energy threshold and fitting the resulting time spectra with \equref{eq:5parfunc}, the optimal energy threshold can be determined. The optimal choice of energy threshold was determined to be $\SI{1700}{\MeV}$, in accordance with the cluster reconstruction energy calibration; see \figref{fig:OptimalEnergyThreshold}. 
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\textwidth]{basicEnergyHist}
     \caption[Sample energy spectrum]{Energy spectrum for hits with cluster times greater than \mus{25} in all calorimeters on a linear scale. The peak at about 170 \MeV corresponds to lost muons layed on top of the low energy decay positron part of the spectrum. Data are from the Endgame dataset.}
@@ -718,7 +718,7 @@ The cuts used for the lost muon selection are given in \tabref{tab:lostmuoncuts}
 Also shown in \figref{fig:deltaT12_AccSub} are two bands of stable beam contaminants corresponding to stored deuterons and protons. These particles have different time-of-flights between calorimeters due to their larger masses. By looking at the $\Delta t_{13}$ distribution for times greater than \mus{300}, so that most muons have already decayed, the deuteron population is easily isolated; see \figref{fig:deuteronPop}. While the deuteron population is mostly removed by the \DT cut, an additional cut of $\Delta t_{13} \leq \SI{14.4}{ns}$ helps remove any remaining deuteron contamination. The proton population, due to its similarity to the real lost muon population, is harder to remove. The simplest solution is to simply cut on the negative side of the \DT or $\Delta t_{13}$ distributions. See \secref{sub:lostmuonserror} for the results using this additional cut. It was found that the proton contamination makes almost no difference to the fitted value of R. The default choice then is to use the previously specified cut ranges which increase the amount of statistics in the lost muons distribution, which in some cases improves fit convergence. A study of the exact rate of these beam contaminants is included in \refref{lostmuonsKevin}.
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=.9\textwidth]{deuteron_Population_Endgame}
     \caption[Deuteron population at late times]{$\Delta t_{13}$ distribution as a function of energy for times greater than \mus{300}. The lost muons are centered at 170 \MeV and $\Delta t_{13} \approx \SI{12.5}{ns}$, while the deuterons are at $\Delta t_{13} \geq \SI{14.4}{ns}$. While the deuterons have a preferentially larger energy deposition, they can be seen to extend to low energies, making cutting on energy unrealistic. Though not easily separated by eye, the stored protons are contained within the upper right portion of the lost muons. Data are from the Endgame dataset.}
