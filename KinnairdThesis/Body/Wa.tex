@@ -588,13 +588,13 @@ This is done due to complications observed in the application of the Ratio Metho
 
 \begin{figure}
 \centering
-    \begin{subfigure}[t]{0.6\textwidth}
+    \begin{subfigure}[t]{0.75\textwidth}
         \centering
         \includegraphics[width=\textwidth]{JamesMC_noFR}
         \caption{Without the FR effect included.}
     \end{subfigure}%
 
-    \begin{subfigure}[t]{0.6\textwidth}
+    \begin{subfigure}[t]{0.75\textwidth}
         \centering
         \includegraphics[width=\textwidth]{JamesMC_withFR}
         \caption{With the FR effect included.}
@@ -655,7 +655,7 @@ where now the VW frequency fit parameter is $\boldsymbol{\kappa_{VW}}$. In fits 
 \label{subsec:lostmuons}
 
 
-Muons lost from the storage ring during the frequency analysis portion of each fill will distort the observed decay positron spectrum. These hits show up as a rise at low frequencies in the FFT of the fit residuals due to the slow nature of the effect, \figref{fig:FFT_fiveParameter}. These muon losses typically originate from those muons with large betatron amplitudes which hit material near the edge of the storage ring, or those muons which experience local field perturbations one too many times. In both cases the muons will lose energy and spiral inward out of the ring, some of which will then pass through multiple calorimeters. Because lost muons are MIPs, they are relatively easily identified by their small energy deposition in hit calorimeters, approximately \SI{170}{\MeV}. These lost muons typically have a flight time between adjacent calorimeters of $\Delta t_{12} = \SI{6.25}{ns}$~\cite{lostmuonspaper,lostmuonsDenverTalk}. The $\Delta t$ and energy deposition distributions are shown in \figref{fig:lostmuondistributions}. By looking for coincidences between three adjacent calorimeters, or triples, and then applying cuts and subtracting backgrounds, a pure spectrum of lost muons can be constructed\footnote{Using triples rather than doubles helps reduce the accidental background while keeping enough statistics.}. This lost muon spectrum $L(t)$ can then be implemented into the fit function in order to account for the positrons that would have been observed later in the fill in the absence of losses.
+Muons lost from the storage ring during the frequency analysis portion of each fill will distort the observed decay positron spectrum. These hits show up as a rise at low frequencies in the FFT of the fit residuals due to the slow nature of the effect; see \figref{fig:FFT_fiveParameter}. These muon losses typically originate from those muons with large betatron amplitudes which hit material near the edge of the storage ring, or those muons which experience local field perturbations one too many times. In both cases the muons will lose energy and spiral inward out of the ring, some of which will then pass through multiple calorimeters. Because lost muons are MIPs, they are relatively easily identified by their small energy deposition in hit calorimeters, approximately \SI{170}{\MeV}. These lost muons typically have a flight time between adjacent calorimeters of $\Delta t_{12} = \SI{6.25}{ns}$~\cite{lostmuonspaper,lostmuonsDenverTalk}. The $\Delta t$ and energy deposition distributions are shown in \figref{fig:lostmuondistributions}. By looking for coincidences between three adjacent calorimeters, or triples, and then applying cuts and subtracting backgrounds, a pure spectrum of lost muons can be constructed\footnote{Using triples rather than doubles helps reduce the accidental background while keeping enough statistics.}. This lost muon spectrum $L(t)$ can then be implemented into the fit function in order to account for the positrons that would have been observed later in the fill in the absence of losses.
 
 
 \begin{figure}
