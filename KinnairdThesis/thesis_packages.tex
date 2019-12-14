@@ -133,6 +133,10 @@
 \newcolumntype{K}{>{\boldmath\DC@{.}{.}{2,1}}c<{\DC@end}} % define a column that's bold and does the above
 \makeatother
 
+\usepackage{array}
+% \newcolumntype{R}[1]{>{\centering\arraybackslash}p{#1}} % for wrapping text
+\newcolumntype{R}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
 % command to make row in table bold
 \newcommand\setrow[1]{\gdef\rowmac{#1}#1\ignorespaces}
 \newcommand\clearrow{\global\let\rowmac\relax}
